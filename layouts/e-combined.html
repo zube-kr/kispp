@@ -152,7 +152,7 @@
         <div><b>KISPP 과학실</b><small>SCIENCE CLASSROOM</small></div>
       </a>
 
-      <button class="home" id="homeBtn" onclick="goHome()">🏠 과학실 홈 <span class="arr">›</span></button>
+      <button class="home" id="homeBtn" onclick="document.body.classList.remove('nav-open'); goHome()">🏠 과학실 홈 <span class="arr">›</span></button>
 
       <div class="side-title">단원별 학습</div>
       <div id="nav"></div>
@@ -173,7 +173,7 @@
     <div class="topbar">
       <button class="menu" onclick="document.body.classList.add('nav-open')"><span>☰</span>KISPP 과학실</button>
       <div class="links">프놈펜한국국제학교 · Korean International School of Phnom Penh</div>
-      <a href="#">학교 홈페이지 ↗</a>
+      <a href="https://www.kispp.net/" target="_blank" rel="noopener">학교 홈페이지 ↗</a>
     </div>
     <div class="page" id="page"></div>
   </main>
@@ -187,9 +187,11 @@
 
   function goHome(g) { state = { view: 'home', g: g ?? state.g, u: 0 }; render(); }
   function openUnit(g, u) { state = { view: 'unit', g, u }; render(); }
+  let keepDrawer = false;
   function toggleGrade(g) {
     // 이미 열린 학년을 다시 누르면 닫고, 다른 학년이면 그 학년 홈으로
     if (state.g === g && state.open !== false) { state.open = false; renderNav(); return; }
+    keepDrawer = true; // 모바일 메뉴에서 학년을 눌렀을 때는 단원 목록을 볼 수 있게 메뉴를 열어 둠
     goHome(g);
   }
 
@@ -279,7 +281,8 @@
   function render() {
     renderNav();
     document.getElementById('page').innerHTML = state.view === 'home' ? homeView() : unitView();
-    document.body.classList.remove('nav-open');
+    if (!keepDrawer) document.body.classList.remove('nav-open');
+    keepDrawer = false;
     window.scrollTo(0, 0);
   }
   render();

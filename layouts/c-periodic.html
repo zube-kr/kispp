@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KISPP 과학실 · C 주기율표형</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root { --ink: #1a1f2c; --sub: #6b7385; --line: #e5e8ee; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Pretendard, "Noto Sans KR", sans-serif; color: var(--ink); background: #fff; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
+
+  header { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; }
+  .logo .el { width: 40px; height: 40px; border: 2px solid var(--ink); border-radius: 6px; display: grid; place-items: center; font-size: 16px; position: relative; }
+  .logo .el::before { content: "22"; position: absolute; top: 1px; left: 3px; font-size: 8px; font-weight: 600; }
+  header nav { display: flex; gap: 22px; font-size: 15px; color: var(--sub); font-weight: 600; }
+
+  .intro { text-align: center; padding: 34px 0 30px; }
+  .intro .eyebrow { font-size: 13px; letter-spacing: 3px; font-weight: 700; color: #5cb531; }
+  .intro h1 { font-size: 40px; letter-spacing: -1.5px; margin: 10px 0; }
+  .intro p { color: var(--sub); }
+
+  .legend { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+  .legend button { font: inherit; font-size: 13px; font-weight: 700; padding: 7px 14px; border-radius: 99px; border: 1.5px solid; background: #fff; cursor: pointer; }
+  .legend button.on { color: #fff !important; }
+
+  .table { display: grid; grid-template-columns: 70px repeat(8, 1fr); gap: 8px; }
+  .row-label { display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: 800; border-radius: 10px; color: #fff; font-size: 18px; }
+  .row-label small { font-size: 10px; font-weight: 600; opacity: .9; }
+  .tile { min-width: 0; aspect-ratio: 1 / 1.05; border-radius: 10px; border: 2px solid; background: #fff; padding: 8px 10px; cursor: pointer; display: flex; flex-direction: column; transition: .15s; font: inherit; text-align: left; color: var(--ink); }
+  .tile .n { font-size: 12px; font-weight: 700; }
+  .tile .sym { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin: auto 0 2px; }
+  .tile .nm { font-size: 12px; font-weight: 600; line-height: 1.3; min-height: 2.6em; }
+  .tile:hover { transform: translateY(-3px); }
+  .tile.dim { opacity: .18; }
+  .tile.sel { color: #fff; }
+  .blank { border: 2px dashed var(--line); border-radius: 10px; display: grid; place-items: center; color: #b3b9c6; font-size: 12px; text-align: center; padding: 6px; }
+
+  .detail { margin: 30px 0 60px; display: grid; grid-template-columns: 200px 1fr; gap: 26px; align-items: center; border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+  .big { aspect-ratio: 1; border-radius: 16px; color: #fff; padding: 14px 16px; display: flex; flex-direction: column; }
+  .big .n { font-weight: 700; }
+  .big .sym { font-size: 72px; font-weight: 800; margin: auto 0 0; letter-spacing: -2px; }
+  .detail .meta { font-size: 13px; font-weight: 700; color: var(--sub); }
+  .detail h2 { font-size: 30px; letter-spacing: -1px; margin: 6px 0 10px; }
+  .detail p { color: var(--sub); line-height: 1.7; }
+  .detail .links { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .detail .links a { text-decoration: none; font-weight: 700; font-size: 14px; padding: 11px 16px; border-radius: 10px; background: #f3f5f9; color: var(--ink); }
+  .detail .links a:first-child { background: var(--ink); color: #fff; }
+
+  footer { text-align: center; color: var(--sub); font-size: 13px; padding: 20px 0 40px; }
+
+  @media (max-width: 880px) {
+    header nav { display: none; }
+    .table { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .row-label { grid-column: 1 / -1; flex-direction: row; gap: 8px; padding: 8px; margin-top: 8px; }
+    .blank { display: none; }
+    .tile .sym { font-size: 26px; }
+    .detail { grid-template-columns: 1fr; }
+    .big { max-width: 180px; }
+    .intro h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><span class="el">Ks</span>KISPP Science</div>
+    <nav><a>단원 주기율표</a><a>실험실</a><a>과학 게임</a><a>방명록</a></nav>
+  </header>
+
+  <div class="intro">
+    <div class="eyebrow">PERIODIC TABLE OF SCIENCE</div>
+    <h1>과학 단원 주기율표</h1>
+    <p>한 줄은 한 학년, 한 칸은 한 단원입니다. 칸을 눌러 수업으로 들어가세요.</p>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <div class="table" id="table"></div>
+  <div class="detail" id="detail"></div>
+
+  <footer>프놈펜한국국제학교 과학과 · 2022 개정 교육과정 중학교 과학</footer>
+</div>
+
+<script src="units.js"></script>
+<script>
+  let filter = null, sel = [1, 0];
+  const legend = document.getElementById('legend');
+  function renderLegend() {
+    legend.innerHTML = Object.entries(DOMAINS).map(([k, d]) =>
+      `<button class="${filter === k ? 'on' : ''}" style="border-color:${d.color};color:${d.color};${filter === k ? 'background:' + d.color : ''}" onclick="setFilter('${k}')">${d.name}</button>`).join('');
+  }
+  function setFilter(k) { filter = filter === k ? null : k; render(); }
+  function pick(g, u) { sel = [g, u]; render(); }
+
+  function render() {
+    renderLegend();
+    let n = 0, html = '';
+    GRADES.forEach((g, gi) => {
+      html += `<div class="row-label" style="background:${g.color}">${g.label}<small>${g.units.length}단원</small></div>`;
+      g.units.forEach((u, ui) => {
+        n++;
+        const c = DOMAINS[u.domain].color, isSel = sel[0] === gi && sel[1] === ui;
+        html += `<button class="tile ${filter && filter !== u.domain ? 'dim' : ''} ${isSel ? 'sel' : ''}" style="border-color:${c};${isSel ? 'background:' + c : ''}" onclick="pick(${gi},${ui})">
+          <span class="n" style="color:${isSel ? '#fff' : c}">${n}</span><span class="sym">${u.code}</span><span class="nm">${u.title}</span></button>`;
+      });
+      for (let i = g.units.length; i < 8; i++) html += `<div class="blank">과학 특화<br>자료</div>`;
+    });
+    document.getElementById('table').innerHTML = html;
+
+    const g = GRADES[sel[0]], u = g.units[sel[1]], d = DOMAINS[u.domain];
+    const num = GRADES.slice(0, sel[0]).reduce((s, x) => s + x.units.length, 0) + sel[1] + 1;
+    document.getElementById('detail').innerHTML = `
+      <div class="big" style="background:${d.color}"><span class="n">${num}</span><span class="sym">${u.code}</span><span>${d.name}</span></div>
+      <div><div class="meta">${g.title} · ${sel[1] + 1}단원 · ${d.name} 영역</div>
+        <h2>${u.title}</h2><p>${u.desc}</p>
+        <div class="links"><a href="#">수업 시작하기 →</a><a href="#">개념 정리</a><a href="#">탐구 실험</a><a href="#">퀴즈</a></div></div>`;
+  }
+  render();
+</script>
+</body>
+</html>

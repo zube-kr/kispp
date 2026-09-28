@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KISPP 과학실</title>
+<meta name="description" content="프놈펜한국국제학교 중학교 과학 수업 공간 (2022 개정 교육과정)">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --green: #5cb531; --green-d: #3f8f1d; --navy: #1b2a8f; --ink: #1d2433;
+    --sub: #5b6475; --line: #e6e9ef; --soft: #f6f8fb; --bg-soft: #f5f8f2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Pretendard, "Noto Sans KR", sans-serif; color: var(--ink); background: #fff; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; background: linear-gradient(90deg, var(--soft) 279px, var(--line) 279px 280px, #fff 280px); }
+
+  /* ── 왼쪽 사이드바 ── */
+  aside { background: var(--soft); border-right: 1px solid var(--line); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+  aside::before { content: ""; display: block; height: 6px; background: var(--green); flex-shrink: 0; }
+  .side-in { padding: 22px 16px 24px; display: flex; flex-direction: column; flex: 1; }
+  .brand { display: flex; align-items: center; gap: 12px; padding: 0 6px 22px; }
+  .brand b { display: block; font-size: 21px; color: var(--navy); letter-spacing: -.5px; }
+  .brand small { font-size: 10.5px; letter-spacing: 1.5px; color: var(--sub); }
+
+  .home { display: flex; align-items: center; gap: 10px; width: 100%; padding: 13px 16px; border-radius: 12px; font-weight: 700; margin-bottom: 14px; background: #fff; border: 1px solid var(--line); }
+  .home.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .home .arr { margin-left: auto; }
+
+  .side-title { font-size: 11px; letter-spacing: 1.5px; color: #98a0ae; font-weight: 700; padding: 6px 8px 8px; }
+  .grade { margin-bottom: 8px; }
+  .grade > button { width: 100%; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 16px; }
+  .grade > button .dot { width: 26px; height: 26px; border-radius: 8px; color: #fff; display: grid; place-items: center; font-size: 13px; }
+  .grade > button .arr { margin-left: auto; transition: .2s; color: var(--sub); }
+  .grade.open > button { border-color: var(--gc); }
+  .grade.open > button .arr { transform: rotate(180deg); }
+  .grade ul { list-style: none; display: none; padding: 6px 0 4px 8px; }
+  .grade.open ul { display: block; }
+  .grade li button { width: 100%; text-align: left; padding: 8px 12px; border-radius: 8px; font-size: 14.5px; color: #3b4455; display: flex; gap: 6px; }
+  .grade li button b { width: 24px; color: var(--sub); font-weight: 700; flex-shrink: 0; }
+  .grade li button:hover { background: #eef1f6; }
+  .grade li button.on { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); color: var(--ink); font-weight: 700; }
+  .grade li button.on b { color: var(--gc); }
+
+  .extras { margin-top: 12px; display: grid; gap: 6px; }
+  .extras a { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-radius: 10px; font-weight: 600; font-size: 14.5px; }
+  .extras a:hover { background: #eef1f6; }
+  .side-foot { margin-top: auto; padding: 18px 8px 0; font-size: 12px; color: #98a0ae; line-height: 1.6; }
+
+  /* ── 오른쪽 본문 ── */
+  main { min-width: 0; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; height: 58px; padding: 0 40px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--sub); }
+  .topbar a:hover { color: var(--green-d); }
+  .page { padding: 34px 40px 60px; max-width: 1120px; }
+
+  /* 홈: 소개 영역 */
+  .hero { background: linear-gradient(120deg, #eef8e8 0%, #eaf1ff 100%); border-radius: 24px; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; padding: 40px 44px; overflow: hidden; }
+  .tag { display: inline-block; background: #fff; color: var(--green-d); font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 99px; border: 1px solid #cfe8c2; }
+  .hero h1 { font-size: 40px; line-height: 1.25; margin: 16px 0 12px; letter-spacing: -1.5px; }
+  .hero h1 em { font-style: normal; color: var(--green-d); }
+  .hero p { color: var(--sub); font-size: 16px; line-height: 1.7; }
+  .quick { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+  .quick button { font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+  .quick button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .hero svg { width: 100%; max-width: 300px; justify-self: center; }
+
+  .sec-head { display: flex; align-items: end; justify-content: space-between; margin: 40px 0 18px; gap: 12px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 24px; letter-spacing: -.8px; }
+  .legend { display: flex; gap: 12px; font-size: 13px; color: var(--sub); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .card { border: 1px solid var(--line); border-radius: 16px; padding: 20px 18px 16px; background: #fff; display: flex; flex-direction: column; transition: .15s; position: relative; text-align: left; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(27,42,143,.08); border-color: #cdd6ea; }
+  .card .no { font-size: 13px; font-weight: 800; color: var(--sub); }
+  .card .dom { position: absolute; top: 16px; right: 16px; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 99px; color: #fff; }
+  .card h3 { font-size: 18px; margin: 10px 0 8px; letter-spacing: -.5px; }
+  .card p { font-size: 14px; color: var(--sub); line-height: 1.6; flex: 1; }
+  .card .go { margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--green-d); }
+
+  .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+  .board { background: var(--bg-soft); border-radius: 16px; padding: 20px; }
+  .board h3 { font-size: 17px; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .board h3 i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #fff; font-size: 14px; }
+  .board li { list-style: none; display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 9px 0; border-top: 1px solid #e3e9dd; color: #394152; }
+  .board li span { color: #98a0ae; flex-shrink: 0; }
+
+  /* 단원 상세 */
+  .crumb { font-size: 13px; color: var(--sub); }
+  .crumb button { color: var(--sub); }
+  .crumb button:hover { color: var(--green-d); }
+  .top { display: flex; gap: 24px; align-items: stretch; margin: 14px 0 28px; }
+  .cover { width: 170px; flex-shrink: 0; border-radius: 12px; padding: 18px 16px; color: #fff; display: flex; flex-direction: column; justify-content: space-between; min-height: 230px; box-shadow: 0 10px 22px rgba(0,0,0,.12); position: relative; overflow: hidden; }
+  .cover::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,.18); }
+  .cover small { font-size: 11px; opacity: .9; }
+  .cover strong { font-size: 30px; letter-spacing: -1px; }
+  .info { flex: 1; border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; min-width: 0; }
+  .pill { display: inline-block; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 99px; color: #fff; }
+  .info h2 { font-size: 30px; letter-spacing: -1px; margin: 10px 0; }
+  .info p { color: var(--sub); line-height: 1.7; }
+  .actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  .actions button { border: 1px solid var(--line); border-radius: 12px; padding: 14px 8px; font-weight: 700; font-size: 14px; background: #fff; }
+  .actions button span { display: block; font-size: 22px; margin-bottom: 4px; }
+  .actions button:hover { background: var(--bg-soft); border-color: #cfe8c2; }
+
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .tabs button { padding: 12px 16px; font-weight: 600; color: var(--sub); border-bottom: 2px solid transparent; white-space: nowrap; }
+  .tabs button.on { color: var(--ink); border-color: var(--green); }
+  .list { list-style: none; }
+  .list li { display: flex; align-items: center; gap: 14px; padding: 15px 6px; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .ico { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .list li .t { flex: 1; }
+  .list li .d { color: #9aa2b1; font-size: 13px; }
+  .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 26px; }
+  .pager button { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; text-align: left; }
+  .pager button:last-child { text-align: right; }
+  .pager button small { display: block; color: var(--sub); font-size: 12px; margin-bottom: 2px; }
+  .pager button:hover { border-color: #cfe8c2; background: var(--bg-soft); }
+  .pager button:disabled { visibility: hidden; }
+
+  /* 모바일 */
+  .menu, .scrim { display: none; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; background: #fff; }
+    aside { position: fixed; inset: 0 auto 0 0; width: 290px; z-index: 20; transform: translateX(-100%); transition: .25s; box-shadow: 0 0 40px rgba(0,0,0,.15); }
+    body.nav-open aside { transform: none; }
+    .scrim { display: none; position: fixed; inset: 0; background: rgba(15,20,35,.35); z-index: 10; }
+    body.nav-open .scrim { display: block; }
+    .menu { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); font-size: 16px; }
+    .menu span { font-size: 22px; color: var(--ink); }
+    .topbar { padding: 0 16px; }
+    .topbar .links { display: none; }
+    .page { padding: 20px 16px 50px; }
+    .hero { grid-template-columns: 1fr; padding: 28px 22px; }
+    .hero svg { display: none; }
+    .hero h1 { font-size: 30px; }
+    .boards { grid-template-columns: 1fr; }
+    .top { flex-direction: column; }
+    .cover { width: 100%; min-height: 100px; }
+    .actions { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="side-in">
+      <a class="brand" href="#/">
+        <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#fff" stroke="#5cb531" stroke-width="4"/><path d="M19 12h8M20 12v9l-7 12a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-12v-9" fill="none" stroke="#1b2a8f" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 29h14l2.6 4.5a1 1 0 0 1-.9 1.5H14.3a1 1 0 0 1-.9-1.5z" fill="#e53935"/></svg>
+        <div><b>KISPP 과학실</b><small>SCIENCE CLASSROOM</small></div>
+      </a>
+
+      <button class="home" id="homeBtn" onclick="goHome()">🏠 과학실 홈 <span class="arr">›</span></button>
+
+      <div class="side-title">단원별 학습</div>
+      <div id="nav"></div>
+
+      <div class="side-title" style="margin-top:10px">더 보기</div>
+      <div class="extras">
+        <a href="#">🧪 실험·탐구 보고서</a>
+        <a href="#">🎮 쉬어가는 과학 게임</a>
+        <a href="#">📖 방명록</a>
+      </div>
+
+      <div class="side-foot">프놈펜한국국제학교 과학과<br>2022 개정 교육과정 중학교 과학</div>
+    </div>
+  </aside>
+  <div class="scrim" onclick="document.body.classList.remove('nav-open')"></div>
+
+  <main>
+    <div class="topbar">
+      <button class="menu" onclick="document.body.classList.add('nav-open')"><span>☰</span>KISPP 과학실</button>
+      <div class="links">프놈펜한국국제학교 · Korean International School of Phnom Penh</div>
+      <a href="#">학교 홈페이지 ↗</a>
+    </div>
+    <div class="page" id="page"></div>
+  </main>
+</div>
+
+<script src="data/units.js"></script>
+<script>
+  const roman = ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ'];
+  // view: 'home' 또는 'unit' / g: 학년 인덱스 / u: 단원 인덱스
+  let state = { view: 'home', g: 0, u: 0 };
+
+  // 주소(#)로 화면을 기억: #/g2 → 중2 홈, #/g2/3 → 중2 3단원
+  function goHome(g) { location.hash = `#/g${(g ?? state.g) + 1}`; }
+  function openUnit(g, u) { location.hash = `#/g${g + 1}/${u + 1}`; }
+  function readHash() {
+    const m = location.hash.match(/^#\/g(\d)(?:\/(\d+))?/);
+    const g = m ? Math.min(Math.max(+m[1] - 1, 0), GRADES.length - 1) : 0;
+    const u = m && m[2] ? +m[2] - 1 : -1;
+    state = u >= 0 && u < GRADES[g].units.length ? { view: 'unit', g, u } : { view: 'home', g, u: 0 };
+    render();
+  }
+  function toggleGrade(g) {
+    // 이미 열린 학년을 다시 누르면 닫고, 다른 학년이면 그 학년 홈으로
+    if (state.g === g) { state.open = state.open === false; renderNav(); return; }
+    goHome(g);
+  }
+
+  function renderNav() {
+    document.getElementById('homeBtn').classList.toggle('on', state.view === 'home');
+    document.getElementById('nav').innerHTML = GRADES.map((g, gi) => `
+      <div class="grade ${gi === state.g && state.open !== false ? 'open' : ''}" style="--gc:${g.color}">
+        <button onclick="toggleGrade(${gi})"><span class="dot" style="background:${g.color}">${gi + 1}</span>${g.title}<span class="arr">⌄</span></button>
+        <ul>${g.units.map((u, ui) => `
+          <li><button class="${state.view === 'unit' && gi === state.g && ui === state.u ? 'on' : ''}" onclick="openUnit(${gi},${ui})"><b>${roman[ui]}.</b>${u.title}</button></li>`).join('')}
+        </ul>
+      </div>`).join('');
+  }
+
+  function homeView() {
+    const g = GRADES[state.g];
+    return `
+      <section class="hero">
+        <div>
+          <span class="tag">2022 개정 교육과정 · 중학교 과학</span>
+          <h1>궁금한 것은 <em>실험</em>으로,<br>배운 것은 <em>생활</em>로.</h1>
+          <p>프놈펜한국국제학교 중학생을 위한 과학 수업 공간입니다.<br>학년을 고르고 이번 시간에 배울 단원으로 들어가 보세요.</p>
+          <div class="quick">${GRADES.map((x, i) => `<button class="${i === state.g ? 'on' : ''}" onclick="goHome(${i})">${x.label}</button>`).join('')}</div>
+        </div>
+        <svg viewBox="0 0 400 320" aria-hidden="true">
+          <circle cx="200" cy="160" r="135" fill="#fff"/>
+          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#2f7de1" stroke-width="3" transform="rotate(30 200 160)"/>
+          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#5cb531" stroke-width="3" transform="rotate(-30 200 160)"/>
+          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#f08a24" stroke-width="3" transform="rotate(90 200 160)"/>
+          <circle cx="200" cy="160" r="18" fill="#1b2a8f"/>
+          <circle cx="304" cy="100" r="9" fill="#2f7de1"/><circle cx="96" cy="100" r="9" fill="#5cb531"/><circle cx="200" cy="40" r="9" fill="#f08a24"/>
+        </svg>
+      </section>
+
+      <div class="sec-head">
+        <h2><span style="color:${g.color}">${g.title}</span> 단원</h2>
+        <div class="legend">${Object.values(DOMAINS).map(d => `<span><i style="background:${d.color}"></i>${d.name}</span>`).join('')}</div>
+      </div>
+      <div class="cards">${g.units.map((u, k) => `
+        <button class="card" onclick="openUnit(${state.g},${k})">
+          <span class="no">${String(k + 1).padStart(2, '0')}단원</span>
+          <span class="dom" style="background:${DOMAINS[u.domain].color}">${DOMAINS[u.domain].name}</span>
+          <h3>${u.title}</h3><p>${u.desc}</p><span class="go">학습하러 가기 →</span>
+        </button>`).join('')}
+      </div>
+
+      <div class="boards">
+        <div class="board"><h3><i style="background:#e53935">📢</i>과학실 공지</h3><ul>
+          <li>과학의 날 탐구 발표회 안내<span>09.26</span></li><li>실험실 안전 수칙 다시 보기<span>09.15</span></li><li>2학기 수행평가 일정<span>09.02</span></li></ul></div>
+        <div class="board"><h3><i style="background:#2f7de1">🧪</i>실험 보고서</h3><ul>
+          <li>[중2] 밀도로 물질 구별하기<span>09.25</span></li><li>[중3] 질량 보존 확인 실험<span>09.24</span></li><li>[중1] 열의 이동 관찰<span>09.19</span></li></ul></div>
+        <div class="board"><h3><i style="background:#5cb531">🎮</i>쉬어가는 과학 게임</h3><ul>
+          <li>원소 기호 카드 뒤집기<span>중2</span></li><li>행성 크기 순서 맞히기<span>중1</span></li><li>날씨 기호 퀴즈<span>중3</span></li></ul></div>
+      </div>`;
+  }
+
+  function unitView() {
+    const g = GRADES[state.g], u = g.units[state.u], d = DOMAINS[u.domain];
+    const prev = g.units[state.u - 1], next = g.units[state.u + 1];
+    const items = [
+      ['P', '#e0662c', '도입 수업 PPT'], ['W', '#2f7de1', '개념 활동지'], ['▶', '#e53935', '핵심 개념 영상'],
+      ['S', '#5cb531', '탐구 실험 안내서'], ['Q', '#8a5bd6', '형성 평가 문제']
+    ];
+    return `
+      <div class="crumb"><button onclick="goHome()">홈</button> › <button onclick="goHome(${state.g})">${g.title}</button> › ${roman[state.u]}. ${u.title}</div>
+      <div class="top">
+        <div class="cover" style="background:${g.color}"><small>중학교 · 2022 개정</small><strong>과학 ${state.g + 1}</strong><small>KISPP SCIENCE</small></div>
+        <div class="info">
+          <span class="pill" style="background:${d.color}">${roman[state.u]}단원 · ${d.name}</span>
+          <h2>${u.title}</h2><p>${u.desc}</p>
+          <div class="actions">
+            <button><span>📘</span>개념 정리</button><button><span>🧪</span>탐구 실험</button>
+            <button><span>🕹️</span>시뮬레이션</button><button><span>✏️</span>형성 평가</button>
+          </div>
+        </div>
+      </div>
+      <div class="tabs"><button class="on">전체</button><button>수업 PPT</button><button>활동지</button><button>영상</button><button>평가</button></div>
+      <ul class="list">${items.map(([t, c, name], i) =>
+        `<li><span class="ico" style="background:${c}">${t}</span><span class="t">${u.title} ${name}</span><span class="d">2026.09.${20 + i}</span></li>`).join('')}
+      </ul>
+      <div class="pager">
+        <button ${prev ? '' : 'disabled'} onclick="openUnit(${state.g},${state.u - 1})"><small>← 이전 단원</small>${prev ? prev.title : ''}</button>
+        <button ${next ? '' : 'disabled'} onclick="openUnit(${state.g},${state.u + 1})"><small>다음 단원 →</small>${next ? next.title : ''}</button>
+      </div>`;
+  }
+
+  function render() {
+    renderNav();
+    document.getElementById('page').innerHTML = state.view === 'home' ? homeView() : unitView();
+    document.body.classList.remove('nav-open');
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', readHash);
+  readHash();
+</script>
+</body>
+</html>

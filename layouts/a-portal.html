@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KISPP 과학실 · A 학교 포털형</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --green: #5cb531; --green-d: #3f8f1d; --navy: #1b2a8f; --ink: #1d2433;
+    --sub: #5b6475; --line: #e6e9ef; --bg-soft: #f5f8f2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Pretendard, "Noto Sans KR", sans-serif; color: var(--ink); background: #fff; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  .util { background: var(--green); color: #fff; font-size: 13px; }
+  .util .wrap { display: flex; justify-content: space-between; height: 36px; align-items: center; }
+  .util span { opacity: .95; margin-right: 18px; }
+
+  header { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 5; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand b { display: block; font-size: 22px; color: var(--navy); letter-spacing: -.5px; }
+  .brand small { font-size: 11px; letter-spacing: 1.5px; color: var(--sub); }
+  nav { display: flex; gap: 30px; font-size: 16px; font-weight: 600; }
+  nav a:hover { color: var(--green-d); }
+
+  .hero { background: linear-gradient(120deg, #eef8e8 0%, #eaf1ff 100%); overflow: hidden; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+  .tag { display: inline-block; background: #fff; color: var(--green-d); font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 99px; border: 1px solid #cfe8c2; }
+  .hero h1 { font-size: 44px; line-height: 1.25; margin: 16px 0 14px; letter-spacing: -1.5px; }
+  .hero h1 em { font-style: normal; color: var(--green-d); }
+  .hero p { color: var(--sub); font-size: 17px; line-height: 1.7; }
+  .quick { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+  .quick button { border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 12px; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,.06); border: 1px solid var(--line); }
+  .quick button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .hero svg { width: 100%; max-width: 420px; justify-self: center; }
+
+  section { padding: 56px 0; }
+  .sec-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 22px; }
+  .sec-head h2 { font-size: 26px; letter-spacing: -.8px; }
+  .sec-head h2 span { color: var(--green-d); }
+  .legend { display: flex; gap: 12px; font-size: 13px; color: var(--sub); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px 18px; background: #fff; display: flex; flex-direction: column; transition: .15s; position: relative; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(27,42,143,.08); border-color: #cdd6ea; }
+  .card .no { font-size: 13px; font-weight: 800; color: var(--sub); }
+  .card .dom { position: absolute; top: 18px; right: 18px; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 99px; color: #fff; }
+  .card h3 { font-size: 19px; margin: 10px 0 8px; letter-spacing: -.5px; }
+  .card p { font-size: 14px; color: var(--sub); line-height: 1.6; flex: 1; }
+  .card .go { margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--green-d); }
+
+  .boards { background: var(--bg-soft); }
+  .boards .grid { grid-template-columns: repeat(3, 1fr); }
+  .board { background: #fff; border-radius: 16px; padding: 22px; border: 1px solid var(--line); }
+  .board h3 { font-size: 18px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .board h3 i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #fff; font-size: 15px; }
+  .board li { list-style: none; display: flex; justify-content: space-between; font-size: 14px; padding: 10px 0; border-top: 1px solid var(--line); color: #394152; }
+  .board li span { color: #98a0ae; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 13px; color: var(--sub); }
+
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero svg { display: none; }
+    .grid, .boards .grid { grid-template-columns: repeat(2, 1fr); }
+    nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 32px; }
+    .grid, .boards .grid { grid-template-columns: 1fr; }
+    .util span:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="util"><div class="wrap">
+  <div><span>프놈펜한국국제학교 과학과</span><span>Korean International School of Phnom Penh</span></div>
+  <div><a href="#">학교 홈페이지 ↗</a></div>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#">
+    <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="21" fill="#fff" stroke="#5cb531" stroke-width="4"/><path d="M19 12h8M20 12v9l-7 12a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-12v-9" fill="none" stroke="#1b2a8f" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 29h14l2.6 4.5a1 1 0 0 1-.9 1.5H14.3a1 1 0 0 1-.9-1.5z" fill="#e53935"/></svg>
+    <div><b>KISPP 과학실</b><small>SCIENCE CLASSROOM</small></div>
+  </a>
+  <nav><a href="#units">중1</a><a href="#units">중2</a><a href="#units">중3</a><a href="#">실험·탐구</a><a href="#">과학 게임</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="tag">2022 개정 교육과정 · 중학교 과학</span>
+    <h1>궁금한 것은 <em>실험</em>으로,<br>배운 것은 <em>생활</em>로.</h1>
+    <p>프놈펜한국국제학교 중학생을 위한 과학 수업 공간입니다.<br>학년을 고르고 이번 시간에 배울 단원으로 들어가 보세요.</p>
+    <div class="quick" id="gradeBtns"></div>
+  </div>
+  <svg viewBox="0 0 400 320" aria-hidden="true">
+    <circle cx="200" cy="160" r="130" fill="#fff"/>
+    <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#2f7de1" stroke-width="3" transform="rotate(30 200 160)"/>
+    <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#5cb531" stroke-width="3" transform="rotate(-30 200 160)"/>
+    <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#f08a24" stroke-width="3" transform="rotate(90 200 160)"/>
+    <circle cx="200" cy="160" r="18" fill="#1b2a8f"/>
+    <circle cx="304" cy="100" r="9" fill="#2f7de1"/><circle cx="96" cy="100" r="9" fill="#5cb531"/><circle cx="200" cy="40" r="9" fill="#f08a24"/>
+    <path d="M60 280c30-26 60 0 90-18s40-40 70-20" fill="none" stroke="#cfe8c2" stroke-width="6" stroke-linecap="round"/>
+  </svg>
+</div></div>
+
+<section id="units"><div class="wrap">
+  <div class="sec-head">
+    <h2><span id="gradeName">중학교 1학년</span> 단원</h2>
+    <div class="legend" id="legend"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="boards"><div class="wrap">
+  <div class="grid">
+    <div class="board"><h3><i style="background:#e53935">📢</i>과학실 공지</h3><ul>
+      <li>과학의 날 탐구 발표회 안내<span>09.26</span></li><li>실험실 안전 수칙 다시 보기<span>09.15</span></li><li>2학기 수행평가 일정<span>09.02</span></li></ul></div>
+    <div class="board"><h3><i style="background:#2f7de1">🧪</i>실험 보고서</h3><ul>
+      <li>[중2] 밀도로 물질 구별하기<span>09.25</span></li><li>[중3] 질량 보존 확인 실험<span>09.24</span></li><li>[중1] 열의 이동 관찰<span>09.19</span></li></ul></div>
+    <div class="board"><h3><i style="background:#5cb531">🎮</i>쉬어가는 과학 게임</h3><ul>
+      <li>원소 기호 카드 뒤집기<span>중2</span></li><li>행성 크기 순서 맞히기<span>중1</span></li><li>날씨 기호 퀴즈<span>중3</span></li></ul></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">프놈펜한국국제학교 과학과 · Korean International School of Phnom Penh</div></footer>
+
+<script src="../data/units.js"></script>
+<script>
+  const btns = document.getElementById('gradeBtns');
+  const grid = document.getElementById('grid');
+  document.getElementById('legend').innerHTML = Object.values(DOMAINS)
+    .map(d => `<span><i style="background:${d.color}"></i>${d.name}</span>`).join('');
+  function show(i) {
+    const g = GRADES[i];
+    [...btns.children].forEach((b, j) => b.classList.toggle('on', i === j));
+    document.getElementById('gradeName').textContent = g.title;
+    grid.innerHTML = g.units.map((u, k) => `
+      <a class="card" href="#">
+        <span class="no">${String(k + 1).padStart(2, '0')}단원</span>
+        <span class="dom" style="background:${DOMAINS[u.domain].color}">${DOMAINS[u.domain].name}</span>
+        <h3>${u.title}</h3><p>${u.desc}</p><span class="go">학습하러 가기 →</span>
+      </a>`).join('');
+  }
+  btns.innerHTML = GRADES.map((g, i) => `<button onclick="show(${i})">${g.label}</button>`).join('');
+  show(0);
+</script>
+</body>
+</html>

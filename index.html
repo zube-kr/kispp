@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KISPP 과학실 · E 포털+사이드바 결합형</title>
+<title>KISPP 과학실</title>
+<meta name="description" content="프놈펜한국국제학교 중학교 과학 수업 공간 (2022 개정 교육과정)">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root {
@@ -147,7 +148,7 @@
 <div class="layout">
   <aside>
     <div class="side-in">
-      <a class="brand" href="#" onclick="goHome(); return false;">
+      <a class="brand" href="#/">
         <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#fff" stroke="#5cb531" stroke-width="4"/><path d="M19 12h8M20 12v9l-7 12a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-12v-9" fill="none" stroke="#1b2a8f" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 29h14l2.6 4.5a1 1 0 0 1-.9 1.5H14.3a1 1 0 0 1-.9-1.5z" fill="#e53935"/></svg>
         <div><b>KISPP 과학실</b><small>SCIENCE CLASSROOM</small></div>
       </a>
@@ -179,17 +180,25 @@
   </main>
 </div>
 
-<script src="../data/units.js"></script>
+<script src="data/units.js"></script>
 <script>
   const roman = ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ'];
   // view: 'home' 또는 'unit' / g: 학년 인덱스 / u: 단원 인덱스
   let state = { view: 'home', g: 0, u: 0 };
 
-  function goHome(g) { state = { view: 'home', g: g ?? state.g, u: 0 }; render(); }
-  function openUnit(g, u) { state = { view: 'unit', g, u }; render(); }
+  // 주소(#)로 화면을 기억: #/g2 → 중2 홈, #/g2/3 → 중2 3단원
+  function goHome(g) { location.hash = `#/g${(g ?? state.g) + 1}`; }
+  function openUnit(g, u) { location.hash = `#/g${g + 1}/${u + 1}`; }
+  function readHash() {
+    const m = location.hash.match(/^#\/g(\d)(?:\/(\d+))?/);
+    const g = m ? Math.min(Math.max(+m[1] - 1, 0), GRADES.length - 1) : 0;
+    const u = m && m[2] ? +m[2] - 1 : -1;
+    state = u >= 0 && u < GRADES[g].units.length ? { view: 'unit', g, u } : { view: 'home', g, u: 0 };
+    render();
+  }
   function toggleGrade(g) {
     // 이미 열린 학년을 다시 누르면 닫고, 다른 학년이면 그 학년 홈으로
-    if (state.g === g && state.open !== false) { state.open = false; renderNav(); return; }
+    if (state.g === g) { state.open = state.open === false; renderNav(); return; }
     goHome(g);
   }
 
@@ -282,7 +291,8 @@
     document.body.classList.remove('nav-open');
     window.scrollTo(0, 0);
   }
-  render();
+  window.addEventListener('hashchange', readHash);
+  readHash();
 </script>
 </body>
 </html>

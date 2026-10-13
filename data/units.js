@@ -8,6 +8,13 @@ window.DOMAINS = {
   int:   { name: "통합", color: "#d4a017" }
 };
 
+// 단원 자료 종류 (materials[].type)
+window.MATERIAL_TYPES = {
+  content: { name: "학습 콘텐츠", icon: "▶", color: "#e53935" },
+  sim:     { name: "가상실험",   icon: "S", color: "#2f7de1" },
+  sheet:   { name: "활동지",     icon: "W", color: "#5cb531" }
+};
+
 window.GRADES = [
   {
     id: "g1", label: "중1", title: "중학교 1학년", color: "#5cb531",
@@ -42,7 +49,24 @@ window.GRADES = [
       { code: "Pl", title: "식물과 에너지", domain: "bio",
         desc: "광합성과 증산 작용, 식물의 호흡을 통해 식물이 에너지를 얻고 쓰는 과정을 배웁니다." },
       { code: "An", title: "동물과 에너지", domain: "bio",
-        desc: "소화, 순환, 호흡, 배설 기관이 함께 작용하여 에너지를 얻는 과정을 탐구합니다." },
+        desc: "소화, 순환, 호흡, 배설 기관이 함께 작용하여 에너지를 얻는 과정을 탐구합니다.",
+        materials: [
+          { type: "content", title: "영양소와 균형 잡힌 식단", external: true,
+            desc: "영양소의 종류와 기능, 균형 잡힌 식단을 알아보는 WebGL 학습 콘텐츠입니다.",
+            url: "https://e.tsherpa.co.kr/webdata/multimedia/eduvr/webgl_03/index.html" },
+          { type: "content", title: "음식물의 소화 과정", external: true,
+            desc: "음식물이 소화 기관을 지나며 분해되는 과정을 알아보는 WebGL 학습 콘텐츠입니다.",
+            url: "https://e.tsherpa.co.kr/webdata/multimedia/eduvr/webgl_04/index.html" },
+          { type: "sim", title: "영양소 검출 가상실험", external: true,
+            desc: "음식물 속 녹말·당분·단백질·지방을 시약으로 검출해 보는 가상실험입니다.",
+            url: "https://sciencej1.cafe24.com/html5/IdentifyingNutrients/IdentifyingNutrients.html" },
+          { type: "sheet", title: "영양소 검출 실험보고서",
+            desc: "가상실험 결과를 시약별로 정리하고 워크시트를 풀어 보는 자동 채점 실험보고서입니다.",
+            url: "materials/g2-6/yeongyangso-geomchul.html" },
+          { type: "sheet", title: "소화 기관 해부 모형 만들기",
+            desc: "소화 기관 조각을 몸 그림의 올바른 위치에 배치하고 특징을 정리하는 자동 채점 활동입니다.",
+            url: "materials/g2-6/sohwagye-model.html" }
+        ] },
       { code: "El", title: "전기와 자기", domain: "phy",
         desc: "정전기, 전류·전압·저항의 관계, 전류가 만드는 자기장과 전동기의 원리를 배웁니다." },
       { code: "St", title: "별과 우주", domain: "earth",

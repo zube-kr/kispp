@@ -113,7 +113,13 @@
   .list li { display: flex; align-items: center; gap: 14px; padding: 15px 6px; border-bottom: 1px solid var(--line); font-size: 15px; }
   .ico { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
   .list li .t { flex: 1; }
-  .list li .d { color: #9aa2b1; font-size: 13px; }
+  .list li .d { color: #9aa2b1; font-size: 13px; flex-shrink: 0; }
+  .list li:has(.mat) { padding: 0; }
+  .mat { display: flex; align-items: center; gap: 14px; padding: 15px 6px; width: 100%; border-radius: 10px; }
+  .mat:hover { background: var(--bg-soft); }
+  .mat .t b { display: block; font-weight: 700; }
+  .mat .t small { display: block; color: var(--sub); font-size: 13.5px; line-height: 1.55; margin-top: 3px; }
+  .empty { border: 1px dashed #cfd6e3; border-radius: 14px; padding: 28px; text-align: center; color: var(--sub); }
   .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 26px; }
   .pager button { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; text-align: left; }
   .pager button:last-child { text-align: right; }
@@ -188,7 +194,7 @@
 
   // 주소(#)로 화면을 기억: #/g2 → 중2 홈, #/g2/3 → 중2 3단원
   function goHome(g) { location.hash = `#/g${(g ?? state.g) + 1}`; }
-  function openUnit(g, u) { location.hash = `#/g${g + 1}/${u + 1}`; }
+  function openUnit(g, u) { matFilter = 'all'; location.hash = `#/g${g + 1}/${u + 1}`; }
   function readHash() {
     const m = location.hash.match(/^#\/g(\d)(?:\/(\d+))?/);
     const g = m ? Math.min(Math.max(+m[1] - 1, 0), GRADES.length - 1) : 0;
@@ -257,13 +263,37 @@
       </div>`;
   }
 
+  // 단원 자료 목록: 종류별 탭으로 걸러 보기
+  let matFilter = 'all';
+  function setMatFilter(t) {
+    matFilter = t;
+    const g = GRADES[state.g];
+    document.getElementById('materials').innerHTML = materialsView(g.units[state.u]);
+  }
+  function materialsView(u) {
+    const mats = (u.materials || []).map((m, i) => ({ ...m, no: i + 1 }));
+    if (!mats.length) return `<div class="empty">📂 이 단원의 학습 자료를 준비하고 있어요.</div>`;
+    const types = Object.keys(MATERIAL_TYPES).filter(t => mats.some(m => m.type === t));
+    if (matFilter !== 'all' && !types.includes(matFilter)) matFilter = 'all';
+    const shown = matFilter === 'all' ? mats : mats.filter(m => m.type === matFilter);
+    return `
+      <div class="tabs">
+        <button class="${matFilter === 'all' ? 'on' : ''}" onclick="setMatFilter('all')">전체 ${mats.length}</button>
+        ${types.map(t => `<button class="${matFilter === t ? 'on' : ''}" onclick="setMatFilter('${t}')">${MATERIAL_TYPES[t].name}</button>`).join('')}
+      </div>
+      <ul class="list">${shown.map(m => {
+        const mt = MATERIAL_TYPES[m.type];
+        return `<li><a class="mat" href="${m.url}"${m.external ? ' target="_blank" rel="noopener"' : ''}>
+          <span class="ico" style="background:${mt.color}">${mt.icon}</span>
+          <span class="t"><b>${m.no}. ${m.title}</b><small>${m.desc}</small></span>
+          <span class="d">${mt.name}${m.external ? ' ↗' : ''}</span></a></li>`;
+      }).join('')}
+      </ul>`;
+  }
+
   function unitView() {
     const g = GRADES[state.g], u = g.units[state.u], d = DOMAINS[u.domain];
     const prev = g.units[state.u - 1], next = g.units[state.u + 1];
-    const items = [
-      ['P', '#e0662c', '도입 수업 PPT'], ['W', '#2f7de1', '개념 활동지'], ['▶', '#e53935', '핵심 개념 영상'],
-      ['S', '#5cb531', '탐구 실험 안내서'], ['Q', '#8a5bd6', '형성 평가 문제']
-    ];
     return `
       <div class="crumb"><button onclick="goHome()">홈</button> › <button onclick="goHome(${state.g})">${g.title}</button> › ${roman[state.u]}. ${u.title}</div>
       <div class="top">
@@ -277,10 +307,7 @@
           </div>
         </div>
       </div>
-      <div class="tabs"><button class="on">전체</button><button>수업 PPT</button><button>활동지</button><button>영상</button><button>평가</button></div>
-      <ul class="list">${items.map(([t, c, name], i) =>
-        `<li><span class="ico" style="background:${c}">${t}</span><span class="t">${u.title} ${name}</span><span class="d">2026.09.${20 + i}</span></li>`).join('')}
-      </ul>
+      <div id="materials">${materialsView(u)}</div>
       <div class="pager">
         <button ${prev ? '' : 'disabled'} onclick="openUnit(${state.g},${state.u - 1})"><small>← 이전 단원</small>${prev ? prev.title : ''}</button>
         <button ${next ? '' : 'disabled'} onclick="openUnit(${state.g},${state.u + 1})"><small>다음 단원 →</small>${next ? next.title : ''}</button>

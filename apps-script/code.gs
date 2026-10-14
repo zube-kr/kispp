@@ -1,0 +1,110 @@
+/**
+ * KISPP 과학실(프놈펜한국국제학교) 워크시트 제출 → 구글 스프레드시트 저장용 Apps Script
+ * ------------------------------------------------------------------
+ * 아화중학교 과학 저장소(zube-kr/science)의 code.gs를 그대로 가져왔습니다.
+ * materials/ 아래 모든 워크시트가 같은 웹 앱 주소를 함께 씁니다.
+ *
+ * 각 워크시트가 보내는 값(필드)이 서로 달라도 그대로 열로 만들어 기록합니다.
+ * 제출값의 "worksheet" 이름으로 시트 탭이 나뉘고, 없으면 "기타" 탭에 기록됩니다.
+ *
+ * ▣ 설치 방법 (선생님 구글 계정으로 한 번만)
+ * 1) 구글 스프레드시트를 새로 만듭니다. (탭은 자동으로 생깁니다.)
+ * 2) 확장 프로그램 → Apps Script 를 열고, 기본 코드를 지운 뒤 이 파일
+ *    내용을 전체 붙여넣고 저장합니다.
+ * 3) 배포 → 새 배포 → 유형: 웹 앱
+ *      - 실행 대상: 나
+ *      - 액세스 권한이 있는 사용자: 모든 사용자
+ *    로 배포한 뒤, 발급된 웹 앱 URL(https://script.google.com/macros/s/.../exec)을 복사합니다.
+ * 4) 저장소의 js/config.js 파일에서
+ *      SUBMIT_URL: ""
+ *    따옴표 안에 그 주소를 붙여넣습니다. 모든 워크시트에 한 번에 적용됩니다.
+ * 5) 워크시트에 새 문항이 생겨도 코드 수정 없이 새 열이 자동으로 추가됩니다.
+ */
+
+function doPost(e) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var d = (e && e.parameter) || {};
+
+  var sheetName = d.worksheet || "기타";
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    sheet = ss.insertSheet(sheetName);
+  }
+
+  // 항상 맨 앞에 둘 컬럼 / 항상 맨 뒤에 둘 컬럼
+  var fixedFront = ["grade", "classNum", "number", "name"];
+  var fixedBack = ["score", "total"];
+
+  var incomingKeys = Object.keys(d).filter(function (k) {
+    return k !== "worksheet";
+  });
+  var middleKeys = incomingKeys
+    .filter(function (k) {
+      return fixedFront.indexOf(k) === -1 && fixedBack.indexOf(k) === -1;
+    })
+    .sort();
+
+  var columns = ["timestamp"].concat(fixedFront, middleKeys, fixedBack);
+
+  if (sheet.getLastRow() === 0) {
+    // 새 시트: 헤더를 새로 씀
+    sheet.appendRow(columns);
+  } else {
+    // 기존 시트: 지금까지 없던 새 컬럼(새로 추가된 문항 등)이 있으면 뒤에 이어붙임
+    var lastCol = sheet.getLastColumn();
+    var existingHeader = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+    var newCols = columns.filter(function (c) {
+      return existingHeader.indexOf(c) === -1;
+    });
+    if (newCols.length > 0) {
+      sheet.getRange(1, lastCol + 1, 1, newCols.length).setValues([newCols]);
+      existingHeader = existingHeader.concat(newCols);
+    }
+    columns = existingHeader;
+  }
+
+  var row = columns.map(function (col) {
+    if (col === "timestamp") return new Date();
+    return d[col] !== undefined ? d[col] : "";
+  });
+
+  sheet.appendRow(row);
+
+  return ContentService.createTextOutput("OK");
+}
+
+/**
+ * GET ?worksheet=시트이름 으로 호출하면 그 탭의 모든 행을 JSON 배열로
+ * 돌려준다(헤더를 키로 사용). 랭킹처럼 "여러 학생 기기가 공유해서 읽어야
+ * 하는" 데이터를 보여줄 때 쓴다. worksheet 파라미터가 없으면 기존처럼
+ * 안내 문구만 반환한다.
+ */
+function doGet(e) {
+  var worksheet = (e && e.parameter && e.parameter.worksheet) || "";
+  if (!worksheet) {
+    return ContentService.createTextOutput(
+      "이 웹 앱은 KISPP 과학실 워크시트 제출 데이터를 받는 용도입니다. POST 요청으로 사용해 주세요."
+    );
+  }
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(worksheet);
+  if (!sheet || sheet.getLastRow() < 2) {
+    return ContentService.createTextOutput(JSON.stringify([]))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  var values = sheet.getDataRange().getValues();
+  var header = values[0];
+  var rows = values.slice(1).map(function (row) {
+    var obj = {};
+    header.forEach(function (col, i) {
+      var v = row[i];
+      obj[col] = v instanceof Date ? v.toISOString() : v;
+    });
+    return obj;
+  });
+
+  return ContentService.createTextOutput(JSON.stringify(rows))
+    .setMimeType(ContentService.MimeType.JSON);
+}

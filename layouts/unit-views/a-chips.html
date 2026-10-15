@@ -40,7 +40,7 @@
     document.getElementById('head').innerHTML = unitHeader(`<div class="actions">${Object.entries(PARTS).map(([k, v]) =>
       `<button class="${filter === k ? 'on' : ''}" style="--pc:${v.color}" onclick="setFilter('${k}')"><span>${v.icon}</span>${v.name}<small>${countOf(k)}곳</small></button>`).join('')}</div>`);
     document.getElementById('msg').innerHTML = filter
-      ? `${PARTS[filter].icon} <b>${PARTS[filter].name}</b>이(가) 들어 있는 자료만 밝게 표시했어요.<button onclick="setFilter(null)">전체 보기</button>` : '';
+      ? `${PARTS[filter].icon} <b>${PARTS[filter].name}</b> 부분이 들어 있는 자료만 밝게 표시했어요.<button onclick="setFilter(null)">전체 보기</button>` : '';
     document.getElementById('list').innerHTML = ITEMS.map(it => {
       const has = !filter || it.parts.some(x => x.p === filter);
       return `<li class="row ${has ? '' : 'dim'}">

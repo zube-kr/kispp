@@ -12,7 +12,8 @@
 | `materials/` | 단원별 학습 자료 페이지 (예: `materials/g2-6/` 중2 Ⅵ. 동물과 에너지) |
 | `js/config.js` | 공통 설정. 활동지 답안을 받을 구글 Apps Script 주소(`SUBMIT_URL`) |
 | `apps-script/code.gs` | 활동지 답안을 구글 스프레드시트에 저장하는 Apps Script (설치 방법은 파일 맨 위 설명) |
-| `layouts/` | 레이아웃 후보 샘플 (A~E), 참고용 |
+| `js/part-view.js` | 활동지 구간 보기 (`?part=concept` 등으로 열면 그 구간만 표시) |
+| `layouts/` | 레이아웃 후보 샘플 (A~E)과 단원 화면 샘플(`layouts/unit-views/`), 참고용 |
 
 ## 주소 규칙
 
@@ -29,8 +30,19 @@
 
 1. 자료 페이지를 `materials/g학년-단원/` 폴더에 넣습니다.
 2. `data/units.js`에서 해당 단원의 `materials` 목록에 항목을 추가합니다.
-   - `type`: `content`(학습 콘텐츠), `sim`(가상실험), `sheet`(활동지)
-   - 외부 사이트 자료는 `external: true`를 붙이면 새 탭에서 열립니다.
+   - 다른 사이트 자료는 `external: true`를 붙이면 새 탭에서 열립니다.
+   - `parts`: 자료 안의 구간 목록. `{ p: "concept", t: "실험 개요" }`처럼 적으면
+     단원 화면에 색깔 칩으로 나오고, 누르면 그 구간만 열립니다.
+     구간 종류: `concept` 개념정리 · `lab` 탐구실험 · `sim` 시뮬레이션 · `quiz` 형성평가
+3. 활동지 페이지에서 각 `<section class="card">`에 `data-part="concept"`처럼 구간을 표시하고,
+   `<script src="../../js/part-view.js"></script>`를 넣습니다. (표시가 없으면 카드 제목 배지로 짐작합니다.)
+   제출 때 함께 채점되는 칸이 있는 구간은 `data-part="concept quiz"`처럼 두 가지를 적어
+   형성평가만 열어도 제출할 수 있게 합니다.
+
+## 단원 화면 구성
+
+- 목록: 소단원 워크시트. 제목을 누르면 전체, 색깔 칩을 누르면 그 구간만(`?part=`) 열립니다.
+- 위 네 버튼(개념정리·탐구실험·시뮬레이션·형성평가): 그 구간이 들어 있는 자료를 밝게 표시합니다.
 
 ## 활동지 답안 제출 연결하기
 

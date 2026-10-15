@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단원 화면 샘플 C · 학습 흐름 카드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="common.css">
+<style>
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--sub); margin-top: 14px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+  h4.sec { font-size: 15px; margin: 6px 0 10px; color: var(--sub); }
+  .refs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .lesson { min-width: 0; border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+  .lesson-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; flex-wrap: wrap; }
+  .lesson h3 { font-size: 19px; letter-spacing: -.4px; } .lesson h3 b { color: var(--green-d); margin-right: 6px; }
+  .lesson p { color: var(--sub); font-size: 14px; margin-top: 4px; }
+  .lesson .open { font-size: 13px; font-weight: 700; padding: 8px 12px; border-radius: 10px; background: var(--navy); color: #fff; white-space: nowrap; }
+  .flow { display: flex; align-items: stretch; margin-top: 16px; overflow-x: auto; padding-bottom: 4px; }
+  .step { flex: 1; min-width: 150px; position: relative; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 12px 26px; background: color-mix(in srgb, var(--pc) 9%, #fff); border: 1.5px solid color-mix(in srgb, var(--pc) 35%, #fff); margin-right: -1px; transition: .15s; }
+  .step:first-child { border-radius: 12px 0 0 12px; padding-left: 14px; }
+  .step:last-child { border-radius: 0 12px 12px 0; }
+  .step:hover { background: color-mix(in srgb, var(--pc) 18%, #fff); z-index: 1; }
+  .step small { font-size: 12px; font-weight: 800; color: var(--pc); }
+  .step span { font-size: 14px; font-weight: 600; }
+  .step .ok { position: absolute; top: 8px; right: 10px; font-size: 12px; font-weight: 800; color: var(--green-d); }
+  .step.done { background: color-mix(in srgb, var(--pc) 22%, #fff); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div id="head"></div>
+  <div class="note">💡 <b>C안:</b> 소단원 워크시트마다 <b>배우는 순서</b>를 단계로 보여 줘요. 단계를 누르면 그 부분만 열리고,
+    한 번 열어 본 단계에는 ✓ 표시가 남아 학생이 어디까지 했는지 알 수 있어요(이 기기에만 저장). 다른 사이트 자료는 위쪽 "함께 보는 자료"로 따로 모았어요.</div>
+  <h4 class="sec">🔗 함께 보는 자료</h4>
+  <div class="refs" id="refs"></div>
+  <h4 class="sec">📝 소단원 워크시트</h4>
+  <div class="cards" id="cards"></div>
+</div>
+<script src="sample.js"></script>
+<script src="nav.js"></script>
+<script>
+  const KEY = 'kispp-sample-visited';
+  let visited = {};
+  try { visited = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  function mark(id) { visited[id] = 1; try { localStorage.setItem(KEY, JSON.stringify(visited)); } catch (e) {} }
+  document.getElementById('head').innerHTML = unitHeader(`<div class="legend">${Object.values(PARTS).map(v =>
+    `<span><i style="background:${v.color}"></i>${v.icon} ${v.name}</span>`).join('')}</div>`);
+  document.getElementById('refs').innerHTML = ITEMS.filter(it => it.kind === 'external').map(it => {
+    const v = PARTS[it.parts[0].p];
+    return `<a class="chip" style="--pc:${v.color}" href="${it.url}" target="_blank" rel="noopener">${v.icon} ${it.title} ↗</a>`;
+  }).join('');
+  document.getElementById('cards').innerHTML = ITEMS.filter(it => it.kind === 'sheet').map(it => `
+    <div class="lesson">
+      <div class="lesson-top"><div><h3><b>${it.no}</b>${it.title}</h3><p>${it.desc}</p></div>
+        <a class="open" href="${it.url}">워크시트 전체 열기</a></div>
+      <div class="flow">${it.parts.map((x, i) => {
+        const id = it.no + '-' + i, v = PARTS[x.p];
+        return `<a class="step ${visited[id] ? 'done' : ''}" style="--pc:${v.color}" href="${partUrl(it, x.p)}" onclick="mark('${id}')">
+          <small>${i + 1}단계 · ${v.icon} ${v.name}</small><span>${x.t}</span>${visited[id] ? '<em class="ok">✓</em>' : ''}</a>`;
+      }).join('')}</div>
+    </div>`).join('');
+</script>
+</body>
+</html>

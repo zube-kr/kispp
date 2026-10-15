@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단원 화면 샘플 B · 구간 모아보기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="common.css">
+<style>
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; margin-bottom: 18px; }
+  .tabs button { padding: 12px 16px; font-weight: 700; color: var(--sub); border-bottom: 3px solid transparent; white-space: nowrap; }
+  .tabs button.on { color: var(--ink); border-color: var(--pc, var(--green)); }
+  .simple { list-style: none; }
+  .simple li a { display: flex; gap: 14px; align-items: center; padding: 14px 6px; border-bottom: 1px solid var(--line); }
+  .simple li a:hover { background: var(--bg-soft); }
+  .simple b { color: var(--green-d); width: 20px; } .simple span.t { flex: 1; font-weight: 600; }
+  .block { margin-bottom: 26px; }
+  .block-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-radius: 12px 12px 0 0; background: color-mix(in srgb, var(--pc) 10%, #fff); border: 1px solid color-mix(in srgb, var(--pc) 30%, #fff); border-bottom: 0; }
+  .block-head h3 { font-size: 15px; } .block-head h3 small { color: var(--sub); font-weight: 600; margin-left: 4px; }
+  .block-head a { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .frame-box { border: 1px solid color-mix(in srgb, var(--pc) 30%, #fff); border-radius: 0 0 12px 12px; background: #f4f6ef; padding: 4px; }
+  iframe { width: 100%; border: 0; display: block; height: 420px; }
+  .ext { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px; flex-wrap: wrap; }
+  .ext p { color: var(--sub); font-size: 14px; }
+  .ext a { background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 14px; border-radius: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div id="head"></div>
+  <div class="note">💡 <b>B안:</b> 탭을 누르면 여러 워크시트에 흩어진 같은 종류의 부분을 <b>한 화면에 모아</b> 보여 줘요.
+    워크시트 파일은 그대로 두고, 필요한 부분만 잘라서 끼워 넣는 방식이라 시뮬레이션과 채점도 그 자리에서 그대로 작동합니다.</div>
+  <div class="tabs" id="tabs"></div>
+  <div id="body"></div>
+</div>
+<script src="sample.js"></script>
+<script src="nav.js"></script>
+<script>
+  let tab = 'all';
+  function setTab(t) { tab = t; render(); }
+  // 끼워 넣은 워크시트가 알려 주는 높이에 맞춰 iframe 크기 조절
+  window.addEventListener('message', e => {
+    const d = e.data || {};
+    const f = d.kisppFrame && document.getElementById(d.kisppFrame);
+    if (f && d.height) f.style.height = d.height + 'px';
+  });
+  function render() {
+    document.getElementById('head').innerHTML = unitHeader();
+    document.getElementById('tabs').innerHTML =
+      `<button class="${tab === 'all' ? 'on' : ''}" onclick="setTab('all')">📂 전체 목록 ${ITEMS.length}</button>` +
+      Object.entries(PARTS).map(([k, v]) =>
+        `<button class="${tab === k ? 'on' : ''}" style="--pc:${v.color}" onclick="setTab('${k}')">${v.icon} ${v.name} ${countOf(k)}</button>`).join('');
+    const body = document.getElementById('body');
+    if (tab === 'all') {
+      body.innerHTML = `<ul class="simple">${ITEMS.map(it =>
+        `<li><a href="${it.url}"${target(it)}><b>${it.no}</b><span class="t">${it.title}</span><span class="tag">${it.kind === 'sheet' ? '워크시트' : '외부 자료 ↗'}</span></a></li>`).join('')}</ul>`;
+      return;
+    }
+    const pc = PARTS[tab].color;
+    body.innerHTML = ITEMS.filter(it => it.parts.some(x => x.p === tab)).map((it, i) => {
+      const names = it.parts.filter(x => x.p === tab).map(x => x.t).join(' · ');
+      const head = `<div class="block-head"><h3>${it.no}. ${it.title}<small>› ${names}</small></h3>
+        <a href="${it.url}"${target(it)}>${it.kind === 'sheet' ? '워크시트 전체 보기 →' : '새 창에서 열기 ↗'}</a></div>`;
+      const inner = it.kind === 'sheet'
+        ? `<iframe id="f${i}" src="${it.url}?part=${tab}&embed=1&frame=f${i}" title="${it.title} ${PARTS[tab].name}" loading="lazy"></iframe>`
+        : `<div class="ext"><p>다른 사이트의 자료라 이 화면에 끼워 넣지 않고 새 창으로 열어요.</p><a href="${it.url}" target="_blank" rel="noopener">자료 열기 ↗</a></div>`;
+      return `<div class="block" style="--pc:${pc}">${head}<div class="frame-box">${inner}</div></div>`;
+    }).join('');
+  }
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단원 화면 샘플 A · 목록 + 구간 바로가기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="common.css">
+<style>
+  .list { list-style: none; border-top: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: 40px 1fr auto; gap: 6px 14px; padding: 18px 6px; border-bottom: 1px solid var(--line); transition: .15s; }
+  .row .no { font-size: 20px; font-weight: 800; color: var(--green-d); padding-top: 2px; }
+  .row h3 { font-size: 17px; letter-spacing: -.3px; }
+  .row h3 a:hover { color: var(--green-d); text-decoration: underline; }
+  .row p { color: var(--sub); font-size: 14px; margin: 3px 0 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .open { font-size: 13px; font-weight: 700; padding: 8px 12px; border-radius: 10px; background: var(--navy); color: #fff; white-space: nowrap; }
+  .row.dim { opacity: .28; }
+  .chip.hit { box-shadow: 0 0 0 2px var(--pc); background: color-mix(in srgb, var(--pc) 20%, #fff); }
+  .filter-msg { font-size: 14px; color: var(--sub); margin: 0 0 10px; min-height: 20px; }
+  .filter-msg button { color: var(--navy); font-weight: 700; margin-left: 6px; }
+  @media (max-width: 640px) { .row { grid-template-columns: 30px 1fr; } .side { grid-column: 2; flex-direction: row; align-items: center; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div id="head"></div>
+  <div class="note">💡 <b>A안:</b> 아래 목록은 아화중처럼 <b>소단원 워크시트</b>입니다. 제목을 누르면 워크시트 전체가 열리고,
+    색깔 칩을 누르면 그 워크시트에서 <b>그 부분만</b> 열려요. 위 네 버튼은 "이 단원에서 그 부분이 있는 곳"을 표시해 줍니다.</div>
+  <div class="filter-msg" id="msg"></div>
+  <ul class="list" id="list"></ul>
+</div>
+<script src="sample.js"></script>
+<script src="nav.js"></script>
+<script>
+  let filter = null;
+  function setFilter(p) { filter = filter === p ? null : p; render(); }
+  function render() {
+    document.getElementById('head').innerHTML = unitHeader(`<div class="actions">${Object.entries(PARTS).map(([k, v]) =>
+      `<button class="${filter === k ? 'on' : ''}" style="--pc:${v.color}" onclick="setFilter('${k}')"><span>${v.icon}</span>${v.name}<small>${countOf(k)}곳</small></button>`).join('')}</div>`);
+    document.getElementById('msg').innerHTML = filter
+      ? `${PARTS[filter].icon} <b>${PARTS[filter].name}</b>이(가) 들어 있는 자료만 밝게 표시했어요.<button onclick="setFilter(null)">전체 보기</button>` : '';
+    document.getElementById('list').innerHTML = ITEMS.map(it => {
+      const has = !filter || it.parts.some(x => x.p === filter);
+      return `<li class="row ${has ? '' : 'dim'}">
+        <span class="no">${it.no}</span>
+        <div><h3><a href="${it.url}"${target(it)}>${it.title}</a></h3><p>${it.desc}</p>
+          <div class="chips">${it.parts.map(x => `<a class="chip ${filter === x.p ? 'hit' : ''}" style="--pc:${PARTS[x.p].color}" href="${partUrl(it, x.p)}"${target(it)}>${PARTS[x.p].icon} ${x.t}</a>`).join('')}</div></div>
+        <div class="side"><span class="tag">${it.kind === 'sheet' ? '워크시트 · 자동 채점' : '외부 자료 ↗'}</span>
+          ${it.kind === 'sheet' ? `<a class="open" href="${it.url}">워크시트 열기</a>` : ''}</div>
+      </li>`;
+    }).join('');
+  }
+  render();
+</script>
+</body>
+</html>

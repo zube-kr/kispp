@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>동물과 에너지 — 소화 기관 해부 모형 만들기</title>
@@ -224,7 +225,7 @@
   </header>
 
   <!-- 해부 모형 -->
-  <section class="card">
+  <section class="card" data-part="sim">
     <div class="card-title"><span class="badge" style="background:#7A5230">해부 모형</span>소화 기관 조각을 제자리에 붙이기</div>
     <div class="card-hint">조각을 마우스(또는 손가락)로 눌러 끌어서 몸 그림의 <b>같은 모양 윤곽선</b> 위에 놓으세요. 그림 속 몸은 우리를 바라보고 있어서, 몸의 왼쪽이 화면에서는 오른쪽이에요. 붙인 기관을 누르면 설명을 다시 볼 수 있어요.</div>
 
@@ -252,14 +253,14 @@
   </section>
 
   <!-- 각 기관의 특징 -->
-  <section class="card">
+  <section class="card" data-part="concept">
     <div class="card-title"><span class="badge" style="background:var(--leaf)">개념</span>소화 기관의 특징</div>
     <div class="card-hint">배치 활동과 상관없이 언제든 참고할 수 있어요.</div>
     <div class="organ-cards" id="organ-cards"></div>
   </section>
 
   <!-- 스스로 점검 워크시트 -->
-  <section class="card">
+  <section class="card" data-part="quiz">
     <div class="card-title"><span class="badge" style="background:var(--ink)">워크시트</span>스스로 점검</div>
     <div class="card-hint">정답을 입력하고 <b>제출하고 채점받기</b>를 누르면 바로 채점되고, 선생님 스프레드시트에도 자동으로 기록됩니다.</div>
 

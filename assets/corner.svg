@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 200" role="img" aria-label="">
+<defs>
+  <linearGradient id="lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a6e07a"/><stop offset="1" stop-color="#43a84a"/></linearGradient>
+  <radialGradient id="nu" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f6a7d4"/><stop offset="1" stop-color="#b44fd0"/></radialGradient>
+</defs>
+<!-- 원자 -->
+<g transform="translate(62,52)" fill="none" stroke-width="2.6" stroke-linecap="round">
+  <ellipse rx="46" ry="16" transform="rotate(-28)" stroke="#8d6fe0"/>
+  <ellipse rx="46" ry="16" transform="rotate(32)" stroke="#e66fb0"/>
+  <ellipse rx="46" ry="16" transform="rotate(90)" stroke="#5aa8f0"/>
+  <circle r="9" fill="url(#nu)" stroke="none"/>
+  <circle cx="-40" cy="-20" r="5" fill="#8d6fe0" stroke="none"/><circle cx="38" cy="22" r="5" fill="#e66fb0" stroke="none"/><circle cx="0" cy="-45" r="5" fill="#5aa8f0" stroke="none"/>
+</g>
+<!-- 잎 -->
+<g stroke-linecap="round">
+  <path d="M112,196 C108,170 112,148 122,128" fill="none" stroke="#4fae45" stroke-width="3.4"/>
+  <path d="M112,196 C100,176 84,168 70,166" fill="none" stroke="#4fae45" stroke-width="3"/>
+  <g transform="translate(110,176) rotate(-150) scale(.8)"><path d="M0,0 C14,-14 34,-14 52,0 C34,14 14,14 0,0 Z" fill="url(#lf)"/></g>
+  <g transform="translate(112,160) rotate(-30) scale(.74)"><path d="M0,0 C14,-14 34,-14 52,0 C34,14 14,14 0,0 Z" fill="url(#lf)"/></g>
+  <g transform="translate(116,142) rotate(-150) scale(.62)"><path d="M0,0 C14,-14 34,-14 52,0 C34,14 14,14 0,0 Z" fill="url(#lf)"/></g>
+  <g transform="translate(120,130) rotate(-60) scale(.55)"><path d="M0,0 C14,-14 34,-14 52,0 C34,14 14,14 0,0 Z" fill="url(#lf)"/></g>
+  <g transform="translate(82,168) rotate(-170) scale(.6)"><path d="M0,0 C14,-14 34,-14 52,0 C34,14 14,14 0,0 Z" fill="url(#lf)"/></g>
+</g>
+</svg>

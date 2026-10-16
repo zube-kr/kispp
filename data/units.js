@@ -59,6 +59,7 @@ window.GRADES = [
         // materials: 소단원 자료 목록
         //   url: 우리 활동지는 materials/ 아래 경로, 다른 사이트 자료는 external: true
         //   parts: 자료 안의 구간 { p: 구간 종류, t: 그 구간 제목 } → 색깔 칩으로 표시
+        //   added: 올린 날짜. 탐구실험(lab) 구간이 있는 우리 워크시트는 메인 화면 '실험 보고서'에 최신순으로 자동 표시
         materials: [
           { title: "영양소와 균형 잡힌 식단", external: true,
             desc: "영양소의 종류와 기능, 균형 잡힌 식단을 알아보는 WebGL 학습 콘텐츠입니다.",
@@ -74,12 +75,12 @@ window.GRADES = [
             parts: [{ p: "lab", t: "시약으로 영양소 검출하기" }] },
           { title: "영양소 검출 실험보고서",
             desc: "가상실험 결과를 시약별로 정리하고 워크시트를 풀어 보는 자동 채점 실험보고서입니다.",
-            url: "materials/g2-6/yeongyangso-geomchul.html",
+            url: "materials/g2-6/yeongyangso-geomchul.html", added: "2026-10-14",
             parts: [{ p: "concept", t: "실험 개요" }, { p: "lab", t: "반응 결과 확인하기" },
                     { p: "concept", t: "실험 결과 정리표" }, { p: "quiz", t: "스스로 확인 · 제출" }] },
           { title: "소화 기관 해부 모형 만들기",
             desc: "소화 기관 조각을 몸 그림의 올바른 위치에 배치하고 특징을 정리하는 자동 채점 활동입니다.",
-            url: "materials/g2-6/sohwagye-model.html",
+            url: "materials/g2-6/sohwagye-model.html", added: "2026-10-14",
             parts: [{ p: "sim", t: "소화 기관 조각 붙이기" }, { p: "concept", t: "소화 기관의 특징" },
                     { p: "quiz", t: "스스로 점검 · 제출" }] }
         ] },
@@ -91,32 +92,32 @@ window.GRADES = [
         materials: [
           { title: "시차 측정하기",
             desc: "시차를 측정하여 물체까지의 거리와 시차의 관계를 설명하는 라이브 워크시트입니다.",
-            url: "materials/g2-8/parallax.html",
+            url: "materials/g2-8/parallax.html", added: "2026-10-16",
             parts: [{ p: "lab", t: "실험하기" }, { p: "lab", t: "정리하기" }, { p: "lab", t: "빨대로 시차 측정하기" },
                     { p: "concept", t: "시차와 거리" }, { p: "quiz", t: "별 X, 별 Y의 연주 시차 비교" }, { p: "quiz", t: "문제 풀이" }] },
           { title: "별의 밝기가 다른 까닭은",
             desc: "빛의 밝기와 거리의 관계, 겉보기 등급과 절대 등급을 시뮬레이션으로 탐구하는 라이브 워크시트입니다.",
-            url: "materials/g2-8/brightness.html",
+            url: "materials/g2-8/brightness.html", added: "2026-10-16",
             parts: [{ p: "lab", t: "거리에 따른 빛의 밝기 변화" }, { p: "lab", t: "정리하기" }, { p: "quiz", t: "확인 문제" },
                     { p: "concept", t: "겉보기 등급과 절대 등급" }, { p: "sim", t: "별을 드래그해 거리 바꾸기" }, { p: "quiz", t: "큰개자리 별의 밝기 비교" }] },
           { title: "별의 색이 다른 까닭은",
             desc: "플랑크 복사 법칙과 H-R도 시뮬레이션으로 별의 표면 온도·색·광도의 관계를 탐구하는 라이브 워크시트입니다.",
-            url: "materials/g2-8/starcolor.html",
+            url: "materials/g2-8/starcolor.html", added: "2026-10-16",
             parts: [{ p: "concept", t: "별의 색과 표면 온도" }, { p: "sim", t: "플랑크 복사 법칙과 별의 색" }, { p: "lab", t: "표면 온도를 색으로 비교하기" },
                     { p: "sim", t: "H-R도" }, { p: "concept", t: "개념정리" }, { p: "quiz", t: "확인 문제" }] },
           { title: "은하수와 우리은하",
             desc: "별의 색·온도 복습과 우리은하 시뮬레이션으로 태양계의 위치를 탐구하는 라이브 워크시트입니다.",
-            url: "materials/g2-8/galaxy.html",
+            url: "materials/g2-8/galaxy.html", added: "2026-10-16",
             parts: [{ p: "quiz", t: "복습 · 별의 색과 표면 온도" }, { p: "concept", t: "은하수와 우리은하" }, { p: "sim", t: "우리은하 속 태양계의 위치" },
                     { p: "sim", t: "나선팔 3D 시뮬레이션" }, { p: "concept", t: "개념정리 · 우리은하" }, { p: "quiz", t: "확인 문제" }] },
           { title: "성단과 성운 — 세 가지 성운의 차이",
             desc: "구상·산개 성단의 분포, 방출·반사·암흑 성운이 다르게 보이는 까닭, 수소 원자의 전자가 빛을 내는 원리를 시뮬레이션으로 살펴보는 자동 채점 워크시트입니다.",
-            url: "materials/g2-8/seongdan-seongun.html",
+            url: "materials/g2-8/seongdan-seongun.html", added: "2026-10-16",
             parts: [{ p: "concept", t: "성간 물질과 성운" }, { p: "sim", t: "성단은 우리은하의 어디에?" }, { p: "sim", t: "세 가지 성운" },
                     { p: "sim", t: "전자의 들뜸과 빛의 방출" }, { p: "quiz", t: "스스로 점검" }, { p: "quiz", t: "창의적 사고력" }] },
           { title: "팽창하는 우주",
             desc: "고무풍선 가상 실험, 도플러 효과 3D 시뮬레이션, 풍선 우주–허블 법칙 연동 시뮬레이션으로 대폭발 우주론을 탐구하는 자동 채점 워크시트입니다.",
-            url: "materials/g2-8/expansion.html",
+            url: "materials/g2-8/expansion.html", added: "2026-10-16",
             parts: [{ p: "concept", t: "팽창하는 우주와 대폭발 우주론" }, { p: "lab", t: "우주 팽창 실험 (고무풍선)" }, { p: "sim", t: "도플러 효과 3D" },
                     { p: "sim", t: "풍선 우주와 허블 법칙" }, { p: "quiz", t: "스스로 점검" }, { p: "quiz", t: "창의적 사고력" }] }
         ] }

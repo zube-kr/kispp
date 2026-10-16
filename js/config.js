@@ -8,10 +8,10 @@ window.KISPP_CONFIG = {
   // 학년마다 스프레드시트를 따로 만들었다면 → 아래 학년 칸에 각 시트의 주소를 넣으세요.
   // (학년 칸이 비어 있으면 위의 SUBMIT_URL을 씁니다.)
   SUBMIT_URLS: {
-    "중1": "",
-    "중2": "",
-    "중3": "",
-    "고1": ""
+    "중1": "https://script.google.com/macros/s/AKfycby7g0MJdkO7jS9Evxtnm9pFwoZxd4u0FUwUucr4zaSGn3HnSAr79ULPaR0fmT_3ngMlAg/exec",
+    "중2": "https://script.google.com/macros/s/AKfycbx2LkRzkVNrprzErKFYLUvSbjQqkS1xLrHV02YcbcBGNqdwb7uQ4mWDtkf4wh0yfa0E1Q/exec",
+    "중3": "https://script.google.com/macros/s/AKfycbytWKer-u6zdAhkOtb8iiY6OyEmv0L5qxT_1zI0kjs7-J48wO4TBh_M3yHk394s5ZUR1A/exec",
+    "고1": "https://script.google.com/macros/s/AKfycbzxO5sDWe-V4NWVgdAth1-rYes1XBUsUCgsn-PKXLjh5RkaCJgEHXz8KK44_woGb7JN/exec"
   }
   // 둘 다 비어 있으면 화면에서 채점만 되고 스프레드시트로는 전송되지 않습니다.
 };

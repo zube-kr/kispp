@@ -94,6 +94,33 @@
   .board h3 i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #fff; font-size: 14px; }
   .board li { list-style: none; display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 9px 0; border-top: 1px solid #e3e9dd; color: #394152; }
   .board li span { color: #98a0ae; flex-shrink: 0; }
+  .board li a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .board li a:hover { color: var(--green-d); text-decoration: underline; }
+  .board li.none { color: #98a0ae; font-size: 13.5px; }
+  .board h3 .more { margin-left: auto; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-size: 18px; font-weight: 700; color: var(--sub); background: #fff; border: 1px solid #e3e9dd; }
+  .board h3 .more:hover { color: var(--green-d); border-color: #cfe8c2; }
+  .extras a.on { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); color: var(--navy); }
+
+  .page-head { margin: 14px 0 22px; }
+  .page-head h2 { font-size: 28px; letter-spacing: -1px; }
+  .page-head p { color: var(--sub); margin-top: 6px; }
+  .notice-list { list-style: none; border-top: 1px solid var(--line); }
+  .notice-list li { border-bottom: 1px solid var(--line); }
+  .notice-list .nt { display: flex; justify-content: space-between; gap: 12px; padding: 16px 8px; font-size: 16px; font-weight: 600; }
+  .notice-list .nt:hover { background: var(--bg-soft); }
+  .notice-list .nt em { font-style: normal; font-size: 12px; font-weight: 800; color: #fff; background: #e53935; padding: 2px 7px; border-radius: 6px; margin-right: 8px; vertical-align: 2px; }
+  .notice-list .d { color: #98a0ae; font-size: 14px; font-weight: 500; flex-shrink: 0; }
+  .notice-list .nb { display: none; padding: 4px 8px 18px; color: #394152; line-height: 1.75; }
+  .notice-list li.open .nb { display: block; }
+  .notice-list li.open .nt { color: var(--green-d); }
+  .rep-group { margin-bottom: 28px; }
+  .rep-group > h3 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 17px; margin-bottom: 8px; }
+  .rep-group > h3 .dot { min-width: 26px; height: 26px; padding: 0 4px; border-radius: 8px; color: #fff; display: grid; place-items: center; font-size: 12px; }
+  .rep-group > h3 button { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--navy); }
+  .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .game { border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px; transition: .15s; }
+  .game:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(27,42,143,.08); }
+  .game .gi { font-size: 30px; } .game p { color: var(--sub); font-size: 14px; flex: 1; } .game small { color: var(--sub); font-weight: 700; }
 
   /* 단원 상세 */
   .crumb { font-size: 13px; color: var(--sub); }
@@ -180,8 +207,9 @@
 
       <div class="side-title" style="margin-top:10px">더 보기</div>
       <div class="extras">
-        <a href="#">🧪 실험·탐구 보고서</a>
-        <a href="#">🎮 쉬어가는 과학 게임</a>
+        <a href="#/notice" data-view="notice">📢 과학실 공지</a>
+        <a href="#/reports" data-view="reports">🧪 실험·탐구 보고서</a>
+        <a href="#/games" data-view="games">🎮 쉬어가는 과학 게임</a>
         <a href="#">📖 방명록</a>
       </div>
 
@@ -201,15 +229,18 @@
 </div>
 
 <script src="data/units.js"></script>
+<script src="data/board.js"></script>
 <script>
   const roman = ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ'];
-  // view: 'home' 또는 'unit' / g: 학년 인덱스 / u: 단원 인덱스
+  // view: 'home' | 'unit' | 'notice' | 'reports' | 'games' / g: 학년 인덱스 / u: 단원 인덱스
   let state = { view: 'home', g: 0, u: 0 };
 
   // 주소(#)로 화면을 기억: #/g2 → 중2 홈, #/g2/3 → 중2 3단원, #/is1/2 → 통합과학1 2번째 단원
   function goHome(g) { location.hash = `#/${GRADES[g ?? state.g].id}`; }
   function openUnit(g, u) { partFilter = null; location.hash = `#/${GRADES[g].id}/${u + 1}`; }
   function readHash() {
+    const pm = location.hash.match(/^#\/(notice|reports|games)(?:\/([\w-]+))?/);
+    if (pm) { state = { view: pm[1], g: state.g, u: 0, id: pm[2] || null }; render(); return; }
     const m = location.hash.match(/^#\/([a-z0-9]+)(?:\/(\d+))?/);
     const found = m ? GRADES.findIndex(x => x.id === m[1]) : -1;
     const g = Math.max(found, 0);
@@ -239,6 +270,7 @@
 
   function renderNav() {
     document.getElementById('homeBtn').classList.toggle('on', state.view === 'home');
+    document.querySelectorAll('.extras a[data-view]').forEach(a => a.classList.toggle('on', a.dataset.view === state.view));
     document.getElementById('nav').innerHTML = levels().map(lv => `
       <div class="side-title">${lv}</div>
       ${GRADES.map((g, gi) => g.level !== lv ? '' : `
@@ -286,13 +318,81 @@
       </div>
 
       <div class="boards">
-        <div class="board"><h3><i style="background:#e53935">📢</i>과학실 공지</h3><ul>
-          <li>과학의 날 탐구 발표회 안내<span>09.26</span></li><li>실험실 안전 수칙 다시 보기<span>09.15</span></li><li>2학기 수행평가 일정<span>09.02</span></li></ul></div>
-        <div class="board"><h3><i style="background:#2f7de1">🧪</i>실험 보고서</h3><ul>
-          <li>[중2] 밀도로 물질 구별하기<span>09.25</span></li><li>[중3] 질량 보존 확인 실험<span>09.24</span></li><li>[중1] 열의 이동 관찰<span>09.19</span></li></ul></div>
-        <div class="board"><h3><i style="background:#5cb531">🎮</i>쉬어가는 과학 게임</h3><ul>
-          <li>원소 기호 카드 뒤집기<span>중2</span></li><li>행성 크기 순서 맞히기<span>중1</span></li><li>날씨 기호 퀴즈<span>중3</span></li></ul></div>
+        <div class="board">${boardHead('#e53935', '📢', '과학실 공지', '#/notice')}<ul>
+          ${sortedNotices().slice(0, 3).map(n => `<li><a href="#/notice/${n.id}">${n.pin ? '📌 ' : ''}${n.title}</a><span>${mmdd(n.date)}</span></li>`).join('')
+            || '<li class="none">아직 공지가 없어요.</li>'}</ul></div>
+        <div class="board">${boardHead('#2f7de1', '🧪', '실험 보고서', '#/reports')}<ul>
+          ${labReports().slice(0, 3).map(r => `<li><a href="${r.m.url}">[${r.g.label}] ${r.m.title}</a><span>${mmdd(r.m.added)}</span></li>`).join('')
+            || '<li class="none">탐구실험이 들어 있는 워크시트가 올라오면 여기에 나와요.</li>'}</ul></div>
+        <div class="board">${boardHead('#5cb531', '🎮', '쉬어가는 과학 게임', '#/games')}<ul>
+          ${sortedGames().slice(0, 3).map(x => `<li><a href="${x.url}"${extAttr(x)}>${x.icon || '🎮'} ${x.title}</a><span>${x.grade || ''}</span></li>`).join('')
+            || '<li class="none">게임을 준비하고 있어요.</li>'}</ul></div>
       </div>`;
+  }
+
+  // ── 게시판 데이터 ──
+  const mmdd = d => d ? d.slice(5).replace('-', '.') : '';
+  const boardHead = (color, icon, title, href) =>
+    `<h3><i style="background:${color}">${icon}</i>${title}<a class="more" href="${href}" title="${title} 전체 보기" aria-label="${title} 전체 보기">＋</a></h3>`;
+  const sortedNotices = () => [...(window.NOTICES || [])].sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0) || b.date.localeCompare(a.date));
+  const sortedGames = () => [...(window.GAMES || [])].sort((a, b) => (b.added || '').localeCompare(a.added || ''));
+  // 탐구실험 구간이 있는 우리 워크시트 = 실험 보고서 (올린 날짜 최신순)
+  function labReports() {
+    const out = [];
+    GRADES.forEach((g, gi) => g.units.forEach((u, ui) => (u.materials || []).forEach((m, mi) => {
+      if (!m.external && (m.parts || []).some(x => x.p === 'lab')) out.push({ g, gi, u, ui, m, order: out.length });
+    })));
+    return out.sort((a, b) => (b.m.added || '').localeCompare(a.m.added || '') || a.order - b.order);
+  }
+
+  function pageHead(icon, title, desc) {
+    return `<div class="crumb"><button onclick="goHome()">홈</button> › ${title}</div>
+      <div class="page-head"><h2>${icon} ${title}</h2><p>${desc}</p></div>`;
+  }
+  function noticeView() {
+    const list = sortedNotices();
+    return pageHead('📢', '과학실 공지', '과학실 소식과 안내를 모아 둔 게시판이에요. 제목을 누르면 내용이 펼쳐져요.') + (list.length ? `
+      <ul class="notice-list">${list.map(n => `
+        <li class="${state.id === n.id ? 'open' : ''}">
+          <a class="nt" href="${state.id === n.id ? '#/notice' : '#/notice/' + n.id}">
+            <span class="t">${n.pin ? '<em>고정</em>' : ''}${n.title}</span><span class="d">${n.date.replace(/-/g, '.')}</span></a>
+          <div class="nb">${n.body.split('\n').map(line => `<p>${line}</p>`).join('')}</div>
+        </li>`).join('')}
+      </ul>` : '<div class="empty">아직 공지가 없어요.</div>');
+  }
+  function reportsView() {
+    const list = labReports();
+    if (!list.length) return pageHead('🧪', '실험·탐구 보고서', '탐구실험이 들어 있는 워크시트를 모아 보여 줘요.') + '<div class="empty">아직 올라온 실험 보고서가 없어요.</div>';
+    // 학년·단원별로 묶어서 보여 줌
+    const groups = [];
+    list.slice().sort((a, b) => a.gi - b.gi || a.ui - b.ui || a.order - b.order).forEach(r => {
+      const key = r.gi + '-' + r.ui;
+      let grp = groups.find(x => x.key === key);
+      if (!grp) groups.push(grp = { key, r, items: [] });
+      grp.items.push(r);
+    });
+    const lab = LESSON_PARTS.lab;
+    return pageHead('🧪', '실험·탐구 보고서', `탐구실험이 들어 있는 워크시트 ${list.length}개를 단원별로 모았어요. 🧪 칩을 누르면 실험 부분만 열려요.`) +
+      groups.map(({ r, items }) => `
+        <div class="rep-group">
+          <h3><span class="dot" style="background:${r.g.color}">${r.g.badge}</span>${r.g.title} · ${navNo(r.g, r.ui)} ${r.u.title}
+            <button onclick="openUnit(${r.gi},${r.ui})">단원 보기 →</button></h3>
+          <ul class="list">${items.map(x => `
+            <li class="row"><span class="no">🧪</span>
+              <div class="body"><h3><a href="${x.m.url}">${x.m.title}</a></h3><p>${x.m.desc}</p>
+                <div class="chips"><a class="chip" style="--pc:${lab.color}" href="${x.m.url}?part=lab">${lab.icon} ${x.m.parts.filter(p => p.p === 'lab').map(p => p.t).join(' · ')}</a></div></div>
+              <div class="side"><span class="mtag">${x.m.added ? x.m.added.replace(/-/g, '.') : ''}</span><a class="open-ws" href="${x.m.url}">워크시트 열기</a></div>
+            </li>`).join('')}
+          </ul>
+        </div>`).join('');
+  }
+  function gamesView() {
+    const list = sortedGames();
+    return pageHead('🎮', '쉬어가는 과학 게임', '수업 사이사이 쉬어 가며 즐기는 과학 게임이에요.') + (list.length ? `
+      <div class="game-grid">${list.map(x => `
+        <a class="game" href="${x.url}"${extAttr(x)}><span class="gi">${x.icon || '🎮'}</span>
+          <b>${x.title}</b><p>${x.desc || ''}</p><small>${x.grade || ''}${x.external ? ' · 외부 ↗' : ''}</small></a>`).join('')}
+      </div>` : '<div class="empty">🎮 게임을 준비하고 있어요. 곧 이곳에 올라올 거예요.</div>');
   }
 
   // 단원 자료: 목록은 소단원 워크시트, 칩은 그 워크시트의 한 구간(?part=)으로 바로 가기.
@@ -369,7 +469,8 @@
 
   function render() {
     renderNav();
-    document.getElementById('page').innerHTML = state.view === 'home' ? homeView() : unitView();
+    const views = { home: homeView, unit: unitView, notice: noticeView, reports: reportsView, games: gamesView };
+    document.getElementById('page').innerHTML = views[state.view]();
     if (!keepDrawer) document.body.classList.remove('nav-open');
     keepDrawer = false;
     window.scrollTo(0, 0);

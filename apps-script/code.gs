@@ -21,9 +21,36 @@
  * 5) 워크시트에 새 문항이 생겨도 코드 수정 없이 새 열이 자동으로 추가됩니다.
  */
 
+/**
+ * 두 가지 제출 형식을 모두 받습니다.
+ * - 폼 형식(아화중 자료): worksheet=시트이름&grade=..&classNum=..
+ * - JSON 형식(경주여중 자료): {"form":"시트이름","stuClass":..,"stuNumber":..,"name":..}
+ * JSON 형식의 이름은 폼 형식에 맞춰 바꿔서 같은 방식으로 기록합니다.
+ */
+function readPayload_(e) {
+  var d = {};
+  var p = (e && e.parameter) || {};
+  for (var k in p) d[k] = p[k];
+  var body = e && e.postData && e.postData.contents;
+  if (body && body.charAt(0) === "{") {
+    try {
+      var j = JSON.parse(body);
+      for (var key in j) {
+        var v = j[key];
+        d[key] = v !== null && typeof v === "object" ? JSON.stringify(v) : v; // 배열·객체는 글자로
+      }
+    } catch (err) {}
+  }
+  if (!d.worksheet && d.form) d.worksheet = d.form;
+  if (d.stuClass !== undefined && d.classNum === undefined) d.classNum = d.stuClass;
+  if (d.stuNumber !== undefined && d.number === undefined) d.number = d.stuNumber;
+  delete d.form; delete d.stuClass; delete d.stuNumber;
+  return d;
+}
+
 function doPost(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var d = (e && e.parameter) || {};
+  var d = readPayload_(e);
 
   var sheetName = d.worksheet || "기타";
   var sheet = ss.getSheetByName(sheetName);

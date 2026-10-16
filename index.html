@@ -300,6 +300,15 @@
   let partFilter = null;
   const extAttr = m => m.external ? ' target="_blank" rel="noopener"' : '';
   const partUrl = (m, p) => m.external ? m.url : `${m.url}?part=${p}`;
+  // 같은 종류 구간은 칩 하나로 묶음 (?part= 로 열면 그 종류 구간이 모두 보이므로)
+  function groupParts(m) {
+    const groups = [];
+    (m.parts || []).forEach(x => {
+      const g = groups.find(([p]) => p === x.p);
+      g ? g[1].push(x.t) : groups.push([x.p, [x.t]]);
+    });
+    return groups;
+  }
   const partCount = (u, p) => (u.materials || []).filter(m => (m.parts || []).some(x => x.p === p)).length;
   function setPartFilter(p) {
     const u = GRADES[state.g].units[state.u];
@@ -327,11 +336,11 @@
         return `<li class="row ${has ? '' : 'dim'}">
           <span class="no">${i + 1}</span>
           <div class="body"><h3><a href="${m.url}"${extAttr(m)}>${m.title}</a></h3><p>${m.desc}</p>
-            <div class="chips">${(m.parts || []).map(x => {
-              const v = LESSON_PARTS[x.p];
-              return `<a class="chip ${partFilter === x.p ? 'hit' : ''}" style="--pc:${v.color}" href="${partUrl(m, x.p)}"${extAttr(m)}>${v.icon} ${x.t}</a>`;
+            <div class="chips">${groupParts(m).map(([p, titles]) => {
+              const v = LESSON_PARTS[p];
+              return `<a class="chip ${partFilter === p ? 'hit' : ''}" style="--pc:${v.color}" href="${partUrl(m, p)}"${extAttr(m)} title="${v.name}: ${titles.join(', ')}">${v.icon} ${titles.join(' · ')}</a>`;
             }).join('')}</div></div>
-          <div class="side"><span class="mtag">${m.external ? '외부 자료 ↗' : '워크시트 · 자동 채점'}</span>
+          <div class="side"><span class="mtag">${m.external ? '외부 자료 ↗' : '워크시트'}</span>
             ${m.external ? '' : `<a class="open-ws" href="${m.url}">워크시트 열기</a>`}</div>
         </li>`;
       }).join('')}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 190" role="img" aria-label="">
+<defs>
+  <radialGradient id="b" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset="1" stop-color="#8fc9f2" stop-opacity=".55"/></radialGradient>
+</defs>
+<g opacity=".55">
+  <line x1="70" y1="150" x2="118" y2="116" stroke="#b9d9f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="118" y1="116" x2="178" y2="138" stroke="#b9d9f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="118" y1="116" x2="126" y2="62" stroke="#b9d9f2" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="70" cy="150" r="22" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.4"/>
+  <circle cx="118" cy="116" r="28" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.4"/>
+  <circle cx="178" cy="138" r="18" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.4"/>
+  <circle cx="126" cy="62" r="15" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.4"/>
+  <circle cx="214" cy="84" r="9" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.2"/>
+  <circle cx="30" cy="96" r="7" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.2"/>
+  <circle cx="236" cy="168" r="12" fill="url(#b)" stroke="#a9d3f0" stroke-width="1.2"/>
+</g>
+</svg>

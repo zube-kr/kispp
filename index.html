@@ -19,7 +19,7 @@
   .layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; background: linear-gradient(90deg, var(--soft) 279px, var(--line) 279px 280px, #fff 280px); }
 
   /* ── 왼쪽 사이드바 ── */
-  aside { background: var(--soft); border-right: 1px solid var(--line); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+  aside { background: #f6f9fd url(assets/side-bubbles.svg) no-repeat left bottom / 100% auto; border-right: 1px solid var(--line); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
   aside::before { content: ""; display: block; height: 6px; background: var(--green); flex-shrink: 0; }
   .side-in { padding: 22px 16px 24px; display: flex; flex-direction: column; flex: 1; }
   .brand { display: flex; align-items: center; gap: 12px; padding: 0 6px 22px; }
@@ -57,10 +57,12 @@
   main { min-width: 0; }
   .topbar { display: flex; justify-content: space-between; align-items: center; height: 58px; padding: 0 40px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--sub); }
   .topbar a:hover { color: var(--green-d); }
-  .page { padding: 34px 40px 60px; max-width: 1120px; }
+  .page { padding: 34px 40px 60px; max-width: 1120px; position: relative; }
+  .page.is-home { padding-bottom: 150px; }
+  .corner { position: absolute; right: 30px; bottom: 14px; width: 92px; pointer-events: none; }
 
   /* 홈: 소개 영역 */
-  .hero { background: linear-gradient(120deg, #eef8e8 0%, #eaf1ff 100%); border-radius: 24px; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; padding: 40px 44px; overflow: hidden; }
+  .hero { background: radial-gradient(circle at 72% 18%, rgba(255,255,255,.95), transparent 46%), radial-gradient(circle at 4% 104%, rgba(176,230,196,.55), transparent 42%), linear-gradient(120deg, #e8f6ec 0%, #e6f1fb 56%, #dde9fb 100%); border-radius: 24px; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr); align-items: center; gap: 4px; padding: 36px 18px 32px 44px; overflow: hidden; border: 1px solid #e2ecf6; box-shadow: 0 10px 30px rgba(60,110,170,.07); }
   .tag { display: inline-block; background: #fff; color: var(--green-d); font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 99px; border: 1px solid #cfe8c2; }
   .hero h1 { font-size: 40px; line-height: 1.25; margin: 16px 0 12px; letter-spacing: -1.5px; }
   .hero h1 em { font-style: normal; color: var(--green-d); }
@@ -68,9 +70,9 @@
   .quick { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
   .quick:first-of-type { margin-top: 24px; }
   .quick small { width: 100%; font-size: 12px; font-weight: 700; color: var(--sub); letter-spacing: .5px; }
-  .quick button { font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+  .quick button { font-weight: 700; font-size: 14.5px; padding: 10px 16px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
   .quick button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
-  .hero svg { width: 100%; max-width: 300px; justify-self: center; }
+  .hero-art { width: 100%; max-width: 560px; justify-self: end; display: block; margin: -6px 0 -8px; }
 
   .sec-head { display: flex; align-items: end; justify-content: space-between; margin: 40px 0 18px; gap: 12px; flex-wrap: wrap; }
   .sec-head h2 { font-size: 24px; letter-spacing: -.8px; }
@@ -78,26 +80,32 @@
   .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
 
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
-  .card { border: 1px solid var(--line); border-radius: 16px; padding: 20px 18px 16px; background: #fff; display: flex; flex-direction: column; transition: .15s; position: relative; text-align: left; }
+  .card { border: 1px solid #e6edf6; box-shadow: 0 2px 8px rgba(40,70,120,.04); border-radius: 16px; padding: 20px 18px 16px; background: #fff; display: flex; flex-direction: column; transition: .15s; position: relative; text-align: left; }
   .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(27,42,143,.08); border-color: #cdd6ea; }
   .card-grp { grid-column: 1 / -1; font-weight: 800; font-size: 16px; color: var(--ink); padding: 10px 2px 0; border-top: 1px dashed var(--line); }
   .card-grp:first-child { border-top: 0; padding-top: 0; }
   .card .no { font-size: 13px; font-weight: 800; color: var(--sub); }
-  .card .dom { position: absolute; top: 16px; right: 16px; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 99px; color: #fff; }
+  .card .dom { position: absolute; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 800; padding: 3px 10px 3px 4px; border-radius: 99px; color: var(--dc); background: color-mix(in srgb, var(--dc) 12%, #fff); }
+  .card .dom i { width: 19px; height: 19px; border-radius: 50%; background: var(--dc); display: grid; place-items: center; }
+  .card .dom i svg { width: 12px; height: 12px; }
   .card h3 { font-size: 18px; margin: 10px 0 8px; letter-spacing: -.5px; }
   .card p { font-size: 14px; color: var(--sub); line-height: 1.6; flex: 1; }
   .card .go { margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--green-d); }
 
-  .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
-  .board { background: var(--bg-soft); border-radius: 16px; padding: 20px; }
-  .board h3 { font-size: 17px; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-  .board h3 i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #fff; font-size: 14px; }
-  .board li { list-style: none; display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 9px 0; border-top: 1px solid #e3e9dd; color: #394152; }
+  .boards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 40px; }
+  .board { background: var(--bbg, var(--bg-soft)); border: 1px solid var(--bbd, transparent); border-radius: 16px; padding: 20px; }
+  .board.b-red { --bbg: #fdeeee; --bbd: #f8dada; --bln: #f3d3d3; }
+  .board.b-blue { --bbg: #eaf2fd; --bbd: #d6e5f8; --bln: #cfe0f6; }
+  .board.b-green { --bbg: #ebf7e6; --bbd: #d5ebcc; --bln: #cfe6c4; }
+  .board h3 { font-size: 16.5px; white-space: nowrap; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .board h3 i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; flex-shrink: 0; }
+  .board h3 i svg { width: 17px; height: 17px; }
+  .board li { list-style: none; display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 9px 0; border-top: 1px solid var(--bln, #e3e9dd); color: #394152; }
   .board li span { color: #98a0ae; flex-shrink: 0; }
   .board li a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .board li a:hover { color: var(--green-d); text-decoration: underline; }
   .board li.none { color: #98a0ae; font-size: 13.5px; }
-  .board h3 .more { margin-left: auto; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-size: 18px; font-weight: 700; color: var(--sub); background: #fff; border: 1px solid #e3e9dd; }
+  .board h3 .more { margin-left: auto; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-size: 18px; font-weight: 700; color: var(--sub); background: #fff; border: 1px solid rgba(0,0,0,.07); }
   .board h3 .more:hover { color: var(--green-d); border-color: #cfe8c2; }
   .extras a.on { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); color: var(--navy); }
 
@@ -181,7 +189,9 @@
     .topbar .links { display: none; }
     .page { padding: 20px 16px 50px; }
     .hero { grid-template-columns: 1fr; padding: 28px 22px; }
-    .hero svg { display: none; }
+    .hero-art { max-width: 420px; justify-self: center; margin: 4px 0 -6px; }
+    .corner { display: none; }
+    .page.is-home { padding-bottom: 50px; }
     .hero h1 { font-size: 30px; }
     .boards { grid-template-columns: 1fr; }
     .top { flex-direction: column; }
@@ -232,6 +242,17 @@
 <script src="data/board.js"></script>
 <script>
   const roman = ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ'];
+  // 흰색 선 아이콘 (영역·게시판 표시용)
+  const svgI = body => `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+  const ICON = {
+    phy: svgI('<ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(35 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-35 12 12)"/><circle cx="12" cy="12" r="1.6" fill="#fff"/>'),
+    chem: svgI('<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 15h8"/>'),
+    bio: svgI('<path d="M5 19c0-9 5-14 14-14 0 9-5 14-14 14z"/><path d="M5 19l8-8"/>'),
+    earth: svgI('<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>'),
+    int: svgI('<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>'),
+    megaphone: svgI('<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>'),
+    gamepad: svgI('<path d="M6 8h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5 2l-1-1H8l-1 1a3 3 0 0 1-5-2v-2a4 4 0 0 1 4-4z"/><path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>')
+  };
   // view: 'home' | 'unit' | 'notice' | 'reports' | 'games' / g: 학년 인덱스 / u: 단원 인덱스
   let state = { view: 'home', g: 0, u: 0 };
 
@@ -294,14 +315,7 @@
           ${levels().map(lv => `<div class="quick"><small>${lv}</small>${GRADES.map((x, i) => x.level !== lv ? '' :
             `<button class="${i === state.g ? 'on' : ''}" onclick="goHome(${i})">${x.label}</button>`).join('')}</div>`).join('')}
         </div>
-        <svg viewBox="0 0 400 320" aria-hidden="true">
-          <circle cx="200" cy="160" r="135" fill="#fff"/>
-          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#2f7de1" stroke-width="3" transform="rotate(30 200 160)"/>
-          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#5cb531" stroke-width="3" transform="rotate(-30 200 160)"/>
-          <ellipse cx="200" cy="160" rx="120" ry="44" fill="none" stroke="#f08a24" stroke-width="3" transform="rotate(90 200 160)"/>
-          <circle cx="200" cy="160" r="18" fill="#1b2a8f"/>
-          <circle cx="304" cy="100" r="9" fill="#2f7de1"/><circle cx="96" cy="100" r="9" fill="#5cb531"/><circle cx="200" cy="40" r="9" fill="#f08a24"/>
-        </svg>
+        <img class="hero-art" src="assets/hero-science.svg" alt="현미경과 시험관, 플라스크, DNA 그림">
       </section>
 
       <div class="sec-head">
@@ -312,28 +326,29 @@
         ${u.group && u.group !== (g.units[k - 1] || {}).group ? `<div class="card-grp">${u.group}</div>` : ''}
         <button class="card" onclick="openUnit(${state.g},${k})">
           <span class="no">${u.group ? unitCode(g, k) : String(k + 1).padStart(2, '0') + '단원'}</span>
-          <span class="dom" style="background:${DOMAINS[u.domain].color}">${DOMAINS[u.domain].name}</span>
+          <span class="dom" style="--dc:${DOMAINS[u.domain].color}"><i>${ICON[u.domain]}</i>${DOMAINS[u.domain].name}</span>
           <h3>${u.title}</h3><p>${u.desc}</p><span class="go">학습하러 가기 →</span>
         </button>`).join('')}
       </div>
 
       <div class="boards">
-        <div class="board">${boardHead('#e53935', '📢', '과학실 공지', '#/notice')}<ul>
+        <div class="board b-red">${boardHead('#e5484d', 'megaphone', '과학실 공지', '#/notice')}<ul>
           ${sortedNotices().slice(0, 3).map(n => `<li><a href="#/notice/${n.id}">${n.pin ? '📌 ' : ''}${n.title}</a><span>${mmdd(n.date)}</span></li>`).join('')
             || '<li class="none">아직 공지가 없어요.</li>'}</ul></div>
-        <div class="board">${boardHead('#2f7de1', '🧪', '실험 보고서', '#/reports')}<ul>
+        <div class="board b-blue">${boardHead('#2f7de1', 'chem', '실험 보고서', '#/reports')}<ul>
           ${labReports().slice(0, 3).map(r => `<li><a href="${r.m.url}">[${r.g.label}] ${r.m.title}</a><span>${mmdd(r.m.added)}</span></li>`).join('')
             || '<li class="none">탐구실험이 들어 있는 워크시트가 올라오면 여기에 나와요.</li>'}</ul></div>
-        <div class="board">${boardHead('#5cb531', '🎮', '쉬어가는 과학 게임', '#/games')}<ul>
+        <div class="board b-green">${boardHead('#4aa83a', 'gamepad', '쉬어가는 과학 게임', '#/games')}<ul>
           ${sortedGames().slice(0, 3).map(x => `<li><a href="${x.url}"${extAttr(x)}>${x.icon || '🎮'} ${x.title}</a><span>${x.grade || ''}</span></li>`).join('')
             || '<li class="none">게임을 준비하고 있어요.</li>'}</ul></div>
-      </div>`;
+      </div>
+      <img class="corner" src="assets/corner.svg" alt="">`;
   }
 
   // ── 게시판 데이터 ──
   const mmdd = d => d ? d.slice(5).replace('-', '.') : '';
   const boardHead = (color, icon, title, href) =>
-    `<h3><i style="background:${color}">${icon}</i>${title}<a class="more" href="${href}" title="${title} 전체 보기" aria-label="${title} 전체 보기">＋</a></h3>`;
+    `<h3><i style="background:${color}">${ICON[icon]}</i>${title}<a class="more" href="${href}" title="${title} 전체 보기" aria-label="${title} 전체 보기">＋</a></h3>`;
   const sortedNotices = () => [...(window.NOTICES || [])].sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0) || b.date.localeCompare(a.date));
   const sortedGames = () => [...(window.GAMES || [])].sort((a, b) => (b.added || '').localeCompare(a.added || ''));
   // 탐구실험 구간이 있는 우리 워크시트 = 실험 보고서 (올린 날짜 최신순)
@@ -470,7 +485,9 @@
   function render() {
     renderNav();
     const views = { home: homeView, unit: unitView, notice: noticeView, reports: reportsView, games: gamesView };
-    document.getElementById('page').innerHTML = views[state.view]();
+    const page = document.getElementById('page');
+    page.className = 'page' + (state.view === 'home' ? ' is-home' : '');
+    page.innerHTML = views[state.view]();
     if (!keepDrawer) document.body.classList.remove('nav-open');
     keepDrawer = false;
     window.scrollTo(0, 0);

@@ -1,31 +1,69 @@
 /**
- * KISPP 과학실(프놈펜한국국제학교) 워크시트 제출 → 구글 스프레드시트 저장용 Apps Script
+ * KISPP 과학실(프놈펜한국국제학교) 워크시트 답안 → 구글 스프레드시트 저장용 Apps Script
  * ------------------------------------------------------------------
- * 아화중학교 과학 저장소(zube-kr/science)의 code.gs를 그대로 가져왔습니다.
- * materials/ 아래 모든 워크시트가 같은 웹 앱 주소를 함께 씁니다.
+ * 학생이 워크시트에서 [제출]을 누르면 학년 탭(중1 · 중2 · 중3 · 고1)에 한 줄씩 쌓입니다.
  *
- * 각 워크시트가 보내는 값(필드)이 서로 달라도 그대로 열로 만들어 기록합니다.
- * 제출값의 "worksheet" 이름으로 시트 탭이 나뉘고, 없으면 "기타" 탭에 기록됩니다.
+ *   제출 시각 | 워크시트 | 학년 | 반 | 번호 | 이름 | 점수 | 답안 | 교사 피드백
  *
- * ▣ 설치 방법 (선생님 구글 계정으로 한 번만)
- * 1) 구글 스프레드시트를 새로 만듭니다. (탭은 자동으로 생깁니다.)
- * 2) 확장 프로그램 → Apps Script 를 열고, 기본 코드를 지운 뒤 이 파일
- *    내용을 전체 붙여넣고 저장합니다.
- * 3) 배포 → 새 배포 → 유형: 웹 앱
- *      - 실행 대상: 나
+ * - 학년 탭은 홈페이지가 알려 줍니다(js/config.js가 주소 뒤에 ?tab=중2 처럼 붙여 보냄).
+ * - 탭이 없으면 자동으로 만듭니다. 이미 만들어 둔 '중1', '중2', '중3', '고1' 탭을 그대로 씁니다.
+ * - 워크시트마다 문항이 달라서, 학생 답은 '답안' 칸 하나에 "문항: 답" 형태로 줄을 바꿔 적습니다.
+ * - '교사 피드백' 칸은 비워 두니 선생님이 직접 적으세요.
+ * - 아화중 자료(폼 형식)와 경주여중 자료(JSON 형식) 제출을 모두 받습니다.
+ *
+ * ▣ 설치 방법 (선생님 구글 계정으로, 스프레드시트마다 한 번)
+ * 1) 답안을 받을 구글 스프레드시트를 엽니다.
+ * 2) 확장 프로그램 → Apps Script 를 열고, 기본 코드를 모두 지운 뒤 이 파일 내용을 붙여넣고 저장합니다.
+ * 3) 배포 → 새 배포 → 톱니바퀴에서 유형 '웹 앱' 선택
+ *      - 실행 사용자: 나
  *      - 액세스 권한이 있는 사용자: 모든 사용자
- *    로 배포한 뒤, 발급된 웹 앱 URL(https://script.google.com/macros/s/.../exec)을 복사합니다.
- * 4) 저장소의 js/config.js 파일에서
- *      SUBMIT_URL: ""
- *    따옴표 안에 그 주소를 붙여넣습니다. 모든 워크시트에 한 번에 적용됩니다.
- * 5) 워크시트에 새 문항이 생겨도 코드 수정 없이 새 열이 자동으로 추가됩니다.
+ *    → 배포 → (처음이면) 권한 검토·허용 → 발급된 웹 앱 URL(https://script.google.com/macros/s/.../exec) 복사
+ * 4) 그 주소를 저장소의 js/config.js에 넣습니다.
+ *      - 스프레드시트 하나에 탭 4개를 만들었다면: SUBMIT_URL 한 칸에만 넣으면 됩니다.
+ *      - 학년마다 스프레드시트를 따로 만들었다면: 각 시트에서 1~3을 하고 SUBMIT_URLS의 학년 칸에 각각 넣습니다.
+ * 5) 코드를 고친 뒤에는 배포 → 배포 관리 → (연필) → 버전: 새 버전 → 배포 를 해야 반영됩니다. 주소는 그대로예요.
+ *
+ * ▣ 잘 되는지 확인: 웹 앱 주소를 브라우저에서 열면 "KISPP 과학실 답안 저장소가 작동 중입니다"가 보여요.
  */
 
+var HEADERS = ["제출 시각", "워크시트", "학년", "반", "번호", "이름", "점수", "답안", "교사 피드백"];
+// 답안 칸에 다시 적지 않을 정보
+var META_KEYS = ["tab", "worksheet", "grade", "classNum", "number", "name", "score", "total", "점수", "submittedAt"];
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000); // 여러 학생이 동시에 제출해도 줄이 섞이지 않게
+  try {
+    var d = readPayload_(e);
+    var sheet = getTab_(d.tab || "기타");
+    sheet.appendRow([
+      new Date(),
+      d.worksheet || "(이름 없음)",
+      d.tab && d.tab !== "기타" ? d.tab : (d.grade || ""), // 학년은 탭 이름(중2 등)으로 통일
+      d.classNum || "",
+      d.number || "",
+      d.name || "",
+      scoreText_(d),
+      answersText_(d),
+      ""
+    ]);
+    return json_({ result: "success" });
+  } catch (err) {
+    return json_({ result: "error", message: String(err) });
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function doGet() {
+  return ContentService.createTextOutput("KISPP 과학실 답안 저장소가 작동 중입니다. 학생 답안은 워크시트의 [제출] 버튼으로 보내 주세요.");
+}
+
 /**
- * 두 가지 제출 형식을 모두 받습니다.
- * - 폼 형식(아화중 자료): worksheet=시트이름&grade=..&classNum=..
+ * 두 가지 제출 형식을 하나로 맞춥니다.
+ * - 폼 형식(아화중 자료): worksheet=시트이름&grade=..&classNum=..&number=..&name=..&score=..&total=..
  * - JSON 형식(경주여중 자료): {"form":"시트이름","stuClass":..,"stuNumber":..,"name":..}
- * JSON 형식의 이름은 폼 형식에 맞춰 바꿔서 같은 방식으로 기록합니다.
+ * 주소 뒤의 ?tab=중2 도 e.parameter로 함께 들어옵니다.
  */
 function readPayload_(e) {
   var d = {};
@@ -48,90 +86,37 @@ function readPayload_(e) {
   return d;
 }
 
-function doPost(e) {
+// 학년 탭을 찾고, 없으면 만들어 머리글을 씁니다.
+function getTab_(name) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var d = readPayload_(e);
-
-  var sheetName = d.worksheet || "기타";
-  var sheet = ss.getSheetByName(sheetName);
-  if (!sheet) {
-    sheet = ss.insertSheet(sheetName);
-  }
-
-  // 항상 맨 앞에 둘 컬럼 / 항상 맨 뒤에 둘 컬럼
-  var fixedFront = ["grade", "classNum", "number", "name"];
-  var fixedBack = ["score", "total"];
-
-  var incomingKeys = Object.keys(d).filter(function (k) {
-    return k !== "worksheet";
-  });
-  var middleKeys = incomingKeys
-    .filter(function (k) {
-      return fixedFront.indexOf(k) === -1 && fixedBack.indexOf(k) === -1;
-    })
-    .sort();
-
-  var columns = ["timestamp"].concat(fixedFront, middleKeys, fixedBack);
-
+  var sheet = ss.getSheetByName(name) || ss.insertSheet(name);
   if (sheet.getLastRow() === 0) {
-    // 새 시트: 헤더를 새로 씀
-    sheet.appendRow(columns);
-  } else {
-    // 기존 시트: 지금까지 없던 새 컬럼(새로 추가된 문항 등)이 있으면 뒤에 이어붙임
-    var lastCol = sheet.getLastColumn();
-    var existingHeader = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
-    var newCols = columns.filter(function (c) {
-      return existingHeader.indexOf(c) === -1;
-    });
-    if (newCols.length > 0) {
-      sheet.getRange(1, lastCol + 1, 1, newCols.length).setValues([newCols]);
-      existingHeader = existingHeader.concat(newCols);
-    }
-    columns = existingHeader;
+    sheet.appendRow(HEADERS);
+    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold").setBackground("#eef8e8");
+    sheet.setFrozenRows(1);
+    sheet.setColumnWidth(8, 420);              // 답안 칸 넓게
+    sheet.getRange("H:H").setWrap(true);
   }
-
-  var row = columns.map(function (col) {
-    if (col === "timestamp") return new Date();
-    return d[col] !== undefined ? d[col] : "";
-  });
-
-  sheet.appendRow(row);
-
-  return ContentService.createTextOutput("OK");
+  return sheet;
 }
 
-/**
- * GET ?worksheet=시트이름 으로 호출하면 그 탭의 모든 행을 JSON 배열로
- * 돌려준다(헤더를 키로 사용). 랭킹처럼 "여러 학생 기기가 공유해서 읽어야
- * 하는" 데이터를 보여줄 때 쓴다. worksheet 파라미터가 없으면 기존처럼
- * 안내 문구만 반환한다.
- */
-function doGet(e) {
-  var worksheet = (e && e.parameter && e.parameter.worksheet) || "";
-  if (!worksheet) {
-    return ContentService.createTextOutput(
-      "이 웹 앱은 KISPP 과학실 워크시트 제출 데이터를 받는 용도입니다. POST 요청으로 사용해 주세요."
-    );
+function scoreText_(d) {
+  if (d["점수"]) return String(d["점수"]);
+  if (d.score !== undefined && d.score !== "") return d.total ? d.score + "/" + d.total : String(d.score);
+  return "";
+}
+
+function answersText_(d) {
+  var lines = [];
+  for (var k in d) {
+    if (META_KEYS.indexOf(k) >= 0) continue;
+    var v = d[k];
+    if (v === undefined || v === null || v === "") v = "(빈칸)";
+    lines.push(k + ": " + v);
   }
+  return lines.join("\n");
+}
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(worksheet);
-  if (!sheet || sheet.getLastRow() < 2) {
-    return ContentService.createTextOutput(JSON.stringify([]))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-
-  var values = sheet.getDataRange().getValues();
-  var header = values[0];
-  var rows = values.slice(1).map(function (row) {
-    var obj = {};
-    header.forEach(function (col, i) {
-      var v = row[i];
-      obj[col] = v instanceof Date ? v.toISOString() : v;
-    });
-    return obj;
-  });
-
-  return ContentService.createTextOutput(JSON.stringify(rows))
-    .setMimeType(ContentService.MimeType.JSON);
+function json_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }

@@ -14,6 +14,7 @@
 | `js/config.js` | 공통 설정. 활동지 답안을 받을 구글 Apps Script 주소(`SUBMIT_URL`, 학년별 `SUBMIT_URLS`) |
 | `apps-script/code.gs` | 활동지 답안을 학년 탭(중1·중2·중3·고1)에 저장하는 Apps Script (설치 방법은 파일 맨 위 설명) |
 | `js/part-view.js` | 활동지 구간 보기 (`?part=concept` 등으로 열면 그 구간만 표시) |
+| `js/ws-kit.js`, `js/ws-kit.css` | 시뮬레이션 워크시트 공통 채점·피드백·제출 (카드마다 [확인하기] 즉시 피드백, 사용법은 파일 맨 위 설명) |
 | `layouts/` | 레이아웃 후보 샘플 (A~E)과 단원 화면 샘플(`layouts/unit-views/`), 참고용 |
 
 ## 주소 규칙
@@ -74,9 +75,21 @@
 
 주소가 비어 있으면 화면에서 채점만 되고 어디로도 전송되지 않습니다.
 
+## 시뮬레이션 워크시트 만들기 (js/ws-kit.js)
+
+`materials/is1-1/`, `materials/is1-2/`의 통합과학1 Ⅰ단원 워크시트는 공통 키트로 채점합니다.
+
+- 문항에 `data-key`와 정답(`data-answer`, 수는 `data-num`·`data-tol`)만 적으면 자동 채점되고,
+  문항 묶음 `<div class="q" data-why="해설" data-hint="도움말">`의 해설이 피드백으로 나옵니다.
+- 카드(`section.card`)마다 [확인하기] 버튼이 자동으로 붙어 그 카드만 바로 채점·피드백합니다.
+- 서술형(`textarea.free`)은 점수 없이 핵심어(`data-keywords`)와 예시 답안(`data-model`)으로 피드백합니다.
+- 시뮬레이션 안의 결과는 `WS.custom(key, { value, check, answer })`로 등록하면 함께 채점·제출됩니다.
+- 제출은 `data-part="submit"` 카드의 [제출하고 채점받기]로 하며, 형식은 아화중 자료와 같은 폼 형식입니다.
+
 ## 가져온 자료 출처
 
 - 중2 Ⅵ. 동물과 에너지 활동지 2종: 아화중학교 과학 저장소(`zube-kr/science`)
+- 통합과학1 Ⅰ. 과학의 기초 워크시트 4종: 비상교육 고등 통합과학1 교과서·교사용 교과서·활동지(16~39쪽)를 바탕으로 새로 제작
 - 중2 Ⅷ. 별과 우주 워크시트 6종: 경주여자중학교 3학년 Ⅶ. 별과 우주 학습지 목록(`zube-kr/gyeongju-girls-3rd`)
   - 이 워크시트들은 여러 구간의 답을 한 번에 제출하므로 `<body data-submit="full">`로 표시했고,
     구간 보기에서는 학생 정보·제출 구간을 숨기고 "제출은 전체 워크시트에서"라고 안내합니다.

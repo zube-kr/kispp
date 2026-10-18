@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅰ-2-2 — 자연의 변화 측정과 현대 문명</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .wx{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:8px; margin:8px 0; }
+  .wx div{ border:1px solid var(--line); border-radius:12px; padding:10px; text-align:center; background:#FBFDFD; font-size:12.5px; color:var(--ink-soft); }
+  .wx div b{ display:block; font-size:20px; color:var(--ink); margin:2px 0; }
+  .bits{ font-family:ui-monospace,Consolas,monospace; font-size:12px; background:#1E2A2C; color:#7CF0B0; border-radius:10px; padding:8px 10px; line-height:1.6; word-break:break-all; max-height:96px; overflow:auto; }
+  .room-pos{ cursor:pointer; }
+  .room-pos:hover circle{ stroke-width:4; }
+  .dtab{ width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  .dtab th, .dtab td{ border:1px solid var(--line); padding:5px 6px; text-align:center; }
+  .dtab th{ background:var(--main-soft); }
+  .match{ display:grid; grid-template-columns:1fr; gap:8px; }
+  .match .row{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; border:1px solid var(--line); border-radius:12px; padding:8px 10px; background:#fff; font-size:13.5px; }
+  .match .row .what{ flex:1 1 220px; }
+  .sms{ max-width:360px; background:#F1F4F5; border-radius:16px; padding:12px 14px; font-size:13px; line-height:1.7; border:1px solid var(--line); }
+  .sms b{ color:#D8493B; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/2">← KISPP 과학실 · 통합과학1 Ⅰ. 과학의 기초 · 2. 과학의 측정과 우리 사회</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 과학의 기초 · 2. 과학의 측정과 우리 사회 · 02 자연의 변화 측정과 현대 문명 (교과서 30~35쪽)</div>
+    <h1>신호를 정보로 — <span>자연의 변화 측정과 현대 문명</span></h1>
+    <p class="sub">기상 리포터가 되어 측정 정보를 생활 정보로 바꿔 보고, 센서가 아날로그 신호를 디지털 데이터로 바꾸는 과정을 시뮬레이션해 보세요. 가상 교실에 온도 센서를 설치해 냉방기 가동 전후의 온도 변화를 분석하고, 디지털 기술이 우리 생활을 어떻게 바꾸었는지 살펴봐요.</p>
+    <div class="goals"><span>🎯 자연에서 일어나는 다양한 변화를 측정하고 분석하여 정보를 산출할 수 있다.</span><span>🎯 정보를 디지털로 변환하는 기술이 정보 통신에 활용되어 현대 문명에 미친 영향을 인식한다.</span></div>
+  </header>
+
+  <!-- 1. 기상 리포터 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동</span>기상 리포터 되어 보기</div>
+    <div class="card-hint">다음은 기상 관측 자료로 만든 프놈펜의 내일 날씨 정보예요. 기상 리포터가 되어 시청자에게 도움이 되는 생활 정보를 골라 전달해 보세요.</div>
+    <div class="wx">
+      <div>🌡️ 최고 기온<b>35 °C</b>체감 온도 38 °C</div>
+      <div>💧 습도<b>75 %</b></div>
+      <div>☔ 오후 강수 확률<b>70 %</b>강수량 20 mm</div>
+      <div>☀️ 자외선 지수<b>11</b>위험</div>
+      <div>😷 초미세 먼지<b>28 μg/m³</b>보통</div>
+      <div>🌬️ 풍속<b>3 m/s</b></div>
+    </div>
+    <div class="q" data-why="강수 확률 70 %이면 비가 올 가능성이 높아 우산이 필요하고, 자외선 지수 11은 '위험' 단계라 자외선 차단제와 모자가 필요해요. 체감 온도가 38 °C로 높아 물을 자주 마시고 한낮 야외 활동을 줄여야 해요.">
+      <div class="q-text"><span class="q-num">1</span>오후 강수 확률 70 % → <span class="choice-group" data-key="wx_rain" data-label="강수 확률" data-answer="우산"><button type="button" class="choice-btn" data-value="우산">우산을 챙기세요</button><button type="button" class="choice-btn" data-value="세차">세차하기 좋은 날</button></span></div>
+      <div class="q-text"><span class="q-num">2</span>자외선 지수 11 → <span class="choice-group" data-key="wx_uv" data-label="자외선" data-answer="차단제"><button type="button" class="choice-btn" data-value="차단제">자외선 차단제·모자 필수</button><button type="button" class="choice-btn" data-value="일광욕">일광욕하기 좋아요</button></span></div>
+      <div class="q-text"><span class="q-num">3</span>체감 온도 38 °C → <span class="choice-group" data-key="wx_heat" data-label="체감 온도" data-answer="물"><button type="button" class="choice-btn" data-value="물">물을 자주 마시고 한낮 야외 활동 줄이기</button><button type="button" class="choice-btn" data-value="운동">한낮 운동장 달리기</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>30초 날씨 방송 원고를 써 보자. (측정값과 단위를 넣어 생활 정보를 전달해요.)</div>
+      <textarea class="free" data-key="wx_script" data-keywords="°C/도,%/퍼센트,우산/차단제/물/마스크" data-model="내일 프놈펜은 최고 기온 35 °C, 체감 온도 38 °C로 무덥겠습니다. 오후 강수 확률이 70 %이니 우산을 꼭 챙기시고, 자외선 지수가 11로 위험 단계이니 자외선 차단제를 바르세요." placeholder="안녕하세요, 내일의 날씨입니다. …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 개념 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>신호와 정보, 센서와 디지털 정보</div>
+    <p class="read-text">시계를 보고 점심시간인지 알고, 오늘의 날씨로 내일 날씨를 예측하듯이 자연의 변화는 <b>신호</b>로 전달되고, 이를 측정·분석하면 <b>정보</b>를 산출할 수 있어요.</p>
+    <div class="box">
+      <table class="t">
+        <tr><th>구분</th><th>아날로그 신호</th><th>디지털 신호</th></tr>
+        <tr><th>특징</th><td class="l">· 연속적으로 변하는 신호<br>· 빛의 밝기, 소리의 높낮이, 바람의 세기 등 자연에서 발생하는 대부분의 신호</td><td class="l">· 불연속적이고 명확한 값으로 나타나는 신호<br>· 컴퓨터나 스마트 기기 등 디지털 기기에서 처리하는 신호</td></tr>
+      </table>
+    </div>
+    <div class="q" data-why="자연의 변화가 전달되는 것이 신호, 신호를 측정·분석해 유용한 형태로 만든 것이 정보예요. 센서는 아날로그 신호를 디지털(전기) 신호로 바꾸는 장치예요.">
+      <div class="q-text"><span class="q-num">1</span><input class="blank w-s" data-key="c_1" data-label="①" data-answer="신호"> : 자연에서 일어나는 다양한 변화가 전달되는 것 (기온, 낮과 밤의 길이, 풍속 등)</div>
+      <div class="q-text"><span class="q-num">2</span><input class="blank w-s" data-key="c_2" data-label="②" data-answer="정보"> : 자연의 신호를 측정하고 분석하여 유용한 형태로 만든 것</div>
+      <div class="q-text"><span class="q-num">3</span><input class="blank w-s" data-key="c_3" data-label="③" data-answer="센서"> : 아날로그 형태의 다양한 신호를 디지털 신호로 전환하는 장치</div>
+      <div class="q-text"><span class="q-num">4</span>센서를 활용하여 자연 상태의 <input class="blank w-s" data-key="c_4" data-label="④" data-answer="아날로그"> 신호를 <input class="blank w-s" data-key="c_5" data-label="⑤" data-answer="디지털|전기"> 신호로 전환할 수 있으며, 분석 과정을 거쳐 디지털 정보로 산출할 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 아날로그 → 디지털 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>센서는 아날로그 신호를 어떻게 디지털로 바꿀까?</div>
+    <div class="card-hint">파란 곡선은 하루 동안 연속적으로 변하는 기온(아날로그 신호)이에요. 센서는 일정한 <b>측정 간격</b>마다 값을 재고, 정해진 <b>단계(분해능)</b> 중 가장 가까운 값으로 바꿔 저장해요(빨간 계단선). 두 슬라이더를 바꿔 디지털 신호가 원래 신호와 얼마나 비슷해지는지 살펴보세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ad-svg" viewBox="0 0 520 250" aria-label="아날로그 디지털 변환"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>측정 간격 <output id="ad-dt-out"></output></label><input type="range" id="ad-dt" min="0" max="5" step="1" value="3"></div>
+        <div class="ctrl"><label>분해능(비트 수) <output id="ad-bit-out"></output></label><input type="range" id="ad-bit" min="1" max="6" step="1" value="2"></div>
+        <div class="readout" id="ad-read"></div>
+        <div class="bits" id="ad-bits"></div>
+      </div>
+    </div>
+    <div class="q" data-why="측정 간격을 짧게 하고(자주 재고) 비트 수를 늘리면(단계를 잘게 나누면) 디지털 신호가 원래의 아날로그 신호에 더 가까워져요. 대신 저장할 데이터의 양이 늘어나요.">
+      <div class="q-text"><span class="q-num">1</span>측정 간격을 <span class="choice-group" data-key="ad_dt" data-label="측정 간격" data-answer="짧게"><button type="button" class="choice-btn" data-value="짧게">짧게</button><button type="button" class="choice-btn" data-value="길게">길게</button></span> 하고, 비트 수를
+        <span class="choice-group" data-key="ad_bit" data-label="비트 수" data-answer="늘리면"><button type="button" class="choice-btn" data-value="늘리면">늘리면</button><button type="button" class="choice-btn" data-value="줄이면">줄이면</button></span> 디지털 신호가 원래 신호에 가까워지지만, 데이터의 양은
+        <span class="choice-group" data-key="ad_data" data-label="데이터 양" data-answer="많아진다"><button type="button" class="choice-btn" data-value="많아진다">많아진다</button><button type="button" class="choice-btn" data-value="적어진다">적어진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="n비트는 2ⁿ 단계를 나타내요. 1비트 2단계, 2비트 4단계, 3비트 8단계, 8비트 256단계예요.">
+      <div class="q-text"><span class="q-num">2</span>2비트는 4단계, 3비트는 <input class="blank w-s" data-key="ad_lv3" data-num="8" data-abs="0"> 단계로 값을 나타낸다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="디지털 신호는 불연속적이고 명확한 값으로 나타나기 때문에 컴퓨터가 처리하기 쉽고, 저장·분석·검색·공유가 쉬워 정보 통신에 활용돼요.">
+      <div class="q-text"><span class="q-num">3</span>디지털 정보가 정보 통신에 활용되는 까닭으로 옳지 <u>않은</u> 것은
+        <span class="choice-group" data-key="ad_not" data-answer="연속"><button type="button" class="choice-btn" data-value="저장">저장과 분석이 쉽다</button><button type="button" class="choice-btn" data-value="공유">검색과 공유가 쉽다</button><button type="button" class="choice-btn" data-value="연속">값이 연속적으로 변한다</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 탐구: 교실 온도 센서 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>스마트 기기를 활용한 기본량 측정과 분석 — 교실 온도 센서</div>
+    <div class="card-hint">문제 인식: 센서를 활용하여 교실 내 위치별 온도를 측정하고 분석하면 어떤 정보를 알 수 있을까?<br>① 교실 그림에서 온도 센서를 설치할 위치를 <b>세 군데 이상</b> 눌러 고르세요. ② [측정 시작]을 누르면 30분 동안(화면에서는 빠르게) 측정하고, <b>10분에 냉방기를 켜요</b>. ③ 그래프와 데이터 표를 분석하세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="room-svg" viewBox="0 0 360 260" aria-label="교실 평면도와 센서 위치"></svg></div>
+      <div class="panel">
+        <div class="readout" id="room-read">센서 위치를 고르세요. (0개 선택)</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn main small" id="room-go">📡 측정 시작</button>
+          <button type="button" class="btn ghost small" id="room-reset">다시 설치</button>
+        </div>
+        <div class="tip" style="margin:0">주의: 창가, 교실 안쪽, 냉난방기 주변 등을 고려하여 위치를 정해요. 측정값은 스마트 기기로 전송되어 그래프로 저장돼요.</div>
+      </div>
+    </div>
+    <div class="stage" style="margin-top:12px"><svg id="temp-svg" viewBox="0 0 560 240" aria-label="위치별 온도 그래프"></svg></div>
+    <div style="overflow-x:auto"><table class="dtab" id="temp-table"></table></div>
+    <div class="q" data-why="냉방기 바람이 바로 닿는 냉방기 앞의 온도가 가장 빠르고 크게 내려가요. 창가는 햇빛과 바깥 열 때문에 온도가 가장 적게 내려가요." data-hint="그래프에서 10분(냉방기 켬) 이후 가장 가파르게 내려가는 선을 찾아보세요. 이 문항은 네 곳을 모두 측정해야 확실히 답할 수 있어요.">
+      <div class="q-text"><span class="q-num">1</span>냉방기를 켠 뒤 온도가 가장 많이 내려간 곳은
+        <span class="choice-group" data-key="room_most" data-label="가장 많이" data-answer="냉방기 앞"><button type="button" class="choice-btn" data-value="창가">창가</button><button type="button" class="choice-btn" data-value="교실 가운데">교실 가운데</button><button type="button" class="choice-btn" data-value="교실 안쪽">교실 안쪽(복도 쪽)</button><button type="button" class="choice-btn" data-value="냉방기 앞">냉방기 앞</button></span>,
+        가장 적게 내려간 곳은
+        <span class="choice-group" data-key="room_least" data-label="가장 적게" data-answer="창가"><button type="button" class="choice-btn" data-value="창가">창가</button><button type="button" class="choice-btn" data-value="교실 가운데">교실 가운데</button><button type="button" class="choice-btn" data-value="교실 안쪽">교실 안쪽(복도 쪽)</button><button type="button" class="choice-btn" data-value="냉방기 앞">냉방기 앞</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="데이터 표에서 냉방기 앞의 0분 온도와 30분 온도의 차이를 구하면 돼요." data-hint="데이터 표의 '냉방기 앞' 줄에서 0분과 30분 값을 빼 보세요.">
+      <div class="q-text"><span class="q-num">2</span>데이터 표에서 냉방기 앞의 온도는 30분 동안 약 <input class="blank w-s" id="room-drop" data-key="room_drop" data-num="8.4" data-abs="0.3"> °C 내려갔다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>결과 정리 및 해석: 위 결과를 분석하여 알게 된 내용을 문장으로 진술해 보자. (예: 자리 배치, 냉방기 방향, 에너지 절약 등)</div>
+      <textarea class="free" data-key="room_concl" data-keywords="냉방기/에어컨,창가/위치,온도" data-model="냉방기를 켜면 냉방기 바람이 닿는 곳부터 온도가 빠르게 내려가고, 햇빛이 드는 창가는 온도가 잘 내려가지 않는다. 따라서 커튼을 쳐서 햇빛을 막고 냉방기 바람 방향을 교실 전체로 돌리면 교실 온도를 고르게 낮출 수 있다." placeholder="예: 냉방기를 켜면 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 디지털 기술과 현대 문명 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>디지털 기술과 현대 문명</div>
+    <p class="read-text">전국의 대기 환경 정보 측정망에서 측정·분석한 정보는 국가 관리 시스템으로 디지털 정보로 수집·관리되고, 에어코리아 누리집 등에서 실시간으로 제공돼요. 공공 기관은 정보 통신을 활용해 기상 재해, 감염병, 대형 화재 등의 정보를 <b>재난 문자</b>로 알려 줘요.</p>
+    <div class="sms">📩 [환경부] 오늘 15시 서울 지역 <b>초미세 먼지 주의보</b> 발령. 어린이·노약자는 실외 활동을 자제하고 외출 시 보건용 마스크를 착용하세요.</div>
+    <div class="q" data-why="측정망에서 측정(나) → 국가 관리 시스템으로 수집·관리(라) → 정보 통신으로 실시간 제공(다) → 사람들이 외출 전 확인(가)의 순서예요.">
+      <div class="q-text"><span class="q-num">1</span>대기 환경 정보가 일상생활에 이용되는 과정을 순서대로 놓아 보자.</div>
+      <ol class="order-list" data-key="air_order" data-answer="na,ra,da,ga">
+        <li data-id="ga"><span class="txt">(가) 외출 전 대기 환경 정보를 확인한다.</span></li>
+        <li data-id="da"><span class="txt">(다) 정보 통신을 활용하여 대기 환경 정보를 실시간으로 제공한다.</span></li>
+        <li data-id="na"><span class="txt">(나) 대기 환경 정보 측정망에서 대기 오염 농도를 측정한다.</span></li>
+        <li data-id="ra"><span class="txt">(라) 국가 관리 시스템을 활용하여 대기 환경 정보를 수집하고 관리한다.</span></li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="인터넷 뱅킹·전자 화폐는 은행 및 금융, 전자책·교육 앱은 교육, 자율 주행·무인 드론은 운송 및 교통, 원격 진료는 의료, 스마트 그리드는 에너지 산업에 해당해요.">
+      <div class="q-text"><span class="q-num">2</span>디지털 기술의 사례와 영향을 받은 분야를 연결해 보자.</div>
+      <div class="match">
+        <div class="row"><span class="what">💳 인터넷 뱅킹, 전자 화폐로 상품을 구매한다.</span><span class="choice-group" data-key="dg_1" data-label="인터넷 뱅킹" data-answer="금융"><button type="button" class="choice-btn" data-value="금융">은행 및 금융</button><button type="button" class="choice-btn" data-value="교육">교육</button><button type="button" class="choice-btn" data-value="의료">의료</button></span></div>
+        <div class="row"><span class="what">📚 전자책, 교육 앱으로 언제 어디서나 원하는 교육을 받는다.</span><span class="choice-group" data-key="dg_2" data-label="전자책" data-answer="교육"><button type="button" class="choice-btn" data-value="에너지">에너지 산업</button><button type="button" class="choice-btn" data-value="교육">교육</button><button type="button" class="choice-btn" data-value="교통">운송 및 교통</button></span></div>
+        <div class="row"><span class="what">🚘 무인 드론, 자율 주행 기술로 운전자 없이 배달한다.</span><span class="choice-group" data-key="dg_3" data-label="자율 주행" data-answer="교통"><button type="button" class="choice-btn" data-value="교통">운송 및 교통</button><button type="button" class="choice-btn" data-value="금융">은행 및 금융</button><button type="button" class="choice-btn" data-value="의료">의료</button></span></div>
+        <div class="row"><span class="what">🩺 멀리 떨어진 환자에게 실시간 맞춤형 처방을 한다.</span><span class="choice-group" data-key="dg_4" data-label="원격 진료" data-answer="의료"><button type="button" class="choice-btn" data-value="교육">교육</button><button type="button" class="choice-btn" data-value="의료">의료</button><button type="button" class="choice-btn" data-value="에너지">에너지 산업</button></span></div>
+        <div class="row"><span class="what">⚡ 스마트 그리드로 기후 변화와 에너지 고갈 문제에 대처한다.</span><span class="choice-group" data-key="dg_5" data-label="스마트 그리드" data-answer="에너지"><button type="button" class="choice-btn" data-value="교통">운송 및 교통</button><button type="button" class="choice-btn" data-value="에너지">에너지 산업</button><button type="button" class="choice-btn" data-value="금융">은행 및 금융</button></span></div>
+      </div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="디지털 기술은 은행 및 금융, 교육, 운송 및 교통, 의료, 에너지 산업 등 사회의 여러 분야에 영향을 미쳐 현대 문명을 변화시키고 있어요. 빅데이터, 사물 인터넷(IoT), 인공지능(AI) 등이 변화와 혁신을 이끌고 있어요.">
+      <div class="q-text"><span class="q-num">3</span>확인하기: <input class="blank" data-key="dg_blank" data-answer="디지털기술|디지털"> 은/는 은행 및 금융, 교육, 운송 및 교통, 의료, 에너지 산업 등 사회의 여러 분야에 영향을 미쳐 현대 문명을 변화시키고 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="빛의 밝기, 소리, 바람의 세기처럼 자연에서 생기는 대부분의 신호는 연속적인 아날로그 신호예요. 스마트폰 화면에 표시된 숫자는 디지털 신호를 처리한 결과예요.">
+      <div class="q-text"><span class="q-num">1</span>자연에서 발생하는 소리의 높낮이는 <span class="choice-group" data-key="qz1" data-answer="아날로그"><button type="button" class="choice-btn" data-value="아날로그">아날로그</button><button type="button" class="choice-btn" data-value="디지털">디지털</button></span> 신호이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="온도 센서는 아날로그 신호(온도)를 전기 신호로 바꿔 디지털 데이터를 만들어요. 그래서 스마트 기기로 그래프를 그리고 분석할 수 있어요.">
+      <div class="q-text"><span class="q-num">2</span>센서를 활용하여 자연에서 일어나는 변화를 측정하고 분석하여 일상생활에서 이용할 수 있는 디지털 <input class="blank w-s" data-key="qz2" data-answer="정보"> 을/를 산출할 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="사물 인터넷(IoT)은 사물에 센서와 통신 기능을 넣어 서로 정보를 주고받게 하는 기술이에요. 교실 온도 센서가 측정값을 보내 냉방기를 자동으로 켜는 것이 그 예예요.">
+      <div class="q-text"><span class="q-num">3</span>교실 온도 센서가 28 °C 이상을 감지하면 냉방기가 자동으로 켜지는 것은
+        <span class="choice-group" data-key="qz3" data-answer="사물 인터넷"><button type="button" class="choice-btn" data-value="사물 인터넷">사물 인터넷(IoT)</button><button type="button" class="choice-btn" data-value="가상 현실">가상 현실(VR)</button><button type="button" class="choice-btn" data-value="전자책">전자책</button></span> 기술의 예이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>과학 역량 기르기: 어제 하루 동안 디지털 기술을 이용하여 생활한 내용을 시간대별로 정리해 보자.</div>
+      <textarea class="free" data-key="qz4" data-keywords="시/아침/오전/오후/저녁,앱/인터넷/스마트폰/온라인,날씨/버스/학습/결제/메신저" data-model="07시 날씨 앱으로 강수 확률 확인 → 08시 버스 승하차 카드 → 13시 온라인 학습 플랫폼으로 과제 제출 → 19시 전자 결제로 학용품 구매" placeholder="07시 …, 08시 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 선생님 스프레드시트(고1 탭)에 기록돼요. 센서를 설치한 위치도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅰ-2-2 자연의 변화 측정과 현대 문명 · 비상교육 통합과학1 교과서 30~35쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅰ-2-2 자연의 변화 측정과 현대 문명";
+const $ = id => document.getElementById(id);
+
+/* ===== 3. 아날로그 → 디지털 ===== */
+const DTS = [0.25, 0.5, 1, 2, 3, 4]; // 시간(h)
+const temp = h => 27 + 4.5 * Math.sin((h - 9) / 24 * 2 * Math.PI) + 0.9 * Math.sin(h * 1.7) + 0.5 * Math.sin(h * 3.9 + 1);
+function drawAD() {
+  const dt = DTS[Number($("ad-dt").value)], bits = Number($("ad-bit").value), lv = Math.pow(2, bits);
+  $("ad-dt-out").textContent = dt >= 1 ? dt + "시간마다" : dt * 60 + "분마다";
+  $("ad-bit-out").textContent = bits + "비트 = " + lv + "단계";
+  const L = 46, R = 505, T = 14, B = 214, tMin = 20, tMax = 34;
+  const X = h => L + h / 24 * (R - L), Y = v => B - (v - tMin) / (tMax - tMin) * (B - T);
+  const q = v => { const step = (tMax - tMin) / (lv - 1); return tMin + Math.round((v - tMin) / step) * step; };
+  let g = `<rect x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="#fff" stroke="#D3E3E1"/>`;
+  for (let i = 0; i < lv && lv <= 16; i++) { const v = tMin + i * (tMax - tMin) / (lv - 1); g += `<line x1="${L}" y1="${Y(v)}" x2="${R}" y2="${Y(v)}" stroke="#F3E3DC"/>`; }
+  for (let v = 20; v <= 34; v += 2) g += `<text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${v}</text>`;
+  for (let h = 0; h <= 24; h += 6) g += `<text x="${X(h)}" y="${B + 15}" text-anchor="middle" style="font-size:10px;fill:#5E7375">${h}시</text>`;
+  g += `<text x="${L}" y="${B + 30}" style="font-size:10px;fill:#5E7375">기온(°C)</text>`;
+  let pts = []; for (let h = 0; h <= 24.001; h += 0.1) pts.push(X(h) + "," + Y(temp(h)));
+  g += `<polyline fill="none" stroke="#2F6FED" stroke-width="2.2" points="${pts.join(" ")}"/>`;
+  const samples = []; for (let h = 0; h <= 24.001; h += dt) samples.push([h, q(temp(h))]);
+  let step = `M${X(0)},${Y(samples[0][1])}`;
+  samples.forEach(([h, v], i) => { if (i) step += ` H${X(h)} V${Y(v)}`; });
+  step += ` H${X(24)}`;
+  g += `<path d="${step}" fill="none" stroke="#D8493B" stroke-width="2.2"/>`;
+  samples.forEach(([h, v]) => g += `<circle cx="${X(h)}" cy="${Y(v)}" r="3" fill="#D8493B"/>`);
+  g += `<text x="${R - 6}" y="${B - 22}" text-anchor="end" style="font-size:11px;font-weight:800;fill:#2F6FED;paint-order:stroke;stroke:#fff;stroke-width:3px">― 아날로그(실제 기온)</text><text x="${R - 6}" y="${B - 8}" text-anchor="end" style="font-size:11px;font-weight:800;fill:#D8493B;paint-order:stroke;stroke:#fff;stroke-width:3px">― 디지털(센서 데이터)</text>`;
+  $("ad-svg").innerHTML = g;
+  // 오차와 데이터 양
+  let err = 0, n = 0;
+  for (let h = 0; h < 24; h += 0.1) { const s = samples.filter(x => x[0] <= h + 1e-9).pop(); err += Math.abs(temp(h) - s[1]); n++; }
+  const nBits = samples.length * bits;
+  $("ad-read").innerHTML = `측정 횟수: <b>${samples.length}번</b> · 한 값의 크기: <b>${bits}비트</b><br>저장할 데이터: <b>${nBits}비트</b><br>원래 신호와의 평균 차이: <b>${(err / n).toFixed(2)} °C</b>`;
+  $("ad-bits").textContent = samples.map(([h, v]) => Math.round((v - tMin) / ((tMax - tMin) / (lv - 1))).toString(2).padStart(bits, "0")).join(" ");
+}
+["ad-dt", "ad-bit"].forEach(id => $(id).addEventListener("input", drawAD));
+drawAD();
+
+/* ===== 4. 교실 온도 센서 ===== */
+// 위치별 온도 모형: 0분 시작 온도, 냉방기 켠 뒤(10분~) 도달 온도와 빠르기
+const POS = [
+  { id: "win", n: "창가", x: 60, y: 70, t0: 32.6, tEnd: 30.2, k: 0.07, c: "#E0662C" },
+  { id: "mid", n: "교실 가운데", x: 180, y: 140, t0: 31.4, tEnd: 25.6, k: 0.12, c: "#8A5BD6" },
+  { id: "in", n: "교실 안쪽", x: 300, y: 200, t0: 31.0, tEnd: 26.8, k: 0.09, c: "#2F6FED" },
+  { id: "ac", n: "냉방기 앞", x: 300, y: 62, t0: 31.2, tEnd: 22.6, k: 0.22, c: "#14A3A8" }
+];
+const jitter = (id, m) => 0.15 * Math.sin(m * 1.3 + id.length * 2.1) + 0.08 * Math.sin(m * 3.7 + id.length);
+const tempAt = (p, m) => {
+  const base = m <= 10 ? p.t0 + 0.02 * m : p.tEnd + (p.t0 + 0.2 - p.tEnd) * Math.exp(-p.k * (m - 10));
+  return base + jitter(p.id, m);
+};
+const chosen = new Set(); let measured = false, roomAnim = 0, roomT = 0;
+function drawRoom() {
+  let g = `<rect x="14" y="14" width="332" height="232" rx="8" fill="#FBF6EC" stroke="#8A7A5C" stroke-width="3"/>`;
+  g += `<rect x="14" y="40" width="8" height="70" fill="#9FD3F0"/><rect x="14" y="140" width="8" height="70" fill="#9FD3F0"/><text x="30" y="32" style="font-size:11px;fill:#B07B06">☀️ 창문 (햇빛)</text>`;
+  g += `<rect x="270" y="18" width="70" height="16" rx="4" fill="#DDEFF7" stroke="#6AA9C9"/><text x="305" y="30" text-anchor="middle" style="font-size:10px;fill:#1F5F7A">❄️ 냉방기</text>`;
+  g += `<rect x="338" y="150" width="8" height="60" fill="#C9B79A"/><text x="330" y="232" text-anchor="end" style="font-size:10px;fill:#8A7A5C">문(복도)</text>`;
+  g += `<rect x="120" y="225" width="120" height="14" rx="3" fill="#6B8E5A"/><text x="180" y="235" text-anchor="middle" style="font-size:9px;fill:#fff">칠판</text>`;
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) g += `<rect x="${80 + c * 55}" y="${90 + r * 38}" width="34" height="18" rx="3" fill="#E6D5B8"/>`;
+  POS.forEach(p => {
+    const on = chosen.has(p.id);
+    g += `<g class="room-pos" data-id="${p.id}"><circle cx="${p.x}" cy="${p.y}" r="15" fill="${on ? p.c : "#fff"}" stroke="${p.c}" stroke-width="2.5"/><text x="${p.x}" y="${p.y + 4}" text-anchor="middle" style="font-size:12px">${on ? "📡" : "＋"}</text>`;
+    g += `<text x="${p.x}" y="${p.y + 30}" text-anchor="middle" style="font-size:11px;font-weight:800;fill:${p.c};paint-order:stroke;stroke:#FBF6EC;stroke-width:3px">${p.n}</text>`;
+    if (measured && on) g += `<text x="${p.x}" y="${p.y - 20}" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#1F3133;paint-order:stroke;stroke:#fff;stroke-width:3px">${tempAt(p, roomT).toFixed(1)} °C</text>`;
+    g += `</g>`;
+  });
+  $("room-svg").innerHTML = g;
+}
+function drawTemp(upTo) {
+  const L = 46, R = 540, T = 14, B = 200, X = m => L + m / 30 * (R - L), Y = v => B - (v - 20) / 14 * (B - T);
+  let g = `<rect x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="#fff" stroke="#D3E3E1"/>`;
+  for (let v = 20; v <= 34; v += 2) g += `<line x1="${L}" y1="${Y(v)}" x2="${R}" y2="${Y(v)}" stroke="#EEF3F3"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${v}</text>`;
+  for (let m = 0; m <= 30; m += 5) g += `<text x="${X(m)}" y="${B + 15}" text-anchor="middle" style="font-size:10px;fill:#5E7375">${m}분</text>`;
+  g += `<line x1="${X(10)}" y1="${T}" x2="${X(10)}" y2="${B}" stroke="#14A3A8" stroke-dasharray="5 4"/><text x="${X(10) + 4}" y="${T + 12}" style="font-size:11px;font-weight:800;fill:#14A3A8">❄️ 냉방기 켬</text>`;
+  g += `<text x="${L}" y="${B + 32}" style="font-size:10px;fill:#5E7375">온도(°C)</text>`;
+  let ly = B - 8 - 14 * (chosen.size - 1);
+  POS.filter(p => chosen.has(p.id)).forEach(p => {
+    const pts = []; for (let m = 0; m <= upTo + 1e-9; m += 0.25) pts.push(X(m) + "," + Y(tempAt(p, m)));
+    if (pts.length > 1) g += `<polyline fill="none" stroke="${p.c}" stroke-width="2.4" points="${pts.join(" ")}"/>`;
+    g += `<text x="${L + 8}" y="${ly}" style="font-size:11px;font-weight:800;fill:${p.c}">― ${p.n}</text>`; ly += 14;
+  });
+  if (!chosen.size) g += `<text x="${(L + R) / 2}" y="${(T + B) / 2}" text-anchor="middle" style="font-size:13px;fill:#9AB">센서를 설치하고 측정을 시작하세요.</text>`;
+  $("temp-svg").innerHTML = g;
+}
+function drawTable() {
+  const ps = POS.filter(p => chosen.has(p.id));
+  if (!measured || !ps.length) { $("temp-table").innerHTML = ""; return; }
+  const ms = [0, 5, 10, 15, 20, 25, 30];
+  $("temp-table").innerHTML = `<tr><th>위치 \\ 시간</th>${ms.map(m => `<th>${m}분</th>`).join("")}</tr>` +
+    ps.map(p => `<tr><td style="color:${p.c};font-weight:800">${p.n}</td>${ms.map(m => `<td>${tempAt(p, m).toFixed(1)}</td>`).join("")}</tr>`).join("");
+}
+$("room-svg").addEventListener("click", e => {
+  const g = e.target.closest(".room-pos"); if (!g || roomAnim) return;
+  const id = g.dataset.id; chosen.has(id) ? chosen.delete(id) : chosen.add(id);
+  measured = false; drawRoom(); drawTemp(0); drawTable();
+  $("room-read").textContent = `센서 위치를 고르세요. (${chosen.size}개 선택)` + (chosen.size >= 3 ? " → 측정을 시작할 수 있어요." : "");
+});
+$("room-go").addEventListener("click", () => {
+  if (chosen.size < 3) { $("room-read").textContent = "센서를 세 군데 이상 설치해 주세요."; return; }
+  cancelAnimationFrame(roomAnim); measured = true;
+  const t0 = performance.now();
+  const step = t => {
+    roomT = Math.min(30, (t - t0) / 1000 * 6); // 1초 = 6분
+    drawRoom(); drawTemp(roomT);
+    $("room-read").innerHTML = `📡 측정 중… <b>${roomT.toFixed(0)}분</b>${roomT >= 10 ? " · ❄️ 냉방기 가동 중" : ""}`;
+    if (roomT < 30) roomAnim = requestAnimationFrame(step);
+    else { roomAnim = 0; drawTable(); $("room-read").innerHTML = "✅ 측정 완료! 그래프가 스마트 기기에 저장되었어요. 아래 데이터 표로 분석해 보세요." + (chosen.size < 4 ? "<br>💡 네 곳을 모두 측정하면 더 정확히 비교할 수 있어요." : ""); }
+  };
+  roomAnim = requestAnimationFrame(step);
+});
+$("room-reset").addEventListener("click", () => { cancelAnimationFrame(roomAnim); roomAnim = 0; chosen.clear(); measured = false; roomT = 0; drawRoom(); drawTemp(0); drawTable(); $("room-read").textContent = "센서 위치를 고르세요. (0개 선택)"; });
+drawRoom(); drawTemp(0);
+// 냉방기 앞 30분 변화량을 정답으로 사용
+const acDrop = +(+tempAt(POS[3], 0).toFixed(1) - +tempAt(POS[3], 30).toFixed(1)).toFixed(1); // 표에 보이는 값 기준
+$("room-drop").dataset.num = acDrop; $("room-drop").dataset.show = acDrop.toFixed(1);
+WS.custom("room_sensors", { el: $("room-read"), value: () => POS.filter(p => chosen.has(p.id)).map(p => p.n).join(", ") + (measured ? " (측정 완료)" : "") });
+</script>
+</body>
+</html>

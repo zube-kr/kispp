@@ -108,7 +108,8 @@ textarea.free:focus{ outline:2px solid var(--main-soft); border-color:var(--main
 
 /* 시뮬레이션 공통 */
 .sim-wrap{ display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:16px; align-items:start; }
-@media (max-width:760px){ .sim-wrap{ grid-template-columns:1fr; } }
+@media (max-width:760px){ .sim-wrap{ grid-template-columns:minmax(0,1fr); } }
+table.t .choice-group{ display:flex; flex-wrap:wrap; margin:0; }
 .stage{ background:#F6FAFA; border:1px solid var(--line); border-radius:14px; padding:10px; position:relative; overflow:hidden; }
 .stage svg{ display:block; width:100%; height:auto; }
 .panel{ display:flex; flex-direction:column; gap:10px; font-size:13.5px; }

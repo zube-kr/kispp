@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-2-2 — 화학 결합과 물질의 성질</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .kit{ display:flex; flex-wrap:wrap; gap:8px; }
+  .kit button{ font-family:inherit; font-size:13.5px; font-weight:700; border:1.5px solid var(--line); background:#fff; border-radius:12px; padding:8px 12px; cursor:pointer; }
+  .kit button.on{ border-color:var(--main); background:var(--main-soft); color:#0b6f73; }
+  .ion-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .ion-box{ border:1px solid var(--line); border-radius:12px; padding:8px 10px; background:#FBFDFD; font-size:13px; font-weight:700; display:flex; align-items:center; gap:6px; }
+  .ion-box button{ font-family:inherit; width:28px; height:28px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:800; }
+  .formula{ font-family:"Times New Roman",serif; font-size:28px; font-weight:700; text-align:center; padding:10px; background:#fff; border:1.5px dashed var(--line); border-radius:12px; }
+  .wells{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+  .well{ border:2px solid var(--line); border-radius:50%; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; background:#fff; font-size:12.5px; font-weight:800; text-align:center; position:relative; }
+  .well.wet{ background:radial-gradient(circle,#DFF2FB,#BFE3F2); }
+  .well.sel{ border-color:var(--warm); }
+  .well .mark{ position:absolute; top:6px; right:10px; font-size:14px; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/4">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질 · 02 화학 결합과 물질의 성질 (교과서 68~71쪽)</div>
+    <h1>산소, 물, 소금은 무엇이 다를까 — <span>화학 결합과 물질의 성질</span></h1>
+    <p class="sub">화성 탐사 생존 키트에 담을 물질을 골라 화학 결합의 종류로 나누어 보고, 이온 결합 물질의 화학식을 직접 맞춰 보세요. 전기 전도성 측정기 가상 실험으로 이온 결합 물질과 공유 결합 물질이 고체와 수용액에서 어떻게 다른지 확인해요.</p>
+    <div class="goals"><span>🎯 인류의 생존에 필수적인 산소, 물, 소금 등이 만들어지는 결합의 차이를 설명할 수 있다.</span><span>🎯 이온 결합 물질과 공유 결합 물질의 성질을 비교할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 화성 생존 키트 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동</span>화성 탐사 생존 키트 구성하기</div>
+    <div class="card-hint">탐사 장소: 베이스캠프 북쪽의 ○○산 · 탐사 시간: 48시간 · 임무: 정상 부근의 토양·암석 시료 채취 · 휴대 물품: 호흡용 공기통(60시간 동안 호흡 가능한 양), 개인별 생존 키트 1개 · 안전 사항: 48시간 안에 돌아오지 않으면 구조대가 수색을 시작해요.<br>생존 키트에 담을 물질을 <b>세 가지</b> 골라 보세요.</div>
+    <div class="kit" id="kit"></div>
+    <div class="readout" id="kit-read" style="margin-top:8px">세 가지를 골라 주세요. (0/3)</div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>선택한 세 가지 물질로 생존 키트를 구성한 까닭을 설명해 보자.</div>
+      <textarea class="free" data-key="kit_why" data-keywords="산소/호흡,물/체온/수분,소금/염화 나트륨/삼투압,설탕/에너지" data-model="산소: 공기통이 60시간 분량이라 조난이 길어지면 호흡을 위해 추가 산소가 필요하다. 물: 체온을 조절하고 영양분을 운반한다. 소금: 염화 나트륨은 체액의 삼투압을 유지한다." placeholder="예: 산소는 …"></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="산소(O₂), 질소(N₂), 설탕, 물(H₂O)은 비금속 원소끼리 전자쌍을 공유한 공유 결합 물질이고, 소금의 주성분인 염화 나트륨(NaCl)은 금속 이온과 비금속 이온이 결합한 이온 결합 물질이에요.">
+      <div class="q-text"><span class="q-num">2</span>각 물질을 화학 결합의 종류에 따라 구분해 보자.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>물질</th><th>결합</th></tr>
+        <tr><td>산소</td><td><span class="choice-group" data-key="kb_o2" data-label="산소" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온 결합</button><button type="button" class="choice-btn" data-value="공유">공유 결합</button></span></td></tr>
+        <tr><td>질소</td><td><span class="choice-group" data-key="kb_n2" data-label="질소" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온 결합</button><button type="button" class="choice-btn" data-value="공유">공유 결합</button></span></td></tr>
+        <tr><td>설탕</td><td><span class="choice-group" data-key="kb_sugar" data-label="설탕" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온 결합</button><button type="button" class="choice-btn" data-value="공유">공유 결합</button></span></td></tr>
+        <tr><td>소금(염화 나트륨)</td><td><span class="choice-group" data-key="kb_nacl" data-label="소금" data-answer="이온"><button type="button" class="choice-btn" data-value="이온">이온 결합</button><button type="button" class="choice-btn" data-value="공유">공유 결합</button></span></td></tr>
+        <tr><td>물</td><td><span class="choice-group" data-key="kb_h2o" data-label="물" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온 결합</button><button type="button" class="choice-btn" data-value="공유">공유 결합</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 개념: 분자와 결정 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>생존에 필수적인 물질 — 분자와 이온 결정</div>
+    <div class="seg" id="md-pick" style="margin-bottom:8px"><button type="button" class="on" data-m="o2">산소 O₂</button><button type="button" data-m="h2o">물 H₂O</button><button type="button" data-m="nacl">염화 나트륨 NaCl</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="md-svg" viewBox="0 0 320 220" aria-label="분자 모형과 결정 모형"></svg></div>
+      <div class="panel"><div class="readout" id="md-read"></div></div>
+    </div>
+    <div class="q" data-why="공유 결합 물질은 일정한 수의 원자가 공유 결합하여 독립적인 분자를 이뤄요. 이온 결합 물질은 양이온과 음이온이 연속적으로 교대로 반복해 규칙적인 입체 구조를 이뤄요. 염화 나트륨은 Na⁺ : Cl⁻ = 1 : 1이에요.">
+      <div class="q-text"><span class="q-num">1</span>물 분자는 산소 원자 <input class="blank w-s" data-key="md_o" data-label="산소" data-num="1" data-abs="0"> 개와 수소 원자 <input class="blank w-s" data-key="md_h" data-label="수소" data-num="2" data-abs="0"> 개가 공유 결합하여 생성된다.</div>
+      <div class="q-text"><span class="q-num">2</span>확인하기: 연속적으로 결합한 양이온과 음이온이 교대로 반복하여 규칙적인 모양의 입체 구조를 이루는 것은 <span class="choice-group" data-key="md_lat" data-answer="이온"><button type="button" class="choice-btn" data-value="공유">공유</button><button type="button" class="choice-btn" data-value="이온">이온</button></span> 결합 물질이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 화학식 만들기 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>이온 결합 물질의 화학식 만들기</div>
+    <div class="card-hint">이온 결합 물질은 전체적으로 <b>전기적으로 중성</b>이 되어야 해요. 양이온과 음이온의 개수를 ＋/－로 바꿔 전하의 합이 0이 되게 하세요. 화학식은 개수비를 <b>가장 간단한 정수비</b>로 나타내요. 네 가지를 모두 완성하세요.</div>
+    <div class="targets seg" id="fm-targets" style="margin-bottom:10px"></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="fm-svg" viewBox="0 0 340 170" aria-label="이온 모형"></svg></div>
+      <div class="panel">
+        <div class="ion-row" id="fm-ctrl"></div>
+        <div class="formula" id="fm-formula">?</div>
+        <div class="readout" id="fm-read"></div>
+      </div>
+    </div>
+    <div class="q" id="fm-q" data-why="CaCl₂(Ca²⁺ 1개 + Cl⁻ 2개), MgO(Mg²⁺ 1개 + O²⁻ 1개), Na₂O(Na⁺ 2개 + O²⁻ 1개), AlCl₃(Al³⁺ 1개 + Cl⁻ 3개)예요."><span class="fb"></span></div>
+  </section>
+
+  <!-- 4. 탐구: 전기 전도성 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>이온 결합 물질과 공유 결합 물질의 성질 비교 — 전기 전도성 측정기</div>
+    <div class="card-hint">문제 인식: 이온 결합 물질과 공유 결합 물질의 성질은 어떻게 다를까?<br>① 홈을 눌러 전기 전도성 측정기를 꽂아 보세요. ② [증류수 넣어 녹이기]를 누른 뒤 다시 측정해 보세요. ③ 홈을 누르면 오른쪽에 입자 모습도 보여요. (측정할 때마다 전극을 증류수로 씻는다고 생각해요.)</div>
+    <div class="sim-wrap">
+      <div>
+        <div class="wells" id="wells"></div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button type="button" class="btn main small" id="ec-water">💧 증류수 넣어 녹이기</button><button type="button" class="btn ghost small" id="ec-reset">고체로 되돌리기</button></div>
+      </div>
+      <div class="panel">
+        <div class="stage"><svg id="ec-svg" viewBox="0 0 300 200" aria-label="전기 전도성 측정과 입자 모습"></svg></div>
+        <div class="readout" id="ec-read">홈을 눌러 측정해 보세요.</div>
+      </div>
+    </div>
+    <div class="q" data-why="이온 결합 물질(염화 나트륨, 염화 칼슘)은 고체에서는 이온이 이동할 수 없어 전류가 흐르지 않지만, 수용액에서는 이온이 자유롭게 이동해 전류가 흘러요. 공유 결합 물질(설탕, 포도당)은 고체와 수용액 모두 전류가 흐르지 않아요. 증류수도 전류가 흐르지 않아요.">
+      <div class="q-text"><span class="q-num">1</span>결과 정리: 전류가 흐르면 ○, 흐르지 않으면 ×를 고르시오.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>물질</th><th>고체</th><th>수용액</th></tr>
+        <tr><td>염화 나트륨</td><td><span class="choice-group" data-key="ec_nacl_s" data-label="염화 나트륨 고체" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="ec_nacl_a" data-label="염화 나트륨 수용액" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>염화 칼슘</td><td><span class="choice-group" data-key="ec_cacl_s" data-label="염화 칼슘 고체" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="ec_cacl_a" data-label="염화 칼슘 수용액" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>설탕</td><td><span class="choice-group" data-key="ec_sug_s" data-label="설탕 고체" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="ec_sug_a" data-label="설탕 수용액" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>포도당</td><td><span class="choice-group" data-key="ec_glu_s" data-label="포도당 고체" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="ec_glu_a" data-label="포도당 수용액" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="이온 결합 물질이 물에 녹으면 양이온과 음이온으로 나누어져 자유롭게 이동해요. 전원을 연결하면 양이온은 (−)극, 음이온은 (+)극 쪽으로 이동해 전류가 흘러요. 공유 결합 물질은 대부분 물에 녹아도 전기적으로 중성인 분자로 존재해요.">
+      <div class="q-text"><span class="q-num">2</span>확인하기: 이온 결합 물질이 물에 녹으면 <input class="blank w-s" data-key="ec_ion" data-answer="이온|양이온과음이온"> (으)로 나누어지므로 수용액에 전원을 연결하면 전류가 흐른다. 이때 양이온은 <span class="choice-group" data-key="ec_dir" data-answer="-"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(−)극</button></span> 쪽으로 이동한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>이온 결합 물질과 공유 결합 물질의 성질은 어떤 차이가 있는지 설명해 보자.</div>
+      <textarea class="free" data-key="ec_diff" data-keywords="고체,수용액,이온/분자,전류" data-model="이온 결합 물질은 고체 상태에서는 이온이 이동할 수 없어 전류가 흐르지 않지만, 수용액에서는 이온이 자유롭게 이동하여 전류가 흐른다. 공유 결합 물질은 고체와 수용액 상태 모두 전기적으로 중성인 분자로 존재해 대부분 전류가 흐르지 않는다." placeholder="예: 이온 결합 물질은 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="A는 고체·수용액 모두 전류가 흐르지 않으므로 공유 결합 물질인 설탕이에요. B와 C는 수용액에서 전류가 흐르므로 이온 결합 물질(염화 칼슘, 염화 나트륨)이에요. 포도당은 공유 결합 물질이라 A와 같은 결과가 나와요.">
+      <div class="q-text"><span class="q-num">1</span>표는 물질 A~C(설탕, 염화 칼슘, 염화 나트륨 중 하나)의 전류 흐름을 실험한 결과이다. 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <table class="t" style="margin:6px 0;max-width:360px"><tr><th>물질</th><th>고체</th><th>수용액</th></tr><tr><td>A</td><td>×</td><td>×</td></tr><tr><td>B</td><td>×</td><td>○</td></tr><tr><td>C</td><td>×</td><td>○</td></tr></table>
+      <div class="bogi">ㄱ. A는 설탕이다.<br>ㄴ. B는 이온 결합 물질이다.<br>ㄷ. 포도당으로 실험하면 결과는 C와 같다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="염화 수소는 공유 결합 물질이지만 물에 녹으면 수소 이온과 염화 이온으로 나누어져 수용액에서 전류가 흘러요. 공유 결합 물질 중 예외적인 경우예요.">
+      <div class="q-text"><span class="q-num">2</span>공유 결합 물질은 모두 수용액에서 전류가 흐르지 않는다.
+        <span class="choice-group" data-key="qz2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="소독에 쓰는 에탄올은 공유 결합 물질, 제설제로 쓰는 염화 칼슘은 이온 결합 물질이에요.">
+      <div class="q-text"><span class="q-num">3</span>제설제로 이용되는 염화 칼슘은 <span class="choice-group" data-key="qz3a" data-label="염화 칼슘" data-answer="이온"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span> 결합 물질, 소독에 이용되는 에탄올은 <span class="choice-group" data-key="qz3b" data-label="에탄올" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span> 결합 물질이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>창의적 문제해결력: 화학조미료 엠에스지(MSG, 글루탐산 나트륨)는 흰색 고체이고 물에 잘 녹는다. 이온 결합 물질인지 공유 결합 물질인지 확인하는 실험을 설계해 보자.</div>
+      <textarea class="free" data-key="qz4" data-keywords="수용액/물에 녹,전기 전도성/전류,고체" data-model="글루탐산 나트륨 고체와 수용액에 각각 전기 전도성 측정기를 꽂는다. 고체에서는 전류가 흐르지 않고 수용액에서 전류가 흐르면 이온 결합 물질이다. (실제로 나트륨 이온이 있어 수용액에서 전류가 흐른다.)" placeholder="예: 글루탐산 나트륨을 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요. 생존 키트 선택도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-2-2 화학 결합과 물질의 성질 · 비상교육 통합과학1 교과서 68~71쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-2-2 화학 결합과 물질의 성질";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 생존 키트 ===== */
+const KIT = ["🫁 산소", "🌫️ 질소", "🍬 설탕", "🧂 소금", "💧 물"];
+const kitSel = new Set();
+$("kit").innerHTML = KIT.map(k => `<button type="button" data-k="${k}">${k}</button>`).join("");
+$("kit").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const k = b.dataset.k;
+  if (kitSel.has(k)) kitSel.delete(k); else if (kitSel.size < 3) kitSel.add(k);
+  document.querySelectorAll("#kit button").forEach(x => x.classList.toggle("on", kitSel.has(x.dataset.k)));
+  $("kit-read").textContent = kitSel.size < 3 ? `세 가지를 골라 주세요. (${kitSel.size}/3)` : `생존 키트: ${[...kitSel].join(", ")} — 고른 까닭을 아래에 적어 보세요.`;
+});
+WS.custom("kit_pick", { el: $("kit-read"), value: () => [...kitSel].map(k => k.split(" ")[1]).join(",") });
+
+/* ===== 2. 분자 모형 ===== */
+function ball(x, y, r, c, t) { return `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" stroke="#1F3133" stroke-width="1"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:${r > 18 ? 13 : 10}px;font-weight:800;fill:#fff">${t}</text>`; }
+const MD = {
+  o2: { svg: () => ball(130, 110, 34, "#D8493B", "O") + ball(185, 110, 34, "#D8493B", "O"), txt: "산소 원자 2개가 공유 결합한 <b>산소 분자 O₂</b>예요. 공유 결합 물질은 일정한 수의 원자가 결합한 독립적인 분자를 이뤄요. 산소는 생명을 유지하도록 도와요." },
+  h2o: { svg: () => ball(160, 100, 36, "#D8493B", "O") + ball(112, 140, 22, "#E9EEF0", "H").replace('fill:#fff', 'fill:#1F3133') + ball(208, 140, 22, "#E9EEF0", "H").replace('fill:#fff', 'fill:#1F3133'), txt: "산소 원자 1개와 수소 원자 2개가 공유 결합한 <b>물 분자 H₂O</b>예요. 물은 체온을 조절하고 영양분을 운반해요." },
+  nacl: { svg: () => { let g = ""; for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { const na = (i + j) % 2 === 0; const x = 70 + i * 50 + j * 18, y = 40 + j * 38; g += na ? ball(x, y, 11, "#8A5BD6", "Na⁺") : ball(x, y, 18, "#2E9E5B", "Cl⁻"); } return g; }, txt: "나트륨 이온(Na⁺)과 염화 이온(Cl⁻)이 <b>1 : 1</b>의 개수비로 교대로 반복해 규칙적인 입체 구조를 이룬 <b>염화 나트륨 NaCl</b>이에요. 따로 떨어진 분자가 없고, 화학식은 이온의 개수비로 나타내요. 체액의 삼투압을 유지해요." }
+};
+function drawMD(k) { $("md-svg").innerHTML = MD[k].svg(); $("md-read").innerHTML = MD[k].txt; }
+document.querySelectorAll("#md-pick button").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("#md-pick button").forEach(x => x.classList.toggle("on", x === b)); drawMD(b.dataset.m); }));
+drawMD("o2");
+
+/* ===== 3. 화학식 만들기 ===== */
+const FM = [
+  { id: "cacl2", n: "염화 칼슘", c: ["Ca", 2], a: ["Cl", -1], ans: [1, 2] },
+  { id: "mgo", n: "산화 마그네슘", c: ["Mg", 2], a: ["O", -2], ans: [1, 1] },
+  { id: "na2o", n: "산화 나트륨", c: ["Na", 1], a: ["O", -2], ans: [2, 1] },
+  { id: "alcl3", n: "염화 알루미늄", c: ["Al", 3], a: ["Cl", -1], ans: [1, 3] }
+];
+const fmState = {}; FM.forEach(f => fmState[f.id] = [1, 1]);
+let fmCur = "cacl2";
+const ionName = (s, q) => s + (Math.abs(q) > 1 ? Math.abs(q) : "") + (q > 0 ? "⁺" : "⁻");
+const supQ = q => (Math.abs(q) > 1 ? "⁰¹²³⁴⁵⁶⁷⁸⁹"[Math.abs(q)] : "") + (q > 0 ? "⁺" : "⁻");
+const sub = n => n > 1 ? "₀₁₂₃₄₅₆₇₈₉"[n] : "";
+const gcd = (a, b) => b ? gcd(b, a % b) : a;
+const fmOk = f => fmState[f.id][0] === f.ans[0] && fmState[f.id][1] === f.ans[1];
+function drawFM() {
+  const f = FM.find(x => x.id === fmCur), [nc, na] = fmState[fmCur];
+  $("fm-targets").innerHTML = FM.map(x => `<button type="button" data-id="${x.id}" class="${x.id === fmCur ? "on" : ""}">${x.n}${fmOk(x) ? " ✅" : ""}</button>`).join("");
+  $("fm-ctrl").innerHTML = `<div class="ion-box">양이온 ${f.c[0]}${supQ(f.c[1])} <button type="button" data-w="0" data-d="-1">－</button><b>${nc}</b><button type="button" data-w="0" data-d="1">＋</button></div>` +
+    `<div class="ion-box">음이온 ${f.a[0]}${supQ(f.a[1])} <button type="button" data-w="1" data-d="-1">－</button><b>${na}</b><button type="button" data-w="1" data-d="1">＋</button></div>`;
+  let g = "", x = 20;
+  for (let i = 0; i < nc; i++) { g += `<circle cx="${x + 22}" cy="60" r="20" fill="#8A5BD6"/><text x="${x + 22}" y="65" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">${f.c[0]}${supQ(f.c[1])}</text>`; x += 50; }
+  x = 20;
+  for (let i = 0; i < na; i++) { g += `<circle cx="${x + 24}" cy="125" r="23" fill="#2E9E5B"/><text x="${x + 24}" y="130" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">${f.a[0]}${supQ(f.a[1])}</text>`; x += 52; }
+  $("fm-svg").innerHTML = g;
+  const charge = nc * f.c[1] + na * f.a[1], k = gcd(nc, na);
+  $("fm-formula").textContent = charge === 0 ? `${f.c[0]}${sub(nc / k)}${f.a[0]}${sub(na / k)}` : "?";
+  $("fm-read").innerHTML = `전하의 합: (${f.c[1] > 0 ? "+" : ""}${f.c[1]}) × ${nc} + (${f.a[1]}) × ${na} = <b>${charge > 0 ? "+" : ""}${charge}</b>` +
+    (charge !== 0 ? "<br>아직 중성이 아니에요." : k > 1 ? "<br>중성이지만 가장 간단한 정수비가 아니에요. 개수를 줄여 보세요." : `<br>✅ ${f.n}의 화학식은 <b>${$("fm-formula").textContent}</b>예요.`);
+}
+$("fm-targets").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { fmCur = b.dataset.id; drawFM(); } });
+$("fm-ctrl").addEventListener("click", e => {
+  const b = e.target.closest("button[data-w]"); if (!b) return;
+  const st = fmState[fmCur], w = Number(b.dataset.w); st[w] = Math.max(1, Math.min(6, st[w] + Number(b.dataset.d))); drawFM();
+});
+drawFM();
+FM.forEach(f => WS.custom("fm_" + f.id, { el: $("fm-q"), value: () => fmState[f.id].join(":"), check: () => fmOk(f), answer: `${f.n} ${f.c[0]}${sub(f.ans[0])}${f.a[0]}${sub(f.ans[1])}` }));
+$("fm-q").querySelector(".fb").before(Object.assign(document.createElement("div"), { className: "q-text", innerHTML: '<span class="q-num">✓</span>네 물질의 화학식을 모두 완성한 뒤 [확인하기]를 누르세요.' }));
+
+/* ===== 4. 전기 전도성 ===== */
+const WELL = [
+  { id: "nacl", n: "염화 나트륨", ion: true, c: "#8A5BD6", a: "#2E9E5B", cn: "Na⁺", an: "Cl⁻" },
+  { id: "cacl", n: "염화 칼슘", ion: true, c: "#C4577A", a: "#2E9E5B", cn: "Ca²⁺", an: "Cl⁻" },
+  { id: "water", n: "증류수", ion: false, water: true },
+  { id: "sug", n: "설탕", ion: false },
+  { id: "glu", n: "포도당", ion: false }
+];
+let wet = false, wSel = null, ecRaf = 0; const tested = new Set();
+function drawWells() {
+  $("wells").innerHTML = WELL.map(w => `<div class="well${wet || w.water ? " wet" : ""}${wSel === w.id ? " sel" : ""}" data-id="${w.id}"><span>${w.n}</span><small>${w.water ? "액체" : wet ? "수용액" : "고체"}</small>${tested.has(w.id + (wet || w.water ? "a" : "s")) ? '<span class="mark">📏</span>' : ""}</div>`).join("") + `<div class="well" style="visibility:hidden"></div>`;
+}
+function drawEC(t) {
+  const w = WELL.find(x => x.id === wSel);
+  if (!w) { $("ec-svg").innerHTML = `<text x="150" y="100" text-anchor="middle" style="font-size:13px;fill:#9AB">홈을 눌러 측정해 보세요</text>`; return; }
+  const liquid = wet || w.water, on = w.ion && liquid;
+  let g = `<rect x="20" y="40" width="260" height="150" rx="10" fill="${liquid ? "#DFF2FB" : "#F3F1EA"}" stroke="#9AB"/>`;
+  g += `<rect x="40" y="20" width="16" height="140" fill="#5E6B6E"/><text x="48" y="16" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#D8493B">(+)</text>`;
+  g += `<rect x="244" y="20" width="16" height="140" fill="#5E6B6E"/><text x="252" y="16" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#2F6FED">(−)</text>`;
+  g += `<circle cx="150" cy="22" r="12" fill="${on ? "#FFE15A" : "#DDD"}" stroke="#5E6B6E"/>${on ? '<circle cx="150" cy="22" r="20" fill="#FFE15A" opacity=".35"/>' : ""}<text x="150" y="26" text-anchor="middle" style="font-size:9px;font-weight:800">LED</text>`;
+  const r = (i, k) => ((i * 73 + k * 29) % 100) / 100;
+  if (w.ion) {
+    for (let i = 0; i < 12; i++) {
+      let x, y;
+      if (!liquid) { x = 80 + (i % 4) * 40; y = 80 + Math.floor(i / 4) * 34; }
+      else { const dir = i % 2 === 0 ? 1 : -1; x = 64 + (((r(i, 1) * 172 + dir * (t || 0) * 22) % 172) + 172) % 172; y = 60 + ((i * 37) % 6) * 22; } // 양이온 → (−)극, 음이온 → (+)극
+      const cat = !liquid ? (i + Math.floor(i / 4)) % 2 === 0 : i % 2 === 0;
+      g += `<circle cx="${x}" cy="${y}" r="${cat ? 11 : 14}" fill="${cat ? w.c : w.a}"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:9px;font-weight:800;fill:#fff">${cat ? w.cn : w.an}</text>`;
+    }
+  } else if (!w.water) {
+    for (let i = 0; i < 6; i++) { const x = liquid ? 80 + r(i, 3) * 140 : 90 + (i % 3) * 55, y = liquid ? 70 + r(i, 4) * 100 : 90 + Math.floor(i / 3) * 50; g += `<rect x="${x - 16}" y="${y - 10}" width="32" height="20" rx="9" fill="#F2C14E" stroke="#B08A1E"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:9px;font-weight:800">분자</text>`; }
+  } else {
+    for (let i = 0; i < 8; i++) g += `<text x="${70 + r(i, 5) * 160}" y="${70 + r(i, 6) * 110}" style="font-size:11px;fill:#6AA9C9">H₂O</text>`;
+  }
+  $("ec-svg").innerHTML = g;
+}
+function ecLoop(t0) { return t => { drawEC((t - t0) / 1000); ecRaf = requestAnimationFrame(ecLoop(t0)); }; }
+$("wells").addEventListener("click", e => {
+  const el = e.target.closest(".well[data-id]"); if (!el) return;
+  wSel = el.dataset.id; const w = WELL.find(x => x.id === wSel), liquid = wet || w.water, on = w.ion && liquid;
+  tested.add(w.id + (liquid ? "a" : "s"));
+  drawWells(); cancelAnimationFrame(ecRaf);
+  if (on) ecRaf = requestAnimationFrame(ecLoop(performance.now())); else drawEC(0);
+  $("ec-read").innerHTML = `<b>${w.n} ${w.water ? "" : liquid ? "수용액" : "고체"}</b>: ${on ? "💡 불이 켜지고 소리가 나요 → <b>전류가 흐른다</b>" : "불이 켜지지 않아요 → <b>전류가 흐르지 않는다</b>"}<br>` +
+    (w.ion ? (liquid ? "이온이 자유롭게 움직여 양이온은 (−)극, 음이온은 (+)극 쪽으로 이동해요." : "양이온과 음이온이 정전기적 인력으로 단단히 묶여 이동할 수 없어요.") : w.water ? "증류수에는 이동할 수 있는 이온이 거의 없어요." : "전기적으로 중성인 분자로 이루어져 있어 녹여도 이온으로 나누어지지 않아요.");
+});
+$("ec-water").addEventListener("click", () => { wet = true; wSel = null; cancelAnimationFrame(ecRaf); drawWells(); drawEC(); $("ec-read").textContent = "증류수를 넣어 녹였어요. 다시 각 홈을 측정해 보세요."; });
+$("ec-reset").addEventListener("click", () => { wet = false; wSel = null; cancelAnimationFrame(ecRaf); drawWells(); drawEC(); $("ec-read").textContent = "고체 상태로 되돌렸어요."; });
+drawWells(); drawEC();
+WS.custom("ec_tested", { el: $("ec-read"), value: () => [...tested].join(",") });
+</script>
+</body>
+</html>

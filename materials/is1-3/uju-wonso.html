@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-1-1 — 우주의 시작과 원소의 생성</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .stage-btns{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .stage-btns button{ font-family:inherit; font-size:12.5px; font-weight:700; border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:5px 11px; cursor:pointer; color:var(--ink-soft); }
+  .stage-btns button.on{ border-color:var(--main); background:var(--main-soft); color:#0b6f73; }
+  .bb-stage{ background:#0E1426; border-radius:14px; }
+  canvas.spec{ display:block; width:100%; height:34px; border-radius:6px; }
+  .spec-row{ display:grid; grid-template-columns:76px 1fr; gap:8px; align-items:center; margin:5px 0; font-size:12.5px; font-weight:700; }
+  .spec-row.ref canvas{ height:26px; }
+  .ovl{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+  .ovl label{ display:inline-flex; gap:5px; align-items:center; font-size:12.5px; font-weight:700; border:1.5px solid var(--line); border-radius:999px; padding:4px 10px; cursor:pointer; background:#fff; }
+  .ovl input{ accent-color:var(--main); }
+  .nm-axis{ display:flex; justify-content:space-between; font-size:10px; color:var(--ink-soft); margin-left:84px; }
+  .scene-svg text{ font-family:inherit; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/3">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 1. 자연의 구성 원소</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 1. 자연의 구성 원소 · 01 우주의 시작과 원소의 생성 (교과서 42~47쪽)</div>
+    <h1>빅뱅에서 별빛까지 — <span>우주의 시작과 원소의 생성</span></h1>
+    <p class="sub">빅뱅 직후 우주가 식어 가며 입자에서 원자가 만들어지는 과정을 단계별로 살펴보고, 세 가지 스펙트럼을 직접 만들어 보세요. 마지막에는 미지의 별 A, B의 스펙트럼에 원소의 스펙트럼을 겹쳐 보며 별을 이루는 원소를 찾아내요.</p>
+    <div class="goals"><span>🎯 천체에서 방출되는 빛의 스펙트럼을 분석할 수 있다.</span><span>🎯 우주 초기에 생성된 원소와 천체의 구성 물질을 추론할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 빅뱅 시뮬레이터 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>빅뱅 이후 원소가 만들어지는 과정</div>
+    <div class="card-hint">단계 버튼을 차례로 눌러 우주가 팽창하며 식어 갈 때 어떤 입자가 만들어지는지 관찰하세요. 입자는 크기를 과장해서 그렸어요.</div>
+    <div class="stage-btns" id="bb-btns"></div>
+    <div class="sim-wrap">
+      <div class="stage bb-stage"><svg id="bb-svg" viewBox="0 0 440 300" aria-label="빅뱅 이후 입자 생성"></svg></div>
+      <div class="panel">
+        <div class="readout" id="bb-read"></div>
+        <div class="readout" id="bb-count"></div>
+      </div>
+    </div>
+    <div class="q" data-why="빅뱅 → 최초의 입자(쿼크, 전자) → 양성자와 중성자 → 헬륨 원자핵 → 원자(빅뱅 약 38만 년 뒤) 순서예요. 우주가 팽창하며 온도가 낮아질수록 입자가 결합해 더 큰 입자가 만들어졌어요.">
+      <div class="q-text"><span class="q-num">1</span>중단원 마무리 01 — 우주 생성 초기의 사건을 시간 순서대로 놓아 보자.</div>
+      <ol class="order-list" data-key="bb_order" data-answer="da,ga,ma,ra,na">
+        <li data-id="na"><span class="txt">(나) 원자의 생성</span></li>
+        <li data-id="ra"><span class="txt">(라) 헬륨 원자핵의 생성</span></li>
+        <li data-id="da"><span class="txt">(다) 빅뱅(대폭발)</span></li>
+        <li data-id="ma"><span class="txt">(마) 양성자와 중성자의 생성</span></li>
+        <li data-id="ga"><span class="txt">(가) 전자의 생성</span></li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="양성자는 그 자체로 수소 원자핵이 되고, 양성자 2개와 중성자 2개가 결합해 헬륨 원자핵이 돼요. 수소 원자핵은 전자 1개, 헬륨 원자핵은 전자 2개와 결합해 원자가 돼요.">
+      <div class="q-text"><span class="q-num">2</span>헬륨 원자핵은 양성자 <input class="blank w-s" data-key="bb_p" data-label="양성자" data-num="2" data-abs="0"> 개와 중성자 <input class="blank w-s" data-key="bb_n" data-label="중성자" data-num="2" data-abs="0"> 개가 결합하여 만들어지고, 헬륨 원자는 헬륨 원자핵이 전자 <input class="blank w-s" data-key="bb_e" data-label="전자" data-num="2" data-abs="0"> 개와 결합하여 만들어진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="빅뱅 우주론에 따르면 우주는 약 138억 년 전에 탄생했고, 원자는 빅뱅 약 38만 년 뒤 우주의 온도가 충분히 낮아졌을 때 만들어졌어요.">
+      <div class="q-text"><span class="q-num">3</span>우주는 약 <input class="blank w-s" data-key="bb_age" data-num="138" data-abs="0"> 억 년 전에 빅뱅으로 탄생하였고, 빅뱅 약 <input class="blank w-s" data-key="bb_atom" data-num="38" data-abs="0"> 만 년 뒤에 원자가 만들어졌다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="우주가 생성된 초기에 우주 전역에는 수소와 헬륨이 존재하게 되었어요.">
+      <div class="q-text"><span class="q-num">4</span>확인하기: 우주 생성 초기에 만들어진 두 가지 원소는 <input class="blank w-s" data-key="bb_el1" data-label="❶" data-answer="수소|헬륨"> 와 <input class="blank w-s" data-key="bb_el2" data-label="❷" data-answer="헬륨|수소"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 스펙트럼 만들기 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>세 가지 스펙트럼 만들기</div>
+    <div class="card-hint">햇빛을 프리즘에 통과시키면 빛의 파장에 따라 굴절되는 정도가 달라 여러 색의 띠가 나타나요. 이것이 <b>스펙트럼</b>이에요. 관측 상황을 바꿔 가며 어떤 스펙트럼이 나타나는지 보세요.</div>
+    <div class="seg" id="sc-mode" style="margin-bottom:10px">
+      <button type="button" class="on" data-m="cont">① 별의 표면을 직접 관측</button>
+      <button type="button" data-m="abs">② 별빛이 차가운 대기를 통과</button>
+      <button type="button" data-m="emi">③ 별 주변의 가열된 기체를 관측</button>
+    </div>
+    <div class="stage"><svg id="sc-svg" class="scene-svg" viewBox="0 0 560 170" aria-label="스펙트럼이 만들어지는 상황"></svg></div>
+    <div class="spec-row" style="margin-top:10px"><span id="sc-name">연속 스펙트럼</span><canvas class="spec" id="sc-spec" width="600" height="40"></canvas></div>
+    <div class="readout" id="sc-read" style="margin-top:8px"></div>
+    <div class="q" data-why="별 표면에서 나온 빛은 연속 스펙트럼, 별빛이 온도가 낮은 별의 대기를 통과하면 흡수 스펙트럼, 고온의 별 주변에서 가열된 기체를 관측하면 방출 스펙트럼이 나타나요.">
+      <div class="q-text"><span class="q-num">1</span>검은 바탕에 여러 색의 밝은 선이 보이는 스펙트럼은
+        <span class="choice-group" data-key="sc_emi" data-answer="방출"><button type="button" class="choice-btn" data-value="연속">연속 스펙트럼</button><button type="button" class="choice-btn" data-value="흡수">흡수 스펙트럼</button><button type="button" class="choice-btn" data-value="방출">방출 스펙트럼</button></span>,
+        연속 스펙트럼에 검은 선이 나타나는 스펙트럼은
+        <span class="choice-group" data-key="sc_abs" data-answer="흡수"><button type="button" class="choice-btn" data-value="연속">연속 스펙트럼</button><button type="button" class="choice-btn" data-value="흡수">흡수 스펙트럼</button><button type="button" class="choice-btn" data-value="방출">방출 스펙트럼</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="②와 ③에서 같은 수소 기체를 썼을 때 흡수선과 방출선의 위치가 똑같아요. 원소마다 특정한 파장의 빛만 흡수하거나 방출하기 때문에, 한 원소의 흡수선과 방출선 위치는 같고 원소마다 다르게 나타나요.">
+      <div class="q-text"><span class="q-num">2</span>②와 ③을 번갈아 보면, 같은 원소의 흡수선과 방출선의 위치는
+        <span class="choice-group" data-key="sc_same" data-answer="같다"><button type="button" class="choice-btn" data-value="같다">같다</button><button type="button" class="choice-btn" data-value="다르다">다르다</button></span>.
+        따라서 원소는 저마다 <input class="blank" data-key="sc_unique" data-answer="고유의스펙트럼|고유한스펙트럼|고유스펙트럼|스펙트럼"> 을/를 나타낸다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 탐구: 미지의 별 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>분광기를 활용한 물질의 스펙트럼 관찰·비교 — 미지의 별 A, B</div>
+    <div class="card-hint">문제 인식: 스펙트럼으로 우주에 존재하는 원소를 어떻게 알아낼 수 있을까?<br>원소 이름 옆의 체크 상자를 켜면 그 원소의 선 위치가 별의 스펙트럼 위에 점선으로 겹쳐져요. 별의 흡수선과 원소의 선이 <b>모두</b> 겹치는 원소를 찾아 표에 ○, ×를 고르세요.</div>
+    <div class="spec-row"><span style="color:#B07B4B">⭐ 별 A</span><canvas class="spec" id="sp-A" width="900" height="40"></canvas></div>
+    <div class="spec-row"><span style="color:#2C7FA0">⭐ 별 B</span><canvas class="spec" id="sp-B" width="900" height="40"></canvas></div>
+    <div class="nm-axis"><span>380 nm</span><span>450</span><span>500</span><span>550</span><span>600</span><span>650</span><span>700 nm</span></div>
+    <div class="ovl" id="sp-ovl"></div>
+    <div id="sp-refs"></div>
+    <div class="q" data-why="별 A에는 수소·헬륨·나트륨의 선이 모두 있고, 별 B에는 수소·헬륨·칼슘의 선이 모두 있어요. 원소의 선이 하나라도 빠져 있으면 그 원소는 없다고 판단해요." data-hint="원소를 하나씩 켜서 점선마다 별의 검은 흡수선이 있는지 확인하세요. 나트륨은 노란색 부분에 아주 가까운 두 줄이에요.">
+      <div class="q-text"><span class="q-num">1</span>별 A와 별 B를 구성하는 원소의 유무 (○: 있음, ×: 없음)</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>원소</th><th>별 A</th><th>별 B</th></tr>
+        <tr><td>수소</td><td><span class="choice-group" data-key="spA_H" data-label="A-수소" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="spB_H" data-label="B-수소" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>헬륨</td><td><span class="choice-group" data-key="spA_He" data-label="A-헬륨" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="spB_He" data-label="B-헬륨" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>나트륨</td><td><span class="choice-group" data-key="spA_Na" data-label="A-나트륨" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="spB_Na" data-label="B-나트륨" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+        <tr><td>칼슘</td><td><span class="choice-group" data-key="spA_Ca" data-label="A-칼슘" data-answer="×"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td><td><span class="choice-group" data-key="spB_Ca" data-label="B-칼슘" data-answer="○"><button type="button" class="choice-btn" data-value="○">○</button><button type="button" class="choice-btn" data-value="×">×</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="두 별에 공통으로 있는 원소는 수소와 헬륨이에요. 수소와 헬륨은 빅뱅 이후 우주가 팽창하던 초기에 만들어져 우주 전역에 퍼져 있었고, 이것이 별을 만드는 재료가 되었어요.">
+      <div class="q-text"><span class="q-num">2</span>정리: 별 A와 별 B의 공통적인 구성 원소를 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="sp_common" data-answer="수소,헬륨"><button type="button" class="multi-btn" data-value="수소">수소</button> <button type="button" class="multi-btn" data-value="헬륨">헬륨</button> <button type="button" class="multi-btn" data-value="나트륨">나트륨</button> <button type="button" class="multi-btn" data-value="칼슘">칼슘</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>정리: 공통된 구성 원소의 근원을 우주의 탄생과 관련지어 설명해 보자.</div>
+      <textarea class="free" data-key="sp_origin" data-keywords="빅뱅/대폭발/우주 초기,수소,헬륨" data-model="수소와 헬륨은 빅뱅 이후 우주가 팽창하며 식던 초기에 만들어져 우주 전역에 존재하게 되었다. 이 수소와 헬륨이 별의 재료가 되었기 때문에 두 별 모두에서 수소와 헬륨이 관측된다." placeholder="예: 수소와 헬륨은 …"></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>결론: 스펙트럼을 이용하여 우주에 존재하는 원소를 알아내는 원리를 설명해 보자.</div>
+      <textarea class="free" data-key="sp_principle" data-keywords="고유/원소마다,흡수선/방출선/선의 위치,비교" data-model="원소는 저마다 특정한 파장의 빛만 흡수하거나 방출하므로 고유한 스펙트럼을 나타낸다. 별빛의 흡수 스펙트럼에 나타난 흡수선의 위치를 여러 원소의 스펙트럼과 비교하면 그 별에 어떤 원소가 있는지 알 수 있다." placeholder="예: 원소마다 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 개념: 우주의 원소 분포 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>스펙트럼과 우주의 원소 분포</div>
+    <p class="read-text">19세기 초 <b>프라운호퍼</b>는 태양의 스펙트럼에서 수백 개의 흡수선을 처음 발견했고, 과학자들은 이 흡수선을 분석해 태양이 수소, 헬륨, 나트륨 등으로 이루어져 있음을 알아냈어요. 우주 전역의 천체에서 오는 빛을 분석한 결과, 우주의 원소는 대부분 수소와 헬륨이에요.</p>
+    <div class="sim-wrap">
+      <div class="stage" style="display:flex;justify-content:center"><svg id="pie" viewBox="0 0 220 220" width="220" aria-label="우주의 구성 원소 비율"></svg></div>
+      <div class="panel">
+        <div class="q" style="border:none;padding:0" data-why="우주의 원소는 질량비로 수소 약 74 %, 헬륨 약 24 %, 기타 약 2 %예요. 수소와 헬륨은 빅뱅 이후 우주가 팽창하던 초기에 만들어져 별과 은하의 재료가 되었어요.">
+          <div class="q-text">우주를 구성하는 원소의 질량비는 수소 약 <input class="blank w-s" data-key="pie_h" data-label="수소" data-num="74" data-abs="1"> %, 헬륨 약 <input class="blank w-s" data-key="pie_he" data-label="헬륨" data-num="24" data-abs="1"> % 이다.</div>
+          <div class="q-text">별빛의 스펙트럼은 <span class="choice-group" data-key="pie_type" data-label="별빛" data-answer="흡수"><button type="button" class="choice-btn" data-value="흡수">흡수</button><button type="button" class="choice-btn" data-value="방출">방출</button></span> 스펙트럼으로 관측된다.</div>
+          <span class="fb"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="(가)는 검은 바탕에 밝은 선이 있는 방출 스펙트럼이고, 고온의 별 주변에서 가열된 기체를 관측하면 얻어요. (나)는 흡수 스펙트럼으로, 별 표면의 빛이 온도가 낮은 대기를 통과할 때 얻어요. 두 선의 위치가 같으므로 같은 원소의 스펙트럼이에요.">
+      <div class="q-text"><span class="q-num">1</span>(가)는 검은 바탕에 밝은 선 4개가 있는 스펙트럼이고, (나)는 무지개 띠의 같은 위치에 검은 선 4개가 있는 스펙트럼이다. 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. (가)는 흡수 스펙트럼이다.<br>ㄴ. (가)는 고온의 별 주변에서 가열된 기체를 관측하여 얻을 수 있다.<br>ㄷ. (나)는 별 표면에서 나온 빛이 상대적으로 온도가 낮은 별의 대기를 통과할 때 관측하여 얻을 수 있다.<br>ㄹ. (가)와 (나)는 같은 원소의 스펙트럼이다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄴ,ㄷ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="스펙트럼은 빛의 파장에 따라 굴절되는 정도가 다르기 때문에 나타나요. 프리즘이나 분광기를 지나면 파장별로 나누어져요.">
+      <div class="q-text"><span class="q-num">2</span>스펙트럼이 나타나는 까닭은 빛의 <span class="choice-group" data-key="qz2" data-answer="파장"><button type="button" class="choice-btn" data-value="세기">세기</button><button type="button" class="choice-btn" data-value="파장">파장</button><button type="button" class="choice-btn" data-value="속력">속력</button></span>에 따라 굴절되는 정도가 다르기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="우주가 팽창하면서 온도가 낮아져야 입자들이 결합할 수 있어요. 온도가 높으면 입자의 운동이 너무 활발해 결합이 깨져요.">
+      <div class="q-text"><span class="q-num">3</span>빅뱅 이후 우주가 팽창하면서 온도는 <span class="choice-group" data-key="qz3" data-answer="낮아졌다"><button type="button" class="choice-btn" data-value="높아졌다">높아졌다</button><button type="button" class="choice-btn" data-value="낮아졌다">낮아졌다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>중단원 마무리 03: 스펙트럼을 이용하여 태양의 구성 원소를 알아낼 수 있는 원리를 설명하시오.</div>
+      <textarea class="free" data-key="qz4" data-keywords="흡수선,원소/고유,비교/위치" data-model="태양의 스펙트럼은 흡수 스펙트럼이다. 흡수선의 위치를 여러 원소의 고유한 스펙트럼과 비교하여 선의 위치가 일치하는 원소가 태양에 있다고 판단한다." placeholder="예: 태양의 스펙트럼에 나타난 흡수선을 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-1-1 우주의 시작과 원소의 생성 · 비상교육 통합과학1 교과서 42~47쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-1-1 우주의 시작과 원소의 생성";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 빅뱅 단계 ===== */
+const BB = [
+  { n: "① 빅뱅 직후", t: "빅뱅 직후", T: "약 10조 K 이상", d: "우주가 급격히 팽창하며 <b>쿼크</b>와 <b>전자</b> 같은 최초의 입자가 만들어졌어요." },
+  { n: "② 양성자·중성자", t: "약 1만분의 1초 뒤", T: "약 1조 K", d: "온도가 낮아지며 쿼크가 결합해 <b>양성자</b>와 <b>중성자</b>가 만들어졌어요. 양성자는 그 자체로 수소 원자핵이에요." },
+  { n: "③ 헬륨 원자핵", t: "약 3분 뒤", T: "약 10억 K", d: "양성자 2개와 중성자 2개가 결합해 <b>헬륨 원자핵</b>이 만들어졌어요. 수소 원자핵과 헬륨 원자핵의 개수비는 약 12 : 1, 질량비는 약 3 : 1이에요." },
+  { n: "④ 원자", t: "약 38만 년 뒤", T: "약 3000 K", d: "온도가 충분히 낮아져 원자핵이 전자와 결합했어요. 수소 원자핵 + 전자 1개 → <b>수소 원자</b>, 헬륨 원자핵 + 전자 2개 → <b>헬륨 원자</b>." }
+];
+let bbIdx = 0;
+function rnd(seed) { let s = seed; return () => (s = (s * 9301 + 49297) % 233280) / 233280; }
+function drawBB() {
+  const r = rnd(7), W = 440, H = 300;
+  let g = "";
+  for (let i = 0; i < 60; i++) g += `<circle cx="${r() * W}" cy="${r() * H}" r="${r() * 1.2 + .3}" fill="#fff" opacity="${.15 + r() * .4}"/>`;
+  const glow = ["#FFE7A3", "#FFC97A", "#F59A6B", "#5F6FA8"][bbIdx];
+  g += `<rect width="${W}" height="${H}" fill="${glow}" opacity="${[.35, .22, .12, .0][bbIdx]}"/>`;
+  const pos = n => { const out = []; for (let i = 0; i < n; i++) out.push([30 + r() * (W - 60), 30 + r() * (H - 60)]); return out; };
+  const P = (x, y, c, t) => `<circle cx="${x}" cy="${y}" r="8" fill="${c}" stroke="#fff" stroke-width="1"/><text x="${x}" y="${y + 3.5}" text-anchor="middle" style="font-size:9px;font-weight:800;fill:#fff">${t}</text>`;
+  let cnt = {};
+  if (bbIdx === 0) {
+    pos(70).forEach(([x, y], i) => { g += i % 3 === 2 ? `<circle cx="${x}" cy="${y}" r="3" fill="#7FD3FF"/>` : `<circle cx="${x}" cy="${y}" r="3.5" fill="${["#FF6B6B", "#6BCB77", "#4D96FF"][i % 3]}"/>`; });
+    cnt = { "쿼크": 47, "전자": 23 };
+  } else if (bbIdx === 1) {
+    pos(26).forEach(([x, y], i) => g += i < 21 ? P(x, y, "#E04848", "p") : P(x, y, "#8A8F98", "n"));
+    pos(24).forEach(([x, y]) => g += `<circle cx="${x}" cy="${y}" r="3" fill="#7FD3FF"/>`);
+    cnt = { "양성자(p)": 21, "중성자(n)": 5, "전자": 24 };
+  } else {
+    const nuc = (x, y) => P(x - 6, y - 6, "#E04848", "p") + P(x + 6, y - 6, "#8A8F98", "n") + P(x - 6, y + 6, "#8A8F98", "n") + P(x + 6, y + 6, "#E04848", "p");
+    const pts = pos(26);
+    pts.forEach(([x, y], i) => {
+      const he = i < 2;
+      if (bbIdx === 2) { g += he ? nuc(x, y) : P(x, y, "#E04848", "p"); }
+      else {
+        const rr = he ? 26 : 18;
+        g += `<circle cx="${x}" cy="${y}" r="${rr}" fill="none" stroke="#7FD3FF" stroke-dasharray="2 3" opacity=".8"/>` + (he ? nuc(x, y) : P(x, y, "#E04848", "p"));
+        g += `<circle cx="${x + rr}" cy="${y}" r="3.5" fill="#7FD3FF"/>` + (he ? `<circle cx="${x - rr}" cy="${y}" r="3.5" fill="#7FD3FF"/>` : "");
+      }
+    });
+    if (bbIdx === 2) pos(28).forEach(([x, y]) => g += `<circle cx="${x}" cy="${y}" r="3" fill="#7FD3FF"/>`);
+    cnt = bbIdx === 2 ? { "수소 원자핵": 24, "헬륨 원자핵": 2, "전자": 28 } : { "수소 원자": 24, "헬륨 원자": 2 };
+  }
+  g += `<text x="12" y="22" style="font-size:13px;font-weight:800;fill:#fff">${BB[bbIdx].t} · ${BB[bbIdx].T}</text>`;
+  $("bb-svg").innerHTML = g;
+  $("bb-read").innerHTML = `<b>${BB[bbIdx].n}</b> (${BB[bbIdx].t})<br>${BB[bbIdx].d}`;
+  $("bb-count").innerHTML = "화면 속 입자 수<br>" + Object.entries(cnt).map(([k, v]) => `${k}: <b>${v}</b>`).join(" · ") +
+    (bbIdx >= 2 ? `<br><span style="font-size:12px;color:var(--ink-soft)">질량: 수소 ${24}×1 = 24, 헬륨 2×4 = 8 → 헬륨 ≈ 25 %</span>` : "");
+  $("bb-btns").innerHTML = BB.map((b, i) => `<button type="button" data-i="${i}" class="${i === bbIdx ? "on" : ""}">${b.n}</button>`).join("");
+}
+$("bb-btns").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { bbIdx = Number(b.dataset.i); drawBB(); } });
+drawBB();
+
+/* ===== 스펙트럼 공통 ===== */
+const LINES = {
+  H: { n: "수소", nm: [410.2, 434.0, 486.1, 656.3] },
+  He: { n: "헬륨", nm: [447.1, 471.3, 492.2, 501.6, 587.6, 667.8] },
+  Na: { n: "나트륨", nm: [589.0, 589.6] },
+  Ca: { n: "칼슘", nm: [393.4, 396.8, 422.7, 616.2, 643.9, 646.3] }
+};
+const L0 = 380, L1 = 700;
+function nmRGB(w) {
+  let r = 0, g = 0, b = 0;
+  if (w < 440) { r = -(w - 440) / 60; b = 1; } else if (w < 490) { g = (w - 440) / 50; b = 1; }
+  else if (w < 510) { g = 1; b = -(w - 510) / 20; } else if (w < 580) { r = (w - 510) / 70; g = 1; }
+  else if (w < 645) { r = 1; g = -(w - 645) / 65; } else { r = 1; }
+  const f = w < 420 ? .35 + .65 * (w - 380) / 40 : w > 680 ? .35 + .65 * (700 - w) / 20 : 1;
+  return `rgb(${Math.round(255 * r * f)},${Math.round(255 * g * f)},${Math.round(255 * b * f)})`;
+}
+function drawSpec(cv, mode, els, overlay) {
+  const c = cv.getContext("2d"), W = cv.width, H = cv.height, X = w => (w - L0) / (L1 - L0) * W;
+  c.clearRect(0, 0, W, H);
+  if (mode === "emi") { c.fillStyle = "#0A0A0F"; c.fillRect(0, 0, W, H); }
+  else for (let x = 0; x < W; x++) { c.fillStyle = nmRGB(L0 + x / W * (L1 - L0)); c.fillRect(x, 0, 1, H); }
+  const lw = Math.max(2, W / 300);
+  els.forEach(k => LINES[k].nm.forEach(w => {
+    c.fillStyle = mode === "emi" ? nmRGB(w) : "rgba(10,10,15,.92)";
+    c.fillRect(X(w) - lw / 2, 0, lw, H);
+  }));
+  (overlay || []).forEach(k => LINES[k].nm.forEach(w => {
+    c.strokeStyle = "#fff"; c.lineWidth = 1.5; c.setLineDash([3, 3]);
+    c.beginPath(); c.moveTo(X(w), 0); c.lineTo(X(w), H); c.stroke(); c.setLineDash([]);
+  }));
+}
+
+/* ===== 2. 스펙트럼 만들기 ===== */
+let scMode = "cont";
+function drawScene() {
+  let g = `<defs><linearGradient id="rb" x1="0" x2="1"><stop offset="0" stop-color="#7B2FF7"/><stop offset=".3" stop-color="#2F6FED"/><stop offset=".5" stop-color="#2E9E5B"/><stop offset=".7" stop-color="#F2C14E"/><stop offset="1" stop-color="#D8493B"/></linearGradient></defs>`;
+  if (scMode === "emi") {
+    g += `<circle cx="70" cy="85" r="34" fill="#FFD25E" opacity=".35"/><text x="70" y="90" text-anchor="middle" style="font-size:11px;fill:#8a6410">뜨거운 별</text>`;
+    g += `<ellipse cx="170" cy="85" rx="56" ry="40" fill="#E05A8A" opacity=".55"/><text x="170" y="89" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">가열된 수소 기체</text>`;
+    g += `<line x1="226" y1="85" x2="330" y2="85" stroke="#E05A8A" stroke-width="3"/>`;
+  } else {
+    g += `<circle cx="70" cy="85" r="40" fill="#FFD25E"/><text x="70" y="90" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#8a6410">별의 표면</text>`;
+    if (scMode === "abs") g += `<ellipse cx="175" cy="85" rx="44" ry="50" fill="#9FB9D9" opacity=".55"/><text x="175" y="150" text-anchor="middle" style="font-size:11px;fill:#3E5C7A">온도가 낮은 대기(수소)</text>`;
+    g += `<line x1="110" y1="85" x2="330" y2="85" stroke="#FFD25E" stroke-width="4"/>`;
+  }
+  g += `<polygon points="330,40 380,130 280,130" fill="#DDEFF7" stroke="#6AA9C9" stroke-width="2" transform="translate(20,0)"/><text x="350" y="150" text-anchor="middle" style="font-size:11px;fill:#5E7375">프리즘(분광기)</text>`;
+  g += `<path d="M375,90 L520,40 L520,140 Z" fill="${scMode === "emi" ? "#111" : "url(#rb)"}" opacity=".55"/>`;
+  g += `<rect x="520" y="30" width="14" height="120" fill="#fff" stroke="#9AB"/><text x="527" y="165" text-anchor="middle" style="font-size:10px;fill:#5E7375">스크린</text>`;
+  $("sc-svg").innerHTML = g;
+  const name = { cont: "연속 스펙트럼", abs: "흡수 스펙트럼", emi: "방출 스펙트럼" }[scMode];
+  $("sc-name").textContent = name;
+  drawSpec($("sc-spec"), scMode === "emi" ? "emi" : "cont", scMode === "cont" ? [] : ["H"]);
+  $("sc-read").innerHTML = {
+    cont: "모든 파장에서 색이 연속적으로 나타나는 <b>연속 스펙트럼</b>이에요. 별의 표면에서 나오는 빛을 관측하면 나타나요.",
+    abs: "연속 스펙트럼에 검은 <b>흡수선</b>이 나타나는 <b>흡수 스펙트럼</b>이에요. 별빛이 상대적으로 온도가 낮은 별의 대기를 통과하면 대기 속 원소가 특정한 파장의 빛을 흡수해요.",
+    emi: "검은 바탕에 여러 색의 밝은 선이 보이는 <b>방출 스펙트럼</b>이에요. 고온의 별 주변에서 가열된 기체가 특정한 파장의 빛을 방출해요. ②의 흡수선과 위치를 비교해 보세요!"
+  }[scMode];
+}
+document.querySelectorAll("#sc-mode button").forEach(b => b.addEventListener("click", () => {
+  scMode = b.dataset.m; document.querySelectorAll("#sc-mode button").forEach(x => x.classList.toggle("on", x === b)); drawScene();
+}));
+drawScene();
+
+/* ===== 3. 미지의 별 ===== */
+const STAR = { A: ["H", "He", "Na"], B: ["H", "He", "Ca"] };
+const ovl = new Set();
+$("sp-ovl").innerHTML = "겹쳐 보기: " + Object.keys(LINES).map(k => `<label><input type="checkbox" value="${k}"> ${LINES[k].n}</label>`).join("");
+$("sp-refs").innerHTML = Object.keys(LINES).map(k => `<div class="spec-row ref"><span>${LINES[k].n}</span><canvas class="spec" id="ref-${k}" width="900" height="30"></canvas></div>`).join("");
+function drawStars() {
+  drawSpec($("sp-A"), "cont", STAR.A, [...ovl]);
+  drawSpec($("sp-B"), "cont", STAR.B, [...ovl]);
+  Object.keys(LINES).forEach(k => drawSpec($("ref-" + k), "emi", [k]));
+}
+$("sp-ovl").addEventListener("change", e => { e.target.checked ? ovl.add(e.target.value) : ovl.delete(e.target.value); drawStars(); });
+drawStars();
+
+/* ===== 4. 원그래프 ===== */
+(function () {
+  const parts = [["수소", 74, "#9CC9EE"], ["헬륨", 24, "#F5C99A"], ["기타", 2, "#8A6A4A"]];
+  let a0 = -Math.PI / 2, g = "";
+  parts.forEach(([n, v, c]) => {
+    const a1 = a0 + v / 100 * 2 * Math.PI, big = v > 50 ? 1 : 0;
+    g += `<path d="M110,110 L${110 + 100 * Math.cos(a0)},${110 + 100 * Math.sin(a0)} A100,100 0 ${big} 1 ${110 + 100 * Math.cos(a1)},${110 + 100 * Math.sin(a1)} Z" fill="${c}" stroke="#fff" stroke-width="2"/>`;
+    const am = (a0 + a1) / 2;
+    if (v > 5) g += `<text x="${110 + 58 * Math.cos(am)}" y="${110 + 58 * Math.sin(am) + 5}" text-anchor="middle" style="font-size:14px;font-weight:800;fill:#1F3133">${n} ?</text>`;
+    a0 = a1;
+  });
+  $("pie").innerHTML = g;
+})();
+</script>
+</body>
+</html>

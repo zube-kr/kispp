@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-2-3 — 지각과 생명체 구성 물질의 규칙성</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .aa-pal{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .aa-pal button{ font-family:inherit; font-size:12px; font-weight:800; border:none; border-radius:999px; padding:6px 10px; cursor:pointer; color:#fff; }
+  .dna-grid{ display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:6px; }
+  .base{ font-family:"Times New Roman",serif; font-size:20px; font-weight:700; border-radius:10px; padding:8px 0; text-align:center; color:#fff; }
+  .base.btn-b{ cursor:pointer; border:2px dashed #9AB; background:#fff; color:#1F3133; }
+  .base.btn-b.ok{ border-style:solid; border-color:var(--ok); }
+  .base.btn-b.bad{ border-style:solid; border-color:var(--err); }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/4">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질 · 03 지각과 생명체 구성 물질의 규칙성 (교과서 72~79쪽)</div>
+    <h1>작은 단위가 모여 다양함을 만든다 — <span>지각과 생명체 구성 물질의 규칙성</span></h1>
+    <p class="sub">지각의 규산염 광물, 생명체의 단백질과 핵산은 모두 일정한 구조의 <b>기본 단위체</b>가 결합하여 만들어져요. 규산염 사면체의 결합 구조를 바꿔 보고, 아미노산을 이어 단백질을 만들고, DNA 상보 가닥을 직접 맞춰 보세요.</p>
+    <div class="goals"><span>🎯 지각을 구성하는 규산염 광물은 규산염 사면체의 결합으로 형성됨을 설명할 수 있다.</span><span>🎯 생명체를 구성하는 단백질과 핵산은 기본 단위체의 결합으로 형성됨을 설명할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 개념: 기본 단위체 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>지각과 생명체 구성 물질의 기본 단위체</div>
+    <p class="read-text">산에 오르면 볼 수 있는 암석과 다람쥐는 구성 원소의 종류와 비율이 다르지만, 모두 일정한 구조의 <b>기본 단위체</b>(크고 복잡한 물질을 만들 때 기본 단위가 되는 물질)가 결합해 만들어졌어요. 기본 단위체의 배열 방식에 따라 다양한 종류의 물질이 만들어져요.</p>
+    <div class="q" data-why="규산염 광물의 기본 단위체는 규산염 사면체, 단백질은 아미노산, 핵산은 뉴클레오타이드예요.">
+      <table class="t">
+        <tr><th>물질</th><th>기본 단위체</th></tr>
+        <tr><td>규산염 광물</td><td><input class="blank" data-key="u_si" data-label="규산염 광물" data-answer="규산염사면체"></td></tr>
+        <tr><td>단백질</td><td><input class="blank" data-key="u_pro" data-label="단백질" data-answer="아미노산"></td></tr>
+        <tr><td>핵산</td><td><input class="blank" data-key="u_na" data-label="핵산" data-answer="뉴클레오타이드|뉴클레오티드"></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 규산염 사면체 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>규산염 사면체의 결합 구조</div>
+    <div class="card-hint">규산염 사면체는 규소 1개를 중심으로 산소 4개가 공유 결합한 구조예요(위에서 본 모습: 삼각형의 세 꼭짓점과 가운데 위쪽에 산소). 이웃한 사면체와 <b>산소를 공유</b>하는 개수에 따라 결합 구조가 달라져요. 주황색 산소가 공유된 산소예요.</div>
+    <div class="seg" id="si-pick" style="margin-bottom:8px"></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="si-svg" viewBox="0 0 460 260" aria-label="규산염 사면체 결합 구조"></svg></div>
+      <div class="panel"><div class="readout" id="si-read"></div></div>
+    </div>
+    <div class="q" data-why="규산염 사면체는 규소 1개와 산소 4개가 공유 결합해 만들어져요.">
+      <div class="q-text"><span class="q-num">1</span>확인하기: 규산염 광물의 기본 단위체는 규소 <input class="blank w-s" data-key="si_si" data-label="규소" data-num="1" data-abs="0"> 개를 중심으로 산소 <input class="blank w-s" data-key="si_o" data-label="산소" data-num="4" data-abs="0"> 개가 결합한 규산염 사면체이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="감람석은 독립형, 휘석은 단사슬, 각섬석은 복사슬, 흑운모는 판상, 석영과 장석은 망상 구조예요. 공유하는 산소가 많아질수록 구조가 더 복잡하게 연결돼요.">
+      <div class="q-text"><span class="q-num">2</span>광물과 결합 구조를 연결해 보자.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>광물</th><th>결합 구조</th></tr>
+        <tr><td>감람석</td><td><span class="choice-group" data-key="sm_ol" data-label="감람석" data-answer="독립형"><button type="button" class="choice-btn" data-value="독립형">독립형</button><button type="button" class="choice-btn" data-value="단사슬">단사슬</button><button type="button" class="choice-btn" data-value="복사슬">복사슬</button><button type="button" class="choice-btn" data-value="판상">판상</button><button type="button" class="choice-btn" data-value="망상">망상</button></span></td></tr>
+        <tr><td>휘석</td><td><span class="choice-group" data-key="sm_py" data-label="휘석" data-answer="단사슬"><button type="button" class="choice-btn" data-value="독립형">독립형</button><button type="button" class="choice-btn" data-value="단사슬">단사슬</button><button type="button" class="choice-btn" data-value="복사슬">복사슬</button><button type="button" class="choice-btn" data-value="판상">판상</button><button type="button" class="choice-btn" data-value="망상">망상</button></span></td></tr>
+        <tr><td>각섬석</td><td><span class="choice-group" data-key="sm_am" data-label="각섬석" data-answer="복사슬"><button type="button" class="choice-btn" data-value="독립형">독립형</button><button type="button" class="choice-btn" data-value="단사슬">단사슬</button><button type="button" class="choice-btn" data-value="복사슬">복사슬</button><button type="button" class="choice-btn" data-value="판상">판상</button><button type="button" class="choice-btn" data-value="망상">망상</button></span></td></tr>
+        <tr><td>흑운모</td><td><span class="choice-group" data-key="sm_bi" data-label="흑운모" data-answer="판상"><button type="button" class="choice-btn" data-value="독립형">독립형</button><button type="button" class="choice-btn" data-value="단사슬">단사슬</button><button type="button" class="choice-btn" data-value="복사슬">복사슬</button><button type="button" class="choice-btn" data-value="판상">판상</button><button type="button" class="choice-btn" data-value="망상">망상</button></span></td></tr>
+        <tr><td>석영</td><td><span class="choice-group" data-key="sm_qz" data-label="석영" data-answer="망상"><button type="button" class="choice-btn" data-value="독립형">독립형</button><button type="button" class="choice-btn" data-value="단사슬">단사슬</button><button type="button" class="choice-btn" data-value="복사슬">복사슬</button><button type="button" class="choice-btn" data-value="판상">판상</button><button type="button" class="choice-btn" data-value="망상">망상</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="단사슬 구조에서는 사면체 하나가 이웃 사면체와 산소 2개를 공유하고, 판상 구조에서는 3개, 망상 구조에서는 4개를 모두 공유해요.">
+      <div class="q-text"><span class="q-num">3</span>사면체 하나가 공유하는 산소의 수: 단사슬 <input class="blank w-s" data-key="sh_1" data-label="단사슬" data-num="2" data-abs="0"> 개, 판상 <input class="blank w-s" data-key="sh_2" data-label="판상" data-num="3" data-abs="0"> 개, 망상 <input class="blank w-s" data-key="sh_3" data-label="망상" data-num="4" data-abs="0"> 개</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 단백질 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>아미노산을 이어 단백질 만들기</div>
+    <div class="card-hint">아미노산을 눌러 사슬에 이어 붙이세요. 아미노산 2개가 결합할 때마다 <b>물 분자 1개</b>가 빠져나가며 <b>펩타이드 결합</b>이 생겨요. [접기]를 누르면 아미노산 서열에 따라 폴리펩타이드가 접혀 입체 구조가 돼요. 순서만 바꿔서 다시 접어 보세요!</div>
+    <div class="aa-pal" id="aa-pal"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><button type="button" class="btn main small" id="aa-fold">🧬 접기</button><button type="button" class="btn ghost small" id="aa-shuffle">🔀 순서 섞기</button><button type="button" class="btn ghost small" id="aa-clear">비우기</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="aa-svg" viewBox="0 0 460 240" aria-label="폴리펩타이드 사슬"></svg></div>
+      <div class="panel"><div class="readout" id="aa-read"></div></div>
+    </div>
+    <div class="q" data-why="아미노산 n개가 한 줄로 결합하면 펩타이드 결합은 n−1개 생기고, 물 분자도 n−1개 빠져나가요. 10개면 9개예요.">
+      <div class="q-text"><span class="q-num">1</span>아미노산 10개가 결합하여 폴리펩타이드 1개가 될 때 빠져나가는 물 분자는 <input class="blank w-s" data-key="aa_w" data-num="9" data-abs="0"> 개이다. 아미노산 사이의 결합을 <input class="blank" data-key="aa_bond" data-answer="펩타이드결합|펩티드결합"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="생명체를 구성하는 아미노산은 약 20종류예요. 단백질의 종류는 펩타이드 결합으로 연결되는 아미노산의 종류와 수, 배열 순서로 결정되고, 그에 따라 입체 구조와 기능이 달라져요.">
+      <div class="q-text"><span class="q-num">2</span>생명체를 구성하는 아미노산은 약 <input class="blank w-s" data-key="aa_kinds" data-num="20" data-abs="0"> 종류이다. 단백질의 종류를 결정하는 것을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="aa_det" data-answer="종류,수,순서"><button type="button" class="multi-btn" data-value="종류">아미노산의 종류</button> <button type="button" class="multi-btn" data-value="수">아미노산의 수</button> <button type="button" class="multi-btn" data-value="순서">아미노산의 배열 순서</button> <button type="button" class="multi-btn" data-value="색">아미노산의 색깔</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="머리카락은 케라틴, 적혈구의 헤모글로빈은 산소 운반, 근육은 마이오신과 액틴, 이자의 인슐린과 글루카곤은 혈당량 조절 호르몬이에요. 단백질은 몸을 구성하고 화학 반응을 조절해요.">
+      <div class="q-text"><span class="q-num">3</span>적혈구에서 산소를 운반하는 단백질은 <span class="choice-group" data-key="aa_hb" data-answer="헤모글로빈"><button type="button" class="choice-btn" data-value="케라틴">케라틴</button><button type="button" class="choice-btn" data-value="헤모글로빈">헤모글로빈</button><button type="button" class="choice-btn" data-value="인슐린">인슐린</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 탐구: DNA -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>DNA의 구조적 특징과 규칙성 탐구 — DNA 모형 만들기</div>
+    <div class="card-hint">문제 인식: 뉴클레오타이드가 연결되어 만들어진 DNA는 어떤 구조이며, 어떤 규칙성이 있을까?<br>위 가닥의 염기와 짝이 맞도록 아래 가닥의 칸을 눌러 염기를 바꾸세요(A→T→G→C 순으로 바뀌어요). 아데닌(A)은 타이민(T)과, 구아닌(G)은 사이토신(C)과 <b>상보적으로 결합</b>해요.</div>
+    <div class="dna-grid" id="dna-top"></div>
+    <div style="text-align:center;font-size:12px;color:var(--ink-soft);margin:4px 0">┃ 염기 사이의 결합 ┃</div>
+    <div class="dna-grid" id="dna-bot"></div>
+    <div class="stage" style="margin-top:10px"><svg id="dna-svg" viewBox="0 0 460 150" aria-label="DNA 이중 나선"></svg></div>
+    <div class="q" id="dna-q" data-why="위 가닥 ATGCGTAC의 상보 가닥은 TACGCATG예요. A-T, G-C 짝은 언제나 지켜져요."><span class="fb"></span></div>
+    <div class="q" data-why="DNA는 두 가닥의 폴리뉴클레오타이드가 결합한 이중 나선 구조이고, 당은 디옥시라이보스, 염기는 A, G, C, T예요. RNA는 단일 가닥이고, 당은 라이보스, 염기는 A, G, C, U(유라실)예요. 뉴클레오타이드는 인산 : 당 : 염기 = 1 : 1 : 1이에요.">
+      <table class="t">
+        <tr><th>구분</th><th>DNA</th><th>RNA</th></tr>
+        <tr><th>구조</th><td><span class="choice-group" data-key="dr_dna" data-label="DNA 구조" data-answer="이중 나선"><button type="button" class="choice-btn" data-value="이중 나선">이중 나선</button><button type="button" class="choice-btn" data-value="단일 가닥">단일 가닥</button></span></td><td><span class="choice-group" data-key="dr_rna" data-label="RNA 구조" data-answer="단일 가닥"><button type="button" class="choice-btn" data-value="이중 나선">이중 나선</button><button type="button" class="choice-btn" data-value="단일 가닥">단일 가닥</button></span></td></tr>
+        <tr><th>당</th><td>디옥시라이보스</td><td><input class="blank w-s" data-key="dr_sugar" data-label="RNA의 당" data-answer="라이보스|리보스"></td></tr>
+        <tr><th>염기</th><td>A, G, C, T</td><td>A, G, C, <input class="blank w-s" data-key="dr_u" data-label="RNA 염기" data-answer="U|유라실|우라실"></td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px">뉴클레오타이드는 인산, 당, 염기가 1 : 1 : <input class="blank w-s" data-key="dr_ratio" data-num="1" data-abs="0"> 로 이루어져 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="A는 항상 T와, G는 항상 C와 짝을 이루므로 A와 T의 비율이 같고 G와 C의 비율이 같아요. A가 30 %이면 T도 30 %, 나머지 40 %를 G와 C가 반씩 나눠 각각 20 %예요.">
+      <div class="q-text"><span class="q-num">1</span>어떤 DNA에서 아데닌(A)이 전체 염기의 30 %이면 타이민(T)은 <input class="blank w-s" data-key="dna_t" data-num="30" data-abs="0"> %, 구아닌(G)은 <input class="blank w-s" data-key="dna_g" data-num="20" data-abs="0"> % 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>정리: DNA 염기 배열 순서와 유전정보는 어떤 관련이 있는지 설명해 보자.</div>
+      <textarea class="free" data-key="dna_info" data-keywords="염기서열/배열 순서,유전정보,다르/다양,단백질" data-model="DNA는 모두 이중 나선 구조이지만 4종류의 뉴클레오타이드가 연결되는 순서(염기서열)가 다르다. 염기서열이 유전정보가 되므로 DNA마다 서로 다른 유전정보가 저장되고, 이 정보에 따라 다양한 단백질이 만들어져 생명체마다 다른 특징이 나타난다." placeholder="예: 염기서열이 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="물질 X(단백질)의 단위체 ㉠은 아미노산이에요(ㄱ ○). 인산·당·염기가 1:1:1인 것은 뉴클레오타이드예요(ㄴ ×). 아미노산의 배열 순서에 따라 단백질의 입체 구조가 달라져요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">1</span>그림은 ㉠이 펩타이드 결합으로 연결되어 폴리펩타이드가 되고, 입체 구조를 이루어 물질 X가 형성되는 과정이다. 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. ㉠은 아미노산이다.<br>ㄴ. ㉠은 인산, 당, 염기가 1 : 1 : 1로 구성되어 있다.<br>ㄷ. ㉠의 배열 순서에 따라 X의 입체 구조가 달라진다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="DNA는 유전정보를 저장하고(ㄱ ○), 염기는 A, G, C, T의 4종류이며(ㄴ ×), 두 가닥의 폴리뉴클레오타이드로 된 이중 나선 구조예요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">2</span>DNA에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 생명체의 유전정보를 저장한다.<br>ㄴ. 구성하는 염기는 약 20종류이다.<br>ㄷ. 두 가닥의 폴리뉴클레오타이드로 이루어진 이중 나선 구조이다.</div>
+      <span class="multi-group" data-key="qz2" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="사면체가 한 줄로 이어지며 산소 2개씩 공유하는 구조는 단사슬 구조이고, 휘석에서 볼 수 있어요. 흑운모는 판상 구조예요. 사면체 사이에 산소를 공유하는 것은 맞아요.">
+      <div class="q-text"><span class="q-num">3</span>규산염 사면체가 한 줄로 이어진 결합 구조에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 단사슬 구조이다.<br>ㄴ. 흑운모에서 볼 수 있는 결합 구조이다.<br>ㄷ. 규산염 사면체 사이에 산소를 공유한다.</div>
+      <span class="multi-group" data-key="qz3" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요. 내가 만든 아미노산 서열도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-2-3 지각과 생명체 구성 물질의 규칙성 · 비상교육 통합과학1 교과서 72~79쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-2-3 지각과 생명체 구성 물질의 규칙성";
+const $ = id => document.getElementById(id);
+
+/* ===== 2. 규산염 사면체 ===== */
+const SIS = [
+  { id: "ind", n: "독립형", m: "감람석", share: "0개", d: "사면체가 서로 산소를 공유하지 않고 독립적으로 있어요. 사면체 사이는 마그네슘, 철 같은 양이온이 연결해요." },
+  { id: "single", n: "단사슬", m: "휘석", share: "2개", d: "사면체가 이웃한 사면체와 산소 2개를 공유하며 한 줄의 사슬을 이뤄요." },
+  { id: "double", n: "복사슬", m: "각섬석", share: "2개와 3개 번갈아", d: "단사슬 두 줄이 서로 산소를 공유해 이중 사슬을 이뤄요." },
+  { id: "sheet", n: "판상", m: "흑운모", share: "3개", d: "사면체가 산소 3개를 공유해 넓은 판을 이뤄요. 그래서 흑운모는 얇은 판처럼 잘 쪼개져요." },
+  { id: "net", n: "망상", m: "석영, 장석", share: "4개 모두", d: "사면체의 산소 4개를 모두 공유해 3차원 그물 구조를 이뤄요. 그림의 위쪽 산소(가운데)도 위아래 사면체와 공유돼요." }
+];
+let siCur = "ind";
+$("si-pick").innerHTML = SIS.map(s => `<button type="button" data-id="${s.id}" class="${s.id === siCur ? "on" : ""}">${s.n}</button>`).join("");
+function tetra(x, y, s, flip, shared, apexShared) {
+  const h = s * 0.866, dy = flip ? -1 : 1;
+  const A = [x, y], B = [x + s, y], C = [x + s / 2, y - dy * h], cx = x + s / 2, cy = y - dy * h / 3;
+  let g = `<polygon points="${A} ${B} ${C}" fill="#E7EEFD" stroke="#5E7375" stroke-width="1.2"/>`;
+  g += `<line x1="${cx}" y1="${cy}" x2="${A[0]}" y2="${A[1]}" stroke="#9AB"/><line x1="${cx}" y1="${cy}" x2="${B[0]}" y2="${B[1]}" stroke="#9AB"/><line x1="${cx}" y1="${cy}" x2="${C[0]}" y2="${C[1]}" stroke="#9AB"/>`;
+  g += `<circle cx="${cx}" cy="${cy}" r="${s * .16}" fill="${apexShared ? "#E0662C" : "#D8493B"}" opacity=".9"/><circle cx="${cx}" cy="${cy}" r="${s * .06}" fill="#2F6FED"/>`;
+  [A, B, C].forEach((p, i) => g += `<circle cx="${p[0]}" cy="${p[1]}" r="${s * .13}" fill="${shared[i] ? "#E0662C" : "#D8493B"}" stroke="#fff" stroke-width="1"/>`);
+  return g;
+}
+function drawSI() {
+  const S = SIS.find(x => x.id === siCur), s = 46;
+  let g = "";
+  if (siCur === "ind") for (let i = 0; i < 4; i++) for (let j = 0; j < 2; j++) g += tetra(40 + i * 100, 100 + j * 100, s, false, [0, 0, 0]);
+  if (siCur === "single") for (let i = 0; i < 8; i++) g += tetra(32 + i * s, 150, s, false, [i > 0, i < 7, 0]);
+  if (siCur === "double") for (let i = 0; i < 8; i++) { // 위 사슬은 꼭짓점이 아래로, 아래 사슬은 위로 향해 짝수 번째끼리 산소 공유
+    const h = s * .866, sh = i % 2 === 0;
+    g += tetra(32 + i * s, 70, s, true, [i > 0, i < 7, sh]);
+    g += tetra(32 + i * s, 70 + 2 * h, s, false, [i > 0, i < 7, sh]);
+  }
+  if (siCur === "sheet" || siCur === "net") for (let j = 0; j < 4; j++) for (let i = 0; i < 7; i++) {
+    const x = 20 + i * s + j * s / 2 - (j > 1 ? s : 0), y = 230 - j * s * .866;
+    g += tetra(x, y, s, false, [true, true, true], siCur === "net");
+  }
+  g += `<g transform="translate(330,14)"><circle cx="8" cy="8" r="7" fill="#D8493B"/><text x="20" y="12" style="font-size:11px">산소</text><circle cx="58" cy="8" r="7" fill="#E0662C"/><text x="70" y="12" style="font-size:11px">공유 산소</text><circle cx="8" cy="26" r="4" fill="#2F6FED"/><text x="20" y="30" style="font-size:11px">규소</text></g>`;
+  $("si-svg").innerHTML = g;
+  $("si-read").innerHTML = `<b>${S.n} 구조</b> · 예: <b>${S.m}</b><br>사면체 하나가 공유하는 산소: <b>${S.share}</b><br>${S.d}`;
+  document.querySelectorAll("#si-pick button").forEach(b => b.classList.toggle("on", b.dataset.id === siCur));
+}
+$("si-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { siCur = b.dataset.id; drawSI(); } });
+drawSI();
+
+/* ===== 3. 단백질 ===== */
+const AA = [["Gly", "#8A9BA8", 0], ["Ala", "#6AAA4A", 1], ["Ser", "#2F6FED", -1], ["Cys", "#F2C14E", 2], ["Lys", "#8A5BD6", -2], ["Glu", "#D8493B", 1.5], ["Phe", "#E0662C", -1.5], ["Pro", "#14A3A8", 2.5]];
+let chain = [], folded = false;
+$("aa-pal").innerHTML = AA.map(([n, c], i) => `<button type="button" data-i="${i}" style="background:${c}">＋ ${n}</button>`).join("") + `<span style="font-size:12px;color:var(--ink-soft);align-self:center">(실제로는 약 20종류)</span>`;
+function drawAA() {
+  let g = "", pts = [];
+  if (!folded) chain.forEach((a, i) => pts.push([30 + (i % 14) * 30, 60 + Math.floor(i / 14) * 70]));
+  else {
+    let x = 230, y = 120, ang = 0;
+    chain.forEach((a, i) => { pts.push([x, y]); ang += AA[a][2] * 0.55 + 0.35; x += 22 * Math.cos(ang); y += 22 * Math.sin(ang); x = Math.max(20, Math.min(440, x)); y = Math.max(20, Math.min(220, y)); });
+  }
+  for (let i = 1; i < pts.length; i++) g += `<line x1="${pts[i - 1][0]}" y1="${pts[i - 1][1]}" x2="${pts[i][0]}" y2="${pts[i][1]}" stroke="#5E7375" stroke-width="3"/>`;
+  pts.forEach((p, i) => g += `<circle cx="${p[0]}" cy="${p[1]}" r="11" fill="${AA[chain[i]][1]}" stroke="#fff" stroke-width="2"/><text x="${p[0]}" y="${p[1] + 3}" text-anchor="middle" style="font-size:7px;font-weight:800;fill:#fff">${AA[chain[i]][0]}</text>`);
+  if (!chain.length) g += `<text x="230" y="120" text-anchor="middle" style="font-size:13px;fill:#9AB">위의 아미노산을 눌러 사슬을 만드세요</text>`;
+  $("aa-svg").innerHTML = g;
+  const n = chain.length;
+  $("aa-read").innerHTML = `아미노산 <b>${n}개</b> · 펩타이드 결합 <b>${Math.max(0, n - 1)}개</b> · 빠져나간 물 분자 <b>${Math.max(0, n - 1)}개</b> 💧<br>서열: ${chain.map(a => AA[a][0]).join("-") || "-"}` + (folded ? "<br>🧬 아미노산 서열에 따라 독특한 입체 구조로 접혔어요. 순서를 섞어 다시 접으면 모양이 달라져요." : "");
+}
+$("aa-pal").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b || chain.length >= 28) return; chain.push(Number(b.dataset.i)); folded = false; drawAA(); });
+$("aa-fold").addEventListener("click", () => { if (chain.length < 3) { $("aa-read").textContent = "아미노산을 3개 이상 이어 주세요."; return; } folded = true; drawAA(); });
+$("aa-shuffle").addEventListener("click", () => { for (let i = chain.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [chain[i], chain[j]] = [chain[j], chain[i]]; } drawAA(); });
+$("aa-clear").addEventListener("click", () => { chain = []; folded = false; drawAA(); });
+drawAA();
+WS.custom("aa_chain", { el: $("aa-read"), value: () => chain.map(a => AA[a][0]).join("-") });
+
+/* ===== 4. DNA ===== */
+const TOP = "ATGCGTAC".split(""), PAIR = { A: "T", T: "A", G: "C", C: "G" }, ORDER = ["A", "T", "G", "C"];
+const BCOL = { A: "#D8493B", T: "#2F6FED", G: "#2E9E5B", C: "#F2A93B" };
+const bot = TOP.map(() => "");
+$("dna-top").innerHTML = TOP.map(b => `<div class="base" style="background:${BCOL[b]}">${b}</div>`).join("");
+function drawBot() {
+  $("dna-bot").innerHTML = bot.map((b, i) => `<div class="base btn-b" data-i="${i}" style="${b ? `background:${BCOL[b]};color:#fff` : ""}">${b || "?"}</div>`).join("");
+  let g = "";
+  for (let i = 0; i < 8; i++) {
+    const x = 40 + i * 54, ph = i * 0.8, y1 = 75 - 50 * Math.sin(ph), y2 = 75 + 50 * Math.sin(ph);
+    g += `<line x1="${x}" y1="${y1}" x2="${x}" y2="75" stroke="${BCOL[TOP[i]]}" stroke-width="7"/><line x1="${x}" y1="75" x2="${x}" y2="${y2}" stroke="${bot[i] ? BCOL[bot[i]] : "#DDD"}" stroke-width="7"/>`;
+  }
+  let p1 = "", p2 = "";
+  for (let x = 20; x <= 440; x += 4) { const ph = (x - 40) / 54 * 0.8; p1 += `${x},${75 - 50 * Math.sin(ph)} `; p2 += `${x},${75 + 50 * Math.sin(ph)} `; }
+  g = `<polyline points="${p1}" fill="none" stroke="#5E7375" stroke-width="4"/><polyline points="${p2}" fill="none" stroke="#9AB" stroke-width="4"/>` + g;
+  g += `<text x="10" y="146" style="font-size:11px;fill:#5E7375">당-인산 골격(진한 선/연한 선) 사이를 염기쌍이 사다리처럼 연결하고, 전체가 꼬여 이중 나선을 이뤄요.</text>`;
+  $("dna-svg").innerHTML = g;
+}
+$("dna-bot").addEventListener("click", e => {
+  const c = e.target.closest(".btn-b"); if (!c) return;
+  const i = Number(c.dataset.i); bot[i] = ORDER[(ORDER.indexOf(bot[i]) + 1) % 4]; drawBot();
+});
+drawBot();
+WS.custom("dna_strand", {
+  el: $("dna-q"), value: () => bot.map(b => b || "_").join(""),
+  check: () => bot.every((b, i) => b === PAIR[TOP[i]]), answer: TOP.map(b => PAIR[b]).join("")
+});
+$("dna-q").querySelector(".fb").before(Object.assign(document.createElement("div"), { className: "q-text", innerHTML: '<span class="q-num">✓</span>아래 가닥 8칸을 모두 채운 뒤 [확인하기]를 누르세요.' }));
+</script>
+</body>
+</html>

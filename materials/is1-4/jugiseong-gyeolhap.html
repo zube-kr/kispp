@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-2-1 — 원소의 주기성과 화학 결합</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .flames{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:8px; }
+  .flames button{ font-family:inherit; font-size:12.5px; font-weight:700; border:1.5px solid var(--line); background:#fff; border-radius:12px; padding:8px; cursor:pointer; text-align:center; line-height:1.5; }
+  .flames button.on{ border-color:var(--main); background:var(--main-soft); }
+  .pt{ display:grid; grid-template-columns:repeat(18,minmax(0,1fr)); gap:3px; min-width:560px; }
+  .pt .cell{ aspect-ratio:1; border-radius:6px; border:1.5px solid var(--line); background:#fff; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:"Times New Roman",serif; font-weight:700; font-size:clamp(9px,1.5vw,15px); line-height:1.05; padding:0; }
+  .pt .cell small{ font-size:.6em; font-weight:400; font-family:inherit; color:var(--ink-soft); }
+  .pt .cell.metal{ background:#E7EEFD; } .pt .cell.non{ background:#FDF0E4; }
+  .pt .cell.sel{ outline:3px solid var(--warm); }
+  .pt .cell.dim{ opacity:.3; }
+  .pt .lbl{ font-size:10px; color:var(--ink-soft); text-align:center; align-self:end; }
+  .pt .blank-cell{ visibility:hidden; }
+  .shell-ctrl{ display:flex; flex-wrap:wrap; gap:8px; }
+  .shell-ctrl .exp{ display:flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:12px; padding:6px 10px; background:#FBFDFD; font-size:13px; font-weight:700; }
+  .shell-ctrl button{ font-family:inherit; width:28px; height:28px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:800; }
+  .targets{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+  .targets button{ font-family:inherit; font-size:13px; font-weight:700; border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:5px 12px; cursor:pointer; color:var(--ink-soft); }
+  .targets button.on{ border-color:var(--main); background:var(--main-soft); color:#0b6f73; }
+  .targets button.done::after{ content:" ✅"; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/4">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질 · 01 원소의 주기성과 화학 결합 (교과서 58~67쪽)</div>
+    <h1>원소의 규칙을 찾아라 — <span>원소의 주기성과 화학 결합</span></h1>
+    <p class="sub">불꽃놀이 속 원소를 분류하고, 주기율표의 원소를 눌러 전자 배치를 확인해 보세요. 알칼리 금속을 물에 넣는 가상 실험으로 같은 족 원소의 공통점을 찾고, 원자들이 18족 원소처럼 안정해지기 위해 이온 결합과 공유 결합을 하는 모습을 관찰해요.</p>
+    <div class="goals"><span>🎯 원소들의 성질이 주기성을 나타내는 현상을 통해 자연의 규칙성을 도출할 수 있다.</span><span>🎯 지구와 생명체를 구성하는 주요 원소들이 결합을 형성하는 까닭을 해석할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 불꽃놀이 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동</span>불꽃놀이에 이용되는 화합물의 구성 원소 분류하기</div>
+    <div class="card-hint">화합물을 누르면 불꽃 반응 색이 나타나요. 화합물을 이루는 원소를 확인하고, 원소를 금속과 비금속으로 분류해 보세요.</div>
+    <div class="sim-wrap">
+      <div class="flames" id="fl-btns"></div>
+      <div class="stage" style="display:flex;justify-content:center;align-items:center;min-height:200px"><svg id="fl-svg" viewBox="0 0 200 220" width="200" aria-label="불꽃 반응"></svg></div>
+    </div>
+    <div class="readout" id="fl-read" style="margin-top:8px">화합물을 눌러 보세요.</div>
+    <div class="q" data-why="스트론튬, 나트륨, 구리, 칼슘, 바륨은 금속 원소이고, 질소, 산소, 염소는 비금속 원소예요. 불꽃 색은 금속 원소에 따라 달라져요.">
+      <div class="q-text"><span class="q-num">1</span>위 화합물을 구성하는 원소 중 <b>금속 원소</b>만 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="fl_metal" data-answer="Sr,Na,Cu,Ca,Ba"><button type="button" class="multi-btn" data-value="Sr">스트론튬 Sr</button> <button type="button" class="multi-btn" data-value="N">질소 N</button> <button type="button" class="multi-btn" data-value="O">산소 O</button> <button type="button" class="multi-btn" data-value="Na">나트륨 Na</button> <button type="button" class="multi-btn" data-value="Cl">염소 Cl</button> <button type="button" class="multi-btn" data-value="Cu">구리 Cu</button> <button type="button" class="multi-btn" data-value="Ca">칼슘 Ca</button> <button type="button" class="multi-btn" data-value="Ba">바륨 Ba</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 개념 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>세상을 구성하는 원소와 주기율표</div>
+    <div class="box">
+      <table class="t">
+        <tr><th>분류</th><th><input class="blank w-s" data-key="c_1" data-label="①" data-answer="금속"></th><th><input class="blank w-s" data-key="c_2" data-label="②" data-answer="비금속"></th></tr>
+        <tr><th>주기율표에서 위치</th><td>대체로 왼쪽과 가운데</td><td>대체로 오른쪽</td></tr>
+        <tr><th>예</th><td>철, 아연, 금 등</td><td>수소, 탄소, 질소 등</td></tr>
+        <tr><th>성질</th><td class="l">· 전기가 잘 통하고 열을 잘 전달한다.<br>· 힘을 가하면 부서지지 않고 모양만 변한다.<br>· 특유의 광택이 있다. · 실온에서 대부분 고체</td><td class="l">· 전기가 잘 통하지 않고 열을 잘 전달하지 않는다.<br>· 실온에서 대부분 기체 또는 고체</td></tr>
+      </table>
+    </div>
+    <div class="q" data-why="주기율표는 원소의 성질이 주기적으로 나타나도록 원자 번호(양성자수)와 화학적 성질을 기준으로 원소를 배열한 표예요. 가로줄은 주기(1~7주기), 세로줄은 족(1~18족)이에요.">
+      <div class="q-text"><span class="q-num">1</span>주기율표의 가로줄은 <input class="blank w-s" data-key="c_3" data-label="③" data-answer="주기"> 라고 하며 1~<input class="blank w-s" data-key="c_4" data-label="주기 수" data-num="7" data-abs="0"> 까지 있고, 세로줄은 <input class="blank w-s" data-key="c_5" data-label="④" data-answer="족"> 이라고 하며 1~<input class="blank w-s" data-key="c_6" data-label="족 수" data-num="18" data-abs="0"> 까지 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 주기율표 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>주기율표 탐험 — 전자 배치와 원자가 전자</div>
+    <div class="card-hint">원소를 누르면 보어의 원자 모형과 전자 배치가 나타나요. 아래 버튼으로 같은 족이나 같은 주기를 강조해 비교해 보세요. 전자는 원자핵에 가까운 전자 껍질부터 채워지며, 첫 번째 껍질에 최대 2개, 두 번째 껍질에 최대 8개가 배치돼요.</div>
+    <div class="seg" id="pt-hl" style="margin-bottom:8px"><button type="button" class="on" data-h="type">금속/비금속</button><button type="button" data-h="group">같은 족 강조</button><button type="button" data-h="period">같은 주기 강조</button></div>
+    <div style="overflow-x:auto;padding-bottom:4px"><div class="pt" id="pt"></div></div>
+    <div class="sim-wrap" style="margin-top:12px">
+      <div class="stage" style="display:flex;justify-content:center"><svg id="bohr" viewBox="0 0 220 220" width="220" aria-label="보어 원자 모형"></svg></div>
+      <div class="panel"><div class="readout" id="pt-read"></div></div>
+    </div>
+    <div class="q" data-why="리튬(2,1), 나트륨(2,8,1), 칼륨(2,8,8,1)은 원자가 전자가 1개, 플루오린(2,7)과 염소(2,8,7)는 7개예요. 같은 족 원소는 원자가 전자 수가 같아 화학적 성질이 비슷해요.">
+      <div class="q-text"><span class="q-num">1</span>1족 원소인 리튬, 나트륨, 칼륨의 원자가 전자는 <input class="blank w-s" data-key="pt_g1" data-label="1족" data-num="1" data-abs="0"> 개, 17족 원소인 플루오린, 염소의 원자가 전자는 <input class="blank w-s" data-key="pt_g17" data-label="17족" data-num="7" data-abs="0"> 개이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="같은 주기에 속하는 원소들은 전자가 들어 있는 전자 껍질의 수가 같아요. 2주기는 2개, 3주기는 3개예요.">
+      <div class="q-text"><span class="q-num">2</span>3주기 원소인 나트륨, 인, 염소는 전자가 들어 있는 전자 껍질이 <input class="blank w-s" data-key="pt_p3" data-num="3" data-abs="0"> 개이다. 같은 <span class="choice-group" data-key="pt_same" data-answer="주기"><button type="button" class="choice-btn" data-value="주기">주기</button><button type="button" class="choice-btn" data-value="족">족</button></span>에 속하는 원소들은 전자 껍질의 수가 같다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="같은 족에 속하는 원소들은 원자가 전자 수가 같기 때문에 화학적 성질이 비슷해요. 전자 배치의 규칙성에 따라 원자가 전자 수가 주기적으로 변하므로 원소의 성질이 주기성을 나타내요.">
+      <div class="q-text"><span class="q-num">3</span>확인하기: 플루오린과 염소의 화학적 성질이 비슷한 까닭은 <input class="blank" data-key="pt_val" data-answer="원자가전자|원자가전자수"> 의 수가 같기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 전자 배치 만들기 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>보어 모형으로 전자 배치 만들기</div>
+    <div class="card-hint">원소를 고르고 각 전자 껍질의 전자 수를 ＋/－로 맞춰 보세요. 전자 수는 원자 번호(양성자 수)와 같아요. 세 원소를 모두 완성하세요.</div>
+    <div class="targets" id="eb-targets"></div>
+    <div class="sim-wrap">
+      <div class="stage" style="display:flex;justify-content:center"><svg id="eb-svg" viewBox="0 0 220 220" width="220" aria-label="전자 배치 만들기"></svg></div>
+      <div class="panel">
+        <div class="shell-ctrl" id="eb-ctrl"></div>
+        <div class="readout" id="eb-read"></div>
+      </div>
+    </div>
+    <div class="q" id="eb-q" data-why="산소(원자 번호 8)는 2, 6, 마그네슘(12)은 2, 8, 2, 염소(17)는 2, 8, 7이에요."><span class="fb"></span></div>
+  </section>
+
+  <!-- 5. 탐구: 알칼리 금속 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>같은 족 원소들의 유사성을 탐구하는 실험 설계 — 알칼리 금속과 물</div>
+    <div class="card-hint">비슷한 성질: 수소를 제외한 1족 원소(알칼리 금속)는 물과 반응하여 기체가 발생한다. 페놀프탈레인 용액을 넣은 물에 쌀알 크기의 금속을 넣어 보세요. ⚠️ 실제 실험에서는 보안경을 꼭 쓰고, 남은 금속은 선생님께 반납해요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="am-svg" viewBox="0 0 320 240" aria-label="알칼리 금속과 물의 반응"></svg></div>
+      <div class="panel">
+        <div class="seg" id="am-pick"><button type="button" class="on" data-m="Li">리튬 Li</button><button type="button" data-m="Na">나트륨 Na</button><button type="button" data-m="K">칼륨 K</button></div>
+        <div style="display:flex;gap:8px"><button type="button" class="btn main small" id="am-drop">⬇️ 물에 넣기</button><button type="button" class="btn ghost small" id="am-reset">새 비커</button></div>
+        <div class="readout" id="am-read">금속을 고르고 물에 넣어 보세요.</div>
+      </div>
+    </div>
+    <div class="q" data-why="세 금속 모두 물과 반응하여 수소 기체가 발생하고, 수용액이 염기성이 되어 페놀프탈레인 용액이 붉은색으로 변해요. 반응은 Li < Na < K 순으로 격렬해요.">
+      <div class="q-text"><span class="q-num">1</span>알칼리 금속을 물에 넣으면 <input class="blank w-s" data-key="am_gas" data-answer="수소|수소기체|H2"> 기체가 발생하고, 페놀프탈레인 용액을 넣은 물이 <span class="choice-group" data-key="am_color" data-answer="붉은색"><button type="button" class="choice-btn" data-value="붉은색">붉은색</button><button type="button" class="choice-btn" data-value="푸른색">푸른색</button><button type="button" class="choice-btn" data-value="무색">무색 그대로</button></span>으로 변한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="한 가지 요인(조작 변인: 금속의 종류)의 효과(종속 변인: 기체 발생 여부)를 확인하려면 다른 요인(통제 변인: 금속의 크기, 물의 양)은 일정하게 유지해야 해요.">
+      <div class="q-text"><span class="q-num">2</span>변인 설정: 다음 변인을 알맞게 분류하시오.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>변인</th><th>종류</th></tr>
+        <tr><td>금속의 종류</td><td><span class="choice-group" data-key="var_kind" data-label="금속의 종류" data-answer="조작"><button type="button" class="choice-btn" data-value="조작">조작 변인</button><button type="button" class="choice-btn" data-value="통제">통제 변인</button><button type="button" class="choice-btn" data-value="종속">종속 변인</button></span></td></tr>
+        <tr><td>금속 조각의 크기, 물의 양</td><td><span class="choice-group" data-key="var_size" data-label="크기·물의 양" data-answer="통제"><button type="button" class="choice-btn" data-value="조작">조작 변인</button><button type="button" class="choice-btn" data-value="통제">통제 변인</button><button type="button" class="choice-btn" data-value="종속">종속 변인</button></span></td></tr>
+        <tr><td>기체 발생 여부</td><td><span class="choice-group" data-key="var_gas" data-label="기체 발생" data-answer="종속"><button type="button" class="choice-btn" data-value="조작">조작 변인</button><button type="button" class="choice-btn" data-value="통제">통제 변인</button><button type="button" class="choice-btn" data-value="종속">종속 변인</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="알칼리 금속은 실온에서 고체이고 칼로 쉽게 잘릴 만큼 무르며, 반응성이 커서 공기 중 산소와 빠르게 반응해 광택을 잃어요. 할로젠(17족)은 원소마다 특유의 색을 띠고, 수소와 반응해 산을 만들어요.">
+      <div class="q-text"><span class="q-num">3</span>알칼리 금속은 <input class="blank w-s" data-key="am_react" data-answer="반응성"> 이/가 커서 산소, 물 등과 쉽게 반응한다. 17족 원소인 할로젠은 수소와 반응하여 <input class="blank w-s" data-key="am_acid" data-answer="산"> 을 생성한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 화학 결합 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>18족 원소처럼 안정해지기 — 이온 결합과 공유 결합</div>
+    <div class="card-hint">18족 원소(헬륨, 네온, 아르곤)는 가장 바깥 전자 껍질에 전자가 2개 또는 8개 채워진 안정한 전자 배치라 원자 상태로 존재해요. 다른 원소들은 화학 결합으로 18족 원소와 같은 전자 배치를 이뤄요. 결합을 골라 [결합하기]를 눌러 보세요.</div>
+    <div class="seg" id="bd-pick" style="margin-bottom:8px"><button type="button" class="on" data-b="NaCl">나트륨 + 염소</button><button type="button" data-b="H2O">수소 + 산소 + 수소</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="bd-svg" viewBox="0 0 460 220" aria-label="화학 결합 모형"></svg></div>
+      <div class="panel">
+        <button type="button" class="btn main small" id="bd-go">🔗 결합하기</button>
+        <div class="readout" id="bd-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="양이온과 음이온 사이의 정전기적 인력으로 형성되는 결합은 이온 결합(주로 금속 + 비금속), 2개 이상의 원자가 전자쌍을 공유하는 결합은 공유 결합(주로 비금속 + 비금속)이에요.">
+      <div class="q-text"><span class="q-num">1</span><input class="blank w-s" data-key="bd_ion" data-label="이온 결합" data-answer="이온결합"> : 양이온과 음이온 사이의 정전기적 인력으로 형성되는 화학 결합</div>
+      <div class="q-text"><span class="q-num">2</span><input class="blank w-s" data-key="bd_cov" data-label="공유 결합" data-answer="공유결합"> : 2개 이상의 원자가 전자쌍을 공유하여 형성되는 화학 결합</div>
+      <div class="q-text"><span class="q-num">3</span>나트륨 이온과 염화 이온은 각각 18족 원소인 <span class="choice-group" data-key="bd_ne" data-label="Na⁺" data-answer="네온"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="네온">네온</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button></span>,
+        <span class="choice-group" data-key="bd_ar" data-label="Cl⁻" data-answer="아르곤"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="네온">네온</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button></span>과 같은 전자 배치를 이룬다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="NaCl, MgO, CaCl₂는 금속과 비금속이 결합한 이온 결합 물질이고, H₂O, CO₂, CH₄는 비금속끼리 결합한 공유 결합 물질이에요.">
+      <div class="q-text"><span class="q-num">4</span>다음 물질의 화학 결합 종류를 고르시오.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>물질</th><th>결합</th><th>물질</th><th>결합</th></tr>
+        <tr><td>MgO</td><td><span class="choice-group" data-key="bd_mgo" data-label="MgO" data-answer="이온"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span></td><td>CO₂</td><td><span class="choice-group" data-key="bd_co2" data-label="CO₂" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span></td></tr>
+        <tr><td>CaCl₂</td><td><span class="choice-group" data-key="bd_cacl2" data-label="CaCl₂" data-answer="이온"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span></td><td>CH₄</td><td><span class="choice-group" data-key="bd_ch4" data-label="CH₄" data-answer="공유"><button type="button" class="choice-btn" data-value="이온">이온</button><button type="button" class="choice-btn" data-value="공유">공유</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 7. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="A(2,7)는 17족 할로젠이에요. A와 B(2,8,7)는 원자가 전자가 7개로 같아 화학적 성질이 비슷해요. C(2,8,8,1)는 원자가 전자가 1개로 B보다 적어요. 모두 옳아요.">
+      <div class="q-text"><span class="q-num">1</span>원자 A의 전자 배치는 (2, 7), B는 (2, 8, 7), C는 (2, 8, 8, 1)이다. 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. A는 할로젠이다.<br>ㄴ. A와 B는 화학적 성질이 비슷하다.<br>ㄷ. 원자가 전자의 수는 B가 C보다 많다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="18족 원소는 가장 바깥 전자 껍질이 안정하게 채워져 있어 다른 원소와 거의 반응하지 않아요. 그래서 원자가 전자의 수를 0으로 하고, 비활성 기체라고도 해요.">
+      <div class="q-text"><span class="q-num">2</span>18족 원소의 원자가 전자의 수는 <input class="blank w-s" data-key="qz2" data-num="0" data-abs="0"> 으로 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="헬륨은 안정하고 공기보다 밀도가 작아 비행선을 띄우는 데, 아르곤은 용접 부위가 산소와 반응하지 않도록 보호하는 데 이용돼요.">
+      <div class="q-text"><span class="q-num">3</span>용접할 때 용접 부위가 산소와 반응하지 않도록 보호하는 데 이용되는 18족 원소는 <span class="choice-group" data-key="qz3" data-answer="아르곤"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button><button type="button" class="choice-btn" data-value="염소">염소</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>리튬, 나트륨, 칼륨이 모두 물과 반응하여 비슷한 결과를 나타내는 까닭을 원자의 전자 배치와 관련지어 설명하시오.</div>
+      <textarea class="free" data-key="qz4" data-keywords="원자가 전자,1개/하나,같은 족/1족" data-model="리튬, 나트륨, 칼륨은 모두 1족 원소로 원자가 전자가 1개로 같다. 화학 반응에 관여하는 원자가 전자의 수가 같으므로 화학적 성질이 비슷하다." placeholder="예: 세 원소는 모두 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-2-1 원소의 주기성과 화학 결합 · 비상교육 통합과학1 교과서 58~67쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-2-1 원소의 주기성과 화학 결합";
+const $ = id => document.getElementById(id);
+
+/* ===== 공통: 보어 모형 ===== */
+function bohr(svg, Z, shells, sym, opt = {}) {
+  const cx = 110, cy = 110, R = [30, 52, 74, 96];
+  let g = "";
+  shells.forEach((n, i) => {
+    g += `<circle cx="${cx}" cy="${cy}" r="${R[i]}" fill="none" stroke="#9AB" stroke-width="1.5"/>`;
+    for (let k = 0; k < n; k++) {
+      const a = -Math.PI / 2 + k * 2 * Math.PI / Math.max(n, 1) + i * .3;
+      const val = i === shells.length - 1 && opt.hlValence;
+      g += `<circle cx="${cx + R[i] * Math.cos(a)}" cy="${cy + R[i] * Math.sin(a)}" r="6" fill="${val ? "#E0662C" : "#2F6FED"}" stroke="#fff" stroke-width="1.5"/>`;
+    }
+  });
+  g += `<circle cx="${cx}" cy="${cy}" r="18" fill="#D8493B"/><text x="${cx}" y="${cy + 5}" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#fff">${Z}+</text>`;
+  if (sym) g += `<text x="8" y="22" style="font-family:'Times New Roman';font-size:20px;font-weight:700;fill:#1F3133">${sym}</text>`;
+  svg.innerHTML = g;
+}
+const config = Z => { const out = [], cap = [2, 8, 8, 2]; let z = Z; for (const c of cap) { if (z <= 0) break; out.push(Math.min(c, z)); z -= c; } return out; };
+
+/* ===== 1. 불꽃놀이 ===== */
+const FL = [
+  { c: "빨간색", f: "질산 스트론튬", el: ["Sr", "N", "O"], col: "#E8262B" },
+  { c: "노란색", f: "염화 나트륨", el: ["Na", "Cl"], col: "#FFD21F" },
+  { c: "파란색", f: "염화 구리(Ⅰ)", el: ["Cu", "Cl"], col: "#2F8BFF" },
+  { c: "주황색", f: "염화 칼슘", el: ["Ca", "Cl"], col: "#FF8A1F" },
+  { c: "초록색", f: "질산 바륨", el: ["Ba", "N", "O"], col: "#3FCB4A" }
+];
+const ELN = { Sr: "스트론튬", N: "질소", O: "산소", Na: "나트륨", Cl: "염소", Cu: "구리", Ca: "칼슘", Ba: "바륨" };
+$("fl-btns").innerHTML = FL.map((f, i) => `<button type="button" data-i="${i}">${f.f}<br><span style="color:${f.col};font-size:16px">●</span> ${f.c}</button>`).join("");
+function flame(col) {
+  $("fl-svg").innerHTML = `<rect x="80" y="170" width="40" height="40" rx="4" fill="#9AA8AA"/><rect x="92" y="150" width="16" height="22" fill="#7A8A8C"/>` +
+    `<path d="M100,30 C140,80 135,120 118,150 L82,150 C65,120 60,80 100,30 Z" fill="${col}" opacity=".85"><animate attributeName="d" dur="0.6s" repeatCount="indefinite" values="M100,30 C140,80 135,120 118,150 L82,150 C65,120 60,80 100,30 Z;M98,22 C136,78 138,122 118,150 L82,150 C62,122 64,78 98,22 Z;M100,30 C140,80 135,120 118,150 L82,150 C65,120 60,80 100,30 Z"/></path>` +
+    `<path d="M100,90 C115,110 112,130 106,150 L94,150 C88,130 85,110 100,90 Z" fill="#fff" opacity=".55"/>`;
+}
+flame("#7FB3FF");
+$("fl-btns").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const f = FL[b.dataset.i];
+  document.querySelectorAll("#fl-btns button").forEach(x => x.classList.toggle("on", x === b));
+  flame(f.col);
+  $("fl-read").innerHTML = `<b>${f.f}</b> → 불꽃 색: <b style="color:${f.col}">${f.c}</b><br>구성 원소: ${f.el.map(s => `${ELN[s]}(${s})`).join(", ")}`;
+});
+
+/* ===== 3. 주기율표 1~20 ===== */
+const EL = [
+  [1, "H", "수소", 1, 1, "non", "기체"], [2, "He", "헬륨", 1, 18, "non", "기체"],
+  [3, "Li", "리튬", 2, 1, "metal", "고체"], [4, "Be", "베릴륨", 2, 2, "metal", "고체"], [5, "B", "붕소", 2, 13, "non", "고체"], [6, "C", "탄소", 2, 14, "non", "고체"], [7, "N", "질소", 2, 15, "non", "기체"], [8, "O", "산소", 2, 16, "non", "기체"], [9, "F", "플루오린", 2, 17, "non", "기체"], [10, "Ne", "네온", 2, 18, "non", "기체"],
+  [11, "Na", "나트륨", 3, 1, "metal", "고체"], [12, "Mg", "마그네슘", 3, 2, "metal", "고체"], [13, "Al", "알루미늄", 3, 13, "metal", "고체"], [14, "Si", "규소", 3, 14, "non", "고체"], [15, "P", "인", 3, 15, "non", "고체"], [16, "S", "황", 3, 16, "non", "고체"], [17, "Cl", "염소", 3, 17, "non", "기체"], [18, "Ar", "아르곤", 3, 18, "non", "기체"],
+  [19, "K", "칼륨", 4, 1, "metal", "고체"], [20, "Ca", "칼슘", 4, 2, "metal", "고체"]
+];
+let ptSel = 11, ptHl = "type";
+function drawPT() {
+  const sel = EL.find(e => e[0] === ptSel);
+  let h = "";
+  for (let p = 1; p <= 4; p++) for (let g = 1; g <= 18; g++) {
+    const e = EL.find(x => x[3] === p && x[4] === g);
+    if (!e) { h += `<div class="cell blank-cell"></div>`; continue; }
+    let cls = "cell " + (ptHl === "type" ? (e[5] === "metal" ? "metal" : "non") : "");
+    if (ptHl === "group" && e[4] !== sel[4]) cls += " dim";
+    if (ptHl === "period" && e[3] !== sel[3]) cls += " dim";
+    if (e[0] === ptSel) cls += " sel";
+    h += `<button type="button" class="${cls}" data-z="${e[0]}"><small>${e[0]}</small>${e[1]}</button>`;
+  }
+  $("pt").innerHTML = h;
+  const sh = config(sel[0]), val = sel[4] === 18 ? 0 : sh[sh.length - 1];
+  bohr($("bohr"), sel[0], sh, sel[1], { hlValence: true });
+  $("pt-read").innerHTML = `<b>${sel[2]} (${sel[1]})</b> · 원자 번호 ${sel[0]}<br>${sel[3]}주기 ${sel[4]}족 · ${sel[5] === "metal" ? "금속" : "비금속"} · 실온에서 ${sel[6]}<br>전자 배치: <b>${sh.join(", ")}</b><br>전자 껍질 수: <b>${sh.length}</b> · 원자가 전자: <b>${val}개</b>${sel[4] === 18 ? " (18족은 0으로 해요)" : ""}`;
+}
+$("pt").addEventListener("click", e => { const b = e.target.closest("[data-z]"); if (b) { ptSel = Number(b.dataset.z); drawPT(); } });
+document.querySelectorAll("#pt-hl button").forEach(b => b.addEventListener("click", () => { ptHl = b.dataset.h; document.querySelectorAll("#pt-hl button").forEach(x => x.classList.toggle("on", x === b)); drawPT(); }));
+drawPT();
+
+/* ===== 4. 전자 배치 만들기 ===== */
+const EB = [{ s: "O", n: "산소", Z: 8 }, { s: "Mg", n: "마그네슘", Z: 12 }, { s: "Cl", n: "염소", Z: 17 }];
+const ebState = { O: [0, 0, 0], Mg: [0, 0, 0], Cl: [0, 0, 0] };
+let ebCur = "O";
+const ebOk = t => config(t.Z).concat([0, 0]).slice(0, 3).join() === ebState[t.s].join();
+function drawEB() {
+  const t = EB.find(x => x.s === ebCur), st = ebState[ebCur];
+  $("eb-targets").innerHTML = EB.map(x => `<button type="button" data-s="${x.s}" class="${x.s === ebCur ? "on" : ""}${ebOk(x) ? " done" : ""}">${x.n} ${x.s} (원자 번호 ${x.Z})</button>`).join("");
+  $("eb-ctrl").innerHTML = ["첫 번째", "두 번째", "세 번째"].map((n, i) => `<div class="exp">${n} 껍질 <button type="button" data-i="${i}" data-d="-1">－</button><b>${st[i]}</b><button type="button" data-i="${i}" data-d="1">＋</button></div>`).join("");
+  bohr($("eb-svg"), t.Z, st.filter((v, i) => v > 0 || st.slice(i).some(x => x > 0)), t.s);
+  const sum = st.reduce((a, b) => a + b, 0);
+  let msg = `전자 수: <b>${sum}</b> / ${t.Z}`;
+  if (st[0] > 2) msg += "<br>⚠️ 첫 번째 껍질에는 최대 2개까지만 들어가요.";
+  else if (st[1] > 8) msg += "<br>⚠️ 두 번째 껍질에는 최대 8개까지만 들어가요.";
+  else if ((st[1] > 0 && st[0] < 2) || (st[2] > 0 && st[1] < 8)) msg += "<br>⚠️ 안쪽 껍질부터 차례로 채워요.";
+  else if (ebOk(t)) msg += `<br>✅ 정답! ${t.n}의 전자 배치는 ${config(t.Z).join(", ")}, 원자가 전자는 ${config(t.Z).slice(-1)[0]}개예요.`;
+  $("eb-read").innerHTML = msg;
+}
+$("eb-targets").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { ebCur = b.dataset.s; drawEB(); } });
+$("eb-ctrl").addEventListener("click", e => {
+  const b = e.target.closest("button[data-i]"); if (!b) return;
+  const st = ebState[ebCur], i = Number(b.dataset.i); st[i] = Math.max(0, Math.min(10, st[i] + Number(b.dataset.d))); drawEB();
+});
+drawEB();
+EB.forEach(t => WS.custom("eb_" + t.s, { el: $("eb-q"), value: () => ebState[t.s].join(","), check: () => ebOk(t), answer: `${t.n} ${config(t.Z).join(", ")}` }));
+$("eb-q").querySelector(".fb").before(Object.assign(document.createElement("div"), { className: "q-text", innerHTML: '<span class="q-num">✓</span>세 원소의 전자 배치를 모두 만든 뒤 [확인하기]를 누르세요.' }));
+
+/* ===== 5. 알칼리 금속과 물 ===== */
+const AM = { Li: { n: "리튬", rate: 6, fx: "물 위를 떠다니며 기체가 발생해요." }, Na: { n: "나트륨", rate: 16, fx: "물 위를 빠르게 돌아다니며 기체가 활발하게 발생해요." }, K: { n: "칼륨", rate: 34, fx: "매우 격렬하게 반응하며 보라색 불꽃이 생기기도 해요!" } };
+let amCur = "Li", amT = 0, amRaf = 0, amOn = false; const amDone = new Set();
+function drawAM() {
+  const pink = Math.min(1, amT / 2.5);
+  let g = `<rect x="80" y="40" width="160" height="180" rx="8" fill="none" stroke="#9AB" stroke-width="3"/>`;
+  g += `<rect x="83" y="90" width="154" height="127" rx="5" fill="rgb(${Math.round(220 + 35 * pink)},${Math.round(238 - 120 * pink)},${Math.round(250 - 80 * pink)})" opacity=".85"/>`;
+  g += `<text x="160" y="235" text-anchor="middle" style="font-size:11px;fill:#5E7375">페놀프탈레인 용액을 넣은 물</text>`;
+  if (amOn) {
+    const x = 160 + Math.sin(amT * AM[amCur].rate / 4) * 40;
+    g += `<rect x="${x - 7}" y="84" width="14" height="9" rx="2" fill="#B8BEC4" stroke="#5E6B6E"/>`;
+    const n = Math.min(40, Math.floor(amT * AM[amCur].rate));
+    for (let i = 0; i < n; i++) { const bx = x - 12 + (i * 37 % 24), by = 84 - ((amT * 60 + i * 13) % 70); g += `<circle cx="${bx}" cy="${by}" r="${2 + (i % 3)}" fill="#fff" stroke="#9AB" opacity=".8"/>`; }
+    if (amCur === "K") g += `<path d="M${x},70 q-8,-18 0,-30 q8,12 0,30" fill="#B07BF2" opacity="${.5 + .5 * Math.sin(amT * 12)}"/>`;
+    g += `<text x="${x + 18}" y="70" style="font-size:11px;font-weight:800;fill:#2F6FED">H₂ ↑</text>`;
+  } else g += `<rect x="153" y="12" width="14" height="9" rx="2" fill="#B8BEC4" stroke="#5E6B6E"/><text x="175" y="22" style="font-size:11px;fill:#5E7375">쌀알 크기 ${AM[amCur].n}</text>`;
+  $("am-svg").innerHTML = g;
+}
+function amLoop(t0) {
+  return t => { amT = (t - t0) / 1000; drawAM(); if (amT < 6) amRaf = requestAnimationFrame(amLoop(t0)); else amRaf = 0; };
+}
+$("am-drop").addEventListener("click", () => {
+  if (amOn) return;
+  amOn = true; amDone.add(amCur); cancelAnimationFrame(amRaf); amRaf = requestAnimationFrame(amLoop(performance.now()));
+  $("am-read").innerHTML = `${AM[amCur].n}: ${AM[amCur].fx}<br>수용액이 <b>붉은색</b>으로 변해요 → 염기성<br>실험한 금속: ${[...amDone].map(k => AM[k].n).join(", ")}` + (amDone.size === 3 ? "<br>✅ 세 금속 모두 물과 반응해 수소 기체가 발생했어요. 반응의 세기는 Li < Na < K." : "");
+});
+$("am-reset").addEventListener("click", () => { cancelAnimationFrame(amRaf); amOn = false; amT = 0; drawAM(); });
+document.querySelectorAll("#am-pick button").forEach(b => b.addEventListener("click", () => {
+  amCur = b.dataset.m; document.querySelectorAll("#am-pick button").forEach(x => x.classList.toggle("on", x === b)); cancelAnimationFrame(amRaf); amOn = false; amT = 0; drawAM();
+}));
+drawAM();
+WS.custom("am_tested", { el: $("am-read"), value: () => [...amDone].join(",") });
+
+/* ===== 6. 화학 결합 ===== */
+let bdCur = "NaCl", bdDone = false;
+function atom(cx, cy, Z, shells, label, col, R0 = 14) {
+  const R = [R0 + 10, R0 + 24, R0 + 38];
+  let g = "";
+  shells.forEach((n, i) => {
+    g += `<circle cx="${cx}" cy="${cy}" r="${R[i]}" fill="none" stroke="#9AB"/>`;
+    for (let k = 0; k < n; k++) { const a = -Math.PI / 2 + k * 2 * Math.PI / n + i * .4; g += `<circle cx="${cx + R[i] * Math.cos(a)}" cy="${cy + R[i] * Math.sin(a)}" r="4" fill="${col || "#2F6FED"}"/>`; }
+  });
+  g += `<circle cx="${cx}" cy="${cy}" r="${R0}" fill="#D8493B"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font-size:10px;font-weight:800;fill:#fff">${Z}+</text>`;
+  g += `<text x="${cx}" y="${cy + R[shells.length - 1] + 16}" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#1F3133">${label}</text>`;
+  return g;
+}
+function drawBD() {
+  let g = "";
+  if (bdCur === "NaCl") {
+    if (!bdDone) g += atom(110, 100, 11, [2, 8, 1], "나트륨 원자 Na") + atom(330, 100, 17, [2, 8, 7], "염소 원자 Cl") + `<path d="M162,64 Q220,20 280,60" fill="none" stroke="#E0662C" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#a1)"/><defs><marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#E0662C"/></marker></defs><text x="220" y="30" text-anchor="middle" style="font-size:11px;fill:#E0662C;font-weight:800">전자 1개 이동</text>`;
+    else g += atom(130, 100, 11, [2, 8], "나트륨 이온 Na⁺ (네온과 같은 배치)") + atom(330, 100, 17, [2, 8, 8], "염화 이온 Cl⁻ (아르곤과 같은 배치)") + `<text x="230" y="104" text-anchor="middle" style="font-size:22px;font-weight:800;fill:#D8493B">+ ⇄ −</text><text x="230" y="124" text-anchor="middle" style="font-size:11px;fill:#5E7375">정전기적 인력</text>`;
+  } else {
+    if (!bdDone) g += atom(70, 100, 1, [1], "수소 H", null, 10) + atom(230, 100, 8, [2, 6], "산소 O") + atom(390, 100, 1, [1], "수소 H", null, 10);
+    else {
+      g += atom(230, 110, 8, [2, 8], "물 분자 H₂O") + atom(150, 60, 1, [2], "H (헬륨과 같은 배치)", "#2E9E5B", 10) + atom(310, 60, 1, [2], "H", "#2E9E5B", 10);
+      g += `<ellipse cx="185" cy="80" rx="18" ry="10" fill="none" stroke="#E0662C" stroke-width="2"/><ellipse cx="275" cy="80" rx="18" ry="10" fill="none" stroke="#E0662C" stroke-width="2"/><text x="230" y="22" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#E0662C">전자쌍을 공유해요 (주황 타원)</text>`;
+    }
+  }
+  $("bd-svg").innerHTML = g;
+  $("bd-read").innerHTML = bdCur === "NaCl"
+    ? (bdDone ? "나트륨 원자가 전자 1개를 잃어 <b>Na⁺</b>, 염소 원자가 그 전자를 얻어 <b>Cl⁻</b>이 되었어요. 반대 전하를 띤 두 이온이 끌어당겨 <b>이온 결합</b>을 해요. (금속 + 비금속)" : "나트륨(2, 8, 1)은 전자 1개를 잃으면, 염소(2, 8, 7)는 전자 1개를 얻으면 18족 원소와 같은 배치가 돼요.")
+    : (bdDone ? "수소 원자와 산소 원자가 전자를 1개씩 내놓아 전자쌍을 만들고 함께 써요. 산소는 네온, 수소는 헬륨과 같은 배치가 되는 <b>공유 결합</b>이에요. (비금속 + 비금속)" : "산소(2, 6)는 전자 2개가, 수소(1)는 전자 1개가 부족해요. 전자를 주고받는 대신 어떻게 할까요?");
+}
+$("bd-go").addEventListener("click", () => { bdDone = !bdDone; $("bd-go").textContent = bdDone ? "↩️ 원자 상태로" : "🔗 결합하기"; drawBD(); });
+document.querySelectorAll("#bd-pick button").forEach(b => b.addEventListener("click", () => {
+  bdCur = b.dataset.b; bdDone = false; $("bd-go").textContent = "🔗 결합하기"; document.querySelectorAll("#bd-pick button").forEach(x => x.classList.toggle("on", x === b)); drawBD();
+}));
+drawBD();
+</script>
+</body>
+</html>

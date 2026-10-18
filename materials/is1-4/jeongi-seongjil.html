@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-2-4 — 물질의 전기적 성질</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .mats{ display:flex; flex-wrap:wrap; gap:6px; }
+  .mats button{ font-family:inherit; font-size:12.5px; font-weight:700; border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:6px 10px; cursor:pointer; }
+  .mats button.on{ border-color:var(--main); background:var(--main-soft); color:#0b6f73; }
+  .mats button.done{ box-shadow:inset 0 -3px 0 var(--main); }
+  .layers{ display:flex; flex-direction:column; gap:4px; }
+  .layer{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; border-radius:8px; padding:6px 10px; font-size:13px; font-weight:700; border:1px solid var(--line); }
+  .layer .nm{ flex:1 1 150px; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/4">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 2. 물질의 규칙성과 성질 · 04 물질의 전기적 성질 (교과서 80~85쪽)</div>
+    <h1>전류가 흐르는 까닭 — <span>물질의 전기적 성질</span></h1>
+    <p class="sub">회로 시험기에 여러 물질을 끼워 도체·부도체·반도체를 구분하고, 자유 전자의 움직임을 관찰해 보세요. 규소에 불순물을 넣어 n형·p형 반도체를 만들고, 다이오드가 전류를 한 방향으로만 흐르게 하는 모습도 확인해요.</p>
+    <div class="goals"><span>🎯 지구를 구성하는 물질을 전기적 성질에 따라 구분할 수 있다.</span><span>🎯 물질의 전기적 성질을 응용하여 일상생활과 첨단 기술에서 다양한 소재로 활용됨을 설명할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 회로 시험기 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동</span>회로 시험기로 물질 구분하기</div>
+    <div class="card-hint">물질을 눌러 회로의 빈칸에 끼우면 전구가 켜지는지 확인할 수 있어요. 규소는 [조건 바꾸기]로 불순물을 넣거나 온도를 높여 보세요.</div>
+    <div class="mats" id="mats"></div>
+    <div class="sim-wrap" style="margin-top:10px">
+      <div class="stage"><svg id="cir-svg" viewBox="0 0 420 200" aria-label="회로 시험기"></svg></div>
+      <div class="panel">
+        <div class="seg" id="si-cond"><button type="button" class="on" data-c="pure">순수한 규소</button><button type="button" data-c="dope">불순물 첨가</button><button type="button" data-c="hot">에너지(열) 가하기</button></div>
+        <div class="readout" id="cir-read">물질을 골라 보세요.</div>
+      </div>
+    </div>
+    <div class="q" data-why="구리·철·금은 자유 전자가 많아 전류가 잘 흐르는 도체, 고무·유리는 자유 전자가 거의 없는 부도체, 규소는 특정 조건(불순물 첨가, 에너지 가하기)에서 자유 전자가 생겨 전류가 흐르는 반도체예요.">
+      <div class="q-text"><span class="q-num">1</span>각 물질을 전기적 성질에 따라 구분해 보자.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>물질</th><th>구분</th></tr>
+        <tr><td>구리</td><td><span class="choice-group" data-key="cl_cu" data-label="구리" data-answer="도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></td></tr>
+        <tr><td>고무</td><td><span class="choice-group" data-key="cl_rub" data-label="고무" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></td></tr>
+        <tr><td>유리</td><td><span class="choice-group" data-key="cl_gl" data-label="유리" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></td></tr>
+        <tr><td>금</td><td><span class="choice-group" data-key="cl_au" data-label="금" data-answer="도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></td></tr>
+        <tr><td>규소</td><td><span class="choice-group" data-key="cl_si" data-label="규소" data-answer="반도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 자유 전자 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>자유 전자와 전기적 성질</div>
+    <div class="card-hint">원자의 전자는 원자핵의 전기력에 붙잡혀 있어요. 원자들이 결합하면 원자에서 떨어져 나와 물질 안을 자유롭게 이동하는 <b>자유 전자</b>가 생길 수 있어요. 물질을 고르고 전압을 걸어 보세요.</div>
+    <div class="seg" id="fe-mat" style="margin-bottom:8px"><button type="button" class="on" data-m="cond">도체 (구리)</button><button type="button" data-m="ins">부도체 (고무)</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="fe-svg" viewBox="0 0 420 200" aria-label="자유 전자의 움직임"></svg></div>
+      <div class="panel">
+        <button type="button" class="btn main small" id="fe-v">⚡ 전압 걸기</button>
+        <div class="readout" id="fe-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="자유 전자는 음(−)전하를 띠므로 전압을 걸면 (+)극 쪽으로 이동해요. 물질의 전기적 성질은 물질 내 자유 전자의 이동에 따라 달라요.">
+      <div class="q-text"><span class="q-num">1</span>확인하기: 물질의 전기적 성질은 물질 내 <input class="blank" data-key="fe_free" data-answer="자유전자"> 의 이동에 따라 다르다. 전압을 걸면 자유 전자는 <span class="choice-group" data-key="fe_dir" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(−)극</button></span> 쪽으로 이동한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="도체는 자유 전자가 많아 전류가 잘 흐르고, 부도체(절연체)는 자유 전자가 거의 없어 전류가 잘 흐르지 않아요. 반도체는 약간의 불순물을 첨가하거나 에너지를 가하는 등 특정 조건에서 자유 전자가 생겨 전류가 흘러요.">
+      <div class="q-text"><span class="q-num">2</span>부도체는 <input class="blank w-s" data-key="fe_ins" data-answer="절연체"> 라고도 하며, 반도체에는 규소와 <input class="blank w-s" data-key="fe_ge" data-answer="저마늄|게르마늄|Ge"> 이 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 도핑 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>규소에 불순물 넣기 — n형 반도체와 p형 반도체</div>
+    <div class="card-hint">순수한 규소는 원자가 전자가 4개이고 이웃한 4개의 규소와 공유 결합을 하고 있어 전류가 잘 흐르지 않아요. 불순물을 고르고 규소 원자(Si)를 눌러 바꿔 보세요. 그리고 전압을 걸어 보세요.</div>
+    <div class="seg" id="dp-pick" style="margin-bottom:8px"><button type="button" class="on" data-d="P">인 P (원자가 전자 5개)</button><button type="button" data-d="B">붕소 B (원자가 전자 3개)</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="dp-svg" viewBox="0 0 400 300" aria-label="규소 결정과 불순물"></svg></div>
+      <div class="panel">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn main small" id="dp-v">⚡ 전압 걸기</button><button type="button" class="btn ghost small" id="dp-reset">순수한 규소로</button></div>
+        <div class="readout" id="dp-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="n형 반도체는 규소에 원자가 전자가 5개인 원소(인, 비소)를 첨가해 남는 전자가 자유 전자가 되고, p형 반도체는 원자가 전자가 3개인 원소(붕소, 알루미늄, 갈륨)를 첨가해 전자의 빈자리인 양공이 생겨요.">
+      <div class="q-text"><span class="q-num">1</span>n형 반도체는 규소에 원자가 전자가 <input class="blank w-s" data-key="dp_n" data-label="n형" data-num="5" data-abs="0"> 개인 원소를, p형 반도체는 원자가 전자가 <input class="blank w-s" data-key="dp_p" data-label="p형" data-num="3" data-abs="0"> 개인 원소를 첨가하여 만든다.</div>
+      <div class="q-text"><span class="q-num">2</span>p형 반도체에서 공유 결합에 전자가 부족하여 생긴 빈자리를 <input class="blank w-s" data-key="dp_hole" data-answer="양공"> 이라고 한다.</div>
+      <div class="q-text"><span class="q-num">3</span>갈륨(Ga)을 첨가하면 <span class="choice-group" data-key="dp_ga" data-answer="p형"><button type="button" class="choice-btn" data-value="n형">n형</button><button type="button" class="choice-btn" data-value="p형">p형</button></span>, 비소(As)를 첨가하면 <span class="choice-group" data-key="dp_as" data-answer="n형"><button type="button" class="choice-btn" data-value="n형">n형</button><button type="button" class="choice-btn" data-value="p형">p형</button></span> 반도체가 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 다이오드 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>반도체 소자 — 다이오드와 LED</div>
+    <div class="card-hint">다이오드는 p형 반도체와 n형 반도체를 결합한 반도체 소자예요. 전지의 방향을 바꿔 보며 LED가 언제 켜지는지 확인하세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="di-svg" viewBox="0 0 420 210" aria-label="다이오드 회로"></svg></div>
+      <div class="panel">
+        <button type="button" class="btn main small" id="di-flip">🔄 전지 방향 바꾸기</button>
+        <div class="seg" id="di-col"><button type="button" class="on" data-c="#FF3B30">빨강</button><button type="button" data-c="#34C759">초록</button><button type="button" data-c="#0A84FF">파랑</button></div>
+        <div class="readout" id="di-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="다이오드는 전류를 한 방향으로만 흐르게 하는 제어 특성이 있어 교류를 직류로 바꾸는 데 쓰여요. 트랜지스터는 증폭 작용과 스위치 작용, 집적 회로는 데이터 처리·저장에 쓰여요. LED는 첨가하는 원소에 따라 빛의 색이 달라요.">
+      <div class="q-text"><span class="q-num">1</span>p형 쪽을 전지의 <span class="choice-group" data-key="di_fwd" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(−)극</button></span>에 연결할 때 LED가 켜진다. 다이오드는 전류를 <input class="blank w-s" data-key="di_one" data-answer="한방향|한쪽방향|한쪽"> 으로만 흐르게 한다.</div>
+      <div class="q-text"><span class="q-num">2</span>약한 전류와 전압을 크게 하는 증폭 작용과 스위치 작용을 하는 소자는 <span class="choice-group" data-key="di_tr" data-answer="트랜지스터"><button type="button" class="choice-btn" data-value="다이오드">다이오드</button><button type="button" class="choice-btn" data-value="트랜지스터">트랜지스터</button><button type="button" class="choice-btn" data-value="저항">저항</button></span> 이다.</div>
+      <div class="q-text"><span class="q-num">3</span>확인하기: <input class="blank w-s" data-key="di_semi" data-answer="반도체"> 소자는 전류 제어, 신호 증폭 및 스위치, 데이터 저장 등 전기적 신호를 처리할 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구: 제품 소재 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>물질의 전기적 성질을 활용한 소재 조사 — 첨단 제품 해부하기</div>
+    <div class="card-hint">문제 인식: 일상생활과 첨단 기술에서 물질의 전기적 성질을 활용한 소재에는 어떤 것이 있을까?<br>첨단 제품은 도체, 부도체, 반도체 소재가 함께 구성되어 있어요. 각 층의 소재를 구분해 보세요.</div>
+    <div class="sim-wrap">
+      <div>
+        <div class="sub-title">📱 터치스크린</div>
+        <div class="layers">
+          <div class="layer" style="background:#EEF6FB"><span class="nm">보호 필름</span><span class="choice-group" data-key="ts_film" data-label="보호 필름" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+          <div class="layer" style="background:#FFF6E0"><span class="nm">투명 전극</span><span class="choice-group" data-key="ts_elec" data-label="투명 전극" data-answer="반도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+          <div class="layer" style="background:#EAF3EA"><span class="nm">강화 유리</span><span class="choice-group" data-key="ts_glass" data-label="강화 유리" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sub-title">☀️ 태양 전지판 · 🔌 전선</div>
+        <div class="layers">
+          <div class="layer" style="background:#EAF0FB"><span class="nm">태양 전지</span><span class="choice-group" data-key="sp_cell" data-label="태양 전지" data-answer="반도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+          <div class="layer" style="background:#F3F1EA"><span class="nm">투명 수지·후면 필름</span><span class="choice-group" data-key="sp_resin" data-label="투명 수지" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+          <div class="layer" style="background:#FBEDE4"><span class="nm">전선의 금속선(구리)</span><span class="choice-group" data-key="sp_wire" data-label="구리선" data-answer="도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+          <div class="layer" style="background:#F1EEF7"><span class="nm">전선의 외피(고무·합성수지)</span><span class="choice-group" data-key="sp_skin" data-label="외피" data-answer="부도체"><button type="button" class="choice-btn" data-value="도체">도체</button><button type="button" class="choice-btn" data-value="부도체">부도체</button><button type="button" class="choice-btn" data-value="반도체">반도체</button></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="q" data-why="교과서 그림에서 터치스크린의 보호 필름·강화 유리와 태양 전지판의 투명 수지·후면 필름은 부도체, 투명 전극과 태양 전지는 반도체예요. 전선의 구리선은 도체, 외피는 부도체로 전기적 충격과 오염을 막아요."><span class="fb"></span></div>
+    <div class="q" data-why="전기 전도도는 은 > 구리 > 금 순으로 크지만, 구리는 은보다 저렴해서 전선에 널리 쓰여요. 금은 부식이 적고 얇게 가공하기 쉬워 고성능 마이크로프로세서에 쓰여요.">
+      <div class="q-text"><span class="q-num">1</span>전기 전도도가 은, 구리, 금 순으로 크지만 전선에 구리를 널리 이용하는 까닭은 구리가 은보다 <span class="choice-group" data-key="cu_why" data-answer="저렴"><button type="button" class="choice-btn" data-value="저렴">가격이 저렴하기</button><button type="button" class="choice-btn" data-value="전도도">전기 전도도가 크기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>토의: 한 제품에 서로 다른 전기적 성질을 가진 소재를 활용할 때의 유용성을 써 보자.</div>
+      <textarea class="free" data-key="prod_why" data-keywords="도체,부도체/절연,반도체,안전/보호/제어" data-model="도체는 전류가 흐를 길을 만들고, 부도체는 전류가 새지 않게 막아 사용자를 보호하며, 반도체는 전류의 흐름을 조절하거나 빛·압력 등을 감지한다. 서로 다른 성질의 소재를 함께 쓰면 안전하면서도 다양한 기능을 가진 제품을 만들 수 있다." placeholder="예: 도체는 …, 부도체는 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="도체는 자유 전자가 많아 전류가 잘 흘러요(ㄱ ○). 특정 조건에서 전류가 흐르는 것은 반도체예요(ㄴ ×). 반도체는 면적의 절반만 전류가 흐르는 물질이 아니에요(ㄷ ×).">
+      <div class="q-text"><span class="q-num">1</span>도체, 부도체, 반도체에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 도체는 자유 전자가 많아 전류가 잘 흐르는 물질이다.<br>ㄴ. 부도체는 특정 조건에 따라 전류가 흐르는 물질이다.<br>ㄷ. 반도체는 전체 면적의 절반만 전류가 흐르는 물질이다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="다이오드의 대표 기능은 전류 제어(한 방향), 트랜지스터는 증폭 작용과 스위치 작용이에요.">
+      <div class="q-text"><span class="q-num">2</span>ㄱ. 전류 제어 ㄴ. 증폭 작용 ㄷ. 스위치 작용 ㄹ. 데이터 저장 중 가장 대표적인 기능을 있는 대로 고르시오.</div>
+      <div class="q-text">⑴ 다이오드: <span class="multi-group" data-key="qz2a" data-label="⑴" data-answer="ㄱ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+        ⑵ 트랜지스터: <span class="multi-group" data-key="qz2b" data-label="⑵" data-answer="ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="규소는 지각에서 산소 다음으로 두 번째로 많은 원소예요. 규산염 광물에서 얻은 규소로 웨이퍼를 만들고 반도체 소자를 제작해 연산 처리 장치에 활용해요.">
+      <div class="q-text"><span class="q-num">3</span>현재 반도체 소자는 지각에서 두 번째로 많은 <input class="blank w-s" data-key="qz3" data-answer="규소|Si|실리콘"> 을 이용하여 만든다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>실생활 적용: 체성분 분석기는 몸에 약한 전류를 흘려 전기 전도도를 측정해요. 근육과 지방에 포함된 수분의 양에 따라 전류가 흐르는 정도가 다른 원리를 도체·부도체와 관련지어 써 보자.</div>
+      <textarea class="free" data-key="qz4" data-keywords="수분/물,근육,지방,도체/부도체/전류" data-model="근육은 수분(이온)이 많아 도체처럼 전류가 잘 흐르고, 지방은 수분이 적어 부도체처럼 전류가 잘 흐르지 않는다. 전류가 흐르는 정도를 측정하면 근육량과 지방량을 추정할 수 있다." placeholder="예: 근육은 수분이 많아 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-2-4 물질의 전기적 성질 · 비상교육 통합과학1 교과서 80~85쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-2-4 물질의 전기적 성질";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 회로 시험기 ===== */
+const MATS = [
+  { id: "cu", n: "🟠 구리", t: "도체", col: "#C8733A" }, { id: "fe", n: "⚙️ 철", t: "도체", col: "#8A8F98" }, { id: "au", n: "🟡 금", t: "도체", col: "#E2B23A" },
+  { id: "al", n: "🥫 알루미늄", t: "도체", col: "#B8BEC4" }, { id: "rub", n: "⚫ 고무", t: "부도체", col: "#3A3A3A" }, { id: "gl", n: "🔷 유리", t: "부도체", col: "#BFE3F2" },
+  { id: "pl", n: "🧴 플라스틱", t: "부도체", col: "#F2A3B8" }, { id: "wd", n: "🪵 나무", t: "부도체", col: "#A97C50" }, { id: "si", n: "💎 규소", t: "반도체", col: "#6E7A8A" }
+];
+let mSel = null, siCond = "pure", cirRaf = 0; const tried = new Set();
+$("mats").innerHTML = MATS.map(m => `<button type="button" data-id="${m.id}">${m.n}</button>`).join("");
+function conducts(m) { return m.t === "도체" || (m.t === "반도체" && siCond !== "pure"); }
+function drawCir(t) {
+  const m = MATS.find(x => x.id === mSel), on = m && conducts(m);
+  let g = `<path d="M60,150 L60,40 L180,40 M240,40 L360,40 L360,150 L250,150 M170,150 L60,150" fill="none" stroke="#3F5254" stroke-width="4"/>`;
+  g += `<rect x="170" y="138" width="80" height="24" rx="4" fill="#F2F4F5" stroke="#3F5254"/><line x1="200" y1="132" x2="200" y2="168" stroke="#3F5254" stroke-width="4"/><line x1="214" y1="140" x2="214" y2="160" stroke="#3F5254" stroke-width="7"/><text x="190" y="186" style="font-size:11px;fill:#5E7375">전지</text>`;
+  g += `<circle cx="300" cy="40" r="18" fill="${on ? "#FFE15A" : "#EEE"}" stroke="#3F5254" stroke-width="2"/>${on ? '<circle cx="300" cy="40" r="30" fill="#FFE15A" opacity=".35"/>' : ""}<text x="300" y="80" text-anchor="middle" style="font-size:11px;fill:#5E7375">전구</text>`;
+  g += m ? `<rect x="180" y="28" width="60" height="24" rx="4" fill="${m.col}" stroke="#1F3133"/><text x="210" y="70" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#1F3133">${m.n.split(" ")[1]}</text>` : `<rect x="180" y="28" width="60" height="24" rx="4" fill="none" stroke="#E0662C" stroke-dasharray="4 3"/><text x="210" y="70" text-anchor="middle" style="font-size:11px;fill:#E0662C">여기에 물질</text>`;
+  if (on) { const path = [[60, 150], [60, 40], [360, 40], [360, 150], [60, 150]], L = 2 * 110 + 2 * 300; for (let k = 0; k < 14; k++) { let d = ((k / 14) * L + (t || 0) * 60) % L, p; if (d < 110) p = [60, 150 - d]; else if (d < 410) p = [60 + (d - 110), 40]; else if (d < 520) p = [360, 40 + (d - 410)]; else p = [360 - (d - 520), 150]; g += `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#2F6FED"/>`; } }
+  $("cir-svg").innerHTML = g;
+}
+function cirLoop(t0) { return t => { drawCir((t - t0) / 1000); cirRaf = requestAnimationFrame(cirLoop(t0)); }; }
+function updateCir() {
+  const m = MATS.find(x => x.id === mSel); cancelAnimationFrame(cirRaf);
+  document.querySelectorAll("#mats button").forEach(b => { b.classList.toggle("on", b.dataset.id === mSel); b.classList.toggle("done", tried.has(b.dataset.id)); });
+  if (!m) { drawCir(); return; }
+  const on = conducts(m);
+  if (on) cirRaf = requestAnimationFrame(cirLoop(performance.now())); else drawCir();
+  $("cir-read").innerHTML = `<b>${m.n}</b>: 전구가 ${on ? "💡 <b>켜져요</b>" : "<b>켜지지 않아요</b>"}.` +
+    (m.id === "si" ? (siCond === "pure" ? "<br>순수한 규소는 전류가 잘 흐르지 않아요. 조건을 바꿔 보세요!" : "<br>조건을 바꾸니 자유 전자가 생겨 전류가 흘러요. 이런 물질이 <b>반도체</b>예요.") : "") +
+    `<br><span style="font-size:12px;color:var(--ink-soft)">시험한 물질: ${tried.size} / ${MATS.length}</span>`;
+}
+$("mats").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { mSel = b.dataset.id; tried.add(mSel); updateCir(); } });
+document.querySelectorAll("#si-cond button").forEach(b => b.addEventListener("click", () => { siCond = b.dataset.c; document.querySelectorAll("#si-cond button").forEach(x => x.classList.toggle("on", x === b)); updateCir(); }));
+drawCir();
+WS.custom("cir_tried", { el: $("cir-read"), value: () => [...tried].join(",") });
+
+/* ===== 2. 자유 전자 ===== */
+let feMat = "cond", feV = false, feRaf = 0;
+function drawFE(t) {
+  t = t || 0;
+  let g = `<rect x="40" y="20" width="340" height="160" rx="10" fill="${feMat === "cond" ? "#FBEFE6" : "#EEEEEE"}" stroke="#9AB"/>`;
+  g += `<text x="20" y="104" text-anchor="middle" style="font-size:16px;font-weight:800;fill:#2F6FED">(−)</text><text x="400" y="104" text-anchor="middle" style="font-size:16px;font-weight:800;fill:#D8493B">(+)</text>`;
+  for (let i = 0; i < 7; i++) for (let j = 0; j < 4; j++) {
+    const x = 70 + i * 47, y = 45 + j * 38;
+    g += `<circle cx="${x}" cy="${y}" r="10" fill="${feMat === "cond" ? "#C8733A" : "#555"}" opacity=".85"/><text x="${x}" y="${y + 3}" text-anchor="middle" style="font-size:8px;fill:#fff">+</text>`;
+    if (feMat === "ins") { const a = t * 6 + i + j; g += `<circle cx="${x + 15 * Math.cos(a)}" cy="${y + 15 * Math.sin(a)}" r="3" fill="#2F6FED"/>`; }
+  }
+  if (feMat === "cond") for (let k = 0; k < 26; k++) {
+    const base = ((k * 61) % 320), y = 30 + ((k * 37) % 140), jig = 6 * Math.sin(t * 9 + k);
+    const x = 50 + ((base + (feV ? t * 45 : 0)) % 320 + 320) % 320;
+    g += `<circle cx="${x + (feV ? 0 : jig)}" cy="${y + jig * .5}" r="3.5" fill="#2F6FED"/>`;
+  }
+  if (feV) g += `<text x="210" y="196" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#2F6FED">${feMat === "cond" ? "자유 전자 → (+)극 쪽으로 이동 → 전류가 흘러요" : "전자가 원자에 속박되어 이동하지 못해요"}</text>`;
+  $("fe-svg").innerHTML = g;
+}
+function feLoop(t0) { return t => { drawFE((t - t0) / 1000); feRaf = requestAnimationFrame(feLoop(t0)); }; }
+function feUpdate() {
+  $("fe-read").innerHTML = feMat === "cond"
+    ? `구리 같은 <b>도체</b>에는 원자에서 떨어져 나와 자유롭게 움직이는 <b>자유 전자</b>가 많아요.${feV ? " 전압을 걸자 자유 전자가 (+)극 쪽으로 이동해 전류가 흘러요." : " 지금은 무질서하게 움직여요."}`
+    : `고무 같은 <b>부도체</b>는 전자가 원자에 속박되어 있어 자유 전자가 거의 없어요.${feV ? " 전압을 걸어도 전자가 이동하지 못해 전류가 흐르지 않아요." : ""}`;
+}
+$("fe-v").addEventListener("click", () => { feV = !feV; $("fe-v").textContent = feV ? "⏹ 전압 끄기" : "⚡ 전압 걸기"; feUpdate(); });
+document.querySelectorAll("#fe-mat button").forEach(b => b.addEventListener("click", () => { feMat = b.dataset.m; document.querySelectorAll("#fe-mat button").forEach(x => x.classList.toggle("on", x === b)); feUpdate(); }));
+feRaf = requestAnimationFrame(feLoop(performance.now())); feUpdate();
+
+/* ===== 3. 도핑 ===== */
+const N = 5; let dopant = "P", dpV = false, dpRaf = 0;
+const grid = Array.from({ length: N * N }, () => "Si");
+function drawDP(t) {
+  t = t || 0;
+  const X = i => 50 + (i % N) * 75, Y = i => 40 + Math.floor(i / N) * 55;
+  let g = "";
+  for (let i = 0; i < N * N; i++) {
+    const x = X(i), y = Y(i);
+    if (i % N < N - 1) { g += `<line x1="${x + 16}" y1="${y}" x2="${x + 59}" y2="${y}" stroke="#9AB" stroke-width="2"/>`; const miss = grid[i] === "B" || grid[i + 1] === "B"; g += `<circle cx="${x + 33}" cy="${y - 5}" r="3.2" fill="#2F6FED"/><circle cx="${x + 43}" cy="${y - 5}" r="3.2" fill="${miss && grid[i] === "B" ? "#fff" : "#2F6FED"}" stroke="${miss && grid[i] === "B" ? "#E0662C" : "none"}" stroke-width="2"/>`; }
+    if (i < N * (N - 1)) { g += `<line x1="${x}" y1="${y + 16}" x2="${x}" y2="${y + 39}" stroke="#9AB" stroke-width="2"/><circle cx="${x - 6}" cy="${y + 27}" r="3.2" fill="#2F6FED"/><circle cx="${x + 6}" cy="${y + 27}" r="3.2" fill="#2F6FED"/>`; }
+  }
+  for (let i = 0; i < N * N; i++) {
+    const x = X(i), y = Y(i), e = grid[i];
+    g += `<g class="atom" data-i="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="16" fill="${e === "Si" ? "#6E7A8A" : e === "P" ? "#8A5BD6" : "#E0662C"}"/><text x="${x}" y="${y + 5}" text-anchor="middle" style="font-family:'Times New Roman';font-size:14px;font-weight:700;fill:#fff">${e}</text></g>`;
+    if (e === "P") { const dx = dpV ? ((t * 40) % 300) : 4 * Math.sin(t * 5); g += `<circle cx="${Math.min(380, x + 22 + dx)}" cy="${y - 18}" r="5" fill="#2F6FED" stroke="#fff"/><text x="${Math.min(380, x + 22 + dx)}" y="${y - 26}" text-anchor="middle" style="font-size:9px;font-weight:800;fill:#2F6FED">자유 전자</text>`; }
+    if (e === "B") g += `<text x="${x + 38}" y="${y - 14}" text-anchor="middle" style="font-size:9px;font-weight:800;fill:#E0662C">양공</text>`;
+  }
+  if (dpV) g += `<text x="200" y="296" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#1F3133">(−) ← 전압 → (+)</text>`;
+  $("dp-svg").innerHTML = g;
+}
+function dpLoop(t0) { return t => { drawDP((t - t0) / 1000); dpRaf = requestAnimationFrame(dpLoop(t0)); }; }
+function dpRead() {
+  const p = grid.filter(e => e === "P").length, b = grid.filter(e => e === "B").length;
+  let msg = `규소 원자 ${grid.filter(e => e === "Si").length}개 · 인 ${p}개 · 붕소 ${b}개<br>`;
+  if (!p && !b) msg += "순수한 규소: 원자가 전자 4개가 모두 공유 결합에 쓰여 자유 전자가 없어요. 전류가 잘 흐르지 않아요.";
+  else if (p && !b) msg += `<b>n형 반도체</b>: 인의 원자가 전자 5개 중 4개는 공유 결합에 쓰이고 <b>1개가 남아</b> 자유 전자가 돼요.${dpV ? " 전압을 걸자 여분의 전자가 이동해 전류가 흘러요." : ""}`;
+  else if (b && !p) msg += `<b>p형 반도체</b>: 붕소의 원자가 전자는 3개라 공유 결합에 전자 1개가 부족해 빈자리인 <b>양공</b>이 생겨요.${dpV ? " 전압을 걸면 양공 주위의 전자가 양공을 채우며 이동하고, 그 자리에 또 양공이 생겨 전류가 흘러요." : ""}`;
+  else msg += "인과 붕소를 섞어 넣었어요. 한 종류만 넣어 n형 또는 p형을 만들어 보세요.";
+  $("dp-read").innerHTML = msg;
+}
+$("dp-svg").addEventListener("click", e => { const a = e.target.closest(".atom"); if (!a) return; const i = Number(a.dataset.i); grid[i] = grid[i] === "Si" ? dopant : "Si"; dpRead(); });
+document.querySelectorAll("#dp-pick button").forEach(b => b.addEventListener("click", () => { dopant = b.dataset.d; document.querySelectorAll("#dp-pick button").forEach(x => x.classList.toggle("on", x === b)); }));
+$("dp-v").addEventListener("click", () => { dpV = !dpV; $("dp-v").textContent = dpV ? "⏹ 전압 끄기" : "⚡ 전압 걸기"; dpRead(); });
+$("dp-reset").addEventListener("click", () => { grid.fill("Si"); dpRead(); });
+dpRaf = requestAnimationFrame(dpLoop(performance.now())); dpRead();
+
+/* ===== 4. 다이오드 ===== */
+let diFwd = true, diCol = "#FF3B30", diRaf = 0;
+function drawDI(t) {
+  t = t || 0;
+  let g = `<path d="M60,160 L60,50 L150,50 M270,50 L360,50 L360,160 L250,160 M170,160 L60,160" fill="none" stroke="#3F5254" stroke-width="4"/>`;
+  g += `<rect x="150" y="30" width="60" height="40" fill="#F5C99A" stroke="#1F3133"/><text x="180" y="55" text-anchor="middle" style="font-size:14px;font-weight:800">p</text>`;
+  g += `<rect x="210" y="30" width="60" height="40" fill="#BFD7F2" stroke="#1F3133"/><text x="240" y="55" text-anchor="middle" style="font-size:14px;font-weight:800">n</text>`;
+  g += `<text x="210" y="22" text-anchor="middle" style="font-size:11px;fill:#5E7375">다이오드 (LED)</text>`;
+  const plusLeft = diFwd; // 전지의 (+)극이 왼쪽 도선(p형 쪽)에 연결
+  g += `<rect x="170" y="148" width="80" height="24" rx="4" fill="#F2F4F5" stroke="#3F5254"/><line x1="${plusLeft ? 196 : 224}" y1="140" x2="${plusLeft ? 196 : 224}" y2="180" stroke="#3F5254" stroke-width="4"/><line x1="${plusLeft ? 214 : 206}" y1="150" x2="${plusLeft ? 214 : 206}" y2="170" stroke="#3F5254" stroke-width="8"/>`;
+  g += `<text x="${plusLeft ? 182 : 238}" y="198" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#D8493B">(+)</text><text x="${plusLeft ? 238 : 182}" y="198" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#2F6FED">(−)</text>`;
+  if (diFwd) {
+    g += `<circle cx="210" cy="50" r="40" fill="${diCol}" opacity="${.25 + .1 * Math.sin(t * 6)}"/>`;
+    // 전자는 (−)극에서 나와 회로를 돌아 (+)극으로 들어가요: 아래 도선 → 오른쪽 → 위 → 왼쪽
+    const L = 2 * (300 + 110);
+    for (let k = 0; k < 14; k++) {
+      const d = (k / 14 * L + t * 70) % L; let p;
+      if (d < 300) p = [60 + d, 160]; else if (d < 410) p = [360, 160 - (d - 300)]; else if (d < 710) p = [360 - (d - 410), 50]; else p = [60, 50 + (d - 710)];
+      if (!(p[1] === 50 && p[0] > 150 && p[0] < 270) && !(p[1] === 160 && p[0] > 170 && p[0] < 250)) g += `<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="#2F6FED"/>`;
+    }
+  }
+  $("di-svg").innerHTML = g;
+}
+function diLoop(t0) { return t => { drawDI((t - t0) / 1000); diRaf = requestAnimationFrame(diLoop(t0)); }; }
+function diRead() {
+  $("di-read").innerHTML = diFwd ? `p형 쪽이 <b>(+)극</b>, n형 쪽이 <b>(−)극</b>에 연결되었어요 → 💡 <b>LED가 켜지고 전류가 흘러요</b> (순방향).` : `p형 쪽이 <b>(−)극</b>에 연결되었어요 → <b>전류가 흐르지 않아 LED가 꺼져요</b> (역방향). 다이오드는 전류를 한 방향으로만 흐르게 해요.`;
+}
+$("di-flip").addEventListener("click", () => { diFwd = !diFwd; diRead(); });
+document.querySelectorAll("#di-col button").forEach(b => b.addEventListener("click", () => { diCol = b.dataset.c; document.querySelectorAll("#di-col button").forEach(x => x.classList.toggle("on", x === b)); $("di-read").innerHTML += "<br>LED는 갈륨, 비소, 인, 질소 등 첨가하는 원소에 따라 빛의 색이 달라요."; }));
+diRaf = requestAnimationFrame(diLoop(performance.now())); diRead();
+</script>
+</body>
+</html>

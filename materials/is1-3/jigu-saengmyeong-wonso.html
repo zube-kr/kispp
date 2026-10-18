@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅱ-1-2 — 지구와 생명체를 구성하는 원소의 생성</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .bars{ display:flex; flex-direction:column; gap:10px; }
+  .bar-row{ display:grid; grid-template-columns:70px 1fr; gap:8px; align-items:center; font-size:13px; font-weight:800; }
+  .bar{ display:flex; height:30px; border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+  .bar span{ display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:#1F3133; white-space:nowrap; overflow:hidden; }
+  .star-stage{ background:#0E1426; border-radius:14px; }
+  .el-chip{ display:inline-block; font-family:"Times New Roman",serif; font-weight:700; font-size:14px; border-radius:6px; padding:1px 6px; margin:1px; background:#fff; border:1px solid var(--line); }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/3">← KISPP 과학실 · 통합과학1 Ⅱ. 물질과 규칙성 · 1. 자연의 구성 원소</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 물질과 규칙성 · 1. 자연의 구성 원소 · 02 지구와 생명체를 구성하는 원소의 생성 (교과서 48~57쪽)</div>
+    <h1>우리는 별의 부스러기 — <span>지구와 생명체를 구성하는 원소의 생성</span></h1>
+    <p class="sub">우주·지구·사람을 구성하는 원소를 비교하고, 별의 중심부에서 핵융합으로 원소가 차례로 만들어지는 과정과 초신성 폭발을 시뮬레이션으로 관찰해 보세요. 마지막으로 우주의 역사 카드를 나열하며 지구와 생명체를 이루는 원소의 유래를 추론해요.</p>
+    <div class="goals"><span>🎯 우주 초기의 원소로부터 태양계의 재료이면서 생명체를 구성하는 원소가 생성되는 과정을 설명할 수 있다.</span><span>🎯 지구와 생명의 역사가 우주 역사의 일부분임을 해석할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 구성 원소 비교 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기</span>생명체와 지구의 구성 원소 비교하기</div>
+    <div class="card-hint">우주, 지구, 사람의 몸을 구성하는 원소의 질량비(%)예요. 막대에 마우스를 올리거나 눌러 값을 확인하세요.</div>
+    <div class="bars" id="bars"></div>
+    <div class="readout" id="bar-read" style="margin-top:10px">막대의 칸을 눌러 보세요.</div>
+    <div class="q" data-why="사람의 몸은 산소(65 %)가, 지구는 철(35 %)이 가장 많아요. 우주는 수소와 헬륨이 약 98 %를 차지하지만, 지구와 생명체에는 수소와 헬륨이 매우 적어요.">
+      <div class="q-text"><span class="q-num">1</span>사람의 몸을 구성하는 원소 중 가장 높은 비율은 <span class="choice-group" data-key="bar_body" data-answer="산소"><button type="button" class="choice-btn" data-value="수소">수소</button><button type="button" class="choice-btn" data-value="탄소">탄소</button><button type="button" class="choice-btn" data-value="산소">산소</button></span>,
+        지구는 <span class="choice-group" data-key="bar_earth" data-answer="철"><button type="button" class="choice-btn" data-value="철">철</button><button type="button" class="choice-btn" data-value="규소">규소</button><button type="button" class="choice-btn" data-value="수소">수소</button></span> 이다.</div>
+      <div class="q-text"><span class="q-num">2</span>지구를 구성하는 주요 원소는 우주를 구성하는 주요 원소와 <span class="choice-group" data-key="bar_diff" data-answer="다르다"><button type="button" class="choice-btn" data-value="같다">같다</button><button type="button" class="choice-btn" data-value="다르다">다르다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 별의 핵융합 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>별의 중심부에서 만들어지는 원소</div>
+    <div class="card-hint">별의 질량을 고른 뒤 [다음 핵융합]을 눌러 보세요. 중심부에서 핵융합 반응이 차례로 일어나며 원소가 층을 이루어요. 마지막에는 별의 최후를 확인해요.</div>
+    <div class="seg" id="st-mass" style="margin-bottom:10px"><button type="button" class="on" data-m="sun">☀️ 태양 정도 질량</button><button type="button" data-m="big">🌟 태양 질량의 10배 이상</button></div>
+    <div class="sim-wrap">
+      <div class="stage star-stage"><svg id="st-svg" viewBox="0 0 360 300" aria-label="별의 중심부 핵융합 층"></svg></div>
+      <div class="panel">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn main small" id="st-next">🔥 다음 핵융합</button><button type="button" class="btn ghost small" id="st-reset">처음부터</button></div>
+        <div class="readout" id="st-read"></div>
+        <div class="readout" id="st-made"></div>
+      </div>
+    </div>
+    <div class="q" data-why="수소 핵융합 → 헬륨, 헬륨 핵융합 → 탄소·산소, 탄소 핵융합 → 산소·네온·마그네슘, 산소 핵융합 → 황·규소, 규소 핵융합 → 철이 만들어져요.">
+      <div class="q-text"><span class="q-num">1</span>별의 중심부에서 수소 핵융합 반응이 일어나 <input class="blank w-s" data-key="st_1" data-label="①" data-answer="헬륨"> 이 만들어지고, 헬륨 핵융합이 끝나면 <input class="blank w-s" data-key="st_2" data-label="②" data-answer="탄소"> 핵융합 반응으로 산소, 네온, 마그네슘이 만들어진다. 규소 핵융합 반응으로는 <input class="blank w-s" data-key="st_3" data-label="③" data-answer="철"> 이 만들어진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="태양 정도 질량의 별은 헬륨 핵융합(탄소·산소)까지만, 태양 질량의 10배 이상인 별은 규소 핵융합(철)까지 일어나요. 철의 원자핵은 매우 안정해 더 이상 핵융합이 일어나지 않고, 별은 초신성으로 폭발해요.">
+      <div class="q-text"><span class="q-num">2</span>태양 정도 질량인 별의 중심부에서는 <span class="choice-group" data-key="st_sun" data-answer="헬륨"><button type="button" class="choice-btn" data-value="헬륨">헬륨 핵융합 반응까지만</button><button type="button" class="choice-btn" data-value="규소">규소 핵융합 반응까지</button></span> 일어나고,
+        철이 만들어진 별의 중심부는 급격히 수축하여 <input class="blank w-s" data-key="st_sn" data-answer="초신성|초신성폭발"> 이 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="질량이 태양의 10배 이상인 별의 중심부에서는 헬륨, 산소, 규소, 철까지 만들어질 수 있어요. 납과 우라늄처럼 철보다 무거운 원소는 초신성 폭발 때 엄청난 에너지로 핵융합이 한꺼번에 일어나야만 만들어져요.">
+      <div class="q-text"><span class="q-num">3</span>중단원 마무리 06 — (가) 철 (나) 납 (다) 규소 (라) 산소 (마) 헬륨 (바) 우라늄</div>
+      <div class="q-text">⑴ 질량이 태양의 10배 이상인 별의 중심부에서 만들어질 수 있는 원소: <span class="multi-group" data-key="st_core" data-label="⑴" data-answer="가,다,라,마"><button type="button" class="multi-btn" data-value="가">(가)</button> <button type="button" class="multi-btn" data-value="나">(나)</button> <button type="button" class="multi-btn" data-value="다">(다)</button> <button type="button" class="multi-btn" data-value="라">(라)</button> <button type="button" class="multi-btn" data-value="마">(마)</button> <button type="button" class="multi-btn" data-value="바">(바)</button></span></div>
+      <div class="q-text">⑵ 초신성 폭발로만 만들어지는 원소: <span class="multi-group" data-key="st_snonly" data-label="⑵" data-answer="나,바"><button type="button" class="multi-btn" data-value="가">(가)</button> <button type="button" class="multi-btn" data-value="나">(나)</button> <button type="button" class="multi-btn" data-value="다">(다)</button> <button type="button" class="multi-btn" data-value="라">(라)</button> <button type="button" class="multi-btn" data-value="마">(마)</button> <button type="button" class="multi-btn" data-value="바">(바)</button></span></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 개념: 태양계와 지구 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>지구와 생명의 역사</div>
+    <p class="read-text">태양계는 약 46억 년 전 초신성 폭발로 만들어진 거대한 성운에서 탄생했어요. 성운이 수축하며 회전하여 원시 태양과 원시 원반이 생기고, 원시 원반의 성간 물질이 뭉친 <b>미행성체</b>가 충돌하며 원시 행성이 만들어졌어요. 지구는 태양으로부터 적당한 거리에 있어 <b>액체 상태의 물</b>이 존재할 수 있었고, 생명체가 탄생했어요.</p>
+    <div class="q" data-why="미행성체 충돌 → (충돌열로) 마그마 바다 → 핵과 맨틀로 나뉨, 원시 지각 형성 → 원시 바다 형성과 생명체 탄생의 순서예요.">
+      <div class="q-text"><span class="q-num">1</span>원시 지구가 현재의 지구가 되기까지의 과정을 순서대로 놓아 보자.</div>
+      <ol class="order-list" data-key="earth_order" data-answer="col,magma,core,sea">
+        <li data-id="sea"><span class="txt">🌊 원시 바다가 만들어지고, 생명체가 탄생하였다.</span></li>
+        <li data-id="magma"><span class="txt">🔥 미행성체 충돌로 생긴 열 때문에 마그마 바다가 되었다.</span></li>
+        <li data-id="col"><span class="txt">☄️ 미행성체의 충돌이 빈번히 일어났다.</span></li>
+        <li data-id="core"><span class="txt">🌍 핵과 맨틀로 나누어지고, 원시 지각이 만들어졌다.</span></li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="지구는 원시 원반에서 만들어진 미행성체의 충돌로 형성되었고, 액체 상태의 물이 존재할 수 있어 생명체가 탄생할 수 있었어요.">
+      <div class="q-text"><span class="q-num">2</span>확인하기: 지구는 원시 원반에서 만들어진 <input class="blank w-s" data-key="earth_b1" data-label="❶" data-answer="미행성체"> 의 충돌로 형성되었으며, 지구에서 생명체의 탄생이 가능하였던 것은 <input class="blank" data-key="earth_b2" data-label="❷" data-answer="액체상태의물|액체상태물|물|액체물"> 이/가 존재할 수 있었기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 탐구: 우주 역사 카드 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>우주와 지구 역사를 통한 지구와 생명체 구성 성분의 유래 탐구</div>
+    <div class="card-hint">문제 인식: 지구와 생명체를 구성하는 원소는 어디에서 왔을까?<br>① 우주의 역사 카드를 시간 순서대로 나열하고, ② 지구와 생명체를 구성하는 원소가 생성된 시기를 카드에서 찾아 연결해 보세요.</div>
+    <div class="q" data-why="빅뱅(약 138억 년 전) → 수소·헬륨 원자 생성(빅뱅 약 38만 년 뒤) → 최초의 별 탄생 → 별의 핵융합과 초신성 폭발 → 초신성 잔해로 성운 형성 → 원시 태양과 원시 원반 형성(약 46억 년 전) → 미행성체 충돌로 지구 형성 → 원시 바다와 생명체 탄생 순서예요.">
+      <div class="q-text"><span class="q-num">1</span>우주의 역사 카드를 시간 순서대로 나열해 보자.</div>
+      <ol class="order-list" data-key="hist_order" data-answer="bang,atom,star,sn,neb,proto,earth,life">
+        <li data-id="sn"><span class="txt">💥 별의 핵융합과 초신성 폭발로 무거운 원소가 우주에 퍼짐</span></li>
+        <li data-id="earth"><span class="txt">🌍 미행성체 충돌로 원시 지구 형성</span></li>
+        <li data-id="bang"><span class="txt">✨ 빅뱅(대폭발)</span></li>
+        <li data-id="neb"><span class="txt">☁️ 초신성 잔해가 모여 거대한 성운 형성</span></li>
+        <li data-id="life"><span class="txt">🦠 원시 바다에서 생명체 탄생</span></li>
+        <li data-id="atom"><span class="txt">⚛️ 수소 원자와 헬륨 원자 생성</span></li>
+        <li data-id="proto"><span class="txt">☀️ 원시 태양과 원시 원반 형성</span></li>
+        <li data-id="star"><span class="txt">⭐ 최초의 별 탄생</span></li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="수소는 빅뱅 직후 우주 초기에, 탄소·산소는 별의 헬륨 핵융합에서, 규소·철은 무거운 별의 산소·규소 핵융합에서, 금은 초신성 폭발에서 만들어졌어요. 우리 몸과 지구는 여러 세대의 별이 만든 원소로 이루어져 있어요.">
+      <div class="q-text"><span class="q-num">2</span>지구와 생명체를 구성하는 원소가 생성된 시기를 연결해 보자.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><th>원소</th><th>생성된 시기</th></tr>
+        <tr><td>수소 (H)</td><td><span class="choice-group" data-key="org_H" data-label="수소" data-answer="우주 초기"><button type="button" class="choice-btn" data-value="우주 초기">빅뱅 직후 우주 초기</button><button type="button" class="choice-btn" data-value="별">별의 핵융합</button><button type="button" class="choice-btn" data-value="초신성">초신성 폭발</button></span></td></tr>
+        <tr><td>탄소 (C)</td><td><span class="choice-group" data-key="org_C" data-label="탄소" data-answer="별"><button type="button" class="choice-btn" data-value="우주 초기">빅뱅 직후 우주 초기</button><button type="button" class="choice-btn" data-value="별">별의 핵융합</button><button type="button" class="choice-btn" data-value="초신성">초신성 폭발</button></span></td></tr>
+        <tr><td>산소 (O)</td><td><span class="choice-group" data-key="org_O" data-label="산소" data-answer="별"><button type="button" class="choice-btn" data-value="우주 초기">빅뱅 직후 우주 초기</button><button type="button" class="choice-btn" data-value="별">별의 핵융합</button><button type="button" class="choice-btn" data-value="초신성">초신성 폭발</button></span></td></tr>
+        <tr><td>철 (Fe)</td><td><span class="choice-group" data-key="org_Fe" data-label="철" data-answer="별"><button type="button" class="choice-btn" data-value="우주 초기">빅뱅 직후 우주 초기</button><button type="button" class="choice-btn" data-value="별">별의 핵융합</button><button type="button" class="choice-btn" data-value="초신성">초신성 폭발</button></span></td></tr>
+        <tr><td>금 (Au)</td><td><span class="choice-group" data-key="org_Au" data-label="금" data-answer="초신성"><button type="button" class="choice-btn" data-value="우주 초기">빅뱅 직후 우주 초기</button><button type="button" class="choice-btn" data-value="별">별의 핵융합</button><button type="button" class="choice-btn" data-value="초신성">초신성 폭발</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>결론: 지구와 생명체를 이루는 구성 성분의 유래를 우주 및 지구 역사와 관련지어 설명해 보자.</div>
+      <textarea class="free" data-key="hist_concl" data-keywords="빅뱅/우주 초기,핵융합/별,초신성,태양계/성운/미행성체" data-model="빅뱅 이후 만들어진 수소와 헬륨이 별의 재료가 되었고, 별의 핵융합과 초신성 폭발로 탄소, 산소, 철, 금 등 다양한 원소가 만들어져 우주로 퍼졌다. 이 원소들이 모인 성운에서 태양계와 지구가 만들어졌고, 지구의 생명체도 이 원소로 이루어졌다. 따라서 지구와 생명의 역사는 우주 역사의 한 부분이다." placeholder="예: 빅뱅 이후 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="(가) 우주의 원소(수소·헬륨)는 대부분 우주 초기에 만들어졌어요. (나) 지구의 ㉠ 35 %는 철, ㉡ 30 %는 산소예요. 산소는 별의 핵융합 과정에서 만들어졌으므로 ㄴ, ㄷ은 틀려요.">
+      <div class="q-text"><span class="q-num">1</span>(가) 우주(수소 74, 헬륨 24, 기타 2)와 (나) 지구(㉠ 35, ㉡ 30, 규소 15, 마그네슘 13, 니켈 2.4, 기타 4.6)의 질량비(%)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. (가)의 원소들은 대부분 우주 초기에 만들어진 것이다.<br>ㄴ. (나)의 ㉠은 수소이다.<br>ㄷ. (나)의 ㉡은 초신성 폭발 과정에서 만들어진 것이다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="게 성운은 초신성 폭발의 잔해예요. 별이 진화하는 마지막 단계에 만들어졌고, 철보다 가벼운 원소와 무거운 원소가 함께 들어 있어요.">
+      <div class="q-text"><span class="q-num">2</span>게 성운에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 초신성 폭발의 잔해이다.<br>ㄴ. 별이 진화하는 초기 단계이다.<br>ㄷ. 우주 생성 초기에 만들어진 것이다.<br>ㄹ. 철보다 무거운 원소로만 구성되어 있다.</div>
+      <span class="multi-group" data-key="qz2" data-answer="ㄱ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="원자는 빅뱅 약 38만 년 뒤에 만들어졌어요(ㄱ ×). 초신성 폭발로 철보다 무거운 원소가 만들어졌고(ㄴ ○), 지구는 원시 태양이 형성된 뒤에 만들어졌어요(ㄷ ×). 최초의 별이 탄생해야 초신성 폭발이 일어날 수 있어요(ㄹ ○).">
+      <div class="q-text"><span class="q-num">3</span>(가) 원자 생성 (나) 초신성 폭발 (다) 원시 태양 형성 (라) 최초의 별 탄생 — 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. (가)는 빅뱅과 동시에 일어났다.<br>ㄴ. (나)로 철보다 무거운 원소가 만들어졌다.<br>ㄷ. (다) 이전에 지구가 형성되었다.<br>ㄹ. (라)는 (나)보다 먼저 일어났다.</div>
+      <span class="multi-group" data-key="qz3" data-answer="ㄴ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="연필심(흑연)의 주요 원소는 탄소로 별의 헬륨 핵융합에서, 자석의 주요 원소는 철로 질량이 큰 별의 규소 핵융합에서 만들어졌어요.">
+      <div class="q-text"><span class="q-num">4</span>연필심(흑연)의 주요 원소는 <input class="blank w-s" data-key="qz4a" data-label="연필" data-answer="탄소|C"> , 자석의 주요 원소는 <input class="blank w-s" data-key="qz4b" data-label="자석" data-answer="철|Fe"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">5</span>창의적 문제해결력: 우주의 주성분인 수소와 헬륨이 지구에 거의 존재하지 않는 까닭을 설명하시오.</div>
+      <textarea class="free" data-key="qz5" data-keywords="가볍/가벼운,중력/태양풍/우주로,기체/날아" data-model="수소와 헬륨은 매우 가벼운 기체라서, 지구가 형성될 때 태양에 가까운 뜨거운 지역에서 태양풍에 밀려나거나 지구의 중력으로 붙잡아 두지 못해 우주 공간으로 빠져나갔다. 반면 철, 산소, 규소 등 무거운 원소는 고체 물질을 이루어 지구에 남았다." placeholder="예: 수소와 헬륨은 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅱ-1-2 지구와 생명체를 구성하는 원소의 생성 · 비상교육 통합과학1 교과서 48~57쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅱ-1-2 지구와 생명체를 구성하는 원소의 생성";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 구성 원소 막대 ===== */
+const COMP = [
+  { n: "🌌 우주", d: [["수소", 74, "#9CC9EE"], ["헬륨", 24, "#F5C99A"], ["기타", 2, "#C9B79A"]] },
+  { n: "🌍 지구", d: [["철", 35, "#7EAEE0"], ["산소", 30, "#D9CCE8"], ["규소", 15, "#B9DB9A"], ["마그네슘", 13, "#79C08A"], ["니켈", 2.4, "#F2C14E"], ["기타", 4.6, "#C9B79A"]] },
+  { n: "🧍 사람", d: [["산소", 65, "#D9CCE8"], ["탄소", 18.5, "#F5A98A"], ["수소", 9.5, "#9CC9EE"], ["질소", 3.3, "#A9A6D9"], ["칼슘", 1.5, "#E2D07A"], ["인", 1.0, "#7FC9C0"], ["기타", 1.2, "#C9B79A"]] }
+];
+$("bars").innerHTML = COMP.map((c, i) => `<div class="bar-row"><span>${c.n}</span><div class="bar">${c.d.map(([n, v, col]) => `<span data-i="${i}" data-n="${n}" data-v="${v}" title="${n} ${v} %" style="width:${v}%;background:${col}">${v >= 8 ? n + " " + v : ""}</span>`).join("")}</div></div>`).join("");
+$("bars").addEventListener("click", e => { const s = e.target.closest("span[data-n]"); if (s) $("bar-read").innerHTML = `${COMP[s.dataset.i].n}: <b>${s.dataset.n} ${s.dataset.v} %</b>`; });
+
+/* ===== 2. 별의 핵융합 ===== */
+const FUSION = [
+  { fuel: "수소", make: ["He"], txt: "수소 핵융합 → <b>헬륨</b>", col: "#F7D774" },
+  { fuel: "헬륨", make: ["C", "O"], txt: "중심부가 수축해 1억 K 이상 → 헬륨 핵융합 → <b>탄소, 산소</b>", col: "#F5A35C" },
+  { fuel: "탄소", make: ["O", "Ne", "Mg"], txt: "탄소 핵융합 → <b>산소, 네온, 마그네슘</b>", col: "#E07A5F" },
+  { fuel: "산소", make: ["S", "Si"], txt: "산소 핵융합 → <b>황, 규소</b>", col: "#C4577A" },
+  { fuel: "규소", make: ["Fe"], txt: "규소 핵융합 → <b>철</b> (철은 매우 안정해 핵융합이 멈춰요)", col: "#5B5F7A" }
+];
+const LAYER = [["H", "#8FA8E0"], ["He", "#F7D774"], ["C, O", "#F5A35C"], ["O, Ne, Mg", "#E07A5F"], ["S, Si", "#C4577A"], ["Fe", "#5B5F7A"]];
+let stMass = "sun", stStep = 0, stEnd = null;
+const made = new Set(["H"]);
+function drawStar() {
+  const maxStep = stMass === "sun" ? 2 : 5, cx = 180, cy = 150;
+  let g = "";
+  for (let i = 0; i < 40; i++) g += `<circle cx="${(i * 97) % 360}" cy="${(i * 53) % 300}" r="1" fill="#fff" opacity=".35"/>`;
+  if (stEnd === "sn") {
+    for (let i = 0; i < 26; i++) { const a = i / 26 * Math.PI * 2, r = 70 + (i % 4) * 22; g += `<line x1="${cx}" y1="${cy}" x2="${cx + r * Math.cos(a)}" y2="${cy + r * Math.sin(a)}" stroke="${["#F7D774", "#F5A35C", "#E07A5F", "#9CC9EE"][i % 4]}" stroke-width="3" opacity=".8"/>`; }
+    g += `<circle cx="${cx}" cy="${cy}" r="34" fill="#FFF3C4"/><text x="${cx}" y="${cy + 6}" text-anchor="middle" style="font-size:16px;font-weight:800;fill:#B23C17">💥 초신성</text>`;
+    ["Au", "Pb", "U", "C", "O", "Fe"].forEach((s, i) => { const a = i / 6 * Math.PI * 2 + .3; g += `<text x="${cx + 120 * Math.cos(a)}" y="${cy + 110 * Math.sin(a)}" text-anchor="middle" style="font-family:'Times New Roman';font-size:18px;font-weight:700;fill:#fff">${s}</text>`; });
+  } else if (stEnd === "wd") {
+    g += `<circle cx="${cx}" cy="${cy}" r="110" fill="#8FA8E0" opacity=".25"/><circle cx="${cx}" cy="${cy}" r="22" fill="#F4F7FF"/><text x="${cx}" y="${cy + 52}" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#fff">바깥층은 우주로 흩어지고 중심부만 남아요</text>`;
+  } else {
+    const n = stStep + 1, Rmax = stMass === "sun" ? 120 : 135;
+    const R = i => Rmax * (1 - i / (maxStep + 1.4));
+    for (let i = 0; i < n; i++) g += `<circle cx="${cx}" cy="${cy}" r="${R(i)}" fill="${LAYER[i][1]}" stroke="#0E1426" stroke-width="2"/>`;
+    for (let i = 0; i < n; i++) { // 각 층 띠의 가운데에 각도를 바꿔 가며 이름 표시
+      const mid = i === n - 1 ? 0 : (R(i) + R(i + 1)) / 2, a = (-150 + i * 42) * Math.PI / 180;
+      g += `<text x="${cx + mid * Math.cos(a)}" y="${cy + mid * Math.sin(a) + 4}" text-anchor="middle" style="font-family:'Times New Roman';font-size:13px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#1F3133;stroke-width:3px">${LAYER[i][0]}</text>`;
+    }
+  }
+  $("st-svg").innerHTML = g;
+  $("st-made").innerHTML = "지금까지 만들어진 원소: " + [...made].map(s => `<span class="el-chip">${s}</span>`).join("");
+}
+function stRead(msg) { $("st-read").innerHTML = msg; }
+function stResetAll() { stStep = 0; stEnd = null; made.clear(); made.add("H"); drawStar(); stRead(`${stMass === "sun" ? "태양 정도 질량" : "태양 질량의 10배 이상"}인 별이 수소를 태우기 시작해요. [다음 핵융합]을 눌러 보세요.`); }
+$("st-next").addEventListener("click", () => {
+  const maxStep = stMass === "sun" ? 2 : 5;
+  if (stEnd) { stRead("별의 일생이 끝났어요. [처음부터]를 눌러 다시 해 보세요."); return; }
+  if (stStep < maxStep) {
+    const f = FUSION[stStep]; stStep++;
+    f.make.forEach(s => made.add(s));
+    drawStar(); stRead(`🔥 ${f.txt}`);
+    if (stStep === maxStep) stRead(`🔥 ${f.txt}<br>${stMass === "sun" ? "태양 정도 질량인 별은 온도가 충분히 높아지지 않아 <b>헬륨 핵융합 반응까지만</b> 일어나요. 한 번 더 누르면 별의 최후를 볼 수 있어요." : "중심부에 철이 쌓였어요. 한 번 더 누르면 별의 최후를 볼 수 있어요."}`);
+  } else {
+    stEnd = stMass === "sun" ? "wd" : "sn";
+    if (stEnd === "sn") ["Au", "Pb", "U"].forEach(s => made.add(s));
+    drawStar();
+    stRead(stEnd === "sn" ? "💥 중심부가 급격히 수축하고 외곽 물질이 폭발하는 <b>초신성</b>이 되었어요. 이때 핵융합이 한꺼번에 일어나 <b>금, 납, 우라늄</b> 등 철보다 무거운 원소가 만들어지고, 모든 원소가 우주로 방출되어 새로운 별의 재료가 돼요." : "바깥층의 물질은 우주로 천천히 흩어지고, 탄소와 산소로 된 중심부만 남아요. 이 별에서는 철이 만들어지지 않아요.");
+  }
+});
+$("st-reset").addEventListener("click", stResetAll);
+document.querySelectorAll("#st-mass button").forEach(b => b.addEventListener("click", () => {
+  stMass = b.dataset.m; document.querySelectorAll("#st-mass button").forEach(x => x.classList.toggle("on", x === b)); stResetAll();
+}));
+stResetAll();
+</script>
+</body>
+</html>

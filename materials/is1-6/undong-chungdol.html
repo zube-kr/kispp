@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅲ-2-2 — 운동과 충돌</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/6">← KISPP 과학실 · 통합과학1 Ⅲ. 시스템과 상호작용 · 2. 역학 시스템</a>
+  <header>
+    <div class="eyebrow">Ⅲ. 시스템과 상호작용 · 2. 역학 시스템 · 02 운동과 충돌 (교과서 118~125쪽)</div>
+    <h1>충격을 줄이는 과학 — <span>운동과 충돌</span></h1>
+    <p class="sub">과자를 여러 바닥에 떨어뜨려 보며 충격이 어떻게 달라지는지 확인하고, 마찰 없는 경사면으로 관성을 관찰하세요. 운동량과 충격량을 계산하고, 힘-시간 그래프로 에어백과 안전모가 충격을 줄이는 원리를 설명해요.</p>
+    <div class="goals"><span>🎯 상호작용이 없을 때 물체가 가속되지 않음을 설명할 수 있다.</span><span>🎯 운동량과 충격량을 알고, 그 관계를 충돌 관련 안전장치와 스포츠에 적용할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 과자 낙하 -->
+  <section class="card" data-part="sim lab">
+    <div class="card-title"><span class="badge sim">활동</span>과자를 보호하는 바닥 고르기</div>
+    <div class="card-hint">같은 과자를 같은 높이(1 m)에서 여러 바닥에 떨어뜨려요. 바닥마다 과자가 멈출 때까지 걸리는 시간이 달라요. 오른쪽 그래프는 과자가 받은 힘이에요. 과자는 힘이 4 N보다 크면 부서져요.</div>
+    <div class="seg" id="ck-pick" style="margin-bottom:8px"></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ck-svg" viewBox="0 0 440 220" aria-label="과자 낙하와 힘-시간 그래프"></svg></div>
+      <div class="panel"><div class="readout" id="ck-read"></div></div>
+    </div>
+    <div class="q" data-why="같은 높이에서 떨어진 과자는 바닥에 닿기 직전 운동량이 같고, 멈출 때까지 운동량 변화량(충격량)도 같아요. 푹신하거나 접은 종이처럼 찌그러지는 바닥은 충돌 시간이 길어 과자가 받는 힘이 작아져요.">
+      <div class="q-text"><span class="q-num">1</span>네 바닥에서 과자가 받은 충격량(그래프 아래 넓이)은 <span class="choice-group" data-key="ck_imp" data-answer="같다"><button type="button" class="choice-btn" data-value="같다">모두 같다</button><button type="button" class="choice-btn" data-value="다르다">모두 다르다</button></span>. 과자가 부서지지 않은 까닭은 충돌 시간이 <span class="choice-group" data-key="ck_time" data-answer="길어"><button type="button" class="choice-btn" data-value="길어">길어</button><button type="button" class="choice-btn" data-value="짧아">짧아</button></span> 받는 힘이 작아졌기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 관성 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>물체의 운동 상태 예상해 보기 — 마찰 없는 경사면</div>
+    <div class="card-hint">마찰이 없는 경사면의 P 지점에서 쇠구슬을 놓으면 반대편 경사면에서 같은 높이까지 올라가요. 반대편 경사면의 기울기를 줄여 보세요. 0°가 되면 어떻게 될까요?</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="in-svg" viewBox="0 0 460 200" aria-label="갈릴레이 경사면"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>반대편 경사각 <output id="in-a-out"></output></label><input type="range" id="in-a" min="0" max="45" step="1" value="30"></div>
+        <button type="button" class="btn main small" id="in-go">⚪ 쇠구슬 놓기</button>
+        <div class="readout" id="in-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="경사가 완만할수록 같은 높이까지 오르려면 더 멀리 가야 해요. 반대편이 수평이면 쇠구슬은 멈추지 않고 계속 같은 속력으로 운동해요. 외부 힘(알짜힘)이 0이면 정지한 물체는 계속 정지하고, 운동하던 물체는 등속 직선 운동을 해요(관성 법칙).">
+      <div class="q-text"><span class="q-num">1</span>반대편 경사면이 수평이 되면 쇠구슬은 <span class="choice-group" data-key="in_flat" data-answer="등속"><button type="button" class="choice-btn" data-value="멈춘다">곧 멈춘다</button><button type="button" class="choice-btn" data-value="등속">같은 속력으로 계속 운동한다</button><button type="button" class="choice-btn" data-value="빨라진다">점점 빨라진다</button></span>.</div>
+      <div class="q-text"><span class="q-num">2</span>물체가 현재의 운동 상태를 유지하려는 성질을 <input class="blank w-s" data-key="in_word" data-answer="관성"> 이라고 하며, 물체의 질량이 <span class="choice-group" data-key="in_mass" data-answer="클수록"><button type="button" class="choice-btn" data-value="클수록">클수록</button><button type="button" class="choice-btn" data-value="작을수록">작을수록</button></span> 크다.</div>
+      <div class="q-text"><span class="q-num">3</span>물체에 작용하는 알짜힘이 <input class="blank w-s" data-key="in_zero" data-num="0" data-abs="0"> 이면 운동하던 물체는 등속 직선 운동을 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="달리던 자동차가 갑자기 멈추면 탑승자는 관성 때문에 앞으로 쏠려요. 안전띠 속 흔들이도 관성 때문에 앞으로 움직여 잠금쇠가 톱니바퀴를 막아 안전띠가 풀리지 않아요.">
+      <div class="q-text"><span class="q-num">4</span>자동차 안전띠는 <span class="choice-group" data-key="in_belt" data-answer="관성"><button type="button" class="choice-btn" data-value="관성">관성</button><button type="button" class="choice-btn" data-value="중력">중력</button><button type="button" class="choice-btn" data-value="마찰">마찰</button></span>의 원리를 이용하여 탑승자가 앞으로 튀어 나가는 것을 막는다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 운동량 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>운동량 비교 — 승용차와 트럭</div>
+    <div class="card-hint">운동량 p = 질량 m × 속도 v (단위 kg·m/s). 질량과 속도를 바꿔 운동량이 어떻게 달라지는지 보세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="mo-svg" viewBox="0 0 440 170" aria-label="운동량 막대"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>🚗 승용차 질량 <output id="mo-m1-out"></output></label><input type="range" id="mo-m1" min="800" max="2500" step="100" value="1000"></div>
+        <div class="ctrl"><label>🚗 승용차 속도 <output id="mo-v1-out"></output></label><input type="range" id="mo-v1" min="0" max="40" step="1" value="20"></div>
+        <div class="ctrl"><label>🚚 트럭 질량 <output id="mo-m2-out"></output></label><input type="range" id="mo-m2" min="3000" max="20000" step="500" value="10000"></div>
+        <div class="ctrl"><label>🚚 트럭 속도 <output id="mo-v2-out"></output></label><input type="range" id="mo-v2" min="0" max="40" step="1" value="20"></div>
+      </div>
+    </div>
+    <div class="q" data-why="운동량 = 1000 kg × 20 m/s = 20 000 kg·m/s예요. 같은 속도에서 질량이 큰 트럭은 운동량이 커서 멈추기 어려워요. 운동량의 방향은 속도의 방향과 같아요.">
+      <div class="q-text"><span class="q-num">1</span>질량 1000 kg인 승용차가 20 m/s로 달릴 때 운동량의 크기는 <input class="blank" data-key="mo_p" data-num="20000" data-abs="1"> kg·m/s 이다.</div>
+      <div class="q-text"><span class="q-num">2</span>같은 속도로 달릴 때 트럭이 승용차보다 멈추기 어려운 까닭은 트럭의 <span class="choice-group" data-key="mo_why" data-answer="운동량"><button type="button" class="choice-btn" data-value="운동량">운동량이 크기</button><button type="button" class="choice-btn" data-value="속도">속도가 빠르기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 충격량 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>힘이 작용한 시간에 따른 충격의 차이 — 달걀 떨어뜨리기</div>
+    <div class="card-hint">충격량 I = 힘 F × 시간 Δt = 운동량의 변화량(나중 운동량 − 처음 운동량), 단위 N·s. 같은 달걀을 같은 높이에서 떨어뜨리고 충돌 시간을 바꿔 보세요. 힘-시간 그래프 아래 넓이가 충격량이에요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="im-svg" viewBox="0 0 440 230" aria-label="힘-시간 그래프"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>충돌 시간 Δt <output id="im-t-out"></output></label><input type="range" id="im-t" min="0.002" max="0.1" step="0.002" value="0.004"></div>
+        <div class="seg" id="im-pre"><button type="button" data-t="0.004">단단한 바닥</button><button type="button" data-t="0.06">푹신한 방석</button></div>
+        <div class="readout" id="im-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="같은 높이에서 떨어진 두 달걀은 닿기 직전 운동량이 같고(A = B), 멈출 때까지 받는 충격량도 같아요(A = B). 방석은 충돌 시간을 길게 해 달걀이 받는 힘을 작게 해요.">
+      <div class="q-text"><span class="q-num">1</span>단단한 바닥(A)과 방석(B)에 떨어뜨린 달걀: 닿기 직전의 운동량 A <span class="choice-group" data-key="im_p" data-label="운동량" data-answer="="><button type="button" class="choice-btn" data-value="&gt;">&gt;</button><button type="button" class="choice-btn" data-value="=">=</button><button type="button" class="choice-btn" data-value="&lt;">&lt;</button></span> B, 받는 충격량 A <span class="choice-group" data-key="im_i" data-label="충격량" data-answer="="><button type="button" class="choice-btn" data-value="&gt;">&gt;</button><button type="button" class="choice-btn" data-value="=">=</button><button type="button" class="choice-btn" data-value="&lt;">&lt;</button></span> B, 받는 힘 A <span class="choice-group" data-key="im_f" data-label="힘" data-answer="&gt;"><button type="button" class="choice-btn" data-value="&gt;">&gt;</button><button type="button" class="choice-btn" data-value="=">=</button><button type="button" class="choice-btn" data-value="&lt;">&lt;</button></span> B</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="충격량 = 운동량 변화량 = 0.06 kg × (0 − 40 m/s)의 크기 = 2.4 N·s예요. 이 충격량을 0.01초 동안 받으면 평균 힘 = 2.4 ÷ 0.01 = 240 N이에요." data-hint="충격량 = 질량 × 속도 변화, 힘 = 충격량 ÷ 시간">
+      <div class="q-text"><span class="q-num">2</span>질량 0.06 kg인 테니스공이 40 m/s로 날아오다 라켓에 맞아 멈췄다. 공이 받은 충격량의 크기는 <input class="blank w-s" data-key="im_calc1" data-num="2.4" data-tol="0.02"> N·s이고, 충돌 시간이 0.01 s라면 평균 힘의 크기는 <input class="blank w-s" data-key="im_calc2" data-num="240" data-tol="0.02"> N 이다.</div>
+      <div class="q-text"><span class="q-num">3</span>확인하기: 물체가 받는 충격량은 물체에 작용한 힘과 힘이 작용한 시간의 곱이며, <input class="blank w-s" data-key="im_word" data-answer="운동량"> 의 변화량과 같다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구: 안전장치 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>교통수단과 스포츠에서 충격을 줄이는 방법 탐색</div>
+    <div class="card-hint">문제 인식: 교통수단과 스포츠에서 일어나는 충돌과 관련된 안전사고에서 충격을 줄이기 위한 방법은 무엇일까? 각 안전장치가 이용하는 원리를 고르세요.</div>
+    <div class="q" data-why="에어백·자전거 안전모(다공성 흡수층)·높이뛰기 매트·공기 포장재·포수 미트는 충돌 시간을 길게 해 힘을 줄여요. 안전띠는 관성 때문에 앞으로 쏠리는 몸을 붙잡아요. 제한 속도를 지키면 운동량이 작아져 충격량과 멈추는 거리가 줄어요.">
+      <table class="t" id="sf-table"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="안전장치는 충돌 때 힘이 작용하는 시간을 길게 하여 물체가 받는 힘의 크기가 작아지도록 설계해요.">
+      <div class="q-text"><span class="q-num">1</span>확인하기: 충돌과 관련된 안전사고를 예방하기 위해 안전장치는 물체에 힘이 작용하는 시간을 <span class="choice-group" data-key="sf_t" data-answer="길게"><button type="button" class="choice-btn" data-value="길게">길게</button><button type="button" class="choice-btn" data-value="짧게">짧게</button></span> 하여 받는 힘의 크기가 <span class="choice-group" data-key="sf_f" data-answer="작아지도록"><button type="button" class="choice-btn" data-value="커지도록">커지도록</button><button type="button" class="choice-btn" data-value="작아지도록">작아지도록</button></span> 설계되어 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>과학 역량 기르기: 드론으로 물품을 배송할 때 파손을 막는 안전장치를 고안하고, 충격을 줄이는 원리를 운동량·충격량으로 설명해 보자.</div>
+      <textarea class="free" data-key="sf_design" data-keywords="시간/길게,힘/작게,충격량/운동량" data-model="상자 바닥에 접이식 에어 쿠션을 달아 착지할 때 부풀게 한다. 착지 직전 운동량은 같으므로 충격량도 같지만, 에어 쿠션이 찌그러지며 충돌 시간이 길어져 물품이 받는 힘이 작아진다. 또 낙하산으로 떨어지는 속도를 줄이면 운동량 자체가 작아진다." placeholder="예: 상자 바닥에 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="운동량의 방향은 속도의 방향과 같고(ㄱ ○), 충격량의 단위는 N·s예요(ㄴ ○). 질량이 같을 때 속도가 빠를수록 운동량이 커요(ㄷ ×). 힘-시간 그래프 아래 넓이는 충격량이에요(ㄹ ○).">
+      <div class="q-text"><span class="q-num">1</span>운동량과 충격량에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 운동량의 방향은 속도의 방향과 같다.<br>ㄴ. 충격량의 단위는 N·s이다.<br>ㄷ. 질량이 같을 때 속도가 느릴수록 운동량이 크다.<br>ㄹ. 힘-시간 그래프 아랫부분의 넓이는 충격량을 나타낸다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="정지해 있던 2 kg 물체가 10 N의 힘을 2초 동안 받으면 충격량 = 20 N·s = 운동량 변화량이므로 나중 속도 = 20 ÷ 2 = 10 m/s예요.">
+      <div class="q-text"><span class="q-num">2</span>정지해 있던 질량 2 kg인 물체에 10 N의 힘이 2초 동안 작용하였다. 물체가 받은 충격량은 <input class="blank w-s" data-key="qz2a" data-label="충격량" data-num="20" data-abs="0.01"> N·s, 나중 속도는 <input class="blank w-s" data-key="qz2b" data-label="속도" data-num="10" data-abs="0.01"> m/s 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="교통수단은 위험을 감지해도 관성 때문에 바로 멈추기 어려워요. 그래서 안전장치뿐만 아니라 제한 속도를 지키고 안전거리를 충분히 확보하는 것도 중요해요.">
+      <div class="q-text"><span class="q-num">3</span>자동차가 위험을 감지하더라도 바로 멈추기 어려운 까닭은 <span class="choice-group" data-key="qz3" data-answer="관성"><button type="button" class="choice-btn" data-value="관성">관성</button><button type="button" class="choice-btn" data-value="중력">중력</button></span> 때문이므로 안전거리를 충분히 확보해야 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅲ-2-2 운동과 충돌 · 비상교육 통합과학1 교과서 118~125쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅲ-2-2 운동과 충돌";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 과자 낙하 ===== */
+const CK = [{ id: "floor", n: "🧱 단단한 바닥", t: 0.002 }, { id: "paper", n: "📄 접은 종이 구조물", t: 0.03 }, { id: "cush", n: "🛋️ 방석", t: 0.045 }, { id: "air", n: "🎈 에어 매트", t: 0.065 }];
+const CK_P = 0.01 * Math.sqrt(2 * 9.8 * 1); // 과자 10 g, 1 m → 운동량
+let ckCur = "floor"; const ckTried = new Set();
+$("ck-pick").innerHTML = CK.map(c => `<button type="button" data-id="${c.id}">${c.n}</button>`).join("");
+function drawCK() {
+  const c = CK.find(x => x.id === ckCur), F = 2 * CK_P / c.t, broke = F > 4; // 삼각형 모양 힘: 넓이 = ½ F t = p
+  let g = `<rect x="10" y="150" width="140" height="20" fill="${{ floor: "#9AA8AA", paper: "#F3F1EA", cush: "#C4577A", air: "#9BD3EE" }[ckCur]}"/>`;
+  g += `<text x="80" y="${broke ? 145 : 140}" text-anchor="middle" style="font-size:${broke ? 22 : 26}px">${broke ? "💥🍪" : "🍪"}</text><text x="80" y="195" text-anchor="middle" style="font-size:12px;font-weight:800;fill:${broke ? "#D8493B" : "#2E9E5B"}">${broke ? "부서졌어요!" : "멀쩡해요!"}</text>`;
+  const L = 190, R = 430, T = 20, B = 180, X = t => L + t / 0.07 * (R - L), Y = f => B - f / 10 * (B - T);
+  g += `<rect x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="#fff" stroke="#D3E3E1"/><line x1="${L}" y1="${Y(4)}" x2="${R}" y2="${Y(4)}" stroke="#D8493B" stroke-dasharray="5 4"/><text x="${R - 4}" y="${Y(4) - 4}" text-anchor="end" style="font-size:10px;fill:#D8493B">부서지는 힘 4 N</text>`;
+  CK.forEach(o => { if (!ckTried.has(o.id) || o.id === ckCur) return; const f = Math.min(10, 2 * CK_P / o.t); g += `<polygon points="${X(0)},${B} ${X(o.t / 2)},${Y(f)} ${X(o.t)},${B}" fill="#9AB" opacity=".25"/>`; });
+  g += `<polygon points="${X(0)},${B} ${X(c.t / 2)},${Y(Math.min(10, F))} ${X(c.t)},${B}" fill="#E0662C" opacity=".6"/>`;
+  g += `<text x="${(L + R) / 2}" y="${B + 16}" text-anchor="middle" style="font-size:10px;fill:#5E7375">시간 (0 ~ 0.07 s)</text><text x="${L}" y="12" style="font-size:10px;fill:#5E7375">힘(N) 0~10</text>`;
+  $("ck-svg").innerHTML = g;
+  $("ck-read").innerHTML = `<b>${c.n}</b><br>충돌 시간: <b>${c.t} s</b> · 최대 힘: <b>${F > 10 ? "10 N 이상" : F.toFixed(1) + " N"}</b><br>충격량(넓이) = 운동량 변화량 = <b>${CK_P.toFixed(3)} N·s</b> (항상 같아요)<br><span style="font-size:12px;color:var(--ink-soft)">시험한 바닥: ${ckTried.size} / 4</span>`;
+}
+$("ck-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; ckCur = b.dataset.id; ckTried.add(ckCur); document.querySelectorAll("#ck-pick button").forEach(x => x.classList.toggle("on", x === b)); drawCK(); });
+ckTried.add("floor"); document.querySelector('#ck-pick [data-id="floor"]').classList.add("on"); drawCK();
+WS.custom("ck_tried", { el: $("ck-read"), value: () => [...ckTried].join(",") });
+
+/* ===== 2. 관성 경사면 ===== */
+const inA = $("in-a"); let inRaf = 0;
+const H0 = 80, LA = 40 * Math.PI / 180; // 왼쪽 경사면 40°, 높이 80px
+function inGeom() {
+  const a = Number(inA.value) * Math.PI / 180, x0 = 40, yb = 170, xl = x0 + H0 / Math.tan(LA), flat = 60;
+  return { a, x0, yb, xl, xr: xl + flat };
+}
+function drawIN(s) {
+  const G = inGeom(), a = G.a;
+  const rise = Math.min(H0 + 20, (460 - G.xr) * Math.tan(a)), ex = a > 0 ? G.xr + rise / Math.tan(a) : 460; // 반대편 경사면 끝
+  let g = `<polyline points="${G.x0},${G.yb - H0} ${G.xl},${G.yb} ${G.xr},${G.yb} ${ex},${G.yb - (a > 0 ? rise : 0)}" fill="none" stroke="#5E6B6E" stroke-width="4"/>`;
+  g += `<line x1="0" y1="${G.yb - H0}" x2="460" y2="${G.yb - H0}" stroke="#2F6FED" stroke-dasharray="5 4"/><text x="${G.x0 - 4}" y="${G.yb - H0 - 6}" style="font-size:11px;font-weight:800;fill:#2F6FED">P (처음 높이)</text>`;
+  let bx = G.x0, by = G.yb - H0;
+  if (s != null) {
+    const L1 = H0 / Math.sin(LA);
+    if (s < L1) { bx = G.x0 + s * Math.cos(LA); by = G.yb - H0 + s * Math.sin(LA); }
+    else if (s < L1 + 60) { bx = G.xl + (s - L1); by = G.yb; }
+    else { const d = s - L1 - 60; if (a > 0) { bx = G.xr + d * Math.cos(a); by = G.yb - d * Math.sin(a); } else { bx = G.xr + d; by = G.yb; } }
+  }
+  g += `<circle cx="${bx}" cy="${by - 8}" r="8" fill="#8A8F98" stroke="#1F3133"/>`;
+  $("in-svg").innerHTML = g;
+  return { bx, by };
+}
+inA.addEventListener("input", () => { $("in-a-out").textContent = inA.value + "°"; cancelAnimationFrame(inRaf); drawIN(null); });
+$("in-go").addEventListener("click", () => {
+  cancelAnimationFrame(inRaf);
+  const G = inGeom(), a = G.a, L1 = H0 / Math.sin(LA), up = a > 0 ? H0 / Math.sin(a) : Infinity;
+  const t0 = performance.now();
+  const step = t => {
+    const u = (t - t0) / 1000;
+    // 간단한 모형: 내려가는 동안 가속, 수평 구간 등속, 올라가며 감속(대칭)
+    let s, vmax = Math.sqrt(2 * 300 * H0), a1 = 300 * Math.sin(LA), tdown = vmax / a1;
+    if (u < tdown) s = 0.5 * a1 * u * u;
+    else if (u < tdown + 60 / vmax) s = L1 + vmax * (u - tdown);
+    else { const tu = u - tdown - 60 / vmax; if (a > 0) { const a2 = 300 * Math.sin(a), tup = vmax / a2; const tt = Math.min(tu, tup); s = L1 + 60 + vmax * tt - 0.5 * a2 * tt * tt; } else s = L1 + 60 + vmax * tu; }
+    const p = drawIN(s);
+    const fin = a > 0 ? (u > tdown + 60 / vmax + vmax / (300 * Math.sin(a))) : p.bx > 470;
+    if (!fin) inRaf = requestAnimationFrame(step);
+    else $("in-read").innerHTML = a > 0 ? `반대편 경사각 ${inA.value}°: 쇠구슬이 <b>처음과 같은 높이</b>까지 올라갔어요. 경사가 완만할수록 더 멀리 가요.` : "경사각 0°: 쇠구슬이 <b>멈추지 않고 같은 속력으로 계속</b> 굴러가 화면 밖으로 사라졌어요! 외부 힘이 없으면 운동 상태가 유지돼요.";
+  };
+  inRaf = requestAnimationFrame(step);
+});
+$("in-a-out").textContent = "30°"; drawIN(null); $("in-read").textContent = "경사각을 정하고 쇠구슬을 놓아 보세요.";
+
+/* ===== 3. 운동량 ===== */
+const MO = ["mo-m1", "mo-v1", "mo-m2", "mo-v2"];
+function drawMO() {
+  const [m1, v1, m2, v2] = MO.map(id => Number($(id).value));
+  $("mo-m1-out").textContent = m1 + " kg"; $("mo-v1-out").textContent = v1 + " m/s"; $("mo-m2-out").textContent = m2 + " kg"; $("mo-v2-out").textContent = v2 + " m/s";
+  const p1 = m1 * v1, p2 = m2 * v2, mx = Math.max(p1, p2, 1), W = 300;
+  let g = `<text x="10" y="45" style="font-size:24px">🚗</text><rect x="60" y="25" width="${p1 / mx * W}" height="26" rx="4" fill="#2F6FED"/><text x="${66 + p1 / mx * W}" y="44" style="font-size:12px;font-weight:800">${p1.toLocaleString("ko-KR")}</text>`;
+  g += `<text x="10" y="115" style="font-size:24px">🚚</text><rect x="60" y="95" width="${p2 / mx * W}" height="26" rx="4" fill="#E0662C"/><text x="${66 + p2 / mx * W}" y="114" style="font-size:12px;font-weight:800">${p2.toLocaleString("ko-KR")}</text>`;
+  g += `<text x="60" y="160" style="font-size:11px;fill:#5E7375">운동량 p = m × v (kg·m/s) · 트럭이 승용차의 ${(p2 / Math.max(p1, 1)).toFixed(1)}배</text>`;
+  $("mo-svg").innerHTML = g;
+}
+MO.forEach(id => $(id).addEventListener("input", drawMO)); drawMO();
+
+/* ===== 4. 충격량 그래프 ===== */
+const imT = $("im-t"), EGG_P = 0.06 * Math.sqrt(2 * 9.8 * 1); // 달걀 60 g, 1 m
+function drawIM() {
+  const dt = Number(imT.value), F = 2 * EGG_P / dt, broke = F > 25;
+  $("im-t-out").textContent = dt.toFixed(3) + " s";
+  const L = 40, R = 420, T = 20, B = 200, X = t => L + t / 0.1 * (R - L), Y = f => B - Math.min(f, 140) / 140 * (B - T);
+  let g = `<rect x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="#fff" stroke="#D3E3E1"/>`;
+  [0, 35, 70, 105, 140].forEach(f => g += `<text x="${L - 4}" y="${Y(f) + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${f}</text>`);
+  g += `<line x1="${L}" y1="${Y(25)}" x2="${R}" y2="${Y(25)}" stroke="#D8493B" stroke-dasharray="5 4"/><text x="${R - 4}" y="${Y(25) - 4}" text-anchor="end" style="font-size:10px;fill:#D8493B">달걀이 깨지는 힘 약 25 N</text>`;
+  g += `<polygon points="${X(0)},${B} ${X(dt / 2)},${Y(F)} ${X(dt)},${B}" fill="${broke ? "#D8493B" : "#2E9E5B"}" opacity=".55"/>${F > 140 ? `<text x="${X(dt / 2) + 6}" y="${T + 12}" style="font-size:10px;fill:#D8493B">↑ ${F.toFixed(0)} N</text>` : ""}`;
+  g += `<text x="${(L + R) / 2}" y="${B + 16}" text-anchor="middle" style="font-size:10px;fill:#5E7375">시간 (0 ~ 0.1 s)</text><text x="6" y="12" style="font-size:10px;fill:#5E7375">힘(N)</text>`;
+  g += `<text x="${R - 10}" y="${T + 40}" text-anchor="end" style="font-size:28px">${broke ? "🍳" : "🥚"}</text>`;
+  $("im-svg").innerHTML = g;
+  $("im-read").innerHTML = `충격량 = 넓이 = <b>${EGG_P.toFixed(3)} N·s</b> (변하지 않아요)<br>최대 힘 ≈ <b>${F.toFixed(1)} N</b> → ${broke ? "<b style='color:var(--err)'>깨져요</b>" : "<b style='color:var(--ok)'>깨지지 않아요</b>"}<br><span style="font-size:12px;color:var(--ink-soft)">시간이 2배가 되면 힘은 1/2이 돼요.</span>`;
+}
+imT.addEventListener("input", drawIM);
+document.querySelectorAll("#im-pre button").forEach(b => b.addEventListener("click", () => { imT.value = b.dataset.t; drawIM(); }));
+drawIM();
+
+/* ===== 5. 안전장치 ===== */
+const SF = [["sf1", "🚗 자동차 에어백", "시간"], ["sf2", "🪢 자동차 안전띠", "관성"], ["sf3", "🚲 자전거 안전모의 흡수층", "시간"], ["sf4", "🤸 높이뛰기 매트", "시간"], ["sf5", "📦 공기가 충전된 포장재", "시간"], ["sf6", "🚸 어린이 보호 구역 제한 속도", "운동량"]];
+const SFV = [["시간", "충돌 시간을 길게 해 힘을 줄임"], ["관성", "관성으로 쏠리는 몸을 붙잡음"], ["운동량", "속도를 줄여 운동량을 작게 함"]];
+$("sf-table").innerHTML = `<tr><th>안전장치</th><th>원리</th></tr>` + SF.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.slice(2)}" data-answer="${a}">${SFV.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+</script>
+</body>
+</html>

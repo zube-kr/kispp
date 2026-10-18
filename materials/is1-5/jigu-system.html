@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅲ-1-1 — 지구시스템의 구성과 상호작용</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .sph{ display:inline-block; font-size:11.5px; font-weight:800; border-radius:999px; padding:2px 8px; color:#fff; }
+  .layer-btns{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/5">← KISPP 과학실 · 통합과학1 Ⅲ. 시스템과 상호작용 · 1. 지구시스템</a>
+  <header>
+    <div class="eyebrow">Ⅲ. 시스템과 상호작용 · 1. 지구시스템 · 01 지구시스템의 구성과 상호작용 (교과서 96~101쪽)</div>
+    <h1>다섯 권역이 주고받는 것 — <span>지구시스템의 구성과 상호작용</span></h1>
+    <p class="sub">태양계 천체를 분류해 보고, 지권·기권·수권의 성층 구조를 눌러 살펴보세요. 여러 자연 현상이 어느 권역에서 어느 권역으로 영향을 주는지 화살표로 나타내고, 물과 탄소가 권역 사이를 순환하며 에너지가 흐르는 과정을 정리해요.</p>
+    <div class="goals"><span>🎯 지구시스템은 태양계라는 시스템의 구성 요소임을 설명할 수 있다.</span><span>🎯 권역 간의 물질 순환과 에너지 흐름의 결과로 나타나는 현상을 논증할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 태양계 천체 분류 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동</span>태양계 천체 분류하기</div>
+    <div class="card-hint">시스템은 여러 구성 요소가 모여 상호작용 하면서 균형을 유지하는 체계예요. 태양계는 태양을 중심으로 행성, 위성, 소행성, 혜성 등으로 이루어진 시스템이에요. 각 천체를 분류해 보세요.</div>
+    <div class="q" data-why="태양은 스스로 빛을 내는 항성, 지구·목성은 태양 주위를 도는 행성, 달·타이탄은 행성 주위를 도는 위성, 베스타는 화성과 목성 사이의 소행성, 핼리는 긴 꼬리가 생기는 혜성이에요.">
+      <table class="t">
+        <tr><th>천체</th><th>분류</th></tr>
+        <tr><td>☀️ 태양</td><td><span class="choice-group" data-key="ss_sun" data-label="태양" data-answer="항성"><button type="button" class="choice-btn" data-value="항성">항성</button><button type="button" class="choice-btn" data-value="행성">행성</button><button type="button" class="choice-btn" data-value="위성">위성</button><button type="button" class="choice-btn" data-value="소행성">소행성</button><button type="button" class="choice-btn" data-value="혜성">혜성</button></span></td></tr>
+        <tr><td>🪐 목성</td><td><span class="choice-group" data-key="ss_jup" data-label="목성" data-answer="행성"><button type="button" class="choice-btn" data-value="항성">항성</button><button type="button" class="choice-btn" data-value="행성">행성</button><button type="button" class="choice-btn" data-value="위성">위성</button><button type="button" class="choice-btn" data-value="소행성">소행성</button><button type="button" class="choice-btn" data-value="혜성">혜성</button></span></td></tr>
+        <tr><td>🌕 달</td><td><span class="choice-group" data-key="ss_moon" data-label="달" data-answer="위성"><button type="button" class="choice-btn" data-value="항성">항성</button><button type="button" class="choice-btn" data-value="행성">행성</button><button type="button" class="choice-btn" data-value="위성">위성</button><button type="button" class="choice-btn" data-value="소행성">소행성</button><button type="button" class="choice-btn" data-value="혜성">혜성</button></span></td></tr>
+        <tr><td>🪨 베스타</td><td><span class="choice-group" data-key="ss_vesta" data-label="베스타" data-answer="소행성"><button type="button" class="choice-btn" data-value="항성">항성</button><button type="button" class="choice-btn" data-value="행성">행성</button><button type="button" class="choice-btn" data-value="위성">위성</button><button type="button" class="choice-btn" data-value="소행성">소행성</button><button type="button" class="choice-btn" data-value="혜성">혜성</button></span></td></tr>
+        <tr><td>☄️ 핼리</td><td><span class="choice-group" data-key="ss_halley" data-label="핼리" data-answer="혜성"><button type="button" class="choice-btn" data-value="항성">항성</button><button type="button" class="choice-btn" data-value="행성">행성</button><button type="button" class="choice-btn" data-value="위성">위성</button><button type="button" class="choice-btn" data-value="소행성">소행성</button><button type="button" class="choice-btn" data-value="혜성">혜성</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="지구는 태양계의 구성 요소이면서, 지권·기권·수권·생물권·외권이 상호작용 하는 하나의 시스템이에요.">
+      <div class="q-text"><span class="q-num">1</span>확인하기: 지구시스템의 구성 요소는 지권, 기권, <input class="blank w-s" data-key="ss_hyd" data-answer="수권"> , 생물권, 외권이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 성층 구조 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>지구시스템의 성층 구조 탐색</div>
+    <div class="card-hint">지권, 기권, 수권은 층 구조(성층 구조)를 이루어요. 권역을 고른 뒤 그림의 층을 눌러 특징을 확인하세요. 그래프는 높이(깊이)에 따른 온도 변화예요.</div>
+    <div class="seg" id="ly-pick" style="margin-bottom:8px"><button type="button" class="on" data-s="atm">🌤️ 기권</button><button type="button" data-s="hyd">🌊 수권</button><button type="button" data-s="geo">🌍 지권</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ly-svg" viewBox="0 0 420 300" aria-label="성층 구조"></svg></div>
+      <div class="panel"><div class="readout" id="ly-read">층을 눌러 보세요.</div></div>
+    </div>
+    <div class="q" data-why="기권은 높이에 따른 기온 변화로 대류권·성층권·중간권·열권의 4개 층, 수권의 해수는 수온 변화로 혼합층·수온 약층·심해층의 3개 층, 지권은 지각·맨틀·외핵·내핵의 4개 층으로 나뉘어요. 오존층은 성층권에 있고, 외핵은 액체예요.">
+      <div class="q-text"><span class="q-num">1</span>자외선을 흡수하는 오존층이 있는 기권의 층은 <span class="choice-group" data-key="ly_ozone" data-answer="성층권"><button type="button" class="choice-btn" data-value="대류권">대류권</button><button type="button" class="choice-btn" data-value="성층권">성층권</button><button type="button" class="choice-btn" data-value="중간권">중간권</button><button type="button" class="choice-btn" data-value="열권">열권</button></span> 이다.</div>
+      <div class="q-text"><span class="q-num">2</span>지권에서 액체 상태인 층은 <span class="choice-group" data-key="ly_liq" data-answer="외핵"><button type="button" class="choice-btn" data-value="지각">지각</button><button type="button" class="choice-btn" data-value="맨틀">맨틀</button><button type="button" class="choice-btn" data-value="외핵">외핵</button><button type="button" class="choice-btn" data-value="내핵">내핵</button></span>, 가장 큰 부피를 차지하는 층은 <span class="choice-group" data-key="ly_big" data-answer="맨틀"><button type="button" class="choice-btn" data-value="지각">지각</button><button type="button" class="choice-btn" data-value="맨틀">맨틀</button><button type="button" class="choice-btn" data-value="외핵">외핵</button><button type="button" class="choice-btn" data-value="내핵">내핵</button></span> 이다.</div>
+      <div class="q-text"><span class="q-num">3</span>해수에서 깊이에 따라 수온이 급격히 낮아지는 층은 <span class="choice-group" data-key="ly_therm" data-answer="수온 약층"><button type="button" class="choice-btn" data-value="혼합층">혼합층</button><button type="button" class="choice-btn" data-value="수온 약층">수온 약층</button><button type="button" class="choice-btn" data-value="심해층">심해층</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 상호작용 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>지구시스템의 상호작용 알아보기</div>
+    <div class="card-hint">각 자연 현상에서 영향을 주는 권역(출발)과 영향을 받는 권역(도착)을 고르세요. 고른 대로 오른쪽 그림에 화살표가 그려져요.</div>
+    <div class="sim-wrap">
+      <div id="ia-list"></div>
+      <div class="stage"><svg id="ia-svg" viewBox="0 0 320 300" aria-label="권역 간 상호작용"></svg></div>
+    </div>
+    <div class="q" id="ia-q" data-why="(가) 화산재 분출: 지권 → 기권, (나) 태풍 발생: 수권 → 기권, (다) 흐르는 물의 지형 변화: 수권 → 지권, (라) 광합성: 기권 → 생물권, (마) 바람이 일으키는 해류·파도: 기권 → 수권이에요."><span class="fb"></span></div>
+  </section>
+
+  <!-- 4. 에너지원과 순환 -->
+  <section class="card" data-part="sim concept">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>에너지 흐름과 물질 순환 — 물의 순환과 탄소 순환</div>
+    <div class="card-hint">지구시스템의 에너지원에는 <b>태양 에너지</b>(가장 많음, 모든 권역), <b>지구 내부 에너지</b>(맨틀 대류, 지진·화산, 지구 자기장), <b>조력 에너지</b>(밀물·썰물)가 있어요. 순환 과정을 눌러 물질과 에너지가 어떻게 움직이는지 확인하세요.</div>
+    <div class="seg" id="cy-pick" style="margin-bottom:8px"><button type="button" class="on" data-c="water">💧 물의 순환</button><button type="button" data-c="carbon">⚫ 탄소 순환</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="cy-svg" viewBox="0 0 440 280" aria-label="물질 순환"></svg></div>
+      <div class="panel"><div class="readout" id="cy-read">과정(번호)을 눌러 보세요.</div></div>
+    </div>
+    <div class="q" data-why="태풍과 같은 날씨 변화는 태양 에너지, 지각변동(지진·화산)은 지구 내부 에너지, 밀물과 썰물은 조력 에너지가 주된 에너지원이에요.">
+      <div class="q-text"><span class="q-num">1</span>자연 현상의 주된 에너지원을 고르시오.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><td>(가) 태풍 발생</td><td><span class="choice-group" data-key="en_typ" data-label="태풍" data-answer="태양"><button type="button" class="choice-btn" data-value="태양">태양 에너지</button><button type="button" class="choice-btn" data-value="내부">지구 내부 에너지</button><button type="button" class="choice-btn" data-value="조력">조력 에너지</button></span></td></tr>
+        <tr><td>(나) 지각변동</td><td><span class="choice-group" data-key="en_tec" data-label="지각변동" data-answer="내부"><button type="button" class="choice-btn" data-value="태양">태양 에너지</button><button type="button" class="choice-btn" data-value="내부">지구 내부 에너지</button><button type="button" class="choice-btn" data-value="조력">조력 에너지</button></span></td></tr>
+        <tr><td>(다) 밀물과 썰물</td><td><span class="choice-group" data-key="en_tide" data-label="밀물·썰물" data-answer="조력"><button type="button" class="choice-btn" data-value="태양">태양 에너지</button><button type="button" class="choice-btn" data-value="내부">지구 내부 에너지</button><button type="button" class="choice-btn" data-value="조력">조력 에너지</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="탄소는 기권에서 이산화 탄소·메테인, 수권에서 탄산 이온, 지권에서 석회암·화석 연료, 생물권에서 유기물로 존재해요.">
+      <div class="q-text"><span class="q-num">2</span>탄소가 존재하는 형태를 연결해 보자.</div>
+      <table class="t" style="margin-top:6px">
+        <tr><td>기권</td><td><span class="choice-group" data-key="cf_atm" data-label="기권" data-answer="이산화 탄소"><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소·메테인</button><button type="button" class="choice-btn" data-value="탄산 이온">탄산 이온</button><button type="button" class="choice-btn" data-value="석회암">석회암·화석 연료</button><button type="button" class="choice-btn" data-value="유기물">유기물</button></span></td></tr>
+        <tr><td>수권</td><td><span class="choice-group" data-key="cf_hyd" data-label="수권" data-answer="탄산 이온"><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소·메테인</button><button type="button" class="choice-btn" data-value="탄산 이온">탄산 이온</button><button type="button" class="choice-btn" data-value="석회암">석회암·화석 연료</button><button type="button" class="choice-btn" data-value="유기물">유기물</button></span></td></tr>
+        <tr><td>지권</td><td><span class="choice-group" data-key="cf_geo" data-label="지권" data-answer="석회암"><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소·메테인</button><button type="button" class="choice-btn" data-value="탄산 이온">탄산 이온</button><button type="button" class="choice-btn" data-value="석회암">석회암·화석 연료</button><button type="button" class="choice-btn" data-value="유기물">유기물</button></span></td></tr>
+        <tr><td>생물권</td><td><span class="choice-group" data-key="cf_bio" data-label="생물권" data-answer="유기물"><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소·메테인</button><button type="button" class="choice-btn" data-value="탄산 이온">탄산 이온</button><button type="button" class="choice-btn" data-value="석회암">석회암·화석 연료</button><button type="button" class="choice-btn" data-value="유기물">유기물</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="수증기가 응결하여 구름을 만들 때 에너지(숨은열)를 방출하고, 지표로 이동한 물은 생물의 생명 유지에 이용되며 풍화와 침식으로 지형을 변화시켜요.">
+      <div class="q-text"><span class="q-num">3</span>확인하기: 수증기는 응결하여 <input class="blank w-s" data-key="wc_cloud" data-label="❶" data-answer="구름"> 을 만드는 과정에서 에너지를 <span class="choice-group" data-key="wc_rel" data-answer="방출"><button type="button" class="choice-btn" data-value="흡수">흡수</button><button type="button" class="choice-btn" data-value="방출">방출</button></span>하고, 지표로 이동한 물은 생물의 <input class="blank w-s" data-key="wc_life" data-label="❷" data-answer="생명"> 유지에 이용된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구: 논증 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>지구시스템 권역 간의 물질 순환과 에너지 흐름 논증</div>
+    <div class="card-hint">문제 인식: 지표의 변화나 날씨의 변화가 일어날 때 물질 순환과 에너지 흐름은 어떠할까? (가) 화산 폭발과 (나) 바다 위 소나기에서 물질과 에너지의 이동을 정리해 보세요.</div>
+    <div class="q" data-why="(가) 화산 폭발: 지구 내부 에너지가 방출되고, 지권의 탄소(이산화 탄소)와 화산재가 기권으로 이동해요. (나) 바다 위 소나기: 해수가 태양 에너지를 흡수해 증발하고, 수증기가 응결해 구름이 될 때 에너지를 방출하며, 비가 되어 수권으로 돌아와요.">
+      <table class="t">
+        <tr><th></th><th>(가) 화산 폭발</th><th>(나) 바다 위 소나기</th></tr>
+        <tr><th>에너지원</th><td><span class="choice-group" data-key="ar_v_en" data-label="(가) 에너지" data-answer="내부"><button type="button" class="choice-btn" data-value="태양">태양 에너지</button><button type="button" class="choice-btn" data-value="내부">지구 내부 에너지</button></span></td><td><span class="choice-group" data-key="ar_r_en" data-label="(나) 에너지" data-answer="태양"><button type="button" class="choice-btn" data-value="태양">태양 에너지</button><button type="button" class="choice-btn" data-value="내부">지구 내부 에너지</button></span></td></tr>
+        <tr><th>물질 이동</th><td><span class="choice-group" data-key="ar_v_mat" data-label="(가) 물질" data-answer="지권→기권"><button type="button" class="choice-btn" data-value="지권→기권">지권 → 기권 (탄소, 화산재)</button><button type="button" class="choice-btn" data-value="기권→지권">기권 → 지권</button></span></td><td><span class="choice-group" data-key="ar_r_mat" data-label="(나) 물질" data-answer="수권→기권→수권"><button type="button" class="choice-btn" data-value="수권→기권→수권">수권 → 기권 → 수권 (물)</button><button type="button" class="choice-btn" data-value="지권→수권">지권 → 수권</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>결론 도출: (가)와 (나) 중 하나를 골라, 이 현상이 지구시스템의 물질 순환과 에너지 흐름의 결과임을 근거를 들어 논증해 보자.</div>
+      <textarea class="free" data-key="ar_text" data-keywords="에너지,이동/순환,권/권역" data-model="(나) 바다 위 소나기는 해수가 태양 에너지를 흡수해 증발하면서 수권의 물이 기권으로 이동하고, 수증기가 응결해 구름이 되며 에너지를 방출한 뒤 비가 되어 다시 수권으로 돌아온 결과이다. 따라서 소나기는 물의 순환(물질 순환)과 태양 에너지의 흐름이 함께 일어난 결과이다." placeholder="예: (나) 소나기는 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="빙하는 수권(ㄱ ○), 외권은 기권의 바깥 영역(ㄴ ○), 지권은 지각뿐 아니라 지구 내부까지 포함(ㄷ ×), 생물권은 광합성·호흡으로 대기 성분에 영향을 줌(ㄹ ×), 기권은 대기가 분포하는 영역(ㅁ ○)이에요.">
+      <div class="q-text"><span class="q-num">1</span>지구시스템의 구성 요소에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 빙하는 수권에 해당한다.<br>ㄴ. 외권은 기권의 바깥 영역이다.<br>ㄷ. 지권은 지구의 겉 부분인 지각만을 뜻한다.<br>ㄹ. 생물권은 대기의 성분에 영향을 미치지 않는다.<br>ㅁ. 기권은 지구를 둘러싼 대기가 분포하는 영역이다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㅁ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button> <button type="button" class="multi-btn" data-value="ㅁ">ㅁ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="지권은 지각·맨틀·외핵·내핵으로 구분하고(ㄱ ○), 가장 큰 부피를 차지하는 층은 맨틀이며(ㄴ ×), 지각은 고체예요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">2</span>지권의 성층 구조에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 지권은 지각, 맨틀, 외핵, 내핵으로 구분한다.<br>ㄴ. 외핵은 지권에서 가장 큰 부피를 차지한다.<br>ㄷ. 지각은 고체 상태이다.</div>
+      <span class="multi-group" data-key="qz2" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="강물이 흐르며 지형이 달라지는 것은 수권 → 지권, 대기의 이산화 탄소가 바다에 녹는 것은 기권 → 수권의 상호작용이에요.">
+      <div class="q-text"><span class="q-num">3</span>대기의 이산화 탄소가 바다로 녹아 들어가는 현상은 <span class="choice-group" data-key="qz3" data-answer="기권→수권"><button type="button" class="choice-btn" data-value="기권→수권">기권 → 수권</button><button type="button" class="choice-btn" data-value="수권→기권">수권 → 기권</button><button type="button" class="choice-btn" data-value="지권→수권">지권 → 수권</button></span> 상호작용이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>창의적 문제해결력: 탄소 순환에서 인위적으로 탄소의 권역 간 이동이 증가하는 과정을 찾고, 이 과정이 계속될 때 지구시스템의 변화를 설명하시오.</div>
+      <textarea class="free" data-key="qz4" data-keywords="화석 연료/연소,이산화 탄소,기온/온난화/해양 산성화" data-model="화석 연료의 연소로 지권의 탄소가 이산화 탄소가 되어 기권으로 이동하는 양이 늘어난다. 이 과정이 계속되면 대기 중 이산화 탄소 농도가 높아져 지구 온난화가 심해지고, 바다에 녹는 이산화 탄소도 늘어 해양 산성화가 일어나 생물권에도 영향을 준다." placeholder="예: 화석 연료를 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅲ-1-1 지구시스템의 구성과 상호작용 · 비상교육 통합과학1 교과서 96~101쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅲ-1-1 지구시스템의 구성과 상호작용";
+const $ = id => document.getElementById(id);
+
+/* ===== 2. 성층 구조 ===== */
+const LY = {
+  atm: { unit: "높이(km)", layers: [
+    { n: "대류권", h: [0, 11], c: "#BFE3F2", d: "높이 올라갈수록 기온이 낮아져 대류가 일어나요. 구름, 비, 눈 등 기상 현상이 나타나요." },
+    { n: "성층권", h: [11, 50], c: "#D9CCE8", d: "높이 올라갈수록 기온이 높아져요. <b>오존층</b>이 자외선을 흡수하기 때문이에요. 대기가 안정해요." },
+    { n: "중간권", h: [50, 80], c: "#F5C99A", d: "높이 올라갈수록 기온이 낮아지고, 대류가 일어나지만 수증기가 거의 없어 기상 현상은 없어요. 유성이 나타나요." },
+    { n: "열권", h: [80, 120], c: "#F5A98A", d: "높이 올라갈수록 기온이 높아져요. 공기가 매우 희박하고 오로라가 나타나요." }],
+    curve: [[0, 15], [11, -56], [20, -56], [50, -2], [80, -90], [100, -70], [120, 50]], tRange: [-100, 60], tLabel: "기온(°C)" },
+  hyd: { unit: "깊이(m)", layers: [
+    { n: "혼합층", h: [0, 150], c: "#9BD3EE", d: "태양 에너지로 가열되고 바람으로 섞여 깊이에 따라 수온이 거의 일정해요." },
+    { n: "수온 약층", h: [150, 1000], c: "#6AA9C9", d: "깊이가 깊어질수록 수온이 <b>급격히 낮아져요</b>. 매우 안정해 혼합층과 심해층의 물질·에너지 교환을 막아요." },
+    { n: "심해층", h: [1000, 3000], c: "#2F5F8A", d: "태양 에너지가 거의 닿지 않아 수온이 낮고 일정해요." }],
+    curve: [[0, 25], [150, 24], [1000, 5], [3000, 2]], tRange: [0, 30], tLabel: "수온(°C)", down: true },
+  geo: { unit: "깊이(km)", layers: [
+    { n: "지각", h: [0, 35], c: "#C9B79A", d: "지구의 가장 바깥층으로 고체예요. 대륙 지각은 두껍고 해양 지각은 얇아요." },
+    { n: "맨틀", h: [35, 2900], c: "#E07A5F", d: "지권에서 <b>가장 큰 부피</b>를 차지하는 고체 층이에요. 맨틀 대류가 판을 움직여요." },
+    { n: "외핵", h: [2900, 5100], c: "#F2A93B", d: "<b>액체 상태</b>의 철·니켈로 이루어져 있고, 외핵의 운동이 지구 자기장을 만들어요." },
+    { n: "내핵", h: [5100, 6400], c: "#F7D774", d: "고체 상태의 철·니켈로 이루어진 지구의 중심이에요." }], down: true }
+};
+let lyS = "atm", lySel = null;
+function drawLY() {
+  const S = LY[lyS], T = 20, B = 280, maxH = S.layers[S.layers.length - 1].h[1];
+  const Y = h => S.down ? T + Math.sqrt(h / maxH) * (B - T) : B - h / maxH * (B - T);
+  let g = "";
+  if (lyS === "geo") {
+    const cx = 130, cy = 150, R = 125;
+    S.layers.forEach((l, i) => { const r = R * (1 - l.h[0] / 6400); g += `<circle class="lyb" data-i="${i}" cx="${cx}" cy="${cy}" r="${r}" fill="${l.c}" stroke="${lySel === i ? "#1F3133" : "#fff"}" stroke-width="${lySel === i ? 3 : 1.5}" style="cursor:pointer"/>`; });
+    S.layers.forEach((l, i) => { const r = R * (1 - (l.h[0] + l.h[1]) / 2 / 6400); g += `<text x="${cx}" y="${cy - r + 4}" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#1F3133;pointer-events:none">${l.n}</text>`; });
+    g += `<text x="280" y="60" style="font-size:12px;fill:#5E7375">지각 0~35 km</text><text x="280" y="80" style="font-size:12px;fill:#5E7375">맨틀 ~2900 km</text><text x="280" y="100" style="font-size:12px;fill:#5E7375">외핵 ~5100 km</text><text x="280" y="120" style="font-size:12px;fill:#5E7375">내핵 ~6400 km</text><text x="280" y="150" style="font-size:11px;fill:#9AB">(층 두께는 실제 비율과 달라요)</text>`;
+  } else {
+    S.layers.forEach((l, i) => {
+      const y1 = Y(l.h[0]), y2 = Y(l.h[1]);
+      g += `<rect class="lyb" data-i="${i}" x="40" y="${Math.min(y1, y2)}" width="180" height="${Math.abs(y2 - y1)}" fill="${l.c}" stroke="${lySel === i ? "#1F3133" : "#fff"}" stroke-width="${lySel === i ? 3 : 1}" style="cursor:pointer"/>`;
+      g += `<text x="130" y="${(y1 + y2) / 2 + 4}" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#1F3133;pointer-events:none">${l.n}</text>`;
+      g += `<text x="34" y="${y2 + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${l.h[1]}</text>`;
+    });
+    g += `<text x="34" y="${Y(0) + (S.down ? -6 : 14)}" text-anchor="end" style="font-size:10px;fill:#5E7375">0</text><text x="8" y="12" style="font-size:10px;fill:#5E7375">${S.unit}</text>`;
+    const X = t => 240 + (t - S.tRange[0]) / (S.tRange[1] - S.tRange[0]) * 170;
+    g += `<rect x="240" y="${T}" width="170" height="${B - T}" fill="#fff" stroke="#D3E3E1"/>`;
+    g += `<polyline fill="none" stroke="#D8493B" stroke-width="2.5" points="${S.curve.map(([h, t]) => X(t) + "," + Y(h)).join(" ")}"/>`;
+    g += `<text x="325" y="${B + 14}" text-anchor="middle" style="font-size:10px;fill:#D8493B">${S.tLabel} ${S.tRange[0]} → ${S.tRange[1]}</text>`;
+  }
+  $("ly-svg").innerHTML = g;
+}
+$("ly-svg").addEventListener("click", e => { const b = e.target.closest(".lyb"); if (!b) return; lySel = Number(b.dataset.i); const l = LY[lyS].layers[lySel]; $("ly-read").innerHTML = `<b>${l.n}</b> (${l.h[0]}~${l.h[1]} ${LY[lyS].unit.match(/\((.*)\)/)[1]})<br>${l.d}`; drawLY(); });
+document.querySelectorAll("#ly-pick button").forEach(b => b.addEventListener("click", () => { lyS = b.dataset.s; lySel = null; document.querySelectorAll("#ly-pick button").forEach(x => x.classList.toggle("on", x === b)); $("ly-read").textContent = "층을 눌러 보세요."; drawLY(); }));
+drawLY();
+
+/* ===== 3. 상호작용 ===== */
+const SPH = { geo: ["지권", "#A97C50", 160, 250], atm: ["기권", "#6AA9C9", 160, 40], hyd: ["수권", "#2F6FED", 270, 150], bio: ["생물권", "#2E9E5B", 50, 150] };
+const IA = [
+  { k: "ia_a", t: "(가) 화산이 폭발하여 화산재가 대기로 분출된다.", ans: ["geo", "atm"] },
+  { k: "ia_b", t: "(나) 수온이 높은 바다에서 태풍이 발생한다.", ans: ["hyd", "atm"] },
+  { k: "ia_c", t: "(다) 지표에서 흐르는 물이 지형을 변화시킨다.", ans: ["hyd", "geo"] },
+  { k: "ia_d", t: "(라) 식물이 이산화 탄소를 흡수하여 광합성을 한다.", ans: ["atm", "bio"] },
+  { k: "ia_e", t: "(마) 바람이 해류나 파도를 발생시킨다.", ans: ["atm", "hyd"] }
+];
+const iaSel = {};
+const sphBtns = (k, w) => `<span class="seg" data-k="${k}" data-w="${w}">${Object.entries(SPH).map(([id, s]) => `<button type="button" data-s="${id}">${s[0]}</button>`).join("")}</span>`;
+$("ia-list").innerHTML = IA.map(x => `<div class="case" style="border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin-bottom:8px;font-size:13px"><b>${x.t}</b><div style="margin-top:6px">출발 ${sphBtns(x.k, 0)}</div><div style="margin-top:4px">도착 ${sphBtns(x.k, 1)}</div></div>`).join("");
+$("ia-list").addEventListener("click", e => {
+  const b = e.target.closest("button[data-s]"); if (!b) return;
+  const seg = b.closest(".seg"), k = seg.dataset.k, w = Number(seg.dataset.w);
+  iaSel[k] = iaSel[k] || [null, null]; iaSel[k][w] = b.dataset.s;
+  seg.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawIA();
+});
+function drawIA() {
+  let g = `<defs><marker id="arw" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#E0662C"/></marker></defs>`;
+  g += `<circle cx="160" cy="150" r="46" fill="#F7F3EA" stroke="#C9B79A"/><text x="160" y="146" text-anchor="middle" style="font-size:12px;fill:#8A7A5C">외권 ↓</text><text x="160" y="162" text-anchor="middle" style="font-size:11px;fill:#8A7A5C">태양 에너지</text>`;
+  IA.forEach((x, i) => {
+    const s = iaSel[x.k]; if (!s || !s[0] || !s[1] || s[0] === s[1]) return;
+    const a = SPH[s[0]], b = SPH[s[1]], off = (i - 2) * 5;
+    const dx = b[2] - a[2], dy = b[3] - a[3], L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, px = -uy * off, py = ux * off; // 원 가장자리에서 시작·끝
+    g += `<line x1="${a[2] + ux * 33 + px}" y1="${a[3] + uy * 33 + py}" x2="${b[2] - ux * 36 + px}" y2="${b[3] - uy * 36 + py}" stroke="#E0662C" stroke-width="2.5" marker-end="url(#arw)" opacity=".9"/><text x="${(a[2] + b[2]) / 2 + px * 2 + 4}" y="${(a[3] + b[3]) / 2 + py * 2 - 4}" style="font-size:11px;font-weight:800;fill:#B23C17;paint-order:stroke;stroke:#fff;stroke-width:3px">${x.t.slice(0, 3)}</text>`;
+  });
+  Object.values(SPH).forEach(s => g += `<circle cx="${s[2]}" cy="${s[3]}" r="30" fill="${s[1]}"/><text x="${s[2]}" y="${s[3] + 5}" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#fff">${s[0]}</text>`);
+  $("ia-svg").innerHTML = g;
+}
+drawIA();
+IA.forEach(x => WS.custom(x.k, {
+  el: $("ia-q"), value: () => (iaSel[x.k] || []).map(s => s ? SPH[s][0] : "_").join("→"),
+  check: () => { const s = iaSel[x.k] || []; return s[0] === x.ans[0] && s[1] === x.ans[1]; },
+  answer: `${x.t.slice(0, 3)} ${SPH[x.ans[0]][0]}→${SPH[x.ans[1]][0]}`
+}));
+$("ia-q").querySelector(".fb").before(Object.assign(document.createElement("div"), { className: "q-text", innerHTML: '<span class="q-num">✓</span>다섯 현상의 출발·도착 권역을 모두 고른 뒤 [확인하기]를 누르세요.' }));
+
+/* ===== 4. 순환 ===== */
+const CY = {
+  water: [
+    { x: 330, y: 200, n: "① 증발", d: "수권의 물이 <b>태양 에너지를 흡수</b>하여 기권의 수증기가 돼요. (수권 → 기권)" },
+    { x: 250, y: 50, n: "② 응결", d: "수증기가 응결하여 구름이 되며 <b>에너지를 방출</b>해요." },
+    { x: 130, y: 70, n: "③ 강수", d: "비나 눈이 되어 지권과 수권으로 이동해요. (기권 → 지권·수권)" },
+    { x: 60, y: 150, n: "④ 증산", d: "식물에 흡수된 물이 잎에서 증산 작용으로 다시 기권으로 이동해요. (생물권 → 기권)" },
+    { x: 170, y: 230, n: "⑤ 지표수·지하수", d: "지표로 이동한 물은 생명 유지에 이용되고, <b>풍화와 침식</b>으로 지형을 바꾼 뒤 바다로 이동해요. (수권 → 지권)" }],
+  carbon: [
+    { x: 90, y: 60, n: "① 광합성", d: "식물이 기권의 이산화 탄소를 흡수해 <b>유기물</b>을 만들어요. (기권 → 생물권)" },
+    { x: 330, y: 70, n: "② 해수에 용해", d: "기권의 이산화 탄소가 해수에 녹아 <b>탄산 이온</b>이 돼요. 해수가 태양 에너지로 따뜻해지면 다시 기권으로 방출해요." },
+    { x: 330, y: 220, n: "③ 탄산염 퇴적", d: "탄산 이온이 칼슘 이온과 결합해 탄산염으로 해저에 쌓이고, 오랜 시간 뒤 <b>석회암</b>이 돼요. (수권 → 지권)" },
+    { x: 120, y: 220, n: "④ 화석 연료", d: "생물이 죽어 묻히면 <b>화석 연료</b>가 되기도 해요. (생물권 → 지권)" },
+    { x: 210, y: 140, n: "⑤ 연소·화산", d: "화석 연료가 연소하거나 화산이 폭발하면 이산화 탄소가 기권으로 방출돼요. 화산 폭발 때는 <b>지구 내부 에너지</b>도 방출돼요. (지권 → 기권)" }]
+};
+let cyC = "water";
+function drawCY() {
+  let g = `<rect x="0" y="0" width="440" height="110" fill="#E7F4FB"/><rect x="0" y="180" width="250" height="100" fill="#D8C7A8"/><rect x="250" y="160" width="190" height="120" fill="#7FB8DE"/>`;
+  g += `<text x="10" y="18" style="font-size:11px;font-weight:800;fill:#3E6F8C">기권</text><text x="10" y="270" style="font-size:11px;font-weight:800;fill:#6B5434">지권</text><text x="430" y="272" text-anchor="end" style="font-size:11px;font-weight:800;fill:#fff">수권</text>`;
+  g += `<text x="400" y="30" style="font-size:24px">☀️</text><text x="230" y="60" style="font-size:30px">☁️</text><text x="40" y="175" style="font-size:30px">🌳</text>${cyC === "carbon" ? '<text x="185" y="175" style="font-size:24px">🏭</text><text x="100" y="190" style="font-size:22px">🌋</text>' : ""}`;
+  CY[cyC].forEach((p, i) => g += `<g class="cyp" data-i="${i}" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="15" fill="#E0662C" stroke="#fff" stroke-width="2"/><text x="${p.x}" y="${p.y + 5}" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#fff">${i + 1}</text><text x="${p.x}" y="${p.y + 30}" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#1F3133;paint-order:stroke;stroke:#fff;stroke-width:3px">${p.n.slice(2)}</text></g>`);
+  $("cy-svg").innerHTML = g;
+}
+$("cy-svg").addEventListener("click", e => { const p = e.target.closest(".cyp"); if (p) { const d = CY[cyC][p.dataset.i]; $("cy-read").innerHTML = `<b>${d.n}</b><br>${d.d}`; } });
+document.querySelectorAll("#cy-pick button").forEach(b => b.addEventListener("click", () => { cyC = b.dataset.c; document.querySelectorAll("#cy-pick button").forEach(x => x.classList.toggle("on", x === b)); $("cy-read").textContent = "과정(번호)을 눌러 보세요."; drawCY(); }));
+drawCY();
+</script>
+</body>
+</html>

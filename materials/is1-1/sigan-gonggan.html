@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학1 Ⅰ-1-1 — 자연 세계의 시간과 공간</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .scale-axis text{ font-size:11px; fill:var(--ink-soft); font-family:inherit; }
+  .scale-axis .obj text{ font-size:12px; fill:var(--ink); }
+  .big-obj{ display:flex; align-items:center; gap:12px; }
+  .big-obj .emo{ font-size:46px; line-height:1; }
+  .big-obj .nm{ font-size:16px; font-weight:800; }
+  .world{ display:inline-block; font-size:12px; font-weight:800; border-radius:999px; padding:3px 10px; }
+  .world.micro{ background:#EFE7FB; color:#6a3fb8; } .world.mid{ background:#FFF3D6; color:#8a6410; } .world.macro{ background:#E3F4F4; color:#0b6f73; }
+  .cards2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:760px){ .cards2{ grid-template-columns:1fr; } }
+  .reveal{ font-size:12px; color:var(--ink-soft); margin-left:6px; }
+  .era text{ font-family:inherit; paint-order:stroke; stroke:#fff; stroke-width:4px; stroke-linejoin:round; }
+  .timeline{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:6px 0 4px; }
+  @media (max-width:760px){ .timeline{ grid-template-columns:1fr; } }
+  .timeline div{ border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:13px; line-height:1.7; background:#FBFDFD; }
+  .timeline div b{ display:block; color:#0e7c80; margin-bottom:2px; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is1/1">← KISPP 과학실 · 통합과학1 Ⅰ. 과학의 기초 · 1. 과학의 기본량</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 과학의 기초 · 1. 과학의 기본량 · 01 자연 세계의 시간과 공간 (교과서 16~19쪽)</div>
+    <h1>원자에서 은하까지 — <span>자연 세계의 시간과 공간</span></h1>
+    <p class="sub">시간·공간 카드를 크기순으로 나열하고, 규모 탐험기로 미시 세계와 거시 세계를 오가며, 에라토스테네스처럼 지구의 크기를 직접 재 보세요. 카드마다 [확인하기]를 누르면 바로 피드백을 받을 수 있고, 마지막에 제출하면 선생님 스프레드시트에 기록돼요.</p>
+    <div class="goals"><span>🎯 자연을 시간과 공간으로 나타낼 수 있다.</span><span>🎯 길이와 시간 측정의 현대적 방법과 다양한 규모의 측정 사례를 조사할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 활동으로 단원 열기 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">활동</span>시간과 공간 카드 나열하기</div>
+    <div class="card-hint">카드를 끌어 옮기거나 ▲▼ 버튼으로 순서를 바꾸세요. <b>공간 카드는 크기가 작은 것부터</b>, <b>시간 카드는 시간이 짧은 것부터</b> 위에서 아래로 놓으면 돼요. [확인하기]를 누르면 해설에서 각 카드의 실제 값을 볼 수 있어요.</div>
+    <div class="cards2">
+      <div class="q" data-why="공간 규모는 수소 원자(10⁻¹⁰ m) → 바이러스(10⁻⁷ m) → 적혈구(10⁻⁵ m) → 고양이(10⁻¹ m) → 지구(10⁷ m) → 태양–지구 거리(10¹¹ m) → 안드로메다 은하(10²¹ m) 순서로 커져요. 무려 10³¹배 차이!">
+        <div class="sub-title">📏 공간 카드 (작은 것 → 큰 것)</div>
+        <ol class="order-list" id="space-order" data-key="card_space" data-answer="h,virus,rbc,cat,earth,au,andro">
+          <li data-id="cat"><span class="txt">🐈 고양이의 몸길이</span></li>
+          <li data-id="au"><span class="txt">☀️ 지구와 태양 사이의 거리</span></li>
+          <li data-id="h"><span class="txt">⚛️ 수소 원자의 지름</span></li>
+          <li data-id="andro"><span class="txt">🌌 안드로메다은하의 지름</span></li>
+          <li data-id="rbc"><span class="txt">🩸 적혈구의 지름</span></li>
+          <li data-id="earth"><span class="txt">🌏 지구의 지름</span></li>
+          <li data-id="virus"><span class="txt">🦠 바이러스의 크기</span></li>
+        </ol>
+        <span class="fb"></span>
+      </div>
+      <div class="q" data-why="시간 규모는 전자가 원자핵 주위를 한 바퀴 도는 시간(약 150 as) → 세슘 원자의 1회 진동(약 1.1×10⁻¹⁰ s) → 심장 박동 1회(약 1 s) → 적혈구 수명(120일) → 지구 공전(365일) → 고양이 수명(15년) → 안드로메다은하의 나이(100억 년) 순서로 길어져요.">
+        <div class="sub-title">⏱️ 시간 카드 (짧은 것 → 긴 것)</div>
+        <ol class="order-list" id="time-order" data-key="card_time" data-answer="electron,cs,heart,rbc,year,cat,andro">
+          <li data-id="year"><span class="txt">🌏 지구가 태양 주위를 한 바퀴 도는 시간</span></li>
+          <li data-id="cs"><span class="txt">🔬 세슘 원자가 1회 진동하는 시간</span></li>
+          <li data-id="cat"><span class="txt">🐈 고양이의 평균 수명</span></li>
+          <li data-id="heart"><span class="txt">❤️ 심장이 한 번 뛰는 시간</span></li>
+          <li data-id="andro"><span class="txt">🌌 안드로메다은하의 나이</span></li>
+          <li data-id="electron"><span class="txt">⚛️ 전자가 원자핵 주위를 한 바퀴 도는 시간</span></li>
+          <li data-id="rbc"><span class="txt">🩸 적혈구의 평균 수명</span></li>
+        </ol>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 개념 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>미시 세계와 거시 세계, 그리고 규모</div>
+    <p class="read-text">우리가 사는 자연 세계는 사과나무, 태풍, 지진처럼 큰 물체나 현상을 다루는 <b>거시 세계</b>와, 원자·분자·이온처럼 아주 작은 물체나 현상을 다루는 <b>미시 세계</b>로 이루어져 있어요.</p>
+    <p class="read-text">수소 원자부터 태양계까지 다양한 범위의 자연 세계는 시간과 공간의 범위를 구분 짓는 <b>규모(scale)</b>로 나타낼 수 있어요.</p>
+    <div class="box">
+      <table class="t">
+        <tr><th></th><th>예</th><th>시간 규모의 단위</th><th>공간 규모의 단위</th></tr>
+        <tr><th>미시 세계</th><td>수소 원자, 물 분자, 나트륨 이온</td><td>나노초(ns) 이하</td><td>나노미터(nm) 이하</td></tr>
+        <tr><th>거시 세계</th><td>공변세포, 나무, 암석, 천체</td><td>초(s), 분, 시간</td><td>미터(m), 천문단위(AU)</td></tr>
+      </table>
+      <p class="card-hint" style="margin:8px 0 0">도움말: 1 nm = 10⁻⁹ m · 1 as(아토초) = 10⁻¹⁸ s · 1 AU(천문단위) ≈ 1억 5천만 km</p>
+    </div>
+    <div class="q" data-why="규모는 자연 세계의 시간과 공간의 범위를 구분 짓는 표현 방법이에요. 미시 세계는 시간 규모로 나노초 이하, 공간 규모로 나노미터 이하의 단위를 써요.">
+      <div class="q-text"><span class="q-num">1</span>규모(scale): <input class="blank" data-key="c1_1" data-label="①" data-answer="자연세계|자연"> 의 시간과 공간의 범위를 구분 짓는 표현 방법</div>
+      <div class="q-text"><span class="q-num">2</span>미시 세계에서 <input class="blank w-s" data-key="c1_2" data-label="②" data-answer="시간"> 규모를 나타낼 때는 나노초 이하, <input class="blank w-s" data-key="c1_3" data-label="③" data-answer="공간"> 규모를 나타낼 때는 나노미터 이하 단위를 사용한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 규모 탐험기 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>규모 탐험기 — 10의 거듭제곱으로 여행하기</div>
+    <div class="card-hint">슬라이더를 움직이면 10배씩 커지거나 작아져요. 그 크기(시간)에 가까운 물체와 알맞은 단위, 그리고 미시 세계인지 거시 세계인지를 확인해 보세요.</div>
+    <div class="seg" id="scale-mode" style="margin-bottom:10px"><button type="button" class="on" data-m="space">📏 공간 규모</button><button type="button" data-m="time">⏱️ 시간 규모</button></div>
+    <div class="sim-wrap">
+      <div class="stage">
+        <svg id="scale-svg" class="scale-axis" viewBox="0 0 560 230" aria-label="로그 눈금 규모 축"></svg>
+      </div>
+      <div class="panel">
+        <div class="ctrl">
+          <label>크기 <output id="scale-exp-out"></output></label>
+          <input type="range" id="scale-exp" min="-16" max="22" step="0.1" value="0">
+        </div>
+        <div class="readout big-obj"><span class="emo" id="scale-emo">🧍</span><div><div class="nm" id="scale-name"></div><div id="scale-val"></div></div></div>
+        <div class="readout" id="scale-unit"></div>
+        <div><span class="world" id="scale-world"></span></div>
+      </div>
+    </div>
+    <div class="q" data-why="슬라이더를 10⁻¹⁰ m에 두면 수소 원자(지름 약 0.1 nm)가 나타나요. 0.1 nm = 0.1 × 10⁻⁹ m = 10⁻¹⁰ m 이에요.">
+      <div class="q-text"><span class="q-num">1</span>공간 규모를 10⁻¹⁰ m 에 맞추었을 때 가장 가까운 물체는
+        <span class="choice-group" data-key="s_obj" data-answer="수소 원자"><button type="button" class="choice-btn" data-value="적혈구">적혈구</button><button type="button" class="choice-btn" data-value="수소 원자">수소 원자</button><button type="button" class="choice-btn" data-value="바이러스">바이러스</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1 nm는 10⁻⁹ m, 1 μm는 10⁻⁶ m, 1 km는 10³ m 예요. 크기에 따라 알맞은 단위를 쓰면 0을 여러 개 쓰지 않아도 돼요.">
+      <div class="q-text"><span class="q-num">2</span>1 nm(나노미터) = 10<sup><input class="blank w-s" data-key="s_nm" data-num="-9" data-abs="0" placeholder="?"></sup> m,
+        1 km = 10<sup><input class="blank w-s" data-key="s_km" data-num="3" data-abs="0" placeholder="?"></sup> m</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="시간 모드에서 보면 미시 세계의 현상(전자의 운동, 세슘 원자의 진동)은 나노초 이하에서 일어나고, 거시 세계의 현상(심장 박동, 지구 공전)은 초·일·년 단위로 일어나요.">
+      <div class="q-text"><span class="q-num">3</span>시간 규모에서 전자가 원자핵 주위를 도는 데 걸리는 시간(약 150 as)은
+        <span class="choice-group" data-key="s_world" data-answer="미시 세계"><button type="button" class="choice-btn" data-value="미시 세계">미시 세계</button><button type="button" class="choice-btn" data-value="거시 세계">거시 세계</button></span> 의 시간 규모에 해당한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 탐구 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>미시 세계와 거시 세계 물체의 크기에 따른 차이점 분석</div>
+    <div class="card-hint">문제 인식: 미시 세계와 거시 세계에서 물체의 크기 표현의 차이점은 무엇일까? · 도움말: 1 nm = 10⁻⁹ m, 1 as = 10⁻¹⁸ s, 1 AU ≈ 1억 5천만 km, 하루 = 86 400 s<br>답은 <b>1.5×10^11</b> 또는 <b>1.5e11</b>처럼 쓰면 돼요.</div>
+    <div class="cards2">
+      <div class="box"><span class="box-title">⚛️ 수소 원자 (미시 세계)</span>
+        <p class="read-text">· 수소 원자의 지름: 약 0.1 nm<br>· 전자가 원자핵 주위를 도는 데 걸리는 시간: 약 150 as</p></div>
+      <div class="box"><span class="box-title">☀️ 태양–지구 (거시 세계)</span>
+        <p class="read-text">· 지구와 태양 사이의 거리: 1 AU<br>· 지구가 공전하는 데 걸리는 시간: 365일</p></div>
+    </div>
+    <div class="q" data-why="0.1 nm = 0.1 × 10⁻⁹ m = 1×10⁻¹⁰ m, 1 AU ≈ 1.5×10⁸ km = 1.5×10¹¹ m 예요." data-hint="nm → m는 10⁻⁹를 곱하고, km → m는 10³을 곱해요.">
+      <div class="q-text"><span class="q-num">1</span>공간을 나타내는 단위를 미터(m)로 바꾸어 보자.<br>
+        · 수소 원자의 지름: <input class="blank w-l" data-key="lab_h_m" data-label="수소 원자" data-num="1e-10" data-tol="0.05" data-show="1×10⁻¹⁰" placeholder="예: 1×10^-10"> m<br>
+        · 지구와 태양 사이의 거리: <input class="blank w-l" data-key="lab_au_m" data-label="태양–지구" data-num="1.5e11" data-tol="0.05" data-show="1.5×10¹¹" placeholder="?"> m</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="150 as = 150 × 10⁻¹⁸ s = 1.5×10⁻¹⁶ s, 365일 = 365 × 24 × 60 × 60 s = 31 536 000 s ≈ 3.2×10⁷ s 예요." data-hint="as → s는 10⁻¹⁸을 곱하고, 1일 = 24 × 60 × 60 = 86 400 s 예요.">
+      <div class="q-text"><span class="q-num">2</span>시간을 나타내는 단위를 초(s)로 바꾸어 보자.<br>
+        · 전자가 원자핵 주위를 도는 데 걸리는 시간: <input class="blank w-l" data-key="lab_e_s" data-label="전자" data-num="1.5e-16" data-tol="0.05" data-show="1.5×10⁻¹⁶" placeholder="?"> s<br>
+        · 지구가 공전하는 데 걸리는 시간: <input class="blank w-l" data-key="lab_y_s" data-label="지구 공전" data-num="3.1536e7" data-tol="0.03" data-show="3.15×10⁷ (31 536 000)" placeholder="?"> s</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1.5×10¹¹ m ÷ 1×10⁻¹⁰ m = 1.5×10²¹ 이므로 약 10²¹배예요. 이렇게 차이가 크기 때문에 미시 세계와 거시 세계는 서로 다른 단위를 써요.">
+      <div class="q-text"><span class="q-num">3</span>지구와 태양 사이의 거리는 수소 원자 지름의 약
+        <span class="choice-group" data-key="lab_ratio" data-answer="10^21"><button type="button" class="choice-btn" data-value="10^11">10¹¹</button><button type="button" class="choice-btn" data-value="10^21">10²¹</button><button type="button" class="choice-btn" data-value="10^31">10³¹</button></span> 배이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>결과 정리 및 해석: 미시 세계와 거시 세계를 표현하는 시간과 공간의 단위가 다른 까닭을 써 보자.</div>
+      <textarea class="free" data-key="lab_why" data-keywords="크기/규모/범위/차이,편리/불편/간단/간편/쉽,0/자릿수/숫자" data-model="미시 세계와 거시 세계는 크기와 시간의 규모 차이가 매우 커서, 같은 단위를 쓰면 0이 너무 많아져 표현하고 비교하기 불편하다. 그래서 각 규모에 알맞은 단위(nm, as / AU, 일 등)를 사용한다." placeholder="예: 두 세계는 규모의 차이가 매우 커서 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 에라토스테네스 -->
+  <section class="card" data-part="sim lab">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>에라토스테네스처럼 지구의 둘레 재기</div>
+    <div class="card-hint">고대 그리스의 에라토스테네스는 하짓날 정오에 시에네에서는 막대의 그림자가 생기지 않고, 북쪽의 알렉산드리아에서는 막대와 햇빛이 7.2° 기울어진다는 사실을 이용했어요. 두 도시 사이 거리는 약 925 km 예요. 슬라이더로 값을 바꾸며 원리를 살펴보세요. (그림은 잘 보이도록 각을 3배로 과장했어요.)</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="era-svg" class="era" viewBox="0 0 440 330" aria-label="에라토스테네스의 지구 둘레 측정"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>알렉산드리아의 그림자 각 θ <output id="era-th-out"></output></label><input type="range" id="era-th" min="2" max="20" step="0.1" value="7.2"></div>
+        <div class="ctrl"><label>두 도시 사이의 거리 d <output id="era-d-out"></output></label><input type="range" id="era-d" min="300" max="1500" step="5" value="925"></div>
+        <div class="readout" id="era-read"></div>
+        <div class="tip">원의 성질: 중심각 θ가 원 전체(360°)의 몇 분의 1인지 알면, 호의 길이 d로 원의 둘레를 구할 수 있어요.<br><b>지구의 둘레 = (360° ÷ θ) × d</b></div>
+      </div>
+    </div>
+    <div class="q" data-why="햇빛은 지구에 거의 평행하게 들어오므로, 알렉산드리아의 막대와 햇빛이 이루는 각은 두 도시와 지구 중심이 이루는 중심각과 같아요(엇각).">
+      <div class="q-text"><span class="q-num">1</span>막대와 햇빛이 이루는 각 θ가 두 도시 사이의 중심각과 같은 까닭은 햇빛이
+        <span class="choice-group" data-key="era_parallel" data-answer="평행"><button type="button" class="choice-btn" data-value="평행">지구에 평행하게 들어오기</button><button type="button" class="choice-btn" data-value="자전">지구가 자전하기</button><button type="button" class="choice-btn" data-value="굴절">대기에서 굴절하기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="360° ÷ 7.2° = 50 이므로 지구의 둘레 = 50 × 925 km = 46 250 km 예요." data-hint="θ = 7.2°, d = 925 km로 맞추고, 360 ÷ 7.2 를 먼저 계산해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>θ = 7.2°, d = 925 km 일 때 에라토스테네스가 구한 지구의 둘레는 약 <input class="blank w-l" data-key="era_c" data-num="46250" data-tol="0.01" data-show="46 250" placeholder="숫자만"> km 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="현대에 인공위성으로 잰 지구의 둘레는 약 40 000 km 예요. 에라토스테네스의 값은 이보다 약 16% 커요. 당시에는 낙타 걸음 등으로 두 도시 사이 거리를 재서 오차가 컸어요.">
+      <div class="q-text"><span class="q-num">3</span>현대에 인공위성으로 측정한 지구의 둘레(약 40 000 km)와 비교하면 에라토스테네스의 값은
+        <span class="choice-group" data-key="era_cmp" data-answer="더 크다"><button type="button" class="choice-btn" data-value="더 크다">더 크다</button><button type="button" class="choice-btn" data-value="더 작다">더 작다</button><button type="button" class="choice-btn" data-value="같다">정확히 같다</button></span>.
+        오차가 생긴 가장 큰 까닭은 두 도시 사이의
+        <span class="choice-group" data-key="era_err" data-answer="거리"><button type="button" class="choice-btn" data-value="거리">거리 측정이 부정확했기</button><button type="button" class="choice-btn" data-value="햇빛">햇빛이 약했기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="실제 둘레 40 000 km를 얻으려면 d = 40 000 × 7.2 ÷ 360 = 800 km 가 되어야 해요. 슬라이더로 d를 800 km에 맞추어 확인해 보세요.">
+      <div class="q-text"><span class="q-num">4</span>θ가 7.2°로 정확하다면, 지구 둘레가 40 000 km가 되려면 두 도시 사이 거리는 약 <input class="blank" data-key="era_d800" data-num="800" data-tol="0.02" placeholder="숫자만"> km 여야 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 개념: 측정의 발전 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>자연 세계에서 시간과 공간의 측정</div>
+    <p class="read-text">사람들은 처음에 자신이 경험한 범위에서 자연을 설명했어요. 고대에는 천체 현상으로 시간을, 낙타 걸음으로 길이를 쟀지요. 과학자들은 다양한 도구와 방법을 개발하여 측정 범위를 넓혀 왔어요.</p>
+    <div class="timeline">
+      <div><b>📏 공간 측정</b>위성 위치 확인 시스템(GPS)은 위성 신호로 위치를 재며, 넓은 영역과 미세한 이동 거리도 측정해요. 전자 현미경은 광학 현미경보다 확대율이 높아 나노 단위로 물체를 관찰해요.</div>
+      <div><b>⏱️ 시간 측정</b>선조들은 해·달의 주기로 앙부일구를 만들어 하루·한 달·일 년을 쟀어요. 현대에는 세슘 원자 시계로 몇백만 분의 1초까지 측정해요.</div>
+      <div><b>🔬 미시 세계의 시간</b>초고속 투과 전자 현미경으로 원자·분자 내부의 움직임을 나노초 이하 단위로 측정하여 재료·나노·전자 공학, 생명과학에 활용해요.</div>
+    </div>
+    <div class="q" data-why="GPS는 위성 신호, 전자 현미경은 나노 단위, 세슘 원자 시계는 정밀한 시간, 초고속 투과 전자 현미경은 원자·분자 내부의 움직임을 측정해요.">
+      <div class="q-text"><span class="q-num">1</span>위성 위치 확인 시스템(GPS): <input class="blank" data-key="c2_1" data-label="①" data-answer="위성신호|위성의신호|위성"> 을/를 이용하여 미세한 이동 거리도 측정할 수 있다.</div>
+      <div class="q-text"><span class="q-num">2</span>전자 현미경: 광학 현미경보다 높은 확대율로 <input class="blank w-s" data-key="c2_2" data-label="②" data-answer="나노|nm|나노미터"> 단위로 물체를 관찰하고 분석할 수 있다.</div>
+      <div class="q-text"><span class="q-num">3</span><input class="blank w-l" data-key="c2_3" data-label="③" data-answer="세슘원자시계|세슘시계|원자시계"> : 몇백만 분의 1초 단위까지 정밀한 시간을 측정할 수 있다.</div>
+      <div class="q-text"><span class="q-num">4</span>초고속 투과 전자 현미경: 원자나 <input class="blank w-s" data-key="c2_4" data-label="④" data-answer="분자"> 내부의 움직임을 나노초 이하 단위까지 측정할 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="과학자들이 다양한 규모의 시간과 공간을 측정하려고 노력한 결과, 눈에 보이지 않는 바이러스를 발견하고 외부 은하를 이야기하는 등 인간의 경험 범위가 넓어졌어요.">
+      <div class="q-text"><span class="q-num">5</span>확인하기: 과학자들은 다양한 규모의 <input class="blank w-s" data-key="c2_5" data-label="❶" data-answer="시간|공간"> 과/와 <input class="blank w-s" data-key="c2_6" data-label="❷" data-answer="공간|시간"> 을/를 측정하고자 노력하였고, 그 결과 인간의 <input class="blank w-s" data-key="c2_7" data-label="❸" data-answer="경험범위|경험"> 범위가 확장되었다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 7. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="card-hint">중단원 마무리 문제와 개념 확인 문제예요. [확인하기]로 바로 피드백을 받아 보세요.</div>
+    <div class="q" data-why="세슘(원자)은 미시 세계, 고양이는 거시 세계이고, 공간 규모는 은하(약 10²¹ m)가 적혈구(약 10⁻⁵ m)보다 훨씬 커요. 세 설명 모두 옳아요.">
+      <div class="q-text"><span class="q-num">1</span>그림 (가) 세슘, (나) 적혈구, (다) 고양이, (라) 은하에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. (가)는 미시 세계에 해당한다.<br>ㄴ. (다)는 거시 세계에 해당한다.<br>ㄷ. 공간 규모에서 (라)는 (나)보다 크다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="미시 세계는 나노초(ns) 이하, 나노미터(nm) 이하 단위를 사용해요. 초·미터·천문단위는 거시 세계의 단위예요.">
+      <div class="q-text"><span class="q-num">2</span>물 분자의 크기를 나타내기에 가장 알맞은 단위는
+        <span class="choice-group" data-key="qz2" data-answer="nm"><button type="button" class="choice-btn" data-value="AU">AU</button><button type="button" class="choice-btn" data-value="m">m</button><button type="button" class="choice-btn" data-value="nm">nm</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="앙부일구는 해의 그림자로 시각을 재는 해시계로, 하루·한 달·일 년처럼 거시 세계의 시간을 측정했어요. 원자 내부의 움직임은 초고속 투과 전자 현미경으로 측정해요.">
+      <div class="q-text"><span class="q-num">3</span>우리 선조들은 앙부일구로 원자 내부의 움직임을 측정하였다.
+        <span class="choice-group" data-key="qz3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="GPS는 위성 신호를 이용하여 넓은 영역에서도 쓸 수 있고 미세한 이동 거리도 측정할 수 있어, 지각 변동이나 지구의 크기·자전 측정에 활용돼요.">
+      <div class="q-text"><span class="q-num">4</span>지진이 일어난 뒤 땅이 몇 cm 움직였는지 넓은 지역에서 측정할 때 가장 알맞은 방법은
+        <span class="choice-group" data-key="qz4" data-answer="GPS"><button type="button" class="choice-btn" data-value="GPS">위성 위치 확인 시스템(GPS)</button><button type="button" class="choice-btn" data-value="전자현미경">전자 현미경</button><button type="button" class="choice-btn" data-value="낙타">낙타 걸음</button></span> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">5</span>과학 역량 기르기: 학교에 있는 물체를 크기가 작은 것부터 큰 것까지 5가지 고르고, 각각 알맞은 단위로 크기를 나타내 보자.</div>
+      <textarea class="free" data-key="qz5" data-keywords="mm/nm/μm/마이크로,cm,m/km" data-model="모래알 0.5 mm → 지우개 4 cm → 책상 1.2 m → 운동장 100 m → 학교 둘레 1 km" placeholder="예: 연필심 굵기 0.5 mm → …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">위의 모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 답안이 기록돼요. 선생님 피드백은 스프레드시트의 '교사 피드백' 칸에 적혀요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학1 Ⅰ-1-1 자연 세계의 시간과 공간 · 비상교육 통합과학1 교과서 16~19쪽 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학1 Ⅰ-1-1 자연 세계의 시간과 공간";
+
+/* ===== 규모 탐험기 ===== */
+const SCALE = {
+  space: [
+    { e: -14.8, emo: "⚛️", n: "양성자", v: "지름 약 1.7×10⁻¹⁵ m" },
+    { e: -10, emo: "⚛️", n: "수소 원자", v: "지름 약 0.1 nm" },
+    { e: -8.7, emo: "🧬", n: "DNA 이중 나선", v: "폭 약 2 nm" },
+    { e: -7, emo: "🦠", n: "바이러스", v: "크기 약 100 nm" },
+    { e: -5.15, emo: "🩸", n: "적혈구", v: "지름 약 7×10⁻⁶ m" },
+    { e: -2.3, emo: "🐜", n: "개미", v: "몸길이 약 5 mm" },
+    { e: -0.22, emo: "🐈", n: "고양이", v: "평균 몸길이 0.6 m" },
+    { e: 0.23, emo: "🧍", n: "사람", v: "키 약 1.7 m" },
+    { e: 3.94, emo: "🏔️", n: "에베레스트산", v: "높이 약 8.8 km" },
+    { e: 7.1, emo: "🌏", n: "지구", v: "지름 약 12 700 km" },
+    { e: 9.14, emo: "☀️", n: "태양", v: "지름 약 139만 km" },
+    { e: 11.18, emo: "🪐", n: "지구–태양 거리", v: "1 AU ≈ 1.5×10¹¹ m" },
+    { e: 15.98, emo: "✨", n: "1광년", v: "빛이 1년 동안 가는 거리 ≈ 9.5×10¹⁵ m" },
+    { e: 20.98, emo: "🌌", n: "우리은하", v: "지름 약 10만 광년" },
+    { e: 21.28, emo: "🌌", n: "안드로메다은하", v: "지름 약 62 kpc(킬로파섹)" }
+  ],
+  time: [
+    { e: -15.82, emo: "⚛️", n: "전자가 원자핵 주위를 도는 시간", v: "약 150 as" },
+    { e: -9.96, emo: "🔬", n: "세슘 원자의 1회 진동", v: "1/9 192 631 770 초" },
+    { e: -9, emo: "💻", n: "컴퓨터의 연산 1번", v: "약 1 ns" },
+    { e: -3, emo: "📷", n: "카메라 셔터", v: "약 1/1000 초" },
+    { e: -0.1, emo: "❤️", n: "심장 박동 1회", v: "약 0.8 초" },
+    { e: 4.94, emo: "🌗", n: "하루(지구 자전)", v: "86 400 초" },
+    { e: 7.02, emo: "🩸", n: "적혈구의 평균 수명", v: "120일" },
+    { e: 7.5, emo: "🌏", n: "1년(지구 공전)", v: "365일" },
+    { e: 8.68, emo: "🐈", n: "고양이의 평균 수명", v: "15년" },
+    { e: 9.4, emo: "🧓", n: "사람의 수명", v: "약 80년" },
+    { e: 17.16, emo: "🌍", n: "지구의 나이", v: "약 46억 년" },
+    { e: 17.5, emo: "🌌", n: "안드로메다은하의 나이", v: "약 100억 년" }
+  ]
+};
+const SP_UNITS = [[-12, "pm(피코미터)", 1e-12], [-9, "nm(나노미터)", 1e-9], [-6, "μm(마이크로미터)", 1e-6], [-3, "mm(밀리미터)", 1e-3], [0, "m(미터)", 1], [3, "km(킬로미터)", 1e3], [11, "AU(천문단위)", 1.496e11], [16, "광년", 9.46e15]];
+const TM_UNITS = [[-18, "as(아토초)", 1e-18], [-15, "fs(펨토초)", 1e-15], [-12, "ps(피코초)", 1e-12], [-9, "ns(나노초)", 1e-9], [-6, "μs(마이크로초)", 1e-6], [-3, "ms(밀리초)", 1e-3], [0, "s(초)", 1], [3.5, "시간", 3600], [4.9, "일", 86400], [7.5, "년", 3.156e7], [15.5, "억 년", 3.156e15]];
+let scaleMode = "space";
+const expEl = document.getElementById("scale-exp");
+
+function sup(n) { return String(n).replace(/-/g, "⁻").replace(/\d/g, d => "⁰¹²³⁴⁵⁶⁷⁸⁹"[d]); }
+function fmtNum(x) {
+  if (x >= 1000) return Math.round(x).toLocaleString("ko-KR");
+  if (x >= 10) return x.toFixed(0);
+  if (x >= 1) return x.toFixed(1).replace(/\.0$/, "");
+  return x.toPrecision(2);
+}
+function drawAxis() {
+  const svg = document.getElementById("scale-svg");
+  const min = Number(expEl.min), max = Number(expEl.max);
+  const X = e => 20 + (e - min) / (max - min) * 520;
+  let h = `<rect x="20" y="168" width="520" height="8" rx="4" fill="#D3E3E1"/>`;
+  // 미시/거시 구역
+  const microEnd = scaleMode === "space" ? -9 : -9, macroStart = scaleMode === "space" ? -6 : 0;
+  h += `<rect x="20" y="168" width="${X(microEnd) - 20}" height="8" rx="4" fill="#C9B3EE"/>`;
+  h += `<rect x="${X(macroStart)}" y="168" width="${540 - X(macroStart)}" height="8" rx="4" fill="#9FD8D9"/>`;
+  h += `<text x="${(20 + X(microEnd)) / 2}" y="198" text-anchor="middle" style="fill:#6a3fb8;font-weight:800">미시 세계</text>`;
+  h += `<text x="${(X(macroStart) + 540) / 2}" y="198" text-anchor="middle" style="fill:#0b6f73;font-weight:800">거시 세계</text>`;
+  for (let e = min; e <= max; e += 2) {
+    h += `<line x1="${X(e)}" y1="176" x2="${X(e)}" y2="182" stroke="#8aa"/><text x="${X(e)}" y="${e % 4 === 0 ? 216 : 228}" text-anchor="middle">10${sup(e)}</text>`;
+  }
+  SCALE[scaleMode].forEach((o, i) => {
+    const y = 30 + (i % 4) * 34;
+    h += `<g class="obj"><line x1="${X(o.e)}" y1="${y + 12}" x2="${X(o.e)}" y2="168" stroke="#bcd" stroke-dasharray="2 3"/><text x="${X(o.e)}" y="${y + 8}" text-anchor="middle" style="font-size:18px">${o.emo}</text></g>`;
+  });
+  const v = Number(expEl.value);
+  h += `<g><line x1="${X(v)}" y1="14" x2="${X(v)}" y2="182" stroke="#14A3A8" stroke-width="2.5"/><circle cx="${X(v)}" cy="172" r="8" fill="#14A3A8" stroke="#fff" stroke-width="2"/></g>`;
+  svg.innerHTML = h;
+}
+function updateScale() {
+  const v = Number(expEl.value), list = SCALE[scaleMode];
+  const near = list.reduce((a, b) => Math.abs(b.e - v) < Math.abs(a.e - v) ? b : a);
+  const value = Math.pow(10, v);
+  document.getElementById("scale-exp-out").textContent = (scaleMode === "space" ? "약 10" : "약 10") + sup(Math.round(v)) + (scaleMode === "space" ? " m" : " s");
+  document.getElementById("scale-emo").textContent = near.emo;
+  document.getElementById("scale-name").textContent = "가까운 것: " + near.n;
+  document.getElementById("scale-val").textContent = near.v;
+  const units = scaleMode === "space" ? SP_UNITS : TM_UNITS;
+  let u = units[0];
+  units.forEach(x => { if (v >= x[0] - 0.5) u = x; });
+  document.getElementById("scale-unit").innerHTML = `지금 크기 ≈ <b>${fmtNum(value / u[2])} ${u[1].split("(")[0]}</b><br>알맞은 단위: <b>${u[1]}</b>`;
+  const w = document.getElementById("scale-world");
+  const microEnd = -9, macroStart = scaleMode === "space" ? -6 : 0;
+  if (v <= microEnd + 0.3) { w.className = "world micro"; w.textContent = "🔬 미시 세계의 규모"; }
+  else if (v < macroStart) { w.className = "world mid"; w.textContent = "↔️ 미시와 거시의 중간 규모"; }
+  else { w.className = "world macro"; w.textContent = "🔭 거시 세계의 규모"; }
+  drawAxis();
+}
+expEl.addEventListener("input", updateScale);
+document.querySelectorAll("#scale-mode button").forEach(b => b.addEventListener("click", () => {
+  scaleMode = b.dataset.m;
+  document.querySelectorAll("#scale-mode button").forEach(x => x.classList.toggle("on", x === b));
+  expEl.min = scaleMode === "space" ? -16 : -18; expEl.max = scaleMode === "space" ? 22 : 18;
+  expEl.value = 0;
+  updateScale();
+}));
+updateScale();
+
+/* ===== 에라토스테네스 ===== */
+const thEl = document.getElementById("era-th"), dEl = document.getElementById("era-d");
+function drawEra() {
+  const th = Number(thEl.value), d = Number(dEl.value);
+  document.getElementById("era-th-out").textContent = th.toFixed(1) + "°";
+  document.getElementById("era-d-out").textContent = d + " km";
+  const C = 360 / th * d;
+  document.getElementById("era-read").innerHTML =
+    `360° ÷ ${th.toFixed(1)}° = <b>${(360 / th).toFixed(2)}</b><br>지구의 둘레 = ${(360 / th).toFixed(2)} × ${d} km<br>= <b style="font-size:17px">${Math.round(C).toLocaleString("ko-KR")} km</b>` +
+    `<br><span style="font-size:12px;color:var(--ink-soft)">실제 둘레(약 40 000 km)와의 차이: ${((C - 40000) / 40000 * 100).toFixed(1)}%</span>`;
+  const cx = 290, cy = 175, R = 120, vis = th * 3 * Math.PI / 180, h = 44;
+  const P = a => [cx - R * Math.cos(a), cy - R * Math.sin(a)];
+  const [sx, sy] = P(0), [ax, ay] = P(vis);
+  const u = [-Math.cos(vis), -Math.sin(vis)];
+  const tx = ax + h * u[0], ty = ay + h * u[1];
+  // 그림자: 막대 끝을 지나는 햇빛(→ 방향)이 땅(접선)과 만나는 점
+  const tg = [Math.sin(vis), -Math.cos(vis)];
+  const s = (ty - ay) / tg[1];
+  const shx = ax + s * tg[0], shy = ay + s * tg[1];
+  let g = `<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#E8A317"/></marker></defs>`;
+  for (let y = 30; y <= 300; y += 30) g += `<line x1="8" y1="${y}" x2="150" y2="${y}" stroke="#F2C14E" stroke-width="2" marker-end="url(#ar)"/>`;
+  g += `<text x="12" y="20" style="font-size:12px;fill:#B07B06;font-weight:800">햇빛 (평행광)</text>`;
+  g += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="#DDEFF7" stroke="#6AA9C9" stroke-width="2"/>`;
+  g += `<line x1="${cx}" y1="${cy}" x2="${sx}" y2="${sy}" stroke="#2F6FED" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  g += `<line x1="${cx}" y1="${cy}" x2="${ax}" y2="${ay}" stroke="#2F6FED" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  const r1 = 34, a0 = Math.PI, a1 = Math.PI + vis;
+  g += `<path d="M${cx + r1 * Math.cos(a0)},${cy + r1 * Math.sin(a0)} A${r1},${r1} 0 0 1 ${cx + r1 * Math.cos(a1)},${cy + r1 * Math.sin(a1)}" fill="none" stroke="#D8493B" stroke-width="2"/>`;
+  g += `<text x="${cx - 52}" y="${cy - 8}" style="font-size:13px;fill:#D8493B;font-weight:800">θ</text>`;
+  g += `<circle cx="${cx}" cy="${cy}" r="3" fill="#2F6FED"/><text x="${cx + 6}" y="${cy + 16}" style="font-size:11px;fill:#2F6FED">지구 중심</text>`;
+  // 햇빛 연장선
+  g += `<line x1="150" y1="${sy}" x2="${sx}" y2="${sy}" stroke="#F2C14E" stroke-width="2"/>`;
+  g += `<line x1="150" y1="${ty}" x2="${tx}" y2="${ty}" stroke="#F2C14E" stroke-width="2"/>`;
+  g += `<line x1="${tx}" y1="${ty}" x2="${shx}" y2="${shy}" stroke="#F2C14E" stroke-width="1.5" stroke-dasharray="3 3"/>`;
+  // 막대와 그림자
+  g += `<line x1="${sx}" y1="${sy}" x2="${sx - h}" y2="${sy}" stroke="#5B3B1E" stroke-width="4"/>`;
+  g += `<line x1="${ax}" y1="${ay}" x2="${shx}" y2="${shy}" stroke="#555" stroke-width="5" opacity=".55"/>`;
+  g += `<line x1="${ax}" y1="${ay}" x2="${tx}" y2="${ty}" stroke="#5B3B1E" stroke-width="4"/>`;
+  g += `<text x="${sx - h - 4}" y="${sy + 22}" text-anchor="end" style="font-size:12px;font-weight:800">시에네</text><text x="${sx - h - 4}" y="${sy + 36}" text-anchor="end" style="font-size:11px;fill:#5E7375">그림자 없음</text>`;
+  g += `<text x="${tx - 6}" y="${ty - 8}" text-anchor="end" style="font-size:12px;font-weight:800">알렉산드리아</text><text x="${tx - 6}" y="${ty + 6}" text-anchor="end" style="font-size:11px;fill:#D8493B">막대–햇빛 각 θ</text>`;
+  const mid = vis / 2;
+  g += `<path d="M${sx},${sy} A${R},${R} 0 0 1 ${ax},${ay}" fill="none" stroke="#2F6FED" stroke-width="4" opacity=".7"/>`;
+  g += `<text x="${cx - (R - 10) * Math.cos(mid)}" y="${cy - (R - 10) * Math.sin(mid) + 4}" text-anchor="start" style="font-size:12px;fill:#2F6FED;font-weight:800">호의 길이 d = ${d} km</text>`;
+  document.getElementById("era-svg").innerHTML = g;
+}
+thEl.addEventListener("input", drawEra); dEl.addEventListener("input", drawEra);
+drawEra();
+</script>
+</body>
+</html>

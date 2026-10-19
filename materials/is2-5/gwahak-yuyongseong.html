@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학2 Ⅲ-1-1 — 과학의 유용성과 필요성</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is2/5">← KISPP 과학실 · 통합과학2 Ⅲ. 과학과 미래 사회 · 1. 과학 기술의 활용</a>
+  <header>
+    <div class="eyebrow">Ⅲ. 과학과 미래 사회 · 1. 과학 기술의 활용 · 01 과학의 유용성과 필요성 (교과서 114~119쪽)</div>
+    <h1>감염병과 싸우는 과학 — <span>과학의 유용성과 필요성</span></h1>
+    <p class="sub">가상 4 홈판에서 시약을 차례로 떨어뜨리며 단백질을 이용한 감염병 진단을 체험하고, 유전자증폭검사로 아주 적은 양의 핵산이 얼마나 빠르게 불어나는지 계산해 보세요. 감염병을 추적·관리하는 과학 기술과, 미래 사회의 문제를 해결하는 데 과학이 왜 필요한지도 논증해 봐요.</p>
+    <div class="goals"><span>🎯 감염병 진단 및 추적을 사례로 과학의 유용성을 설명할 수 있다.</span><span>🎯 미래 사회 문제 해결에서 과학의 필요성을 논증할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 감염병 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>감염병과 감염 경로</div>
+    <div class="card-hint">감염병은 바이러스, 세균, 곰팡이 등과 같은 <b>병원체</b>에 감염되어 발생하는 질병이에요. 감염은 호흡을 통한 흡입, 오염된 물과 음식물의 섭취, 피부 접촉, 수혈 등 다양한 경로로 일어나요.</div>
+    <div class="q" data-why="감기·독감·코로나바이러스감염증은 바이러스, 결핵·폐렴(세균성)은 세균, 무좀은 곰팡이에 의한 감염병이에요. 고혈압과 당뇨병은 병원체 없이 생기는 질병이라 감염병이 아니에요.">
+      <div class="q-text"><span class="q-num">1</span>감염병인 것만 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="ip_list" data-answer="flu,tb,foot,cold"><button type="button" class="multi-btn" data-value="flu">독감</button> <button type="button" class="multi-btn" data-value="bp">고혈압</button> <button type="button" class="multi-btn" data-value="tb">결핵</button> <button type="button" class="multi-btn" data-value="foot">무좀</button> <button type="button" class="multi-btn" data-value="dm">당뇨병</button> <button type="button" class="multi-btn" data-value="cold">감기</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 탐구: 홈판 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>단백질과 핵산을 이용한 감염병 진단 기술 체험</div>
+    <div class="card-hint">문제 인식: 단백질을 이용한 감염병 진단은 어떻게 이루어지며, 핵산을 이용한 감염병 진단과 어떤 차이점이 있을까?<br>4 홈판의 A~D 홈에 시약을 순서대로 두 방울씩 떨어뜨려요. A = 표준 시료 1(음성), B = 표준 시료 2(양성), C = 사람 1의 검체, D = 사람 2의 검체. 홈을 눌러 시약을 넣고, 네 홈에 모두 넣으면 [5분 기다리기]를 누르세요. ⚠️ 실제 실험에서는 보안경과 실험용 장갑을 착용해요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="pl-svg" viewBox="0 0 400 250" aria-label="4 홈판"></svg></div>
+      <div class="panel">
+        <div class="readout" id="pl-step"></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button type="button" class="btn ghost small" id="pl-all">💧 네 홈에 모두 넣기</button><button type="button" class="btn main small" id="pl-wait">⏱ 5분 기다리기</button></div>
+        <button type="button" class="btn ghost small" id="pl-reset">↺ 처음부터</button>
+        <div class="readout" id="pl-read">홈을 눌러 포획 항체를 넣어 보세요.</div>
+      </div>
+    </div>
+    <div class="q" data-why="양성 표준 시료(B)와 같은 색으로 변한 홈은 병원체의 단백질이 있는 검체예요. 사람 1(C)은 B처럼 색이 변했으므로 감염, 사람 2(D)는 음성 표준 시료(A)처럼 색이 변하지 않았으므로 비감염으로 진단해요." data-hint="모의실험을 끝까지 진행하고, C와 D의 색을 A·B와 비교해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>실험 결과로 진단하시오. 사람 1: <span class="choice-group" data-key="pl_p1" data-label="사람 1" data-answer="감염"><button type="button" class="choice-btn" data-value="감염">감염</button><button type="button" class="choice-btn" data-value="비감염">비감염</button></span> · 사람 2: <span class="choice-group" data-key="pl_p2" data-label="사람 2" data-answer="비감염"><button type="button" class="choice-btn" data-value="감염">감염</button><button type="button" class="choice-btn" data-value="비감염">비감염</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="표준 시료는 판별의 기준이 되는 시료예요. 음성 표준 시료는 병원체가 없을 때, 양성 표준 시료는 병원체가 있을 때 나타나는 반응을 보여 주므로 검체의 결과를 비교해 판단할 수 있어요.">
+      <div class="q-text"><span class="q-num">2</span>표준 시료 1, 2를 함께 실험하는 까닭은 검체의 결과를 <span class="choice-group" data-key="pl_std" data-answer="비교"><button type="button" class="choice-btn" data-value="비교">기준과 비교하여 판별하기</button><button type="button" class="choice-btn" data-value="양">시약의 양을 줄이기</button></span> 위해서이다. 이 실험에서 이용한 포획 항체와 결합하는 것은 병원체의 <span class="choice-group" data-key="pl_prot" data-answer="단백질"><button type="button" class="choice-btn" data-value="단백질">단백질</button><button type="button" class="choice-btn" data-value="핵산">핵산</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 유전자증폭검사 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>유전자증폭검사 — 아주 적은 핵산을 많이 복제하기</div>
+    <div class="card-hint">유전자증폭검사는 검체 속 바이러스의 특정 유전자(핵산)를 한 번 반복할 때마다 2배로 복제해요. 검체 속 처음 유전자 수와 반복 횟수를 바꾸며, 검출 기준(10억 개)을 넘는 반복 횟수를 찾아보세요. 신속항원검사는 단백질이 어느 정도 이상 있어야 반응해요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="pc-svg" viewBox="0 0 400 220" aria-label="유전자 증폭 그래프"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>검체 속 처음 유전자 수 <output id="pc-n-out"></output></label><input type="range" id="pc-n" min="0" max="4" value="1"></div>
+        <div class="ctrl"><label>복제 반복 횟수 <output id="pc-c-out"></output></label><input type="range" id="pc-c" min="0" max="40" value="10"></div>
+        <div class="readout" id="pc-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="한 번 반복할 때마다 2배가 되므로 처음 1개는 10번 반복 후 2¹⁰ = 1024개가 돼요. 20번이면 약 100만 개, 30번이면 약 10억 개로 매우 적은 양의 핵산도 짧은 시간에 검출 가능한 양으로 늘어나요." data-hint="1 × 2 × 2 × … (10번)">
+      <div class="q-text"><span class="q-num">1</span>유전자 1개를 10번 반복하여 복제하면 <input class="blank w-s" data-key="pc_10" data-num="1024" data-abs="0.5"> 개가 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="신속항원검사는 빠르고 간편하지만 검체 속 병원체가 적으면 검출되지 않을 수 있어요. 유전자증폭검사는 핵산을 증폭하므로 병원체의 양이 적어도 정밀하게 진단할 수 있어 최종 진단에 주로 쓰여요. 대신 검사 장비가 필요하고 결과가 나오기까지 시간이 더 걸려요.">
+      <div class="q-text"><span class="q-num">2</span>각 특징이 어느 검사법에 해당하는지 고르시오.</div>
+      <table class="t" id="cmp-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 추적과 관리 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>과학 기술을 활용한 감염병 추적과 관리</div>
+    <div class="card-hint">감염병을 효과적으로 관리하려면 감염원과 환자의 규모를 파악하고 환자의 감염 경로와 동선을 추적해야 해요. 과학은 진단·추적뿐 아니라 방역과 치료까지 감염병 관리의 전 과정에서 쓰여요.</div>
+    <div class="q" data-why="스마트 기기의 위성 위치 확인 시스템(GPS)·와이파이·블루투스는 환자의 동선을 추적하고, 빅데이터·인공지능은 감염병의 특성 파악과 확산 예측에, 방역 로봇은 접촉을 줄이며 방역·소독에, 나노바이오센서는 아주 적은 양의 병원체 검출에 쓰여요.">
+      <div class="q-text"><span class="q-num">1</span>과학 기술과 감염병 관리에서의 역할을 연결하시오.</div>
+      <table class="t" id="tr-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구: 미래 사회 문제 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>미래 사회 문제 해결을 위한 과학의 역할 논증</div>
+    <div class="card-hint">문제 인식: 미래 사회의 문제를 해결하기 위해 과학은 어떤 역할을 할 수 있을까?<br>(가) 감염병 대유행 (나) 기후 변화 (다) 에너지 고갈 (라) 자연재해 (마) 물 부족 (바) 식량 부족 — 각 문제를 해결하는 데 가장 크게 기여할 수 있는 과학 기술을 골라 보세요.</div>
+    <div class="q" data-why="감염병에는 백신·치료제를 만드는 생명공학 기술, 기후 변화와 에너지 고갈에는 재생 에너지·배터리 기술, 자연재해에는 빅데이터·인공지능을 이용한 예측, 물 부족에는 나노 기술을 이용한 정수·해수 담수화 막, 식량 부족에는 스마트팜 같은 지속가능한 농업 기술이 쓰일 수 있어요. (여러 기술이 복합적으로 쓰이지만 가장 직접적인 것을 골라요.)">
+      <div class="q-text"><span class="q-num">1</span>미래 사회의 문제와 해결에 기여하는 과학 기술을 연결하시오.</div>
+      <table class="t" id="fp-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>"미래 사회의 문제를 해결하려면 과학이 필요하다"는 주장을 근거와 함께 써 보자. (모둠이 고른 문제 한 가지로)</div>
+      <textarea class="free" data-key="fp_arg" data-keywords="주장/필요,근거/때문,기술,해결" data-model="주장: 식량 부족 문제를 해결하려면 과학이 반드시 필요하다. 근거: 세계 인구는 계속 늘지만 기후 변화로 농경지는 줄고 있다. 스마트팜은 센서로 온도·습도·토양 상태를 실시간으로 측정해 자동으로 물과 영양분을 공급하므로 좁은 공간에서도 많은 작물을 기를 수 있다. 또한 생명공학 기술로 가뭄에 강한 품종을 개발할 수 있다. 따라서 과학 기술은 식량 생산을 늘려 미래 세대의 삶의 질을 지키는 데 핵심적인 역할을 한다." placeholder="주장 / 근거 / 결론"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="감염병 진단은 검체에 병원체가 있는지 확인하는 것이고(ㄱ ○), 추적은 감염원의 특징을 이해하고 환자의 동선을 파악하는 과정을 포함하며(ㄴ ○), 진단부터 방역·치료까지 관리의 전 과정에서 과학이 활용돼요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">1</span>감염병 진단과 추적에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 감염병 진단은 채취한 검체에 병원체가 존재하는지를 확인하여 이루어진다.<br>ㄴ. 감염병 추적은 감염원의 특징을 이해하고 감염병 환자의 동선을 파악하는 과정을 포함한다.<br>ㄷ. 감염병 관리의 전 과정에서 과학이 활용되고 있다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="미래 사회의 복잡하고 다양한 문제는 과학 기술을 복합적으로 활용하여 해결할 수 있고, 과학은 인류의 삶의 질을 개선하는 데 핵심적인 역할을 담당할 거예요.">
+      <div class="q-text"><span class="q-num">2</span>미래 사회의 문제를 해결하는 데 <input class="blank w-s" data-key="qz2" data-answer="과학|과학 기술"> 은/는 핵심적인 역할을 담당할 것이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학2 Ⅲ-1-1 과학의 유용성과 필요성 · 비상교육 통합과학2 교과서·개념 PPT·활동지(교과서 114~119쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학2 Ⅲ-1-1 과학의 유용성과 필요성";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* ===== 2. 4 홈판 ===== */
+const STEPS = [
+  { n: "포획 항체", c: "#E9F2FF", t: "① 포획 항체: 병원체의 단백질과 결합하도록 만든 항체예요." },
+  { n: "진단 시료", c: "#F3F7E8", t: "② 진단 시료: A 표준 시료 1(음성), B 표준 시료 2(양성), C 사람 1의 검체, D 사람 2의 검체를 넣어요." },
+  { n: "검출 시약", c: "#FFF6E0", t: "③ 검출 시약: 항체에 붙잡힌 단백질에만 결합해요." },
+  { n: "진단 반응 시약", c: "#FFFFFF", t: "④ 진단 반응 시약: 검출 시약이 남아 있는 홈에서만 색이 변해요." }
+];
+const WELL = [["A", "표준 시료 1", false], ["B", "표준 시료 2", true], ["C", "사람 1", true], ["D", "사람 2", false]];
+let plStep = 0, plFilled = [false, false, false, false], plDone = false, plAnim = 0;
+function drawPL() {
+  let g = `<rect x="70" y="30" width="260" height="200" rx="18" fill="#E8EEF0" stroke="#9AB" stroke-width="2"/>`;
+  WELL.forEach(([L, n, pos], i) => {
+    const x = 140 + (i % 2) * 120, y = 85 + Math.floor(i / 2) * 95;
+    let fill = "#F9FCFD";
+    if (plDone) fill = pos ? `rgba(214,51,132,${0.25 + 0.6 * plAnim})` : "#FDFDFD";
+    else if (plFilled[i]) fill = ["#CFE2FF", "#E2EEC6", "#FFE6A8", "#F5F5F5"][plStep];
+    else if (plStep > 0) fill = ["#CFE2FF", "#E2EEC6", "#FFE6A8"][plStep - 1];
+    g += `<g data-w="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="34" fill="${fill}" stroke="#7A9" stroke-width="3"/><text x="${x - 44}" y="${y - 30}" style="font-size:13px;font-weight:800">${L}</text><text x="${x}" y="${y + 50}" text-anchor="middle" style="font-size:11px;fill:#26393B" ${halo}>${n}</text>`;
+    if (!plDone && plStep < 4 && !plFilled[i]) g += `<text x="${x}" y="${y + 6}" text-anchor="middle" style="font-size:18px">💧</text>`;
+    if (!plDone && plFilled[i]) g += `<text x="${x}" y="${y + 6}" text-anchor="middle" style="font-size:16px">✓</text>`;
+    g += `</g>`;
+  });
+  $("pl-svg").innerHTML = g;
+  $("pl-step").innerHTML = plDone ? "<b>완료!</b> 색 변화를 관찰하세요." : `단계 ${plStep + 1} / 4 — <b>${STEPS[plStep].n}</b><br><span style="font-size:12px">${STEPS[plStep].t}</span>`;
+  $("pl-wait").disabled = plDone || !plFilled.every(Boolean);
+}
+function plAdd(i) { if (plDone || plFilled[i]) return; plFilled[i] = true; drawPL(); $("pl-read").textContent = plFilled.every(Boolean) ? "네 홈에 모두 넣었어요. [5분 기다리기]를 누르세요." : `${WELL[i][0]} 홈에 ${STEPS[plStep].n} 두 방울을 넣었어요.`; }
+$("pl-svg").addEventListener("click", e => { const t = e.target.closest("g[data-w]"); if (t) plAdd(Number(t.dataset.w)); });
+$("pl-all").addEventListener("click", () => { [0, 1, 2, 3].forEach(plAdd); });
+$("pl-wait").addEventListener("click", () => {
+  if (!plFilled.every(Boolean)) return;
+  if (plStep < 3) { plStep++; plFilled = [false, false, false, false]; drawPL(); $("pl-read").textContent = `5분이 지났어요. 다음 시약(${STEPS[plStep].n})을 넣으세요.`; return; }
+  plDone = true; const t0 = performance.now(); let fin = false;
+  const end = () => { if (fin) return; fin = true; plAnim = 1; drawPL(); $("pl-read").innerHTML = "A: 변화 없음 · <b style='color:#D63384'>B: 자주색</b><br><b style='color:#D63384'>C(사람 1): 자주색</b> · D(사람 2): 변화 없음"; };
+  const step = t => { plAnim = Math.min(1, (t - t0) / 1500); drawPL(); if (plAnim < 1) requestAnimationFrame(step); else end(); };
+  requestAnimationFrame(step); setTimeout(end, 1900);
+});
+$("pl-reset").addEventListener("click", () => { plStep = 0; plFilled = [false, false, false, false]; plDone = false; plAnim = 0; drawPL(); $("pl-read").textContent = "홈을 눌러 포획 항체를 넣어 보세요."; });
+drawPL();
+WS.custom("pl_done", { el: $("pl-read"), value: () => plDone ? "완료" : `단계 ${plStep + 1}` });
+
+/* ===== 3. 증폭 ===== */
+const pcN = $("pc-n"), pcC = $("pc-c"), N0 = [1, 10, 100, 1000, 10000], TH = 1e9;
+const big = v => v >= 1e4 ? `${(v / Math.pow(10, Math.floor(Math.log10(v)))).toFixed(1)}×10<sup>${Math.floor(Math.log10(v))}</sup>` : Math.round(v).toLocaleString();
+function drawPC() {
+  const n0 = N0[pcN.value], c = Number(pcC.value), v = n0 * Math.pow(2, c);
+  $("pc-n-out").textContent = n0.toLocaleString() + "개"; $("pc-c-out").textContent = c + "번";
+  const X = k => 40 + k / 40 * 345, Y = l => 195 - l / 14 * 180;
+  let g = `<line x1="40" y1="195" x2="385" y2="195" stroke="#9AB"/><line x1="40" y1="12" x2="40" y2="195" stroke="#9AB"/>`;
+  for (let l = 0; l <= 14; l += 2) g += `<text x="34" y="${Y(l) + 4}" text-anchor="end" style="font-size:9px;fill:#5E7375">10^${l}</text><line x1="40" y1="${Y(l)}" x2="385" y2="${Y(l)}" stroke="#E3ECEE"/>`;
+  for (let k = 0; k <= 40; k += 10) g += `<text x="${X(k)}" y="210" text-anchor="middle" style="font-size:10px;fill:#5E7375">${k}</text>`;
+  g += `<line x1="40" y1="${Y(9)}" x2="385" y2="${Y(9)}" stroke="#D8493B" stroke-dasharray="5 3"/><text x="380" y="${Y(9) - 4}" text-anchor="end" style="font-size:10px;fill:#D8493B" ${halo}>검출 기준(10억 개)</text>`;
+  let d = ""; for (let k = 0; k <= c; k++) d += (k ? "L" : "M") + X(k).toFixed(1) + "," + Y(Math.min(14, Math.log10(n0 * Math.pow(2, k)))).toFixed(1);
+  g += `<path d="${d}" fill="none" stroke="#2F6FED" stroke-width="3"/><circle cx="${X(c)}" cy="${Y(Math.min(14, Math.log10(v)))}" r="5" fill="#2F6FED"/>`;
+  g += `<text x="44" y="10" style="font-size:10px;fill:#5E7375">유전자 수(로그 눈금)</text><text x="385" y="220" text-anchor="end" style="font-size:10px;fill:#5E7375">반복 횟수</text>`;
+  $("pc-svg").innerHTML = g;
+  const need = Math.ceil(Math.log2(TH / n0));
+  $("pc-read").innerHTML = `${n0.toLocaleString()} × 2<sup>${c}</sup> = <b>${big(v)}개</b><br>${v >= TH ? "✅ 검출 기준을 넘었어요!" : `검출 기준까지 ${need}번 반복이 필요해요.`}<br><span style="font-size:12px;color:var(--ink-soft)">처음 유전자가 적어도 반복하면 검출할 수 있어요.</span>`;
+}
+[pcN, pcC].forEach(x => x.addEventListener("input", drawPC)); drawPC();
+$("cmp-table").innerHTML = choiceRows([
+  ["cp_fast", "⏱️ 일상생활에서 빠르고 간편하게 검사할 수 있다.", "항원"],
+  ["cp_miss", "❓ 병원체의 양이 적으면 검출되지 않을 수 있다.", "항원"],
+  ["cp_amp", "🧬 바이러스의 특정 유전자를 증폭하여 확인한다.", "증폭"],
+  ["cp_exact", "🎯 병원체가 적어도 정밀하게 진단할 수 있어 최종 진단에 쓰인다.", "증폭"]
+], [["항원", "신속항원검사(단백질)"], ["증폭", "유전자증폭검사(핵산)"]], ["특징", "검사법"]);
+
+/* ===== 4. 추적 ===== */
+$("tr-table").innerHTML = choiceRows([
+  ["tr_gps", "📡 위성 위치 확인 시스템(GPS)·블루투스", "동선"],
+  ["tr_ai", "🧠 빅데이터·인공지능", "예측"],
+  ["tr_robot", "🤖 방역 로봇", "방역"],
+  ["tr_nano", "🔬 나노바이오센서", "검출"]
+], [["동선", "환자 동선 추적"], ["예측", "확산 예측"], ["방역", "방역·소독"], ["검출", "소량 병원체 검출"]], ["과학 기술", "역할"]);
+
+/* ===== 5. 미래 문제 ===== */
+$("fp-table").innerHTML = choiceRows([
+  ["fp_a", "(가) 🦠 감염병 대유행", "생명"],
+  ["fp_b", "(나) 🌡️ 기후 변화", "재생"],
+  ["fp_d", "(라) 🌀 자연재해", "빅데이터"],
+  ["fp_e", "(마) 🚰 물 부족", "나노"],
+  ["fp_f", "(바) 🌾 식량 부족", "농업"]
+], [["생명", "생명공학(백신·치료제)"], ["재생", "재생 에너지"], ["빅데이터", "빅데이터·인공지능 예측"], ["나노", "나노 기술(정수 막)"], ["농업", "지속가능한 농업(스마트팜)"]], ["문제", "과학 기술"]);
+</script>
+</body>
+</html>

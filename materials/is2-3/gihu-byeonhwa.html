@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학2 Ⅱ-1-3 — 지구 환경 변화와 인간 생활</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is2/3">← KISPP 과학실 · 통합과학2 Ⅱ. 환경과 에너지 · 1. 생태계와 환경 변화</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 환경과 에너지 · 1. 생태계와 환경 변화 · 03 지구 환경 변화와 인간 생활 (교과서 72~79쪽)</div>
+    <h1>뜨거워지는 지구 — <span>지구 환경 변화와 인간 생활</span></h1>
+    <p class="sub">지구가 받는 에너지와 내보내는 에너지의 균형(복사 평형)을 확인하고, 온실 기체 농도를 바꾸는 시뮬레이션과 페트병 모의실험으로 지구 온난화의 원리를 탐구해 보세요. 엘니뇨와 사막화가 생기는 까닭, 기후 변화로 바뀔 2050년의 지구, 우리가 할 수 있는 대처 방안도 알아봐요.</p>
+    <div class="goals"><span>🎯 온실 효과와 지구 열수지를 이용하여 지구 온난화의 메커니즘을 설명할 수 있다.</span><span>🎯 엘니뇨, 사막화 등 지구 환경 변화가 인간 생활에 미치는 영향과 대처 방안을 설명할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 복사 평형 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>지구의 복사 평형과 열수지</div>
+    <div class="card-hint">지구에 들어오는 태양 복사 에너지를 100이라고 할 때, 일부는 구름·대기·지표에서 반사되고 나머지는 흡수돼요. 지구는 흡수한 만큼 지구 복사 에너지(적외선)를 우주로 내보내 평균 기온을 일정하게 유지해요. 이것을 <b>복사 평형</b>이라고 해요.</div>
+    <div class="stage" style="max-width:560px"><svg id="hb-svg" viewBox="0 0 400 210" aria-label="지구 열수지"></svg></div>
+    <div class="q" data-why="태양 복사 에너지 100 중 30은 반사되고 70이 지구(대기와 지표)에 흡수돼요. 복사 평형 상태에서는 흡수한 70만큼 지구 복사 에너지 70을 우주로 방출해요.">
+      <div class="q-text"><span class="q-num">1</span>태양 복사 에너지 100 중 30이 반사되면 지구가 흡수하는 양은 <input class="blank w-s" data-key="hb_abs" data-num="70" data-abs="0.01"> 이고, 복사 평형 상태에서 지구가 우주로 방출하는 지구 복사 에너지는 <input class="blank w-s" data-key="hb_out" data-num="70" data-abs="0.01"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 탐구: 온실 효과 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>지구 온난화에 따른 지구 열수지 변동 — 페트병 모의실험</div>
+    <div class="card-hint">문제 인식: 지구 온난화에 따라 지구 열수지는 어떻게 달라질까?<br>페트병 A와 B에 물을 절반 정도 채우고, <b>B에만 발포 비타민 2알</b>을 넣어 이산화 탄소가 생기게 한 뒤 온도계를 끼운 마개로 막아요. 20 cm 떨어진 전등을 켜고 1분 간격으로 10분 동안 온도를 측정해요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="pb-svg" viewBox="0 0 400 220" aria-label="페트병 실험"></svg></div>
+      <div class="panel"><button type="button" class="btn main small" id="pb-go">💡 전등 켜고 측정 시작</button><div class="readout" id="pb-read">[측정 시작]을 누르면 1분마다 온도가 기록돼요(빠르게 재생).</div></div>
+    </div>
+    <div style="overflow-x:auto;margin-top:8px"><table class="t" id="pb-table" style="font-size:12px"></table></div>
+    <div class="q" data-why="발포 비타민에서 나온 이산화 탄소가 든 페트병 B의 온도가 더 많이 올라가요. 이산화 탄소는 온실 기체로, 데워진 물과 페트병이 내보내는 적외선을 흡수했다가 다시 방출하여 열이 덜 빠져나가게 해요.">
+      <div class="q-text"><span class="q-num">1</span>10분 동안 온도가 더 많이 올라간 페트병은 <span class="choice-group" data-key="pb_more" data-answer="B"><button type="button" class="choice-btn" data-value="A">A (공기)</button><button type="button" class="choice-btn" data-value="B">B (이산화 탄소)</button></span>이다. 그 까닭은 이산화 탄소가 <span class="choice-group" data-key="pb_why" data-answer="적외선"><button type="button" class="choice-btn" data-value="적외선">적외선(지구 복사 에너지)을 흡수·재방출하기</button><button type="button" class="choice-btn" data-value="빛반사">빛을 모두 반사하기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+
+    <div class="sub-title">시뮬레이션 — 온실 기체 농도와 지구 복사 에너지의 흐름</div>
+    <div class="card-hint" style="margin-bottom:8px">온실 기체 농도를 바꾸며 지표에서 나간 적외선(빨강)이 얼마나 우주로 빠져나가고, 얼마나 대기에 흡수되었다가 지표로 되돌아오는지 보세요. (단순 모형)</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="gh-svg" viewBox="0 0 400 230" aria-label="온실 효과 시뮬레이션"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>온실 기체 농도(현재 = 100 %) <output id="gh-out"></output></label><input type="range" id="gh-c" min="0" max="200" step="10" value="100"></div>
+        <div class="seg" id="gh-pre"><button type="button" data-c="0">없음</button><button type="button" data-c="70">산업 혁명 전</button><button type="button" data-c="100">현재</button><button type="button" data-c="180">미래</button></div>
+        <div class="readout" id="gh-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="온실 기체가 전혀 없다면 지구 평균 기온은 약 -18 °C로 매우 추웠을 거예요. 대기 중 온실 기체가 지표의 적외선을 흡수했다가 지표로 다시 방출하는 온실 효과 덕분에 지구 평균 기온은 약 15 °C로 유지돼요." data-hint="시뮬레이션에서 농도를 0 %(없음)로 맞춰 보세요.">
+      <div class="q-text"><span class="q-num">2</span>온실 기체가 없을 때 지표의 평균 온도는 약 <input class="blank w-s" data-key="gh_zero" data-num="-18" data-abs="2"> °C이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="온실 기체 농도가 높아지면 우주로 빠져나가는 지구 복사 에너지가 줄어 잠시 흡수량이 방출량보다 많아져요. 그러면 지표 온도가 올라가고, 더 높은 온도에서 새로운 복사 평형을 이뤄요. 이것이 지구 온난화예요.">
+      <div class="q-text"><span class="q-num">3</span>온실 기체 농도가 높아지면 대기가 흡수했다가 지표로 다시 방출하는 에너지가 <span class="choice-group" data-key="gh_back" data-answer="증가"><button type="button" class="choice-btn" data-value="증가">증가</button><button type="button" class="choice-btn" data-value="감소">감소</button></span>하여 지표의 온도가 <span class="choice-group" data-key="gh_temp" data-answer="높아진다"><button type="button" class="choice-btn" data-value="높아진다">높아진다</button><button type="button" class="choice-btn" data-value="낮아진다">낮아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="이산화 탄소, 메테인, 산화 이질소는 대표적인 온실 기체예요. 대기의 대부분을 차지하는 질소와 산소, 아르곤은 적외선을 거의 흡수하지 않아요.">
+      <div class="q-text"><span class="q-num">4</span>온실 기체를 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="gh_gas" data-answer="CO2,CH4,N2O"><button type="button" class="multi-btn" data-value="CO2">이산화 탄소</button> <button type="button" class="multi-btn" data-value="N2">질소</button> <button type="button" class="multi-btn" data-value="CH4">메테인</button> <button type="button" class="multi-btn" data-value="O2">산소</button> <button type="button" class="multi-btn" data-value="N2O">산화 이질소</button> <button type="button" class="multi-btn" data-value="Ar">아르곤</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화석 연료 사용 증가 → 대기 중 이산화 탄소 농도 증가 → 대기가 흡수·재방출하는 지구 복사 에너지 증가(온실 효과 강화) → 지구 평균 기온 상승 → 빙하 감소와 해수면 상승으로 이어져요.">
+      <div class="q-text"><span class="q-num">5</span>결론: 지구 온난화의 메커니즘을 순서대로 배열하시오.</div>
+      <ol class="order-list" data-key="gw_order" data-answer="fuel,co2,gh,temp,ice">
+        <li data-id="temp">지구 평균 기온이 상승한다.</li>
+        <li data-id="gh">대기가 흡수·재방출하는 지구 복사 에너지가 늘어난다(온실 효과 강화).</li>
+        <li data-id="ice">빙하가 녹고 해수면이 상승한다.</li>
+        <li data-id="fuel">화석 연료의 사용량이 증가한다.</li>
+        <li data-id="co2">대기 중 이산화 탄소의 농도가 증가한다.</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 엘니뇨 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>엘니뇨 — 평상시와 무엇이 다를까?</div>
+    <div class="card-hint">적도 부근 태평양의 단면이에요. 왼쪽이 서태평양(인도네시아·오스트레일리아), 오른쪽이 동태평양(페루)이에요. 두 상태를 바꿔 가며 무역풍, 따뜻한 해수, 용승, 구름의 위치를 비교하세요.</div>
+    <div class="seg" id="en-pick" style="margin-bottom:8px"><button type="button" data-m="0" class="on">평상시</button><button type="button" data-m="1">엘니뇨 시기</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="en-svg" viewBox="0 0 400 230" aria-label="엘니뇨 단면"></svg></div>
+      <div class="panel"><div class="readout" id="en-read"></div></div>
+    </div>
+    <div class="q" data-why="엘니뇨 시기에는 무역풍이 약해져 서쪽에 쌓여 있던 따뜻한 해수가 동쪽으로 이동하고, 동태평양의 용승이 약해져 표층 수온이 평상시보다 높아져요. 그래서 비구름이 동쪽으로 옮겨 가요.">
+      <div class="q-text"><span class="q-num">1</span>엘니뇨 시기를 평상시와 비교하시오.</div>
+      <table class="t" id="en-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="엘니뇨 시기에 동태평양 연안(페루 등)은 강수량이 늘어 홍수가 나고, 용승이 약해져 영양염이 줄면서 어획량이 감소해요. 서태평양(인도네시아·오스트레일리아)은 강수량이 줄어 가뭄과 산불이 일어나요.">
+      <div class="q-text"><span class="q-num">2</span>엘니뇨 시기에 각 지역에서 나타나는 피해를 고르시오.</div>
+      <table class="t" id="en-dmg" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 사막화 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>사막화</div>
+    <div class="card-hint">사막화는 숲이나 초원이 점점 사막처럼 변하는 현상이에요. 대기 대순환에서 공기가 내려오는 곳은 구름이 잘 생기지 않아 건조하고, 여기에 사람의 활동이 더해지면 사막화가 빨라져요.</div>
+    <div class="q" data-why="위도 30° 부근은 대기 대순환에 의해 하강 기류가 나타나 강수량이 적고 사막이 많아요. 사막화가 진행되는 지역은 주로 사막 주변이에요.">
+      <div class="q-text"><span class="q-num">1</span>사막은 주로 하강 기류가 나타나는 위도 <span class="choice-group" data-key="ds_lat" data-answer="30"><button type="button" class="choice-btn" data-value="0">0°</button><button type="button" class="choice-btn" data-value="30">30°</button><button type="button" class="choice-btn" data-value="60">60°</button></span> 부근에 분포한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="대기 대순환의 변화로 강수량이 줄어드는 것은 자연적 원인이고, 과잉 경작·과잉 방목·무분별한 삼림 벌채는 인위적 원인이에요.">
+      <div class="q-text"><span class="q-num">2</span>사막화의 원인을 분류하시오.</div>
+      <table class="t" id="ds-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="사막화가 진행되면 농경지가 줄어 식량이 부족해지고, 모래 먼지가 바람에 날려 황사가 심해져요. 국제 사회는 사막화 방지 협약을 맺고 나무 심기 등을 하고 있어요.">
+      <div class="q-text"><span class="q-num">3</span>중국과 몽골의 사막화가 심해지면 우리나라에서는 <span class="choice-group" data-key="ds_dust" data-answer="황사"><button type="button" class="choice-btn" data-value="황사">황사</button><button type="button" class="choice-btn" data-value="태풍">태풍</button><button type="button" class="choice-btn" data-value="지진">지진</button></span>가 더 자주 나타날 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구: 미래 시나리오 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>기후 변화로 나타나는 생태계와 지구계의 미래 시나리오</div>
+    <div class="card-hint">문제 인식: 기후 변화로 생태계와 지구 환경은 어떻게 변화할까?<br>(가) 정부간 기후 변화 협의체(IPCC)는 화석 연료 사용과 무분별한 개발이 계속되면 지구 평균 지표 기온이 2100년까지 계속 오른다고 예측했어요. (나) 지구 평균 기온이 지금보다 3 °C 오르면 아마존 숲이 파괴되고 북극해의 얼음이 사라지며, 영구 동토층이 녹고 질병이 늘어날 수 있어요.</div>
+    <div class="stage" style="max-width:560px"><svg id="sc-svg" viewBox="0 0 400 190" aria-label="기온 변화 예측"></svg></div>
+    <div class="q" data-why="그래프에서 지구 평균 지표 기온 변화는 2000년 이후 계속 증가하는 경향을 보여요. 기온이 오르면 열대 우림 파괴, 영구 동토층 해빙, 해수면 상승, 생물 서식지 이동과 멸종, 질병 증가 등이 나타나요.">
+      <div class="q-text"><span class="q-num">1</span>(가)에서 2050년의 지구 평균 지표 기온은 2000년보다 <span class="choice-group" data-key="sc_up" data-answer="높다"><button type="button" class="choice-btn" data-value="높다">높다</button><button type="button" class="choice-btn" data-value="낮다">낮다</button></span>.</div>
+      <div class="q-text"><span class="q-num">2</span>(나)처럼 기온이 오를 때 예상되는 변화를 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="sc_eff" data-answer="forest,perma,sea,disease"><button type="button" class="multi-btn" data-value="forest">열대 우림 파괴</button> <button type="button" class="multi-btn" data-value="perma">영구 동토층 해빙</button> <button type="button" class="multi-btn" data-value="glacier">빙하 면적 증가</button> <button type="button" class="multi-btn" data-value="sea">해수면 상승</button> <button type="button" class="multi-btn" data-value="disease">질병 발생 증가</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>2050년 우리나라의 생태계와 지구 환경이 어떻게 변할지 시나리오를 써 보자.</div>
+      <textarea class="free" data-key="sc_story" data-keywords="기온/온난화,생물/생태계,해수면/폭염/가뭄/홍수" data-model="2050년 우리나라는 여름이 길어지고 폭염과 집중 호우가 잦아진다. 사과 재배지는 강원도로 북상하고, 아열대 과일을 남부에서 재배한다. 바다의 수온이 올라 명태 같은 한류성 어종이 줄고 해수면이 높아져 해안 저지대가 침수 위험을 겪는다." placeholder="2050년의 생태계와 지구 환경 변화"></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="대중교통 이용, 일회용품 줄이기, 친환경 제품 사용은 개인이 실천할 수 있는 방안이고, 탄소 저감 기술 개발과 신재생 에너지 확대는 사회와 국가가, 유엔 기후 변화 협약·파리 협정은 국제 사회가 함께하는 방안이에요.">
+      <div class="q-text"><span class="q-num">4</span>기후 변화에 대처하는 방안을 실천 주체에 따라 분류하시오.</div>
+      <table class="t" id="ac-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="온실 효과가 없다면 지구 평균 기온은 지금보다 훨씬 낮아요(ㄱ ○). 엘니뇨 시기에는 동태평양의 용승이 약해져요(ㄴ ×). 과잉 방목과 삼림 벌채 같은 인간의 활동은 사막화를 가속해요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">1</span>옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 온실 효과가 없다면 지구의 평균 기온은 지금보다 낮을 것이다.<br>ㄴ. 엘니뇨 시기에는 동태평양 연안의 용승이 평상시보다 강해진다.<br>ㄷ. 과잉 방목과 삼림 벌채는 사막화를 가속한다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="2015년 채택된 파리 협정은 지구 평균 기온 상승을 산업화 이전 대비 2 °C보다 낮게, 가능하면 1.5 °C로 제한하기 위해 모든 당사국이 온실 기체 감축에 참여하기로 한 국제 협약이에요.">
+      <div class="q-text"><span class="q-num">2</span>모든 당사국이 온실 기체 감축 목표를 세워 지구 평균 기온 상승을 2 °C보다 낮게 유지하기로 한 2015년의 국제 협약은 <span class="choice-group" data-key="qz2" data-answer="파리"><button type="button" class="choice-btn" data-value="교토">교토 의정서</button><button type="button" class="choice-btn" data-value="파리">파리 협정</button><button type="button" class="choice-btn" data-value="사막화">사막화 방지 협약</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요. 페트병 측정 결과도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학2 Ⅱ-1-3 지구 환경 변화와 인간 생활 · 비상교육 통합과학2 교과서·개념 PPT·활동지(교과서 72~79쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학2 Ⅱ-1-3 지구 환경 변화와 인간 생활";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+const mk = c => `<marker id="m${c.slice(1)}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="${c}"/></marker>`;
+
+/* ===== 1. 열수지 ===== */
+(function () {
+  let g = `<defs>${mk("#E0A100")}${mk("#D8493B")}${mk("#7A8B8C")}</defs>`;
+  g += `<rect x="0" y="0" width="400" height="210" fill="#0F2740"/><path d="M0,150 Q200,120 400,150 L400,210 L0,210 z" fill="#3E8E5B"/><path d="M0,90 Q200,70 400,90 L400,150 Q200,120 0,150 z" fill="#5A8DC8" opacity=".35"/>`;
+  g += `<text x="10" y="18" style="font-size:11px;fill:#cfe">우주</text><text x="10" y="112" style="font-size:11px;fill:#cfe">대기</text><text x="10" y="190" style="font-size:11px;fill:#fff">지표</text>`;
+  g += `<line x1="90" y1="10" x2="90" y2="140" stroke="#E0A100" stroke-width="5" marker-end="url(#mE0A100)"/><text x="98" y="30" style="font-size:12px;font-weight:800;fill:#FFD86B">태양 복사 100</text>`;
+  g += `<line x1="150" y1="140" x2="190" y2="20" stroke="#7A8B8C" stroke-width="3.5" marker-end="url(#m7A8B8C)"/><text x="172" y="58" style="font-size:12px;font-weight:800;fill:#DDE">반사 30</text>`;
+  g += `<text x="200" y="175" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">흡수 ?</text>`;
+  g += `<path d="M300,140 q8,-15 0,-30 q-8,-15 0,-30 q8,-15 0,-30 q-6,-12 0,-30" fill="none" stroke="#D8493B" stroke-width="3.5" marker-end="url(#mD8493B)"/><text x="312" y="40" style="font-size:12px;font-weight:800;fill:#FF9C8C">지구 복사 ?</text>`;
+  $("hb-svg").innerHTML = g;
+})();
+
+/* ===== 2. 페트병 ===== */
+const TA = t => 24 + 4.2 * (1 - Math.exp(-t / 5)), TB = t => 24 + 6.6 * (1 - Math.exp(-t / 5));
+let pbStep = -1, pbTimer = 0;
+function drawPBtable() {
+  let h = `<tr><th>시간(분)</th>` + Array.from({ length: 11 }, (_, i) => `<th>${i}</th>`).join("") + `</tr>`;
+  h += `<tr><td class="l">A</td>` + Array.from({ length: 11 }, (_, i) => `<td>${i <= pbStep ? TA(i).toFixed(1) : ""}</td>`).join("") + `</tr>`;
+  h += `<tr><td class="l">B</td>` + Array.from({ length: 11 }, (_, i) => `<td>${i <= pbStep ? TB(i).toFixed(1) : ""}</td>`).join("") + `</tr>`;
+  $("pb-table").innerHTML = h;
+}
+function drawPB() {
+  const t = Math.max(0, pbStep), on = pbStep >= 0;
+  let g = `<rect x="0" y="190" width="400" height="30" fill="#E3DCCF"/>`;
+  g += `<path d="M30,190 L60,190 L50,175 L40,175 z" fill="#555"/><line x1="45" y1="175" x2="70" y2="80" stroke="#555" stroke-width="4"/><path d="M60,70 L110,60 L100,100 L70,100 z" fill="#333"/>`;
+  if (on) for (let i = 0; i < 5; i++) g += `<line x1="105" y1="${75 + i * 6}" x2="${180 + i * 30}" y2="${90 + i * 18}" stroke="#F2B705" stroke-width="2" opacity=".55"/>`;
+  [["A", 200, TA(t), "#DDEFF7"], ["B", 300, TB(t), "#E9F5E1"]].forEach(([n, x, T, c]) => {
+    g += `<path d="M${x - 28},190 L${x - 28},90 Q${x - 28},70 ${x - 10},62 L${x - 10},48 L${x + 10},48 L${x + 10},62 Q${x + 28},70 ${x + 28},90 L${x + 28},190 z" fill="${c}" stroke="#7A9" stroke-width="2"/>`;
+    g += `<rect x="${x - 27}" y="140" width="54" height="49" fill="#7EC4E8" opacity=".6"/>`;
+    if (n === "B") for (let i = 0; i < 8; i++) g += `<circle cx="${x - 18 + (i * 13) % 38}" cy="${100 + (i * 17) % 38}" r="3" fill="#fff" stroke="#6A8"/>`;
+    g += `<rect x="${x - 4}" y="22" width="8" height="40" rx="3" fill="#E36"/><text x="${x}" y="16" text-anchor="middle" style="font-size:12px;font-weight:800" ${halo}>${T.toFixed(1)} °C</text><text x="${x}" y="208" text-anchor="middle" style="font-size:12px;font-weight:800">${n}</text>`;
+  });
+  g += `<text x="300" y="132" text-anchor="middle" style="font-size:10px;fill:#2E6B1F" ${halo}>CO₂</text>`;
+  $("pb-svg").innerHTML = g;
+}
+$("pb-go").addEventListener("click", () => {
+  clearInterval(pbTimer); pbStep = 0; drawPB(); drawPBtable();
+  $("pb-go").disabled = true;
+  pbTimer = setInterval(() => {
+    pbStep++; drawPB(); drawPBtable();
+    if (pbStep >= 10) { clearInterval(pbTimer); $("pb-go").disabled = false; $("pb-go").textContent = "↺ 다시 측정"; $("pb-read").innerHTML = `10분 후 A: <b>${TA(10).toFixed(1)} °C</b> (+${(TA(10) - 24).toFixed(1)}), B: <b>${TB(10).toFixed(1)} °C</b> (+${(TB(10) - 24).toFixed(1)})<br>B의 온도가 더 많이 올랐어요.`; }
+    else $("pb-read").textContent = `측정 중… ${pbStep}분`;
+  }, 350);
+});
+drawPB(); drawPBtable();
+WS.custom("pb_data", { el: $("pb-read"), value: () => pbStep >= 10 ? `A ${TA(10).toFixed(1)} / B ${TB(10).toFixed(1)}` : pbStep < 0 ? "" : `측정 ${pbStep}분까지` });
+
+/* ===== 온실 효과 시뮬레이션 ===== */
+const ghC = $("gh-c");
+function ghModel(c) { const eps = c <= 0 ? 0 : Math.min(0.95, 0.78 * Math.pow(c / 100, 0.15)); const Ts = 255 * Math.pow(2 / (2 - eps), 0.25); return { eps, Ts: Ts - 273 }; }
+function drawGH() {
+  const c = Number(ghC.value), { eps, Ts } = ghModel(c);
+  $("gh-out").textContent = c + " %";
+  document.querySelectorAll("#gh-pre button").forEach(b => b.classList.toggle("on", Number(b.dataset.c) === c));
+  const up = 100, esc = Math.round(up * (1 - eps)), back = Math.round(up * eps / 2);
+  let g = `<defs>${mk("#E0A100")}${mk("#D8493B")}</defs><rect x="0" y="0" width="400" height="230" fill="#0F2740"/>`;
+  g += `<rect x="0" y="70" width="400" height="80" fill="#7AA9D8" opacity="${0.1 + eps * 0.45}"/><text x="394" y="84" text-anchor="end" style="font-size:10px;fill:#E8F1FF">대기(온실 기체)</text>`;
+  const nG = Math.round(c / 10);
+  for (let i = 0; i < nG; i++) g += `<circle cx="${(i * 73) % 390 + 6}" cy="${80 + (i * 37) % 62}" r="3" fill="#B6F0C4" opacity=".8"/>`;
+  g += `<rect x="0" y="175" width="400" height="55" fill="#4C9A5C"/>`;
+  for (let i = 0; i < 3; i++) g += `<line x1="${40 + i * 30}" y1="5" x2="${60 + i * 30}" y2="172" stroke="#F2C14E" stroke-width="3" marker-end="url(#mE0A100)"/>`;
+  g += `<text x="40" y="18" style="font-size:10px;fill:#FFD86B" ${""}>태양 복사(가시광선)</text>`;
+  const wave = (x, y1, y2) => { let d = `M${x},${y1}`, n = 6, h = (y2 - y1) / n; for (let i = 0; i < n; i++) d += ` q${i % 2 ? -7 : 7},${h / 2} 0,${h}`; return d; };
+  g += `<path d="${wave(220, 172, 20)}" fill="none" stroke="#D8493B" stroke-width="${1 + 4 * (1 - eps)}" marker-end="url(#mD8493B)" opacity="${0.35 + 0.65 * (1 - eps)}"/>`;
+  if (eps > 0) g += `<path d="${wave(270, 172, 110)}" fill="none" stroke="#D8493B" stroke-width="3" marker-end="url(#mD8493B)"/>`;
+  if (eps > 0) g += `<path d="${wave(300, 110, 172)}" fill="none" stroke="#FF8A65" stroke-width="${1 + 4 * eps}" marker-end="url(#mD8493B)"/>`;
+  g += `<text x="232" y="34" style="font-size:10px;fill:#FFB4A8" ${""}>우주로 ${esc}</text><text x="312" y="160" style="font-size:10px;fill:#FFD2C4">지표로 재방출 ${back}</text>`;
+  g += `<text x="200" y="210" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#fff">지표 평균 온도 ${Ts.toFixed(1)} °C</text>`;
+  $("gh-svg").innerHTML = g;
+  $("gh-read").innerHTML = `지표 적외선 100 중<br>우주로 바로 빠져나감: <b>${esc}</b><br>대기가 흡수 → 지표로 재방출: <b>${back}</b><br>지표 평균 온도: <b>${Ts.toFixed(1)} °C</b>`;
+}
+ghC.addEventListener("input", drawGH);
+$("gh-pre").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; ghC.value = b.dataset.c; drawGH(); });
+drawGH();
+
+/* ===== 3. 엘니뇨 ===== */
+let enM = 0;
+function drawEN() {
+  const el = enM === 1;
+  let g = `<defs>${mk("#2F6FED")}${mk("#5E7375")}</defs><rect x="0" y="0" width="400" height="230" fill="#EAF6FB"/>`;
+  g += `<rect x="0" y="95" width="400" height="135" fill="#2C5C8F"/>`;
+  const wx = el ? 260 : 90, warmD = el ? [[20, 125], [380, 120]] : [[20, 160], [380, 108]];
+  g += `<path d="M0,95 L400,95 L400,${warmD[1][1]} Q200,${(warmD[0][1] + warmD[1][1]) / 2 + (el ? 5 : 15)} 0,${warmD[0][1]} z" fill="#E86A4A" opacity=".85"/>`;
+  g += `<text x="${el ? 210 : 70}" y="${el ? 115 : 130}" style="font-size:11px;font-weight:800;fill:#fff">따뜻한 해수</text><text x="200" y="210" text-anchor="middle" style="font-size:11px;fill:#cfe">차가운 심층 해수</text>`;
+  const n = el ? 2 : 4;
+  for (let i = 0; i < n; i++) g += `<line x1="${370 - i * 70}" y1="${70 + (i % 2) * 8}" x2="${320 - i * 70}" y2="${70 + (i % 2) * 8}" stroke="#5E7375" stroke-width="${el ? 2 : 4}" marker-end="url(#m5E7375)"/>`;
+  g += `<text x="${el ? 340 : 300}" y="${el ? 90 : 58}" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#26393B" ${halo}>무역풍 ${el ? "(약함)" : "(강함)"}</text>`;
+  g += `<path d="M${wx - 30},40 a14,14 0 0,1 22,-10 a16,16 0 0,1 28,2 a12,12 0 0,1 8,20 l-58,0 a10,10 0 0,1 0,-12 z" fill="#8A97A3"/>`;
+  for (let i = 0; i < 4; i++) g += `<line x1="${wx - 22 + i * 12}" y1="56" x2="${wx - 26 + i * 12}" y2="70" stroke="#2F6FED" stroke-width="2"/>`;
+  g += `<text x="${wx}" y="86" text-anchor="middle" style="font-size:10px;font-weight:800;fill:#26393B" ${halo}>상승 기류 · 비</text>`;
+  const uw = el ? 1 : 3;
+  for (let i = 0; i < uw; i++) g += `<line x1="${360 + i * 10}" y1="190" x2="${360 + i * 10}" y2="115" stroke="#7EC4E8" stroke-width="2.5" marker-end="url(#m2F6FED)"/>`;
+  g += `<text x="372" y="208" text-anchor="middle" style="font-size:10px;font-weight:800;fill:#BEE3FF">용승${el ? " 약화" : ""}</text>`;
+  g += `<rect x="0" y="80" width="18" height="150" fill="#9C7A54"/><rect x="382" y="80" width="18" height="150" fill="#9C7A54"/>`;
+  g += `<text x="22" y="16" style="font-size:11px;font-weight:800;fill:#26393B">서태평양(인도네시아·호주)</text><text x="380" y="30" text-anchor="end" style="font-size:11px;font-weight:800;fill:#26393B">동태평양(페루)</text>`;
+  $("en-svg").innerHTML = g;
+  $("en-read").innerHTML = el ? `<b>엘니뇨 시기</b><br>무역풍 약화 → 따뜻한 해수가 동쪽으로 이동<br>동태평양 용승 약화 → 표층 수온 <b>상승</b><br>비구름이 동쪽으로 → 페루 홍수, 인도네시아·호주 가뭄·산불` : `<b>평상시</b><br>강한 무역풍이 따뜻한 해수를 서쪽으로 밀어요.<br>동태평양에서는 차가운 심층 해수가 올라와(용승) 영양염이 풍부하고 어장이 형성돼요.<br>서태평양에 비가 많이 와요.`;
+}
+$("en-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; enM = Number(b.dataset.m); document.querySelectorAll("#en-pick button").forEach(x => x.classList.toggle("on", x === b)); drawEN(); });
+drawEN();
+$("en-table").innerHTML = choiceRows([
+  ["en_wind", "🌬️ 무역풍의 세기", "약"], ["en_sst", "🌡️ 동태평양 표층 수온", "높"], ["en_up", "⬆️ 동태평양의 용승", "약"]
+], [["강", "강해진다 / 활발해진다"], ["약", "약해진다"], ["높", "높아진다"]], ["구분", "엘니뇨 시기"]);
+$("en-dmg").innerHTML = choiceRows([
+  ["dm_west", "🇮🇩 서태평양(인도네시아·오스트레일리아)", "가뭄"], ["dm_east", "🇵🇪 동태평양 연안(페루)", "홍수"]
+], [["가뭄", "가뭄·산불"], ["홍수", "홍수·어획량 감소"]], ["지역", "피해"]);
+
+/* ===== 4. 사막화 ===== */
+$("ds-table").innerHTML = choiceRows([
+  ["ds_circ", "🌍 대기 대순환의 변화로 강수량이 줄었다.", "자연"],
+  ["ds_farm", "🌾 땅을 쉬지 않고 계속 경작하였다.", "인위"],
+  ["ds_graze", "🐐 가축을 지나치게 많이 방목하였다.", "인위"],
+  ["ds_tree", "🪓 땔감을 얻으려고 숲의 나무를 마구 베었다.", "인위"]
+], [["자연", "자연적 원인"], ["인위", "인위적 원인"]], ["원인", "분류"]);
+
+/* ===== 5. 시나리오 그래프 ===== */
+(function () {
+  const X = y => 40 + (y - 2000) / 100 * 345, Y = v => 165 - (v + 1) / 9 * 155;
+  let g = `<line x1="40" y1="${Y(-1)}" x2="385" y2="${Y(-1)}" stroke="#9AB"/><line x1="40" y1="10" x2="40" y2="${Y(-1)}" stroke="#9AB"/>`;
+  for (let v = 0; v <= 8; v += 2) g += `<text x="34" y="${Y(v) + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${v}</text><line x1="40" y1="${Y(v)}" x2="385" y2="${Y(v)}" stroke="#E3ECEE"/>`;
+  for (let y = 2000; y <= 2100; y += 25) g += `<text x="${X(y)}" y="182" text-anchor="middle" style="font-size:10px;fill:#5E7375">${y}</text>`;
+  let d = ""; for (let y = 2000; y <= 2100; y += 2) { const v = 0.06 * (y - 2000) + 0.0001 * Math.pow(y - 2000, 2) * 0 + Math.sin(y * 1.7) * 0.12; d += (d ? "L" : "M") + X(y).toFixed(1) + "," + Y(v).toFixed(1); }
+  g += `<path d="${d}" fill="none" stroke="#D8493B" stroke-width="2"/><line x1="${X(2050)}" y1="10" x2="${X(2050)}" y2="${Y(-1)}" stroke="#2F6FED" stroke-dasharray="4 3"/><text x="${X(2050) + 4}" y="20" style="font-size:10px;fill:#2F6FED">2050</text>`;
+  g += `<text x="46" y="14" style="font-size:10px;fill:#5E7375">지표 기온 변화(°C)</text><text x="385" y="${Y(-1) - 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">연도</text>`;
+  $("sc-svg").innerHTML = g;
+})();
+$("ac-table").innerHTML = choiceRows([
+  ["ac_bus", "🚌 가까운 거리는 대중교통이나 자전거를 이용한다.", "개인"],
+  ["ac_cup", "🥤 일회용품 사용을 줄인다.", "개인"],
+  ["ac_ccs", "🏭 이산화 탄소를 포집·저장하는 탄소 저감 기술을 개발한다.", "국가"],
+  ["ac_paris", "🌐 파리 협정에 따라 온실 기체 감축 목표를 정한다.", "국제"]
+], [["개인", "개인"], ["국가", "사회·국가"], ["국제", "국제 사회"]], ["대처 방안", "주체"]);
+</script>
+</body>
+</html>

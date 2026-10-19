@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학2 Ⅰ-2-1 — 산화와 환원</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is2/2">← KISPP 과학실 · 통합과학2 Ⅰ. 변화와 다양성 · 2. 화학 변화</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 변화와 다양성 · 2. 화학 변화 · 01 산화와 환원 (교과서 32~37쪽)</div>
+    <h1>얻고 잃는 화학 반응 — <span>산화와 환원</span></h1>
+    <p class="sub">광합성, 철의 제련, 화석 연료의 연소처럼 인류의 역사를 바꾼 반응의 공통점을 찾아보세요. 산화 구리(Ⅱ)와 탄소를 가열하는 실험으로 산소의 이동을, 구리선과 질산 은 수용액의 반응으로 전자의 이동을 관찰하고, 생활 속 산화·환원 반응을 분석해요.</p>
+    <div class="goals"><span>🎯 산화와 환원을 산소와 전자의 이동으로 설명할 수 있다.</span><span>🎯 생활 주변의 산화·환원 반응을 특징과 규칙성에 따라 분석할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 역사 속 화학 반응 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>자연과 인류의 역사에 변화를 가져온 화학 반응</div>
+    <div class="q" data-why="원시 바다의 남세균이 광합성을 하자 대기 중 산소가 늘어 산소 호흡 생물이 출현했어요. 산화 철에서 산소를 떼어 내는 철의 제련으로 철기 시대가 열렸고, 화석 연료가 산소와 결합하는 연소로 증기 기관과 산업 혁명이 가능해졌어요. 세 반응 모두 산소가 이동하는 산화·환원 반응이에요.">
+      <table class="t" id="hi-table"></table>
+      <div class="q-text" style="margin-top:6px">세 반응의 공통점은 <input class="blank w-s" data-key="hi_o" data-label="이동하는 것" data-answer="산소"> 가 이동하는 <input class="blank w-l" data-key="hi_rx" data-label="반응" data-answer="산화환원반응|산화·환원반응|산화환원"> 이라는 점이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 해 보기: CuO + C -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>산화 구리(Ⅱ)와 탄소의 반응 알아보기</div>
+    <div class="card-hint">검은색 산화 구리(Ⅱ)와 탄소 가루를 섞어 시험관에 넣고, 고무관을 석회수가 든 비커에 연결했어요. [가열하기]를 눌러 변화를 관찰하세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="cu-svg" viewBox="0 0 420 230" aria-label="산화 구리와 탄소의 반응"></svg></div>
+      <div class="panel"><div style="display:flex;gap:8px"><button type="button" class="btn main small" id="cu-heat">🔥 가열하기</button><button type="button" class="btn ghost small" id="cu-reset">처음으로</button></div><div class="readout" id="cu-read">가열하기 전: 검은색 가루, 맑은 석회수</div></div>
+    </div>
+    <div class="q" data-why="가열하면 검은색 산화 구리(Ⅱ)가 붉은색 구리로 변하고, 발생한 이산화 탄소가 석회수를 뿌옇게 만들어요. 산소는 산화 구리(Ⅱ)에서 탄소로 이동해요. 산소를 잃은 산화 구리(Ⅱ)는 환원, 산소를 얻은 탄소는 산화돼요. 2CuO + C → 2Cu + CO₂">
+      <div class="q-text"><span class="q-num">1</span>가열한 후 시험관에는 붉은색의 <input class="blank w-s" data-key="cu_cu" data-label="고체" data-answer="구리|Cu"> 가 생기고, 석회수가 뿌옇게 흐려지는 것으로 보아 <input class="blank" data-key="cu_co2" data-label="기체" data-answer="이산화탄소|CO2"> 가 발생한다.</div>
+      <div class="q-text"><span class="q-num">2</span>산소는 <span class="choice-group" data-key="cu_dir" data-answer="CuO→C"><button type="button" class="choice-btn" data-value="CuO→C">산화 구리(Ⅱ) → 탄소</button><button type="button" class="choice-btn" data-value="C→CuO">탄소 → 산화 구리(Ⅱ)</button></span>로 이동하므로, 산화 구리(Ⅱ)는 <span class="choice-group" data-key="cu_cuo" data-label="산화 구리" data-answer="환원"><button type="button" class="choice-btn" data-value="산화">산화</button><button type="button" class="choice-btn" data-value="환원">환원</button></span>되고 탄소는 <span class="choice-group" data-key="cu_c" data-label="탄소" data-answer="산화"><button type="button" class="choice-btn" data-value="산화">산화</button><button type="button" class="choice-btn" data-value="환원">환원</button></span>된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 개념: 정의 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>산소의 이동과 전자의 이동으로 본 산화·환원</div>
+    <div class="q" data-why="산화는 산소를 얻거나 전자를 잃는 반응, 환원은 산소를 잃거나 전자를 얻는 반응이에요. 한 물질이 산화되면 다른 물질은 환원되므로 산화와 환원은 항상 동시에 일어나요.">
+      <table class="t">
+        <tr><th></th><th>산소의 이동</th><th>전자의 이동</th></tr>
+        <tr><th>산화</th><td>산소를 <span class="choice-group" data-key="df_ox_o" data-label="산화-산소" data-answer="얻는"><button type="button" class="choice-btn" data-value="얻는">얻는</button><button type="button" class="choice-btn" data-value="잃는">잃는</button></span> 반응</td><td>전자를 <span class="choice-group" data-key="df_ox_e" data-label="산화-전자" data-answer="잃는"><button type="button" class="choice-btn" data-value="얻는">얻는</button><button type="button" class="choice-btn" data-value="잃는">잃는</button></span> 반응</td></tr>
+        <tr><th>환원</th><td>산소를 <span class="choice-group" data-key="df_re_o" data-label="환원-산소" data-answer="잃는"><button type="button" class="choice-btn" data-value="얻는">얻는</button><button type="button" class="choice-btn" data-value="잃는">잃는</button></span> 반응</td><td>전자를 <span class="choice-group" data-key="df_re_e" data-label="환원-전자" data-answer="얻는"><button type="button" class="choice-btn" data-value="얻는">얻는</button><button type="button" class="choice-btn" data-value="잃는">잃는</button></span> 반응</td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px">산화와 환원은 항상 <span class="choice-group" data-key="df_same" data-answer="동시에"><button type="button" class="choice-btn" data-value="동시에">동시에</button><button type="button" class="choice-btn" data-value="따로">따로</button></span> 일어난다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 전자 이동 시뮬레이션 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>전자의 이동 관찰하기</div>
+    <div class="seg" id="ex-pick" style="margin-bottom:8px"><button type="button" class="on" data-x="mg">🔥 마그네슘의 연소</button><button type="button" data-x="ag">🧪 구리선 + 질산 은 수용액</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ex-svg" viewBox="0 0 420 250" aria-label="전자의 이동"></svg></div>
+      <div class="panel">
+        <div class="ctrl" id="ex-ctrl"><label>반응 진행 <output id="ex-t-out"></output></label><input type="range" id="ex-t" min="0" max="100" step="1" value="0"></div>
+        <div class="readout" id="ex-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="마그네슘은 전자 2개를 잃어 Mg²⁺(산화), 산소는 전자를 얻어 O²⁻(환원)가 되어 산화 마그네슘이 돼요. 구리선을 질산 은 수용액에 넣으면 구리는 전자를 잃고 Cu²⁺로 산화되어 수용액이 푸른색이 되고, 은 이온은 전자를 얻어 은으로 환원되어 구리선 표면에 석출돼요. Cu 1개가 전자 2개를 내놓아 Ag⁺ 2개가 환원되므로 수용액 속 양이온 수는 줄어들어요.">
+      <div class="q-text"><span class="q-num">1</span>마그네슘이 연소할 때 마그네슘은 전자를 <span class="choice-group" data-key="ex_mg" data-answer="잃어"><button type="button" class="choice-btn" data-value="잃어">잃어 산화</button><button type="button" class="choice-btn" data-value="얻어">얻어 환원</button></span>된다.</div>
+      <div class="q-text"><span class="q-num">2</span>구리선을 질산 은 수용액에 넣으면 수용액이 <span class="choice-group" data-key="ex_col" data-answer="푸른색"><button type="button" class="choice-btn" data-value="푸른색">푸른색</button><button type="button" class="choice-btn" data-value="붉은색">붉은색</button><button type="button" class="choice-btn" data-value="무색">무색 그대로</button></span>으로 변하고, 구리선 표면에 <input class="blank w-s" data-key="ex_ag" data-answer="은|Ag"> 이 석출된다.</div>
+      <div class="q-text"><span class="q-num">3</span>구리 원자 1개가 반응할 때 환원되는 은 이온은 <input class="blank w-s" data-key="ex_ratio" data-num="2" data-abs="0"> 개이므로, 반응이 진행될수록 수용액 속 양이온의 수는 <span class="choice-group" data-key="ex_ions" data-answer="감소"><button type="button" class="choice-btn" data-value="증가">증가</button><button type="button" class="choice-btn" data-value="감소">감소</button><button type="button" class="choice-btn" data-value="일정">일정</button></span>한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 해 보기: 생활 속 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기</span>생활 주변의 반응을 특징과 규칙성에 따라 분석하기</div>
+    <div class="card-hint">각 반응에서 산화되는 물질과 환원되는 물질을 고르세요.</div>
+    <div class="q" data-why="철의 제련: 일산화 탄소가 산소를 얻어 이산화 탄소로 산화, 산화 철은 산소를 잃어 철로 환원. 수소 연료 전지: 수소가 산화, 산소가 환원되어 물 생성. 메테인 연소: 메테인이 산화, 산소가 환원. 광합성: 물이 산화되어 산소가 생기고 이산화 탄소가 환원되어 포도당이 생겨요.">
+      <table class="t" id="lf-table"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>위 반응들에서 찾을 수 있는 산화·환원 반응의 규칙성을 써 보자.</div>
+      <textarea class="free" data-key="lf_rule" data-keywords="동시/함께,산소/전자,얻/잃" data-model="모든 반응에서 한 물질이 산소를 얻거나 전자를 잃어 산화되면, 다른 물질은 산소를 잃거나 전자를 얻어 환원된다. 즉 산화와 환원은 항상 동시에 일어난다." placeholder="예: 한 물질이 산화되면 …"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="철이 녹스는 것은 산소와 결합하는 산화(ㄱ ○), 손난로는 철 가루가 산화되며 열을 내요(ㄴ ○). 사과를 깎아 두면 갈색으로 변하는 것도 산화예요(ㄷ ×).">
+      <div class="q-text"><span class="q-num">1</span>생활 속 산화·환원에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 철이 녹스는 것은 철이 산화되는 반응이다.<br>ㄴ. 손난로는 철 가루가 산화되면서 열이 발생한다.<br>ㄷ. 깎아 둔 사과가 갈색으로 변하는 것은 환원 반응이다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="Zn + Cu²⁺ → Zn²⁺ + Cu에서 아연은 전자를 잃어 산화되고, 구리 이온은 전자를 얻어 환원돼요. 아연판 표면에 붉은색 구리가 석출되고, 푸른색 수용액의 색이 옅어져요.">
+      <div class="q-text"><span class="q-num">2</span>황산 구리(Ⅱ) 수용액에 아연판을 넣었더니 아연판 표면에 붉은색 물질이 생겼다. 이때 산화되는 것은 <span class="choice-group" data-key="qz2a" data-label="산화" data-answer="아연"><button type="button" class="choice-btn" data-value="아연">아연</button><button type="button" class="choice-btn" data-value="구리 이온">구리 이온</button></span>, 환원되는 것은 <span class="choice-group" data-key="qz2b" data-label="환원" data-answer="구리 이온"><button type="button" class="choice-btn" data-value="아연">아연</button><button type="button" class="choice-btn" data-value="구리 이온">구리 이온</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학2 Ⅰ-2-1 산화와 환원 · 비상교육 통합과학2 개념 PPT·활동지(교과서 32~37쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학2 Ⅰ-2-1 산화와 환원";
+const $ = id => document.getElementById(id);
+const tableChoices = (rows, opts, head) => `<tr>${head.map(h => `<th>${h}</th>`).join("")}</tr>` + rows.map(r => `<tr><td class="l">${r[1]}</td>${r.slice(2).map((a, j) => `<td><span class="choice-group" data-key="${r[0]}${j ? "_" + j : ""}" data-label="${r[1].replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${(Array.isArray(opts[0]) && Array.isArray(opts[0][0]) ? opts[j] : opts).map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td>`).join("")}</tr>`).join("");
+
+/* ===== 1. 역사 ===== */
+$("hi-table").innerHTML = tableChoices([["hi_ps", "🌊 원시 바다 남세균의 광합성", "산소"], ["hi_fe", "⚒️ 철의 제련", "철기"], ["hi_fuel", "🏭 화석 연료의 연소", "산업"]], [["산소", "대기 중 산소 증가 → 산소 호흡 생물 출현"], ["철기", "철기 시대 → 인류 문명 발달"], ["산업", "증기 기관 → 산업 혁명"]], ["반응", "가져온 변화"]);
+
+/* ===== 2. CuO + C ===== */
+let cuT = 0, cuRaf = 0, cuOn = false;
+function drawCU() {
+  const k = Math.min(1, cuT / 4), mix = (a, b) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+  const powder = mix([30, 30, 30], [168, 82, 45]), lime = `rgba(255,255,255,${0.15 + 0.7 * Math.min(1, cuT / 3)})`;
+  let g = `<rect x="60" y="40" width="10" height="150" fill="#5E6B6E"/><rect x="40" y="186" width="80" height="10" fill="#5E6B6E"/>`;
+  g += `<g transform="rotate(-12 150 80)"><rect x="70" y="66" width="170" height="30" rx="14" fill="#F7FBFC" stroke="#9AB" stroke-width="2"/><path d="M90,92 Q130,74 170,92 Z" fill="rgb(${powder})"/></g>`;
+  g += `<path d="M238,58 C290,40 300,120 330,150" fill="none" stroke="#C8B79A" stroke-width="6"/>`;
+  g += `<rect x="300" y="130" width="70" height="80" rx="6" fill="none" stroke="#9AB" stroke-width="2"/><rect x="302" y="150" width="66" height="58" rx="4" fill="#DDEFF7"/><rect x="302" y="150" width="66" height="58" rx="4" fill="${lime}"/><text x="335" y="225" text-anchor="middle" style="font-size:11px;fill:#5E7375">석회수</text>`;
+  if (cuOn && cuT < 6) { g += `<path d="M125,140 q-10,-30 6,-46 q4,20 14,26 q2,-14 10,-20 q8,26 -4,40 Z" fill="#F28C28" opacity=".85"/>`; for (let i = 0; i < 6; i++) { const y = 200 - ((cuT * 60 + i * 12) % 60); g += `<circle cx="${328 + (i * 7) % 20}" cy="${y}" r="3" fill="#fff" stroke="#9AB"/>`; } }
+  g += `<rect x="105" y="140" width="40" height="20" rx="4" fill="#3F5254"/><text x="125" y="176" text-anchor="middle" style="font-size:11px;fill:#5E7375">가스버너</text>`;
+  g += `<text x="150" y="30" text-anchor="middle" style="font-size:11px;fill:#5E7375">산화 구리(Ⅱ) + 탄소</text>`;
+  $("cu-svg").innerHTML = g;
+}
+function cuLoop(t0) { return t => { cuT = (t - t0) / 1000; drawCU(); if (cuT < 6) cuRaf = requestAnimationFrame(cuLoop(t0)); else { cuOn = false; drawCU(); $("cu-read").innerHTML = "가열한 후: 검은색 가루가 <b>붉은색</b>으로 변했고, 석회수가 <b>뿌옇게</b> 흐려졌어요."; } }; }
+$("cu-heat").addEventListener("click", () => { cancelAnimationFrame(cuRaf); cuOn = true; cuRaf = requestAnimationFrame(cuLoop(performance.now())); $("cu-read").textContent = "가열 중… 고무관 끝에서 기포가 나와요."; });
+$("cu-reset").addEventListener("click", () => { cancelAnimationFrame(cuRaf); cuT = 0; cuOn = false; drawCU(); $("cu-read").textContent = "가열하기 전: 검은색 가루, 맑은 석회수"; });
+drawCU();
+
+/* ===== 4. 전자 이동 ===== */
+let exX = "mg"; const exT = $("ex-t");
+function ion(x, y, r, c, t) { return `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" stroke="#fff" stroke-width="1.5"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:${r > 14 ? 11 : 9}px;font-weight:800;fill:#fff">${t}</text>`; }
+function drawEX() {
+  const p = Number(exT.value) / 100; $("ex-t-out").textContent = Math.round(p * 100) + " %";
+  let g = "";
+  if (exX === "mg") {
+    const done = p >= 0.5, eX = 150 + Math.min(1, p * 2) * 120;
+    g += done ? ion(140, 120, 26, "#8A8F98", "Mg²⁺") + ion(290, 120, 30, "#D8493B", "O²⁻") + `<text x="215" y="190" text-anchor="middle" style="font-size:13px;font-weight:800">산화 마그네슘 (MgO)</text>`
+      : ion(140, 120, 30, "#8A8F98", "Mg") + ion(290, 120, 26, "#D8493B", "O");
+    if (p > 0 && p < 0.5) g += `<circle cx="${eX}" cy="100" r="6" fill="#2F6FED"/><circle cx="${eX}" cy="140" r="6" fill="#2F6FED"/><text x="${eX}" y="84" text-anchor="middle" style="font-size:10px;fill:#2F6FED">e⁻ e⁻</text>`;
+    g += `<text x="140" y="40" text-anchor="middle" style="font-size:12px;fill:#5E7375">마그네슘: 전자 2개를 잃음 → 산화</text><text x="290" y="60" text-anchor="middle" style="font-size:12px;fill:#5E7375">산소: 전자 2개를 얻음 → 환원</text>`;
+    $("ex-read").innerHTML = done ? "Mg → Mg²⁺ + 2e⁻ (산화) · O + 2e⁻ → O²⁻ (환원)<br>두 이온이 결합해 <b>산화 마그네슘</b>이 돼요." : "슬라이더를 움직여 전자가 이동하는 모습을 보세요.";
+  } else {
+    const cuIon = Math.round(p * 4), agLeft = 8 - cuIon * 2;
+    g += `<rect x="60" y="40" width="300" height="190" rx="10" fill="rgba(70,130,220,${0.06 + 0.35 * p})" stroke="#9AB" stroke-width="2"/>`;
+    g += `<rect x="200" y="10" width="14" height="190" rx="5" fill="#C8733A"/>`;
+    for (let i = 0; i < cuIon * 2; i++) g += `<rect x="${194 + (i % 2) * 18}" y="${190 - i * 14}" width="10" height="10" fill="#C9CED6" stroke="#8A8F98"/>`;
+    const pts = [[90, 70], [130, 120], [100, 180], [300, 70], [330, 130], [290, 190], [150, 200], [260, 120]];
+    for (let i = 0; i < agLeft; i++) g += ion(pts[i][0], pts[i][1], 13, "#8A8F98", "Ag⁺");
+    const cp = [[140, 80], [270, 170], [120, 150], [310, 100]];
+    for (let i = 0; i < cuIon; i++) g += ion(cp[i][0], cp[i][1], 15, "#2F6FED", "Cu²⁺");
+    for (let i = 0; i < 4; i++) g += `<text x="${80 + i * 80}" y="${222}" style="font-size:10px;fill:#5E7375">NO₃⁻</text>`;
+    g += `<text x="207" y="8" text-anchor="middle" style="font-size:10px;fill:#5E7375">구리선</text>`;
+    $("ex-read").innerHTML = `Ag⁺ <b>${agLeft}</b>개 · Cu²⁺ <b>${cuIon}</b>개 · 석출된 Ag <b>${cuIon * 2}</b>개<br>수용액 속 양이온 수: <b>${agLeft + cuIon}</b>개 (처음 8개)<br>Cu → Cu²⁺ + 2e⁻ (산화) · 2Ag⁺ + 2e⁻ → 2Ag (환원)`;
+  }
+  $("ex-svg").innerHTML = g;
+}
+exT.addEventListener("input", drawEX);
+document.querySelectorAll("#ex-pick button").forEach(b => b.addEventListener("click", () => { exX = b.dataset.x; exT.value = 0; document.querySelectorAll("#ex-pick button").forEach(x => x.classList.toggle("on", x === b)); drawEX(); }));
+drawEX();
+
+/* ===== 5. 생활 속 ===== */
+const LF = [
+  ["lf_fe", "⚒️ 철의 제련: Fe₂O₃ + 3CO → 2Fe + 3CO₂", "CO", "Fe2O3"],
+  ["lf_h2", "🚗 수소 연료 전지: 2H₂ + O₂ → 2H₂O", "H2", "O2"],
+  ["lf_ch4", "🔥 메테인의 연소: CH₄ + 2O₂ → CO₂ + 2H₂O", "CH4", "O2"],
+  ["lf_ps", "🌿 광합성: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", "H2O", "CO2"]
+];
+const OPTS = [["CO", "일산화 탄소"], ["Fe2O3", "산화 철"], ["H2", "수소"], ["O2", "산소"], ["CH4", "메테인"], ["H2O", "물"], ["CO2", "이산화 탄소"]];
+const optFor = (r, j) => OPTS.filter(([v]) => r[1].replace(/[₀-₉]/g, d => "0123456789"["₀₁₂₃₄₅₆₇₈₉".indexOf(d)]).includes(v) || v === r[2] || v === r[3]);
+$("lf-table").innerHTML = `<tr><th>반응</th><th>산화되는 물질</th><th>환원되는 물질</th></tr>` + LF.map(r => `<tr><td class="l">${r[1]}</td>${[r[2], r[3]].map((a, j) => `<td><span class="choice-group" data-key="${r[0]}_${j ? "re" : "ox"}" data-label="${r[1].slice(2, 8)} ${j ? "환원" : "산화"}" data-answer="${a}">${optFor(r, j).map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td>`).join("")}</tr>`).join("");
+</script>
+</body>
+</html>

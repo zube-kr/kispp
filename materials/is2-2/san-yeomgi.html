@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학2 Ⅰ-2-2 — 산과 염기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+  .plate{ display:grid; grid-template-columns:110px repeat(6,minmax(0,1fr)); gap:4px; min-width:520px; max-width:640px; }
+  .plate .h{ font-size:11.5px; font-weight:800; text-align:center; align-self:end; padding-bottom:2px; }
+  .plate .rl{ font-size:12px; font-weight:800; display:flex; align-items:center; }
+  .well{ width:100%; max-width:64px; justify-self:center; aspect-ratio:1; border-radius:50%; border:2px solid #C9D6D8; background:#F4F8F8; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; text-align:center; line-height:1.15; padding:2px; }
+  .well:hover{ border-color:var(--main); }
+  .mix{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+  .mix .w{ border:2px solid var(--line); border-radius:14px; padding:6px; text-align:center; cursor:pointer; background:#fff; font-size:12px; }
+  .mix .w .cup{ height:46px; border-radius:0 0 18px 18px; margin:4px auto; width:70%; border:2px solid #9AB; border-top:none; }
+  .mix .w.sel{ border-color:var(--warm); }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is2/2">← KISPP 과학실 · 통합과학2 Ⅰ. 변화와 다양성 · 2. 화학 변화</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 변화와 다양성 · 2. 화학 변화 · 02 산과 염기 (교과서 38~45쪽)</div>
+    <h1>H⁺와 OH⁻의 만남 — <span>산과 염기</span></h1>
+    <p class="sub">24 홈판에서 여러 수용액에 리트머스 종이, BTB 용액, 전기 전도성 측정기, 마그네슘 리본을 차례로 넣어 산과 염기의 공통 성질을 찾으세요. 묽은 염산과 수산화 나트륨 수용액을 다른 비율로 섞어 온도와 액성의 변화를 측정하고, 생활 속 중화 반응도 정리해요.</p>
+    <div class="goals"><span>🎯 산과 염기의 공통적인 성질을 관찰하고, 그 까닭을 이온으로 설명할 수 있다.</span><span>🎯 중화 반응에서 액성과 온도 변화를 설명하고 생활 속 이용 사례를 찾을 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 탐구: 24 홈판 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>산과 염기의 성질 관찰 — 24 홈판</div>
+    <div class="card-hint">문제 인식: 산과 염기는 각각 어떤 성질이 있을까?<br>홈을 하나씩 눌러 결과를 확인하세요. (수용액을 바꿀 때마다 전기 전도성 측정기의 전극을 증류수로 씻는다고 생각해요.)</div>
+    <div style="overflow-x:auto"><div class="plate" id="plate"></div></div>
+    <div class="readout" id="pl-read" style="margin-top:8px">홈을 눌러 보세요. (확인한 홈 0 / 30)</div>
+    <div class="q" data-why="묽은 염산, 레몬즙, 식초는 푸른색 리트머스를 붉게 하고, BTB를 노란색으로 바꾸며, 마그네슘과 반응해 수소 기체를 내는 산이에요. 수산화 나트륨 수용액, 제빵 소다 수용액, 하수구 세정제는 붉은색 리트머스를 푸르게 하고 BTB를 파란색으로 바꾸며 금속과 반응하지 않는 염기예요. 산과 염기 수용액 모두 전류가 흘러요.">
+      <div class="q-text"><span class="q-num">1</span>각 수용액을 산과 염기로 분류하시오.</div>
+      <table class="t" id="cls-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="산은 BTB를 노란색으로, 염기는 파란색으로 바꿔요. 산은 마그네슘과 반응해 수소 기체를 발생시키고, 탄산 칼슘과 반응하면 이산화 탄소를 발생시켜요. 염기는 단백질을 녹여 하수구 세정제로 쓰여요.">
+      <div class="q-text"><span class="q-num">2</span>산 수용액은 BTB 용액을 <span class="choice-group" data-key="pl_btb_a" data-label="산-BTB" data-answer="노란색"><button type="button" class="choice-btn" data-value="노란색">노란색</button><button type="button" class="choice-btn" data-value="초록색">초록색</button><button type="button" class="choice-btn" data-value="파란색">파란색</button></span>, 염기 수용액은 <span class="choice-group" data-key="pl_btb_b" data-label="염기-BTB" data-answer="파란색"><button type="button" class="choice-btn" data-value="노란색">노란색</button><button type="button" class="choice-btn" data-value="초록색">초록색</button><button type="button" class="choice-btn" data-value="파란색">파란색</button></span>으로 변화시킨다.</div>
+      <div class="q-text"><span class="q-num">3</span>산 수용액에 마그네슘 리본을 넣으면 <input class="blank w-s" data-key="pl_h2" data-answer="수소|수소기체|H2"> 기체가 발생한다. 산과 염기 수용액은 모두 전류가 <span class="choice-group" data-key="pl_cur" data-answer="흐른다"><button type="button" class="choice-btn" data-value="흐른다">흐른다</button><button type="button" class="choice-btn" data-value="흐르지 않는다">흐르지 않는다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 개념: 이온 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>산성과 염기성이 나타나는 까닭</div>
+    <p class="read-text"><b>산</b>은 물에 녹아 수소 이온(H⁺)을 내놓고, <b>염기</b>는 물에 녹아 수산화 이온(OH⁻)을 내놓아요. 산 수용액이 공통적으로 나타내는 성질을 <b>산성</b>, 염기 수용액이 공통적으로 나타내는 성질을 <b>염기성</b>이라고 하며, 용액의 액성에 따라 색이 변하는 물질을 <b>지시약</b>이라고 해요.</p>
+    <div class="q" data-why="HCl → H⁺ + Cl⁻, NaOH → Na⁺ + OH⁻. 산성은 H⁺ 때문에, 염기성은 OH⁻ 때문에 나타나요. 수용액에 이온이 있어 전류가 흘러요.">
+      <div class="q-text"><span class="q-num">1</span>산성은 산이 물에 녹아 내놓는 <span class="choice-group" data-key="io_h" data-answer="H+"><button type="button" class="choice-btn" data-value="H+">수소 이온(H⁺)</button><button type="button" class="choice-btn" data-value="OH-">수산화 이온(OH⁻)</button></span> 때문에, 염기성은 <span class="choice-group" data-key="io_oh" data-answer="OH-"><button type="button" class="choice-btn" data-value="H+">수소 이온(H⁺)</button><button type="button" class="choice-btn" data-value="OH-">수산화 이온(OH⁻)</button></span> 때문에 나타난다.</div>
+      <div class="q-text"><span class="q-num">2</span>용액의 액성에 따라 색이 변하는 물질을 <input class="blank w-s" data-key="io_ind" data-answer="지시약"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 탐구: 혼합 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>산과 염기를 혼합할 때 나타나는 온도와 액성 변화 관찰</div>
+    <div class="card-hint">문제 인식: 산과 염기를 혼합하면 어떤 변화가 나타날까?<br>처음 온도 24.0 °C인 묽은 염산과 수산화 나트륨 수용액(같은 농도)을 홈 A~E에 다른 비율로 섞었어요. 홈을 눌러 최고 온도를 측정하고 BTB 색과 이온 모형을 확인하세요.</div>
+    <div class="mix" id="mix"></div>
+    <div class="sim-wrap" style="margin-top:10px">
+      <div class="stage"><svg id="mx-svg" viewBox="0 0 400 200" aria-label="혼합 용액의 이온 모형"></svg></div>
+      <div class="panel"><div class="readout" id="mx-read">홈을 눌러 보세요.</div></div>
+    </div>
+    <div class="q" data-why="산의 H⁺와 염기의 OH⁻가 1 : 1로 반응해 물이 생기는 반응이 중화 반응이에요. 반응한 이온 수가 많을수록 중화열이 많이 발생해요. 염산 6 mL와 수산화 나트륨 수용액 6 mL를 섞은 C에서 가장 많이 반응해 온도가 가장 높고, H⁺ = OH⁻이라 중성(BTB 초록색)이에요. A, B는 OH⁻가 남아 염기성(파란색), D, E는 H⁺가 남아 산성(노란색)이에요.">
+      <div class="q-text"><span class="q-num">1</span>혼합 용액의 최고 온도가 가장 높은 홈은 <span class="choice-group" data-key="mx_hot" data-answer="C"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button><button type="button" class="choice-btn" data-value="D">D</button><button type="button" class="choice-btn" data-value="E">E</button></span>이고, 그 까닭은 반응한 이온의 수가 가장 <span class="choice-group" data-key="mx_why" data-answer="많기"><button type="button" class="choice-btn" data-value="많기">많기</button><button type="button" class="choice-btn" data-value="적기">적기</button></span> 때문이다.</div>
+      <div class="q-text"><span class="q-num">2</span>BTB 색: A <span class="choice-group" data-key="mx_a" data-label="A" data-answer="파란색"><button type="button" class="choice-btn" data-value="노란색">노랑</button><button type="button" class="choice-btn" data-value="초록색">초록</button><button type="button" class="choice-btn" data-value="파란색">파랑</button></span> · C <span class="choice-group" data-key="mx_c" data-label="C" data-answer="초록색"><button type="button" class="choice-btn" data-value="노란색">노랑</button><button type="button" class="choice-btn" data-value="초록색">초록</button><button type="button" class="choice-btn" data-value="파란색">파랑</button></span> · E <span class="choice-group" data-key="mx_e" data-label="E" data-answer="노란색"><button type="button" class="choice-btn" data-value="노란색">노랑</button><button type="button" class="choice-btn" data-value="초록색">초록</button><button type="button" class="choice-btn" data-value="파란색">파랑</button></span></div>
+      <div class="q-text"><span class="q-num">3</span>중화 반응에서 산의 H⁺와 염기의 OH⁻는 <input class="blank w-s" data-key="mx_ratio" data-answer="1:1|1대1"> 의 개수비로 반응하여 <input class="blank w-s" data-key="mx_water" data-answer="물|H2O"> 이 생성된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 대체 탐구: 센서 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">대체 탐구</span>마이크로컨트롤러와 센서를 사용한 중화 반응 관찰</div>
+    <div class="card-hint">비커에 1 M 묽은 염산 10 mL와 페놀프탈레인 용액 2~3방울을 넣고, 뷰렛으로 1 M 수산화 나트륨 수용액을 조금씩 떨어뜨려요. 온도 센서가 측정한 그래프를 관찰하세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ti-svg" viewBox="0 0 440 240" aria-label="중화 반응 온도 그래프"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>넣은 수산화 나트륨 수용액 <output id="ti-v-out"></output></label><input type="range" id="ti-v" min="0" max="20" step="0.5" value="0"></div>
+        <div class="readout" id="ti-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="수산화 나트륨 수용액을 넣는 동안 중화 반응이 일어나 온도가 점점 높아지다가, 10 mL(H⁺와 OH⁻의 수가 같아지는 지점)에서 가장 높아요. 이후에는 더 반응할 H⁺가 없고 차가운 용액이 더해져 온도가 낮아져요. 페놀프탈레인은 염기성이 되는 10 mL 이후부터 붉은색이 돼요.">
+      <div class="q-text"><span class="q-num">1</span>혼합 용액의 온도가 가장 높을 때 넣은 수산화 나트륨 수용액의 부피는 약 <input class="blank w-s" data-key="ti_max" data-num="10" data-abs="0.5"> mL이고, 이후 페놀프탈레인 용액의 색은 <span class="choice-group" data-key="ti_col" data-answer="붉은색"><button type="button" class="choice-btn" data-value="무색">무색</button><button type="button" class="choice-btn" data-value="붉은색">붉은색</button><button type="button" class="choice-btn" data-value="노란색">노란색</button></span>이 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 생활 속 중화 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>중화 반응의 이용</div>
+    <div class="q" data-why="속이 쓰릴 때 먹는 제산제는 염기성, 생선 비린내(염기성 물질)를 없애는 레몬즙은 산성, 산성화된 토양·호수에 뿌리는 석회 가루와 공장의 산성 기체를 처리하는 석회석은 염기성이에요. 산성인 펄프는 염기로 중화해 오래 보존되는 중성지를 만들어요.">
+      <table class="t" id="use-table"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 6. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="산 수용액은 푸른색 리트머스 종이를 붉게 하고(ㄱ ○), 탄산 칼슘과 반응해 이산화 탄소를 발생시켜요(ㄴ ○). 염기 수용액은 금속과 반응하지 않아요(ㄷ ×). 산과 염기 수용액은 모두 전류가 흘러요(ㄹ ○).">
+      <div class="q-text"><span class="q-num">1</span>산과 염기의 성질에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 산 수용액은 푸른색 리트머스 종이를 붉게 변화시킨다.<br>ㄴ. 산 수용액은 탄산 칼슘과 반응하여 이산화 탄소 기체를 발생시킨다.<br>ㄷ. 염기 수용액은 금속과 반응하여 수소 기체를 발생시킨다.<br>ㄹ. 산과 염기 수용액은 모두 전류가 흐른다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button> <button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="H⁺ 10개와 OH⁻ 6개가 만나면 6개씩 반응해 물 6개가 생기고 H⁺ 4개가 남아 산성이에요.">
+      <div class="q-text"><span class="q-num">2</span>H⁺ 10개가 들어 있는 산 수용액에 OH⁻ 6개가 들어 있는 염기 수용액을 섞으면 생성되는 물 분자는 <input class="blank w-s" data-key="qz2a" data-label="물" data-num="6" data-abs="0"> 개이고, 혼합 용액의 액성은 <span class="choice-group" data-key="qz2b" data-label="액성" data-answer="산성"><button type="button" class="choice-btn" data-value="산성">산성</button><button type="button" class="choice-btn" data-value="중성">중성</button><button type="button" class="choice-btn" data-value="염기성">염기성</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학2 Ⅰ-2-2 산과 염기 · 비상교육 통합과학2 개념 PPT·활동지(교과서 38~45쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학2 Ⅰ-2-2 산과 염기";
+const $ = id => document.getElementById(id);
+
+/* ===== 1. 24 홈판 ===== */
+const SOL = [["hcl", "묽은 염산", "산"], ["lemon", "레몬즙", "산"], ["vin", "식초", "산"], ["naoh", "수산화 나트륨 수용액", "염기"], ["soda", "제빵 소다 수용액", "염기"], ["drain", "하수구 세정제", "염기"]];
+const TEST = [["blue", "푸른색 리트머스"], ["red", "붉은색 리트머스"], ["btb", "BTB 용액"], ["ec", "전기 전도성"], ["mg", "마그네슘 리본"]];
+const RES = (kind, t) => kind === "산"
+  ? { blue: ["붉게 변함", "#E8393B"], red: ["변화 없음", "#F2A3A3"], btb: ["노란색", "#F7D23E"], ec: ["💡 흐름", "#FFF3B0"], mg: ["🫧 기체 발생", "#DDEFF7"] }[t]
+  : { blue: ["변화 없음", "#9CC9EE"], red: ["푸르게 변함", "#4D8BD6"], btb: ["파란색", "#2F6FED"], ec: ["💡 흐름", "#FFF3B0"], mg: ["변화 없음", "#E9EEF0"] }[t];
+const seen = new Set();
+function drawPlate() {
+  let h = `<div></div>` + SOL.map(s => `<div class="h">${s[1]}</div>`).join("");
+  TEST.forEach(([t, tn]) => {
+    h += `<div class="rl">${tn}</div>`;
+    SOL.forEach(([s, , k]) => { const key = s + "-" + t, r = RES(k, t); h += seen.has(key) ? `<div class="well" data-k="${key}" style="background:${r[1]};color:${["#2F6FED", "#4D8BD6", "#E8393B"].includes(r[1]) ? "#fff" : "#1F3133"}">${r[0]}</div>` : `<div class="well" data-k="${key}">?</div>`; });
+  });
+  $("plate").innerHTML = h;
+}
+$("plate").addEventListener("click", e => {
+  const w = e.target.closest(".well"); if (!w) return; seen.add(w.dataset.k); drawPlate();
+  const [s, t] = w.dataset.k.split("-"), S = SOL.find(x => x[0] === s), T = TEST.find(x => x[0] === t), r = RES(S[2], t);
+  $("pl-read").innerHTML = `<b>${S[1]}</b> + ${T[1]} → <b>${r[0]}</b>${t === "mg" && S[2] === "산" ? " (수소 기체)" : ""}<br>확인한 홈 ${seen.size} / 30`;
+});
+drawPlate();
+$("cls-table").innerHTML = `<tr><th>수용액</th><th>분류</th></tr>` + SOL.map(([s, n, k]) => `<tr><td>${n}</td><td><span class="choice-group" data-key="cls_${s}" data-label="${n}" data-answer="${k}"><button type="button" class="choice-btn" data-value="산">산</button><button type="button" class="choice-btn" data-value="염기">염기</button></span></td></tr>`).join("");
+WS.custom("pl_seen", { el: $("pl-read"), value: () => seen.size + "/30" });
+
+/* ===== 3. 혼합 A~E ===== */
+const MIX = [["A", 2, 10], ["B", 4, 8], ["C", 6, 6], ["D", 8, 4], ["E", 10, 2]];
+const mixT = (a, b) => 24 + 0.95 * Math.min(a, b);
+const btb = (a, b) => a > b ? ["노란색", "#F7D23E", "산성"] : a < b ? ["파란색", "#2F6FED", "염기성"] : ["초록색", "#3FA34D", "중성"];
+let mxSel = null; const measured = new Set();
+function drawMix() {
+  $("mix").innerHTML = MIX.map(([n, a, b]) => { const m = measured.has(n), c = btb(a, b); return `<div class="w${mxSel === n ? " sel" : ""}" data-n="${n}"><b>${n}</b><div>염산 ${a} mL<br>NaOH ${b} mL</div><div class="cup" style="background:${m ? c[1] : "#EAF3F8"}"></div><div>${m ? mixT(a, b).toFixed(1) + " °C" : "측정 전"}</div></div>`; }).join("");
+  if (!mxSel) { $("mx-svg").innerHTML = ""; return; }
+  const [n, a, b] = MIX.find(x => x[0] === mxSel), w = Math.min(a, b), c = btb(a, b);
+  let g = `<rect x="10" y="10" width="380" height="180" rx="12" fill="${c[1]}" opacity=".15"/>`;
+  let k = 0; const P = () => { const x = 40 + (k % 9) * 38, y = 40 + Math.floor(k / 9) * 40; k++; return [x, y]; };
+  for (let i = 0; i < a - w; i++) { const [x, y] = P(); g += `<circle cx="${x}" cy="${y}" r="13" fill="#E8393B"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:10px;font-weight:800;fill:#fff">H⁺</text>`; }
+  for (let i = 0; i < b - w; i++) { const [x, y] = P(); g += `<circle cx="${x}" cy="${y}" r="13" fill="#2F6FED"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:9px;font-weight:800;fill:#fff">OH⁻</text>`; }
+  for (let i = 0; i < w; i++) { const [x, y] = P(); g += `<ellipse cx="${x}" cy="${y}" rx="16" ry="12" fill="#9BD3EE"/><text x="${x}" y="${y + 4}" text-anchor="middle" style="font-size:9px;font-weight:800">H₂O</text>`; }
+  g += `<text x="20" y="182" style="font-size:11px;fill:#5E7375">(Na⁺, Cl⁻는 반응하지 않아 생략) · 1 mL = 이온 1개로 나타냄</text>`;
+  $("mx-svg").innerHTML = g;
+  $("mx-read").innerHTML = `<b>${n}</b>: 반응 전 H⁺ ${a}개, OH⁻ ${b}개 → 생성된 물 <b>${w}</b>개<br>남은 이온: ${a > b ? "H⁺ " + (a - b) + "개" : a < b ? "OH⁻ " + (b - a) + "개" : "없음"} → <b>${c[2]}</b> (BTB ${c[0]})<br>최고 온도: <b>${mixT(a, b).toFixed(1)} °C</b> (+${(mixT(a, b) - 24).toFixed(1)} °C)`;
+}
+$("mix").addEventListener("click", e => { const w = e.target.closest(".w"); if (!w) return; mxSel = w.dataset.n; measured.add(mxSel); drawMix(); });
+drawMix();
+
+/* ===== 4. 적정 그래프 ===== */
+const tiV = $("ti-v");
+const tempAt = v => { const rx = Math.min(v, 10), heat = rx * 0.65; const vol = 10 + v; return 24 + heat * 20 / vol * (v > 10 ? 1 : 1) - (v > 10 ? (v - 10) * 0.12 : 0); };
+function drawTI() {
+  const v = Number(tiV.value); $("ti-v-out").textContent = v.toFixed(1) + " mL";
+  const L = 46, R = 425, T = 15, B = 200, X = x => L + x / 20 * (R - L), Y = t => B - (t - 23) / 10 * (B - T);
+  let g = `<rect x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="#fff" stroke="#D3E3E1"/>`;
+  for (let t = 24; t <= 32; t += 2) g += `<text x="${L - 4}" y="${Y(t) + 4}" text-anchor="end" style="font-size:10px;fill:#5E7375">${t}</text>`;
+  for (let x = 0; x <= 20; x += 5) g += `<text x="${X(x)}" y="${B + 14}" text-anchor="middle" style="font-size:10px;fill:#5E7375">${x}</text>`;
+  g += `<text x="${(L + R) / 2}" y="${B + 30}" text-anchor="middle" style="font-size:10px;fill:#5E7375">넣은 NaOH 수용액(mL)</text><text x="6" y="12" style="font-size:10px;fill:#5E7375">온도(°C)</text>`;
+  let pts = []; for (let x = 0; x <= v + 1e-9; x += 0.5) pts.push(X(x) + "," + Y(tempAt(x)));
+  if (pts.length > 1) g += `<polyline fill="none" stroke="#D8493B" stroke-width="2.5" points="${pts.join(" ")}"/>`;
+  g += `<circle cx="${X(v)}" cy="${Y(tempAt(v))}" r="5" fill="#D8493B"/>`;
+  g += `<rect x="${R - 70}" y="${T + 10}" width="50" height="60" rx="6" fill="${v > 10 ? "#F6A5C8" : "#F4F8FA"}" stroke="#9AB"/><text x="${R - 45}" y="${T + 84}" text-anchor="middle" style="font-size:10px;fill:#5E7375">비커</text>`;
+  $("ti-svg").innerHTML = g;
+  $("ti-read").innerHTML = `온도: <b>${tempAt(v).toFixed(1)} °C</b><br>페놀프탈레인: <b>${v > 10 ? "붉은색 (염기성)" : "무색 (산성~중성)"}</b><br><span style="font-size:12px;color:var(--ink-soft)">${v < 10 ? "H⁺가 남아 있어 중화 반응이 계속돼요." : v === 10 ? "H⁺와 OH⁻의 수가 같아요. 가장 뜨거워요!" : "반응할 H⁺가 없어 더 이상 열이 나지 않고, 넣은 용액 때문에 식어 가요."}</span>`;
+}
+tiV.addEventListener("input", drawTI); drawTI();
+
+/* ===== 5. 이용 ===== */
+const USE = [["us_ant", "💊 위산이 많을 때 먹는 제산제", "염기"], ["us_lemon", "🍋 생선 요리에 뿌리는 레몬즙", "산"], ["us_lime", "⛰️ 산성화된 토양에 뿌리는 석회 가루", "염기"], ["us_gas", "🏭 공장의 산성 기체를 처리하는 석회석", "염기"]];
+$("use-table").innerHTML = `<tr><th>사례</th><th>이용한 물질의 액성</th></tr>` + USE.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.slice(2, 10)}" data-answer="${a}"><button type="button" class="choice-btn" data-value="산">산성</button><button type="button" class="choice-btn" data-value="염기">염기성</button></span></td></tr>`).join("");
+</script>
+</body>
+</html>

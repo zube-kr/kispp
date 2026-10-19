@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합과학2 Ⅰ-2-3 — 물질 변화에서 에너지의 출입</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/is2/2">← KISPP 과학실 · 통합과학2 Ⅰ. 변화와 다양성 · 2. 화학 변화</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 변화와 다양성 · 2. 화학 변화 · 03 물질 변화에서 에너지의 출입 (교과서 46~51쪽)</div>
+    <h1>뜨거워지거나 차가워지거나 — <span>물질 변화에서 에너지의 출입</span></h1>
+    <p class="sub">여러 물질 변화를 반응 시험대에 올려 주변 온도가 어떻게 변하는지 관찰하고, 에너지를 방출하는 변화와 흡수하는 변화로 나누어 보세요. 산화 칼슘과 물로 가열 장치 없이 음식을 데우는 방법을 설계하고, 생명 현상과 지구 현상 속 에너지 출입도 찾아봐요.</p>
+    <div class="goals"><span>🎯 물질 변화가 일어날 때 에너지가 방출되거나 흡수됨을 온도 변화로 설명할 수 있다.</span><span>🎯 에너지 출입을 이용한 사례를 찾아 일상생활에 활용할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 반응 시험대 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>반응 시험대 — 주변의 온도 변화 관찰</div>
+    <div class="card-hint">물질 변화를 골라 [시작]을 누르면 주변 온도계의 눈금이 변해요. 주변 온도가 높아지면 열에너지를 <b>방출</b>, 낮아지면 <b>흡수</b>하는 변화예요.</div>
+    <div class="seg" id="rx-pick" style="margin-bottom:8px"></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="rx-svg" viewBox="0 0 400 230" aria-label="반응과 온도계"></svg></div>
+      <div class="panel"><button type="button" class="btn main small" id="rx-go">▶ 시작</button><div class="readout" id="rx-read">변화를 골라 시작해 보세요.</div></div>
+    </div>
+    <div class="q" data-why="메테인의 연소, 수증기의 액화, 산과 염기의 중화 반응, 손난로 속 철 가루의 산화, 산화 칼슘과 물의 반응은 열에너지를 방출해 주변 온도가 높아져요. 얼음의 융해, 물의 기화, 질산 암모늄과 수산화 바륨의 반응, 물의 전기 분해는 에너지를 흡수해 주변 온도가 낮아지거나 에너지 공급이 필요해요.">
+      <div class="q-text"><span class="q-num">1</span>각 물질 변화를 에너지 출입에 따라 분류하시오.</div>
+      <table class="t" id="rx-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="물질 변화가 일어날 때 주변으로 열에너지를 방출하면 주변 온도가 높아지고, 주변으로부터 열에너지를 흡수하면 주변 온도가 낮아져요.">
+      <div class="q-text"><span class="q-num">2</span>물질 변화가 일어날 때 주변으로 열에너지를 방출하면 주변의 온도는 <span class="choice-group" data-key="rx_up" data-answer="높아진다"><button type="button" class="choice-btn" data-value="높아진다">높아진다</button><button type="button" class="choice-btn" data-value="낮아진다">낮아진다</button></span>, 흡수하면 <span class="choice-group" data-key="rx_down" data-answer="낮아진다"><button type="button" class="choice-btn" data-value="높아진다">높아진다</button><button type="button" class="choice-btn" data-value="낮아진다">낮아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 탐구: 사례 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구</span>에너지가 출입하는 현상을 이용한 사례 탐색</div>
+    <div class="card-hint">문제 인식: 일상생활에서 에너지가 출입하는 현상을 이용하는 사례에는 무엇이 있을까? (가) 메테인이 연소된다. (나) 얼음이 녹아 물이 된다.</div>
+    <div class="q" data-why="(가) 메테인 연소는 에너지를 방출해 가스레인지로 음식을 익히는 데 쓰이고, (나) 얼음의 융해는 주변의 열에너지를 흡수해 신선식품 배달용 얼음주머니에 쓰여요. 과수원에서 물을 뿌리면 물이 얼면서 열을 방출해 냉해를 막고, 제빵 소다는 열을 흡수해 분해되며 반죽을 부풀려요.">
+      <div class="q-text"><span class="q-num">1</span>(가) 메테인의 연소는 에너지를 <span class="choice-group" data-key="cs_a" data-label="(가)" data-answer="방출"><button type="button" class="choice-btn" data-value="방출">방출</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하는 현상, (나) 얼음의 융해는 에너지를 <span class="choice-group" data-key="cs_b" data-label="(나)" data-answer="흡수"><button type="button" class="choice-btn" data-value="방출">방출</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하는 현상이다.</div>
+      <table class="t" id="use-table" style="margin-top:8px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 탐구: 발열 도시락 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구</span>물과 산화 칼슘을 이용한 음식 조리 방법 설계</div>
+    <div class="card-hint">문제 인식: 가열 장치 없이 물과 산화 칼슘을 이용하여 어떻게 음식을 조리할 수 있을까?<br>산화 칼슘(CaO)과 물이 반응하면 수산화 칼슘이 되며 많은 열을 방출해요(CaO + H₂O → Ca(OH)₂). 아래 설계 도구에서 데울 음식과 산화 칼슘의 양을 정해, 음식의 온도를 <b>40 °C 이상</b> 올려 보세요. ⚠️ 실제 실험에서는 보안경과 면장갑을 꼭 끼고, 산화 칼슘을 맨손으로 만지지 않아요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="ca-svg" viewBox="0 0 400 230" aria-label="발열 도시락 설계"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>데울 음식(물 기준) <output id="ca-f-out"></output></label><input type="range" id="ca-f" min="100" max="400" step="10" value="200"></div>
+        <div class="ctrl"><label>산화 칼슘 <output id="ca-m-out"></output></label><input type="range" id="ca-m" min="0" max="120" step="1" value="10"></div>
+        <div class="ctrl"><label>반응에 넣는 물 <output id="ca-w-out"></output></label><input type="range" id="ca-w" min="0" max="80" step="1" value="10"></div>
+        <div class="readout" id="ca-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="산화 칼슘 1 g이 물과 반응하면 약 1.16 kJ의 열을 내요(바깥으로 새는 열이 없다고 가정). 음식 200 g(물 기준, 비열 4.18 J/g·°C)을 40 °C 올리려면 약 33 kJ이 필요하므로 산화 칼슘은 약 29 g, 반응에 필요한 물은 산화 칼슘 질량의 약 1/3(약 10 g) 이상이에요. 실제로는 열 손실이 있어 조금 더 넣어야 해요." data-hint="설계 도구에서 음식 200 g일 때 온도 상승이 40 °C가 되는 산화 칼슘 양을 찾아보세요. 물이 부족하면 산화 칼슘이 다 반응하지 못해요.">
+      <div class="q-text"><span class="q-num">1</span>음식 200 g의 온도를 40 °C 올리는 데 필요한 산화 칼슘은 약 <input class="blank w-s" data-key="ca_need" data-num="29" data-tol="0.15"> g 이다.</div>
+      <div class="q-text"><span class="q-num">2</span>산화 칼슘과 물의 반응은 에너지를 <span class="choice-group" data-key="ca_exo" data-answer="방출"><button type="button" class="choice-btn" data-value="방출">방출</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하는 반응이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>설계: 모둠에서 데울 음식을 정하고, 준비물과 조리 방법(이용하는 화학 반응 포함)을 써 보자.</div>
+      <textarea class="free" data-key="ca_design" data-keywords="산화 칼슘,물,방출/열,안전/보안경/장갑" data-model="주제: 즉석 달걀찜 데우기. 준비물: 산화 칼슘 40 g, 물 15 mL, 알루미늄 용기 2개, 온도계, 보안경, 면장갑. 방법: 큰 용기에 산화 칼슘을 넣고 그 위에 음식이 든 작은 용기를 올린 뒤 물을 부어 뚜껑을 덮는다. 이용하는 반응: CaO + H₂O → Ca(OH)₂ (열에너지 방출)." placeholder="주제 / 준비물 / 방법 / 이용하는 화학 반응"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 생명·지구 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">개념</span>생명 현상과 지구 현상 속 열에너지의 출입</div>
+    <div class="q" data-why="세포호흡은 양분을 분해하며 에너지를 방출하고(체온 유지), 광합성은 빛에너지를 흡수해 양분을 합성해요. 태풍은 바다에서 태양 에너지를 흡수해 증발한 수증기가 응결하면서 열에너지를 방출해 발달해요.">
+      <table class="t" id="life-table"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 스스로 점검 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">형성평가</span>스스로 점검</div>
+    <div class="q" data-why="손난로는 철 가루가 산화되며 열을 방출해요(ㄱ ○). 냉찜질 팩은 질산 암모늄이 물에 녹으며 열을 흡수해 차가워져요(ㄴ ○). 물의 기화는 에너지를 흡수해요(ㄷ ×).">
+      <div class="q-text"><span class="q-num">1</span>옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 손난로는 철 가루가 산화하면서 열에너지를 방출하여 따뜻해진다.<br>ㄴ. 냉찜질 팩은 물질이 녹으면서 주변의 열에너지를 흡수하여 차가워진다.<br>ㄷ. 물이 기화할 때 주변으로 열에너지를 방출한다.</div>
+      <span class="multi-group" data-key="qz1" data-answer="ㄱ,ㄴ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="여름에 마당에 물을 뿌리면 물이 기화하면서 주변의 열을 흡수해 시원해져요. 땀이 증발할 때 체온이 내려가는 것과 같은 원리예요.">
+      <div class="q-text"><span class="q-num">2</span>더운 날 마당에 물을 뿌리면 시원해지는 까닭은 물이 <span class="choice-group" data-key="qz2" data-answer="기화 흡수"><button type="button" class="choice-btn" data-value="기화 흡수">기화하면서 열을 흡수하기</button><button type="button" class="choice-btn" data-value="액화 방출">액화하면서 열을 방출하기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요. 설계한 도시락 조건도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 통합과학2 Ⅰ-2-3 물질 변화에서 에너지의 출입 · 비상교육 통합과학2 개념 PPT·활동지(교과서 46~51쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "통합과학2 Ⅰ-2-3 물질 변화에서 에너지의 출입";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const EO = [["방출", "에너지 방출"], ["흡수", "에너지 흡수"]];
+
+/* ===== 1. 반응 시험대 ===== */
+const RX = [
+  { k: "rx_ch4", n: "🔥 메테인의 연소", d: 18, a: "방출", note: "많은 열과 빛을 내요." },
+  { k: "rx_melt", n: "🧊 얼음의 융해", d: -6, a: "흡수", note: "얼음이 녹으며 주변 열을 빼앗아요." },
+  { k: "rx_cond", n: "💧 수증기의 액화", d: 7, a: "방출", note: "수증기가 물이 되며 열을 내놓아요." },
+  { k: "rx_evap", n: "♨️ 물의 기화", d: -5, a: "흡수", note: "물이 수증기가 되며 열을 흡수해요." },
+  { k: "rx_ba", n: "🧪 질산 암모늄 + 수산화 바륨", d: -15, a: "흡수", note: "비커 바닥에 둔 젖은 나무판이 얼어붙을 만큼 차가워져요!" },
+  { k: "rx_neut", n: "⚗️ 산과 염기의 중화 반응", d: 6, a: "방출", note: "중화열이 발생해요." },
+  { k: "rx_fe", n: "🧤 손난로 속 철 가루의 산화", d: 25, a: "방출", note: "철이 천천히 산화되며 오래 따뜻해요." },
+  { k: "rx_elec", n: "⚡ 물의 전기 분해", d: 0, a: "흡수", note: "전기 에너지를 계속 공급해야만 일어나요(에너지 흡수)." }
+];
+let rxSel = 0, rxRaf = 0;
+$("rx-pick").innerHTML = RX.map((r, i) => `<button type="button" data-i="${i}" class="${i === 0 ? "on" : ""}">${r.n}</button>`).join("");
+const tried = new Set();
+function drawRX(p) {
+  const r = RX[rxSel], T = 25 + r.d * p, Y = t => 200 - (t - 0) / 50 * 170;
+  let g = `<rect x="40" y="90" width="150" height="110" rx="10" fill="#F4F8FA" stroke="#9AB" stroke-width="2"/><text x="115" y="80" text-anchor="middle" style="font-size:12px;font-weight:800">${r.n}</text>`;
+  if (p > 0) g += r.d > 0 ? `<text x="115" y="160" text-anchor="middle" style="font-size:${18 + 12 * p}px">🔥</text>` : r.d < 0 ? `<text x="115" y="160" text-anchor="middle" style="font-size:${18 + 12 * p}px">❄️</text>` : `<text x="115" y="160" text-anchor="middle" style="font-size:24px">⚡</text>`;
+  for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2, d = r.d > 0 ? 1 : -1; if (p > 0 && r.d !== 0) g += `<line x1="${115 + (d > 0 ? 40 : 75) * Math.cos(a)}" y1="${145 + (d > 0 ? 40 : 60) * Math.sin(a) * .7}" x2="${115 + (d > 0 ? 75 : 40) * Math.cos(a)}" y2="${145 + (d > 0 ? 60 : 40) * Math.sin(a) * .7}" stroke="${d > 0 ? "#E0662C" : "#2F6FED"}" stroke-width="2.5" marker-end="url(#ha)"/>`; }
+  g = `<defs><marker id="ha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5E7375"/></marker></defs>` + g;
+  g += `<rect x="290" y="25" width="20" height="180" rx="10" fill="#fff" stroke="#9AB" stroke-width="2"/><rect x="295" y="${Y(T)}" width="10" height="${205 - Y(T)}" rx="5" fill="#D8493B"/><circle cx="300" cy="210" r="14" fill="#D8493B"/>`;
+  for (let t = 0; t <= 50; t += 10) g += `<line x1="312" y1="${Y(t)}" x2="320" y2="${Y(t)}" stroke="#5E7375"/><text x="324" y="${Y(t) + 4}" style="font-size:10px;fill:#5E7375">${t}</text>`;
+  g += `<text x="300" y="16" text-anchor="middle" style="font-size:11px;fill:#5E7375">주변 온도 (°C)</text><text x="355" y="${Y(T) + 4}" style="font-size:13px;font-weight:800;fill:#D8493B">${T.toFixed(1)}</text>`;
+  $("rx-svg").innerHTML = g;
+}
+$("rx-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; rxSel = Number(b.dataset.i); document.querySelectorAll("#rx-pick button").forEach(x => x.classList.toggle("on", x === b)); cancelAnimationFrame(rxRaf); drawRX(0); $("rx-read").textContent = "[시작]을 눌러 보세요."; });
+$("rx-go").addEventListener("click", () => {
+  cancelAnimationFrame(rxRaf); const t0 = performance.now(), r = RX[rxSel]; tried.add(r.k);
+  const step = t => { const p = Math.min(1, (t - t0) / 2000); drawRX(p); if (p < 1) rxRaf = requestAnimationFrame(step); else $("rx-read").innerHTML = `<b>${r.n}</b>: 주변 온도 25.0 → <b>${(25 + r.d).toFixed(1)} °C</b><br>${r.note}<br><span style="font-size:12px;color:var(--ink-soft)">관찰한 변화: ${tried.size} / ${RX.length}</span>`; };
+  rxRaf = requestAnimationFrame(step);
+});
+drawRX(0);
+$("rx-table").innerHTML = choiceRows(RX.map(r => [r.k, r.n, r.a]), EO, ["물질 변화", "에너지 출입"]);
+WS.custom("rx_tried", { el: $("rx-read"), value: () => tried.size + "/" + RX.length });
+
+/* ===== 2. 사례 ===== */
+$("use-table").innerHTML = choiceRows([
+  ["us_orch", "🍎 과수원에서 개화 시기에 물을 뿌려 냉해를 예방한다(물이 언다).", "방출"],
+  ["us_ice", "📦 신선식품 배달에 얼음주머니를 넣는다(얼음이 녹는다).", "흡수"],
+  ["us_hand", "🧤 손난로 속 철 가루가 산화한다.", "방출"],
+  ["us_soda", "🍞 제빵 소다(탄산수소 나트륨)가 열분해되어 반죽이 부푼다.", "흡수"]
+], EO, ["사례", "이용한 에너지 출입"]);
+
+/* ===== 3. 발열 도시락 ===== */
+const caF = $("ca-f"), caM = $("ca-m"), caW = $("ca-w");
+let caBest = null;
+function drawCA() {
+  const f = Number(caF.value), m = Number(caM.value), w = Number(caW.value);
+  $("ca-f-out").textContent = f + " g"; $("ca-m-out").textContent = m + " g"; $("ca-w-out").textContent = w + " mL";
+  const react = Math.min(m, w / 0.32); // CaO 56 g : H₂O 18 g ≈ 1 : 0.32
+  const Q = react * 1160, dT = Q / (4.18 * f), T = 20 + dT;
+  let g = `<rect x="60" y="120" width="280" height="90" rx="12" fill="#E9EEF0" stroke="#9AB" stroke-width="2"/><rect x="66" y="${210 - Math.min(80, m * 0.7)}" width="268" height="${Math.min(80, m * 0.7)}" rx="8" fill="#F4F1EA"/>`;
+  g += `<text x="200" y="200" text-anchor="middle" style="font-size:11px;fill:#5E7375">산화 칼슘 ${m} g + 물 ${w} mL</text>`;
+  g += `<rect x="110" y="60" width="180" height="70" rx="10" fill="${T >= 60 ? "#F5A98A" : T >= 40 ? "#F7D774" : "#DDEFF7"}" stroke="#9AB" stroke-width="2"/><text x="200" y="98" text-anchor="middle" style="font-size:20px">${T >= 60 ? "🍲" : "🥘"}</text><text x="200" y="122" text-anchor="middle" style="font-size:11px;fill:#5E7375">음식 ${f} g</text>`;
+  if (react > 0) for (let i = 0; i < 5; i++) g += `<text x="${100 + i * 50}" y="${50 - (i % 2) * 8}" style="font-size:16px">♨️</text>`;
+  $("ca-svg").innerHTML = g;
+  const lackW = m > 0 && w / 0.32 < m;
+  $("ca-read").innerHTML = `반응한 산화 칼슘: <b>${react.toFixed(1)} g</b> → 방출 열: <b>${(Q / 1000).toFixed(1)} kJ</b><br>음식 온도: 20 °C → <b>${T.toFixed(1)} °C</b> (+${dT.toFixed(1)} °C)` + (lackW ? "<br>⚠️ 물이 부족해 산화 칼슘이 다 반응하지 못해요." : "") + (dT >= 40 ? "<br>✅ 40 °C 이상 올랐어요!" : "");
+  if (dT >= 40) caBest = `${f}g/${m}g/${w}mL`;
+}
+[caF, caM, caW].forEach(x => x.addEventListener("input", drawCA)); drawCA();
+WS.custom("ca_setting", { el: $("ca-read"), value: () => `음식${caF.value}g CaO${caM.value}g 물${caW.value}mL` + (caBest ? ` (40℃ 달성: ${caBest})` : "") });
+
+/* ===== 4. 생명·지구 ===== */
+$("life-table").innerHTML = choiceRows([
+  ["lf_resp", "🫁 세포호흡 — 몸속에서 양분을 분해한다.", "방출"],
+  ["lf_ps", "🌿 광합성 — 빛에너지로 양분을 합성한다.", "흡수"],
+  ["lf_evap", "🌊 바다에서 물이 증발한다.", "흡수"],
+  ["lf_typh", "🌀 수증기가 응결하며 태풍이 발달한다.", "방출"]
+], EO, ["현상", "에너지 출입"]);
+</script>
+</body>
+</html>

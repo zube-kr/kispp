@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅱ-1 — 스마트 온실 설계하기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>#gw-table td,#gw-table th{font-size:12px;padding:4px 3px}</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/9">← KISPP 과학실 · 과학탐구실험2 · Ⅱ. 미래 사회와 첨단 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 미래 사회와 첨단 과학 탐구 · 1 마이크로컨트롤러를 활용하여 스마트 온실 설계하기 (교과서 48~53쪽)</div>
+    <h1>빛의 색이 상추를 키운다 — <span>마이크로컨트롤러로 스마트 온실 설계하기</span></h1>
+    <p class="sub">마이크로컨트롤러 보드에 RGB 광 패널, 무게 센서, 온도 센서, 냉각 팬, 액정 표시기를 연결한 가상 식물 재배 장치에서 상추를 14일 동안 길러 보세요. 빛의 색에 따라 상추의 무게가 어떻게 달라지는지 자동으로 기록하고 분석한 뒤, 첨단 과학 기술로 우리 모둠만의 스마트 온실을 설계해 봐요.</p>
+    <div class="goals"><span>🎯 마이크로컨트롤러를 활용하여 물리적, 생명적 현상을 수집하고 분석할 수 있다.</span><span>🎯 첨단 과학 기술 속의 과학 원리를 찾아내는 탐구 활동을 통해 과학 지식이 활용된 사례를 추론할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 개념 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 문제</span>스마트 팜과 마이크로컨트롤러</div>
+    <div class="card-hint"><b>스마트 팜</b>은 첨단 과학 기술로 시간과 공간의 제약 없이 원격으로 동식물의 생육 환경을 관측하고 최적의 상태로 관리하는 농장이에요(스마트 온실, 스마트 과수원, 스마트 축사). <b>마이크로컨트롤러(MCU)</b>는 중앙 처리 장치와 기억 장치를 하나의 칩에 내장한 반도체 소자로, 센서로 입력된 값을 처리하고 출력 장치를 제어해요.</div>
+    <div class="q" data-why="온도 센서·무게 센서는 정보를 받아들이는 입력 장치, 마이크로컨트롤러는 자료를 수집·분석하는 처리 장치, RGB 광 패널·냉각 팬·액정 표시기는 결과에 따라 작동하는 출력 장치예요.">
+      <div class="q-text"><span class="q-num">1</span>식물 재배 장치의 부품을 입력·처리·출력으로 분류하시오.</div>
+      <table class="t" id="io-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 1 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>빛의 색에 따른 식물 성장 정보 수집 및 분석하기</div>
+    <div class="card-hint">크기와 무게가 비슷한 상추 모종을 무게 센서 위에 올리고, RGB 광 패널로 빛의 색을 정한 뒤 14일 동안 2일마다 화분의 무게를 기록해요. 결과에 영향을 줄 수 있는 온도와 물 공급량은 일정하게 유지해요. 온도 센서가 설정 온도보다 높다고 판단하면 냉각 팬이 켜져요. ⚠️ 전기 장치에 물이 닿지 않게 해요. (교수 학습 설계안 예시값)</div>
+    <div class="seg" id="gw-col" style="margin-bottom:8px"><button type="button" data-v="white" class="on">⚪ 백색광</button><button type="button" data-v="red">🔴 적색광</button><button type="button" data-v="green">🟢 녹색광</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="gw-svg" viewBox="0 0 400 230" aria-label="식물 재배 장치와 무게 그래프"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>냉각 팬 작동 설정 온도 <output id="gw-t-out"></output></label><input type="range" id="gw-t" min="15" max="30" value="20"></div>
+        <button type="button" class="btn main small" id="gw-go">▶ 14일 재배</button>
+        <div class="readout" id="gw-read">빛의 색을 고르고 재배를 시작하세요.</div>
+      </div>
+    </div>
+    <div style="overflow-x:auto;margin-top:8px"><table class="t" id="gw-table"></table></div>
+    <div class="q" data-why="14일째 화분의 무게는 백색광 393 g, 적색광 355 g, 녹색광 302 g이에요. 처음보다 백색광은 75 g, 적색광은 33 g 늘었고, 녹색광은 23 g 줄었어요. 백색광의 성장률이 가장 높고, 식물이 잘 흡수하지 않고 반사하는 녹색광의 성장률이 가장 낮아요." data-hint="세 가지 빛을 모두 재배해 본 뒤 기록표의 0일과 14일 값을 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>14일 동안 늘어난 무게는 백색광 <input class="blank w-s" data-key="gw_w" data-num="75" data-abs="0.5"> g, 적색광 <input class="blank w-s" data-key="gw_r" data-num="33" data-abs="0.5"> g이다. 성장률이 가장 낮은 빛은 <span class="choice-group" data-key="gw_low" data-answer="green"><button type="button" class="choice-btn" data-value="white">백색광</button><button type="button" class="choice-btn" data-value="red">적색광</button><button type="button" class="choice-btn" data-value="green">녹색광</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="빛의 색(조작변인)에 따른 효과만 알아보려면 온도, 물 공급량, 모종의 크기와 무게, 재배 기간 같은 다른 요인은 일정하게 유지해야 해요.">
+      <div class="q-text"><span class="q-num">2</span>이 실험에서 일정하게 유지해야 하는 것을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="ctrl" data-answer="temp,water,seed,days"><button type="button" class="multi-btn" data-value="temp">온도</button> <button type="button" class="multi-btn" data-value="color">빛의 색</button> <button type="button" class="multi-btn" data-value="water">물 공급량</button> <button type="button" class="multi-btn" data-value="seed">모종의 크기와 무게</button> <button type="button" class="multi-btn" data-value="days">재배 기간</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="온도 센서로 온도를 측정 → 설정 온도와 비교 → 높으면 냉각 팬을 켜고 낮으면 끔 → 액정 표시기에 온도를 표시하는 과정을 반복해요.">
+      <div class="q-text"><span class="q-num">3</span>마이크로컨트롤러 코드가 실행되는 순서대로 배열하시오.</div>
+      <ol class="order-list" data-key="code" data-answer="read,cmp,fan,lcd">
+        <li data-id="fan">설정 온도보다 높으면 냉각 팬을 켜고, 낮으면 끈다.</li>
+        <li data-id="lcd">액정 표시기에 현재 온도를 표시한다.</li>
+        <li data-id="read">온도 센서로 온도를 측정한다.</li>
+        <li data-id="cmp">측정한 온도를 설정 온도와 비교한다.</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="마이크로컨트롤러를 활용하면 실시간으로 데이터를 확인할 수 있고, 저장·처리가 효율적이며, 자료의 추이를 파악하기 쉽고 검색·공유가 편리해요. 분석한 정보의 변형이 적고 편집과 가공도 편리해요. 사람이 매번 측정할 필요가 없어 측정 오차도 줄어요.">
+      <div class="q-text"><span class="q-num">4</span>마이크로컨트롤러로 자료를 수집·분석할 때의 장점을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="adv" data-answer="real,store,trend,share"><button type="button" class="multi-btn" data-value="real">실시간으로 데이터를 확인할 수 있다</button> <button type="button" class="multi-btn" data-value="store">데이터의 저장과 처리가 효율적이다</button> <button type="button" class="multi-btn" data-value="trend">자료의 추이를 파악하기 쉽다</button> <button type="button" class="multi-btn" data-value="noethic">연구 윤리를 지키지 않아도 된다</button> <button type="button" class="multi-btn" data-value="share">수집한 자료의 검색과 공유가 편리하다</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2·3 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2·3</span>첨단 과학 기술로 환경 개선하고 스마트 온실 설계하기</div>
+    <div class="card-hint">예시: 흙에 수분이 부족하면 식물이 잘 자라지 않아요 → 센서를 활용한 자동 물 공급 시스템으로 해결해요. 스마트 온실은 온도·습도·광도 등 성장 요인을 조절하고, 내·외부 자료를 수집해 최적의 생육 환경을 만들며, 안전과 보안까지 고려해야 해요.</div>
+    <div class="q" data-why="온도는 온도 센서와 냉난방기, 습도는 습도 센서와 환기 팬·가습기, 광도는 광센서와 LED 조명, 토양 수분은 토양 습도 센서와 자동 급수 펌프로 조절해요.">
+      <div class="q-text"><span class="q-num">1</span>기존 농업의 문제를 해결할 센서·장치를 연결하시오.</div>
+      <table class="t" id="dv-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="자동화된 환경 제어 시스템은 기후 변화에도 안정적으로 작물을 기를 수 있게 하고(ㄱ ○), 병해충 방제 드론은 부정적 영향을 줄여 지속가능한 농업을 돕고(ㄴ ○), 빅데이터·인공지능·사물 인터넷은 실시간으로 작물 상태를 파악해 최적의 조언과 의사 결정을 지원해요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">2</span>기존 농업 환경을 개선하기 위한 첨단 과학 기술에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 자동화된 환경 제어 시스템을 활용하여 기후 변화에도 안정적으로 작물을 기를 수 있는 조건을 만든다.<br>ㄴ. 병해충 방제 드론 기술을 활용하여 환경에 미치는 부정적인 영향을 최소화하고 지속가능한 농업을 실현할 수 있게 한다.<br>ㄷ. 데이터를 기반으로 한 인공지능 및 사물 인터넷 기술을 활용하여 실시간으로 작물의 상태를 파악하게 하고 농부에게 최적의 조언과 의사 결정을 지원한다.</div>
+      <span class="multi-group" data-key="qz" data-answer="ㄱ,ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>우리 모둠의 스마트 온실을 설계해 보자. (조절할 성장 요인, 사용할 센서와 장치, 적용할 첨단 기술과 장점)</div>
+      <textarea class="free" data-key="design" data-keywords="센서,온도/습도/광도/수분,인공지능/사물 인터넷/자동,장점" data-model="온실 지붕에 광센서를, 화분마다 토양 습도 센서를, 벽면에 온습도 센서를 설치한다. 마이크로컨트롤러가 측정값을 실시간으로 분석해 빛이 부족하면 백색 LED를 켜고, 온도가 높으면 환기 팬을 돌리며, 토양이 마르면 펌프로 물을 준다. 모든 자료는 사물 인터넷으로 스마트폰에 전송하고, 인공지능이 날씨 예보와 성장 기록을 분석해 최적의 조건을 추천한다. 출입문에는 카메라와 잠금 장치를 달아 보안도 관리한다. 사람이 없어도 연중 균일한 품질의 작물을 기를 수 있다." placeholder="스마트 온실 설계"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅱ-1 마이크로컨트롤러를 활용하여 스마트 온실 설계하기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 48~53쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅱ-1 스마트 온실 설계하기";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+$("io-table").innerHTML = choiceRows([
+  ["io_temp", "🌡️ 온도 센서", "in"], ["io_w", "⚖️ 무게 센서", "in"], ["io_mcu", "🧠 마이크로컨트롤러 보드", "proc"], ["io_led", "💡 RGB 광 패널", "out"], ["io_fan", "🌀 냉각 팬", "out"], ["io_lcd", "📟 액정 표시기", "out"]
+], [["in", "입력"], ["proc", "처리(자료 수집·분석)"], ["out", "출력"]], ["부품", "역할"]);
+
+/* ===== 재배 장치 ===== */
+const DAYS = [0, 2, 4, 6, 8, 10, 12, 14];
+const W = { white: [318, 320, 325, 342, 356, 375, 384, 393], red: [322, 323, 328, 335, 340, 342, 348, 355], green: [325, 327, 330, 326, 322, 318, 305, 302] };
+const COL = { white: ["백색광", "#FFF8E1", "#9E9E9E"], red: ["적색광", "#FFCDD2", "#E53935"], green: ["녹색광", "#C8E6C9", "#43A047"] };
+let gw = "white"; const done = {}; let gwTimer = 0;
+const gwT = $("gw-t");
+function tempAt(d) { return 23 + 3 * Math.sin(d * 1.3); }
+function drawGW(upto) {
+  const c = COL[gw], w = W[gw], k = Math.max(0, DAYS.filter(d => d <= upto).length - 1), set = Number(gwT.value), T = tempAt(upto), fan = T > set;
+  let g = `<rect x="0" y="0" width="400" height="230" fill="#F4F8FA"/><rect x="12" y="30" width="140" height="160" rx="6" fill="${c[1]}" stroke="#8D6E63" stroke-width="3"/><rect x="22" y="36" width="120" height="10" rx="3" fill="${c[2]}" opacity=".9"/>`;
+  const leaf = 10 + (w[k] - 300) / 5;
+  g += `<rect x="52" y="160" width="60" height="22" rx="4" fill="#795548"/><rect x="47" y="182" width="70" height="6" fill="#9AB"/><text x="82" y="200" text-anchor="middle" style="font-size:9px">무게 센서</text>`;
+  for (let i = 0; i < 5; i++) { const a = -1.2 + i * 0.6; g += `<ellipse cx="${82 + leaf * Math.sin(a)}" cy="${158 - leaf * 0.8 * Math.cos(a)}" rx="${leaf * 0.45}" ry="${leaf * 0.7}" fill="#7CB342" stroke="#558B2F" transform="rotate(${a * 40},${82 + leaf * Math.sin(a)},${158 - leaf * 0.8 * Math.cos(a)})"/>`; }
+  g += `<g transform="translate(140,70)"><circle r="10" fill="#B0BEC5" stroke="#555"/><path d="M0,-8 L3,0 L0,8 L-3,0 z" fill="#555" transform="rotate(${fan ? upto * 90 : 0})"/></g><text x="140" y="92" text-anchor="middle" style="font-size:8px">${fan ? "팬 ON" : "팬 OFF"}</text>`;
+  g += `<rect x="24" y="52" width="70" height="18" rx="3" fill="#26393B"/><text x="59" y="65" text-anchor="middle" style="font-size:9px;fill:#7CF">${T.toFixed(1)}°C ${w[k]}g</text>`;
+  const X = d => 190 + d / 14 * 195, Y = v => 200 - (v - 290) / 110 * 170;
+  g += `<line x1="190" y1="200" x2="385" y2="200" stroke="#9AB"/><line x1="190" y1="25" x2="190" y2="200" stroke="#9AB"/>`;
+  for (let v = 300; v <= 400; v += 20) g += `<text x="186" y="${Y(v) + 3}" text-anchor="end" style="font-size:8px;fill:#5E7375">${v}</text>`;
+  DAYS.forEach(d => g += `<text x="${X(d)}" y="212" text-anchor="middle" style="font-size:8px;fill:#5E7375">${d}</text>`);
+  Object.keys(W).forEach(key => { if (!done[key] && key !== gw) return; const n = key === gw ? k : 7; g += `<path d="${W[key].slice(0, n + 1).map((v, i) => (i ? "L" : "M") + X(DAYS[i]) + "," + Y(v)).join("")}" fill="none" stroke="${COL[key][2]}" stroke-width="2.5"/>`; });
+  g += `<text x="194" y="20" style="font-size:9px;fill:#5E7375">화분 무게(g)</text><text x="385" y="226" text-anchor="end" style="font-size:9px;fill:#5E7375">관찰 일수(일)</text>`;
+  $("gw-svg").innerHTML = g;
+}
+function drawTable() {
+  $("gw-table").innerHTML = `<tr><th>빛의 색 \\ 일</th>${DAYS.map(d => `<th>${d}</th>`).join("")}</tr>` + Object.keys(W).map(k => `<tr><td class="l">${COL[k][0]}</td>${W[k].map(v => `<td>${done[k] ? v : ""}</td>`).join("")}</tr>`).join("");
+}
+$("gw-col").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; gw = b.dataset.v; clearInterval(gwTimer); $("gw-col").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawGW(done[gw] ? 14 : 0); });
+gwT.addEventListener("input", () => { $("gw-t-out").textContent = gwT.value + " °C"; drawGW(done[gw] ? 14 : 0); });
+$("gw-t-out").textContent = gwT.value + " °C";
+$("gw-go").addEventListener("click", () => {
+  clearInterval(gwTimer); let d = 0; $("gw-go").disabled = true;
+  gwTimer = setInterval(() => { d += 2; drawGW(d); if (d >= 14) { clearInterval(gwTimer); done[gw] = true; drawTable(); drawGW(14); $("gw-go").disabled = false; const w = W[gw]; $("gw-read").innerHTML = `<b>${COL[gw][0]}</b> 14일 재배 완료<br>${w[0]} g → <b>${w[7]} g</b> (${w[7] - w[0] >= 0 ? "+" : ""}${w[7] - w[0]} g)<br><span style="font-size:12px;color:var(--ink-soft)">재배한 빛 ${Object.keys(done).length} / 3</span>`; } }, 350);
+});
+drawGW(0); drawTable();
+WS.custom("gw_done", { el: $("gw-read"), value: () => Object.keys(done).join(",") });
+
+$("dv-table").innerHTML = choiceRows([
+  ["dv_temp", "🌡️ 한낮에 온실이 너무 더워진다.", "cool"], ["dv_light", "☁️ 흐린 날 빛이 부족하다.", "led"], ["dv_soil", "🏜️ 흙에 수분이 부족하다.", "pump"], ["dv_hum", "💧 습도가 너무 높아 곰팡이가 생긴다.", "fan"]
+], [["cool", "온도 센서 + 냉방 장치"], ["led", "광센서 + LED 조명"], ["pump", "토양 습도 센서 + 자동 급수"], ["fan", "습도 센서 + 환기 팬"]], ["문제", "해결 장치"]);
+</script>
+</body>
+</html>

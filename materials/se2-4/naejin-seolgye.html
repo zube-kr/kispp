@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅰ-4 — 내진 설계의 원리</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/4">← KISPP 과학실 · 과학탐구실험2 · Ⅰ. 생활 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 생활 속의 과학 탐구 · 4 건축물에 적용된 내진 설계의 원리 알아보기 (교과서 26~29쪽)</div>
+    <h1>흔들려도 무너지지 않게 — <span>건축물에 적용된 내진 설계의 원리</span></h1>
+    <p class="sub">지진으로 발생하는 진동을 견딜 수 있도록 건축물을 설계하는 것을 내진 설계라고 해요. 진동 모터 위에 세운 주름 빨대 구조물에 면진·제진·내진 기술을 하나씩 적용하며 꼭대기가 얼마나 흔들리는지 비교해 보세요. 특히 구조물에 매단 추가 어떤 역할을 하는지 확인해 봐요.</p>
+    <div class="goals"><span>🎯 건축물에 적용된 내진 설계의 원리를 설명할 수 있다.</span><span>🎯 건축물에 적용된 과학 원리를 실험 등을 통해 탐구하며 과학의 즐거움과 유용성을 느낄 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 세 가지 기술 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">활동 1</span>내진 설계가 적용된 건축물 조사하기</div>
+    <div class="card-hint">내진 설계 기술은 지진의 피해를 어떤 방식으로 줄이는지에 따라 <b>면진 기술</b>(건축물과 지반 사이를 분리해 흔들림 전달을 최소화), <b>제진 기술</b>(흔들림을 억제하는 장치 설치), <b>내진 기술</b>(충격에 파손되지 않도록 튼튼하게 건설)로 나눠요.</div>
+    <div class="q" data-why="땅과 건물 사이의 고무 받침·댐퍼는 지반의 흔들림이 건물에 전달되는 것을 줄이는 면진 기술, 건물 꼭대기에 매단 큰 진자(동조 질량 감쇠기)는 흔들림을 억제하는 제진 기술, 층마다 중심부와 외벽을 대각선으로 잇는 구조물이나 굵은 기둥·내력벽은 건물을 튼튼하게 하는 내진 기술이에요.">
+      <div class="q-text"><span class="q-num">1</span>각 사례에 적용된 내진 설계 기술을 고르시오.</div>
+      <table class="t" id="tech-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 2 시뮬레이션 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 2</span>제진 기술의 원리 알아보기 — 진동대 실험</div>
+    <div class="card-hint">주름 빨대 사각형 4개로 만든 구조물을 진동 모터가 달린 받침대에 세웠어요. 기술을 켜고 끄며 [진동 시작]을 눌러 꼭대기의 흔들림을 비교하세요. 진동 모터의 빠르기도 바꿔 볼 수 있어요. (모의 모형)</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="eq-svg" viewBox="0 0 400 260" aria-label="진동대 위 구조물"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>적용한 기술</label><div class="seg" id="eq-tech"><button type="button" data-v="iso">⚫ 면진(고무 받침)</button><button type="button" data-v="tmd">⚖️ 제진(추 매달기)</button><button type="button" data-v="brace">✖️ 내진(대각 보강)</button></div></div>
+        <div class="ctrl"><label>진동 모터의 빠르기 <output id="eq-f-out"></output></label><input type="range" id="eq-f" min="0.5" max="4" step="0.1" value="2"></div>
+        <button type="button" class="btn main small" id="eq-go">▶ 진동 시작</button>
+        <div class="readout" id="eq-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="추를 매달지 않았을 때는 구조물의 위쪽이 크게 흔들리지만, 추를 매달면 훨씬 덜 흔들려요. 구조물 상부에 매달린 추는 관성 때문에 구조물이 흔들리는 방향과 반대 방향으로 힘을 작용하여 흔들림을 줄여 줘요." data-hint="다른 기술은 끄고 '제진(추 매달기)'만 켰다 껐다 하며 진동 모터 빠르기 2.0에서 비교해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>추를 매달면 구조물의 흔들림이 <span class="choice-group" data-key="tmd_res" data-answer="줄어든다"><button type="button" class="choice-btn" data-value="줄어든다">줄어든다</button><button type="button" class="choice-btn" data-value="커진다">커진다</button></span>. 추는 <span class="choice-group" data-key="tmd_why" data-answer="반대"><button type="button" class="choice-btn" data-value="반대">관성에 의해 구조물이 흔들리는 방향과 반대 방향으로 힘을 작용하기</button><button type="button" class="choice-btn" data-value="무게">무게로 구조물을 바닥에 눌러 붙이기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="세 기술을 함께 적용하면 지반의 흔들림이 덜 전달되고(면진), 남은 흔들림을 억제하며(제진), 구조물이 튼튼해져(내진) 흔들림이 가장 작아요." data-hint="진동 모터 빠르기 2.0에서 기술을 조합해 꼭대기 흔들림이 처음의 20 % 이하가 되게 해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>활동 플러스: 기술을 조합해 진동 모터 빠르기 2.0에서 꼭대기 흔들림을 처음의 20 % 이하로 줄이시오. <span id="eq-badge" style="font-weight:800"></span></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 마무리 -->
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">탐구 마무리</span>스스로 점검</div>
+    <div class="q" data-why="(1) 내진 설계는 지진으로 발생하는 진동을 잘 견딜 수 있도록 건축물을 설계하는 것이에요(○). (2) 피해를 줄이는 방식에 따라 면진·제진·내진 기술로 구분해요(○). (3) 흔들림을 억제하는 장치를 설치하는 것은 제진 기술이에요. 면진 기술은 건축물과 지반 사이를 분리해 흔들림 전달을 최소화해요(×).">
+      <div class="q-text"><span class="q-num">1</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="추는 제진 기술에서 흔들림을 억제하는 장치 역할을 해요(ㄱ ○). 주름 빨대 대신 더 튼튼한 재료로 구조물을 만드는 것은 내진 기술을 적용하는 효과예요(ㄴ ×). 제진 기술과 내진 기술을 함께 적용하면 흔들림이 더 줄어요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">2</span>활동 2에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 추는 제진 기술에서 지진으로 발생한 흔들림을 억제하는 장치의 역할을 한다.<br>ㄴ. 주름 빨대 대신 더 밀도가 높은 재료로 구조물을 만들면 면진 기술을 적용하는 효과가 있다.<br>ㄷ. 제진 기술과 내진 기술을 함께 적용하면 구조물의 흔들림이 더 적어질 수 있다.</div>
+      <span class="multi-group" data-key="qz" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>건축물에 적용된 내진 설계 기술을 바탕으로 과학의 유용성과 가치를 정리해 보자.</div>
+      <textarea class="free" data-key="value" data-keywords="지진/피해,안전,유용/가치" data-model="내진 설계 기술은 건축물의 안정성과 내구성을 높여 지진으로 발생하는 피해를 최소화한다. 이처럼 과학은 우리의 삶을 안전하게 하고 생활을 편리하게 해 주는 유용성이 있으며, 안전한 사회를 바탕으로 더 발전할 수 있게 한다. 따라서 과학은 현대 사회의 발전과 안정성에 기여하는 가치 있는 학문이다." placeholder="과학의 유용성과 가치"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅰ-4 건축물에 적용된 내진 설계의 원리 알아보기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 26~29쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅰ-4 내진 설계의 원리";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+$("tech-table").innerHTML = choiceRows([
+  ["tc_rubber", "⚫ 땅과 건물 사이에 고무 받침·댐퍼를 설치한다.", "면진"],
+  ["tc_pend", "⚖️ 건물 꼭대기 층에 거대한 진자를 매단다.", "제진"],
+  ["tc_brace", "✖️ 층마다 중심부와 외벽을 대각선 구조물로 연결한다.", "내진"],
+  ["tc_col", "🧱 기둥과 벽을 굵고 튼튼하게 만든다.", "내진"]
+], [["면진", "면진 기술"], ["제진", "제진 기술"], ["내진", "내진 기술"]], ["사례", "기술"]);
+
+/* ===== 진동대 ===== */
+const ON = new Set(); const eqF = $("eq-f"); let eqRaf = 0, base0 = null, best = null;
+$("eq-tech").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const v = b.dataset.v; ON.has(v) ? ON.delete(v) : ON.add(v); b.classList.toggle("on", ON.has(v)); calc(); drawEQ(0); });
+function amp(f, on) { const inF = on.has("iso") ? 0.35 : 1, f0 = on.has("brace") ? 3.2 : 2.0, z = on.has("tmd") ? 0.28 : 0.05, r = f / f0; return inF * 1 / Math.sqrt(Math.pow(1 - r * r, 2) + Math.pow(2 * z * r, 2)); }
+const A_REF = amp(2.0, new Set());
+function calc() {
+  const f = Number(eqF.value), a = amp(f, ON), pct = a / A_REF * 100; $("eq-f-out").textContent = f.toFixed(1);
+  $("eq-read").innerHTML = `적용: <b>${ON.size ? [...ON].map(v => ({ iso: "면진", tmd: "제진", brace: "내진" })[v]).join(" + ") : "없음"}</b><br>꼭대기 흔들림(기술 없음·빠르기 2.0 기준): <b>${pct.toFixed(0)} %</b>`;
+  if (Math.abs(f - 2) < 0.05 && pct <= 20) { best = [...ON].join("+"); }
+  $("eq-badge").textContent = best ? "✅ 달성! (" + best.replace("iso", "면진").replace("tmd", "제진").replace("brace", "내진") + ")" : "";
+  return a;
+}
+eqF.addEventListener("input", () => { calc(); drawEQ(0); });
+function drawEQ(t) {
+  const f = Number(eqF.value), a = Math.min(4, amp(f, ON)), w = 2 * Math.PI * f / 2;
+  const g0 = 10 * Math.sin(w * t), bx = ON.has("iso") ? g0 * 0.35 : g0, top = 9 * a * Math.sin(w * t - 0.6);
+  let g = `<rect x="0" y="0" width="400" height="260" fill="#F4F8FA"/><rect x="${90 + g0}" y="215" width="220" height="24" rx="4" fill="#C9A87C"/><text x="${200 + g0}" y="232" text-anchor="middle" style="font-size:10px;fill:#5E4128">진동 모터 받침대</text>`;
+  if (ON.has("iso")) for (let i = 0; i < 2; i++) g += `<rect x="${135 + i * 110 + bx * 0.5}" y="204" width="22" height="11" rx="5" fill="#333"/>`;
+  const levels = 4, H = 44, x0 = 150, x1 = 250, yb = 204;
+  const sh = k => bx + top * (k / levels);
+  for (let k = 0; k < levels; k++) {
+    const yA = yb - k * H, yB = yb - (k + 1) * H, sA = sh(k), sB = sh(k + 1);
+    g += `<polygon points="${x0 + sA},${yA} ${x1 + sA},${yA} ${x1 + sB},${yB} ${x0 + sB},${yB}" fill="none" stroke="#F48FB1" stroke-width="4" stroke-linejoin="round"/>`;
+    if (ON.has("brace")) g += `<line x1="${x0 + sA}" y1="${yA}" x2="${x1 + sB}" y2="${yB}" stroke="#E91E63" stroke-width="3"/><line x1="${x1 + sA}" y1="${yA}" x2="${x0 + sB}" y2="${yB}" stroke="#E91E63" stroke-width="3"/>`;
+  }
+  if (ON.has("tmd")) { const cx = 200 + sh(levels), cy = yb - levels * H, mx = cx - top * 0.9; g += `<line x1="${cx}" y1="${cy}" x2="${mx}" y2="${cy + 30}" stroke="#555"/><circle cx="${mx}" cy="${cy + 36}" r="9" fill="#5E7375"/><text x="${mx + 14}" y="${cy + 40}" style="font-size:9px" ${halo}>추</text>`; }
+  const pct = amp(f, ON) / A_REF * 100;
+  g += `<rect x="20" y="20" width="16" height="170" rx="4" fill="#E3ECEE"/><rect x="20" y="${190 - Math.min(170, 170 * pct / 120)}" width="16" height="${Math.min(170, 170 * pct / 120)}" rx="4" fill="${pct <= 20 ? "#2E9E5B" : pct <= 60 ? "#F2C14E" : "#D8493B"}"/><text x="28" y="204" text-anchor="middle" style="font-size:9px">흔들림</text><text x="44" y="${190 - Math.min(170, 170 * pct / 120) + 4}" style="font-size:10px;font-weight:800">${pct.toFixed(0)}%</text>`;
+  $("eq-svg").innerHTML = g;
+}
+$("eq-go").addEventListener("click", () => { cancelAnimationFrame(eqRaf); const t0 = performance.now(); calc(); const step = t => { const tt = (t - t0) / 1000; drawEQ(tt); if (tt < 6) eqRaf = requestAnimationFrame(step); else drawEQ(0); }; eqRaf = requestAnimationFrame(step); });
+calc(); drawEQ(0);
+WS.custom("eq_best", { el: $("eq-badge"), value: () => best || "", check: () => !!best, answer: "기술 조합으로 흔들림 20 % 이하" });
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 내진 설계는 지진으로 발생하는 진동을 잘 견딜 수 있도록 건축물을 설계하는 것을 말한다.", "O"],
+  ["ox2", "(2) 내진 설계 기술은 지진의 피해를 줄이는 방식에 따라 면진 기술, 제진 기술, 내진 기술로 구분한다.", "O"],
+  ["ox3", "(3) 면진 기술은 지진으로 발생한 흔들림을 억제할 수 있는 다양한 장치를 설치하여 건축물을 보호하는 방법이다.", "X"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+</script>
+</body>
+</html>

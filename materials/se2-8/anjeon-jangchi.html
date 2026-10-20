@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅰ-8 — 안전사고 예방 장치 고안</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/8">← KISPP 과학실 · 과학탐구실험2 · Ⅰ. 생활 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 생활 속의 과학 탐구 · 8 운동 관련 안전사고 예방 장치 고안하기 (교과서 40~43쪽)</div>
+    <h1>충격을 나누고, 시간을 늘려라 — <span>운동 관련 안전사고 예방 장치 고안하기</span></h1>
+    <p class="sub">사각 보드와 빨대로 만든 구조물에 여러 모양의 보강재를 넣고 같은 높이에서 추를 떨어뜨려 어떤 모양이 가장 튼튼한지 비교해 보세요. 헬멧 속 충전재 두께를 바꾸며 머리가 받는 힘이 어떻게 달라지는지도 계산해 보고, 운동량과 충격량의 관계로 우리만의 안전장치를 설계해 봐요.</p>
+    <div class="goals"><span>🎯 운동 관련 안전사고를 예방하는 장치를 고안할 수 있다.</span><span>🎯 과학 개념을 적용하여 실생활 문제의 해결에 필요한 도구를 설계·제작할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 구조물 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>운동 관련 안전사고를 예방하는 구조물 탐구하기</div>
+    <div class="card-hint">사각 모형 안에 빨대로 보강재를 넣은 구조물을 지지대로 고정하고, 바닥에서 30 cm 높이에 매단 추의 끈을 잘라 떨어뜨려요. 느린 영상으로 부서지는 과정을 보고, 사각 보드가 벌어진 정도와 분리된 빨대 수로 부서진 정도를 비교하세요. ⚠️ 가위를 사용할 때 손을 다치지 않게 해요. (모의 실험)</div>
+    <div class="seg" id="st-pick" style="margin-bottom:8px"><button type="button" data-v="none" class="on">보강재 없음</button><button type="button" data-v="bar">가로 막대</button><button type="button" data-v="arch">곡선(아치)</button><button type="button" data-v="tri">삼각형</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="st-svg" viewBox="0 0 400 240" aria-label="구조물 낙하 실험"></svg></div>
+      <div class="panel"><button type="button" class="btn main small" id="st-go">✂️ 끈 자르기</button><div class="readout" id="st-read">보강재를 고르고 추를 떨어뜨리세요.</div></div>
+    </div>
+    <div style="overflow-x:auto;margin-top:8px"><table class="t" id="st-log"></table></div>
+    <div class="q" data-why="삼각형 형태의 보강재를 넣은 구조물이 가장 적게 벌어지고 분리된 빨대도 적어 안정성이 가장 높아요. 삼각형은 모양이 쉽게 변하지 않아 충돌로 받는 힘을 여러 방향으로 분산시키고, 운동량을 가진 물체가 멈추는 데 걸리는 시간을 길게 해 줘요." data-hint="네 가지 보강재를 모두 실험해 기록표를 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>가장 안정성이 높은 보강재 형태는 <span class="choice-group" data-key="st_best" data-answer="tri"><button type="button" class="choice-btn" data-value="none">보강재 없음</button><button type="button" class="choice-btn" data-value="bar">가로 막대</button><button type="button" class="choice-btn" data-value="arch">곡선</button><button type="button" class="choice-btn" data-value="tri">삼각형</button></span>이다. 그 까닭은 삼각형이 충돌로 받는 힘을 <span class="choice-group" data-key="st_why" data-answer="분산"><button type="button" class="choice-btn" data-value="분산">분산시키기</button><button type="button" class="choice-btn" data-value="집중">한 점에 모으기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 헬멧 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>헬멧 충전재와 충격량</div>
+    <div class="card-hint">질량 5 kg인 머리가 4 m/s로 바닥에 부딪힌다고 생각해 보세요. 멈출 때까지 운동량의 변화량(= <b>충격량</b>)은 5 × 4 = 20 N·s로 같아요. 충격량 = 힘 × 충돌 시간이므로, 충전재가 충돌 시간을 길게 하면 머리가 받는 힘이 줄어요. 충전재 두께를 바꿔 보세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="hm-svg" viewBox="0 0 400 210" aria-label="충돌 시간과 힘"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>충전재(다공성 흡수층) 두께 <output id="hm-out"></output></label><input type="range" id="hm-d" min="0" max="4" step="1" value="0"></div>
+        <div class="readout" id="hm-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="F = (운동량의 변화량) ÷ (충돌 시간) = 20 N·s ÷ 0.01 s = 2000 N이에요. 충돌 시간이 0.002 s(충전재 없음)이면 10000 N으로 5배나 커요." data-hint="충격량 20 N·s를 충돌 시간으로 나누세요.">
+      <div class="q-text"><span class="q-num">1</span>충돌 시간이 0.01 s일 때 머리가 받는 평균 힘은 <input class="blank w-s" data-key="hm_f" data-num="2000" data-tol="0.02"> N이다.</div>
+      <div class="q-text"><span class="q-num">2</span>충전재가 두꺼울수록 충돌 시간은 <span class="choice-group" data-key="hm_t" data-answer="길어"><button type="button" class="choice-btn" data-value="길어">길어지고</button><button type="button" class="choice-btn" data-value="짧아">짧아지고</button></span>, 머리가 받는 힘은 <span class="choice-group" data-key="hm_force" data-answer="작아"><button type="button" class="choice-btn" data-value="작아">작아진다</button><button type="button" class="choice-btn" data-value="커">커진다</button></span>. 이때 충격량은 <span class="choice-group" data-key="hm_imp" data-answer="같다"><button type="button" class="choice-btn" data-value="같다">변하지 않는다</button><button type="button" class="choice-btn" data-value="줄어">줄어든다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>운동 관련 안전사고를 예방하는 장치 고안하기</div>
+    <div class="card-hint">예시: <b>발목 부상</b> — 신발 바닥에 공기층이나 탄성이 큰 구조물을 넣으면 발과 바닥의 충돌 시간이 길어져 발목에 작용하는 힘이 줄어요.</div>
+    <div class="q" data-why="장갑 속 푹신한 충전재는 빠르게 날아오는 공과의 충돌 시간을 길게 해 손을 보호하고, 안전모 속 다공성 흡수층은 충돌 시간을 길게 해 머리를 보호해요. 경기장 벽의 보호 패드도 같은 원리예요. 모두 충격량이 같을 때 충돌 시간을 늘려 힘을 줄여요.">
+      <div class="q-text"><span class="q-num">1</span>안전사고와 예방 방법을 연결하시오.</div>
+      <table class="t" id="pv-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(1) 삼각형 형태의 보강재를 추가한 구조물의 안정성이 가장 높아요(○). (2) 푹신하거나 탄성이 큰 재질을 활용한 안전장치일수록 유용성이 높아요(○). (3) 대부분의 운동 관련 안전사고 예방 장치에는 운동량과 충격량의 관계가 적용되어 있어요(○).">
+      <div class="q-text"><span class="q-num">2</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="충격량은 운동량의 변화량과 같아요(ㄱ ○). 충격량의 크기는 힘의 크기가 클수록, 힘이 작용한 시간이 길수록 커요(ㄴ ×). 물체가 운동하는 방향으로 충격량을 받으면 그만큼 운동량이 증가해요(ㄷ ○).">
+      <div class="q-text"><span class="q-num">3</span>운동량과 충격량에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고르시오.</div>
+      <div class="bogi">ㄱ. 충격량은 운동량의 변화량과 같다.<br>ㄴ. 충격량의 크기는 물체에 작용한 힘의 크기가 클수록 힘이 작용한 시간이 짧을수록 크다.<br>ㄷ. 물체가 운동하는 방향으로 충격량을 받으면 그만큼 물체의 운동량은 증가한다.</div>
+      <span class="multi-group" data-key="qz" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button> <button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button> <button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>우리 모둠이 예방할 안전사고를 정하고, 안전장치의 설계(특징, 적용한 과학 원리, 예상 효과)를 써 보자. 유용성·경제성·효율성도 생각해 봐요.</div>
+      <textarea class="free" data-key="design" data-keywords="안전사고,충돌 시간/충격량/힘,재료/구조,효과" data-model="안전사고: 농구 중 넘어져 무릎을 바닥에 부딪치는 사고. 장치: 무릎 보호대 안쪽에 벌집(육각형) 구조의 실리콘 충전재를 넣고 바깥은 삼각형 패턴의 단단한 판으로 감싼다. 과학 원리: 충전재가 찌그러지며 충돌 시간을 길게 해 무릎이 받는 힘을 줄이고, 삼각형 패턴이 힘을 분산시킨다. 예상 효과: 충돌 시간을 5배로 늘리면 무릎에 작용하는 평균 힘은 1/5로 줄어든다. 가볍고 값싼 재료로 만들 수 있어 경제성과 효율성도 높다." placeholder="안전사고 / 설계 / 과학 원리 / 예상 효과"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅰ-8 운동 관련 안전사고 예방 장치 고안하기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 40~43쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅰ-8 안전사고 예방 장치 고안";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* ===== 1. 구조물 ===== */
+const ST = { none: { n: "보강재 없음", d: 1.0, sep: 4, top: 4.5 }, bar: { n: "가로 막대", d: 0.72, sep: 3, top: 3.5 }, arch: { n: "곡선(아치)", d: 0.55, sep: 3, top: 2.2 }, tri: { n: "삼각형", d: 0.15, sep: 0, top: 0.5 } };
+let st = "none", stRaf = 0; const stLog = {};
+function drawST(p) {
+  const s = ST[st], drop = Math.min(1, p * 1.3), def = p > 0.75 ? s.d * Math.min(1, (p - 0.75) / 0.25) : 0;
+  const L = 130, x0 = 135, y0 = 90, sag = 36 * def;
+  let g = `<rect x="0" y="0" width="400" height="240" fill="#F4F8FA"/><rect x="80" y="225" width="240" height="10" fill="#9AB"/><rect x="100" y="${y0 + L}" width="200" height="6" fill="#777"/>`;
+  g += `<rect x="112" y="40" width="6" height="185" fill="#bbb"/><rect x="282" y="40" width="6" height="185" fill="#bbb"/>`;
+  const TL = [x0 - 20 * def, y0 + sag], TR = [x0 + L + 20 * def, y0 + sag * 0.6], BL = [x0, y0 + L], BR = [x0 + L, y0 + L];
+  g += `<polygon points="${TL} ${TR} ${BR} ${BL}" fill="none" stroke="#222" stroke-width="7" stroke-linejoin="round"/>`;
+  const mid = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  if (st === "bar") { const a = mid(TL, BL, .5), b = mid(TR, BR, .5); g += `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#E53935" stroke-width="4"/>`; }
+  if (st === "arch") { const a = mid(TL, BL, .35), b = mid(TR, BR, .35); g += `<path d="M${a[0]},${a[1]} Q${(TL[0] + TR[0]) / 2},${TL[1] + 10} ${b[0]},${b[1]}" fill="none" stroke="#E53935" stroke-width="4"/>`; }
+  if (st === "tri") { const c = mid(TL, TR, .5); g += `<polyline points="${BL} ${c} ${BR}" fill="none" stroke="#E53935" stroke-width="4"/><polyline points="${TL} ${mid(BL, BR, .5)} ${TR}" fill="none" stroke="#E53935" stroke-width="3" opacity=".7"/>`; }
+  const wy = 20 + drop * (TL[1] - 34);
+  if (p < 0.02) g += `<line x1="200" y1="0" x2="200" y2="${wy}" stroke="#555"/>`;
+  g += `<rect x="186" y="${wy}" width="28" height="14" rx="3" fill="#5E7375"/><text x="200" y="${wy + 11}" text-anchor="middle" style="font-size:8px;fill:#fff">추</text>`;
+  g += `<text x="200" y="15" text-anchor="middle" style="font-size:11px;font-weight:800" ${halo}>${s.n} · 30 cm 낙하</text>`;
+  $("st-svg").innerHTML = g;
+}
+function drawLog() {
+  $("st-log").innerHTML = `<tr><th>보강재</th><th>상단 벌어진 정도(cm)</th><th>분리된 빨대 수</th><th>부서진 정도</th></tr>` + Object.keys(ST).filter(k => stLog[k]).map(k => `<tr><td class="l">${ST[k].n}</td><td>${ST[k].top.toFixed(1)}</td><td>${ST[k].sep}개</td><td>${Math.round(ST[k].d * 100)}</td></tr>`).join("");
+}
+$("st-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; st = b.dataset.v; cancelAnimationFrame(stRaf); $("st-pick").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawST(0); $("st-read").textContent = "끈을 잘라 추를 떨어뜨리세요."; });
+$("st-go").addEventListener("click", () => { cancelAnimationFrame(stRaf); const t0 = performance.now(); let done = false; const fin = () => { if (done) return; done = true; drawST(1); stLog[st] = true; drawLog(); const s = ST[st]; $("st-read").innerHTML = `<b>${s.n}</b>: 상단 벌어진 정도 <b>${s.top.toFixed(1)} cm</b>, 분리된 빨대 <b>${s.sep}개</b><br><span style="font-size:12px;color:var(--ink-soft)">실험한 구조물 ${Object.keys(stLog).length} / 4</span>`; }; const step = t => { if (done) return; const p = Math.min(1, (t - t0) / 1600); drawST(p); if (p < 1) stRaf = requestAnimationFrame(step); else fin(); }; stRaf = requestAnimationFrame(step); setTimeout(fin, 2200); });
+drawST(0); drawLog();
+WS.custom("st_tested", { el: $("st-read"), value: () => Object.keys(stLog).join(",") });
+
+/* ===== 2. 헬멧 ===== */
+const hmD = $("hm-d"), DT = [0.002, 0.005, 0.01, 0.015, 0.02], DN = ["없음", "얇게", "보통", "두껍게", "아주 두껍게"];
+function drawHM() {
+  const i = Number(hmD.value), dt = DT[i], F = 20 / dt; $("hm-out").textContent = DN[i];
+  const X = t => 40 + t / 0.025 * 340, Y = f => 180 - f / 11000 * 160;
+  let g = `<line x1="40" y1="180" x2="385" y2="180" stroke="#9AB"/><line x1="40" y1="15" x2="40" y2="180" stroke="#9AB"/>`;
+  for (let f = 0; f <= 10000; f += 2000) g += `<text x="34" y="${Y(f) + 3}" text-anchor="end" style="font-size:9px;fill:#5E7375">${f}</text>`;
+  [0, 0.005, 0.01, 0.015, 0.02, 0.025].forEach(t => g += `<text x="${X(t)}" y="194" text-anchor="middle" style="font-size:9px;fill:#5E7375">${t}</text>`);
+  g += `<rect x="${X(0)}" y="${Y(F)}" width="${X(dt) - X(0)}" height="${180 - Y(F)}" fill="#F7A8B8" stroke="#D8493B" stroke-width="2"/><text x="${(X(0) + X(dt)) / 2}" y="${Math.max(30, Y(F) + 16)}" text-anchor="middle" style="font-size:10px;font-weight:800" ${halo}>넓이 = 20 N·s</text>`;
+  g += `<text x="44" y="12" style="font-size:9px;fill:#5E7375">힘(N)</text><text x="385" y="206" text-anchor="end" style="font-size:9px;fill:#5E7375">충돌 시간(s)</text>`;
+  g += `<g transform="translate(330,60)"><circle r="20" fill="#F2C9A0"/><path d="M-24,0 A24,24 0 0,1 24,0" fill="#2F6FED"/>${i ? `<path d="M-${20 + i * 1.5},2 A${20 + i * 1.5},${20 + i * 1.5} 0 0,1 ${20 + i * 1.5},2" fill="none" stroke="#FFE082" stroke-width="${i * 2}"/>` : ""}</g>`;
+  $("hm-svg").innerHTML = g;
+  $("hm-read").innerHTML = `충돌 시간 <b>${dt} s</b><br>평균 힘 = 20 ÷ ${dt} = <b>${Math.round(F).toLocaleString()} N</b><br>충격량(그래프 넓이)은 항상 20 N·s`;
+}
+hmD.addEventListener("input", drawHM); drawHM();
+
+$("pv-table").innerHTML = choiceRows([
+  ["pv_ankle", "🦶 발목 부상", "shoe"], ["pv_wrist", "🧤 손목 부상(공 받기)", "glove"], ["pv_head", "⛑️ 머리 부상", "helmet"], ["pv_wall", "🧱 경기장 벽과 충돌", "pad"]
+], [["shoe", "신발 바닥의 공기층·탄성 구조물"], ["glove", "장갑 속 푹신한 충전재"], ["helmet", "안전모 속 다공성 흡수층"], ["pad", "벽에 두꺼운 보호 패드 설치"]], ["안전사고", "예방 방법"]);
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 삼각형 형태의 보강재를 추가한 구조물의 안정성이 가장 높다.", "O"],
+  ["ox2", "(2) 푹신하거나 탄성이 큰 재질을 활용한 안전장치일수록 유용성이 높다.", "O"],
+  ["ox3", "(3) 대부분의 운동 관련 안전사고 예방 장치에는 운동량과 충격량의 관계가 적용되어 있다.", "O"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅰ-1 — 동결 건조 식품</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/1">← KISPP 과학실 · 과학탐구실험2 · Ⅰ. 생활 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 생활 속의 과학 탐구 · 1 동결 건조 식품에 적용된 과학 원리 알아보기 (교과서 20~21쪽)</div>
+    <h1>얼음이 바로 수증기로 — <span>동결 건조 식품의 과학 원리</span></h1>
+    <p class="sub">라면의 건더기 스프, 인스턴트커피 가루, 즉석 찌개는 뜨거운 물만 부으면 원래 모습으로 돌아와요. 물의 상태도 위에서 온도와 압력을 조절하며 가상 동결 건조기를 직접 운전해 보세요. 얼음을 녹이지 않고 바로 수증기로 만드는 조건을 찾으면 맛과 영양을 지킨 동결 건조 식품을 완성할 수 있어요.</p>
+    <div class="goals"><span>🎯 동결 건조 식품에 적용된 과학 원리를 설명할 수 있다.</span><span>🎯 동결 건조 식품에 적용된 과학 원리를 탐구하며 과학의 유용성을 느낄 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 관찰 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 수행 1·2</span>동결 건조 식품 관찰하기</div>
+    <div class="card-hint">식품을 오래 보관하려고 저장 온도를 낮추거나 소금·식초를 넣으면 영양소가 파괴되거나 향이 날아가기도 해요. 이를 보완하는 방법이 <b>동결 건조</b>로, 빠른 시간 안에 식품을 얼린 다음 수분을 제거하는 방법이에요. ⚠️ 뜨거운 물을 다룰 때는 화상에 주의해요.</div>
+    <div class="q" data-why="동결 건조 식품은 수분이 적어 말라 있고 잘 부서지며 비교적 가벼워요. 뜨거운 물을 넣으면 인스턴트커피 가루는 잘 녹아 커피 향이 나고, 건더기 스프는 건조되었던 야채의 고유한 형태와 향이 되살아나요.">
+      <div class="q-text"><span class="q-num">1</span>동결 건조 식품의 특징으로 알맞은 것을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="ob_feat" data-answer="dry,light,restore"><button type="button" class="multi-btn" data-value="dry">수분이 적어 말라 있고 잘 부서진다</button> <button type="button" class="multi-btn" data-value="light">비교적 가볍다</button> <button type="button" class="multi-btn" data-value="wet">물이 많아 냉장 보관해야 한다</button> <button type="button" class="multi-btn" data-value="restore">뜨거운 물을 넣으면 원래의 형태와 향이 되살아난다</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 시뮬레이션 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">시뮬레이션</span>가상 동결 건조기 운전하기 — 물의 상태도</div>
+    <div class="card-hint">동결 건조는 <b>동결 → 승화 → 건조</b>의 세 단계로 이루어져요. 아래 상태도의 점(●)은 건조기 안의 온도와 압력이에요. ① 온도를 −50 °C 아래로 낮춰 식품을 얼리고, ② 압력을 낮춘 뒤, ③ 얼음이 녹지 않게 하면서 [1시간 진행]을 눌러 수분을 없애 보세요. 삼중점(0.01 °C, 611 Pa)보다 압력이 낮으면 얼음은 액체를 거치지 않고 바로 수증기가 돼요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="fd-svg" viewBox="0 0 400 260" aria-label="물의 상태도"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>건조기 온도 <output id="fd-t-out"></output></label><input type="range" id="fd-t" min="-70" max="40" value="20"></div>
+        <div class="ctrl"><label>건조기 압력 <output id="fd-p-out"></output></label><input type="range" id="fd-p" min="1" max="5" step="0.05" value="5"></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button type="button" class="btn main small" id="fd-go">⏱ 1시간 진행</button><button type="button" class="btn ghost small" id="fd-reset">↺ 새 식품</button></div>
+        <div class="readout" id="fd-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="식품을 −50 °C ~ −70 °C로 급격하게 얼린 다음, 압력을 낮춰(삼중점 611 Pa 아래) 식품 속 얼음을 승화시켜 수분을 제거해요. 압력이 높은 채로 온도를 올리면 얼음이 먼저 녹아 물이 되고, 이때 세포 조직이 손상돼요." data-hint="온도를 −50 °C 아래로 낮춘 뒤, 압력을 100 Pa 정도로 낮추고 온도를 −20 °C쯤으로 올려 진행해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>가상 동결 건조기로 얼음을 한 번도 녹이지 않고 수분을 5 % 이하로 줄이시오. <span id="fd-badge" style="font-weight:800"></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="고체가 액체를 거치지 않고 바로 기체가 되는 현상을 승화라고 해요. 동결 건조에서는 압력을 낮춰 얼음을 승화시켜요.">
+      <div class="q-text"><span class="q-num">2</span>동결 건조에서 얼음이 액체를 거치지 않고 바로 수증기가 되는 현상을 <input class="blank w-s" data-key="fd_word" data-answer="승화"> 라고 한다. 이 현상이 일어나려면 압력을 삼중점보다 <span class="choice-group" data-key="fd_p" data-answer="낮게"><button type="button" class="choice-btn" data-value="낮게">낮게</button><button type="button" class="choice-btn" data-value="높게">높게</button></span> 해야 한다.</div>
+      <div class="q-text"><span class="q-num">3</span>동결 건조 단계를 순서대로 배열하시오.</div>
+      <ol class="order-list" data-key="fd_order" data-answer="freeze,low,sub,dry">
+        <li data-id="sub">얼음을 승화시켜 수분을 없앤다.</li>
+        <li data-id="dry">건조된 식품을 꺼내 밀봉 포장한다.</li>
+        <li data-id="freeze">식품을 −50 °C ~ −70 °C로 급격하게 얼린다.</li>
+        <li data-id="low">건조기 속 압력을 낮춘다.</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 장단점과 활용 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 수행 4·5</span>동결 건조의 장단점과 활용</div>
+    <div class="q" data-why="동결 건조 식품은 물을 넣으면 원래 상태로 복원되는 능력이 뛰어나고, 직접적인 열을 가하지 않아 영양분과 세포 조직의 손상이 적어 맛·색·영양소가 거의 변하지 않아요. 반면 시간과 비용이 많이 들고, 습기나 냄새를 잘 흡수하며 잘 부서져 포장·운반이 어려워요.">
+      <div class="q-text"><span class="q-num">1</span>일반 건조 식품과 비교한 동결 건조 식품의 장점과 단점을 분류하시오.</div>
+      <table class="t" id="pc-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="의약품은 효력을 유지한 채 오래 보존하고, 화장품은 원료 손상을 줄이고 방부제 없이 보관하며, 혈액이나 세균은 세포 조직 손상을 줄여 보존하는 데 동결 건조가 쓰여요.">
+      <div class="q-text"><span class="q-num">2</span>식품 이외에 동결 건조 원리를 활용하는 예를 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="use" data-answer="drug,cosm,blood"><button type="button" class="multi-btn" data-value="drug">의약품 보존·제조</button> <button type="button" class="multi-btn" data-value="cosm">화장품 제조</button> <button type="button" class="multi-btn" data-value="iron">다리미로 옷 주름 펴기</button> <button type="button" class="multi-btn" data-value="blood">혈액·세균 종자 보존</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(1) 동결 건조는 동결, 승화, 건조의 세 단계로 이루어져요(○). (2) 물을 넣었을 때 복원 능력이 일반 건조 식품보다 뛰어나요(○). (3) 동결 건조는 직접적인 열을 가하지 않으므로 영양분과 세포 조직의 손상 정도가 낮아요(×).">
+      <div class="q-text"><span class="q-num">3</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>동결 건조 식품에 적용된 과학 원리를 바탕으로 과학의 유용성에 대해 이야기해 보자.</div>
+      <textarea class="free" data-key="value" data-keywords="승화/압력,보존/영양,활용/분야,삶/생활" data-model="동결 건조는 압력을 낮춰 얼음을 승화시키는 원리로 식품의 맛과 영양을 지키며 오래 보존하게 해 준다. 이 원리는 식품뿐 아니라 의약품, 화장품, 생명공학 등 다양한 분야에서 활용되고, 최신 기술로 생산 효율과 품질도 높이고 있다. 이처럼 과학은 인류의 삶을 건강하고 풍요롭게 하는 데 기여한다." placeholder="과학의 유용성"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅰ-1 동결 건조 식품에 적용된 과학 원리 알아보기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 20~21쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅰ-1 동결 건조 식품";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* ===== 상태도 ===== */
+const TK = t => t + 273.15, PT = 611;
+const Psub = t => PT * Math.exp(6140 * (1 / 273.16 - 1 / TK(t)));
+const Pvap = t => PT * Math.exp(5420 * (1 / 273.16 - 1 / TK(t)));
+function phaseOf(t, p) { if (t <= 0.01) return p >= Psub(t) ? "solid" : "gas"; return p >= Pvap(t) ? "liquid" : "gas"; }
+const fdT = $("fd-t"), fdP = $("fd-p");
+const FD = { frozen: false, water: 90, melted: false, hours: 0, done: false };
+const P = () => Math.pow(10, Number(fdP.value)), Tv = () => Number(fdT.value);
+const fmtP = p => p >= 1000 ? (p / 1000).toFixed(1) + " kPa" : Math.round(p) + " Pa";
+function drawFD() {
+  const t = Tv(), p = P(); $("fd-t-out").textContent = t + " °C"; $("fd-p-out").textContent = fmtP(p);
+  const X = tt => 40 + (tt + 70) / 110 * 345, Y = pp => 225 - (Math.log10(pp) - 1) / 4.2 * 210;
+  let g = `<rect x="40" y="15" width="345" height="210" fill="#F4F8FA"/>`;
+  let ds = "", dv = "";
+  for (let tt = -70; tt <= 0.01; tt += 1) { const pp = Psub(tt); if (pp >= 10) ds += (ds ? "L" : "M") + X(tt).toFixed(1) + "," + Y(pp).toFixed(1); }
+  for (let tt = 0.01; tt <= 40; tt += 1) dv += (dv ? "L" : "M") + X(tt).toFixed(1) + "," + Y(Pvap(tt)).toFixed(1);
+  g += `<path d="${ds}" fill="none" stroke="#2F6FED" stroke-width="2.5"/><path d="${dv}" fill="none" stroke="#D8493B" stroke-width="2.5"/><line x1="${X(0.01)}" y1="${Y(PT)}" x2="${X(-0.5)}" y2="15" stroke="#2E9E5B" stroke-width="2.5"/>`;
+  g += `<circle cx="${X(0.01)}" cy="${Y(PT)}" r="4" fill="#26393B"/><text x="${X(0.01) + 6}" y="${Y(PT) + 14}" style="font-size:9px;fill:#26393B" ${halo}>삼중점(0.01 °C, 611 Pa)</text>`;
+  g += `<text x="${X(-45)}" y="${Y(20000)}" style="font-size:13px;font-weight:800;fill:#2F6FED" ${halo}>고체(얼음)</text><text x="${X(15)}" y="${Y(60000)}" style="font-size:13px;font-weight:800;fill:#D8493B" ${halo}>액체(물)</text><text x="${X(-15)}" y="${Y(25)}" style="font-size:13px;font-weight:800;fill:#5E7375" ${halo}>기체(수증기)</text>`;
+  for (let k = 1; k <= 5; k++) g += `<text x="36" y="${Y(Math.pow(10, k)) + 3}" text-anchor="end" style="font-size:8px;fill:#5E7375">10^${k}</text>`;
+  for (let tt = -60; tt <= 40; tt += 20) g += `<text x="${X(tt)}" y="238" text-anchor="middle" style="font-size:9px;fill:#5E7375">${tt}</text>`;
+  g += `<text x="44" y="11" style="font-size:9px;fill:#5E7375">압력(Pa)</text><text x="385" y="252" text-anchor="end" style="font-size:9px;fill:#5E7375">온도(°C)</text>`;
+  g += `<circle cx="${X(t)}" cy="${Y(Math.max(10, p))}" r="7" fill="#E0A100" stroke="#fff" stroke-width="2"/>`;
+  // 식품
+  const wl = FD.water / 90;
+  g += `<rect x="300" y="160" width="70" height="50" rx="6" fill="${FD.melted ? "#B9A07A" : FD.frozen ? "#CFE6F5" : "#8BC34A"}" stroke="#5E7375"/><rect x="304" y="${206 - 42 * wl}" width="62" height="${42 * wl}" fill="#7EC4E8" opacity="${FD.frozen ? .35 : .55}"/><text x="335" y="190" text-anchor="middle" style="font-size:16px">${FD.melted ? "🥴" : "🥕"}</text>`;
+  $("fd-svg").innerHTML = g;
+  const ph = phaseOf(t, p), phn = { solid: "고체", liquid: "액체", gas: "기체" }[ph];
+  $("fd-read").innerHTML = `현재 조건에서 물의 상태: <b>${phn}</b><br>식품 속 수분: <b>${FD.water.toFixed(0)} %</b> · ${FD.melted ? "<span style='color:#D8493B'>⚠️ 얼음이 녹아 조직이 손상됨</span>" : FD.frozen ? "얼어 있음" : "얼리기 전"}<br><span style="font-size:12px;color:var(--ink-soft)">경과 ${FD.hours}시간</span>`;
+  $("fd-badge").textContent = FD.done ? "✅ 동결 건조 성공!" : "";
+}
+[fdT, fdP].forEach(x => x.addEventListener("input", () => { const t = Tv(), p = P(); if (FD.water > 5 && FD.frozen && !FD.melted && phaseOf(t, p) === "liquid") { FD.melted = true; } if (!FD.frozen && t <= -50) FD.frozen = true; drawFD(); }));
+$("fd-go").addEventListener("click", () => {
+  const t = Tv(), p = P(), ph = phaseOf(t, p); FD.hours++;
+  if (!FD.frozen) { drawFD(); $("fd-read").innerHTML += "<br>먼저 온도를 −50 °C 아래로 낮춰 식품을 얼리세요."; return; }
+  if (ph === "gas" && !FD.melted) { const rate = Math.min(30, 4 + (t + 70) * 0.5); FD.water = Math.max(0, FD.water - rate); }
+  else if (ph === "liquid" && FD.water > 5) FD.melted = true;
+  if (FD.water <= 5 && !FD.melted) FD.done = true;
+  drawFD();
+  if (ph === "solid") $("fd-read").innerHTML += "<br>얼음 상태라 수분이 빠져나가지 않아요. 압력을 낮춰 보세요.";
+});
+$("fd-reset").addEventListener("click", () => { Object.assign(FD, { frozen: false, water: 90, melted: false, hours: 0, done: false }); fdT.value = 20; fdP.value = 5; drawFD(); });
+drawFD();
+WS.custom("fd_ok", { el: $("fd-badge"), value: () => `수분${FD.water.toFixed(0)}% ${FD.melted ? "녹음" : ""} ${FD.hours}h`, check: () => FD.done, answer: "얼음을 녹이지 않고 수분 5 % 이하(동결 → 감압 → 승화)" });
+
+$("pc-table").innerHTML = choiceRows([
+  ["pc_rest", "💧 물을 넣으면 원래 상태로 복원되는 능력이 뛰어나다.", "장점"],
+  ["pc_nutr", "🥗 영양분과 세포 조직의 손상이 적어 맛·색·영양소가 거의 변하지 않는다.", "장점"],
+  ["pc_cost", "💸 동결 건조에 비용과 시간이 많이 든다.", "단점"],
+  ["pc_pack", "📦 습기·냄새를 잘 흡수하고 잘 부서져 포장·운반이 어렵다.", "단점"]
+], [["장점", "장점"], ["단점", "단점"]], ["내용", "구분"]);
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 동결 건조는 동결, 승화, 건조의 세 단계로 이루어진다.", "O"],
+  ["ox2", "(2) 동결 건조 식품은 물을 넣었을 때 복원되는 능력이 일반 건조 식품보다 뛰어나다.", "O"],
+  ["ox3", "(3) 동결 건조는 직접적인 열을 가하는 방식으로 일반 건조 방법에 비해 영양분과 세포 조직의 손상 정도가 높다.", "X"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+</script>
+</body>
+</html>

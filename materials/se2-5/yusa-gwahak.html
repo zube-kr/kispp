@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅰ-5 — 유사과학 비평하기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>.cl-card{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;font-size:13.5px;line-height:1.7}</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/5">← KISPP 과학실 · 과학탐구실험2 · Ⅰ. 생활 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 생활 속의 과학 탐구 · 5 미디어나 생활에 있는 유사과학을 탐색하고 비평하기 (교과서 30~31쪽)</div>
+    <h1>그럴듯하지만 과학은 아닌 — <span>유사과학 탐색하고 비평하기</span></h1>
+    <p class="sub">"선풍기를 틀어 놓고 자면 위험하다", "이 식물이 전자파를 모두 흡수한다"… 과학처럼 들리는 주장을 검증 기준으로 하나씩 따져 보세요. 근거가 명확한지, 실험으로 다시 확인할 수 있는지, 검증 방법이 공개되었는지 점검하면 과학과 유사과학을 구분할 수 있어요.</p>
+    <div class="goals"><span>🎯 미디어나 생활에 있는 유사과학을 탐색하고 유사과학과 과학을 구분할 수 있다.</span><span>🎯 유사과학을 비평하면서 과학의 유용성을 느낄 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 유사과학이란 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 문제</span>유사과학이란?</div>
+    <div class="card-hint">유사과학은 과학에 기대어 정당성을 확보하는 것처럼 보이지만 주장하는 내용이 모호하거나, 명확한 근거를 제시하지 못하거나, 주장을 검증하는 타당한 방법을 공개하지 못해요. 그럼에도 흥미로운 내용으로 관심을 끌어 사람들이 잘못된 결정을 하게 만들기도 해요.</div>
+    <div class="q" data-why="유사과학의 특징은 모호한 주장, 명확한 근거 부족, 검증 방법 비공개예요. 실험으로 재현할 수 있고 다른 연구로 확인되며 검증 방법이 공개된 것은 과학의 특징이에요.">
+      <div class="q-text"><span class="q-num">1</span>유사과학의 특징을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="ps_feat" data-answer="vague,noevid,nomethod"><button type="button" class="multi-btn" data-value="vague">주장하는 내용이 모호하다</button> <button type="button" class="multi-btn" data-value="repro">누구나 실험으로 다시 확인할 수 있다</button> <button type="button" class="multi-btn" data-value="noevid">명확한 근거를 제시하지 못한다</button> <button type="button" class="multi-btn" data-value="nomethod">검증하는 타당한 방법을 공개하지 못한다</button> <button type="button" class="multi-btn" data-value="peer">다른 연구 자료에서도 같은 결과가 확인된다</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 검증기 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 수행</span>주장 검증 실험실</div>
+    <div class="card-hint">주장을 하나 골라 검증 질문을 차례로 눌러 보세요. 각 질문에 대한 조사 결과가 나타나요. 네 질문을 모두 확인한 뒤 과학인지 유사과학인지 판정해 보세요.</div>
+    <div class="seg" id="cl-pick" style="margin-bottom:8px"></div>
+    <div class="cl-card" id="cl-claim"></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0" id="cl-qs"></div>
+    <div class="readout" id="cl-read"></div>
+    <div class="q" data-why="식물만으로는 전자파를 차단할 수 없어요. 전자레인지처럼 물 분자의 진동수와 같은 전자기파는 물에 흡수되지만, 일반적인 전자기파가 식물의 물에 의해 제거되기는 어려워요. 또 아무 에너지도 가하지 않은 식물이 음이온을 방출해 건강에 도움을 준다는 실험 결과나 명확한 근거도 없어요. 효소 식품과 게르마늄 팔찌도 근거가 없지만, 손 씻기의 감염병 예방 효과와 자외선 차단제의 피부 보호 효과는 실험으로 확인된 과학이에요." data-hint="다섯 가지 주장을 모두 골라 검증 질문을 확인해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>각 주장을 판정하시오.</div>
+      <table class="t" id="jd-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="특정 식물이 전자파를 차단하거나 음이온을 방출한다는 실험 결과나 명확한 근거를 찾을 수 없어요.">
+      <div class="q-text"><span class="q-num">2</span>어떤 식물을 홍보하는 글에서 식물이 전자파를 모두 흡수해 차단하고 음이온도 배출한다고 하였지만, 이를 확인하기 위한 실험 <input class="blank w-s" data-key="pl_word" data-answer="결과"> (이)나 명확한 근거를 찾을 수 없다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 탐구 정리 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 정리</span>유사과학을 구분하는 것이 왜 중요할까?</div>
+    <div class="q" data-why="(1) 유사과학은 과학이라고 볼 수 없어요(×). (2) 주장에 대해 실험이나 관찰로 검증할 수 없으면 유사과학이에요(○). (3) 과학적 글쓰기를 할 때는 객관적인 근거를 바탕으로 작성해야 해요(○).">
+      <div class="q-text"><span class="q-num">1</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="주장이 과학적으로 타당한지, 실험적으로 재현되는지, 다른 연구 자료에서도 확인되는지, 근거가 검증 가능한지 확인해야 해요. 유명인이 말했거나 많은 사람이 공유했다는 것은 과학적 근거가 아니에요.">
+      <div class="q-text"><span class="q-num">2</span>글이나 주장이 유사과학이 되지 않으려면 고려해야 할 점을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="rule" data-answer="valid,repro,other,verify"><button type="button" class="multi-btn" data-value="valid">과학적으로 타당한지 확인한다</button> <button type="button" class="multi-btn" data-value="repro">실험적으로 재현되는지 확인한다</button> <button type="button" class="multi-btn" data-value="celeb">유명인이 추천했는지 확인한다</button> <button type="button" class="multi-btn" data-value="other">다른 연구 자료에서도 확인되는지 살핀다</button> <button type="button" class="multi-btn" data-value="verify">근거가 검증 가능한지 확인한다</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>생활 속 유사과학 사례 하나를 찾아 과학적 근거를 들어 비평해 보자.</div>
+      <textarea class="free" data-key="critique" data-keywords="주장,근거,실험/검증,유사과학" data-model="사례: '효소 식품을 먹으면 몸속 효소가 늘어나 건강해진다.' 비평: 효소는 생체 내에서 물질이 빠르게 반응하도록 돕는 생체 촉매인 단백질이다. 먹은 효소는 위와 장에서 소화되어 아미노산으로 분해되므로 그대로 몸속 효소가 되지 않는다. 효소 식품이 건강에 도움이 된다는 검증된 실험 결과도 찾기 어렵다. 따라서 이 주장은 근거가 부족한 유사과학이다." placeholder="사례 / 비평"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅰ-5 미디어나 생활에 있는 유사과학을 탐색하고 비평하기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 30~31쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅰ-5 유사과학 비평하기";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+
+const QS = ["주장이 명확한가?", "근거가 제시되어 있는가?", "실험으로 다시 확인할 수 있는가?", "검증 결과가 공개·확인되었는가?"];
+const CL = [
+  { k: "plant", n: "🪴 전자파 차단 식물", t: "\"전자 기기 근처에 이 식물을 놓으면 식물이 전자파를 모두 흡수해 차단시켜 줄 겁니다. 또한 이 식물은 음이온 배출량도 많아 건강에 도움이 됩니다.\"", a: ["'모두', '건강에 도움' 등 표현이 모호해요.", "어떤 실험인지 근거가 제시되지 않았어요.", "일반적인 전자기파는 식물 속 물로 제거되기 어려워 재현되지 않아요.", "아무 에너지를 가하지 않은 식물이 음이온을 내 건강에 도움을 준다는 검증 결과가 없어요."], v: "유사" },
+  { k: "fan", n: "🌀 선풍기 수면 사망", t: "\"선풍기를 틀어 놓고 자면 공기가 희박해져 위험하다.\"", a: ["원인이 모호해요.", "과학적 근거가 제시되지 않았어요.", "선풍기는 공기를 움직일 뿐 산소를 없애지 않아요.", "이후 사실이 아니라고 밝혀졌어요."], v: "유사" },
+  { k: "enzyme", n: "🧃 효소 식품", t: "\"효소 식품을 먹으면 몸속 효소가 늘어나 건강해진다.\"", a: ["'건강해진다'가 모호해요.", "효소라고 지칭되는 물질이 무엇인지 정확하지 않아요.", "먹은 효소(단백질)는 소화되어 분해되므로 그대로 작용하지 않아요.", "건강 효과를 확인한 검증 결과를 찾기 어려워요."], v: "유사" },
+  { k: "ge", n: "📿 게르마늄 팔찌", t: "\"게르마늄 팔찌를 차면 통증이 사라지고 혈액 순환이 잘 된다.\"", a: ["효과가 모호해요.", "작용 원리가 제시되지 않았어요.", "게르마늄만으로는 전기적 역할을 하거나 건강에 이로운 물질을 방출할 수 없어요.", "검증된 효과가 없어요."], v: "유사" },
+  { k: "wash", n: "🧼 손 씻기와 감염병", t: "\"비누로 30초 이상 손을 씻으면 손에 묻은 세균과 바이러스가 줄어 감염병을 예방할 수 있다.\"", a: ["무엇을 얼마나 하는지 명확해요.", "세균 수를 비교한 연구 결과가 근거로 제시돼요.", "손 씻기 전후 배양 실험으로 누구나 확인할 수 있어요.", "여러 보건 기관과 연구에서 같은 결과가 확인되었어요."], v: "과학" }
+];
+let clSel = 0; const asked = {}; CL.forEach(c => asked[c.k] = new Set());
+$("cl-pick").innerHTML = CL.map((c, i) => `<button type="button" data-i="${i}" class="${i === 0 ? "on" : ""}">${c.n}</button>`).join("");
+function drawCL() {
+  const c = CL[clSel];
+  $("cl-claim").innerHTML = `<b>${c.n}</b><br>${c.t}`;
+  $("cl-qs").innerHTML = QS.map((q, i) => `<button type="button" class="btn small ${asked[c.k].has(i) ? "ghost" : "main"}" data-q="${i}">${i + 1}. ${q}</button>`).join("");
+  const done = [...asked[c.k]].sort();
+  $("cl-read").innerHTML = done.length ? done.map(i => `<b>${QS[i]}</b> → ${c.a[i]}`).join("<br>") + (done.length === 4 ? `<br><br>🔎 네 가지 검증을 모두 마쳤어요. 판정해 보세요.` : "") : "검증 질문을 눌러 조사 결과를 확인하세요.";
+}
+$("cl-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; clSel = Number(b.dataset.i); $("cl-pick").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawCL(); });
+$("cl-qs").addEventListener("click", e => { const b = e.target.closest("button[data-q]"); if (!b) return; asked[CL[clSel].k].add(Number(b.dataset.q)); drawCL(); });
+drawCL();
+WS.custom("cl_checked", { el: $("cl-read"), value: () => CL.filter(c => asked[c.k].size === 4).length + "/5 검증" });
+$("jd-table").innerHTML = choiceRows(CL.map(c => ["jd_" + c.k, c.n, c.v]), [["과학", "과학"], ["유사", "유사과학"]], ["주장", "판정"]);
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 유사과학도 과학에 해당한다.", "X"],
+  ["ox2", "(2) 주장에 대해 실험이나 관찰로 검증할 수 없으면 유사과학이다.", "O"],
+  ["ox3", "(3) 과학적 글쓰기를 할 때에는 객관적인 근거를 바탕으로 작성해야 한다.", "O"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+</script>
+</body>
+</html>

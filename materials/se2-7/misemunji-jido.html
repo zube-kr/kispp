@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험2 Ⅰ-7 — 학교 주변 미세 먼지 지도</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>#gr-std th,#gr-std td{font-size:12px;padding:4px 5px}</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se2/7">← KISPP 과학실 · 과학탐구실험2 · Ⅰ. 생활 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 생활 속의 과학 탐구 · 7 오염 물질 측정 장치를 활용한 학교 주변 환경 탐구하기 (교과서 36~39쪽)</div>
+    <h1>우리 학교 공기는 괜찮을까? — <span>학교 주변 미세 먼지 지도 만들기</span></h1>
+    <p class="sub">미세 먼지 측정 장치를 들고 교실, 운동장, 버스 정류장 등 학교 주변을 돌며 PM10과 PM2.5 농도를 측정해 보세요. 측정값을 예보 등급으로 분류해 미세 먼지 지도를 완성하고, 농도가 높은 곳의 원인과 미세 먼지를 줄이는 방법을 찾아봐요.</p>
+    <div class="goals"><span>🎯 오염 물질 측정 장치를 활용하여 학교 주변의 오염 물질 농도를 측정하고 오염 물질 저감 방안을 제안할 수 있다.</span><span>🎯 생활에서 과학 탐구 문제를 발견하고 이를 해결하기 위한 과학 탐구 활동을 수행할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 미세 먼지 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 문제</span>미세 먼지란?</div>
+    <div class="card-hint">18세기 후반 산업 혁명 이후 화석 연료 사용량이 늘면서 온실 기체와 대기 오염 물질이 많이 발생했어요. 미세 먼지는 입자의 크기에 따라 <b>PM10</b>(지름 10 μm 이하의 미세 먼지)과 <b>PM2.5</b>(지름 2.5 μm 이하의 초미세 먼지)로 구분해요. 머리카락 단면의 지름(약 50~70 μm)과 비교하면 매우 작아요. PM은 공기 중의 미립자 물질(Particulate Matter)로 고체 입자나 액체 방울을 포함해요.</div>
+    <div class="q" data-why="PM10은 지름 10 μm 이하, PM2.5는 지름 2.5 μm 이하의 먼지예요. 초미세 먼지는 더 작아 호흡기 깊숙이 들어갈 수 있어요. 미세 먼지는 눈·코에 이물감을 주고 심하면 호흡기 질환을 일으켜요.">
+      <div class="q-text"><span class="q-num">1</span>초미세 먼지(PM2.5)는 지름이 <input class="blank w-s" data-key="pm25" data-num="2.5" data-abs="0.01"> μm 이하인 먼지이다. 미세 먼지 농도의 단위는 <span class="choice-group" data-key="unit" data-answer="ugm3"><button type="button" class="choice-btn" data-value="ugm3">μg/m³</button><button type="button" class="choice-btn" data-value="um">μm</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 1 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>학교 주변의 미세 먼지 농도 측정하기</div>
+    <div class="card-hint">모둠별로 장소를 다르게 정해 같은 시간에 측정해요. 지도의 장소를 누르면 측정 장치가 PM10과 PM2.5를 측정해요. 측정한 장소는 예보 등급 색으로 표시돼요. (교수 학습 설계안 예시값)</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="mm-svg" viewBox="0 0 400 240" aria-label="학교 주변 미세 먼지 지도"></svg></div>
+      <div class="panel"><div class="readout" id="mm-read">장소를 눌러 측정하세요.</div>
+        <table class="t" id="gr-std"><tr><th>등급(μg/m³)</th><th>좋음</th><th>보통</th><th>나쁨</th><th>매우 나쁨</th></tr><tr><td class="l">PM10</td><td>0~30</td><td>31~80</td><td>81~150</td><td>151 이상</td></tr><tr><td class="l">PM2.5</td><td>0~15</td><td>16~35</td><td>36~75</td><td>76 이상</td></tr></table>
+      </div>
+    </div>
+    <div class="q" data-why="교실(PM10 35 보통, PM2.5 12 좋음), 운동장(32 보통, 11 좋음), 버스 정류장(45 보통, 20 보통), 체육관(37 보통, 16 보통), 산책로(28 좋음, 10 좋음), 주택가(30 좋음, 11 좋음)예요." data-hint="예보 등급 표의 경계값(PM10 30/80, PM2.5 15/35)과 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>측정값을 예보 등급으로 분류하시오.</div>
+      <div style="overflow-x:auto"><table class="t" id="gr-table" style="margin-top:6px"></table></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="버스 정류장은 자동차 배기가스와 도로의 먼지 때문에 농도가 가장 높고, 나무가 많고 차가 다니지 않는 산책로는 가장 낮아요." data-hint="여섯 곳을 모두 측정해 비교해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>미세 먼지 농도가 가장 높은 곳은 <span class="choice-group" data-key="high" data-answer="bus"><button type="button" class="choice-btn" data-value="class">교실</button><button type="button" class="choice-btn" data-value="bus">버스 정류장</button><button type="button" class="choice-btn" data-value="walk">산책로</button></span>이고, 그 원인은 <span class="choice-group" data-key="high_why" data-answer="car"><button type="button" class="choice-btn" data-value="car">자동차 배기가스와 도로의 먼지</button><button type="button" class="choice-btn" data-value="tree">많은 나무</button></span>이다. 가장 낮은 곳은 <span class="choice-group" data-key="low" data-answer="walk"><button type="button" class="choice-btn" data-value="gym">체육관</button><button type="button" class="choice-btn" data-value="walk">산책로</button><button type="button" class="choice-btn" data-value="bus">버스 정류장</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>미세 먼지 저감 방안 제안하기</div>
+    <div class="card-hint">미세 먼지는 <b>인위적 발생원</b>(공장, 자동차, 공사장 등)과 <b>자연적 발생원</b>(황사, 산불, 화산 등)에서 생겨요. 발생원에서 고체 상태로 직접 배출되면 <b>1차 발생원</b>, 기체 상태로 나온 물질이 공기 중 다른 물질과 화학 반응을 일으켜 미세 먼지가 생기면 <b>2차 발생원</b>이에요.</div>
+    <div class="q" data-why="자동차 배기구의 매연과 공사장의 흙먼지는 고체 상태로 바로 나오므로 1차, 공장 굴뚝의 황산화물·질소산화물이 공기 중에서 반응해 생기는 입자는 2차예요. 황사와 산불 연기는 자연적 발생원이에요.">
+      <div class="q-text"><span class="q-num">1</span>미세 먼지의 발생원을 분류하시오.</div>
+      <table class="t" id="src-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="대중교통 이용, 공회전 줄이기, 공사장 물 뿌리기, 학교 주변 나무 심기, 불법 소각 하지 않기, 에너지 절약은 미세 먼지를 줄여요. 농도가 높은 날 창문을 활짝 열어 환기하면 실내로 미세 먼지가 들어와요.">
+      <div class="q-text"><span class="q-num">2</span>미세 먼지를 줄이는 방안을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="reduce" data-answer="bus,idle,water,tree,burn"><button type="button" class="multi-btn" data-value="bus">대중교통 이용하기</button> <button type="button" class="multi-btn" data-value="idle">자동차 공회전 줄이기</button> <button type="button" class="multi-btn" data-value="window">농도가 높은 날 창문을 활짝 열어 두기</button> <button type="button" class="multi-btn" data-value="water">공사장에 물 뿌리기</button> <button type="button" class="multi-btn" data-value="tree">학교 주변에 나무 심기</button> <button type="button" class="multi-btn" data-value="burn">쓰레기를 불법으로 태우지 않기</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>우리가 측정한 결과를 공공 기관(에어코리아)의 우리 지역 농도와 비교하고, 학교에서 미세 먼지를 줄이기 위해 실천할 수 있는 방안을 제안해 보자.</div>
+      <textarea class="free" data-key="plan" data-keywords="에어코리아/공공,비교,버스 정류장/도로,실천/나무/대중교통" data-model="에어코리아의 우리 지역 PM10 값은 38 μg/m³로 우리가 측정한 평균(약 35)과 비슷했지만, 버스 정류장처럼 도로 옆은 더 높았다. 학교 정문 버스 정류장 쪽에 미세 먼지를 걸러 주는 나무 울타리를 만들고, 등하교 때 자가용 대신 대중교통과 자전거를 이용하자는 캠페인을 하며, 농도가 높은 날에는 실내 체육을 하도록 제안한다." placeholder="비교 결과 / 저감 방안"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험2 Ⅰ-7 오염 물질 측정 장치를 활용한 학교 주변 환경 탐구하기 · 비상교육 과학탐구실험2 교과서·탐구 활동지·교수 학습 설계안(교과서 36~39쪽) 바탕 · 예보 등급: 환경부</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험2 Ⅰ-7 학교 주변 미세 먼지 지도";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+const PL = [["class", "🏫 교실", 35, 12, 200, 70], ["yard", "⚽ 운동장", 32, 11, 290, 110], ["bus", "🚌 버스 정류장", 45, 20, 330, 200], ["gym", "🏀 체육관", 37, 16, 110, 95], ["walk", "🌳 산책로", 28, 10, 70, 190], ["house", "🏘️ 주택가", 30, 11, 200, 190]];
+const g10 = v => v <= 30 ? 0 : v <= 80 ? 1 : v <= 150 ? 2 : 3, g25 = v => v <= 15 ? 0 : v <= 35 ? 1 : v <= 75 ? 2 : 3;
+const GN = ["좋음", "보통", "나쁨", "매우 나쁨"], GC = ["#2F6FED", "#2E9E5B", "#F29E4C", "#D8493B"];
+const meas = new Set();
+function drawMM(sel) {
+  let g = `<rect x="0" y="0" width="400" height="240" fill="#EEF4EA"/><path d="M0,160 L400,150 L400,170 L0,180 z" fill="#B0BEC5"/><text x="380" y="146" text-anchor="end" style="font-size:9px;fill:#5E7375">도로</text><rect x="150" y="40" width="160" height="90" rx="6" fill="none" stroke="#9AB" stroke-dasharray="5 4"/><text x="230" y="36" text-anchor="middle" style="font-size:9px;fill:#5E7375">학교</text>`;
+  PL.forEach(([k, n, a, b, x, y], i) => { const m = meas.has(k), gr = Math.max(g10(a), g25(b)); g += `<g data-i="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="24" fill="${m ? GC[g10(a)] : "#fff"}" opacity="${m ? .85 : 1}" stroke="${sel === i ? "#E0A100" : "#9AB"}" stroke-width="${sel === i ? 3 : 2}"/><text x="${x}" y="${y + 6}" text-anchor="middle" style="font-size:17px">${n.split(" ")[0]}</text><text x="${x}" y="${y + 38}" text-anchor="middle" style="font-size:9.5px;font-weight:800" ${halo}>${n.slice(n.indexOf(" ") + 1)}${m ? ` ${a}/${b}` : ""}</text></g>`; });
+  g += `<text x="8" y="16" style="font-size:9px;fill:#5E7375">원 색 = PM10 등급 · 숫자 = PM10/PM2.5 (μg/m³)</text>`;
+  $("mm-svg").innerHTML = g;
+}
+$("mm-svg").addEventListener("click", e => { const t = e.target.closest("g[data-i]"); if (!t) return; const i = Number(t.dataset.i), [k, n, a, b] = PL[i]; meas.add(k); drawMM(i); $("mm-read").innerHTML = `<b>${n}</b> 측정 결과<br>PM10 <b>${a}</b> μg/m³ · PM2.5 <b>${b}</b> μg/m³<br><span style="font-size:12px;color:var(--ink-soft)">측정한 장소 ${meas.size} / 6</span>`; });
+drawMM();
+WS.custom("mm_meas", { el: $("mm-read"), value: () => meas.size + "/6" });
+const GO = GN.slice(0, 3).map(n => [n, n]);
+$("gr-table").innerHTML = `<tr><th>장소</th><th>PM10 등급</th><th>PM2.5 등급</th></tr>` + PL.map(([k, n, a, b]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="g10_${k}" data-label="${n.slice(n.indexOf(" ") + 1)} PM10" data-answer="${GN[g10(a)]}">${GO.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td><td><span class="choice-group" data-key="g25_${k}" data-label="${n.slice(n.indexOf(" ") + 1)} PM2.5" data-answer="${GN[g25(b)]}">${GO.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+$("src-table").innerHTML = choiceRows([
+  ["sr_car", "🚗 자동차 배기구에서 나온 매연 입자", "1차"],
+  ["sr_dust", "🏗️ 공사장에서 날리는 흙먼지", "1차"],
+  ["sr_gas", "🏭 굴뚝의 황산화물·질소산화물이 공기 중에서 반응해 생긴 입자", "2차"],
+  ["sr_yellow", "🏜️ 사막에서 날아온 황사", "자연"]
+], [["1차", "인위적 · 1차 발생원"], ["2차", "인위적 · 2차 발생원"], ["자연", "자연적 발생원"]], ["발생원", "분류"]);
+</script>
+</body>
+</html>

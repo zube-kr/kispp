@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험1 Ⅰ-2 — 단위와 도량형의 역사</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se1/2">← KISPP 과학실 · 과학탐구실험1 · Ⅰ. 과학의 본성과 역사 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 과학의 본성과 역사 속의 과학 탐구 · 2 과학의 단위 및 도량형의 역사 추적하기 (교과서 24~27쪽)</div>
+    <h1>1미터는 누가 정했을까? — <span>과학의 단위와 도량형의 역사</span></h1>
+    <p class="sub">팔 길이로 책상을 재 보면 사람마다 결과가 왜 다를까요? 단위를 통일하지 않아 실제로 일어난 비행기 불시착과 위성 실종 사건을 계산으로 재현해 보고, '초'와 '미터'의 정의가 과학 기술의 발전에 따라 어떻게 바뀌어 왔는지 추적해 보세요. 온도 단위 변환기로 섭씨·화씨·절대 온도도 비교해 봐요.</p>
+    <div class="goals"><span>🎯 시간, 길이, 온도 등 과학의 단위 및 도량형의 역사를 추적할 수 있다.</span><span>🎯 과학의 단위 및 도량형의 역사를 바탕으로 과학의 본성을 추론할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 몸을 이용한 단위 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">탐구 문제</span>사람 몸을 기준으로 만든 단위</div>
+    <div class="card-hint">화폐가 없던 시절 물건을 교환하려면 길이와 질량을 비교해야 했고, 나라마다 사람 몸의 일부를 기준으로 단위를 만들었어요. 세 사람이 각자의 <b>큐빗</b>(가운뎃손가락 끝에서 팔꿈치까지)으로 길이 180 cm인 천을 재 보세요.</div>
+    <div class="seg" id="cb-pick" style="margin-bottom:8px"></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="cb-svg" viewBox="0 0 400 150" aria-label="큐빗으로 재기"></svg></div>
+      <div class="panel"><div class="readout" id="cb-read"></div></div>
+    </div>
+    <div class="q" data-why="같은 천인데도 팔 길이가 사람마다 달라 4큐빗, 4.5큐빗, 3.6큐빗처럼 결과가 달라져요. 이 때문에 교역할 때 문제가 생겼고, 서로 통용할 수 있는 단위와 측정 도구(도량형)가 필요해졌어요.">
+      <div class="q-text"><span class="q-num">1</span>같은 천을 재었는데 큐빗 수가 다른 까닭은 <span class="choice-group" data-key="cb_why" data-answer="몸"><button type="button" class="choice-btn" data-value="몸">사람마다 팔 길이가 달라서</button><button type="button" class="choice-btn" data-value="천">천의 길이가 변해서</button></span>이다. 물체의 길이, 질량 등을 측정하는 데 필요한 단위와 도구를 통칭하여 <input class="blank w-s" data-key="cb_name" data-answer="도량형"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="큐빗(고대 이집트)은 가운뎃손가락 끝에서 팔꿈치까지, 자(중국, 척)는 손을 펼쳤을 때 엄지손가락 끝에서 가운뎃손가락 끝까지, 피트(영국)는 엄지발가락 끝에서 발뒤꿈치까지, 인치는 엄지손가락의 너비, 야드는 팔을 뻗었을 때 엄지손가락에서 코끝까지의 길이예요.">
+      <div class="q-text"><span class="q-num">2</span>단위와 기준이 된 몸의 부분을 연결하시오.</div>
+      <table class="t" id="body-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 1: 단위 통일 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>단위 통일의 중요성 알아보기</div>
+    <div class="card-hint"><b>에어 캐나다 143편 불시착 사건(1983년)</b> — 새로 도입된 비행기는 kg 단위를 쓰는데, 정비사와 조종사가 연료량을 익숙한 <b>파운드(lb)</b> 기준으로 계산했어요. 필요한 연료는 22300 kg이었지만 계산 결과 '22300'이 lb 단위로 실렸어요(1 kg ≈ 2.2 lb).<br><b>화성 기후 관측 위성 실종 사건(1999년)</b> — NASA는 SI 단위(N·s)를 썼지만 궤도선 제작 업체는 야드파운드 단위(lbf·s)로 추진력 자료를 보냈어요(1 lbf·s ≈ 4.45 N·s).</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="fu-svg" viewBox="0 0 400 170" aria-label="연료 게이지"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>연료량 계산에 쓴 단위</label><div class="seg" id="fu-unit"><button type="button" data-v="lb" class="on">파운드(lb)</button><button type="button" data-v="kg">킬로그램(kg)</button></div></div>
+        <button type="button" class="btn main small" id="fu-go">✈️ 비행 시뮬레이션</button>
+        <div class="readout" id="fu-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="22300 lb ÷ 2.2 ≈ 10100 kg으로, 필요한 22300 kg의 절반에도 못 미쳤어요. 결국 비행 중 연료가 떨어져 비상 착륙했어요." data-hint="lb를 kg으로 바꾸려면 2.2로 나눠요.">
+      <div class="q-text"><span class="q-num">1</span>실제로 실린 연료 22300 lb는 약 <input class="blank w-s" data-key="fu_kg" data-num="10136" data-tol="0.03"> kg이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="업체가 보낸 값 100 lbf·s는 실제로 100 × 4.45 = 445 N·s인데, NASA는 이를 100 N·s로 읽어 추진력을 실제의 약 1/4.45로 잘못 계산했어요. 궤도 계산이 어긋나 위성이 화성 대기에 너무 가깝게 진입해 실종되었어요." data-hint="lbf·s 값에 4.45를 곱해요.">
+      <div class="q-text"><span class="q-num">2</span>업체가 보낸 100 lbf·s는 SI 단위로 약 <input class="blank w-s" data-key="mo_ns" data-num="445" data-tol="0.02"> N·s이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(1) 단위를 통일하지 않으면 소통에 문제가 생겨요(○). (2) 에어 캐나다 143편은 연료량을 SI 단위가 아닌 야드파운드 단위로 계산해 연료가 부족했어요(×). (3) 화성 기후 관측 위성은 NASA가 SI 단위를, 제작 업체가 야드파운드 단위를 사용해 실종되었어요(○). 두 사건 모두 단위를 통일하여 사용하지 않았기 때문이에요.">
+      <div class="q-text"><span class="q-num">3</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox1-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2: 초와 미터 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>시간과 길이에 대한 도량형의 역사 추적하기</div>
+    <div class="card-hint">단위의 기준은 더 정확하고, 언제 어디서나 똑같이 재현할 수 있는 것으로 바뀌어 왔어요. 각 정의가 등장한 순서대로 배열하세요.</div>
+    <div class="q" data-why="초는 태양일 기준(1960년 이전, 하루의 1/86400) → 태양년 기준(1960년, 지구의 공전 기준) → 특정 원자 기준(1967년, 세슘 133 원자의 복사선 9192631770주기)으로 바뀌었어요. 지구의 자전·공전 주기가 일정하지 않거나 오랜 관측이 필요한 한계를 원자의 진동으로 해결했어요.">
+      <div class="q-text"><span class="q-num">1</span>'초(s)'의 정의를 오래된 것부터 배열하시오.</div>
+      <ol class="order-list" data-key="sec_order" data-answer="day,year,cs">
+        <li data-id="cs">세슘 133 원자의 복사선이 9192631770번 진동하는 시간</li>
+        <li data-id="day">태양일(하루)의 1/86400</li>
+        <li data-id="year">1900년 기준 태양년의 1/31556925.9747</li>
+      </ol>
+      <div class="q-text"><span class="q-num">2</span>하루를 24시간, 1시간을 60분, 1분을 60초로 나누면 하루는 <input class="blank w-s" data-key="sec_day" data-num="86400" data-abs="0.5"> 초이다. 이 정의의 한계는 <span class="choice-group" data-key="sec_lim" data-answer="자전"><button type="button" class="choice-btn" data-value="자전">지구의 자전 주기가 불규칙해 1초의 크기가 일정하지 않은 것</button><button type="button" class="choice-btn" data-value="원자">원자가 너무 작은 것</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="미터는 자오선 기준(1791년, 북극점–파리–남극점 자오선 길이의 1/40000000) → 미터원기 기준(1889년, 백금 90 %·이리듐 10 % 합금 막대) → 특정 원자 기준(1960년, 크립톤 86 스펙트럼 등황색선 파장의 1650763.73배) → 빛의 속도 기준(1983년, 빛이 진공에서 1/299792458초 동안 진행한 거리)으로 바뀌었어요.">
+      <div class="q-text"><span class="q-num">3</span>'미터(m)'의 정의를 오래된 것부터 배열하시오.</div>
+      <ol class="order-list" data-key="m_order" data-answer="mer,proto,kr,light">
+        <li data-id="light">빛이 진공에서 1/299792458초 동안 진행한 거리</li>
+        <li data-id="proto">백금·이리듐 합금으로 만든 미터원기의 길이</li>
+        <li data-id="mer">지구 자오선 길이의 1/40000000</li>
+        <li data-id="kr">크립톤 86 원자 스펙트럼 등황색선 파장의 1650763.73배</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="자오선 기준은 측정 도구가 정밀하지 않았고, 미터원기는 온도에 따라 팽창·수축하고 닳는 문제가, 크립톤 기준은 빛이 약해 실제로 쓰기 힘든 문제가 있었어요. 현재는 변하지 않는 빛의 속력을 이용해요.">
+      <div class="q-text"><span class="q-num">4</span>각 정의의 한계를 고르시오.</div>
+      <table class="t" id="lim-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 온도 -->
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">활동 플러스</span>온도의 단위 — 섭씨, 화씨, 절대 온도</div>
+    <div class="card-hint">1742~1743년 셀시우스는 1기압에서 물의 어는점을 100, 끓는점을 0으로 정하고 그 사이를 100개로 나눴어요. 1745년 린네가 어는점을 0, 끓는점을 100으로 바꾸어 지금의 섭씨(°C)가 되었고, 현재는 절대 온도(K)에서 273.15를 뺀 값으로 정의해요. 온도를 바꿔 세 눈금을 비교해 보세요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="tp-svg" viewBox="0 0 400 230" aria-label="온도계 비교"></svg></div>
+      <div class="panel">
+        <div class="ctrl"><label>섭씨 온도 <output id="tp-out"></output></label><input type="range" id="tp-c" min="-40" max="120" value="25"></div>
+        <div class="readout" id="tp-read"></div>
+      </div>
+    </div>
+    <div class="q" data-why="절대 온도 T(K) = t(°C) + 273.15이므로 25 °C는 298.15 K이고, 화씨 = 9/5 × 섭씨 + 32이므로 100 °C는 212 °F예요." data-hint="시뮬레이션에서 섭씨 온도를 25, 100으로 맞춰 확인해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>25 °C는 <input class="blank w-s" data-key="tp_k" data-num="298.15" data-abs="0.2"> K이고, 물의 끓는점 100 °C는 화씨로 <input class="blank w-s" data-key="tp_f" data-num="212" data-abs="0.5"> °F이다.</div>
+      <div class="q-text"><span class="q-num">2</span>셀시우스가 처음 만든 눈금에서 물의 어는점은 <span class="choice-group" data-key="tp_orig" data-answer="100"><button type="button" class="choice-btn" data-value="0">0</button><button type="button" class="choice-btn" data-value="100">100</button></span>이었다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 5. 탐구 정리 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 정리</span>과학, 기술, 사회의 관련성</div>
+    <div class="q" data-why="도량형을 통일하지 않으면 경제 활동을 포함한 일상생활에서 정확하게 소통하기 어려워요. 과학 기술이 발전하면서 측정 도구가 정밀해지고 측정 방법이 개선되어, 단위의 정의도 더 안정적이고 보편적이며 불확실성이 작은 방향으로 바뀌었어요. 이는 과학 지식이 새로운 증거와 기술에 따라 수정되는 잠정적인 것임을 보여 줘요.">
+      <div class="q-text"><span class="q-num">1</span>단위의 기준이 바뀌어 온 것은 <span class="choice-group" data-key="sm_tech" data-answer="기술"><button type="button" class="choice-btn" data-value="기술">과학 기술이 발전해 더 정밀하게 측정할 수 있게 되었기</button><button type="button" class="choice-btn" data-value="유행">나라마다 유행이 바뀌었기</button></span> 때문이다. 이를 통해 과학 지식은 새로운 증거와 기술에 따라 <span class="choice-group" data-key="sm_nos" data-answer="수정"><button type="button" class="choice-btn" data-value="수정">수정될 수 있다(잠정적이다)</button><button type="button" class="choice-btn" data-value="불변">절대 바뀌지 않는다</button></span>는 것을 알 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>활동 1과 활동 2를 바탕으로 알게 된 과학, 기술, 사회의 관련성을 글로 써 보자.</div>
+      <textarea class="free" data-key="sts" data-keywords="사회/필요,기술/도구/측정,과학/정의,관련/영향" data-model="단위는 교역과 소통이라는 사회 구성원의 필요에 의해 정의된다. 이를 위해 과학 기술을 활용하여 단위를 정의하는 데 필요한 정밀한 도구가 개발되고 새로운 측정 방법이 제안된다. 또한 사회는 과학 기술 연구에 필요한 예산을 지원한다. 이처럼 과학, 기술, 사회는 서로 영향을 주고받는다." placeholder="과학·기술·사회의 관련성"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험1 Ⅰ-2 과학의 단위 및 도량형의 역사 추적하기 · 비상교육 과학탐구실험1 교과서·탐구 활동지·교수 학습 설계안(교과서 24~27쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험1 Ⅰ-2 단위와 도량형의 역사";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* ===== 1. 큐빗 ===== */
+const CB = [["🧑 준호", 45], ["👧 서연", 40], ["👑 파라오", 50]];
+let cbSel = 0; const cbSeen = new Set();
+$("cb-pick").innerHTML = CB.map((c, i) => `<button type="button" data-i="${i}" class="${i === 0 ? "on" : ""}">${c[0]} (팔 ${c[1]} cm)</button>`).join("");
+function drawCB() {
+  const [n, L] = CB[cbSel], cnt = 180 / L; cbSeen.add(cbSel);
+  const X = cm => 20 + cm / 200 * 360;
+  let g = `<rect x="${X(0)}" y="40" width="${X(180) - X(0)}" height="30" fill="#E9C08A" stroke="#A67C52"/><text x="${X(90)}" y="60" text-anchor="middle" style="font-size:11px;font-weight:800">천 (실제 180 cm)</text>`;
+  for (let i = 0; i < Math.ceil(cnt); i++) { const a = X(i * L), b = X(Math.min(180, (i + 1) * L)); g += `<rect x="${a}" y="80" width="${b - a - 2}" height="18" rx="9" fill="${["#7EC4E8", "#F7A8B8", "#B5E3A8"][cbSel]}" stroke="#555"/><text x="${(a + b) / 2}" y="93" text-anchor="middle" style="font-size:10px">💪${i + 1}</text>`; }
+  g += `<text x="200" y="125" text-anchor="middle" style="font-size:13px;font-weight:800" ${halo}>${n}: ${cnt.toFixed(1)} 큐빗</text>`;
+  $("cb-svg").innerHTML = g;
+  $("cb-read").innerHTML = CB.map((c, i) => cbSeen.has(i) ? `${c[0]}: <b>${(180 / c[1]).toFixed(1)} 큐빗</b>` : `${c[0]}: ?`).join("<br>");
+}
+$("cb-pick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cbSel = Number(b.dataset.i); $("cb-pick").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawCB(); });
+drawCB();
+$("body-table").innerHTML = choiceRows([
+  ["bd_cubit", "🇪🇬 큐빗", "elbow"], ["bd_ja", "🇨🇳 자(척)", "span"], ["bd_foot", "🇬🇧 피트", "foot"], ["bd_inch", "🇬🇧 인치", "thumb"], ["bd_yard", "🇬🇧 야드", "nose"]
+], [["elbow", "가운뎃손가락 끝~팔꿈치"], ["span", "엄지 끝~가운뎃손가락 끝"], ["foot", "엄지발가락 끝~발뒤꿈치"], ["thumb", "엄지손가락의 너비"], ["nose", "엄지손가락~코끝(팔 뻗음)"]], ["단위", "기준"]);
+
+/* ===== 2. 연료 ===== */
+let fuUnit = "lb", fuRaf = 0;
+const NEED = 22300, DIST = 3570; // kg, km (몬트리올~에드먼턴 거리 근사)
+$("fu-unit").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; fuUnit = b.dataset.v; $("fu-unit").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawFU(0); $("fu-read").textContent = "[비행 시뮬레이션]을 눌러 보세요."; });
+function drawFU(p) {
+  const fuel = fuUnit === "lb" ? NEED / 2.2 : NEED, reach = fuel / NEED * DIST, d = Math.min(p * DIST, reach);
+  const X = km => 30 + km / DIST * 340;
+  let g = `<rect x="0" y="0" width="400" height="170" fill="#EAF6FB"/><line x1="30" y1="110" x2="370" y2="110" stroke="#9AB" stroke-dasharray="5 4"/><text x="30" y="128" style="font-size:10px">몬트리올</text><text x="370" y="128" text-anchor="end" style="font-size:10px">에드먼턴</text>`;
+  g += `<text x="${X(d)}" y="${p > 0 && d >= reach && reach < DIST ? 104 : 100}" text-anchor="middle" style="font-size:22px">${p > 0 && d >= reach && reach < DIST ? "🛬" : "✈️"}</text>`;
+  const left = Math.max(0, fuel - d / DIST * NEED);
+  g += `<rect x="30" y="20" width="200" height="16" rx="4" fill="#E3ECEE"/><rect x="30" y="20" width="${200 * left / NEED}" height="16" rx="4" fill="${left / NEED < 0.15 ? "#D8493B" : "#2E9E5B"}"/><text x="236" y="33" style="font-size:11px;font-weight:800">연료 ${Math.round(left).toLocaleString()} kg</text>`;
+  g += `<text x="30" y="56" style="font-size:11px;fill:#5E7375">실린 연료: 22300 ${fuUnit} = ${Math.round(fuel).toLocaleString()} kg (필요 22300 kg)</text>`;
+  $("fu-svg").innerHTML = g;
+  return { fuel, reach };
+}
+$("fu-go").addEventListener("click", () => {
+  cancelAnimationFrame(fuRaf); const t0 = performance.now(); let done = false;
+  const fin = () => { if (done) return; done = true; const r = drawFU(1); $("fu-read").innerHTML = r.reach < DIST ? `⚠️ 약 <b>${Math.round(r.reach).toLocaleString()} km</b> 지점에서 연료가 떨어져 비상 착륙!<br>실린 연료는 필요량의 <b>${Math.round(r.fuel / NEED * 100)} %</b>뿐이었어요.` : "✅ 연료가 충분해 무사히 도착했어요."; };
+  const step = t => { const p = Math.min(1, (t - t0) / 2500); drawFU(p); if (p < 1) fuRaf = requestAnimationFrame(step); else fin(); };
+  fuRaf = requestAnimationFrame(step); setTimeout(fin, 3000);
+});
+drawFU(0); $("fu-read").textContent = "[비행 시뮬레이션]을 눌러 보세요.";
+$("ox1-table").innerHTML = choiceRows([
+  ["ox_a", "(1) 단위를 통일하여 사용하지 않으면 일상생활에서 소통할 때 문제가 발생할 수 있다.", "O"],
+  ["ox_b", "(2) 에어 캐나다 143편은 연료량을 파운드가 아닌 SI 단위인 킬로그램으로 계산해 연료가 부족하였다.", "X"],
+  ["ox_c", "(3) 화성 기후 관측 위성은 NASA는 SI 단위, 제작 업체는 야드파운드 단위를 사용해 실종되었다.", "O"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+
+/* ===== 3. 한계 ===== */
+$("lim-table").innerHTML = choiceRows([
+  ["lm_mer", "🌍 자오선 기준(1791년)", "tool"], ["lm_proto", "📏 미터원기 기준(1889년)", "expand"], ["lm_kr", "💡 크립톤 86 원자 기준(1960년)", "weak"]
+], [["tool", "측정 도구가 정밀하지 않았다"], ["expand", "온도에 따라 팽창·수축하고 마모된다"], ["weak", "빛이 약해 실제로 사용하기 힘들다"]], ["정의", "한계"]);
+
+/* ===== 4. 온도 ===== */
+const tpC = $("tp-c");
+function drawTP() {
+  const c = Number(tpC.value), k = c + 273.15, f = c * 9 / 5 + 32, orig = 100 - c;
+  $("tp-out").textContent = c + " °C";
+  const Y = v => 200 - (v + 40) / 160 * 180;
+  let g = "";
+  [["섭씨(°C)", 70, c, "#D8493B", v => v], ["화씨(°F)", 170, f, "#E0A100", v => v * 9 / 5 + 32], ["절대 온도(K)", 270, k, "#2F6FED", v => v + 273.15], ["셀시우스 처음 눈금", 360, orig, "#8A97A3", v => 100 - v]].forEach(([n, x, val, col, conv]) => {
+    g += `<rect x="${x - 8}" y="20" width="16" height="182" rx="8" fill="#fff" stroke="#9AB"/><rect x="${x - 4}" y="${Y(c)}" width="8" height="${200 - Y(c)}" rx="4" fill="${col}"/>`;
+    [0, 100].forEach(v => g += `<line x1="${x - 14}" y1="${Y(v)}" x2="${x + 14}" y2="${Y(v)}" stroke="#5E7375"/><text x="${x + 16}" y="${Y(v) + 4}" style="font-size:9px;fill:#5E7375">${+conv(v).toFixed(2)}</text>`);
+    g += `<text x="${x}" y="14" text-anchor="middle" style="font-size:10px;font-weight:800">${n}</text><text x="${x}" y="222" text-anchor="middle" style="font-size:11px;font-weight:800;fill:${col}">${+val.toFixed(2)}</text>`;
+  });
+  g += `<text x="6" y="${Y(0) - 3}" style="font-size:9px;fill:#2F6FED">어는점</text><text x="6" y="${Y(100) - 3}" style="font-size:9px;fill:#D8493B">끓는점</text>`;
+  $("tp-svg").innerHTML = g;
+  $("tp-read").innerHTML = `${c} °C<br>= <b>${+f.toFixed(2)} °F</b> (9/5 × °C + 32)<br>= <b>${+k.toFixed(2)} K</b> (°C + 273.15)<br>셀시우스 처음 눈금: ${+orig.toFixed(2)}`;
+}
+tpC.addEventListener("input", drawTP); drawTP();
+</script>
+</body>
+</html>

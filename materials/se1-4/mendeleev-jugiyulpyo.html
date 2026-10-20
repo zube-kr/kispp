@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험1 Ⅰ-4 — 멘델레예프의 주기율표</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>
+.pt{display:grid;grid-template-columns:auto repeat(7,minmax(0,1fr));gap:3px;font-size:11px}
+.pt .hd{font-weight:800;text-align:center;color:var(--ink-soft);font-size:10px;padding:2px 0}
+.pt .cell{min-height:46px;border:1.5px dashed #B7C6C8;border-radius:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:#fff;line-height:1.2}
+.pt .cell.fill{border-style:solid;border-color:#7A9;background:#F2FAF4}
+.pt .cell.gap{border-color:#E0A100;background:#FFF8E1}
+.pt .cell.bad{border-color:#D8493B;background:#FDECEA}
+.pt .sym{font-size:14px;font-weight:800}
+.hand{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.hand button{font-family:inherit;border:1.5px solid var(--line);border-radius:8px;background:#fff;padding:4px 7px;cursor:pointer;font-size:11.5px;line-height:1.25;text-align:center}
+.hand button.on{border-color:var(--main);background:var(--main-soft)}
+.hand button b{font-size:14px}
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se1/4">← KISPP 과학실 · 과학탐구실험1 · Ⅰ. 과학의 본성과 역사 속의 과학 탐구</a>
+  <header>
+    <div class="eyebrow">Ⅰ. 과학의 본성과 역사 속의 과학 탐구 · 4 멘델레예프의 주기율표 만들기 (교과서 32~37쪽)</div>
+    <h1>빈칸까지 예측한 표 — <span>멘델레예프의 주기율표 만들기</span></h1>
+    <p class="sub">라부아지에부터 되베라이너, 뉴랜즈, 멘델레예프, 모즐리까지 원소를 규칙에 따라 분류하려 한 과학자들의 노력을 따라가 보세요. 멘델레예프가 연구한 원소 21개의 카드를 원자량 순서와 성질에 맞게 배열해 나만의 주기율표를 완성하고, 비어 있는 자리에 들어갈 원소의 성질도 예측해 봐요.</p>
+    <div class="goals"><span>🎯 멘델레예프의 주기율표를 만들 수 있다.</span><span>🎯 주기율표가 만들어지는 과정에서 발견되는 과학의 본성을 설명할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 탐구 문제 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 문제</span>아리스토텔레스의 4원소에서 라부아지에의 원소 분류까지</div>
+    <div class="card-hint">'근대 화학의 아버지' 라부아지에는 "물질은 물, 불, 공기, 흙의 네 가지 원소로 이루어진다"는 아리스토텔레스의 주장을 부정하고 물이 화합물임을 밝혔어요. 그리고 실험을 바탕으로 원소를 네 종류(자연에 존재하는 원소, 산화하여 산이 되는 비금속, 산화하여 염기가 되는 금속, 염을 만드는 원소)로 분류했어요.</div>
+    <div class="q" data-why="라부아지에가 분류한 원소 목록에는 빛과 열, 생석회(산화 칼슘), 산화 알루미늄 같은 화합물도 포함되어 있었어요. 과학자들은 이후 새로운 관찰과 증거로 이를 바로잡으며 원소의 규칙성을 찾아 나갔어요. 이는 과학 지식이 잠정적이며 새로운 증거로 수정될 수 있음을 보여 줘요.">
+      <div class="q-text"><span class="q-num">1</span>라부아지에가 원소로 분류했지만 실제로는 원소가 아닌 것을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="lv_wrong" data-answer="light,lime,alumina"><button type="button" class="multi-btn" data-value="light">빛과 열</button> <button type="button" class="multi-btn" data-value="o">산소</button> <button type="button" class="multi-btn" data-value="lime">생석회</button> <button type="button" class="multi-btn" data-value="h">수소</button> <button type="button" class="multi-btn" data-value="alumina">산화 알루미늄</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 1 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 1</span>주기율표가 만들어지는 과정으로 과학의 본성 이해하기</div>
+    <div class="card-hint">되베라이너는 1817년 스트론튬의 원자량이 성질이 비슷한 칼슘과 바륨 원자량의 평균값에 가깝다는 것을 발견했어요. 리튬·나트륨·칼륨 사이에서도 같은 관계가 성립해 <b>세 쌍 원소설</b>을 주장했지만, 일부 원소에만 적용되는 한계가 있었어요.</div>
+    <div class="q" data-why="리튬(7)과 칼륨(39)의 평균은 (7 + 39) ÷ 2 = 23으로 나트륨의 원자량과 같아요. 칼슘(40.1)과 바륨(137.3)의 평균은 약 88.7로 스트론튬(87.6)에 가까워요." data-hint="세 원소 중 가운데 원소의 원자량 ≈ 양쪽 두 원소 원자량의 평균">
+      <div class="q-text"><span class="q-num">1</span>세 쌍 원소설에 따르면 리튬(7)과 칼륨(39) 사이에 있는 나트륨의 원자량은 약 <input class="blank w-s" data-key="tr_na" data-num="23" data-abs="0.5"> 이고, 칼슘(40.1)과 바륨(137.3) 사이에 있는 스트론튬의 원자량은 약 <input class="blank w-s" data-key="tr_sr" data-num="88.7" data-abs="0.6"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="되베라이너(1817년, 세 쌍 원소설) → 뉴랜즈(1865년, 원자량 순으로 배열하면 8번째마다 성질이 비슷한 원소가 나타난다는 옥타브설) → 멘델레예프(1869년, 원자량 순서와 성질에 따라 배열한 최초의 주기율표, 빈칸의 원소 예측) → 모즐리(1913년, 원자 번호 순서로 배열하여 현대 주기율표의 바탕 마련) 순서예요.">
+      <div class="q-text"><span class="q-num">2</span>원소의 규칙성을 연구한 과학자들을 시대 순서대로 배열하시오.</div>
+      <ol class="order-list" data-key="sc_order" data-answer="dob,new,men,mos">
+        <li data-id="men">멘델레예프 — 원자량 순서와 성질로 주기율표를 만들고 빈칸의 원소를 예측</li>
+        <li data-id="mos">모즐리 — 원자 번호 순서로 원소를 배열</li>
+        <li data-id="dob">되베라이너 — 세 쌍 원소설</li>
+        <li data-id="new">뉴랜즈 — 8번째마다 성질이 비슷한 원소가 나타나는 옥타브설</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="되베라이너는 실험으로 얻은 원자량 자료를 근거로 규칙을 찾았으므로 '증거에 기초', 멘델레예프는 주기율표로 아직 발견되지 않은 원소의 성질을 예측했으므로 '예측하고 설명', 모즐리가 원자량 대신 원자 번호로 배열 기준을 바꾼 것은 '잠정적'이라는 과학의 본성과 관련 있어요.">
+      <div class="q-text"><span class="q-num">3</span>각 사례에서 확인할 수 있는 과학의 본성을 고르시오.</div>
+      <table class="t" id="nos-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2: 주기율표 만들기 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 2</span>멘델레예프의 주기율표 만들기</div>
+    <div class="card-hint"><b>배열 규칙</b> ① 원자량 순서대로 배열한다. ② 성질이 비슷한 원소들이 같은 세로줄에 오도록 배열한다.<br>멘델레예프는 산소 화합물의 화학식을 R²O, RO, R²O³처럼 표기했어요(R은 해당 원소). 같은 형태의 산소 화합물을 만드는 원소가 같은 세로줄이에요. 아래 카드를 누른 뒤 표의 칸을 눌러 놓으세요. 놓인 카드를 다시 누르면 손으로 돌아와요. (원자량은 당시에 알려진 값)</div>
+    <div class="hand" id="pt-hand"></div>
+    <div class="pt" id="pt-board"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button type="button" class="btn ghost small" id="pt-check">🔍 배열 점검</button><button type="button" class="btn ghost small" id="pt-reset">↺ 처음부터</button></div>
+    <div class="readout" id="pt-read" style="margin-top:8px">원자량이 가장 작은 수소부터 놓아 보세요.</div>
+    <div class="q" data-why="수소는 첫째 줄, 리튬부터 플루오린, 나트륨부터 염소가 각각 한 줄을 이루고, 칼륨·칼슘 다음 줄에 R²O³형의 빈칸이 생긴 뒤 타이타늄(RO²)부터 망가니즈(R²O⁷)가 이어져요. 성질이 비슷한 리튬·나트륨·칼륨이 같은 세로줄(R²O)에 와요." data-hint="원자량 순서대로 한 칸씩 놓되, 산소 화합물의 형태가 같은 원소끼리 세로줄을 맞춰 보세요. 칼슘(40) 다음 원소인 타이타늄(48)은 RO²형이에요.">
+      <div class="q-text"><span class="q-num">1</span>원소 카드 21장을 규칙에 맞게 모두 배열하시오. <span id="pt-badge" style="font-weight:800"></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="칼슘(40, RO)과 타이타늄(48, RO²) 사이의 R²O³ 세로줄에 빈칸이 생겨요. 멘델레예프는 이 자리에 원자량이 약 44이고 R²O³형 산소 화합물을 만드는 원소(에카붕소)가 있을 것이라 예측했고, 1879년 스칸듐(원자량 약 45)이 발견되어 예측이 맞았음이 확인되었어요." data-hint="빈칸 양옆 원소의 원자량 평균, 그리고 빈칸이 있는 세로줄의 산소 화합물 형태를 확인하세요.">
+      <div class="q-text"><span class="q-num">2</span>빈칸에 들어갈 원소의 원자량은 약 <input class="blank w-s" data-key="gap_w" data-num="44" data-abs="2"> 이고, 산소 화합물의 화학식은 <span class="choice-group" data-key="gap_f" data-answer="R2O3"><button type="button" class="choice-btn" data-value="RO">RO</button><button type="button" class="choice-btn" data-value="R2O3">R²O³</button><button type="button" class="choice-btn" data-value="RO2">RO²</button></span>일 것이다. 이후 실제로 발견된 이 원소는 <span class="choice-group" data-key="gap_el" data-answer="Sc"><button type="button" class="choice-btn" data-value="Sc">스칸듐</button><button type="button" class="choice-btn" data-value="Fe">철</button><button type="button" class="choice-btn" data-value="Ne">네온</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="멘델레예프는 원자량 순서로 배열했지만, 현대의 주기율표는 모즐리 이후 원자핵의 양성자 수인 원자 번호 순서로 배열해요. 원자 번호로 배열하면 원자량 순서로는 성질이 맞지 않던 몇몇 원소의 자리 문제가 해결돼요.">
+      <div class="q-text"><span class="q-num">3</span>현대의 주기율표는 원소를 <span class="choice-group" data-key="modern" data-answer="번호"><button type="button" class="choice-btn" data-value="원자량">원자량</button><button type="button" class="choice-btn" data-value="번호">원자 번호(양성자 수)</button></span> 순서로 배열한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>모둠별로 완성한 주기율표가 서로 다르다면 그 까닭이 무엇일지, 그리고 주기율표가 만들어진 과정에서 알 수 있는 과학의 본성을 써 보자.</div>
+      <textarea class="free" data-key="pt_nos" data-keywords="규칙/기준,증거,수정/잠정,예측" data-model="모둠마다 '성질이 비슷하다'고 판단한 기준(산소 화합물, 수소 화합물, 금속성 등)을 다르게 적용하면 배열이 달라질 수 있다. 주기율표는 되베라이너, 뉴랜즈, 멘델레예프, 모즐리가 실험으로 얻은 증거를 바탕으로 규칙을 찾고, 새로운 증거가 나올 때마다 수정해 온 결과이다. 또 멘델레예프가 빈칸의 원소를 예측하고 이후 발견으로 확인된 것처럼, 과학은 증거에 기초하고 잠정적이며 자연 현상을 예측할 수 있다." placeholder="주기율표가 다른 까닭 / 과학의 본성"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요. 완성한 주기율표의 정답 칸 수도 함께 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험1 Ⅰ-4 멘델레예프의 주기율표 만들기 · 비상교육 과학탐구실험1 교과서·탐구 활동지·교수 학습 설계안(교과서 32~37쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험1 Ⅰ-4 멘델레예프의 주기율표";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+
+$("nos-table").innerHTML = choiceRows([
+  ["ns_dob", "🔬 되베라이너가 실험으로 얻은 원자량 자료로 세 쌍 원소의 규칙을 찾았다.", "evid"],
+  ["ns_men", "🔮 멘델레예프가 빈칸의 원소 성질을 미리 예상하였다.", "pred"],
+  ["ns_mos", "✏️ 모즐리가 배열 기준을 원자량에서 원자 번호로 바꾸었다.", "tent"]
+], [["evid", "증거에 기초한다"], ["pred", "예측하고 설명한다"], ["tent", "잠정적이다"]], ["사례", "과학의 본성"]);
+
+/* ===== 주기율표 ===== */
+const COLS = ["R²O", "RO", "R²O³", "RO²", "R²O⁵", "RO³", "R²O⁷"];
+const EL = [
+  ["수소", "H", 1, 0, 0], ["리튬", "Li", 7, 1, 0], ["베릴륨", "Be", 9.4, 1, 1], ["붕소", "B", 11, 1, 2], ["탄소", "C", 12, 1, 3], ["질소", "N", 14, 1, 4], ["산소", "O", 16, 1, 5], ["플루오린", "F", 19, 1, 6],
+  ["나트륨", "Na", 23, 2, 0], ["마그네슘", "Mg", 24, 2, 1], ["알루미늄", "Al", 27.3, 2, 2], ["규소", "Si", 28, 2, 3], ["인", "P", 31, 2, 4], ["황", "S", 32, 2, 5], ["염소", "Cl", 35.5, 2, 6],
+  ["칼륨", "K", 39, 3, 0], ["칼슘", "Ca", 40, 3, 1], ["타이타늄", "Ti", 48, 3, 3], ["바나듐", "V", 51, 3, 4], ["크로뮴", "Cr", 52, 3, 5], ["망가니즈", "Mn", 55, 3, 6]
+].map(([n, s, w, r, c]) => ({ n, s, w, r, c, f: COLS[c] }));
+const HAND_ORDER = [12, 3, 18, 0, 9, 15, 6, 20, 1, 13, 4, 10, 16, 7, 19, 2, 11, 5, 14, 8, 17];
+const PT = { place: {}, sel: null, checked: false }; // place["r,c"] = el index
+function placedAt(i) { return Object.keys(PT.place).find(k => PT.place[k] === i); }
+function drawPT() {
+  $("pt-hand").innerHTML = HAND_ORDER.filter(i => placedAt(i) == null).map(i => { const e = EL[i]; return `<button type="button" data-i="${i}" class="${PT.sel === i ? "on" : ""}"><b>${e.s}</b> ${e.n}<br>${e.w} · ${e.f}</button>`; }).join("") || `<span style="font-size:12px;color:var(--ink-soft)">카드를 모두 놓았어요. [배열 점검]을 눌러 보세요.</span>`;
+  let h = `<div class="hd"></div>` + COLS.map(c => `<div class="hd">${c}</div>`).join("");
+  for (let r = 0; r < 4; r++) {
+    h += `<div class="hd" style="align-self:center">${r + 1}</div>`;
+    for (let c = 0; c < 7; c++) {
+      const k = r + "," + c, i = PT.place[k];
+      if (i != null) { const e = EL[i], bad = PT.checked && (e.r !== r || e.c !== c); h += `<div class="cell fill${bad ? " bad" : ""}" data-k="${k}"><span class="sym">${e.s}</span><span>${e.w}</span></div>`; }
+      else h += `<div class="cell${PT.checked && r === 3 && c === 2 && ptCorrect() === EL.length ? " gap" : ""}" data-k="${k}">${PT.checked && r === 3 && c === 2 && ptCorrect() === EL.length ? "<span class='sym'>?</span>" : ""}</div>`;
+    }
+  }
+  $("pt-board").innerHTML = h;
+}
+function ptCorrect() { return EL.filter((e, i) => PT.place[e.r + "," + e.c] === i).length; }
+$("pt-hand").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = Number(b.dataset.i); PT.sel = PT.sel === i ? null : i; drawPT(); const el = EL[i]; $("pt-read").innerHTML = PT.sel == null ? "카드를 골라 보세요." : `<b>${el.n}(${el.s})</b> 원자량 ${el.w}, 산소 화합물 ${el.f} — 놓을 칸을 누르세요.`; });
+$("pt-board").addEventListener("click", e => {
+  const c = e.target.closest(".cell"); if (!c) return; const k = c.dataset.k;
+  if (PT.place[k] != null) { delete PT.place[k]; PT.checked = false; drawPT(); return; }
+  if (PT.sel == null) { $("pt-read").textContent = "먼저 위에서 카드를 고르세요."; return; }
+  PT.place[k] = PT.sel; PT.sel = null; PT.checked = false; drawPT();
+  $("pt-read").innerHTML = `놓은 카드 ${Object.keys(PT.place).length} / ${EL.length}`;
+});
+$("pt-check").addEventListener("click", () => {
+  PT.checked = true; const ok = ptCorrect(); drawPT();
+  $("pt-read").innerHTML = ok === EL.length ? "🎉 21장 모두 맞게 놓았어요! 노란 <b>?</b> 칸이 빈칸이에요. 어떤 원소가 들어갈지 예측해 보세요." : `맞게 놓은 카드: <b>${ok} / ${EL.length}</b> (빨간 칸을 다시 확인하세요)`;
+  $("pt-badge").textContent = ok === EL.length ? "✅ 완성!" : "";
+});
+$("pt-reset").addEventListener("click", () => { PT.place = {}; PT.sel = null; PT.checked = false; drawPT(); $("pt-badge").textContent = ""; $("pt-read").textContent = "원자량이 가장 작은 수소부터 놓아 보세요."; });
+drawPT();
+WS.custom("pt_board", { el: $("pt-badge"), value: () => ptCorrect() + "/21", check: () => ptCorrect() === EL.length, answer: "21장 모두 규칙에 맞게 배열" });
+</script>
+</body>
+</html>

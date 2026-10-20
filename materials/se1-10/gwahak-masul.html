@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험1 Ⅱ-5 — 화학 반응 과학 마술</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se1/10">← KISPP 과학실 · 과학탐구실험1 · Ⅱ. 과학 탐구의 과정과 절차</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 과학 탐구의 과정과 절차 · 5 화학 반응을 활용한 과학 마술 시나리오 개발 및 시연하기 (교과서 64~67쪽)</div>
+    <h1>색이 바뀌는 마법의 용액 — <span>화학 반응을 활용한 과학 마술</span></h1>
+    <p class="sub">만능 지시약에 수산화 나트륨, 드라이아이스, 묽은 염산을 차례로 넣어 색 변화를 관찰하고, 메틸렌 블루와 인디고 카민 용액을 흔들 때마다 색이 바뀌는 신호등 반응을 가상 실험대에서 재현해 보세요. 원리를 이해했다면 우리 모둠만의 과학 마술 시나리오를 짜 봐요.</p>
+    <div class="goals"><span>🎯 화학 반응을 활용하여 창의적인 과학 마술 시나리오를 개발할 수 있다.</span><span>🎯 흥미와 호기심을 갖고 실험에 참여하며 협력적으로 과학 마술 시나리오를 개발하여 시연할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 실험 1 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1 · 실험 1</span>만능 지시약과 드라이아이스</div>
+    <div class="card-hint">유리잔에 증류수 100 mL를 넣고 만능 지시약 3 mL → 5 % 수산화 나트륨 수용액 3 mL → 드라이아이스 → 5 % 묽은 염산 3 mL를 차례로 넣어요. 드라이아이스(고체 이산화 탄소)가 물에 녹으면 탄산이 되어 수용액이 산성을 띠어요. ⚠️ 드라이아이스는 반드시 면장갑을 끼고 다뤄요.</div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="e1-svg" viewBox="0 0 400 220" aria-label="유리잔"></svg></div>
+      <div class="panel"><div id="e1-btns" style="display:flex;flex-direction:column;gap:6px"></div><button type="button" class="btn ghost small" id="e1-reset">↺ 처음부터</button><div class="readout" id="e1-read">증류수에 만능 지시약부터 넣어 보세요.</div></div>
+    </div>
+    <div class="q" data-why="중성인 증류수에 만능 지시약을 넣으면 초록색, 염기성인 수산화 나트륨 수용액을 넣으면 파란색, 드라이아이스가 녹아 탄산이 생기며 산성 쪽으로 가면 노란색, 묽은 염산을 넣어 더 강한 산성이 되면 붉은색이 돼요.">
+      <div class="q-text"><span class="q-num">1</span>각 단계에서 용액의 색을 고르시오.</div>
+      <table class="t" id="e1-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 실험 2 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1 · 실험 2</span>흔들면 색이 바뀌는 용액</div>
+    <div class="card-hint">삼각 플라스크에 증류수 250 mL, 수산화 나트륨, 포도당을 녹인 뒤 지시약을 넣고 고무마개로 막아요. 가만히 두면 포도당이 지시약을 <b>환원</b>시키고, 흔들면 플라스크 속 공기의 산소가 녹아 들어가 지시약을 <b>산화</b>시켜요. ⚠️ 수산화 나트륨을 물에 녹일 때는 열이 나므로 주의해요.</div>
+    <div class="seg" id="e2-ind" style="margin-bottom:8px"><button type="button" data-v="mb" class="on">메틸렌 블루</button><button type="button" data-v="ic">인디고 카민</button></div>
+    <div class="sim-wrap">
+      <div class="stage"><svg id="e2-svg" viewBox="0 0 400 220" aria-label="삼각 플라스크"></svg></div>
+      <div class="panel"><div style="display:flex;gap:6px;flex-wrap:wrap"><button type="button" class="btn ghost small" id="e2-rest">⏸ 가만히 둔다</button><button type="button" class="btn main small" id="e2-shake">🤝 흔든다</button></div><button type="button" class="btn ghost small" id="e2-reset">↺ 새 용액</button><div class="readout" id="e2-read"></div></div>
+    </div>
+    <div class="q" data-why="메틸렌 블루 용액은 파란색 → 가만히 두면 환원되어 무색 → 흔들면 산화되어 다시 파란색이 돼요. 인디고 카민 용액은 초록색 → 가만히 두면 환원되어 빨간색을 거쳐 노란색 → 흔들면 산화되어 빨간색 → 계속 흔들면 초록색으로 되돌아와요(신호등 반응)." data-hint="두 지시약 모두 '가만히 둔다'와 '흔든다'를 여러 번 눌러 보세요.">
+      <div class="q-text"><span class="q-num">1</span>각 단계에서 용액의 색을 고르시오.</div>
+      <table class="t" id="e2-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(1) 드라이아이스가 물에 녹으면 탄산이 되어 산성을 띠어요(○). (2) 실험 1은 산 염기 지시약의 색 변화를 이용한 반응이에요(○). (3) 용기를 흔들면 메틸렌 블루와 인디고 카민이 공기 중의 산소에 의해 산화되어 색이 변해요(×, 환원이 아니라 산화).">
+      <div class="q-text"><span class="q-num">2</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <div class="q-text" style="margin-top:8px"><span class="q-num">3</span>노란색으로 변한 인디고 카민 용액이 든 용기를 흔들면 빨간색을 거쳐 다시 초록색으로 되돌아오는데, 이는 인디고 카민이 공기 중의 산소와 반응하여 <input class="blank w-s" data-key="ic_word" data-answer="산화"> 되기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2: 시나리오 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>과학 마술 시나리오 개발하기</div>
+    <div class="card-hint">예시 공연 「신기한 과학 마술」(15분): ① 인사 → ② 과산화 수소수와 식용 색소에 아이오딘화 칼륨을 넣어 분홍색 거품 발생 → ③ 인디고 카민 신호등 용액(초록 → 노랑 → 빨강 → 초록) → ④ 원리 소개와 마무리 인사. 장면마다 간단한 그림, 대사, 행동, 예상 시간을 적어요.</div>
+    <div class="q" data-why="과산화 수소가 아이오딘화 칼륨(촉매)에 의해 빠르게 분해되며 산소 기체가 발생해 많은 거품이 생겨요(코끼리 치약). 만능 지시약의 색 변화는 산·염기, 신호등 반응은 산화·환원, 드라이아이스 안개는 승화와 수증기의 응결을 이용해요.">
+      <div class="q-text"><span class="q-num">1</span>마술 장면과 이용한 원리를 연결하시오.</div>
+      <table class="t" id="mg-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="공연할 때는 보안경과 장갑을 끼고, 관객과 안전거리를 두며, 남은 시약은 지정된 곳에 모아 처리해요. 드라이아이스를 밀폐 용기에 넣으면 압력이 높아져 터질 수 있고, 시약을 관객이 직접 만지게 하면 위험해요.">
+      <div class="q-text"><span class="q-num">2</span>과학 마술 공연에서 지켜야 할 안전 수칙을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="safe" data-answer="goggle,dist,waste"><button type="button" class="multi-btn" data-value="goggle">보안경과 실험용 장갑을 착용한다</button> <button type="button" class="multi-btn" data-value="seal">드라이아이스를 뚜껑이 꽉 닫힌 병에 넣는다</button> <button type="button" class="multi-btn" data-value="dist">관객과 안전거리를 둔다</button> <button type="button" class="multi-btn" data-value="touch">관객이 시약을 손으로 만져 보게 한다</button> <button type="button" class="multi-btn" data-value="waste">남은 물질은 지정된 곳에 모아 처리한다</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>우리 모둠의 과학 마술 시나리오를 써 보자. (공연 제목, 장면별 대사와 행동, 이용한 화학 반응, 예상 시간)</div>
+      <textarea class="free" data-key="scenario" data-keywords="제목,대사,행동,반응/원리" data-model="공연 제목: 마법사의 무지개 물. 장면 1(2분) 대사: '이 맑은 물에 마법의 가루를 넣어 보겠습니다.' 행동: 만능 지시약을 넣은 증류수에 수산화 나트륨 수용액을 넣어 파란색을 보여 준다(염기성). 장면 2(4분) 대사: '이번엔 차가운 연기를 불러오겠습니다.' 행동: 면장갑을 끼고 드라이아이스를 넣어 노란색으로 바꾼다(탄산, 산성). 장면 3(3분) 대사: '마지막 주문!' 행동: 묽은 염산을 넣어 붉은색으로 바꾼다. 장면 4(2분) 각 색이 산과 염기의 성질 때문임을 설명하고 인사한다." placeholder="공연 제목 / 장면별 대사·행동 / 화학 반응 / 시간"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험1 Ⅱ-5 화학 반응을 활용한 과학 마술 시나리오 개발 및 시연하기 · 비상교육 과학탐구실험1 교과서·탐구 활동지·교수 학습 설계안(교과서 64~67쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험1 Ⅱ-5 화학 반응 과학 마술";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+const C = { none: ["무색", "rgba(220,235,245,.5)"], green: ["초록색", "#43A047"], blue: ["파란색", "#1E88E5"], yellow: ["노란색", "#FDD835"], red: ["붉은색", "#E53935"] };
+const COPTS = [["green", "초록색"], ["blue", "파란색"], ["yellow", "노란색"], ["red", "빨간색(붉은색)"], ["none", "무색"]];
+
+/* ===== 실험 1 ===== */
+const E1 = [["💧 만능 지시약 3 mL", "green"], ["🧪 수산화 나트륨 수용액 3 mL", "blue"], ["🧊 드라이아이스", "yellow"], ["🧪 묽은 염산 3 mL", "red"]];
+let e1 = 0, e1Fog = false;
+$("e1-btns").innerHTML = E1.map((s, i) => `<button type="button" class="btn ${i === 0 ? "main" : "ghost"} small" data-i="${i}">${s[0]} 넣기</button>`).join("");
+function drawE1() {
+  const col = e1 === 0 ? C.none[1] : C[E1[e1 - 1][1]][1];
+  let g = `<rect x="0" y="0" width="400" height="220" fill="#F4F8FA"/><path d="M150,40 L250,40 L240,160 Q200,180 160,160 z" fill="${col}" opacity=".85"/><path d="M150,40 L250,40 L240,160 Q200,180 160,160 z" fill="none" stroke="#7A9" stroke-width="3"/><rect x="196" y="170" width="8" height="26" fill="#9AB"/><rect x="170" y="196" width="60" height="6" rx="3" fill="#9AB"/>`;
+  if (e1Fog) for (let i = 0; i < 8; i++) g += `<circle cx="${160 + i * 12}" cy="${38 - (i % 3) * 8}" r="${10 + (i % 2) * 5}" fill="#fff" opacity=".75"/>`;
+  g += `<text x="200" y="214" text-anchor="middle" style="font-size:12px;font-weight:800" ${halo}>${e1 === 0 ? "증류수 100 mL" : C[E1[e1 - 1][1]][0]}</text>`;
+  $("e1-svg").innerHTML = g;
+  $("e1-btns").querySelectorAll("button").forEach((b, i) => { b.disabled = i !== e1; b.className = "btn " + (i === e1 ? "main" : "ghost") + " small"; });
+}
+$("e1-btns").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const i = Number(b.dataset.i); if (i !== e1) return; e1++; e1Fog = i === 2; drawE1(); $("e1-read").innerHTML = `${E1[i][0]}을(를) 넣었더니 <b>${C[E1[i][1]][0]}</b>으로 변했어요.` + (i === 2 ? "<br>🌫️ 드라이아이스가 승화하며 하얀 안개가 생겨요." : ""); });
+$("e1-reset").addEventListener("click", () => { e1 = 0; e1Fog = false; drawE1(); $("e1-read").textContent = "증류수에 만능 지시약부터 넣어 보세요."; });
+drawE1();
+WS.custom("e1_step", { el: $("e1-read"), value: () => e1 + "/4" });
+$("e1-table").innerHTML = choiceRows([
+  ["c1_ind", "① 증류수 + 만능 지시약", "green"], ["c1_naoh", "② + 수산화 나트륨 수용액", "blue"], ["c1_dry", "③ + 드라이아이스", "yellow"], ["c1_hcl", "④ + 묽은 염산", "red"]
+], COPTS, ["단계", "색"]);
+
+/* ===== 실험 2 ===== */
+const SEQ = { mb: { start: "blue", rest: ["none"], shake: ["blue"] }, ic: { start: "green", rest: ["yellow"], shake: ["red", "green"] } };
+let ind = "mb", e2 = "blue", e2State = "start", shakeN = 0, e2Seen = new Set();
+function drawE2(shaking) {
+  const col = C[e2][1];
+  let g = `<rect x="0" y="0" width="400" height="220" fill="#F4F8FA"/><g transform="rotate(${shaking ? 10 : 0},200,140)"><path d="M180,30 L220,30 L222,80 L270,180 Q200,196 130,180 L178,80 z" fill="#fff"/><path d="M178,92 L222,92 L268,178 Q200,194 132,178 z" fill="${col}" opacity=".9"/><path d="M180,30 L220,30 L222,80 L270,180 Q200,196 130,180 L178,80 z" fill="none" stroke="#7A9" stroke-width="3"/><rect x="176" y="18" width="48" height="14" rx="4" fill="#555"/></g>`;
+  g += `<text x="200" y="212" text-anchor="middle" style="font-size:12px;font-weight:800" ${halo}>${ind === "mb" ? "메틸렌 블루" : "인디고 카민"} · ${C[e2][0]}</text>`;
+  $("e2-svg").innerHTML = g;
+}
+function e2Msg(t) { $("e2-read").innerHTML = t + `<br><span style="font-size:12px;color:var(--ink-soft)">관찰한 색 변화 ${e2Seen.size}가지</span>`; }
+function e2New() { e2 = SEQ[ind].start; e2State = "start"; shakeN = 0; drawE2(false); e2Msg(`지시약을 넣었더니 <b>${C[e2][0]}</b>이에요. 마개를 막고 가만히 둬 보세요.`); }
+$("e2-ind").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; ind = b.dataset.v; $("e2-ind").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); e2New(); });
+$("e2-rest").addEventListener("click", () => { e2 = SEQ[ind].rest[0]; e2State = "rest"; shakeN = 0; drawE2(false); e2Seen.add(ind + "-rest"); e2Msg(`가만히 두었더니 포도당이 지시약을 환원시켜 <b>${C[e2][0]}</b>이 되었어요.`); });
+$("e2-shake").addEventListener("click", () => {
+  if (e2State === "start") { e2Msg("먼저 가만히 두어 색이 변하는 것을 확인하세요."); return; }
+  const s = SEQ[ind].shake; e2 = s[Math.min(shakeN, s.length - 1)]; shakeN++; e2State = "shake"; e2Seen.add(ind + "-shake" + Math.min(shakeN, s.length));
+  drawE2(true); setTimeout(() => drawE2(false), 300);
+  e2Msg(`${shakeN > 1 && s.length > 1 ? "계속 흔들었더니" : "흔들었더니"} 산소가 녹아 들어가 지시약이 산화되어 <b>${C[e2][0]}</b>이 되었어요.`);
+});
+$("e2-reset").addEventListener("click", e2New);
+e2New();
+WS.custom("e2_seen", { el: $("e2-read"), value: () => [...e2Seen].join(",") });
+$("e2-table").innerHTML = choiceRows([
+  ["c2_mb0", "메틸렌 블루를 넣은 직후", "blue"], ["c2_mb1", "메틸렌 블루 → 가만히 둔다", "none"], ["c2_mb2", "메틸렌 블루 → 흔든다", "blue"],
+  ["c2_ic0", "인디고 카민을 넣은 직후", "green"], ["c2_ic1", "인디고 카민 → 가만히 둔다", "yellow"], ["c2_ic2", "인디고 카민 → 흔든다", "red"], ["c2_ic3", "인디고 카민 → 계속 흔든다", "green"]
+], COPTS, ["단계", "색"]);
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 실험 1에서 드라이아이스가 물에 녹으면 산성을 띤다.", "O"],
+  ["ox2", "(2) 실험 1은 산 염기 지시약의 색 변화를 이용한 화학 반응이다.", "O"],
+  ["ox3", "(3) 실험 2에서 용기를 흔들었을 때 색이 변한 까닭은 지시약이 환원되었기 때문이다.", "X"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+$("mg-table").innerHTML = choiceRows([
+  ["mg_foam", "🫧 분홍색 거품이 솟아오른다(과산화 수소수 + 아이오딘화 칼륨)", "decomp"],
+  ["mg_rain", "🌈 맑은 물이 파랑 → 노랑 → 빨강으로 변한다(만능 지시약)", "acid"],
+  ["mg_signal", "🚦 흔들 때마다 초록 → 빨강 → 노랑으로 바뀐다", "redox"],
+  ["mg_fog", "🌫️ 잔에서 하얀 안개가 흘러넘친다", "sub"]
+], [["decomp", "과산화 수소의 분해(산소 발생)"], ["acid", "산·염기와 지시약"], ["redox", "산화·환원"], ["sub", "드라이아이스의 승화와 수증기 응결"]], ["장면", "원리"]);
+</script>
+</body>
+</html>

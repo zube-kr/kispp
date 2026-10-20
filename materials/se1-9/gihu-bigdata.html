@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험1 Ⅱ-4 — 한반도의 기후 변화</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>#cm-city button{font-size:12px}</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se1/9">← KISPP 과학실 · 과학탐구실험1 · Ⅱ. 과학 탐구의 과정과 절차</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 과학 탐구의 과정과 절차 · 4 관측 자료(빅데이터)를 활용하여 한반도의 기후 변화 경향성 파악하기 (교과서 60~63쪽)</div>
+    <h1>100년의 기온이 말해 주는 것 — <span>한반도의 기후 변화 경향성</span></h1>
+    <p class="sub">강릉, 대구, 목포, 부산, 서울, 인천의 연평균 기온 자료로 한반도의 평균 기온 그래프와 추세선을 그려 보고, 전 지구 평균 기온의 추이와 비교해 보세요. 기후 변화 시나리오 SSP1-2.6과 SSP5-8.5에서 2080년 우리나라의 기온과 강수량이 어떻게 달라질지 계산하고, 우리가 실천할 수 있는 일도 찾아봐요.</p>
+    <div class="goals"><span>🎯 관측 자료(빅데이터)를 활용하여 한반도의 기후 변화 경향성을 파악할 수 있다.</span><span>🎯 탐구 수행에서 얻은 정량적 데이터를 분석하여 그 결과를 다양하게 표상하고 소통할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 활동 1 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>한반도와 전 지구의 기온 변화 경향성 파악하기</div>
+    <div class="card-hint">기상청 기상자료개방포털의 '기후 통계 분석 → 기온 분석'에서 1912년부터 현재까지 6개 지역의 연평균 기온을 모은다고 생각해 보세요. 아래 그래프는 실제 경향을 본뜬 <b>모의 자료</b>예요. 지역을 골라 보고, 6개 지역 평균과 추세선을 확인하세요. 일부 지역은 1950~1953년(6·25 전쟁 시기) 자료가 없어요.</div>
+    <div class="seg" id="cm-city" style="margin-bottom:6px"></div>
+    <div class="seg" id="cm-gap" style="margin-bottom:8px"><button type="button" data-v="drop" class="on">자료가 없는 연도 삭제</button><button type="button" data-v="keep">있는 지역만으로 평균</button></div>
+    <div class="stage"><svg id="cm-svg" viewBox="0 0 400 230" aria-label="연평균 기온 그래프"></svg></div>
+    <div class="readout" id="cm-read" style="margin-top:8px"></div>
+    <div class="q" data-why="1950~1953년에 일부 지역 자료가 없는데 남은 지역만으로 평균을 내면, 평균에 들어가는 지역이 해마다 달라져 실제 기온 변화와 상관없이 평균값이 튀어요. 그래서 이 시기의 자료는 삭제하고 계산해요." data-hint="'있는 지역만으로 평균'을 눌러 1950~1953년 부근의 그래프를 비교해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>1950~1953년 자료를 삭제하는 까닭은 <span class="choice-group" data-key="cm_drop" data-answer="왜곡"><button type="button" class="choice-btn" data-value="왜곡">일부 지역 자료가 없어 평균값이 왜곡되기</button><button type="button" class="choice-btn" data-value="추움">그 시기에 너무 추웠기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="추세선의 기울기가 양수이므로 한반도의 연평균 기온은 1912년 이후 뚜렷하게 상승하고 있어요. 그래프의 기울기에 100을 곱하면 100년 동안의 상승 폭이에요." data-hint="그래프 아래 읽기 창에 표시된 추세선의 기울기(°C/년)를 100배 해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>6개 지역 평균 기온의 추세선을 보면 기온은 <span class="choice-group" data-key="cm_trend" data-answer="상승"><button type="button" class="choice-btn" data-value="상승">상승</button><button type="button" class="choice-btn" data-value="일정">일정</button><button type="button" class="choice-btn" data-value="하강">하강</button></span>하는 경향이다. 추세선으로 계산한 100년 동안의 상승 폭은 약 <input class="blank w-s" id="cm-slope" inputmode="decimal"> °C이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="전 지구 평균 기온(미국해양대기청, 1912~2020)도 1912년 이후 꾸준히 상승했고 최근에 더 크게 상승해요. 한반도 평균 기온은 해마다 추세선을 벗어나는 정도가 전 지구보다 크지만, 마찬가지로 꾸준히 상승하며 최근에 더 크게 상승해요.">
+      <div class="q-text"><span class="q-num">3</span>전 지구 평균 기온(약 13.5 → 14.8 °C)과 비교하면 한반도 평균 기온은 <span class="choice-group" data-key="cm_cmp" data-answer="같이상승"><button type="button" class="choice-btn" data-value="같이상승">해마다 변동은 더 크지만 마찬가지로 꾸준히 상승한다</button><button type="button" class="choice-btn" data-value="반대">전 지구와 반대로 낮아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="기권의 평균 기온 상승은 지권(빙하·영구 동토층 융해로 지형 변화), 수권(해수 온도 상승으로 해류 변화, 해수면 상승), 생물권(어류·조류의 이른 산란, 꽃의 이른 개화 등 계절적 특성 변화)에 영향을 줘요.">
+      <div class="q-text"><span class="q-num">4</span>기권의 변화가 다른 권역에 주는 영향을 고르시오.</div>
+      <table class="t" id="sph-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 2 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>미래 우리나라의 환경 변화 예상하기</div>
+    <div class="card-hint">기상청 기후정보포털의 '우리 동네 기후 변화'에서 찾은 2080년 전국 값이에요. 기준값(2000~2019년 평균)은 평균 기온 <b>11.9 °C</b>, 강수량 <b>1328.1 mm</b>예요.</div>
+    <table class="t" style="margin-bottom:8px"><tr><th>구분(2080년, 전국)</th><th>평균 기온(°C)</th><th>강수량(mm)</th></tr><tr><td class="l">SSP1-2.6 시나리오</td><td>13.3</td><td>1399.6</td></tr><tr><td class="l">SSP5-8.5 시나리오</td><td>18.3</td><td>1482.3</td></tr></table>
+    <div class="q" data-why="SSP1-2.6은 재생 에너지 기술 발달로 화석 연료 사용이 최소화되고 친환경적으로 지속가능한 경제 성장을 이루어 온실 기체 감축을 잘한 경우, SSP5-8.5는 산업 기술의 빠른 발전에 중심을 두어 화석 연료 사용이 높고 도시 위주의 무분별한 개발이 확대되어 온실 기체 감축을 못한 경우예요.">
+      <div class="q-text"><span class="q-num">1</span>각 시나리오의 의미를 고르시오.</div>
+      <table class="t" id="ssp-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="평균 기온: 13.3 − 11.9 = 1.4 °C, 18.3 − 11.9 = 6.4 °C 상승하며 SSP5-8.5가 5.0 °C 더 높아요. 강수량: 1399.6 − 1328.1 = 71.5 mm, 1482.3 − 1328.1 = 154.2 mm 증가해요." data-hint="2080년 값 − 기준값">
+      <div class="q-text"><span class="q-num">2</span>기준값과 비교하면 평균 기온은 SSP1-2.6에서 <input class="blank w-s" data-key="ss_t1" data-num="1.4" data-abs="0.05"> °C, SSP5-8.5에서 <input class="blank w-s" data-key="ss_t5" data-num="6.4" data-abs="0.05"> °C 상승한다. 강수량은 SSP1-2.6에서 <input class="blank w-s" data-key="ss_p1" data-num="71.5" data-abs="0.15"> mm, SSP5-8.5에서 <input class="blank w-s" data-key="ss_p5" data-num="154.2" data-abs="0.15"> mm 증가한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>두 시나리오에서 2080년 우리나라의 환경이 어떻게 달라질지 예상해 보자. (폭염·한파 일수, 호우, 계절 길이 등)</div>
+      <textarea class="free" data-key="ss_story" data-keywords="SSP1/SSP5,기온/폭염,강수/호우,여름/계절" data-model="SSP1-2.6에서는 평균 기온이 약 1.4 °C 올라 여름이 조금 길어지지만 지금과 비슷한 사계절이 유지된다. SSP5-8.5에서는 평균 기온이 약 6.4 °C나 올라 여름이 1년의 절반 가까이로 길어지고 겨울은 매우 짧아진다. 폭염 일수와 집중 호우가 크게 늘어 농작물 재배지가 북쪽으로 이동하고, 열대야와 물 관리 문제가 심각해질 것이다." placeholder="두 시나리오의 2080년 우리나라 환경"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 탐구 정리 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 정리</span>기후 변화를 완화하기 위한 실천</div>
+    <div class="q" data-why="대중교통 이용, 가까운 거리는 걷거나 자전거 타기, 쓰지 않는 전자 제품의 플러그 뽑기, 쓰레기 줄이기와 분리배출, 일회용품 줄이기는 온실 기체 배출을 줄여요. 냉방기를 더 오래·더 낮은 온도로 트는 것과 일회용 비닐봉지 사용은 반대예요.">
+      <div class="q-text"><span class="q-num">1</span>기후 변화를 완화하기 위해 일상생활에서 실천할 수 있는 방법을 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="act" data-answer="bus,plug,recycle,bag"><button type="button" class="multi-btn" data-value="bus">대중교통이나 자전거 이용하기</button> <button type="button" class="multi-btn" data-value="ac">냉방기를 18 °C로 낮춰 오래 틀기</button> <button type="button" class="multi-btn" data-value="plug">쓰지 않는 전자 제품 플러그 뽑기</button> <button type="button" class="multi-btn" data-value="recycle">쓰레기 줄이고 분리배출하기</button> <button type="button" class="multi-btn" data-value="vinyl">물건마다 일회용 비닐봉지에 담기</button> <button type="button" class="multi-btn" data-value="bag">장바구니 사용하기</button></span>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>활동 1과 활동 2로 파악한 한반도의 기후 변화 경향성을 정리해 보자.</div>
+      <textarea class="free" data-key="sum" data-keywords="1912/상승,시나리오/SSP,온실 기체/감축,강수" data-model="1912년 이후 한반도와 전 지구의 평균 기온은 뚜렷한 상승 추세를 보인다. 미래 우리나라의 기후는 온실 기체 배출 정도에 따라 차이는 있지만 평균 기온과 강수량이 모두 증가할 것으로 예상된다. SSP1-2.6처럼 온실 기체 감축을 잘하면 상승 폭이 작지만, SSP5-8.5처럼 감축하지 못하면 평균 기온이 6 °C 이상 상승하고 극한 기후가 크게 늘 것이다." placeholder="한반도의 기후 변화 경향성"></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험1 Ⅱ-4 관측 자료(빅데이터)를 활용하여 한반도의 기후 변화 경향성 파악하기 · 비상교육 과학탐구실험1 교과서·탐구 활동지·교수 학습 설계안(교과서 60~63쪽) 바탕 · 그래프의 지역별 기온은 실제 경향을 본뜬 모의 자료</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험1 Ⅱ-4 한반도의 기후 변화";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${n.replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* ===== 모의 관측 자료 ===== */
+const CITY = [["강릉", 12.0, "#E0662C", false], ["대구", 12.8, "#D8493B", false], ["목포", 12.9, "#2E9E5B", true], ["부산", 13.6, "#2F6FED", true], ["서울", 10.9, "#8E44AD", false], ["인천", 10.8, "#E0A100", false]];
+let seed = 20; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+const Y0 = 1912, Y1 = 2023, YEARS = [];
+for (let y = Y0; y <= Y1; y++) YEARS.push(y);
+const common = YEARS.map(() => (rnd() - 0.5) * 0.9);
+const DATA = CITY.map(([n, b, c, gap], ci) => YEARS.map((y, i) => { if (gap && y >= 1950 && y <= 1953) return null; const t = y - Y0; return b + 0.0115 * t + 0.00004 * t * t + (ci === 1 || ci === 4 ? 0.003 * t : 0) + common[i] + (rnd() - 0.5) * 0.4; }));
+let show = new Set(["avg"]), gapMode = "drop";
+$("cm-city").innerHTML = CITY.map((c, i) => `<button type="button" data-i="${i}">${c[0]}</button>`).join("") + `<button type="button" data-i="avg" class="on">6개 지역 평균</button>`;
+function avgSeries() {
+  return YEARS.map((y, i) => {
+    const v = DATA.map(d => d[i]);
+    if (v.some(x => x == null)) { if (gapMode === "drop") return null; const ok = v.filter(x => x != null); return ok.reduce((a, b) => a + b, 0) / ok.length; }
+    return v.reduce((a, b) => a + b, 0) / v.length;
+  });
+}
+function fit(series) { const p = YEARS.map((y, i) => [y, series[i]]).filter(q => q[1] != null); const n = p.length, mx = p.reduce((s, q) => s + q[0], 0) / n, my = p.reduce((s, q) => s + q[1], 0) / n; let sxy = 0, sxx = 0; p.forEach(([x, y]) => { sxy += (x - mx) * (y - my); sxx += (x - mx) ** 2; }); const m = sxy / sxx; return { m, b: my - m * mx }; }
+const TRUE_FIT = (() => { const s = gapMode; gapMode = "drop"; const f = fit(avgSeries()); gapMode = s; return f; })();
+function drawCM() {
+  const X = y => 36 + (y - Y0) / (Y1 - Y0) * 352, Yv = v => 205 - (v - 9.5) / 7.5 * 190;
+  let g = `<line x1="36" y1="205" x2="390" y2="205" stroke="#9AB"/><line x1="36" y1="12" x2="36" y2="205" stroke="#9AB"/>`;
+  for (let v = 10; v <= 17; v += 1) g += `<text x="30" y="${Yv(v) + 3}" text-anchor="end" style="font-size:9px;fill:#5E7375">${v}</text><line x1="36" y1="${Yv(v)}" x2="390" y2="${Yv(v)}" stroke="#EEF2F3"/>`;
+  for (let y = 1920; y <= 2020; y += 20) g += `<text x="${X(y)}" y="218" text-anchor="middle" style="font-size:9px;fill:#5E7375">${y}</text>`;
+  g += `<rect x="${X(1950)}" y="12" width="${X(1953) - X(1950)}" height="193" fill="#FBE1DD" opacity=".6"/>`;
+  const path = s => { let d = "", pen = false; s.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? "L" : "M") + X(YEARS[i]).toFixed(1) + "," + Yv(v).toFixed(1); pen = true; }); return d; };
+  CITY.forEach((c, i) => { if (show.has(String(i))) g += `<path d="${path(DATA[i])}" fill="none" stroke="${c[2]}" stroke-width="1.3" opacity=".8"/>`; });
+  let f = null;
+  if (show.has("avg")) { const a = avgSeries(); f = fit(a); g += `<path d="${path(a)}" fill="none" stroke="#26393B" stroke-width="2"/><line x1="${X(Y0)}" y1="${Yv(f.m * Y0 + f.b)}" x2="${X(Y1)}" y2="${Yv(f.m * Y1 + f.b)}" stroke="#D8493B" stroke-width="2" stroke-dasharray="6 4"/>`; }
+  g += `<text x="40" y="10" style="font-size:9px;fill:#5E7375">연평균 기온(°C)</text><text x="390" y="228" text-anchor="end" style="font-size:9px;fill:#5E7375">연도</text>`;
+  $("cm-svg").innerHTML = g;
+  $("cm-read").innerHTML = f ? `6개 지역 평균 추세선: 기울기 <b>${f.m.toFixed(4)} °C/년</b>${gapMode === "keep" ? " <span style='color:#D8493B'>(1950~1953년이 4개 지역 평균이라 값이 튀어요)</span>" : ""}<br>그래프 선: ${[...show].map(s => s === "avg" ? "평균(검정)·추세선(빨간 점선)" : CITY[s][0]).join(", ")}` : "6개 지역 평균을 켜면 추세선이 보여요.";
+}
+$("cm-city").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const k = b.dataset.i; show.has(k) ? show.delete(k) : show.add(k); b.classList.toggle("on", show.has(k)); drawCM(); });
+$("cm-gap").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; gapMode = b.dataset.v; $("cm-gap").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawCM(); });
+drawCM();
+const slopeAns = +(TRUE_FIT.m * 100).toFixed(1);
+WS.custom("cm_slope", { el: $("cm-slope"), value: () => $("cm-slope").value, check: () => Math.abs(WS.toNumber($("cm-slope").value) - TRUE_FIT.m * 100) <= 0.15, answer: String(slopeAns) });
+
+$("sph-table").innerHTML = choiceRows([
+  ["sp_geo", "🏔️ 빙하와 영구 동토층이 녹아 지형이 변한다.", "지권"],
+  ["sp_hydro", "🌊 해수의 온도가 올라 해류가 변한다.", "수권"],
+  ["sp_bio", "🌸 꽃이 일찍 피고 어류·조류가 일찍 산란한다.", "생물권"]
+], [["지권", "지권"], ["수권", "수권"], ["생물권", "생물권"]], ["영향", "권역"]);
+$("ssp-table").innerHTML = choiceRows([
+  ["ssp1", "🌱 SSP1-2.6", "low"], ["ssp5", "🏭 SSP5-8.5", "high"]
+], [["low", "재생 에너지로 화석 연료 사용 최소화, 온실 기체 감축 성공"], ["high", "화석 연료 사용이 높고 무분별한 개발 확대, 감축 실패"]], ["시나리오", "의미"]);
+</script>
+</body>
+</html>

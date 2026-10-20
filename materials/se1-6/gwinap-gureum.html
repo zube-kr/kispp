@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학탐구실험1 Ⅱ-1 — 귀납적 탐구와 구름 분류</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<style>.cl-th{width:96px;height:60px;display:block;border-radius:8px}</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/se1/6">← KISPP 과학실 · 과학탐구실험1 · Ⅱ. 과학 탐구의 과정과 절차</a>
+  <header>
+    <div class="eyebrow">Ⅱ. 과학 탐구의 과정과 절차 · 1 과학사에서 귀납적 탐구 사례 알아보기 (교과서 46~49쪽)</div>
+    <h1>구름에 이름을 붙이다 — <span>귀납적 탐구와 하워드의 구름 분류</span></h1>
+    <p class="sub">일주일 동안 모둠원이 찍은 구름 사진을 모아 나만의 기준으로 나눠 보고, 아마추어 기상학자 하워드가 수많은 구름 스케치로 구름 분류법을 만든 과정을 따라가 보세요. 관찰한 자료를 종합해 규칙을 이끌어 내는 귀납적 탐구 방법의 단계를 정리해 봐요.</p>
+    <div class="goals"><span>🎯 과학사에서 구름 분류 과정 사례를 설명할 수 있다.</span><span>🎯 직접적인 관찰을 통한 탐구를 수행하고, 귀납적 탐구 방법을 설명할 수 있다.</span></div>
+  </header>
+
+  <!-- 1. 귀납적 탐구 -->
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 문제</span>귀납적 탐구란?</div>
+    <div class="card-hint"><b>귀납적 탐구</b>는 탐구 대상을 직접 관찰하거나 실험하여 얻은 자료를 종합하고 분석하여 원리나 법칙을 이끌어 내는 탐구 방법이에요. 케플러는 티코 브라헤가 남긴 방대한 관측 자료로 행성의 운동 법칙을 찾았고, 린네는 수집한 동식물 자료로 생물 분류 체계를 만들었어요.</div>
+    <div class="q" data-why="케플러(관측 자료 → 행성 운동 법칙), 린네(동식물 자료 → 분류 체계), 하워드(구름 관찰 → 구름 분류법)는 모두 많은 관찰 자료에서 규칙을 이끌어 낸 귀납적 탐구예요. 가설을 먼저 세우고 실험으로 검증하는 파스퇴르의 S자 플라스크 실험은 연역적 탐구예요.">
+      <div class="q-text"><span class="q-num">1</span>귀납적 탐구 사례를 있는 대로 고르시오.</div>
+      <span class="multi-group" data-key="ind_list" data-answer="kepler,linne,howard"><button type="button" class="multi-btn" data-value="kepler">케플러의 행성 운동 법칙</button> <button type="button" class="multi-btn" data-value="pasteur">가설을 세우고 S자 플라스크로 검증한 파스퇴르의 실험</button> <button type="button" class="multi-btn" data-value="linne">린네의 생물 분류 체계</button> <button type="button" class="multi-btn" data-value="howard">하워드의 구름 분류법</button></span>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 2. 활동 1: 구름 분류하기 -->
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">활동 1</span>구름 분류하기</div>
+    <div class="card-hint">모둠원이 일주일 동안 서로 다른 장소에서 찍은 구름 사진 9장이에요. 분류 기준을 하나 골라 사진을 두 무리로 나눠 보세요. 기준에 따라 무리가 어떻게 달라지는지 비교해 봐요.</div>
+    <div class="seg" id="cl-crit" style="margin-bottom:8px"><button type="button" data-v="clump" class="on">뭉친 정도</button><button type="button" data-v="height">떠 있는 높이</button><button type="button" data-v="shape">퍼진 모양</button></div>
+    <div class="stage"><svg id="cl-svg" viewBox="0 0 400 250" aria-label="구름 사진 분류"></svg></div>
+    <div class="readout" id="cl-read" style="margin-top:8px"></div>
+    <div class="q" data-why="같은 자료라도 분류 기준을 무엇으로 정하느냐에 따라 무리가 달라져요. 그래서 귀납적 탐구에서는 많은 자료를 수집한 뒤 모둠이 토의하여 분명한 분류 기준을 정하는 것이 중요해요.">
+      <div class="q-text"><span class="q-num">1</span>분류 기준을 바꾸면 같은 사진도 <span class="choice-group" data-key="cl_change" data-answer="달라진다"><button type="button" class="choice-btn" data-value="달라진다">다른 무리로 나뉠 수 있다</button><button type="button" class="choice-btn" data-value="같다">항상 같은 무리로 나뉜다</button></span>. 자료 수집 방법은 <span class="choice-group" data-key="cl_collect" data-answer="다양"><button type="button" class="choice-btn" data-value="다양">모둠원이 서로 다른 장소·시간에 찍어 다양한 자료를 모으는</button><button type="button" class="choice-btn" data-value="한장">한 사람이 한 장만 찍는</button></span> 것이 좋다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 3. 활동 2: 하워드 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">활동 2</span>하워드의 구름 분류 과정 따라가기</div>
+    <div class="card-hint">약제사이자 아마추어 기상학자였던 하워드는 1802년 『구름의 분류에 대하여』를 발표하며 구름을 모양에 따라 세 종류로 처음 나눴어요. <b>권운</b>(새털처럼 흩어진 높은 구름), <b>적운</b>(위로 솟아 뭉친 구름), <b>층운</b>(넓게 층을 이룬 구름). 이후 구름이 서로 결합하는 중간·혼합 형태(권적운, 권층운, 적층운, 난운)를 더해 일곱 종류로 늘렸어요.</div>
+    <div class="q" data-why="하워드는 구름에 관심을 가지고 → 분류를 고민하다 → 시시각각 변하는 구름을 그려 자료를 모으고 → 스케치로 모양에 따라 분류한 뒤 → 1802년 세 종류의 분류법을 제안하고 → 중간·혼합 형태를 추가해 일곱 종류로 발표했어요.">
+      <div class="q-text"><span class="q-num">1</span>하워드가 구름 분류법을 만든 과정을 순서대로 배열하시오.</div>
+      <ol class="order-list" data-key="hw_order" data-answer="interest,think,draw,classify,propose,add">
+        <li data-id="classify">수집한 구름 스케치를 모양에 따라 분류하였다.</li>
+        <li data-id="add">중간·혼합 형태 네 가지를 추가해 일곱 종류로 발표하였다.</li>
+        <li data-id="interest">매일 볼 수 있는 다양한 구름에 관심을 가졌다.</li>
+        <li data-id="draw">시시각각 변하는 구름을 그려 자료를 수집하였다.</li>
+        <li data-id="propose">1802년 구름을 세 종류로 나누는 분류법을 제안하였다.</li>
+        <li data-id="think">"구름을 분류할 수 있지 않을까?"라고 고민하였다.</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="새털처럼 가늘게 흩어진 높은 구름은 권운, 위로 솟으며 뭉게뭉게 뭉친 구름은 적운, 하늘을 넓게 덮는 낮은 층 모양 구름은 층운이에요.">
+      <div class="q-text"><span class="q-num">2</span>활동 1의 사진을 하워드가 처음 제안한 세 종류로 분류하시오.</div>
+      <table class="t" id="hw-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="현재는 하워드의 분류법을 바탕으로 높이에 따라 상층운(권운·권적운·권층운, 6~13 km), 중층운(고적운·고층운, 2~6 km), 하층운(층적운·층운·난층운, 2 km 이하), 연직 발달운(적운·적란운)으로 10종류를 나눠요.">
+      <div class="q-text"><span class="q-num">3</span>현재 사용하는 구름 분류에서 각 구름의 무리를 고르시오.</div>
+      <table class="t" id="now-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 4. 탐구 정리 -->
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 정리</span>귀납적 탐구 방법에 따라 정리하기</div>
+    <div class="q" data-why="귀납적 탐구는 문제 인식 → 관찰 및 자료 수집 방법 고안 → 관찰 및 자료 수집 → 자료 해석 → 규칙성 발견과 결론 도출의 과정으로 이루어져요. 하워드의 경우 구름에 관심(문제 인식), 구름 그리기(관찰 및 자료 수집), 모양으로 분류(자료 해석), 분류법 제안·형태 추가(규칙성 발견과 결론 도출)에 해당해요.">
+      <div class="q-text"><span class="q-num">1</span>하워드의 활동이 귀납적 탐구의 어느 단계인지 고르시오.</div>
+      <table class="t" id="st-table" style="margin-top:6px"></table>
+      <div class="q-text" style="margin-top:8px"><span class="q-num">2</span>귀납적 탐구 방법의 과정은 문제 인식, 관찰 및 자료 수집 방법 고안, 관찰 및 자료 수집, 자료 해석, <input class="blank w-s" data-key="st_word" data-answer="규칙성"> 발견과 결론 도출로 이루어진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(1) 하워드는 눈으로만 관찰하지 않고 구름을 그려 자료를 수집했어요(×). (2) 1802년 구름을 모양에 따라 세 종류로 분류할 것을 제안했어요(○). (3) 이후 네 가지 형태를 추가했어요(○).">
+      <div class="q-text"><span class="q-num">3</span>옳으면 ○, 옳지 않으면 ×를 고르시오.</div>
+      <table class="t" id="ox-table" style="margin-top:6px"></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <!-- 제출 -->
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고, 선생님 스프레드시트(고1 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="1">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 과학탐구실험1 Ⅱ-1 과학사에서 귀납적 탐구 사례 알아보기 · 비상교육 과학탐구실험1 교과서·탐구 활동지·교수 학습 설계안(교과서 46~49쪽) 바탕</footer>
+</div>
+
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "과학탐구실험1 Ⅱ-1 귀납적 탐구와 구름 분류";
+const $ = id => document.getElementById(id);
+const choiceRows = (rows, opts, head) => `<tr><th>${head[0]}</th><th>${head[1]}</th></tr>` + rows.map(([k, n, a]) => `<tr><td class="l">${n}</td><td><span class="choice-group" data-key="${k}" data-label="${String(n).replace(/<[^>]+>/g, "").replace(/^\S+\s/, "").slice(0, 10)}" data-answer="${a}">${opts.map(([v, t]) => `<button type="button" class="choice-btn" data-value="${v}">${t}</button>`).join("")}</span></td></tr>`).join("");
+const halo = 'paint-order="stroke" stroke="#fff" stroke-width="3"';
+
+/* 구름 그림 */
+function cloudSVG(type, seed, w = 120, h = 75, inner = false) {
+  let g = `<rect width="${w}" height="${h}" fill="${type === "st" ? "#C9D3DB" : "#8EC9EE"}"/>`;
+  const r = k => ((seed * 9301 + k * 49297) % 233280) / 233280;
+  if (type === "ci") for (let i = 0; i < 6; i++) { const x = 10 + r(i) * (w - 40), y = 8 + r(i + 9) * 25; g += `<path d="M${x},${y + 10} q${12 + r(i + 3) * 10},-${10 + r(i) * 6} ${30 + r(i + 5) * 15},-${2 + r(i + 2) * 6}" fill="none" stroke="#fff" stroke-width="${1.5 + r(i + 7) * 1.5}" stroke-linecap="round" opacity=".9"/>`; }
+  if (type === "cu") { const cx = w * (0.35 + r(1) * 0.3), cy = h * 0.6; [[0, 0, 16], [-16, 6, 12], [16, 6, 13], [-6, -12, 12], [8, -10, 11]].forEach(([dx, dy, rr]) => g += `<circle cx="${cx + dx}" cy="${cy + dy}" r="${rr}" fill="#fff"/>`); g += `<rect x="${cx - 30}" y="${cy + 6}" width="60" height="10" fill="#fff"/><rect x="${cx - 30}" y="${cy + 14}" width="60" height="4" fill="#DCE6EC"/>`; }
+  if (type === "st") { for (let i = 0; i < 3; i++) g += `<rect x="0" y="${h * 0.45 + i * 7 + r(i) * 4}" width="${w}" height="${10 + r(i + 4) * 6}" fill="#E7ECEF" opacity="${0.7 + 0.1 * i}"/>`; }
+  g += `<rect y="${h - 10}" width="${w}" height="10" fill="#7BAA5C"/>`;
+  return inner ? g : `<svg class="cl-th" viewBox="0 0 ${w} ${h}">${g}</svg>`;
+}
+const PH = [["cu", 3], ["ci", 5], ["st", 2], ["ci", 8], ["cu", 7], ["st", 4], ["cu", 11], ["st", 9], ["ci", 13]];
+const PROP = { ci: { clump: "흩어짐", height: "높음", shape: "가늘게 퍼짐" }, cu: { clump: "뭉침", height: "낮음~중간", shape: "위로 솟음" }, st: { clump: "흩어짐", height: "낮음", shape: "옆으로 넓게 퍼짐" } };
+const GROUPS = { clump: ["뭉친 구름", "흩어진 구름"], height: ["높은 구름", "낮은 구름"], shape: ["위로 솟은 구름", "옆으로 퍼진 구름"] };
+let crit = "clump"; const critSeen = new Set(["clump"]);
+function inA(t) { return crit === "clump" ? t === "cu" : crit === "height" ? t === "ci" : t === "cu"; }
+function drawCL() {
+  const A = PH.map((p, i) => [p, i]).filter(([p]) => inA(p[0])), B = PH.map((p, i) => [p, i]).filter(([p]) => !inA(p[0]));
+  let g = `<rect x="4" y="4" width="192" height="242" rx="10" fill="#F4F8FA" stroke="#9AB"/><rect x="204" y="4" width="192" height="242" rx="10" fill="#F4F8FA" stroke="#9AB"/>`;
+  g += `<text x="100" y="22" text-anchor="middle" style="font-size:12px;font-weight:800">${GROUPS[crit][0]}</text><text x="300" y="22" text-anchor="middle" style="font-size:12px;font-weight:800">${GROUPS[crit][1]}</text>`;
+  [[A, 10], [B, 210]].forEach(([arr, x0]) => arr.forEach(([p, i], k) => { const x = x0 + (k % 2) * 92, y = 32 + Math.floor(k / 2) * 52; g += `<g transform="translate(${x},${y}) scale(0.72)">${cloudSVG(p[0], p[1], 120, 66, true)}</g><text x="${x + 6}" y="${y + 14}" style="font-size:11px;font-weight:800" ${halo}>${i + 1}</text>`; }));
+  $("cl-svg").innerHTML = g;
+  $("cl-read").innerHTML = `분류 기준: <b>${$("cl-crit").querySelector(".on").textContent}</b> → ${GROUPS[crit][0]} ${A.length}장 (${A.map(a => a[1] + 1).join(", ")}), ${GROUPS[crit][1]} ${B.length}장<br><span style="font-size:12px;color:var(--ink-soft)">비교한 기준 ${critSeen.size} / 3</span>`;
+}
+$("cl-crit").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; crit = b.dataset.v; critSeen.add(crit); $("cl-crit").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawCL(); });
+drawCL();
+WS.custom("cl_crit", { el: $("cl-read"), value: () => critSeen.size + "/3" });
+$("hw-table").innerHTML = choiceRows(PH.map((p, i) => [`hw_${i + 1}`, `${cloudSVG(p[0], p[1])}<b>${i + 1}</b>`, p[0]]), [["ci", "권운"], ["cu", "적운"], ["st", "층운"]], ["사진", "하워드의 분류"]);
+$("now-table").innerHTML = choiceRows([
+  ["nw_cs", "☁️ 권층운(털층구름)", "upper"], ["nw_ac", "☁️ 고적운(높쌘구름)", "mid"], ["nw_st", "☁️ 층운(층구름)", "low"], ["nw_cb", "⛈️ 적란운(쌘비구름)", "vert"]
+], [["upper", "상층운"], ["mid", "중층운"], ["low", "하층운"], ["vert", "연직 발달운"]], ["구름", "무리"]);
+$("st-table").innerHTML = choiceRows([
+  ["st_1", "(1) 구름에 관심을 가지고 분류를 고민하였다.", "prob"], ["st_3", "(3) 구름을 그려 자료를 모았다.", "collect"], ["st_4", "(4) 스케치를 모양에 따라 분류하였다.", "interp"], ["st_5", "(5)·(6) 분류법을 제안하고 형태를 추가하였다.", "concl"]
+], [["prob", "문제 인식"], ["collect", "관찰 및 자료 수집"], ["interp", "자료 해석"], ["concl", "규칙성 발견과 결론 도출"]], ["하워드의 활동", "귀납적 탐구 단계"]);
+$("ox-table").innerHTML = choiceRows([
+  ["ox1", "(1) 하워드는 구름을 눈으로만 관찰하여 구름을 분류하였다.", "X"],
+  ["ox2", "(2) 1802년에 하워드는 구름을 모양에 따라 세 종류로 분류하는 것을 제안하였다.", "O"],
+  ["ox3", "(3) 하워드는 구름 분류법을 제안한 이후 네 가지의 구름 형태를 추가하여 발표하였다.", "O"]
+], [["O", "○"], ["X", "×"]], ["설명", "○ / ×"]);
+</script>
+</body>
+</html>

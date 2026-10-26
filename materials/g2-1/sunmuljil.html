@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅰ-2-01 — 순물질과 혼합물</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/1">← KISPP 과학실 · 중학교 2학년 Ⅰ. 물질의 특성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p26-cartoon.jpg" alt="순금 반지와 14 K 금반지를 따로 분류한 기준은 무엇일까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 01 <span class="pg" style="margin:0">25~29쪽</span></span>
+      <h1>우리 주변에 있는<br><span>순물질과 혼합물</span></h1>
+      <p>“너랑 나랑 다른가 봐.” “진짜? 둘 다 금이 들어 있는데?” 순금 반지와 14 K 금반지를 따로 분류한 기준은 무엇일까? 입자 돋보기로 물질 속을 들여다보고, 달걀이 떠오르는 소금물과 끓는 소금물로 혼합물의 특성을 확인하자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 물질의 특성을 근거로 우리 주변의 물질을 순물질과 혼합물로 분류할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">두 번째 블록</span>녹말과 물이 섞인 혼합물에서 어떻게 녹말을 분리할 수 있을까? <span class="pg">25쪽</span></div>
+    <div class="book"><p>“감자에서 녹말을 얻으려고 감자를 갈아서 물에 담갔다가, 체로 걸렀더니 녹말과 물만 남았어.” 이 단원의 힌트 조각을 모으면 물질의 특성을 이용해 혼합물을 분리하는 원리를 알아내어 두 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">두 가지 이상의 물질이 성질이 변하지 않은 채 섞여 있는 것을 혼합물이라고 한다.</button><button type="button" class="multi-btn" data-value="2">물질의 특성에는 밀도, 용해도, 녹는점, 끓는점 등이 있다.</button><button type="button" class="multi-btn" data-value="3">물질의 특성을 이용하면 물질을 구분할 수 있다.</button></div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>순물질과 혼합물 <span class="pg">26쪽</span></div>
+    <p class="lead-q">우리 주변의 물질을 어떻게 분류할 수 있을까?</p>
+    <div class="book"><p>순금은 금 한 가지 물질로 이루어져 있지만, 14 ●K 금은 금 이외에 다른 금속이 섞여 있다. 순금과 같이 한 가지 물질로 이루어진 물질을 <span class="key">순물질</span>이라고 한다. 반면 14 K 금과 같이 두 가지 이상의 순물질이 섞여 있는 물질을 <span class="key">혼합물</span>이라고 한다.</p></div>
+    <div class="tip-box"><b>●K</b> 합금에 함유된 금의 양을 나타내는 단위로 캐럿이라고 읽는다. 순금을 24 K로 정하므로 1 K는 합금에 함유된 금의 양이 전체의 24분의 1임을 나타낸다.</div>
+    <figure class="fig"><img src="img/p26-fig1-9.jpg" alt="순물질과 혼합물의 예"><figcaption><span class="tb">그림 1-9</span>순물질(산소, 구리, 물(증류수))과 혼합물(석고 방향제, 잠수용 기체, 식초)의 예</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">입자 돋보기</span>물질 속을 들여다보기</div>
+    <div class="card-hint">물질을 골라 입자 모형을 보자. 입자의 종류가 한 가지이면 순물질, 두 가지 이상이면 혼합물이에요. 혼합물에서는 고르게 섞였는지도 보세요.</div>
+    <div class="btn-row" id="pz-btns"></div>
+    <div class="sim-stage"><canvas id="pz-cv"></canvas><span class="tag" id="pz-tag"></span></div>
+    <div class="q" data-why="14 K 금은 금(24분의 14)에 구리·은 같은 다른 금속이 섞인 혼합물이에요. 순금은 금 한 가지로 이루어진 순물질이에요." data-hint="입자 돋보기에서 순금과 14 K 금을 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>14 K 금에 들어 있는 금의 비율은 전체의 <input class="blank w-s" data-key="pz_k" data-answer="14/24|7/12|58|58.3|약 58" style="width:70px"> 이고, 14 K 금은 <span class="choice-group" data-key="pz_14" data-answer="혼"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>더 알아보기 · 균일 혼합물과 불균일 혼합물</h4><p style="margin:0;font-size:14px">공기, 설탕물 등과 같이 성분 물질이 고르게 섞여 있는 물질을 <b>균일 혼합물</b>이라고 한다. 반면 암석, 흙탕물 등과 같이 성분 물질이 고르지 않게 섞여 있는 물질은 <b>불균일 혼합물</b>이라고 한다.</p></div>
+    <div class="q" data-why="공기·설탕물·식초는 고르게 섞인 균일 혼합물, 흙탕물·암석은 고르지 않게 섞인 불균일 혼합물이에요.">
+      <div class="q-text"><span class="q-num">2</span>균일 혼합물을 모두 고르시오.</div>
+      <div class="multi-group" data-key="pz_uni" data-answer="공기,설탕물,식초"><button type="button" class="multi-btn" data-value="공기">공기</button><button type="button" class="multi-btn" data-value="흙탕물">흙탕물</button><button type="button" class="multi-btn" data-value="설탕물">설탕물</button><button type="button" class="multi-btn" data-value="암석">암석</button><button type="button" class="multi-btn" data-value="식초">식초</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 수집하기</span>순물질과 혼합물 분류하기 <span class="pg">27쪽</span></div>
+    <div class="card-hint">여러 가지 물질의 특성을 정리한 자료예요. 빈칸에 해당하는 물질의 특성을 조사해 적고(교과서·스마트 기기 활용), 밀도·녹는점·끓는점 등이 특정한 값을 갖는지 보고 분류해 보자. 물질의 특성은 온도, 압력, 용매의 종류 등에 따라 달라지므로 조건을 같이 적어요.</div>
+    <div class="scroll-x"><table class="data-t">
+      <tr><th>물질</th><th style="text-align:left">물질의 특성</th><th>분류</th></tr>
+      <tr><td>우유</td><td style="text-align:left">밀도: 1.03~1.04 g/mL(15 ℃)<br>끓는점: 95~101 ℃(1 기압)</td><td><span class="choice-group" data-key="cl_milk" data-answer="혼"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+      <tr><td>헬륨</td><td style="text-align:left">밀도: 0.000170 g/mL(20 ℃, 1 기압)<br>끓는점: <input class="blank w-s" data-key="cl_he" data-num="-268.9" data-abs="1" style="width:70px"> ℃(1 기압)</td><td><span class="choice-group" data-key="cl_he2" data-answer="순"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+      <tr><td>포도당</td><td style="text-align:left">밀도: <input class="blank w-s" data-key="cl_glu" data-num="1.54" data-abs="0.03" style="width:70px"> g/cm³(25 ℃)<br>물에 대한 용해도: 90.9(20 ℃)</td><td><span class="choice-group" data-key="cl_glu2" data-answer="순"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+      <tr><td>스테인리스강</td><td style="text-align:left">밀도: 7.70~8.03 g/cm³<br>녹는점: 1350~1530 ℃(1 기압)</td><td><span class="choice-group" data-key="cl_st" data-answer="혼"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+      <tr><td>공기</td><td style="text-align:left">밀도: 약 0.00120 g/mL(20 ℃, 1 기압)<br>녹는점, 끓는점: 구할 수 없음.</td><td><span class="choice-group" data-key="cl_air" data-answer="혼"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+      <tr><td>에탄올</td><td style="text-align:left">밀도: <input class="blank w-s" data-key="cl_et" data-num="0.789" data-abs="0.01" style="width:70px"> g/mL(20 ℃)<br>끓는점: 78.2 ℃(1 기압)</td><td><span class="choice-group" data-key="cl_et2" data-answer="순"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span></td></tr>
+    </table></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>순물질과 혼합물을 분류할 수 있는 우리 모둠의 기준을 정리해 보자.</div><textarea class="free" data-key="cl_rule" rows="2" data-keywords="일정,값,범위,밀도,끓는점" data-model="밀도, 녹는점, 끓는점 등이 하나의 일정한 값으로 나타나면 순물질, 값이 범위로 나타나거나 구할 수 없으면 혼합물로 분류한다."></textarea><span class="fb"></span></div>
+    <div class="alt-box"><h4>더 해 보기 · 우리 주변의 순물질과 혼합물 조사하기</h4><p style="margin:0 0 6px;font-size:14px">우리 주변의 순물질과 혼합물을 조사하고, 각 혼합물은 어떤 순물질로 이루어져 있는지 정리해 보자.</p><textarea class="free" data-key="cl_more" rows="2" placeholder="예) 순물질: 구리 전선, 산소 / 혼합물: 바닷물(물+염화 나트륨 등)"></textarea></div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>혼합물의 밀도와 끓는점 <span class="pg">28쪽</span></div>
+    <div class="book"><p>밀도, 용해도, 녹는점, 끓는점 등과 같은 물질의 특성을 이용하면 우리 주변의 물질을 순물질과 혼합물로 분류할 수 있다. 순물질은 특정한 조건에서 밀도, 용해도, 녹는점, 끓는점 등이 항상 일정하다. 반면 혼합물은 섞여 있는 순물질의 비율에 따라 물질의 특성이 달라진다.</p>
+    <p>예를 들어 <b>그림 1-10</b>과 같이 달걀을 물에 넣으면 가라앉지만, 물에 소금을 조금씩 넣어 녹이면 달걀이 조금씩 떠오른다. 이는 물에 녹인 소금의 양이 많아질수록 소금물의 밀도가 커지기 때문이다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(3,1fr)"><figure class="fig" style="margin:0"><img src="img/p28-egg1.jpg" alt="물속 달걀"><figcaption>물</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p28-egg2.jpg" alt="소금을 녹임"><figcaption>소금을 녹임.</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p28-egg3.jpg" alt="소금을 더 녹임"><figcaption>소금을 더 녹임.</figcaption></figure></div>
+    <p style="font-size:12.5px;text-align:center;margin:4px 0"><span class="tb">그림 1-10</span> 소금물의 밀도에 따른 달걀의 위치 변화</p>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>물 200 mL에 소금 녹이기</div>
+    <div class="card-hint">소금 숟가락 버튼을 눌러 소금을 녹여 보자. 소금물의 밀도가 달걀의 밀도(약 1.03 g/mL)보다 커지면 달걀이 떠올라요.</div>
+    <div class="btn-row"><button type="button" class="btn small" id="eg-add">🧂 소금 5 g 넣고 저어 녹이기</button><button type="button" class="btn ghost small" id="eg-reset">↺ 처음으로</button></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px;align-items:stretch"><div class="light-stage"><canvas id="eg-cv"></canvas></div><div class="light-stage"><canvas id="eg-g"></canvas></div></div>
+    <div class="meter"><div class="m"><small>녹인 소금</small><b id="eg-s">0 g</b></div><div class="m"><small>소금물의 밀도</small><b id="eg-d">1.000 g/mL</b></div><div class="m"><small>달걀</small><b id="eg-st">가라앉음</b></div></div>
+    <div class="q" data-why="달걀이 처음 뜨는 것은 소금물의 밀도가 달걀(약 1.03 g/mL)보다 커질 때예요. 물 200 mL에 소금 약 10 g을 녹이면 밀도가 1.03 g/mL를 넘어요. 달걀의 밀도는 변하지 않고 소금물의 밀도가 변해요." data-hint="달걀이 처음 떠오를 때 녹인 소금의 양을 보세요.">
+      <div class="q-text"><span class="q-num">1</span>달걀이 처음 떠오를 때 녹인 소금의 양은 약 <input class="blank w-s" data-key="eg_g" data-num="10" data-abs="5" style="width:60px"> g이다. 이때 밀도가 변한 것은 <span class="choice-group" data-key="eg_what" data-answer="소금물"><button type="button" class="choice-btn" data-value="달걀">달걀</button><button type="button" class="choice-btn" data-value="소금물">소금물</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">움직이는 그림 1-11</span>물과 소금물의 끓는점 비교 <span class="pg">28쪽</span></div>
+    <div class="book"><p>혼합물은 끓는점이 일정하지 않다. 물은 100 ℃에서 끓지만 소금물은 100 ℃보다 더 높은 온도에서 끓기 시작하고, 끓는 동안에도 온도가 계속 높아진다. 이는 소금물이 끓는 동안 물이 기화하여 소금물이 점점 진해지기 때문이다.</p></div>
+    <div class="ctrl-grid"><div class="ctrl"><label>소금물의 농도(물 100 g에 녹인 소금) <output id="bp-o"></output></label><input type="range" id="bp-c" min="5" max="30" step="5" value="15"></div></div>
+    <div class="light-stage"><canvas id="bp-g"></canvas></div>
+    <div class="q" data-why="물(순물질)은 100 ℃에서 온도가 일정하게 유지되고, 소금물(혼합물)은 100 ℃보다 높은 온도에서 끓기 시작해 끓는 동안 온도가 계속 높아져요. 진할수록 더 높은 온도에서 끓기 시작해요." data-hint="농도를 바꾸며 소금물 곡선의 시작점과 기울기를 보세요.">
+      <div class="q-text"><span class="q-num">1</span>소금물은 물보다 <span class="choice-group" data-key="bp1" data-answer="높"><button type="button" class="choice-btn" data-value="높">높은</button><button type="button" class="choice-btn" data-value="낮">낮은</button></span> 온도에서 끓기 시작하고, 끓는 동안 온도가 <span class="choice-group" data-key="bp2" data-answer="높"><button type="button" class="choice-btn" data-value="일">일정하다</button><button type="button" class="choice-btn" data-value="높">계속 높아진다</button></span>. 소금물이 진할수록 끓기 시작하는 온도는 <span class="choice-group" data-key="bp3" data-answer="높"><button type="button" class="choice-btn" data-value="높">높아진다</button><button type="button" class="choice-btn" data-value="같">같다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>26쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">28쪽</span></div>
+    <div class="q" data-why="한 가지 물질로 이루어진 물질은 순물질이에요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 한 가지 물질로 이루어진 물질을 ( <input class="blank w-s" data-key="sc_1" data-answer="순물질"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 가정에서 그릇을 소독할 때 물 대신 소금물을 사용하면 효과가 더 좋다. 그 까닭을 혼합물에서 나타나는 물질의 특성 변화와 관련지어 설명해 보자.</div>
+      <textarea class="free" data-key="sc_dis" rows="2" data-keywords="소금물,끓는점,높,100" data-model="소금물은 혼합물이라 물보다 높은 온도에서 끓으므로, 100 ℃보다 높은 온도로 그릇을 소독할 수 있기 때문이다."></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 1 (28쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="녹말과 물, 두 가지 이상의 순물질이 섞여 있으므로 혼합물이에요.">
+        <div class="q-text" style="color:#3a1600">녹말과 물이 섞인 것은 ( <span class="choice-group" data-key="blk4" data-answer="혼"><button type="button" class="choice-btn" data-value="순">순물질</button><button type="button" class="choice-btn" data-value="혼">혼합물</button></span> )이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">과학이 톡</span>철로 만드는 다양한 금속 혼합물, 합금의 활용 <span class="pg">29쪽</span></div>
+    <figure class="fig float-r"><img src="img/p29-arch.jpg" alt="게이트웨이 아치"><figcaption><span class="tb">29쪽</span>게이트웨이 아치 — 세계에서 가장 큰 스테인리스강 구조물(약 804 톤)</figcaption></figure>
+    <div class="book"><p>순수한 철은 단단하지만, 산소와 결합하여 쉽게 녹이 스는 단점이 있다. 철에 탄소, 크로뮴 등을 혼합하여 만든 금속이 스테인리스강이다. 스테인리스강은 녹이 잘 슬지 않고 고온에서도 안정적이라 싱크대, 조리 도구, 수술 도구, 치과 장비 등에 활용한다. 이처럼 하나의 금속에 성질이 다른 하나 이상의 물질을 섞어 만든 새로운 성질이 있는 금속을 <span class="key">합금</span>이라고 한다. 철에 니켈을 섞으면 잘 녹슬지 않고 강도가 높은 합금을 만들 수 있어 항공기 부품이나 해양 구조물 등에 사용한다.</p></div>
+    <div class="q" style="clear:both"><div class="q-text"><span class="q-num">💬</span><b>새로운 합금 상상하기</b> 철에 다양한 물질을 넣어 여러 성질이 있는 합금을 만들 수 있다면 어떤 것을 만들고 싶은지, 이 합금이 우리 생활에 어떤 도움이 될지 네 컷 만화 줄거리로 써 보자.</div><textarea class="free" data-key="alloy" rows="3" data-keywords="합금,성질,도움" data-model="① 무거운 밧줄을 나르는 친구 ② 아주 단단하면서 고무줄처럼 늘어나는 합금 상상 ③ 그 합금으로 가벼운 밧줄을 만듦 ④ 구조 활동과 등산에 쓰여 사람들을 돕는다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>우리 주변에 있는 순물질과 혼합물</div>
+    <div class="q" data-why="한 가지 물질 → 순물질, 두 가지 이상의 순물질이 섞임 → 혼합물.">
+      <div class="q-text"><span class="q-num">1</span>한 가지 물질로 이루어진 물질은 <input class="blank w-s" data-key="t1a" data-answer="순물질"> 이고, 두 가지 이상의 순물질이 섞여 있는 물질은 <input class="blank w-s" data-key="t1b" data-answer="혼합물"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="식초(아세트산+물), 공기(질소+산소 등), 설탕물(설탕+물), 우유는 혼합물이에요. 구리·산소·물·에탄올은 순물질이에요.">
+      <div class="q-text"><span class="q-num">2</span>혼합물인 것을 모두 고르시오.</div>
+      <div class="multi-group" data-key="t2" data-answer="식초,공기,설탕물,우유"><button type="button" class="multi-btn" data-value="구리">구리</button><button type="button" class="multi-btn" data-value="산소">산소</button><button type="button" class="multi-btn" data-value="식초">식초</button><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="공기">공기</button><button type="button" class="multi-btn" data-value="설탕물">설탕물</button><button type="button" class="multi-btn" data-value="우유">우유</button><button type="button" class="multi-btn" data-value="에탄올">에탄올</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="혼합물은 끓는점이 일정하지 않아요(④ X).">
+      <div class="q-text"><span class="q-num">3</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">③ 순물질의 밀도는 일정하지만, 혼합물의 밀도는 섞여 있는 순물질의 비율에 따라 달라진다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">④ 압력이 일정할 때, 순물질과 혼합물은 모두 끓는점이 일정하다.</td><td><span class="choice-group" data-key="t4" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">⑤ 순물질과 혼합물은 물질의 특성을 이용하여 분류할 수 있다.</td><td><span class="choice-group" data-key="t5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="⑥ A는 100 ℃보다 높은 온도에서 끓기 시작해 계속 온도가 올라가므로 소금물이에요. ⑦ 달걀의 밀도는 변하지 않아요(ㄱ X). 소금을 많이 녹일수록 밀도가 커져요(ㄹ X).">
+      <div class="q-text"><span class="q-num">4</span>⑥ 물과 소금물의 가열 곡선 중 소금물에 해당하는 것은?</div>
+      <div class="light-stage"><canvas id="ab-g"></canvas></div>
+      <div class="q-text"><span class="choice-group" data-key="t6" data-answer="A"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button></span><br>⑦ 물에 달걀을 넣고 소금을 조금씩 넣어 녹일 때 달걀이 떠오르는 까닭으로 옳은 것을 모두 고르시오.</div>
+      <div class="multi-group" data-key="t7" data-answer="ㄴ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. 달걀의 밀도가 변한다.</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. 소금물은 물보다 밀도가 크다.</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 혼합물의 밀도는 섞여 있는 순물질의 비율에 따라 달라진다.</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ. 녹인 소금의 양이 많아질수록 소금물의 밀도는 감소한다.</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>순물질과 혼합물</div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>순물질과 혼합물</h4>
+      <div class="q" style="border-top:none" data-why="순물질은 물질의 특성이 일정하고, 혼합물은 섞인 비율에 따라 특성이 달라져요.">
+        <div class="q-text">⑴ 순물질: 한 가지 물질로 이루어진 물질 — 밀도, 녹는점, 끓는점 등이 <input class="blank w-s" data-key="s1" data-answer="일정"> 하다.<br>⑵ 혼합물: 두 가지 이상의 순물질이 섞여 있는 물질 — 섞여 있는 순물질의 <input class="blank w-s" data-key="s2" data-answer="비율"> 에 따라 물질의 특성이 달라진다.<br>⑶ 성분 물질이 고르게 섞인 <input class="blank w-s" data-key="s3" data-answer="균일"> 혼합물(공기, 설탕물)과 고르지 않게 섞인 불균일 혼합물(암석, 흙탕물)이 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left"><b>지식·이해</b> 순물질과 혼합물을 분류할 수 있는 기준을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>과정·기능</b> 온도, 압력 등의 조건을 포함하여 여러 가지 물질의 특성을 옳게 조사했는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 분류 활동을 하면서 열린 태도로 친구들의 의견을 경청했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 01 우리 주변에 있는 순물질과 혼합물 · 비상교육 중학 과학 2 교과서(25~29쪽)·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅰ-2-01 순물질과 혼합물";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2", "self3"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+
+/* ── 입자 돋보기 ── */
+const PZ = [
+  ["순금", "순물질", [["금", "#f2c230", 1]], "solid"], ["14 K 금", "혼합물", [["금", "#f2c230", 14], ["구리", "#d9733b", 6], ["은", "#cfd6dc", 4]], "solid"],
+  ["물(증류수)", "순물질", [["물", "#5aa9ff", 1]], "liquid"], ["설탕물", "균일 혼합물", [["물", "#5aa9ff", 6], ["설탕", "#ffffff", 1]], "liquid"],
+  ["공기", "균일 혼합물", [["질소", "#8aa0ff", 78], ["산소", "#ff6b6b", 21], ["아르곤", "#b9f", 1]], "gas"], ["흙탕물", "불균일 혼합물", [["물", "#5aa9ff", 5], ["흙", "#8a5a2b", 2]], "mud"]];
+let pzSel = 0, pzP = [];
+PZ.forEach((p, i) => { const b = document.createElement("button"); b.type = "button"; b.className = "btn small"; b.textContent = p[0]; b.addEventListener("click", () => { pzSel = i; pzInit(); [...$("pz-btns").children].forEach((x, k) => x.classList.toggle("main", k === i)); }); $("pz-btns").appendChild(b); });
+$("pz-btns").children[0].classList.add("main");
+function pzInit() {
+  const p = PZ[pzSel], tot = p[2].reduce((a, c) => a + c[2], 0), N = p[3] === "gas" ? 60 : p[3] === "solid" ? 96 : 110; pzP = [];
+  for (let i = 0; i < N; i++) { let r = Math.random() * tot, k = 0; while (r > p[2][k][2]) { r -= p[2][k][2]; k++; } if (p[3] === "solid" && p[2].length > 1) k = [0, 1, 0, 2, 0, 1, 0, 0, 2, 0, 1, 0][i % 12]; pzP.push({ k, x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5), vy: (Math.random() - 0.5), i }); }
+  if (p[3] === "mud") pzP.forEach(q => { if (q.k === 1) q.y = 0.7 + Math.random() * 0.3; });
+  $("pz-tag").textContent = p[0] + " → " + p[1];
+}
+pzInit();
+WS.custom("pz_seen", { el: $("pz-cv"), value: () => PZ[pzSel][0] });
+LB.loop($("pz-cv"), dt => {
+  const g = LB.fit($("pz-cv"), 220), c = g.c, W = g.w, H = 220, p = PZ[pzSel]; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H);
+  const sp = p[3] === "gas" ? 0.25 : p[3] === "solid" ? 0 : 0.06, R = p[3] === "gas" ? 5 : 7;
+  pzP.forEach(q => {
+    if (p[3] === "solid") { const cols = 16, w = Math.min(W - 40, 420) / cols; q.px = (W - cols * w) / 2 + (q.i % cols + 0.5) * w + Math.sin(performance.now() / 160 + q.i) * 0.8; q.py = 40 + Math.floor(q.i / cols) * w * 0.95; }
+    else { q.x += q.vx * sp * dt; q.y += q.vy * sp * dt * (p[3] === "mud" && q.k === 1 ? 0.2 : 1); if (q.x < 0 || q.x > 1) q.vx *= -1; if (q.y < (p[3] === "gas" ? 0 : 0.12) || q.y > 1) q.vy *= -1; q.x = Math.max(0, Math.min(1, q.x)); q.y = Math.max(0, Math.min(1, q.y)); if (p[3] === "mud" && q.k === 1) q.y = Math.max(0.62, q.y); q.px = 14 + q.x * (W - 28); q.py = 14 + q.y * (H - 28); }
+    c.fillStyle = p[2][q.k][1]; c.beginPath(); c.arc(q.px, q.py, R, 0, 7); c.fill();
+  });
+  c.font = "bold 12px Pretendard, sans-serif"; let x = 10; p[2].forEach(s => { c.fillStyle = s[1]; c.beginPath(); c.arc(x + 5, H - 14, 5, 0, 7); c.fill(); c.fillStyle = "#fff"; c.fillText(s[0], x + 14, H - 10); x += c.measureText(s[0]).width + 30; });
+});
+
+/* ── 달걀과 소금물 ── */
+const EG = { s: 0, y: 1 }, EGG = 1.03;
+// 물 200 g 기준 소금물 밀도 근사 (10 g → 약 1.032 g/mL)
+const dOf = s => +(1 + 0.00335 * s - 0.0000035 * s * s).toFixed(3);
+$("eg-add").addEventListener("click", () => { if (EG.s < 60) EG.s += 5; egUpd(); });
+$("eg-reset").addEventListener("click", () => { EG.s = 0; EG.first = null; egUpd(); });
+function egUpd() {
+  const d = dOf(EG.s); $("eg-s").textContent = EG.s + " g"; $("eg-d").textContent = d.toFixed(3) + " g/mL";
+  const st = d < EGG - 0.003 ? "가라앉음" : d < EGG + 0.004 ? "물속에 떠 있음" : "떠오름"; $("eg-st").textContent = st;
+  if (st !== "가라앉음" && EG.first == null) EG.first = EG.s;
+  const pts = Array.from({ length: 13 }, (_, i) => [i * 5, dOf(i * 5)]);
+  const g = LB.graph($("eg-g"), { h: 220, xMax: 60, yMin: 1, yMax: 1.2, xStep: 10, yStep: 0.05, xLabel: "녹인 소금(g)", yLabel: "밀도(g/mL)", series: [{ color: "#2f7de1", pts: pts.filter(p => p[0] <= EG.s), dots: true, width: 2.5, label: "소금물" }, { color: "#e4a52e", pts: [[0, EGG], [60, EGG]], width: 1.5, label: "달걀 1.03" }] });
+}
+WS.custom("eg_first", { el: $("eg-cv"), value: () => EG.first == null ? "" : String(EG.first) });
+LB.loop($("eg-cv"), dt => {
+  const d = dOf(EG.s), target = d < EGG - 0.003 ? 1 : d < EGG + 0.004 ? 0.5 : 0.06; EG.y += (target - EG.y) * Math.min(1, dt * 1.5);
+  const g = LB.fit($("eg-cv"), 220), c = g.c, W = g.w; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 220);
+  const bx = W / 2 - 60, top = 40, bh = 160; c.fillStyle = `rgba(150,200,255,${0.25 + EG.s / 200})`; c.fillRect(bx, top + 10, 120, bh - 10);
+  c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.beginPath(); c.moveTo(bx, top - 10); c.lineTo(bx, top + bh); c.lineTo(bx + 120, top + bh); c.lineTo(bx + 120, top - 10); c.stroke();
+  const ey = top + 10 + 22 + EG.y * (bh - 10 - 46);
+  c.fillStyle = "#f3e2c4"; c.strokeStyle = "#b08d5a"; c.beginPath(); c.ellipse(W / 2, ey, 17, 22, 0, 0, 7); c.fill(); c.stroke();
+  c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(EG.s ? `물 200 mL + 소금 ${EG.s} g` : "물 200 mL", W / 2, 22); c.textAlign = "left";
+});
+egUpd(); window.addEventListener("resize", egUpd);
+
+/* ── 물·소금물 끓는점 ── */
+function bpDraw() {
+  const cc = +$("bp-c").value; $("bp-o").textContent = cc + " g";
+  const water = Array.from({ length: 61 }, (_, i) => { const t = i * 0.25; return [t, Math.min(100, 25 + 15 * t)]; });
+  const start = 100 + 0.51 * cc / 58.44 * 2 * 10, salt = Array.from({ length: 61 }, (_, i) => { const t = i * 0.25, tb = (start - 25) / 14; return [t, t < tb ? 25 + 14 * t : start + (t - tb) * 0.35 * (1 + cc / 15)]; });
+  LB.graph($("bp-g"), { h: 240, xMax: 15, yMin: 20, yMax: 115, xStep: 3, yStep: 10, xLabel: "가열 시간(분)", yLabel: "온도(℃)", series: [{ color: "#2f7de1", pts: water, label: "물", width: 2.5, labelDy: 14 }, { color: "#e4572e", pts: salt, label: "소금물", width: 2.5, labelDy: -10 }] });
+}
+$("bp-c").addEventListener("input", bpDraw); bpDraw(); window.addEventListener("resize", bpDraw);
+function abDraw() {
+  const B = Array.from({ length: 41 }, (_, i) => [i * 0.25, Math.min(100, 25 + 15 * i * 0.25)]), A = Array.from({ length: 41 }, (_, i) => { const t = i * 0.25; return [t, t < 5.6 ? 25 + 14 * t : 103.4 + (t - 5.6) * 0.8]; });
+  LB.graph($("ab-g"), { h: 200, xMax: 10, yMin: 20, yMax: 115, xStep: 2, yStep: 20, xLabel: "가열 시간(분)", yLabel: "온도(℃)", series: [{ color: "#e4572e", pts: A, label: "A", width: 2.5, labelDy: -10 }, { color: "#2f7de1", pts: B, label: "B", width: 2.5, labelDy: 14 }] });
+}
+abDraw(); window.addEventListener("resize", abDraw);
+</script>
+</body>
+</html>

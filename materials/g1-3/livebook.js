@@ -37,7 +37,7 @@
     c.clearRect(0, 0, W, H); c.fillStyle = "#fff"; c.fillRect(0, 0, W, H);
     c.font = "11px Pretendard, sans-serif"; c.fillStyle = "#6b7b85"; c.strokeStyle = "#e6ecee"; c.lineWidth = 1;
     var ys = o.yStep || 10, xs = o.xStep || 1;
-    for (var y = Math.ceil(o.yMin / ys) * ys; y <= o.yMax; y += ys) { c.beginPath(); c.moveTo(L, Y(y)); c.lineTo(W - R, Y(y)); c.stroke(); c.fillText(String(y), 8, Y(y) + 4); }
+    for (var y = Math.ceil(o.yMin / ys) * ys; y <= o.yMax; y += ys) { c.beginPath(); c.moveTo(L, Y(y)); c.lineTo(W - R, Y(y)); c.stroke(); c.fillText(String(Math.round(y * 1000) / 1000), 8, Y(y) + 4); }
     for (var x = 0; x <= o.xMax + 1e-9; x += xs) { c.fillText(String(Math.round(x * 10) / 10), X(x) - 6, H - B + 15); }
     c.strokeStyle = "#9aabb0"; c.beginPath(); c.moveTo(L, T); c.lineTo(L, H - B); c.lineTo(W - R, H - B); c.stroke();
     c.fillStyle = "#26393b"; c.font = "bold 11px Pretendard, sans-serif";

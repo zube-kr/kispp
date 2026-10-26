@@ -87,6 +87,7 @@
 `materials/g1-1/`(중1 Ⅰ. 과학과 인류의 지속가능한 삶)의 아두이노 실험 보고서는 `../g1-5/ultra-lab.js`를 `UL.base = "../g1-5/"`로 불러 씁니다. `materials/g1-2/`(중1 Ⅱ. 생물의 구성과 다양성)의 아두이노 실험 보고서는 DHT11 온습도 센서와 빛 센서용 `arduino/env.ino`("시간,온도,습도,밝기", Adafruit DHT 라이브러리 필요)를 씁니다.
 `materials/g1-6/`(중1 Ⅵ. 기체의 성질)은 기체 입자 모형(주사기·실린더)을 `gas.js`로 그리고, 아두이노 실험 보고서는 LM35 온도 센서와 초음파 센서를 함께 쓰는 `arduino/charles.ino`("시간,온도,거리")를 씁니다.
 `materials/g1-7/`(중1 Ⅶ. 태양계)의 아두이노 실험 보고서는 빛 센서(CDS)용 `light-lab.js`와 `arduino/light.ino`를 씁니다(위치별 기록 `LL.points`, 연속 기록 `LL.stream`).
+`materials/g2-1/`(중2 Ⅰ. 물질의 특성)의 아두이노 실험 보고서는 `../g1-3/arduino-lab.js`를 `AL.base = "../g1-3/"`로 불러 2채널 온도(팔미트산 5 g·10 g)를 기록합니다. `materials/g2-2/`(중2 Ⅱ. 지권의 변화)의 지진계 보고서는 MPU-6050 가속도 센서용 `arduino/seismo.ino`("시간(ms),ax,ay,az", 115200 baud, 라이브러리 없이 Wire만 사용)를 쓰고, 연결·그래프 코드는 보고서 페이지 안에 들어 있습니다.
 
 ### 아두이노 실험 보고서 (materials/g1-3/arduino-*.html)
 

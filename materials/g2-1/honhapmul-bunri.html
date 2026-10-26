@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅰ-2-02 — 물질의 특성을 이용한 혼합물 분리</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/1">← KISPP 과학실 · 중학교 2학년 Ⅰ. 물질의 특성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p30-cartoon.jpg" alt="물질의 특성을 이용해 국에 뜬 기름을 어떻게 제거할 수 있을까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 02 <span class="pg" style="margin:0">30~33쪽</span></span>
+      <h1>물질의 특성을 이용한<br><span>혼합물 분리</span></h1>
+      <p>“기름이 너무 많은데?” 물질의 특성을 이용해 국에 뜬 기름을 어떻게 제거할 수 있을까? 가상 분별 깔때기, 얼음물 냉각, 증류 장치, 원유 증류탑으로 밀도·용해도·끓는점·녹는점 차를 이용한 분리를 해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 물질의 특성을 이용해 혼합물을 분리하는 원리를 설명하고, 우리 주변에서 그 예를 찾을 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>밀도 차가 나는 혼합물은 어떻게 분리할까? <span class="pg">30쪽</span></div>
+    <div class="book"><p>물과 기름처럼 서로 섞이지 않으면서 밀도가 다른 액체 혼합물은 층을 이룬다. 이때에는 스포이트나 ●분별 깔때기를 이용해 액체 물질을 분리할 수 있다.</p>
+    <p>밀도가 다른 고체 혼합물도 밀도 차를 이용해 분리할 수 있다. 고체 물질을 녹이지 않으면서 밀도가 두 고체 물질의 중간 정도인 액체 물질을 넣으면 <b>그림 1-12</b>와 같이 액체 물질보다 밀도가 작은 고체 물질은 위로 뜨고, 밀도가 큰 고체 물질은 아래로 가라앉는다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:start">
+      <figure class="fig" style="margin:0"><img src="img/p30-funnel.jpg" alt="분별 깔때기"><figcaption><span class="tb">●분별 깔때기</span>마개를 열고 꼭지를 돌려 밀도가 큰 아래층의 액체 물질을 먼저 분리한다.</figcaption></figure>
+      <figure class="fig" style="margin:0"><img src="img/p30-fig1-12.jpg" alt="밀도가 다른 고체 혼합물 분리"><figcaption><span class="tb">그림 1-12</span>밀도가 다른 고체 혼합물 분리</figcaption></figure>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>분별 깔때기로 물과 기름 분리하기</div>
+    <div class="card-hint">마개를 연 뒤 꼭지를 열어 아래층 물을 비커로 받아요. 경계면이 꼭지에 닿을 때 꼭지를 닫으면 물만 깨끗하게 분리돼요! 늦으면 기름이 섞이고, 너무 이르면 물이 남아요.</div>
+    <div class="btn-row"><button type="button" class="btn small" id="sf-cap">마개 열기</button><button type="button" class="btn main small" id="sf-tap">꼭지 열기</button><button type="button" class="btn ghost small" id="sf-reset">↺ 다시</button></div>
+    <div class="light-stage"><canvas id="sf-cv"></canvas></div>
+    <div class="meter"><div class="m"><small>비커에 받은 물</small><b id="sf-w">0 mL</b></div><div class="m"><small>비커에 섞인 기름</small><b id="sf-o">0 mL</b></div><div class="m"><small>깔때기에 남은 물</small><b id="sf-r">50 mL</b></div></div>
+    <div class="q" data-why="물은 기름보다 밀도가 커서 아래층에 있어요. 그래서 분별 깔때기에서는 아래층의 물이 먼저 빠져나와요." data-hint="분별 깔때기에서 아래층에 있는 액체를 보세요.">
+      <div class="q-text"><span class="q-num">1</span>분별 깔때기에서 먼저 빠져나오는 액체는 <span class="choice-group" data-key="sf1" data-answer="물"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="기름">기름</button></span>이고, 그 까닭은 밀도가 더 <span class="choice-group" data-key="sf2" data-answer="크"><button type="button" class="choice-btn" data-value="크">크기</button><button type="button" class="choice-btn" data-value="작">작기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <figure class="fig"><img src="img/p30-fig1-13.jpg" alt="밀도 차를 이용한 혼합물 분리의 예"><figcaption><span class="tb">그림 1-13</span>밀도 차를 이용한 혼합물 분리의 예 — 혈액을 원심 분리기에 넣고 돌리면 성분이 밀도에 따라 나누어지고, ●사금이 섞인 모래를 쟁반에 담아 흐르는 물에 헹구면 밀도가 큰 금이 남는다.</figcaption></figure>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>우리 주변에서 밀도 차를 이용해 혼합물을 분리하는 예를 찾아보자.</div><textarea class="free" data-key="dn_ex" rows="2" data-keywords="소금물,볍씨,키질,국,기름,원심" data-model="소금물에 볍씨를 넣어 가라앉는 좋은 볍씨를 고른다. 키질로 쭉정이를 날려 보낸다. 국을 식혀 위에 굳은 기름을 걷어 낸다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>용해도 차를 이용해 혼합물 분리하기 <span class="pg">31쪽</span></div>
+    <div class="book"><p>설탕과 소금은 모두 물에 용해되는 물질이지만 같은 온도, 같은 양의 물에 용해되는 양은 서로 다르다. 용해도 차가 나는 고체 혼합물을 물에 넣고 가열하여 모두 녹였다가 냉각하면 온도에 따른 용해도 차가 큰 물질이 먼저 석출된다. 이렇게 석출된 물질을 거름 장치로 거르면 혼합물을 분리할 수 있다.</p></div>
+    <figure class="fig"><img src="img/p31-steps.jpg" alt="용해도 차를 이용한 혼합물 분리 과정"><figcaption><span class="tb">31쪽</span>① 혼합물을 물 50 g에 넣고 가열하여 모두 녹인다. ② 비커를 얼음물 속에 넣어 냉각한다. ③ 냉각한 용액을 거름종이에 걸러 석출된 물질을 분리한다.</figcaption></figure>
+    <div class="safe">⚠️ 시약을 다룰 때 보안경을 착용하고, 피부나 옷에 닿지 않게 주의한다. 가열 장치에 화상을 입지 않도록 주의한다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>질산 칼륨 15 g + 황산 구리(Ⅱ) 1 g, 물 50 g</div>
+    <div class="card-hint">온도 슬라이더로 용액을 식혀 보자. 물 50 g에 녹을 수 있는 최대량(용해도 × 0.5)보다 많은 만큼만 석출돼요. 18쪽 용해도 곡선과 연결해 생각해 보자.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>용액의 온도 <output id="cr-o"></output></label><input type="range" id="cr-t" min="0" max="80" step="1" value="80"></div><div class="ctrl"><label>거름</label><button type="button" class="btn small" id="cr-f">🧻 거름종이로 거르기</button></div></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px;align-items:stretch"><div class="light-stage"><canvas id="cr-cv"></canvas></div><div class="light-stage"><canvas id="cr-g"></canvas></div></div>
+    <div class="scroll-x"><table class="data-t" id="cr-tb"></table></div>
+    <div class="q" data-why="0 ℃에서 물 50 g에 질산 칼륨은 약 6.7 g까지만 녹으므로 15 − 6.7 ≈ 8.3 g이 석출돼요. 황산 구리(Ⅱ)는 0 ℃에서도 약 7 g까지 녹을 수 있어 1 g은 모두 녹아 있어요. 거른 용액(파란색)에는 황산 구리(Ⅱ)가 녹아 있어요." data-hint="온도를 0 ℃까지 내리고 표를 보세요.">
+      <div class="q-text"><span class="q-num">1</span>과정 ②에서 석출되는 물질은 <span class="choice-group" data-key="cr1" data-answer="kno3"><button type="button" class="choice-btn" data-value="kno3">질산 칼륨</button><button type="button" class="choice-btn" data-value="cuso4">황산 구리(Ⅱ)</button><button type="button" class="choice-btn" data-value="both">둘 다</button></span>이고, 0 ℃까지 냉각하면 약 <input class="blank w-s" data-key="cr2" data-num="8.3" data-abs="0.6" style="width:60px"> g이 석출된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>용해도 차를 이용한 혼합물 분리에서 석출되는 물질은 공통적으로 어떤 특징이 있는지 이야기해 보자.</div><textarea class="free" data-key="cr_feat" rows="2" data-keywords="온도,용해도,차,크,많" data-model="온도에 따른 용해도 차가 크고, 섞여 있는 양이 많은 물질이 냉각할 때 먼저 석출된다."></textarea><span class="fb"></span></div>
+    <div class="tip-box"><b>그림 1-14 설탕 분리</b> 사탕수수를 으깨 즙을 낸 뒤 가열 및 건조 등 여러 과정을 거쳐 설탕을 분리한다. 이처럼 용해도 차를 이용한 분리를 여러 번 반복하기도 한다(재결정).</div>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>끓는점 차를 이용한 혼합물 분리 알아보기 <span class="pg">32쪽</span></div>
+    <div class="book"><p>물과 에탄올처럼 서로 잘 섞이지만 끓는점이 다른 액체 혼합물은 가열하면 분리할 수 있다. 끓는점이 다른 두 액체 혼합물을 <b>그림 1-15</b>와 같이 장치하고 가열하면 끓는점이 낮은 물질이 먼저 기화하고, 끓는점이 높은 물질이 나중에 기화한다. 먼저 기화한 물질은 고무관을 따라 이동해 찬물 속에 담긴 시험관에서 액화하므로 분리할 수 있다.</p></div>
+    <figure class="fig"><img src="img/p32-fig1-15.jpg" alt="끓는점 차를 이용한 액체 혼합물 분리 장치"><figcaption><span class="tb">그림 1-15</span>끓는점 차를 이용한 액체 혼합물 분리 — 온도 센서의 끝이 가지 부근에 위치하도록 한다.</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>물과 에탄올 혼합물 50 mL 가열하기</div>
+    <div class="card-hint">[가열]을 누르면 온도 그래프가 그려지고 찬물 속 시험관에 액체가 모여요. 시험관은 구간이 바뀔 때마다 새것으로 바꿔요. ㉠~㉡, ㉢~㉣ 구간에서 모이는 물질을 확인해 보자.</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="ds-go">🔥 가열</button><button type="button" class="btn ghost small" id="ds-reset">↺ 다시</button></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px;align-items:stretch"><div class="light-stage"><canvas id="ds-cv"></canvas></div><div class="light-stage"><canvas id="ds-g"></canvas></div></div>
+    <div class="q" data-why="㉠~㉡ 구간(약 78~80 ℃)에서는 끓는점이 낮은 에탄올이 주로 기화하고, ㉢~㉣ 구간(약 100 ℃)에서는 물이 기화해요. 에탄올의 끓는점이 물보다 낮기 때문이에요." data-hint="평평한 두 구간의 온도를 에탄올(78 ℃)·물(100 ℃)의 끓는점과 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>㉠~㉡ 구간에서 주로 기화하여 나오는 물질은 <span class="choice-group" data-key="ds1" data-answer="에탄올"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="에탄올">에탄올</button></span>, ㉢~㉣ 구간에서는 <span class="choice-group" data-key="ds2" data-answer="물"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="에탄올">에탄올</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>우리 주변에서 끓는점 차를 이용해 혼합물을 분리하는 예를 찾고, 가장 먼저 기화하는 물질의 공통된 특징을 이야기해 보자.</div><textarea class="free" data-key="ds_feat" rows="2" data-keywords="끓는점,낮,먼저,증류" data-model="바닷물을 증류하여 식수를 얻는다, 소줏고리로 술을 증류한다, 원유를 분리한다 등. 가장 먼저 기화하는 물질은 끓는점이 가장 낮은 물질이다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>원유의 분리와 녹는점 차를 이용한 분리 <span class="pg">33쪽</span></div>
+    <div class="book"><p>원유는 끓는점이 다른 여러 가지 액체 물질이 섞여 있는 혼합물이다. 원유를 가열하여 증류탑으로 보내면 <b>그림 1-16</b>과 같이 각 성분 물질이 끓는 온도에 따라 증류탑의 각 층에서 분리된다.</p></div>
+    <div class="card-title" style="margin-top:8px"><span class="badge sim">움직이는 그림 1-16</span>원유 증류탑</div>
+    <div class="card-hint">증류탑은 아래가 뜨겁고 위로 갈수록 온도가 낮아요. 층을 눌러 그 층에서 액화해 나오는 물질과 이용을 알아보자. 끓는점이 높은 물질일수록 아래층에서 먼저 액화해요.</div>
+    <div class="light-stage"><canvas id="ot-cv" style="cursor:pointer"></canvas></div>
+    <div class="tip-box" id="ot-info">층을 눌러 보세요.</div>
+    <figure class="fig"><img src="img/p33-fig1-16.jpg" alt="원유의 분리와 이용"><figcaption><span class="tb">그림 1-16</span>원유의 분리와 이용 (출처: 한국석유공사(2024))</figcaption></figure>
+    <div class="book"><p><b>녹는점 차가 나는 혼합물은 어떻게 분리할까?</b> 녹는점이 다른 고체 혼합물을 가열하면 녹는점이 더 낮은 물질이 먼저 액체로 녹아 분리된다. 예를 들어 납과 같은 금속은 대부분 자연 상태에서 암석에 포함되어 존재하는데, 이를 가열해 녹이면 녹는점이 낮은 금속이 먼저 녹아 나와 분리할 수 있다.</p></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>30쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">33쪽</span></div>
+    <div class="q" data-why="사금 채취는 밀도 차, 원유 분리는 끓는점 차를 이용해요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 사금 채취는 물질의 ( <input class="blank w-s" data-key="sc_1a" data-answer="밀도"> ) 차를 이용해 혼합물을 분리한 것이고, 원유 분리는 물질의 ( <input class="blank w-s" data-key="sc_1b" data-answer="끓는점"> ) 차를 이용해 혼합물을 분리한 것이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="경유(230~350 ℃)는 휘발유(30~120 ℃), 등유(150~280 ℃)보다 끓는점이 높아 증류탑의 아래쪽(온도가 높은 곳)에서 가장 먼저 액화해요.">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 휘발유, 등유, 경유 중 가장 먼저 액화하여 얻을 수 있는 물질은 <span class="choice-group" data-key="sc_2" data-answer="경유"><button type="button" class="choice-btn" data-value="휘발유">휘발유</button><button type="button" class="choice-btn" data-value="등유">등유</button><button type="button" class="choice-btn" data-value="경유">경유</button></span>이다. 그 까닭은?</div>
+      <textarea class="free" data-key="sc_2why" rows="2" data-keywords="끓는점,높,아래,먼저" data-model="경유는 셋 중 끓는점이 가장 높아서 증류탑의 온도가 높은 아래쪽에서 가장 먼저 액화하기 때문이다."></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 2 (33쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="녹말은 물보다 밀도가 크고 물에 녹지 않아 가라앉아요.">
+        <div class="q-text" style="color:#3a1600">녹말과 물의 혼합물을 가만히 두면 서로 섞이지 않고 ( <span class="choice-group" data-key="blk5" data-answer="녹말"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="녹말">녹말</button></span> )이 가라앉으므로 분리할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>물질의 특성을 이용한 혼합물 분리</div>
+    <div class="q" data-why="스타이로폼은 물에 뜨고 모래는 가라앉아요 — 밀도 차를 이용한 분리예요. 분별 깔때기에서 아래층 물이 위층 기름보다 밀도가 커요.">
+      <div class="q-text"><span class="q-num">1</span>① 스타이로폼과 모래의 혼합물을 물에 넣어 분리할 때 이용한 물질의 특성은 <input class="blank w-s" data-key="t1" data-answer="밀도"><br>② 밀도 비교: 가장 큰 것부터 순서대로 놓으시오.</div>
+      <ol class="order-list" data-key="t2" data-answer="sand,water,sty"><li data-id="sty">스타이로폼</li><li data-id="sand">모래</li><li data-id="water">물</li></ol>
+      <div class="q-text">③ 분별 깔때기 속 물과 기름의 밀도: 물 <span class="choice-group" data-key="t3" data-answer="&gt;"><button type="button" class="choice-btn" data-value="&gt;">&gt;</button><button type="button" class="choice-btn" data-value="=">=</button><button type="button" class="choice-btn" data-value="&lt;">&lt;</button></span> 기름</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="온도에 따른 용해도 차를 이용해요. (나) 냉각에서 질산 칼륨이 석출되고 (다) 거른 용액에는 황산 구리(Ⅱ)가 녹아 있어요. 온도에 따른 용해도 차는 질산 칼륨이 더 커요(ㄷ X).">
+      <div class="q-text"><span class="q-num">2</span>④ 불순물이 섞인 질산 칼륨을 가열하여 녹인 다음 냉각하면 깨끗한 질산 칼륨을 얻을 수 있다. 이때 이용하는 물질의 특성은 ( <span class="choice-group" data-key="t4a" data-answer="온도"><button type="button" class="choice-btn" data-value="온도">온도</button><button type="button" class="choice-btn" data-value="용매">용매</button></span> )에 따른 ( <span class="choice-group" data-key="t4b" data-answer="용해도"><button type="button" class="choice-btn" data-value="용해도">용해도</button><button type="button" class="choice-btn" data-value="끓는점">끓는점</button></span> ) 차이다.<br>⑤ 황산 구리(Ⅱ)와 질산 칼륨의 혼합물을 (가) 가열해 녹이고 (나) 얼음물로 냉각한 뒤 (다) 걸렀다. 옳은 것을 모두 고르시오.</div>
+      <div class="multi-group" data-key="t5" data-answer="ㄱ,ㄴ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. (나)에서 질산 칼륨이 석출된다.</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. (다)에서 거른 용액에는 황산 구리(Ⅱ)가 녹아 있다.</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 온도에 따른 물에 대한 용해도 차는 황산 구리(Ⅱ)가 질산 칼륨보다 크다.</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="⑥ 서로 잘 섞이는 액체 혼합물은 끓는점 차로 분리해요. ⑦ 액체 공기를 가열하면 끓는점이 가장 낮은 C(−195.8 ℃, 질소)가 먼저 기화해요.">
+      <div class="q-text"><span class="q-num">3</span>⑥ 서로 잘 섞이는 액체 혼합물은 ( <input class="blank w-s" data-key="t6" data-answer="끓는점"> ) 차를 이용하여 분리할 수 있다. 물과 에탄올 혼합물을 가열하면 이 값이 낮은 에탄올이 먼저 기화한다.<br>⑦ 공기를 액체 상태로 만든 다음 가열할 때 가장 먼저 기화되어 분리되는 기체는? (A −183.0 ℃, B −185.8 ℃, C −195.8 ℃) <span class="choice-group" data-key="t7" data-answer="C"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="사금 → 밀도(ㄱ), 사탕수수 설탕 → 용해도(ㄴ), 원유 증류탑 → 끓는점(ㄷ).">
+      <div class="q-text"><span class="q-num">4</span>혼합물을 분리할 때 이용하는 물질의 특성을 고르시오. (ㄱ. 밀도 ㄴ. 용해도 ㄷ. 끓는점)</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">⑧ 사금이 섞인 모래를 쟁반에 담아 흐르는 물에 헹구면 쟁반에 금만 남는다.</td><td><span class="choice-group" data-key="t8" data-answer="ㄱ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button></span></td></tr>
+        <tr><td style="text-align:left">⑨ 사탕수수로부터 설탕을 분리한다.</td><td><span class="choice-group" data-key="t9" data-answer="ㄴ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button></span></td></tr>
+        <tr><td style="text-align:left">⑩ 원유를 증류탑에 넣어 휘발유, 경유, 등유 등으로 분리한다.</td><td><span class="choice-group" data-key="t10" data-answer="ㄷ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>물질의 특성을 이용한 혼합물 분리</div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>혼합물의 분리</h4>
+      <div class="q" style="border-top:none" data-why="밀도 차 — 분별 깔때기·사금, 용해도 차 — 냉각 후 거름, 끓는점 차 — 증류(먼저 기화하는 것은 끓는점이 낮은 물질), 녹는점 차 — 녹는점이 낮은 물질이 먼저 녹아요.">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s4" data-answer="밀도"> 차: 섞이지 않는 액체는 분별 깔때기로, 고체는 중간 밀도의 액체로 분리한다.<br>⑵ <input class="blank w-s" data-key="s5" data-answer="용해도"> 차: 높은 온도에서 녹인 뒤 냉각하면 온도에 따른 용해도 차가 큰 물질이 석출된다.<br>⑶ 끓는점 차: 가열하면 끓는점이 <span class="choice-group" data-key="s6" data-answer="낮"><button type="button" class="choice-btn" data-value="낮">낮은</button><button type="button" class="choice-btn" data-value="높">높은</button></span> 물질이 먼저 기화한다. (예: 원유의 분리)<br>⑷ 녹는점 차: 녹는점이 낮은 물질이 먼저 녹아 분리된다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left"><b>지식·이해</b> 물질의 특성을 이용해 혼합물을 분리하는 원리를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>과정·기능</b> 용해도·끓는점 차를 이용한 분리 실험 결과를 해석할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 혼합물 분리의 예를 찾는 과정에서 과학의 유용성을 느꼈는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 02 물질의 특성을 이용한 혼합물 분리 · 비상교육 중학 과학 2 교과서(30~33쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅰ-2-02 물질의 특성을 이용한 혼합물 분리";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2", "self3"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+
+/* ── 분별 깔때기 ── */
+const SF = { cap: false, open: false, water: 50, oil: 30, bw: 0, bo: 0, best: null };
+$("sf-cap").addEventListener("click", () => { SF.cap = !SF.cap; $("sf-cap").textContent = SF.cap ? "마개 닫기" : "마개 열기"; });
+$("sf-tap").addEventListener("click", () => { if (!SF.open && !SF.cap) { alert("마개를 먼저 열어야 액체가 잘 빠져나와요."); return; } SF.open = !SF.open; $("sf-tap").textContent = SF.open ? "꼭지 닫기" : "꼭지 열기"; if (!SF.open) sfJudge(); });
+$("sf-reset").addEventListener("click", () => { Object.assign(SF, { cap: false, open: false, water: 50, oil: 30, bw: 0, bo: 0 }); $("sf-cap").textContent = "마개 열기"; $("sf-tap").textContent = "꼭지 열기"; });
+function sfJudge() { if (SF.bw > 0) { const s = SF.bw - SF.bo * 3 - SF.water * 2; if (SF.best == null || s > SF.best.s) SF.best = { s, w: SF.water, o: SF.bo }; } }
+WS.custom("sf_result", { el: $("sf-cv"), value: () => SF.best ? `남은 물 ${SF.best.w.toFixed(1)} / 섞인 기름 ${SF.best.o.toFixed(1)}` : "" });
+LB.loop($("sf-cv"), dt => {
+  if (SF.open) { const f = dt * 9; if (SF.water > 0) { const d = Math.min(SF.water, f); SF.water -= d; SF.bw += d; } else if (SF.oil > 0) { const d = Math.min(SF.oil, f); SF.oil -= d; SF.bo += d; } else { SF.open = false; $("sf-tap").textContent = "꼭지 열기"; sfJudge(); } }
+  $("sf-w").textContent = SF.bw.toFixed(1) + " mL"; $("sf-o").textContent = SF.bo.toFixed(1) + " mL"; $("sf-r").textContent = SF.water.toFixed(1) + " mL";
+  const g = LB.fit($("sf-cv"), 280), c = g.c, W = g.w, x = W / 2; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 280);
+  // 깔때기 모양: 위 넓은 원뿔 (y 40~170) + 꼭지(170~200)
+  const top = 40, bot = 170, rw = 70, vol = y => { const r = rw * (bot - y) / (bot - top); return r; };
+  const capH = (bot - top), hw = capH * Math.cbrt(SF.water / 120), ho = capH * Math.cbrt((SF.water + SF.oil) / 120);
+  const fillTo = (yTop, yBot, col) => { if (yBot <= yTop) return; c.fillStyle = col; c.beginPath(); c.moveTo(x - vol(yTop), yTop); c.lineTo(x + vol(yTop), yTop); c.lineTo(x + vol(yBot), yBot); c.lineTo(x - vol(yBot), yBot); c.fill(); };
+  fillTo(bot - ho, bot - hw, "rgba(240,200,60,.85)"); fillTo(bot - hw, bot, "rgba(110,170,255,.75)");
+  c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.beginPath(); c.moveTo(x - 14, top - 20); c.lineTo(x - 14, top); c.lineTo(x - rw, top + 10); c.lineTo(x - 4, bot); c.lineTo(x - 4, bot + 40); c.moveTo(x + 14, top - 20); c.lineTo(x + 14, top); c.lineTo(x + rw, top + 10); c.lineTo(x + 4, bot); c.lineTo(x + 4, bot + 40); c.stroke();
+  if (!SF.cap) { c.fillStyle = "#555"; c.fillRect(x - 16, top - 28, 32, 10); }
+  c.fillStyle = SF.open ? "#2fae5d" : "#e4572e"; c.fillRect(x - 16, bot + 12, 32, 8);
+  if (SF.open) { c.fillStyle = SF.water > 0 ? "rgba(110,170,255,.9)" : "rgba(240,200,60,.9)"; c.fillRect(x - 2, bot + 40, 4, 190 - bot); }
+  const bx = x - 40, by = 225; c.strokeStyle = "#7fa8c4"; c.strokeRect(bx, by, 80, 50);
+  const lw = SF.bw / 90 * 50, lo = SF.bo / 90 * 50; c.fillStyle = "rgba(110,170,255,.75)"; c.fillRect(bx + 1, by + 50 - lw, 78, lw); c.fillStyle = "rgba(240,200,60,.85)"; c.fillRect(bx + 1, by + 50 - lw - lo, 78, lo);
+  c.fillStyle = "#26393b"; c.font = "12px Pretendard, sans-serif"; c.fillText("기름(위층)", x + rw + 6, bot - ho + 14); c.fillText("물(아래층)", x + rw * 0.3 + 10, bot - hw / 2 + 4); c.fillText(SF.cap ? "마개 열림" : "마개 닫힘", 8, 20); c.fillText("꼭지 " + (SF.open ? "열림" : "닫힘"), 8, 36);
+  if (!SF.open && SF.best && SF.bw > 0) { c.fillStyle = SF.water < 1.5 && SF.bo < 1.5 ? "#2fae5d" : "#c2410c"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(SF.water < 1.5 && SF.bo < 1.5 ? "✔ 깔끔하게 분리!" : SF.bo >= 1.5 ? "기름이 섞였어요" : "물이 아직 남았어요", 8, 56); }
+});
+
+/* ── 용해도 차 분리 ── */
+const SKN = [13.3, 31.6, 63.9, 110, 169], SCU = [14.3, 20.7, 28.5, 40, 55];
+const sl = (a, T) => { const k = Math.min(3.999, T / 20), j = Math.floor(k); return a[j] + (a[j + 1] - a[j]) * (k - j); };
+const CR = { f: false, min: 80 };
+$("cr-t").addEventListener("input", () => { CR.f = false; crUpd(); });
+$("cr-f").addEventListener("click", () => { CR.f = true; crUpd(); });
+function crState(T) { const kn = Math.max(0, 15 - sl(SKN, T) * 0.5), cu = Math.max(0, 1 - sl(SCU, T) * 0.5); return { kn, cu }; }
+function crUpd() {
+  const T = +$("cr-t").value; CR.min = Math.min(CR.min, T); $("cr-o").textContent = T + " ℃"; const s = crState(T);
+  $("cr-tb").innerHTML = `<tr><th></th><th>질산 칼륨</th><th>황산 구리(Ⅱ)</th></tr><tr><td>넣은 양</td><td>15 g</td><td>1 g</td></tr><tr><td>${T} ℃ 물 50 g에 최대로 녹는 양</td><td>${(sl(SKN, T) * 0.5).toFixed(1)} g</td><td>${(sl(SCU, T) * 0.5).toFixed(1)} g</td></tr><tr><td>석출된 양</td><td><b>${s.kn.toFixed(1)} g</b></td><td><b>${s.cu.toFixed(1)} g</b></td></tr>`;
+  const pts = (a) => Array.from({ length: 17 }, (_, i) => [i * 5, sl(a, i * 5) * 0.5]);
+  const g = LB.graph($("cr-g"), { h: 240, xMax: 80, yMin: 0, yMax: 90, xStep: 20, yStep: 15, xLabel: "온도(℃)", yLabel: "물 50 g에 녹는 양(g)", series: [{ color: "#e4572e", pts: pts(SKN), label: "질산 칼륨", width: 2.5 }, { color: "#2f7de1", pts: pts(SCU), label: "황산 구리(Ⅱ)", width: 2.5, labelDy: 14 }, { color: "#aaa", pts: [[0, 15], [80, 15]], width: 1, label: "15 g" }] });
+  const c = $("cr-g").getContext("2d"); c.strokeStyle = "#26393b"; c.setLineDash([3, 3]); c.beginPath(); c.moveTo(g.X(T), g.Y(0)); c.lineTo(g.X(T), g.Y(90)); c.stroke(); c.setLineDash([]);
+  crDraw(s, T);
+}
+function crDraw(s, T) {
+  const g = LB.fit($("cr-cv"), 240), c = g.c, W = g.w, x = W / 2; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 240);
+  if (!CR.f) {
+    c.fillStyle = T < 15 ? "rgba(180,220,255,.6)" : "rgba(255,170,120,.25)"; c.fillRect(x - 80, 110, 160, 110);
+    c.fillStyle = "rgba(90,160,240,.45)"; c.fillRect(x - 45, 120, 90, 90); c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.strokeRect(x - 45, 90, 90, 120);
+    c.fillStyle = "#fff"; c.strokeStyle = "#bbb"; for (let k = 0; k < Math.round(s.kn * 4); k++) { const px = x - 40 + (k * 17) % 80, py = 204 - Math.floor(k * 17 / 80) * 5; c.fillRect(px, py, 5, 4); c.strokeRect(px, py, 5, 4); }
+    c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(T < 15 ? "얼음물 속에서 냉각" : T > 60 ? "가열하여 모두 녹임" : "냉각 중", x, 80);
+  } else {
+    c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.beginPath(); c.moveTo(x - 50, 40); c.lineTo(x, 110); c.lineTo(x + 50, 40); c.stroke(); c.beginPath(); c.moveTo(x, 110); c.lineTo(x, 150); c.stroke();
+    c.fillStyle = "#fff"; c.beginPath(); c.moveTo(x - 40, 52); c.lineTo(x, 104); c.lineTo(x + 40, 52); c.fill();
+    c.fillStyle = "#fafafa"; c.strokeStyle = "#bbb"; for (let k = 0; k < Math.round(s.kn * 3); k++) { const px = x - 12 + (k * 7) % 24, py = 96 - Math.floor(k * 7 / 24) * 4; c.fillRect(px, py, 4, 3); c.strokeRect(px, py, 4, 3); }
+    c.fillStyle = "rgba(60,130,230,.55)"; c.fillRect(x - 40, 175, 80, 45); c.strokeStyle = "#7fa8c4"; c.strokeRect(x - 40, 150, 80, 70);
+    c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(`거름종이: 흰색 질산 칼륨 ${s.kn.toFixed(1)} g`, x, 26); c.fillText("거른 용액: 파란색 (황산 구리(Ⅱ) 녹아 있음)", x, 236);
+  }
+  c.textAlign = "left";
+}
+WS.custom("cr_min", { el: $("cr-cv"), value: () => CR.min + "℃" });
+crUpd(); window.addEventListener("resize", crUpd);
+
+/* ── 증류 ── */
+const DS = { run: false, t: 0, pts: [], tubes: [0, 0, 0] };
+$("ds-go").addEventListener("click", () => { DS.run = true; });
+$("ds-reset").addEventListener("click", () => { Object.assign(DS, { run: false, t: 0, pts: [], tubes: [0, 0, 0] }); dsGraph(); });
+const dsT = t => t < 4 ? 22 + 14 * t : t < 9 ? 78 + (t - 4) * 0.5 : t < 11.5 ? 80.5 + (t - 9) * 7.8 : t < 17 ? 100 : 100;
+const zone = t => t < 4 ? -1 : t < 9 ? 0 : t < 11.5 ? 1 : 2;
+function dsGraph() {
+  const g = LB.graph($("ds-g"), { h: 240, xMax: 18, yMin: 0, yMax: 110, xStep: 3, yStep: 20, xLabel: "가열 시간(분)", yLabel: "온도(℃)", series: [{ color: "#e4572e", pts: DS.pts.length > 1 ? DS.pts : [[0, 22]], width: 2.5 }] });
+  if (DS.t > 9) { const c = $("ds-g").getContext("2d"); c.fillStyle = "#c2410c"; c.font = "bold 13px Pretendard, sans-serif"; [["㉠", 4, 78], ["㉡", 9, 80.5], ["㉢", 11.5, 100], ["㉣", 17, 100]].forEach(([s, t, v]) => { if (DS.t >= t) c.fillText(s, g.X(t) - 6, g.Y(v) - 8); }); }
+}
+LB.loop($("ds-cv"), dt => {
+  if (DS.run) { DS.t += dt * 1.5; DS.pts.push([DS.t, dsT(DS.t) + (Math.random() - 0.5) * 0.3]); const z = zone(DS.t); if (z === 0) DS.tubes[0] += dt * 1.5 * 2.6; if (z === 1) DS.tubes[1] += dt * 1.5 * 0.8; if (z === 2) DS.tubes[2] += dt * 1.5 * 2.6; if (DS.t >= 17) DS.run = false; dsGraph(); }
+  const g = LB.fit($("ds-cv"), 240), c = g.c, W = g.w; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 240);
+  const fx = W * 0.3, z = zone(DS.t), left = Math.max(0, 50 - DS.tubes[0] - DS.tubes[1] - DS.tubes[2]);
+  c.fillStyle = "rgba(150,200,255,.5)"; c.beginPath(); c.moveTo(fx - 40, 200); c.lineTo(fx + 40, 200); c.lineTo(fx + 14, 140); c.lineTo(fx - 14, 140); c.fill();
+  c.fillStyle = `rgba(110,170,255,${0.3 + left / 80})`; const lh = 10 + left * 0.9; c.beginPath(); c.moveTo(fx - 40, 200); c.lineTo(fx + 40, 200); c.lineTo(fx + 40 - lh * 0.43, 200 - lh); c.lineTo(fx - 40 + lh * 0.43, 200 - lh); c.fill();
+  c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.beginPath(); c.moveTo(fx - 8, 80); c.lineTo(fx - 8, 140); c.lineTo(fx - 40, 200); c.lineTo(fx + 40, 200); c.lineTo(fx + 8, 140); c.lineTo(fx + 8, 80); c.stroke();
+  c.strokeStyle = "#666"; c.beginPath(); c.moveTo(fx + 8, 100); c.quadraticCurveTo(W * 0.6, 90, W * 0.7, 130); c.stroke();
+  c.fillStyle = "#e4572e"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(dsT(DS.t).toFixed(0) + " ℃", fx - 20, 72);
+  if (DS.run) { c.fillStyle = "#ff8a3d"; c.beginPath(); c.moveTo(fx - 10, 225); c.quadraticCurveTo(fx, 200 + Math.random() * 6, fx + 10, 225); c.fill(); }
+  c.fillStyle = "rgba(180,220,255,.6)"; c.fillRect(W * 0.58, 130, W * 0.38, 90); c.strokeStyle = "#bcd"; c.strokeRect(W * 0.58, 130, W * 0.38, 90);
+  ["에탄올", "섞임", "물"].forEach((nm, i) => { const tx = W * 0.62 + i * W * 0.11, cur = z === i && DS.run; c.strokeStyle = cur ? "#e4572e" : "#7fa8c4"; c.strokeRect(tx, 140, 18, 70); const h = Math.min(66, DS.tubes[i] * 3.5); c.fillStyle = i === 0 ? "rgba(255,230,150,.9)" : i === 2 ? "rgba(110,170,255,.9)" : "rgba(190,210,190,.9)"; c.fillRect(tx + 1, 209 - h, 16, h); c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText(DS.tubes[i] > 0.2 ? nm : "시험관" + (i + 1), tx - 6, 232); });
+});
+dsGraph(); window.addEventListener("resize", dsGraph);
+WS.custom("ds_done", { el: $("ds-cv"), value: () => DS.t >= 17 ? "완료" : DS.t > 0 ? "진행 " + DS.t.toFixed(0) + "분" : "" });
+
+/* ── 원유 증류탑 ── */
+const OT = [["액화 석유 가스(LPG)", "−42 ℃~1 ℃", "가정용·자동차 연료"], ["휘발유, 나프타", "30 ℃~120 ℃", "자동차 연료, 플라스틱 원료"], ["등유, 제트 연료", "150 ℃~280 ℃", "난방 연료, 항공기 연료"], ["경유", "230 ℃~350 ℃", "트럭·버스 등 디젤 엔진 연료"], ["중유, 아스팔트", "300 ℃ 이상", "선박 연료, 도로 포장"]];
+let otSel = -1;
+function otDraw() {
+  const g = LB.fit($("ot-cv"), 300), c = g.c, W = g.w; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 300);
+  const tx = Math.max(20, W / 2 - 150), tw = 90;
+  for (let i = 0; i < 5; i++) { const y = 20 + i * 52; c.fillStyle = LB.heat(0.15 + i * 0.18).replace("rgb", "rgba").replace(")", ",.55)"); c.fillRect(tx, y, tw, 52); c.strokeStyle = i === otSel ? "#c2410c" : "#7f8c94"; c.lineWidth = i === otSel ? 3 : 1; c.strokeRect(tx, y, tw, 52);
+    c.strokeStyle = "#7f8c94"; c.lineWidth = 2; c.beginPath(); c.moveTo(tx + tw, y + 30); c.lineTo(tx + tw + 30, y + 30); c.stroke();
+    c.fillStyle = i === otSel ? "#c2410c" : "#26393b"; c.font = (i === otSel ? "bold " : "") + "12px Pretendard, sans-serif"; c.fillText(OT[i][0], tx + tw + 36, y + 28); c.fillStyle = "#6b7b85"; c.font = "11px Pretendard, sans-serif"; c.fillText(OT[i][1], tx + tw + 36, y + 43); }
+  c.fillStyle = "#26393b"; c.font = "bold 11px Pretendard, sans-serif"; c.fillText("낮음 ↑ 온도", tx + 6, 14); c.fillText("석유 증기 →", 4, 292); c.fillText("높음 ↓", tx + 6, 292);
+  OT._tx = tx; OT._tw = tw;
+}
+$("ot-cv").addEventListener("click", e => { const r = $("ot-cv").getBoundingClientRect(), y = e.clientY - r.top, i = Math.floor((y - 20) / 52); if (i >= 0 && i < 5) { otSel = i; $("ot-info").innerHTML = `<b>${OT[i][0]}</b> — 끓는 온도 ${OT[i][1]} · 이용: ${OT[i][2]}. ${i === 0 ? "끓는점이 가장 낮아 탑의 맨 위까지 올라가요." : i === 4 ? "끓는점이 가장 높아 탑의 맨 아래에서 남아요." : "위층일수록 끓는점이 낮은 물질이에요."}`; otDraw(); } });
+otDraw(); window.addEventListener("resize", otDraw);
+</script>
+</body>
+</html>

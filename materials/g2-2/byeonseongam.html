@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅱ-2-03 — 다른 암석이 변해서 만들어진 변성암</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.tiles{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin:8px 0; }
+.tile{ background:#fff; border:1px solid #e1e8ea; border-radius:12px; padding:6px; font-size:12.5px; }
+.tile canvas{ display:block; width:100%; border-radius:8px; }
+.tile .nm{ font-weight:800; text-align:center; margin:4px 0; }
+.tile .obs{ min-height:32px; color:#26393b; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/2">← KISPP 과학실 · 중학교 2학년 Ⅱ. 지권의 변화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p64-cartoon.jpg" alt="어떤 옷을 입을까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 03 <span class="pg" style="margin:0">64~67쪽</span></span>
+      <h1>다른 암석이 변해서 만들어진<br><span>변성암</span></h1>
+      <p>“어떤 옷을 입을까?” 암석의 성질이 어떻게 변할 수 있을까? 가상 색점토를 눌러 엽리를 만들고, 열과 압력을 높여 사암·석회암·화강암·이암을 변성암으로 바꾼 뒤, 여섯 가지 암석을 관찰해 분류해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 변성암의 생성 과정과 종류를 설명하고, 화성암·퇴적암·변성암을 분류할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>변성암은 어떻게 만들어질까? <span class="pg">64쪽</span></div>
+    <div class="book"><p>암석이 지하 깊은 곳에서 높은 열과 압력을 받으면 성질이 변하여 새로운 암석이 된다. 이렇게 암석을 변하게 하는 작용을 받아 만들어진 새로운 암석을 <span class="key">변성암</span>이라고 한다. 변성암에서는 광물의 배열이 바뀌면서 줄무늬가 생기기도 하는데, 이를 <span class="key">엽리</span>라고 한다.</p></div>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 모형 개발 및 이용하기</span>변성암의 생성 과정 알아보기 <span class="pg">64쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol>
+        <li>색이 다른 색점토로 변성암의 생성 과정을 알아볼 수 있는 모형을 만들고, 모형 안의 동그란 색점토가 실제 암석에서 무엇을 나타내는지 토의한다.</li>
+        <li>완성한 모형 위에 나무판을 얹고 손으로 누르면서 모형에 나타나는 변화를 관찰한다.</li>
+      </ol></div>
+      <figure class="fig" style="margin:0"><img src="img/p64-clay.jpg" alt="색점토 모형"><figcaption><span class="tb">64쪽</span>색점토 · 동그란 모양으로 만든 색점토</figcaption></figure>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 색점토</span>나무판으로 눌러 보기</div>
+    <div class="card-hint">누르는 방향을 고르고 슬라이더로 나무판을 눌러 보자. 동그란 색점토(광물 알갱이)가 어떻게 변하고 줄무늬가 어느 방향으로 생기는지 관찰하세요.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>누르는 방향</label><select id="cl-d"><option value="v">위에서 아래로</option><option value="h">옆에서 옆으로</option></select></div><div class="ctrl"><label>누르는 힘(압력) <output id="cl-o"></output></label><input type="range" id="cl-p" min="0" max="100" value="0"></div></div>
+    <div class="light-stage"><canvas id="cl-cv"></canvas></div>
+    <div class="q" data-why="나무판을 누르면 동그란 색점토가 납작해지며 한 방향으로 나란히 배열돼요. 이 줄무늬는 누르는 힘(압력)에 수직인 방향으로 생겨요. 실제 변성암에서 동그란 색점토는 광물 알갱이, 누르는 힘은 지하 깊은 곳의 압력에 해당해요." data-hint="누르는 방향을 바꾸어 줄무늬의 방향을 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>나무판을 누르면 동그란 색점토는 <span class="choice-group" data-key="cl1" data-answer="납작"><button type="button" class="choice-btn" data-value="그대로">그대로 동그랗다</button><button type="button" class="choice-btn" data-value="납작">납작해지며 나란히 배열된다</button></span>. 줄무늬(엽리)는 압력의 방향과 <span class="choice-group" data-key="cl2" data-answer="수직"><button type="button" class="choice-btn" data-value="나란">나란한</button><button type="button" class="choice-btn" data-value="수직">수직인</button></span> 방향으로 생긴다. 동그란 색점토는 실제 암석에서 <span class="choice-group" data-key="cl3" data-answer="광물"><button type="button" class="choice-btn" data-value="광물">광물 알갱이</button><button type="button" class="choice-btn" data-value="마그마">마그마</button><button type="button" class="choice-btn" data-value="화석">화석</button></span>를 나타낸다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>모형 실험과 실제 변성암이 만들어지는 과정의 같은 점과 다른 점을 이야기해 보자.</div><textarea class="free" data-key="cl_cmp" rows="2" data-keywords="압력,열,광물,시간,녹지" data-model="같은 점: 압력을 받으면 알갱이가 납작해지며 압력에 수직인 방향으로 줄무늬가 생긴다. 다른 점: 실제로는 높은 열도 함께 작용하고, 아주 오랜 시간에 걸쳐 일어나며, 광물이 커지거나 새로운 광물이 만들어지기도 한다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>변성암에는 어떤 종류가 있을까? <span class="pg">65쪽</span></div>
+    <div class="book"><p>변성암이 만들어지는 과정에서 암석에 큰 압력이 작용할 때는 <b>그림 2-13</b>과 같이 압력의 수직 방향으로 엽리가 만들어지기도 한다. 또한 변성암이 만들어지는 과정에서 암석을 이루는 광물이 커지거나 새로운 광물이 만들어지기도 한다.</p>
+    <p><b>그림 2-14</b>와 같이 변성암은 원래 암석의 종류에 따라 다양하게 나타난다. 사암이 열과 압력을 받으면 <span class="key">규암</span>이 되고, 석회암이 열과 압력을 받으면 <span class="key">대리암</span>이 되며, 화강암이 열과 압력을 받으면 <span class="key">편마암</span>이 된다. 이암이 열과 압력을 받으면 <span class="key">편암</span>이 되고, 더 높은 열과 압력을 받으면 편마암이 된다. 이때 편암과 편마암에서 엽리가 관찰된다.</p></div>
+    <figure class="fig"><img src="img/p65-fig2-14.jpg" alt="엽리의 형성과 변성암의 종류"><figcaption><span class="tb">그림 2-13 · 2-14</span>엽리의 형성 · 변성암의 종류(사암→규암, 석회암→대리암, 화강암→편마암, 이암→편암→편마암)</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">변성 실험실</span>열과 압력을 높여 보자</div>
+    <div class="card-hint">원래 암석을 고르고 슬라이더로 열과 압력을 높이면 암석이 어떻게 바뀌는지 볼 수 있어요. 이암은 두 번 바뀌어요!</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>원래 암석</label><select id="mt-r"><option value="0">사암</option><option value="1">석회암</option><option value="2">화강암</option><option value="3">이암</option></select></div><div class="ctrl"><label>열과 압력 <output id="mt-o"></output></label><input type="range" id="mt-p" min="0" max="100" value="0"></div></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px"><div class="light-stage"><canvas id="mt-a"></canvas></div><div class="light-stage"><canvas id="mt-b"></canvas></div></div>
+    <div class="scroll-x"><table class="data-t" id="mt-tb"></table></div>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 변환·비교·분석·해석하기</span>암석을 관찰하여 분류하기 <span class="pg">66~67쪽</span></div>
+    <figure class="fig"><img src="img/p66-rocks.jpg" alt="관찰할 암석 6 가지"><figcaption><span class="tb">66쪽</span>“그 암석에는 어떤 특징이 있어?” “암석 표면에 줄무늬가 있어.”</figcaption></figure>
+    <div class="safe">⚠️ 묽은 염산을 다룰 때 보안경을 착용하고, 날카로운 암석의 표면에 손이 베이지 않도록 주의한다.</div>
+    <div class="card-hint">번호를 붙인 암석 6 개(대리암, 현무암, 화강암, 역암, 이암, 편마암)를 [돋보기]와 [염산]으로 관찰하자. 관찰 내용이 카드에 기록돼요. 색, 광물 결정의 크기, 퇴적물, 엽리, 염산 반응을 근거로 이름과 종류를 정해 보자.</div>
+    <div class="tiles" id="rk-tiles"></div>
+    <div class="q" data-why="① 염산에 거품 → 대리암(변성암) ② 어둡고 결정이 아주 작음·구멍 → 현무암(화성암) ③ 줄무늬(엽리) → 편마암(변성암) ④ 자갈이 박힘 → 역암(퇴적암) ⑤ 밝고 결정이 큼 → 화강암(화성암) ⑥ 알갱이가 아주 고움 → 이암(퇴적암)" data-hint="돋보기와 염산으로 모든 암석을 관찰한 뒤 결정하세요.">
+      <div class="q-text"><span class="q-num">1</span><b>추론 · 분류</b> 각 암석의 이름과 종류를 고르시오.</div>
+      <div class="scroll-x"><table class="data-t" id="cls-tb"></table></div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>더 해 보기 · 학교 주변의 암석과 광물 관찰하기</h4><p style="margin:0 0 6px;font-size:14px">학교 정원, 진입로 등에서 안전하게 관찰할 수 있는 암석을 찾아 광물이 뚜렷하게 구분되는지 확인하고, 생성 과정에 따라 정리해 보자. ⚠️ 경사가 급하거나 낙석 위험이 있는 곳은 가지 않는다.</p><textarea class="free" data-key="school" rows="2" placeholder="장소 / 암석 / 특징 / 화성암·퇴적암·변성암"></textarea></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>64쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">67쪽</span></div>
+    <div class="q" data-why="높은 열과 압력을 받아 성질이 변한 새로운 암석은 변성암이에요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 암석이 지하 깊은 곳에서 높은 열과 압력을 받아 성질이 변하여 만들어진 새로운 암석을 ( <input class="blank w-s" data-key="sc_1" data-answer="변성암"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 어떤 암석의 표면이 거칠고 울퉁불퉁하며 자갈이 많이 박혀 있었다. 이 암석은 화성암, 퇴적암, 변성암 중 무엇에 해당하는지 설명해 보자.</div>
+      <textarea class="free" data-key="sc_peb" rows="2" data-keywords="퇴적암,역암,자갈,쌓" data-model="퇴적암(역암)이다. 자갈, 모래 등의 퇴적물이 쌓이고 굳어져 만들어진 암석이기 때문이다."></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>다른 암석이 변해서 만들어진 변성암</div>
+    <div class="q" data-why="변성 작용은 높은 열과 압력이에요. 압력의 수직 방향으로 생기는 줄무늬는 ‘엽리’예요(② X).">
+      <div class="q-text"><span class="q-num">1</span>① 암석이 변해서 변성암이 될 때 암석을 변하게 하는 작용은 높은 <input class="blank w-s" data-key="t1a" data-answer="열|압력"> 과 <input class="blank w-s" data-key="t1b" data-answer="압력|열"> 이다.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">② 암석에 큰 압력이 작용할 때 압력의 수직 방향으로 층리가 만들어진다.</td><td><span class="choice-group" data-key="t2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">③ 높은 열과 압력을 받으면 광물이 커지거나 새로운 광물이 만들어지기도 한다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="사암 → 규암, 화강암 → 편마암, 석회암 → 대리암, 이암 → 편암 → 편마암.">
+      <div class="q-text"><span class="q-num">2</span>원래 암석에 따라 만들어지는 변성암 (ㄱ. 규암 ㄴ. 편암 ㄷ. 대리암 ㄹ. 편마암)</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td>④ 사암 →</td><td><span class="choice-group" data-key="t4" data-answer="ㄱ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button><button type="button" class="choice-btn" data-value="ㄹ">ㄹ</button></span></td></tr>
+        <tr><td>⑤ 화강암 →</td><td><span class="choice-group" data-key="t5" data-answer="ㄹ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button><button type="button" class="choice-btn" data-value="ㄹ">ㄹ</button></span></td></tr>
+        <tr><td>⑥ 석회암 →</td><td><span class="choice-group" data-key="t6" data-answer="ㄷ"><button type="button" class="choice-btn" data-value="ㄱ">ㄱ</button><button type="button" class="choice-btn" data-value="ㄴ">ㄴ</button><button type="button" class="choice-btn" data-value="ㄷ">ㄷ</button><button type="button" class="choice-btn" data-value="ㄹ">ㄹ</button></span></td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px">⑦ 이암 → <input class="blank w-s" data-key="t7a" data-answer="편암"> → (더 높은 열과 압력) <input class="blank w-s" data-key="t7b" data-answer="편마암"></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화성암: 현무암·유문암 / 퇴적암: 이암·역암 / 변성암: 규암·대리암.">
+      <div class="q-text"><span class="q-num">3</span>ㄱ. 이암 ㄴ. 규암 ㄷ. 역암 ㄹ. 현무암 ㅁ. 대리암 ㅂ. 유문암</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td>⑧ 화성암</td><td><span class="multi-group" data-key="t8" data-answer="ㄹ,ㅂ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button><button type="button" class="multi-btn" data-value="ㅁ">ㅁ</button><button type="button" class="multi-btn" data-value="ㅂ">ㅂ</button></span></td></tr>
+        <tr><td>⑨ 퇴적암</td><td><span class="multi-group" data-key="t9" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button><button type="button" class="multi-btn" data-value="ㅁ">ㅁ</button><button type="button" class="multi-btn" data-value="ㅂ">ㅂ</button></span></td></tr>
+        <tr><td>⑩ 변성암</td><td><span class="multi-group" data-key="t10" data-answer="ㄴ,ㅁ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button><button type="button" class="multi-btn" data-value="ㅁ">ㅁ</button><button type="button" class="multi-btn" data-value="ㅂ">ㅂ</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>변성암 · 암석의 분류</div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>변성암</h4>
+      <div class="q" style="border-top:none" data-why="변성암은 높은 열과 압력을 받아 만들어지고, 압력에 수직인 방향으로 엽리가 생겨요.">
+        <div class="q-text">⑴ 변성암: 암석이 지하 깊은 곳에서 높은 열과 압력을 받아 성질이 변하여 만들어진 새로운 암석<br>⑵ <input class="blank w-s" data-key="s1" data-answer="엽리"> : 광물의 배열이 바뀌면서 압력의 수직 방향으로 생기는 줄무늬 (편암, 편마암)<br>⑶ 사암 → 규암, 석회암 → <input class="blank w-s" data-key="s2" data-answer="대리암"> , 화강암 → 편마암, 이암 → 편암 → 편마암</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left"><b>과정·기능</b> 암석의 특징을 관찰하여 화성암, 퇴적암, 변성암으로 옳게 분류했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 모형을 이용하여 엽리가 만들어지는 과정을 이해하고, 활동에 적극적으로 참여했는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 03 다른 암석이 변해서 만들어진 변성암 · 비상교육 중학 과학 2 교과서(64~67쪽)·해 보기·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅱ-2-03 변성암";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+const R = s => () => (s = (s * 16807) % 2147483647) / 2147483647;
+
+/* ── 색점토 ── */
+const BALLS = (() => { const r = R(7), a = []; for (let i = 0; i < 22; i++) a.push([r(), r(), 7 + r() * 5]); return a; })();
+let clMax = 0;
+function clDraw() {
+  const p = +$("cl-p").value / 100, v = $("cl-d").value === "v"; clMax = Math.max(clMax, p); $("cl-o").textContent = Math.round(p * 100) + " %";
+  const g = LB.fit($("cl-cv"), 240), c = g.c, W = g.w, H = 240; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const k = 1 + p * 1.6, bw0 = Math.min(W - 120, 300), bh0 = 130, bw = v ? bw0 * Math.sqrt(k) : bw0 / Math.sqrt(k), bh = v ? bh0 / Math.sqrt(k) : bh0 * Math.sqrt(k) * 0.8, x0 = W / 2 - bw / 2, y0 = H / 2 - bh / 2 + 10;
+  c.fillStyle = "#9fc7e8"; c.fillRect(x0, y0, bw, bh);
+  BALLS.forEach(([bx, by, br]) => { const rx = v ? br * k : br / k, ry = v ? br / k : br * k; c.fillStyle = "#e4572e"; c.beginPath(); c.ellipse(x0 + 10 + bx * (bw - 20), y0 + 8 + by * (bh - 16), rx, ry, 0, 0, 7); c.fill(); });
+  c.fillStyle = "#b08d5a"; if (v) { c.fillRect(x0 - 10, y0 - 14, bw + 20, 12); c.fillRect(x0 - 10, y0 + bh + 2, bw + 20, 12); } else { c.fillRect(x0 - 14, y0 - 10, 12, bh + 20); c.fillRect(x0 + bw + 2, y0 - 10, 12, bh + 20); }
+  c.fillStyle = "#26393b"; c.font = "bold 18px Pretendard, sans-serif"; c.textAlign = "center";
+  if (v) { c.fillText("⬇ 압력", W / 2, y0 - 22); c.fillText("⬆", W / 2, y0 + bh + 34); } else { c.fillText("➡", x0 - 34, H / 2 + 14); c.fillText("⬅", x0 + bw + 34, H / 2 + 14); }
+  c.textAlign = "left"; c.font = "12px Pretendard, sans-serif"; if (p > 0.5) c.fillText(v ? "줄무늬 방향: 가로 (압력은 세로)" : "줄무늬 방향: 세로 (압력은 가로)", 8, H - 8);
+}
+["cl-p", "cl-d"].forEach(id => $(id).addEventListener("input", clDraw)); clDraw(); window.addEventListener("resize", clDraw);
+WS.custom("cl_max", { el: $("cl-cv"), value: () => Math.round(clMax * 100) + "%" });
+
+/* ── 텍스처 ── */
+function tex(c, W, H, kind, seed, f) {
+  const r = R(seed); f = f || 0;
+  const bg = { sand: "#d4b27a", lime: "#cfc8b6", gran: "#e6ddd2", mud: "#6e5a4a", quartz: "#eeeae2", marble: "#f3f1ec", gneiss: "#d9d1c6", schist: "#8d8a86", basalt: "#2a2d30", cong: "#a99f92" }[kind];
+  c.fillStyle = bg; c.fillRect(0, 0, W, H);
+  if (kind === "sand" || kind === "quartz") { for (let i = 0; i < W * H / 14; i++) { c.fillStyle = kind === "sand" ? ["#e4c891", "#b8925a", "#c9a76c"][i % 3] : ["#f8f6f0", "#e2ddd2", "#d6d0c4"][i % 3]; c.beginPath(); c.arc(r() * W, r() * H, kind === "sand" ? 1.8 : 2.6, 0, 7); c.fill(); } if (kind === "quartz") { c.fillStyle = "rgba(255,255,255,.35)"; c.fillRect(0, 0, W, H); } }
+  if (kind === "lime") { for (let i = 0; i < 40; i++) { c.strokeStyle = "#b5ab95"; c.beginPath(); c.arc(r() * W, r() * H, 3 + r() * 5, Math.PI, 0); c.stroke(); } }
+  if (kind === "marble") { for (let i = 0; i < W * H / 30; i++) { c.fillStyle = ["#fbfaf7", "#e9e6df", "#dcd8cf"][i % 3]; const x = r() * W, y = r() * H; c.fillRect(x, y, 5, 4); } c.strokeStyle = "rgba(150,150,160,.5)"; for (let i = 0; i < 4; i++) { c.beginPath(); let y = r() * H; c.moveTo(0, y); for (let x = 0; x <= W; x += 10) c.lineTo(x, y + Math.sin(x / 15 + i) * 6 + (r() - 0.5) * 4); c.stroke(); } }
+  if (kind === "gran") { for (let i = 0; i < W * H / 40; i++) { const q = r(); c.fillStyle = q < 0.4 ? "#f4f1ea" : q < 0.75 ? "#e2b9a6" : q < 0.88 ? "#cdc7bd" : "#1f1f1f"; c.fillRect(r() * W, r() * H, 4 + r() * 6, 3 + r() * 5); } }
+  if (kind === "mud") { c.strokeStyle = "rgba(0,0,0,.12)"; for (let y = 3; y < H; y += 5) { c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); } }
+  if (kind === "schist") { for (let y = 0; y < H; y += 3) { c.strokeStyle = ["#a7a49f", "#6f6c69", "#c9c2b0"][Math.floor(r() * 3)]; c.beginPath(); c.moveTo(0, y); for (let x = 0; x <= W; x += 8) c.lineTo(x, y + Math.sin(x / 12) * 2); c.stroke(); } c.fillStyle = "rgba(255,255,255,.25)"; for (let i = 0; i < 40; i++) c.fillRect(r() * W, r() * H, 3, 1); }
+  if (kind === "gneiss") { for (let y = 0; y < H; y += 7) { c.fillStyle = Math.floor(y / 7) % 2 ? "#2b2b2b" : "#efe8dc"; c.beginPath(); c.moveTo(0, y); for (let x = 0; x <= W; x += 6) c.lineTo(x, y + Math.sin(x / 18 + y / 9) * 3); for (let x = W; x >= 0; x -= 6) c.lineTo(x, y + 4 + Math.sin(x / 18 + y / 9) * 3); c.fill(); } }
+  if (kind === "basalt") { for (let i = 0; i < W * H / 6; i++) { c.fillStyle = ["#33373b", "#24272a", "#3e4246"][i % 3]; c.fillRect(r() * W, r() * H, 1.5, 1.5); } c.fillStyle = "#0b0c0d"; for (let i = 0; i < 14; i++) { c.beginPath(); c.ellipse(r() * W, r() * H, 2 + r() * 3, 1.5 + r() * 2, r() * 3, 0, 7); c.fill(); } }
+  if (kind === "cong") { for (let i = 0; i < W * H / 12; i++) { c.fillStyle = ["#c2b59f", "#8f8473"][i % 2]; c.fillRect(r() * W, r() * H, 2, 2); } for (let i = 0; i < 16; i++) { c.fillStyle = ["#7d7a76", "#b8aa95", "#5f5a55", "#d2c6b2"][i % 4]; c.beginPath(); c.ellipse(r() * W, r() * H, 6 + r() * 8, 5 + r() * 6, r() * 3, 0, 7); c.fill(); } }
+}
+
+/* ── 변성 실험실 ── */
+const MT = [["사암", "sand", [[55, "규암", "quartz", "모래 알갱이가 서로 붙어 단단해지고 결정이 치밀해져요."]]], ["석회암", "lime", [[55, "대리암", "marble", "방해석 결정이 커지고 무늬가 생겨요. 염산에 반응해요."]]], ["화강암", "gran", [[60, "편마암", "gneiss", "밝은 광물과 어두운 광물이 나뉘어 굵은 줄무늬(엽리)가 생겨요."]]], ["이암", "mud", [[40, "편암", "schist", "얇은 판 모양의 광물이 나란히 배열되어 가는 엽리가 생겨요."], [75, "편마암", "gneiss", "더 높은 열과 압력으로 광물이 커지고 굵은 줄무늬가 생겨요."]]]];
+const MTS = new Set();
+function mtDraw() {
+  const k = +$("mt-r").value, p = +$("mt-p").value, m = MT[k]; $("mt-o").textContent = p < 20 ? "낮음" : p < 60 ? "보통" : "높음";
+  let cur = null; m[2].forEach(s => { if (p >= s[0]) cur = s; }); if (cur) MTS.add(m[0] + "→" + cur[1]);
+  [["mt-a", m[1], m[0] + " (원래 암석)"], ["mt-b", cur ? cur[2] : m[1], cur ? cur[1] + " (변성암)" : "아직 변하지 않음"]].forEach(([id, kind, label], i) => { const g = LB.fit($(id), 150), c = g.c; tex(c, g.w, 150, kind, 11 + k); c.fillStyle = "rgba(0,0,0,.55)"; c.fillRect(0, 0, g.w, 22); c.fillStyle = "#fff"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(label, 8, 15); if (i && p > 0) { c.fillStyle = `rgba(255,90,40,${p / 400})`; c.fillRect(0, 22, g.w, 128); } });
+  $("mt-tb").innerHTML = `<tr><th>원래 암석</th><th>열과 압력</th><th>만들어진 암석</th><th>특징</th></tr><tr><td>${m[0]}</td><td>${$("mt-o").textContent}</td><td><b>${cur ? cur[1] : "-"}</b></td><td style="text-align:left">${cur ? cur[3] : "열과 압력을 더 높여 보세요."}</td></tr>`;
+}
+["mt-r", "mt-p"].forEach(id => $(id).addEventListener("input", mtDraw)); mtDraw(); window.addEventListener("resize", mtDraw);
+WS.custom("mt_seen", { el: $("mt-tb"), value: () => [...MTS].join(",") });
+
+/* ── 암석 관찰·분류 ── */
+const RK6 = [["대리암", "marble", "변성암", "흰색, 결정이 반짝임", 1, "없음"], ["현무암", "basalt", "화성암", "어두운색, 결정이 아주 작음, 작은 구멍", 0, "없음"], ["편마암", "gneiss", "변성암", "밝은 띠와 어두운 띠가 번갈아 나타남", 0, "있음"], ["역암", "cong", "퇴적암", "둥근 자갈과 모래가 섞여 박혀 있음", 0, "없음"], ["화강암", "gran", "화성암", "밝은색, 결정이 커서 알갱이가 보임", 0, "없음"], ["이암", "mud", "퇴적암", "알갱이가 아주 고와 보이지 않음, 매끈함", 0, "없음"]];
+const OB = RK6.map(() => ({ lens: false, acid: false }));
+$("rk-tiles").innerHTML = RK6.map((r, i) => `<div class="tile"><canvas id="rt${i}"></canvas><div class="nm">${i + 1}번 암석</div><div class="btn-row" style="margin:2px 0"><button type="button" class="btn small" data-lens="${i}">🔍 돋보기</button><button type="button" class="btn small" data-acid="${i}">💧 염산</button></div><div class="obs" id="ob${i}"></div></div>`).join("");
+function rtDraw() { RK6.forEach((r, i) => { const g = LB.fit($("rt" + i), 90), c = g.c; tex(c, g.w, 90, r[1], 31 + i); if (OB[i].acid && r[4]) { c.strokeStyle = "#fff"; for (let k = 0; k < 14; k++) { c.beginPath(); c.arc(g.w / 2 - 25 + (k * 17) % 50, 30 + (k * 23) % 40, 2 + k % 3, 0, 7); c.stroke(); } } }); }
+function obUpd(i) { const r = RK6[i], o = OB[i]; $("ob" + i).innerHTML = (o.lens ? `🔍 ${r[3]} · 엽리 ${r[5]}<br>` : "") + (o.acid ? (r[4] ? "💧 거품이 일어났다!" : "💧 반응 없음") : ""); }
+$("rk-tiles").addEventListener("click", e => { const a = e.target.closest("[data-lens]"), b = e.target.closest("[data-acid]"); if (a) { OB[+a.dataset.lens].lens = true; obUpd(+a.dataset.lens); } if (b) { OB[+b.dataset.acid].acid = true; obUpd(+b.dataset.acid); rtDraw(); } });
+rtDraw(); window.addEventListener("resize", rtDraw);
+const NAMES = ["대리암", "현무암", "화강암", "역암", "이암", "편마암"], TYPES = ["화성암", "퇴적암", "변성암"];
+$("cls-tb").innerHTML = "<tr><th>번호</th><th>암석 이름</th><th>종류</th></tr>" + RK6.map((r, i) => `<tr><td>${i + 1}</td><td><span class="choice-group" data-key="nm${i}" data-answer="${r[0]}">${NAMES.map(n => `<button type="button" class="choice-btn" data-value="${n}">${n}</button>`).join("")}</span></td><td><span class="choice-group" data-key="ty${i}" data-answer="${r[2]}">${TYPES.map(n => `<button type="button" class="choice-btn" data-value="${n}">${n}</button>`).join("")}</span></td></tr>`).join("");
+WS.custom("obs6", { el: $("rk-tiles"), value: () => OB.map((o, i) => (i + 1) + (o.lens ? "L" : "") + (o.acid ? "A" : "")).join(",") });
+</script>
+</body>
+</html>

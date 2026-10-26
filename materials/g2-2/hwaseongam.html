@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅱ-2-01 — 마그마가 식어서 만들어진 화성암</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/2">← KISPP 과학실 · 중학교 2학년 Ⅱ. 지권의 변화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p60-cartoon.jpg" alt="난 마그마에서 태어났어. 나도! 그런데 왜 우리는 다르게 생겼지?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 01 <span class="pg" style="margin:0">59~61쪽</span></span>
+      <h1>마그마가 식어서 만들어진<br><span>화성암</span></h1>
+      <p>“난 마그마에서 태어났어.” “나도! 그런데 왜 우리는 다르게 생겼지?” 화강암과 현무암의 생김새가 다른 까닭은 무엇일까? 3D 표본을 돌려 보고, 마그마를 빨리·천천히 식혀 광물 결정을 직접 키워 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 화성암의 생성 과정과 종류를 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">두 번째 블록</span>국가지질공원에서 볼 수 있는 암석은 어떤 특징이 있을까? <span class="pg">59쪽</span></div>
+    <div class="book"><p>“전북 서해안권 국가지질공원에서는 층층이 쌓여 있는 암석을 볼 수 있어.” “책을 차곡차곡 쌓아 올린 듯한 모습으로 보이는 것이 정말 신기해.” 이 단원의 힌트 조각을 모으면 여러 가지 암석의 특징을 이해하여 두 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">화성암은 마그마가 식어서 만들어진 암석이다.</button><button type="button" class="multi-btn" data-value="2">퇴적암은 자갈, 모래, 진흙 등이 쌓이고 굳어진 암석이다.</button><button type="button" class="multi-btn" data-value="3">퇴적암에는 대표적으로 역암, 사암, 이암 등이 있다.</button></div>
+  </section>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>화성암은 어떻게 만들어질까? <span class="pg">60쪽</span></div>
+    <div class="book"><p>지하 깊은 곳에 있는 마그마가 식어서 만들어진 암석을 <span class="key">화성암</span>이라고 한다. 화성암 중 마그마가 지표 부근에서 빨리 식어서 만들어진 암석을 <span class="key">화산암</span>이라고 하며, 화산암에는 현무암, 유문암 등이 있다. 또 마그마가 지하 깊은 곳에서 천천히 식어서 만들어진 암석은 <span class="key">심성암</span>이라고 하며, 심성암에는 반려암, 화강암 등이 있다.</p></div>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 디지털 탐구 도구</span>3D 시뮬레이션 자료를 이용하여 화성암 관찰하기 <span class="pg">60쪽</span></div>
+    <figure class="fig float-r" style="max-width:220px"><img src="img/p60-3d.jpg" alt="3D 암석 관찰 화면"><figcaption><span class="tb">60쪽</span>3D 암석 관찰 · 화성암 가상 표본 3D</figcaption></figure>
+    <div class="card-hint">표본을 고르고 드래그해 돌려 보자. 광물 결정의 크기와 암석의 색을 비교해 보세요.</div>
+    <div class="btn-row" id="rk-btns" style="clear:both"></div>
+    <div class="sim-stage" id="rk3"><span class="tag" id="rk-tag"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>관찰한 화성암의 특징(결정의 크기, 색)을 친구들과 이야기해 보자.</div><textarea class="free" data-key="obs3d" rows="2" data-keywords="결정,크기,색,밝,어두" data-model="현무암은 결정이 아주 작아 거의 보이지 않고 어두운색이며 구멍이 있다. 화강암은 결정이 커서 흰색·분홍색·검은색 알갱이가 눈에 보이고 밝은색이다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">가상 실험</span>마그마를 식혀 광물 결정 키우기</div>
+    <div class="card-hint">마그마가 식는 곳과 마그마의 성분을 정하고 [식히기]를 눌러 보자. 결정이 자라는 모습과 다 굳은 뒤의 결정 크기를 비교해 보세요.</div>
+    <div class="ctrl-grid">
+      <div class="ctrl"><label>식는 곳</label><select id="mg-p"><option value="0">지표 부근 (빨리 식음)</option><option value="1">지하 깊은 곳 (천천히 식음)</option></select></div>
+      <div class="ctrl"><label>마그마 성분</label><select id="mg-c"><option value="0">어두운색 광물이 많음</option><option value="1">밝은색 광물이 많음</option></select></div>
+    </div>
+    <div class="btn-row"><button type="button" class="btn main small" id="mg-go">❄️ 식히기</button></div>
+    <div class="fig-row" style="grid-template-columns:1fr 150px;gap:8px;align-items:stretch">
+      <div class="light-stage"><canvas id="mg-cv"></canvas></div>
+      <div class="light-stage"><canvas id="mg-sec"></canvas></div>
+    </div>
+    <div class="meter"><div class="m"><small>걸린 시간(가상)</small><b id="mg-t">-</b></div><div class="m"><small>결정 수</small><b id="mg-n">-</b></div><div class="m"><small>만들어진 암석</small><b id="mg-r">-</b></div></div>
+    <div class="scroll-x"><table class="data-t" id="mg-tb"></table></div>
+    <div class="q" data-why="지표 부근에서 빨리 식으면 결정이 자랄 시간이 부족해 작은 결정이 많이 생겨요(화산암). 지하 깊은 곳에서 천천히 식으면 큰 결정이 만들어져요(심성암)." data-hint="두 장소에서 모두 식혀 결정 크기를 비교하세요.">
+      <div class="q-text"><span class="q-num">1</span>마그마가 빨리 식으면 광물 결정의 크기가 <span class="choice-group" data-key="mg1" data-answer="작"><button type="button" class="choice-btn" data-value="작">작고</button><button type="button" class="choice-btn" data-value="크">크고</button></span>, 천천히 식으면 결정의 크기가 <span class="choice-group" data-key="mg2" data-answer="크"><button type="button" class="choice-btn" data-value="작">작다</button><button type="button" class="choice-btn" data-value="크">크다</button></span>. 밝은색 광물이 많은 마그마가 지하 깊은 곳에서 천천히 식으면 <span class="choice-group" data-key="mg3" data-answer="화강암"><button type="button" class="choice-btn" data-value="현무암">현무암</button><button type="button" class="choice-btn" data-value="유문암">유문암</button><button type="button" class="choice-btn" data-value="반려암">반려암</button><button type="button" class="choice-btn" data-value="화강암">화강암</button></span>이 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>화성암의 종류 <span class="pg">61쪽</span></div>
+    <div class="book"><p>마그마가 식을 때는 광물 결정이 만들어지는데 화산암은 마그마가 빨리 식어서 광물 결정의 크기가 작고, 심성암은 마그마가 천천히 식어서 광물 결정의 크기가 크다. 화성암은 구성 광물의 종류에 따라 색이 달라진다. 현무암이나 반려암과 같이 어두운색 암석에는 어두운색 광물이 많고, 유문암이나 화강암과 같이 밝은색 암석에는 밝은색 광물이 많다. 화성암은 광물 결정의 크기와 암석의 색에 따라 <b>그림 2-9</b>와 같이 구분할 수 있다.</p></div>
+    <figure class="fig"><img src="img/p61-fig2-9.jpg" alt="화성암의 종류"><figcaption><span class="tb">그림 2-9</span>화성암의 종류 — 결정 크기(화산암 작다 / 심성암 크다)와 색(어둡다 / 밝다)</figcaption></figure>
+    <div class="q" data-why="결정이 작고 어두우면 현무암, 작고 밝으면 유문암, 크고 어두우면 반려암, 크고 밝으면 화강암이에요.">
+      <div class="q-text"><span class="q-num">1</span>그림 2-9의 빈칸을 채워 보자.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><th></th><th>어두운색</th><th>밝은색</th></tr>
+        <tr><td>화산암 (결정 작음)</td><td><input class="blank w-s" data-key="c_vd" data-answer="현무암"></td><td><input class="blank w-s" data-key="c_vl" data-answer="유문암"></td></tr>
+        <tr><td>심성암 (결정 큼)</td><td><input class="blank w-s" data-key="c_pd" data-answer="반려암"></td><td><input class="blank w-s" data-key="c_pl" data-answer="화강암"></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>60쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">61쪽</span></div>
+    <div class="q" data-why="마그마가 식어서 만들어진 암석은 화성암이에요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 마그마가 식어서 만들어진 암석을 ( <input class="blank w-s" data-key="sc_1" data-answer="화성암"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 제주도에 현무암이 많은 까닭을 화성암의 생성 과정과 관련지어 설명해 보자.</div>
+      <textarea class="free" data-key="sc_jeju" rows="2" data-keywords="화산,분출,용암,지표,빨리" data-model="제주도는 화산 활동으로 만들어진 섬이다. 화산이 분출할 때 어두운색 광물이 많은 마그마(용암)가 지표 부근에서 빨리 식어 결정이 작은 현무암이 많이 만들어졌다."></textarea>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>마그마가 식어서 만들어진 화성암</div>
+    <div class="q" data-why="화성암은 마그마가 식어서 만들어져요. 지표 부근에서 빨리 식은 것은 ‘화산암’이에요(② X).">
+      <div class="q-text"><span class="q-num">1</span>화성암은 <input class="blank w-s" data-key="t1" data-answer="마그마"> 가 식어서 만들어진 암석이다.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">② 마그마가 지표 부근에서 빨리 식어서 만들어진 암석은 심성암이다.</td><td><span class="choice-group" data-key="t2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">③ 마그마가 지하 깊은 곳에서 천천히 식어서 만들어진 암석은 심성암이다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">④ 현무암은 화산암에 해당한다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">⑤ 화강암은 심성암에 해당한다.</td><td><span class="choice-group" data-key="t5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px">⑥ 마그마가 빨리 식어 만들어진 <span class="choice-group" data-key="t6a" data-answer="화산암"><button type="button" class="choice-btn" data-value="화산암">화산암</button><button type="button" class="choice-btn" data-value="심성암">심성암</button></span>을 이루는 광물 결정의 크기는 <span class="choice-group" data-key="t6b" data-answer="작"><button type="button" class="choice-btn" data-value="작">작다</button><button type="button" class="choice-btn" data-value="크">크다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="밝은색: 유문암·화강암 / 결정 큼: 반려암·화강암 / 화산암: 현무암·유문암 / 심성암: 반려암·화강암.">
+      <div class="q-text"><span class="q-num">2</span>(가) 현무암 (나) 반려암 (다) 유문암 (라) 화강암</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">⑦ 밝은색 광물이 많은 암석</td><td><span class="multi-group" data-key="t7" data-answer="다,라"><button type="button" class="multi-btn" data-value="가">(가)</button><button type="button" class="multi-btn" data-value="나">(나)</button><button type="button" class="multi-btn" data-value="다">(다)</button><button type="button" class="multi-btn" data-value="라">(라)</button></span></td></tr>
+        <tr><td style="text-align:left">⑧ 광물 결정의 크기가 큰 암석</td><td><span class="multi-group" data-key="t8" data-answer="나,라"><button type="button" class="multi-btn" data-value="가">(가)</button><button type="button" class="multi-btn" data-value="나">(나)</button><button type="button" class="multi-btn" data-value="다">(다)</button><button type="button" class="multi-btn" data-value="라">(라)</button></span></td></tr>
+        <tr><td style="text-align:left">⑨ 화산암</td><td><span class="multi-group" data-key="t9" data-answer="가,다"><button type="button" class="multi-btn" data-value="가">(가)</button><button type="button" class="multi-btn" data-value="나">(나)</button><button type="button" class="multi-btn" data-value="다">(다)</button><button type="button" class="multi-btn" data-value="라">(라)</button></span></td></tr>
+        <tr><td style="text-align:left">⑩ 심성암</td><td><span class="multi-group" data-key="t10" data-answer="나,라"><button type="button" class="multi-btn" data-value="가">(가)</button><button type="button" class="multi-btn" data-value="나">(나)</button><button type="button" class="multi-btn" data-value="다">(다)</button><button type="button" class="multi-btn" data-value="라">(라)</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>화성암</div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>화성암</h4>
+      <div class="q" style="border-top:none" data-why="화산암은 지표 부근에서 빨리 식어 결정이 작고, 심성암은 지하 깊은 곳에서 천천히 식어 결정이 커요.">
+        <div class="q-text">⑴ 화성암: 마그마가 식어서 만들어진 암석<br>⑵ <input class="blank w-s" data-key="s1" data-answer="화산암"> : 지표 부근에서 빨리 식음 → 결정이 작음 (현무암, 유문암)<br>⑶ <input class="blank w-s" data-key="s2" data-answer="심성암"> : 지하 깊은 곳에서 천천히 식음 → 결정이 큼 (반려암, 화강암)<br>⑷ 색: 어두운색 광물이 많으면 어두운색(현무암, 반려암), 밝은색 광물이 많으면 밝은색(유문암, 화강암)</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left"><b>지식·이해</b> 화성암의 생성 과정과 종류를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 3D 시뮬레이션 자료를 이용하여 화성암을 관찰하고, 과학에 흥미를 느꼈는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 01 마그마가 식어서 만들어진 화성암 · 비상교육 중학 과학 2 교과서(59~61쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록 · 3D 표본은 결정 크기와 색을 나타낸 모형</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/vendor/three.min.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅱ-2-01 화성암";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+
+// 광물 색: 어두운색(휘석·감람석·각섬석·흑운모), 밝은색(석영·장석)
+const DARK = ["#1f2326", "#2f3a2e", "#3b3330", "#4a4f55", "#e8e2d6"], LIGHT = ["#f1efe9", "#e9c9b8", "#d9d4cc", "#c9c3b8", "#222222"];
+// [이름, 결정 크기(px), 팔레트, 설명, 구멍]
+const RK = [["현무암", 2, DARK, "화산암 · 결정이 작고 어두운색 · 가스가 빠져나간 구멍이 있기도 함", 1], ["유문암", 2, LIGHT, "화산암 · 결정이 작고 밝은색", 0], ["반려암", 12, DARK, "심성암 · 결정이 크고 어두운색", 0], ["화강암", 13, LIGHT, "심성암 · 결정이 크고 밝은색(석영·장석·흑운모가 보임)", 0]];
+function rockTex(k) {
+  const cv = document.createElement("canvas"); cv.width = 512; cv.height = 256; const c = cv.getContext("2d"), r = RK[k], s = r[1], pal = r[2];
+  c.fillStyle = pal[0]; c.fillRect(0, 0, 512, 256);
+  let seed = k * 99 + 1; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  if (s <= 3) { const img = c.getImageData(0, 0, 512, 256); for (let i = 0; i < img.data.length; i += 4) { const p = pal[Math.floor(rnd() * (pal.length - 1) * 0.999 + (rnd() < 0.08 ? 1 : 0))] || pal[0]; const v = parseInt(p.slice(1), 16), j = (rnd() - 0.5) * 30; img.data[i] = Math.max(0, Math.min(255, (v >> 16) + j)); img.data[i + 1] = Math.max(0, Math.min(255, ((v >> 8) & 255) + j)); img.data[i + 2] = Math.max(0, Math.min(255, (v & 255) + j)); } c.putImageData(img, 0, 0);
+    if (r[4]) for (let i = 0; i < 60; i++) { c.fillStyle = "rgba(0,0,0,.65)"; c.beginPath(); c.ellipse(rnd() * 512, rnd() * 256, 2 + rnd() * 5, 2 + rnd() * 4, rnd() * 3, 0, 7); c.fill(); } }
+  else { for (let i = 0; i < 900; i++) { const x = rnd() * 512, y = rnd() * 256, w = s * (0.5 + rnd()), h = s * (0.4 + rnd() * 0.8), q = rnd(); c.fillStyle = q < 0.45 ? pal[0] : q < 0.75 ? pal[1] : q < 0.9 ? pal[2] : pal[4]; c.save(); c.translate(x, y); c.rotate(rnd() * 3); c.beginPath(); c.moveTo(-w, -h * 0.3); c.lineTo(-w * 0.2, -h); c.lineTo(w, -h * 0.4); c.lineTo(w * 0.7, h); c.lineTo(-w * 0.6, h * 0.8); c.closePath(); c.fill(); c.restore(); } }
+  const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+let rkSel = 0;
+$("rk-btns").innerHTML = RK.map((r, i) => `<button type="button" class="btn small" data-r="${i}">${r[0]}</button>`).join("");
+(function () {
+  const st = $("rk3"), T3 = LB.three(st, 300);
+  if (!T3) { st.insertAdjacentHTML("beforeend", '<div style="color:#cfe;padding:60px 20px;text-align:center">3D를 표시할 수 없는 기기예요. 그림 2-9로 확인해 보세요.</div>'); return; }
+  const { r, scene, cam } = T3; scene.background = new THREE.Color(0x0d1b26);
+  LB.orbit(cam, r.domElement, new THREE.Vector3(0, 0, 0), { R: 6.5, th: 0.4, ph: 1.15, min: 3.5, max: 10 });
+  const geo = new THREE.IcosahedronGeometry(1.6, 4), pos = geo.attributes.position;
+  for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), n = 1 + 0.12 * Math.sin(x * 2.1 + y * 1.3) + 0.08 * Math.sin(z * 3.7 - x) + 0.05 * Math.cos(y * 5 + z * 2); pos.setXYZ(i, x * n * 1.2, y * n * 0.8, z * n); }
+  geo.computeVertexNormals();
+  const texs = RK.map((_, k) => rockTex(k)), mat = new THREE.MeshStandardMaterial({ map: texs[0], roughness: 0.85 }), mesh = new THREE.Mesh(geo, mat); scene.add(mesh);
+  const set = i => { rkSel = i; mat.map = texs[i]; mat.needsUpdate = true; $("rk-tag").textContent = RK[i][0] + " — " + RK[i][3]; $("rk-btns").querySelectorAll("button").forEach((b, k) => b.classList.toggle("main", k === i)); };
+  $("rk-btns").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (b) set(+b.dataset.r); });
+  set(0);
+  LB.loop(st, dt => { mesh.rotation.y += dt * 0.25; r.render(scene, cam); });
+})();
+WS.custom("rk_seen", { el: $("rk-btns"), value: () => RK[rkSel][0] });
+
+/* ── 결정 키우기 ── */
+const GW = 96, GH = 60, MG = { grid: null, run: false, t: 0, n: 0, res: {} };
+function mgStart() {
+  const p = +$("mg-p").value, comp = +$("mg-c").value, N = p ? 22 : 260; MG.grid = new Int16Array(GW * GH).fill(-1); MG.col = []; MG.front = [];
+  const pal = comp ? LIGHT : DARK;
+  for (let i = 0; i < N; i++) { const x = Math.floor(Math.random() * GW), y = Math.floor(Math.random() * GH); const q = Math.random(); MG.col.push(q < 0.45 ? pal[0] : q < 0.75 ? pal[1] : q < 0.9 ? pal[2] : pal[3]); MG.grid[y * GW + x] = i; MG.front.push(y * GW + x); }
+  MG.run = true; MG.t = 0; MG.n = N; MG.p = p; MG.comp = comp; $("mg-r").textContent = "굳는 중…"; $("mg-n").textContent = N + " 개";
+}
+$("mg-go").addEventListener("click", mgStart);
+const NAME = (p, c) => [["현무암", "유문암"], ["반려암", "화강암"]][p][c];
+function mgTable() { $("mg-tb").innerHTML = "<tr><th>식는 곳</th><th>성분</th><th>결정 수</th><th>평균 결정 크기(칸)</th><th>암석</th></tr>" + Object.values(MG.res).map(r => `<tr><td>${r.p ? "지하 깊은 곳" : "지표 부근"}</td><td>${r.c ? "밝은색" : "어두운색"}</td><td>${r.n}</td><td>${r.size.toFixed(0)}</td><td><b>${NAME(r.p, r.c)}</b></td></tr>`).join(""); }
+mgTable();
+WS.custom("mg_log", { el: $("mg-tb"), value: () => Object.values(MG.res).map(r => NAME(r.p, r.c) + ":" + r.size.toFixed(0)).join(",") });
+LB.loop($("mg-cv"), dt => {
+  const g = LB.fit($("mg-cv"), 200), c = g.c, W = g.w, H = 200, cw = W / GW, ch = H / GH;
+  if (MG.run) { const steps = MG.p ? 2 : 6; MG.t += dt * (MG.p ? 1 : 6);
+    for (let s = 0; s < steps; s++) { const nf = []; MG.front.forEach(idx => { const x = idx % GW, y = (idx / GW) | 0, id = MG.grid[idx]; let open = false; [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dx, dy]) => { const nx = x + dx, ny = y + dy; if (nx < 0 || ny < 0 || nx >= GW || ny >= GH) return; const j = ny * GW + nx; if (MG.grid[j] < 0) { if (Math.random() < 0.6) { MG.grid[j] = id; nf.push(j); } else open = true; } }); if (open) nf.push(idx); }); MG.front = nf; }
+    if (!MG.front.length || MG.grid.every(v => v >= 0)) { MG.run = false; MG.grid.forEach((v, i) => { if (v < 0) MG.grid[i] = 0; }); const size = GW * GH / MG.n; MG.res[MG.p + "" + MG.comp] = { p: MG.p, c: MG.comp, n: MG.n, size }; mgTable(); $("mg-r").textContent = NAME(MG.p, MG.comp); } }
+  $("mg-t").textContent = MG.grid ? (MG.p ? "약 " + Math.round(MG.t * 2000) + "년" : "약 " + Math.round(MG.t * 3) + "일") : "-";
+  c.fillStyle = "#c0391b"; c.fillRect(0, 0, W, H);
+  if (MG.grid) { for (let i = 0; i < GW * GH; i++) { const v = MG.grid[i]; if (v < 0) continue; c.fillStyle = MG.col[v]; c.fillRect((i % GW) * cw, ((i / GW) | 0) * ch, cw + 0.6, ch + 0.6); } }
+  if (!MG.grid || MG.run) { c.fillStyle = "rgba(255,190,60,.18)"; c.fillRect(0, 0, W, H); }
+  c.fillStyle = "#fff"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(!MG.grid ? "마그마" : MG.run ? "결정이 자라는 중…" : "다 굳었어요!", 8, 18);
+});
+LB.loop($("mg-sec"), (dt, t) => {
+  const g = LB.fit($("mg-sec"), 200), c = g.c, W = g.w, H = 200; const sky = c.createLinearGradient(0, 0, 0, 40); sky.addColorStop(0, "#bfe3ff"); sky.addColorStop(1, "#e8f4ff"); c.fillStyle = sky; c.fillRect(0, 0, W, 40);
+  c.fillStyle = "#a57b52"; c.fillRect(0, 40, W, H - 40); c.fillStyle = "#8b6440"; for (let y = 60; y < H; y += 26) c.fillRect(0, y, W, 2);
+  const p = +$("mg-p").value; c.fillStyle = "#e4572e"; c.beginPath(); c.moveTo(W / 2 - 18, 40); c.lineTo(W / 2, 14); c.lineTo(W / 2 + 18, 40); c.fill();
+  c.fillStyle = "#c0391b"; c.fillRect(W / 2 - 4, 40, 8, 120); c.beginPath(); c.ellipse(W / 2, 175, 40, 18, 0, 0, 7); c.fill();
+  const y = p ? 172 : 30; c.strokeStyle = "#ffd23a"; c.lineWidth = 3; c.beginPath(); c.arc(W / 2, y, 14 + 3 * Math.sin(t / 250), 0, 7); c.stroke(); c.lineWidth = 1;
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText("지표 부근", 4, 54); c.fillStyle = "#fff"; c.fillText("지하 깊은 곳", 4, 196);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅱ-2-05 — 암석이 부서져 만들어진 토양</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/2">← KISPP 과학실 · 중학교 2학년 Ⅱ. 지권의 변화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p70-cartoon.jpg" alt="너 주변에 있는 작은 조각은 뭐야? 내 몸이 조금씩 부서져서 생긴 거야.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 05 <span class="pg" style="margin:0">70~74쪽</span></span>
+      <h1>암석이 부서져 만들어진<br><span>토양</span></h1>
+      <p>“너 주변에 있는 작은 조각은 뭐야?” “내 몸이 조금씩 부서져서 생긴 거야.” 암석이 왜 부서지고 있을까? 얼음사탕을 빻고, 암석 틈의 물을 얼렸다 녹이고, 수만 년을 빨리 감아 토양이 만들어지는 모습을 지켜보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 암석이 풍화되는 과정을 설명하고, 풍화 작용의 예로 토양의 생성 과정을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 결론 도출하기</span>암석의 풍화 알아보기 <span class="pg">70쪽</span></div>
+    <div class="book"><p>현무암이 많은 지역에서 흔하게 볼 수 있는 검은색 모래는 보통은 현무암이 부서지면서 만들어진다. 지표에 있는 암석은 오랜 시간에 걸쳐 잘게 부서지고 성분이 변하는데, 이러한 현상을 <span class="key">풍화</span>라고 한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol><li>얼음사탕의 크기를 관찰한다.</li><li>막자 사발에 얼음사탕을 넣고 막자로 빻은 뒤 얼음사탕의 크기를 관찰한다.</li></ol></div>
+      <figure class="fig" style="margin:0"><img src="img/p70-candy.jpg" alt="얼음사탕, 막자, 막자 사발"><figcaption><span class="tb">70쪽</span>얼음사탕 · 막자 · 막자 사발</figcaption></figure>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 막자 사발</span>얼음사탕 빻기</div>
+    <div class="card-hint">[막자로 빻기]를 여러 번 눌러 보자. 조각의 수와 가장 큰 조각의 크기가 어떻게 변하는지 보세요.</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="cd-hit">🔨 막자로 빻기</button><button type="button" class="btn ghost small" id="cd-reset">↺ 새 얼음사탕</button></div>
+    <div class="light-stage"><canvas id="cd-cv"></canvas></div>
+    <div class="meter"><div class="m"><small>빻은 횟수</small><b id="cd-n">0</b></div><div class="m"><small>조각 수</small><b id="cd-c">1</b></div><div class="m"><small>가장 큰 조각</small><b id="cd-s">-</b></div></div>
+    <div class="q" data-why="얼음사탕은 빻을수록 크기가 작은 조각으로 잘게 부서지고 조각 수가 많아져요. 암석도 오랜 시간 물, 공기, 생물 등의 작용을 받아 잘게 부서져요(풍화)." data-hint="여러 번 빻은 뒤 조각의 크기를 보세요.">
+      <div class="q-text"><span class="q-num">1</span>얼음사탕을 빻을수록 조각의 크기는 <span class="choice-group" data-key="cd1" data-answer="작"><button type="button" class="choice-btn" data-value="크">커진다</button><button type="button" class="choice-btn" data-value="작">작아진다</button></span>, 조각의 수는 <span class="choice-group" data-key="cd2" data-answer="많"><button type="button" class="choice-btn" data-value="많">많아진다</button><button type="button" class="choice-btn" data-value="적">적어진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>얼음사탕이 암석이라면 얼음사탕의 크기 변화에 빗대어 암석의 풍화를 이야기해 보자. (모형과 실제의 다른 점도 생각해 보자.)</div><textarea class="free" data-key="cd_why" rows="2" data-keywords="암석,잘게,부서,오랜 시간,물,공기" data-model="얼음사탕이 막자에 빻여 작게 부서지듯이 암석도 물, 공기, 생물 등의 작용으로 잘게 부서진다. 다만 실제 풍화는 아주 오랜 시간에 걸쳐 천천히 일어나고, 부서질 뿐 아니라 성분도 변한다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>풍화는 어떻게 일어날까? <span class="pg">71쪽</span></div>
+    <div class="book"><p>풍화를 일으키는 주요 원인에는 물, 공기, 생물 등이 있으며 풍화를 일으키는 모든 작용을 <span class="key">풍화 작용</span>이라고 한다. <b>그림 2-16</b>과 같이 암석 틈에 물이 스며들어 얼면 암석이 부서지기도 하고, 암석의 틈에 식물이 뿌리를 내리면 암석의 틈이 벌어져 암석이 부서지기도 한다. 또한 물이나 공기는 암석의 성분을 변하게 한다. 그 결과 암석이 녹거나 암석의 표면이 약해진다.</p></div>
+    <figure class="fig"><img src="img/p71-fig2-16.jpg" alt="다양한 풍화 작용"><figcaption><span class="tb">그림 2-16</span>스며든 물이 얼어서 부서진 암석 · 나무가 뿌리를 내려 갈라진 암석 · 산소와 반응하여 붉어진 암석 · 석회암이 녹아 생긴 석회암 동굴</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>얼었다 녹았다 — 암석 틈의 물</div>
+    <div class="card-hint">[얼리기 ↔ 녹이기]를 반복해 보자. 물이 얼면 부피가 커져(약 9 %) 틈을 벌리고, 녹으면 벌어진 틈으로 물이 더 깊이 스며들어요. 몇 번 만에 암석이 쪼개질까?</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="fz-go">❄️ 얼리기</button><button type="button" class="btn small" id="fz-auto">⏩ 자동 반복</button><button type="button" class="btn ghost small" id="fz-reset">↺ 새 암석</button></div>
+    <div class="sim-stage"><canvas id="fz-cv"></canvas></div>
+    <div class="meter"><div class="m"><small>얼고 녹은 횟수</small><b id="fz-n">0</b></div><div class="m"><small>틈의 깊이</small><b id="fz-d">10 %</b></div><div class="m"><small>틈의 너비</small><b id="fz-w">0.5 mm</b></div></div>
+    <div class="q" data-why="물이 얼면 부피가 커지므로 암석의 틈이 벌어져요. 이 과정이 반복되면 암석이 부서져요." data-hint="얼릴 때 틈의 너비가 어떻게 되는지 보세요.">
+      <div class="q-text"><span class="q-num">1</span>암석 틈에 스며든 물 때문에 암석이 부서지는 까닭은 물이 얼면 <span class="choice-group" data-key="fz1" data-answer="커"><button type="button" class="choice-btn" data-value="커">부피가 커지기</button><button type="button" class="choice-btn" data-value="작">부피가 작아지기</button><button type="button" class="choice-btn" data-value="녹">암석을 녹이기</button></span> 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="얼음(물)·식물 뿌리는 암석을 잘게 부수고, 산소(공기)·지하수(물)는 암석의 성분을 변하게 해요.">
+      <div class="q-text"><span class="q-num">2</span>풍화 작용과 그 원인을 짝 지어 보자.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">나무가 뿌리를 내려 갈라진 암석</td><td><span class="choice-group" data-key="ag1" data-answer="생물"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="공기">공기</button><button type="button" class="choice-btn" data-value="생물">생물</button></span></td></tr>
+        <tr><td style="text-align:left">공기 중의 산소와 반응하여 붉어진 암석</td><td><span class="choice-group" data-key="ag2" data-answer="공기"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="공기">공기</button><button type="button" class="choice-btn" data-value="생물">생물</button></span></td></tr>
+        <tr><td style="text-align:left">지하수의 작용으로 석회암이 녹아 생긴 동굴</td><td><span class="choice-group" data-key="ag3" data-answer="물"><button type="button" class="choice-btn" data-value="물">물</button><button type="button" class="choice-btn" data-value="공기">공기</button><button type="button" class="choice-btn" data-value="생물">생물</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>토양은 어떻게 만들어질까? <span class="pg">72쪽</span></div>
+    <div class="book"><p>암석이 오랜 시간 동안 풍화 작용을 받으면 잘게 부서지고 성분이 변하여 생물이 자랄 수 있는 <span class="key">토양</span>이 된다. <b>그림 2-17</b>과 같이 토양은 여러 층으로 이루어져 있다. 지표에 드러난 단단한 암석이 쪼개져 암석 조각이 되고, 이 암석 조각이 계속 풍화 작용을 받으면 더욱 잘게 부서진다. 이후 물이 스며들면서 물에 녹은 물질과 진흙이 아래쪽으로 이동한다.</p></div>
+    <figure class="fig"><img src="img/p72-fig2-17.jpg" alt="토양의 생성 과정"><figcaption><span class="tb">그림 2-17</span>토양의 생성 과정</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">시간 빨리 감기</span>토양이 만들어지는 수만 년</div>
+    <div class="card-hint">슬라이더로 시간을 흐르게 해 보자. 층 A~D가 어떤 순서로 나타나는지 관찰하세요.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>흐른 시간 <output id="sl-o"></output></label><input type="range" id="sl-t" min="0" max="100" value="0"></div></div>
+    <div class="light-stage"><canvas id="sl-cv"></canvas></div>
+    <div class="q" data-why="D는 생물이 살아가기에 적당한 층(맨 위), C는 물에 녹은 물질과 진흙이 내려와 쌓인 층, B는 암석 조각과 모래 층, A는 암석이에요. 생성 순서는 A → B → D → C예요." data-hint="시간을 처음부터 천천히 흐르게 하며 나타나는 순서를 보세요.">
+      <div class="q-text"><span class="q-num">1</span>⑧ 생물이 살아가기에 적당한 층 <span class="choice-group" data-key="t8" data-answer="D"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button><button type="button" class="choice-btn" data-value="D">D</button></span> ⑨ 물에 녹은 물질과 진흙 등으로 이루어진 층 <span class="choice-group" data-key="t9" data-answer="C"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button><button type="button" class="choice-btn" data-value="D">D</button></span></div>
+      <div class="q-text">⑩ A~D를 토양의 생성 순서대로 놓으시오.</div>
+      <ol class="order-list" data-key="t10" data-answer="A,B,D,C"><li data-id="D">D</li><li data-id="C">C</li><li data-id="A">A</li><li data-id="B">B</li></ol>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>70쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">72쪽</span></div>
+    <div class="q" data-why="오랜 시간에 걸쳐 잘게 부서지고 성분이 변하는 현상은 풍화예요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 암석이 오랜 시간에 걸쳐 잘게 부서지고 성분이 변하는 현상을 ( <input class="blank w-s" data-key="sc_1" data-answer="풍화"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 석가탑이 오랜 세월 자연에 노출되면서 손상된 까닭을 풍화와 관련지어 설명해 보자.</div>
+      <textarea class="free" data-key="sc_tower" rows="2" data-keywords="풍화,물,공기,생물,얼,이끼" data-model="석가탑을 이루는 암석(화강암)이 오랜 세월 동안 빗물, 얼었다 녹는 물, 공기, 이끼 같은 생물 등의 풍화 작용을 받아 표면이 부서지고 성분이 변했기 때문이다."></textarea>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 3 (72쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="퇴적암도 물, 공기, 생물 등의 영향을 받으면 풍화되어 잘게 부서지고 성분이 변해요.">
+        <div class="q-text" style="color:#3a1600">퇴적암이 오랜 시간에 걸쳐 물, 공기, 생물 등의 영향을 받으면 ( <input class="blank w-s" data-key="blk3" data-answer="풍화"> )되어 잘게 부서지고 성분이 변하게 된다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">과학이 톡</span>석조 문화재를 보존하기 위한 첨단 과학기술 <span class="pg">73쪽</span></div>
+    <figure class="fig float-r" style="max-width:220px"><img src="img/p73-plan.jpg" alt="석가탑과 진로 체험 활동 계획서"><figcaption><span class="tb">73쪽</span>석가탑 · 진로 체험 활동 계획서</figcaption></figure>
+    <div class="book"><p>석조 문화재는 오랜 시간 동안 비, 바람, 생물 등의 영향을 받아 색이 변하고 표면이 손상되었다. 세척할 때 표면의 파손을 최소화하기 위해 드라이아이스를 이용하고, 일부를 복원해야 할 때에는 암석의 종류를 분석해 비슷한 성분으로 복원한다. 또한 미래에 일어날 풍화 작용을 방지하기 위한 표면 보존 처리 기술을 다양하게 개발하고 있다.</p></div>
+    <div class="q" style="clear:both"><div class="q-text"><span class="q-num">💬</span><b>진로 체험 활동 계획서</b> 문화재 보존과 관련된 진로 체험 계획을 세워 보자. (체험 일시·장소·준비물·체험하고 싶은 내용)</div><textarea class="free" data-key="career" rows="3" data-keywords="장소,문화재,보존,체험" placeholder="체험 일시 / 체험 장소 / 준비물 / 체험하고 싶은 내용"></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>암석이 부서져 만들어진 토양</div>
+    <div class="q" data-why="풍화의 원인은 물, 공기, 생물이에요. 식물 뿌리도 암석을 부술 수 있어요(③ X).">
+      <div class="q-text"><span class="q-num">1</span>암석이 물, <input class="blank w-s" data-key="t1a" data-answer="공기|생물"> , <input class="blank w-s" data-key="t1b" data-answer="생물|공기"> 등의 영향으로 오랜 시간에 걸쳐 잘게 부서지고 성질이 변하는 현상을 <input class="blank w-s" data-key="t1c" data-answer="풍화"> 라고 한다.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">② 풍화를 일으키는 주된 원인 중 하나는 물이다.</td><td><span class="choice-group" data-key="t2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">③ 식물의 뿌리가 암석의 틈에 파고들어도 암석을 부술 수 없다.</td><td><span class="choice-group" data-key="t3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">④ 지하수가 석회암의 일부를 녹이면 석회암 동굴이 만들어진다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+        <tr><td style="text-align:left">⑤ 지표의 암석이 공기 중의 산소와 반응하여 붉게 변할 수 있다.</td><td><span class="choice-group" data-key="t5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px">⑦ 암석이 오랜 시간 동안 풍화 작용을 받아 잘게 부서지고 성분이 변하여 생물이 자랄 수 있게 된 것을 <input class="blank w-s" data-key="t7" data-answer="토양"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>2. 암석의 종류와 순환 · 두 번째 블록 찾기 <span class="pg">74쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>암석의 종류</h4>
+      <div class="q" style="border-top:none" data-why="화성암은 마그마가, 퇴적암은 퇴적물이, 변성암은 암석이 열과 압력을 받아 만들어져요.">
+        <div class="q-text">화성암: <input class="blank w-s" data-key="s1" data-answer="마그마"> 이/가 식어서 만들어진 암석 (현무암, 화강암 …)<br>퇴적암: <input class="blank w-s" data-key="s3" data-answer="퇴적물"> 이/가 오랜 시간 동안 다져지고 굳어져 만들어진 암석 (역암, 이암, 사암 …)<br>변성암: <input class="blank w-s" data-key="s5" data-answer="암석"> 이/가 지하 깊은 곳에서 높은 열과 압력을 받아 만들어진 새로운 암석 (편마암, 규암, 대리암 …)</div>
+        <span class="fb"></span>
+      </div>
+      <h4 style="margin-top:10px"><span class="n">3</span>토양의 생성</h4>
+      <div class="q" style="border-top:none" data-why="풍화는 물, 공기, 생물 등의 영향으로 일어나고, 그 결과 토양이 만들어져요.">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s8" data-answer="풍화"> : 암석이 물, 공기, <input class="blank w-s" data-key="s9" data-answer="생물"> 등의 영향으로 잘게 부서지고 성질이 변하는 현상<br>⑵ 풍화 작용을 받아 생물이 자랄 수 있는 <input class="blank w-s" data-key="s10" data-answer="토양"> 이/가 된다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 찾기 · 국가지질공원에서 볼 수 있는 암석은 어떤 특징이 있을까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① 국가지질공원에 있는 퇴적암에서는 퇴적물이 번갈아 쌓이면서 나타난 줄무늬인 층리가 관찰되기도 한다. (63쪽) ② 퇴적암이 지하 깊은 곳에서 높은 열과 압력을 받으면 변성암이 된다. (69쪽) ③ 퇴적암이 오랜 시간에 걸쳐 물, 공기, 생물 등의 영향을 받으면 풍화되어 잘게 부서지고 성분이 변하게 된다. (72쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">세 조각을 모아 두 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="층리,퇴적암,변성암,풍화,순환" data-model="채석강의 암석은 층리가 나타나는 퇴적암이다. 이 퇴적암은 지하 깊은 곳에서 열과 압력을 받으면 변성암이 되고, 지표에서 풍화되면 잘게 부서져 토양이 되는 등 끊임없이 순환한다."></textarea><span class="fb"></span></div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">나의 학습 확인하기</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left"><b>지식·이해</b> 암석의 종류와 생성 과정, 암석의 순환과 풍화를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>과정·기능</b> 암석을 관찰·분류하고, 모형으로 암석의 순환과 풍화를 표현·유추할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 모형을 이용한 활동에 흥미를 느끼며 적극적으로 참여했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅱ. 지권의 변화 · 2. 암석의 종류와 순환 · 05 암석이 부서져 만들어진 토양 · 비상교육 중학 과학 2 교과서(70~74쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅱ-2-05 풍화와 토양";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2", "self3"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+
+/* ── 얼음사탕 ── */
+let CD;
+function cdReset() { CD = { n: 0, p: [{ x: 0.5, y: 0.5, s: 46, r: 0.3 }] }; cdUpd(); }
+function cdUpd() { $("cd-n").textContent = CD.n; $("cd-c").textContent = CD.p.length; const m = Math.max(...CD.p.map(p => p.s)); $("cd-s").textContent = (m / 46 * 2).toFixed(2) + " cm"; }
+$("cd-hit").addEventListener("click", () => { CD.n++; const np = []; CD.p.forEach(p => { if (p.s > 3 && (Math.random() < 0.75 || p.s > 20)) { const k = 2 + Math.floor(Math.random() * 3); for (let i = 0; i < k; i++) np.push({ x: Math.min(0.9, Math.max(0.1, p.x + (Math.random() - 0.5) * 0.25)), y: Math.min(0.85, Math.max(0.3, p.y + (Math.random() - 0.3) * 0.15)), s: p.s / Math.sqrt(k) * (0.7 + Math.random() * 0.3), r: Math.random() * 3 }); } else np.push(p); }); CD.p = np.slice(0, 400); CD.hitT = performance.now(); cdUpd(); });
+$("cd-reset").addEventListener("click", cdReset); cdReset();
+WS.custom("cd_log", { el: $("cd-cv"), value: () => CD.n + "회/" + CD.p.length + "조각" });
+LB.loop($("cd-cv"), () => {
+  const g = LB.fit($("cd-cv"), 220), c = g.c, W = g.w, H = 220; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const cx = W / 2, bw = Math.min(W - 40, 320); c.fillStyle = "#e9e3d8"; c.beginPath(); c.moveTo(cx - bw / 2, 70); c.quadraticCurveTo(cx, 260, cx + bw / 2, 70); c.fill(); c.strokeStyle = "#b8ad9b"; c.lineWidth = 3; c.stroke(); c.lineWidth = 1;
+  CD.p.forEach(p => { const x = cx - bw * 0.35 + p.x * bw * 0.7, y = 80 + p.y * 100; c.save(); c.translate(x, y); c.rotate(p.r); c.fillStyle = "rgba(255,255,255,.95)"; c.strokeStyle = "#c9d4dc"; c.beginPath(); c.moveTo(-p.s / 2, -p.s / 3); c.lineTo(0, -p.s / 2); c.lineTo(p.s / 2, -p.s / 4); c.lineTo(p.s / 3, p.s / 2); c.lineTo(-p.s / 2, p.s / 3); c.closePath(); c.fill(); c.stroke(); c.restore(); });
+  const k = CD.hitT ? Math.max(0, 1 - (performance.now() - CD.hitT) / 250) : 0; c.fillStyle = "#cbbfa8"; c.save(); c.translate(cx + 40, 20 + k * 50); c.rotate(0.5); c.fillRect(-8, -60, 16, 70); c.beginPath(); c.arc(0, 12, 12, 0, 7); c.fill(); c.restore();
+});
+
+/* ── 얼었다 녹았다 ── */
+let FZ;
+function fzReset() { FZ = { n: 0, depth: 0.1, width: 0.5, frozen: false, k: 0, split: false, auto: false }; fzUpd(); }
+function fzUpd() { $("fz-n").textContent = FZ.n; $("fz-d").textContent = Math.round(FZ.depth * 100) + " %"; $("fz-w").textContent = FZ.width.toFixed(1) + " mm"; $("fz-go").textContent = FZ.frozen ? "☀️ 녹이기" : "❄️ 얼리기"; }
+function fzStep() { if (FZ.split) return; FZ.frozen = !FZ.frozen; if (FZ.frozen) { FZ.width *= 1.09 + 0.06; } else { FZ.n++; FZ.depth = Math.min(1, FZ.depth + 0.09); } if (FZ.depth >= 1 && FZ.frozen) FZ.split = true; fzUpd(); }
+$("fz-go").addEventListener("click", fzStep);
+$("fz-auto").addEventListener("click", () => { FZ.auto = !FZ.auto; $("fz-auto").textContent = FZ.auto ? "⏸ 멈춤" : "⏩ 자동 반복"; });
+$("fz-reset").addEventListener("click", () => { fzReset(); $("fz-auto").textContent = "⏩ 자동 반복"; });
+fzReset();
+WS.custom("fz_log", { el: $("fz-cv"), value: () => FZ.n + "회" + (FZ.split ? "/쪼개짐" : "") });
+let fzAcc = 0;
+LB.loop($("fz-cv"), dt => {
+  if (FZ.auto && !FZ.split) { fzAcc += dt; if (fzAcc > 0.5) { fzAcc = 0; fzStep(); } }
+  const g = LB.fit($("fz-cv"), 240), c = g.c, W = g.w, H = 240; c.fillStyle = FZ.frozen ? "#1b3550" : "#2f5b3a"; c.fillRect(0, 0, W, H);
+  c.fillStyle = FZ.frozen ? "#cfe8ff" : "#ffd23a"; c.font = "bold 14px Pretendard, sans-serif"; c.fillText(FZ.frozen ? "❄️ 밤 · 영하 (물이 얼음)" : "☀️ 낮 · 영상 (얼음이 녹음)", 10, 20);
+  const cx = W / 2, top = 50, bot = 220, rw = Math.min(W * 0.42, 170), gap = FZ.split ? 26 : Math.min(18, FZ.width * 1.2), dep = top + (bot - top) * FZ.depth;
+  [-1, 1].forEach(sd => { c.fillStyle = "#8f8a83"; c.beginPath(); c.moveTo(cx + sd * gap / 2, top); c.lineTo(cx + sd * rw, top + 8); c.lineTo(cx + sd * rw, bot); c.lineTo(cx + sd * (FZ.split ? gap / 2 : 0), bot); c.lineTo(cx + sd * (FZ.split ? gap / 2 : 1), dep); c.closePath(); c.fill(); });
+  c.fillStyle = FZ.frozen ? "rgba(220,240,255,.95)" : "rgba(90,160,255,.85)"; c.beginPath(); c.moveTo(cx - gap / 2, top + 8); c.lineTo(cx + gap / 2, top + 8); c.lineTo(cx, dep); c.fill();
+  if (FZ.frozen) { c.fillStyle = "#fff"; c.font = "bold 16px sans-serif"; c.fillText("⟵", cx - gap / 2 - 26, top + 40); c.fillText("⟶", cx + gap / 2 + 6, top + 40); }
+  if (FZ.split) { c.fillStyle = "#ffd23a"; c.font = "bold 15px Pretendard, sans-serif"; c.fillText(`쪼개졌어요! (${FZ.n}번 얼고 녹음)`, 10, H - 8); }
+});
+
+/* ── 토양 생성 ── */
+function slDraw() {
+  const t = +$("sl-t").value / 100; $("sl-o").textContent = t === 0 ? "처음" : "약 " + Math.round(t * 100) * 100 + "년 이상";
+  const g = LB.fit($("sl-cv"), 260), c = g.c, W = g.w, H = 260; c.fillStyle = "#cfe8ff"; c.fillRect(0, 0, W, 40);
+  const x0 = 40, x1 = W - 90; const y = { top: 40 };
+  const fB = Math.min(1, t / 0.3), fD = Math.max(0, Math.min(1, (t - 0.3) / 0.35)), fC = Math.max(0, Math.min(1, (t - 0.6) / 0.4));
+  const hD = 40 * fD, hC = 46 * fC, hB = 50 * fB, base = 40;
+  let yy = base; const lay = [];
+  if (hD > 1) lay.push(["D", hD, "#4b3621", "생물이 살아가기에 적당한 층"]);
+  if (hC > 1) lay.push(["C", hC, "#9a6b4a", "물에 녹은 물질과 진흙 등으로 이루어진 층"]);
+  if (hB > 1) lay.push(["B", hB, "#b5a48a", "암석 조각과 모래 등으로 이루어진 층"]);
+  lay.push(["A", H - base - hD - hC - hB, "#7d7a76", "암석"]);
+  lay.forEach(([n, h, col, desc]) => { c.fillStyle = col; c.fillRect(x0, yy, x1 - x0, h); if (n === "B") { c.fillStyle = "#8d8277"; for (let i = 0; i < 25; i++) c.fillRect(x0 + ((i * 47) % (x1 - x0 - 10)), yy + ((i * 13) % Math.max(4, h - 6)), 8, 6); } if (n === "A") { c.strokeStyle = "rgba(0,0,0,.25)"; for (let i = 0; i < 4; i++) { c.beginPath(); c.moveTo(x0 + 30 + i * 60, yy); c.lineTo(x0 + 40 + i * 60, yy + 40 * t); c.stroke(); } }
+    c.fillStyle = "#26393b"; c.font = "bold 15px Pretendard, sans-serif"; c.fillText(n, x1 + 8, yy + Math.min(h, 40) / 2 + 6); c.fillStyle = "#fff"; c.font = "11px Pretendard, sans-serif"; if (h > 14) c.fillText(desc, x0 + 6, yy + 14); yy += h; });
+  if (fD > 0.4) { c.strokeStyle = "#2f7a3a"; c.lineWidth = 2; for (let i = 0; i < 8; i++) { const px = x0 + 20 + i * (x1 - x0 - 40) / 7; c.beginPath(); c.moveTo(px, base); c.lineTo(px, base - 14 * fD); c.stroke(); c.fillStyle = "#3fae4a"; c.beginPath(); c.arc(px, base - 16 * fD, 5 * fD, 0, 7); c.fill(); } c.lineWidth = 1; }
+}
+$("sl-t").addEventListener("input", slDraw); slDraw(); window.addEventListener("resize", slDraw);
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅰ-2-03 — 혼합물 분리 실험 설계하기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.bench{ display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+.vessel{ flex:1 1 140px; background:#fff; border:2px solid #e1e8ea; border-radius:12px; padding:8px 10px; font-size:13px; }
+.vessel.work{ border-color:#0e7c80; box-shadow:0 0 0 3px rgba(14,124,128,.12); }
+.vessel.pure{ border-color:#2fae5d; background:#f1fbf4; }
+.vessel b{ display:block; font-size:12px; color:#6b7b85; margin-bottom:3px; }
+.chips span{ display:inline-block; margin:2px 3px 0 0; padding:2px 8px; border-radius:10px; font-weight:800; font-size:12px; color:#fff; }
+.log{ font-size:13px; background:#f6fafa; border-radius:10px; padding:8px 10px; margin:6px 0; max-height:160px; overflow:auto; }
+.log div{ padding:2px 0; border-bottom:1px dashed #e1e8ea; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/1">← KISPP 과학실 · 중학교 2학년 Ⅰ. 물질의 특성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p34-cartoon.jpg" alt="혼합물을 어떻게 분리할 수 있을까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 03 <span class="pg" style="margin:0">34~36쪽 · 대단원 마무리</span></span>
+      <h1>혼합물 분리 실험을<br><span>설계하고 수행하기</span></h1>
+      <p>“어떤 물질을 먼저 분리할까?” “내가 먼저 도전해 볼게!” 카놀라유, 녹말, 소금, 물이 섞인 혼합물을 가상 실험대에서 직접 분리해 보고, 분리한 물질을 확인하는 방법까지 설계하자. 마지막에는 무인도에서 살아남는 방법을 찾아보자.</p>
+      <div class="goal">🎯 이 탐구를 수행하면 — 물질의 특성을 조사하고, 이를 바탕으로 혼합물을 분리해 그 결과를 확인하는 실험을 설계하고 수행할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">탐구 전 활동</span>배운 분리 방법 떠올리기 <span class="pg">34쪽</span></div>
+    <div class="q" data-why="밀도 차 — 분별 깔때기·스포이트, 용해도 차 — 녹였다가 냉각 후 거름, 끓는점 차 — 가열하여 먼저 기화한 물질을 액화(증류)."><div class="q-text"><span class="q-num">1</span>분리 방법과 이용하는 물질의 특성을 짝 지어 보자.</div>
+      <table class="data-t" style="margin-top:6px">
+        <tr><td style="text-align:left">분별 깔때기로 물과 기름 분리</td><td><span class="choice-group" data-key="p1" data-answer="밀도"><button type="button" class="choice-btn" data-value="밀도">밀도</button><button type="button" class="choice-btn" data-value="용해도">용해도</button><button type="button" class="choice-btn" data-value="끓는점">끓는점</button></span></td></tr>
+        <tr><td style="text-align:left">가열해 녹였다가 냉각한 뒤 석출된 물질 거르기</td><td><span class="choice-group" data-key="p2" data-answer="용해도"><button type="button" class="choice-btn" data-value="밀도">밀도</button><button type="button" class="choice-btn" data-value="용해도">용해도</button><button type="button" class="choice-btn" data-value="끓는점">끓는점</button></span></td></tr>
+        <tr><td style="text-align:left">가열하여 먼저 기화한 물질을 찬물 속 시험관에서 액화</td><td><span class="choice-group" data-key="p3" data-answer="끓는점"><button type="button" class="choice-btn" data-value="밀도">밀도</button><button type="button" class="choice-btn" data-value="용해도">용해도</button><button type="button" class="choice-btn" data-value="끓는점">끓는점</button></span></td></tr>
+      </table><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 1</span>각 물질의 특성 조사하기 <span class="pg">34쪽</span></div>
+    <div class="card-hint">카놀라유, 녹말, 소금, 물이 섞인 혼합물을 분리하기 위해 각 물질의 특성을 조사해 표에 적어 보자. (단, 소금은 카놀라유에 녹지 않는다.)</div>
+    <div class="safe">⚠️ 유리 기구를 다룰 때 깨지지 않게 조심한다. 가열 장치에 화상을 입지 않도록 주의한다.</div>
+    <div class="scroll-x"><table class="data-t">
+      <tr><th>구분</th><th>카놀라유</th><th>녹말</th><th>소금(염화 나트륨)</th><th>물</th></tr>
+      <tr><td>밀도(g/cm³)</td><td><input class="blank w-s" data-key="d_oil" data-num="0.92" data-abs="0.03" style="width:60px"></td><td>약 1.5</td><td><input class="blank w-s" data-key="d_salt" data-num="2.16" data-abs="0.05" style="width:60px"></td><td>1.00</td></tr>
+      <tr><td>물에 대한 용해도</td><td><span class="choice-group" data-key="s_oil" data-answer="no"><button type="button" class="choice-btn" data-value="yes">잘 녹음</button><button type="button" class="choice-btn" data-value="no">녹지 않음</button></span></td><td><span class="choice-group" data-key="s_starch" data-answer="no"><button type="button" class="choice-btn" data-value="yes">잘 녹음</button><button type="button" class="choice-btn" data-value="no">녹지 않음</button></span></td><td>35.9(20 ℃)</td><td>-</td></tr>
+      <tr><td>끓는점(℃)</td><td>약 300 이상</td><td>-</td><td>1465</td><td><input class="blank w-s" data-key="b_water" data-num="100" data-abs="0" style="width:60px"></td></tr>
+      <tr><td>녹는점(℃)</td><td>약 −10</td><td>-</td><td><input class="blank w-s" data-key="m_salt" data-num="802" data-abs="2" style="width:60px"></td><td>0</td></tr>
+    </table></div>
+    <p style="font-size:12px;color:#6b7b85;margin:4px 0 0">카놀라유·녹말 값은 대략적인 값이에요. 조사할 때는 온도·압력 같은 조건을 함께 적어요.</p>
+  </section>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 2~5</span>가상 실험대에서 혼합물 분리하기 <span class="pg">34~35쪽</span></div>
+    <div class="card-hint">초록 테두리 그릇(작업 중인 혼합물)에 실험 도구를 하나씩 적용해 보자. 네 물질을 모두 각각의 그릇에 순수하게 분리하면 성공! 순서를 잘못 고르면 어떤 일이 생기는지도 확인해 보자. 다른 그릇을 누르면 작업 그릇을 바꿀 수 있어요.</div>
+    <div class="btn-row" id="tools"></div>
+    <div class="bench" id="bench"></div>
+    <div class="log" id="log"></div>
+    <div class="btn-row"><button type="button" class="btn ghost small" id="bench-reset">↺ 처음 혼합물로</button></div>
+    <figure class="fig"><img src="img/p35-plan.jpg" alt="실험 계획 정리 예시"><figcaption><span class="tb">35쪽</span>탐구 설계 — 토의한 결과를 바탕으로 실험 계획을 그림과 같이 정리해 공유 플랫폼에 올린다.</figcaption></figure>
+    <div class="q" data-why="① 분별 깔때기로 위층 카놀라유와 아래층(물+소금+녹말)을 나눠요. ② 아래층을 거르면 녹말이 거름종이에 남아요. ③ 거른 소금물을 증류하면 물을 얻고 소금이 남아요(증발 접시로 가열하면 소금만 얻고 물은 날아가요). ④ 녹말을 말려 남은 물을 증발시켜요." data-hint="가장 먼저 층을 이루는 액체를 분리하세요.">
+      <div class="q-text"><span class="q-num">1</span><b>탐구 설계</b> 실험 계획을 순서대로 놓으시오.</div>
+      <ol class="order-list" data-key="plan" data-answer="funnel,filter,distill,dry"><li data-id="filter">거름 장치로 녹말 거르기</li><li data-id="dry">거름종이 위 녹말 말리기</li><li data-id="funnel">분별 깔때기로 카놀라유 분리하기</li><li data-id="distill">소금물을 가열하여 물(증류)과 소금 분리하기</li></ol>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 6</span>분리한 물질 확인하기 <span class="pg">35쪽</span></div>
+    <div class="card-hint">과정 1에서 조사한 물질의 특성을 바탕으로, 분리한 물질이 무엇인지 확인하는 방법을 골라 보자.</div>
+    <div class="q" data-why="녹말은 아이오딘-아이오딘화 칼륨 용액과 반응해 청람색이 돼요. 카놀라유는 물에 넣으면 섞이지 않고 위에 떠요(밀도). 물은 1 기압에서 100 ℃에서 끓어요. 소금은 물에 녹여 용해도를 확인하거나 결정 모양을 관찰해요.">
+      <table class="data-t">
+        <tr><td>카놀라유</td><td><span class="choice-group" data-key="ck_oil" data-answer="float"><button type="button" class="choice-btn" data-value="iodine">아이오딘 용액 → 청람색</button><button type="button" class="choice-btn" data-value="float">물에 넣으면 섞이지 않고 뜸</button><button type="button" class="choice-btn" data-value="bp">끓는점 100 ℃ 확인</button></span></td></tr>
+        <tr><td>녹말</td><td><span class="choice-group" data-key="ck_starch" data-answer="iodine"><button type="button" class="choice-btn" data-value="iodine">아이오딘 용액 → 청람색</button><button type="button" class="choice-btn" data-value="float">물에 넣으면 섞이지 않고 뜸</button><button type="button" class="choice-btn" data-value="bp">끓는점 100 ℃ 확인</button></span></td></tr>
+        <tr><td>물</td><td><span class="choice-group" data-key="ck_water" data-answer="bp"><button type="button" class="choice-btn" data-value="iodine">아이오딘 용액 → 청람색</button><button type="button" class="choice-btn" data-value="float">물에 넣으면 섞이지 않고 뜸</button><button type="button" class="choice-btn" data-value="bp">끓는점 100 ℃ 확인</button></span></td></tr>
+      </table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>분리한 소금이 순수한 염화 나트륨인지 확인할 수 있는 방법을 물질의 특성을 이용해 설명해 보자.</div><textarea class="free" data-key="ck_salt" rows="2" data-keywords="용해도,녹는점,밀도,결정" data-model="20 ℃ 물 100 g에 약 35.9 g이 녹는지(용해도) 확인하거나, 질량과 부피를 재어 밀도(2.16 g/cm³)를 구해 비교한다. 정육면체 결정 모양을 관찰한다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>정리해 볼까</b> 친구들의 발표를 듣고 우리 모둠의 실험 계획과 결과에서 잘한 점과 개선할 점을 이야기해 보자.</div><textarea class="free" data-key="review" rows="2" placeholder="잘한 점 / 개선할 점"></textarea></div>
+    <div class="alt-box"><h4>다르게 해 보기 · 다양한 혼합물 분리하기</h4><p style="margin:0 0 6px;font-size:14px">철가루, 플라스틱 조각, 염화 나트륨, 붕산 등이 섞인 혼합물을 분리하고, 분리한 물질을 확인할 수 있는 실험 계획을 세워 보자.</p><textarea class="free" data-key="alt" rows="2" data-keywords="자석,물,뜨,냉각,거름" data-model="① 자석으로 철가루를 분리한다. ② 물에 넣어 뜨는 플라스틱 조각을 건진다. ③ 남은 용액을 가열해 모두 녹인 뒤 냉각하면 온도에 따른 용해도 차가 큰 붕산이 석출되므로 거른다. ④ 거른 용액을 증발시켜 염화 나트륨을 얻는다."></textarea><span class="fb"></span></div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 3 (35쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="물이 증발하면 남은 녹말을 분리할 수 있어요.">
+        <div class="q-text" style="color:#3a1600">물이 남아 있는 녹말을 말리면 물이 증발해 ( <span class="choice-group" data-key="blk6" data-answer="녹말"><button type="button" class="choice-btn" data-value="녹말">녹말</button><button type="button" class="choice-btn" data-value="물">물</button></span> )을/를 분리할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>2. 혼합물의 분리 · 두 번째 블록 찾기 <span class="pg">36쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>물질의 특성을 이용한 혼합물 분리</h4>
+      <div class="q" style="border-top:none" data-why="섞이지 않는 액체는 밀도가 큰 물질이 아래에 위치해요. 냉각 때는 용해도 차가 큰 물질이 석출되고, 끓는점·녹는점이 낮은 물질이 먼저 기화하거나 녹아 나와요.">
+        <div class="q-text">⑴ 밀도 차: 서로 섞이지 않는 액체 혼합물은 밀도가 큰 물질이 ( <span class="choice-group" data-key="s4" data-answer="아래"><button type="button" class="choice-btn" data-value="위">위</button><button type="button" class="choice-btn" data-value="아래">아래</button></span> )에 위치하므로 분리 — 모래에서 사금 채취, 혈액 성분 분리<br>⑵ 용해도 차: 모두 녹였다가 냉각하면 온도에 따른 용해도 차가 ( <span class="choice-group" data-key="s5" data-answer="큰"><button type="button" class="choice-btn" data-value="큰">큰</button><button type="button" class="choice-btn" data-value="작은">작은</button></span> ) 물질이 먼저 석출 — 사탕수수에서 설탕 분리<br>⑶ 끓는점 차: 가열하면 끓는점이 ( <span class="choice-group" data-key="s6" data-answer="낮은"><button type="button" class="choice-btn" data-value="높은">높은</button><button type="button" class="choice-btn" data-value="낮은">낮은</button></span> ) 물질이 먼저 기화 — 원유에서 휘발유, 등유, 경유 분리<br>⑷ 녹는점 차: 가열하면 녹는점이 ( <span class="choice-group" data-key="s7" data-answer="낮은"><button type="button" class="choice-btn" data-value="높은">높은</button><button type="button" class="choice-btn" data-value="낮은">낮은</button></span> ) 물질이 먼저 녹아 나와 분리 — 암석에서 금속 분리</div>
+        <span class="fb"></span>
+      </div>
+      <h4 style="margin-top:10px"><span class="n">3</span>혼합물 분리 실험 설계 및 수행</h4>
+      <div class="q" style="border-top:none" data-why="섞이지 않는 액체는 분별 깔때기나 스포이트로, 석출된 물질은 거름 장치로 걸러요.">
+        <div class="q-text">섞이지 않으면서 밀도가 다른 액체 혼합물은 <input class="blank w-s" data-key="s8" data-answer="분별 깔때기|분별깔때기"> (이)나 스포이트를 이용해 분리하고, 석출된 물질은 <input class="blank w-s" data-key="s9" data-answer="거름"> 장치로 걸러 분리한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 찾기 · 녹말과 물이 섞인 혼합물에서 어떻게 녹말을 분리할 수 있을까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① 녹말과 물이 섞인 것은 혼합물이다. (28쪽) ② 녹말과 물의 혼합물을 가만히 두면 서로 섞이지 않고 녹말이 가라앉으므로 분리할 수 있다. (33쪽) ③ 물이 남아 있는 녹말을 말리면 물이 증발해 녹말을 분리할 수 있다. (35쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">세 조각을 모아 두 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="가라앉,밀도,말리,증발" data-model="녹말과 물의 혼합물을 가만히 두면 밀도가 큰 녹말이 가라앉으므로 위의 물을 따라 내고, 남은 녹말을 말려 물을 증발시키면 녹말을 분리할 수 있다."></textarea><span class="fb"></span></div>
+    </div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">대단원 마무리</span>물질의 특성을 이용해 무인도에서 살아남는 방법 찾기</div>
+    <div class="book"><p>친구 몇 명과 무인도에 고립되었다. 무인도에는 여러 종류의 야자나무가 숲을 이루고 있지만, 야자나무 열매는 찾을 수 없다. 이러한 가상의 상황에서 생존하기 위해 식량과 식수를 어떻게 구할 것인지 과학적 원리를 적용하여 방법을 찾아보자.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span><b>식수</b> 바닷물에서 마실 물을 얻는 방법을 물질의 특성을 이용해 고안해 보자.</div><textarea class="free" data-key="island_w" rows="2" data-keywords="끓는점,증류,가열,수증기,액화" data-model="바닷물을 가열하면 끓는점이 낮은 물만 기화하므로, 수증기를 차가운 그릇(야자잎·조개껍데기 등)에 닿게 해 액화시켜 모으면 식수를 얻을 수 있다(증류). 햇빛으로 증발시키는 태양열 증류기도 만들 수 있다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>식량</b> 야자나무에서 식량을 얻는 방법을 조사하고, 이용한 물질의 특성을 써 보자. (예: 사고야자 줄기 속의 녹말)</div><textarea class="free" data-key="island_f" rows="2" data-keywords="녹말,물,가라앉,밀도,거르" data-model="사고야자 줄기 속을 긁어 물에 주물러 섞은 뒤 천으로 거르고, 거른 물을 가만히 두면 밀도가 큰 녹말이 가라앉는다. 위의 물을 따라 내고 녹말을 말려 식량으로 쓴다(밀도 차). 바닷물을 증발시켜 소금도 얻을 수 있다."></textarea><span class="fb"></span></div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr>
+      <tr><td style="text-align:left">물질의 특성을 이용해 야자나무와 바닷물에서 식량과 식수를 얻는 적절한 방법을 고안하였는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">부족</button></span></td></tr>
+      <tr><td style="text-align:left">고안한 방법을 토대로 물질의 특성을 이용한 혼합물 분리 방법을 설명할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">부족</button></span></td></tr>
+      <tr><td style="text-align:left"><b>과정·기능</b> 물질의 특성을 이용하여 알맞은 실험 도구로 혼합물을 분리하고, 분리한 물질을 확인했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">부족</button></span></td></tr>
+      <tr><td style="text-align:left"><b>가치·태도</b> 실험을 설계하고 수행할 때 친구들의 의견을 긍정적으로 수용했는가?</td><td><span class="choice-group" id="self4"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">부족</button></span></td></tr>
+    </table>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>Ⅰ단원을 마치며 알게 된 점, 어려웠던 점, 더 알아보고 싶은 점을 써 주세요.</div><textarea class="free" data-key="feedback" placeholder="알게 된 점 / 어려웠던 점 / 더 알아보고 싶은 점"></textarea></div>
+  </section>
+
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅰ. 물질의 특성 · 2. 혼합물의 분리 · 03 혼합물 분리 실험을 설계하고 수행하기 · 비상교육 중학 과학 2 교과서(34~36쪽)·탐구 활동지·대단원 마무리 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅰ-2-03 혼합물 분리 실험 설계하기";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+["self1", "self2", "self3", "self4"].forEach(id => WS.custom(id, { el: $(id), value: picked(id) }));
+
+/* ── 가상 실험대 ── */
+const NM = { oil: ["카놀라유", "#d9a400"], starch: ["녹말", "#9a8c7a"], salt: ["소금", "#7a8aa0"], water: ["물", "#2f7de1"] };
+let V, work, steps, log;
+function reset() { V = [{ name: "혼합물 비커", c: ["oil", "starch", "salt", "water"] }]; work = 0; steps = []; log = []; addLog("카놀라유·녹말·소금·물 혼합물: 위에 기름층, 아래 뿌연 소금물(녹말이 섞여 있음)."); draw(); }
+const has = (v, k) => v.c.includes(k);
+const TOOLS = [
+  ["funnel", "🧪 분별 깔때기", v => { if (!(has(v, "oil") && has(v, "water"))) return "층을 이루는 두 액체가 없어 분별 깔때기를 쓸 수 없어요.";
+      v.c = v.c.filter(k => k !== "oil"); V.push({ name: "위층(분별 깔때기)", c: ["oil"] }); v.name = "아래층(분별 깔때기)"; return "꼭지를 열어 밀도가 큰 아래층(물+소금+녹말)을 먼저 받고, 위층의 카놀라유를 따로 받았어요."; }],
+  ["filter", "🧻 거름 장치", v => { if (!(has(v, "starch") && has(v, "water"))) return "거를 고체(녹말)가 섞인 액체가 아니에요.";
+      if (has(v, "oil")) { return "기름이 거름종이에 스며들어 함께 빠져나와요. 기름은 거름으로 분리되지 않아요 — 먼저 기름층을 분리해 보세요."; }
+      v.c = v.c.filter(k => k !== "starch"); V.push({ name: "거름종이 위", c: ["starch", "water"], wet: true }); v.name = "거른 용액"; return "물에 녹지 않는 녹말이 거름종이 위에 남고, 소금이 녹아 있는 용액이 빠져나왔어요."; }],
+  ["distill", "♨️ 증류 장치(가열·냉각)", v => { if (!has(v, "water") || v.c.length < 2) return "끓는점 차로 나눌 혼합물이 아니에요.";
+      if (has(v, "oil")) return "기름과 물이 함께 튀어 위험해요! 가열하기 전에 기름층을 먼저 분리해야 해요(안전).";
+      if (has(v, "starch")) { v.c = v.c.filter(k => k !== "water"); V.push({ name: "증류해 모은 액체", c: ["water"] }); return "물은 모았지만 녹말이 바닥에 눌어붙고 소금과 섞였어요. 녹말을 먼저 걸러 보세요."; }
+      v.c = v.c.filter(k => k !== "water"); V.push({ name: "찬물 속 시험관", c: ["water"] }); v.name = "가지 달린 플라스크에 남은 것"; return "끓는점이 낮은 물이 먼저 기화한 뒤 찬물 속 시험관에서 액화해 모였고, 소금이 남았어요."; }],
+  ["evap", "🔥 증발 접시 가열", v => { if (!has(v, "water")) return "증발시킬 물이 없어요.";
+      if (has(v, "oil")) return "기름이 튀어 위험해요! 먼저 기름층을 분리하세요.";
+      v.c = v.c.filter(k => k !== "water"); v.name = "증발 접시"; return "물이 모두 증발해 날아갔어요" + (v.c.length ? " — 남은 것: " + v.c.map(k => NM[k][0]).join(", ") + "." : ".") + " (물도 모으려면 증류 장치를 쓰세요.)" + (v.c.includes("starch") && v.c.includes("salt") ? " 녹말과 소금이 다시 섞여 버렸어요 — [처음 혼합물로]를 눌러 녹말을 먼저 걸러 보세요." : ""); }],
+  ["dry", "☀️ 말리기", v => { if (!v.wet) return "말릴 젖은 고체가 없어요."; v.c = v.c.filter(k => k !== "water"); v.wet = false; v.name = "말린 녹말"; return "녹말에 남아 있던 물이 증발해 마른 녹말을 얻었어요."; }]];
+TOOLS.forEach(t => { const b = document.createElement("button"); b.type = "button"; b.className = "btn small"; b.textContent = t[1]; b.addEventListener("click", () => { const v = V[work]; const msg = t[2](v); steps.push(t[0]); addLog(`[${t[1].replace(/^\S+ /, "")}] ${msg}`); V = V.filter(x => x.c.length); work = Math.min(work, V.length - 1); const imp = V.findIndex(x => x.c.length > 1 || x.wet); if (imp >= 0) work = imp; draw(); }); $("tools").appendChild(b); });
+function addLog(s) { log.push(s); }
+function pureSet() { return new Set(V.filter(v => v.c.length === 1 && !v.wet).map(v => v.c[0])); }
+function draw() {
+  $("bench").innerHTML = V.map((v, i) => `<div class="vessel${i === work ? " work" : ""}${v.c.length === 1 && !v.wet ? " pure" : ""}" data-i="${i}"><b>${v.name}${v.c.length === 1 && !v.wet ? " ✔" : ""}</b><div class="chips">${v.c.map(k => `<span style="background:${NM[k][1]}">${NM[k][0]}</span>`).join("")}${v.wet ? ' <small>(젖어 있음)</small>' : ""}</div></div>`).join("");
+  $("bench").querySelectorAll(".vessel").forEach(el => el.addEventListener("click", () => { work = +el.dataset.i; draw(); }));
+  const p = pureSet(); $("log").innerHTML = log.map(s => `<div>${s}</div>`).join("") + (p.size === 4 ? '<div style="color:#2fae5d;font-weight:800">🎉 성공! 카놀라유·녹말·소금·물을 모두 분리했어요.</div>' : `<div style="color:#6b7b85">순수하게 분리한 물질: ${p.size} / 4</div>`);
+  $("log").scrollTop = 1e6;
+}
+$("bench-reset").addEventListener("click", reset);
+reset();
+WS.custom("bench", { el: $("bench"), value: () => pureSet().size + "/4 · " + steps.join(">"), check: () => pureSet().size === 4, answer: "카놀라유·녹말·소금·물 4가지 모두 분리 (분별 깔때기 → 거름 → 증류 → 말리기)" });
+</script>
+</body>
+</html>

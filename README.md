@@ -84,6 +84,7 @@
 3D는 `js/vendor/three.min.js`(r128)를 쓰며, WebGL이 없는 기기에서는 2D 그래프만 보입니다.
 `materials/g1-4/`(중1 Ⅳ. 물질의 상태 변화)도 같은 형식이며 `../g1-3/`의 도우미를 함께 쓰고, 고체·액체·기체 입자 모형은 `matter.js`(2D·3D)로 그립니다.
 `materials/g1-5/`(중1 Ⅴ. 힘의 작용)도 같은 형식이며, 아두이노 실험 보고서는 초음파 센서(HC-SR04)용 `ultra-lab.js`와 `arduino/ultra.ino`를 씁니다(상태별 기록 `UL.points`, 연속 기록 `UL.stream`).
+`materials/g1-1/`(중1 Ⅰ. 과학과 인류의 지속가능한 삶)의 아두이노 실험 보고서는 `../g1-5/ultra-lab.js`를 `UL.base = "../g1-5/"`로 불러 씁니다. `materials/g1-2/`(중1 Ⅱ. 생물의 구성과 다양성)의 아두이노 실험 보고서는 DHT11 온습도 센서와 빛 센서용 `arduino/env.ino`("시간,온도,습도,밝기", Adafruit DHT 라이브러리 필요)를 씁니다.
 `materials/g1-6/`(중1 Ⅵ. 기체의 성질)은 기체 입자 모형(주사기·실린더)을 `gas.js`로 그리고, 아두이노 실험 보고서는 LM35 온도 센서와 초음파 센서를 함께 쓰는 `arduino/charles.ino`("시간,온도,거리")를 씁니다.
 `materials/g1-7/`(중1 Ⅶ. 태양계)의 아두이노 실험 보고서는 빛 센서(CDS)용 `light-lab.js`와 `arduino/light.ino`를 씁니다(위치별 기록 `LL.points`, 연속 기록 `LL.stream`).
 

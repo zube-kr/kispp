@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅳ-1-04 — 원소를 배치한 주기율표</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.pt{ display:grid; grid-template-columns:repeat(18,minmax(30px,1fr)); gap:2px; min-width:620px; }
+.pt .c{ aspect-ratio:1/1.15; border-radius:5px; font-size:10px; line-height:1.1; text-align:center; padding:2px 0; cursor:pointer; border:1px solid rgba(0,0,0,.08); }
+.pt .c b{ display:block; font-size:14px; }
+.pt .c.sel{ outline:3px solid #0e7c80; }
+.pt .c.slot{ background:#fff !important; border:2px dashed #b6c3c9; color:#9aa; }
+.pt .c.ok{ outline:3px solid #2fae5d; }
+.pt .h{ font-size:10px; color:#6b7b85; text-align:center; align-self:end; }
+.cardpool{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+.cardpool button{ border:2px solid #cfd8dc; background:#fffbe9; border-radius:10px; padding:4px 10px; font-weight:800; cursor:pointer; font-size:13px; }
+.cardpool button.sel{ outline:3px solid #0e7c80; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/4">← KISPP 과학실 · 중학교 2학년 Ⅳ. 물질의 구성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p142-cartoon.jpg" alt="줄을 맞춰 서 주세요.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 물질의 구성 · 1. 원소와 화합물 · 04 <span class="pg" style="margin:0">142~148쪽</span></span>
+      <h1>원소를 배치한<br><span>주기율표</span></h1>
+      <p>“줄을 맞춰 서 주세요.” 달력에 있는 날짜처럼 원소를 규칙성 있게 배치하면 어떤 점이 좋을까? 움직이는 주기율표에서 원소를 찾아보고, 원소 카드를 제자리에 배치하며 같은 족 원소의 비슷한 성질을 알아보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 원소가 양성자 수에 따라 주기율표에 배치됨을 알고, 주기율표에서 성질이 유사한 원소를 찾을 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>원소는 어떻게 분류할 수 있을까? <span class="pg">142~145쪽</span></div>
+    <div class="book"><p>과학자들은 원소의 성질이 규칙적으로 나타나도록 원소들을 배열하여 표로 만들었는데, 이것을 <span class="key">주기율표</span>라고 한다. 원자의 양성자 수에 따라 원자마다 번호를 붙이는데, 이를 <span class="key">원자 번호</span>라고 한다. 주기율표는 원소를 원자 번호 순서대로 왼쪽에서 오른쪽으로 나열하다가, 성질이 비슷한 원소가 같은 세로줄에 오도록 줄을 바꾸어 배치한 것이다.</p>
+    <p>주기율표의 가로줄은 <span class="key">주기</span>라고 하고 1주기부터 7주기까지 있다. 세로줄은 <span class="key">족</span>이라고 하고 1족부터 18족까지 있다.</p></div>
+    <div class="card-title" style="margin-top:8px"><span class="badge sim">움직이는 주기율표</span>1주기 ~ 4주기</div>
+    <div class="card-hint">원소 칸을 누르면 정보가 나와요. 알루미늄(Al)은 몇 주기 몇 족일까?</div>
+    <div class="scroll-x"><div class="pt" id="pt"></div></div>
+    <div class="tip-box" id="pt-info">원소를 눌러 보세요.</div>
+    <div class="q" data-why="알루미늄은 원자 번호 13으로 3주기 13족이에요. 원자 번호는 양성자 수예요." data-hint="주기율표에서 Al을 눌러 보세요.">
+      <div class="q-text"><span class="q-num">1</span>알루미늄(Al)은 <input class="blank w-s" data-key="al_p" data-num="3" data-abs="0" style="width:45px"> 주기 <input class="blank w-s" data-key="al_g" data-num="13" data-abs="0" style="width:45px"> 족 원소이다. 주기율표에서 원소를 배치하는 기준이 되는 것은 원자의 <span class="choice-group" data-key="pt_basis" data-answer="양성자"><button type="button" class="choice-btn" data-value="양성자">양성자</button><button type="button" class="choice-btn" data-value="중성자">중성자</button><button type="button" class="choice-btn" data-value="전자">전자</button></span> 수(원자 번호)이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 자료 수집하기</span>주기율표에 원소 배치하기 <span class="pg">144~145쪽</span></div>
+<figure class="fig" style="max-width:260px;float:right;margin:0 0 6px 10px"><img src="img/p145-cards.jpg" alt="원소 카드를 주기율표 위치에 맞게 배치하기"><figcaption><span class="tb">145쪽</span>원소 카드를 주기율표 위치에 맞게 배치하기</figcaption></figure>    <div class="steps-box"><ol><li>원소 카드 뒷면의 정보를 확인하여 앞면에 원자 번호를 적는다.</li><li>각 원소를 주기율표에서 찾아 이름을 적는다.</li><li>각 원소 카드를 주기율표에서의 위치에 맞게 배치한다.</li></ol></div>
+    <div class="card-hint" style="clear:both">아래 원소 카드(양성자 수가 적혀 있어요)를 누른 뒤, 빈 주기율표의 알맞은 칸을 눌러 놓아 보자.</div>
+    <div class="cardpool" id="cp"></div>
+    <div class="scroll-x"><div class="pt" id="pt2"></div></div>
+    <div class="q" data-why="원자 번호 = 양성자 수">
+      <div class="q-text"><span class="q-num">1</span>원자 번호는 원소에 대한 정보 중 <span class="choice-group" data-key="cd_basis" data-answer="양성자"><button type="button" class="choice-btn" data-value="양성자">양성자 수</button><button type="button" class="choice-btn" data-value="질량">원자의 질량</button><button type="button" class="choice-btn" data-value="발견">발견된 순서</button></span>를 기준으로 정한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 탐구 결과를 해석하여 결론 도출하기</span>같은 족 원소들의 유사성 탐구하기 <span class="pg">146~147쪽</span></div>
+    <div class="card-hint">원소 카드 뒷면의 성질을 읽고 (가)와 (나)로 분류해 보자. 아래 가상 실험에서 물에 넣어 볼 수도 있어요.</div>
+    <div class="tip-box">헬륨 — 다른 물질과 거의 반응하지 않으며 공기보다 밀도가 작다. · 칼륨 — 은백색 금속, 칼로 잘리며 물과 격렬하게 반응. · 아르곤 — 다른 물질과 잘 반응하지 않는다. · 나트륨 — 은백색 금속, 무르고 물과 반응해 수소 발생. · 리튬 — 은백색 금속, 밀도가 작고 물과 반응. · 네온 — 거의 반응하지 않으며 전류가 흐르면 빛을 낸다.</div>
+    <div class="q" data-why="리튬·나트륨·칼륨은 1족 원소로 물과 반응하는 무른 금속(가), 헬륨·네온·아르곤은 18족 원소로 다른 물질과 잘 반응하지 않아요(나).">
+      <div class="q-text"><span class="q-num">1</span>분류 기준: 물과 반응하는 금속인가(가), 다른 물질과 잘 반응하지 않는가(나)</div><div class="scroll-x"><table class="data-t" style="margin-top:6px"><tr><th>헬륨</th><th>칼륨</th><th>아르곤</th><th>나트륨</th><th>리튬</th><th>네온</th></tr><tr><td><span class="choice-group" data-key="gr0" data-answer="나"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td><td><span class="choice-group" data-key="gr1" data-answer="가"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td><td><span class="choice-group" data-key="gr2" data-answer="나"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td><td><span class="choice-group" data-key="gr3" data-answer="가"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td><td><span class="choice-group" data-key="gr4" data-answer="가"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td><td><span class="choice-group" data-key="gr5" data-answer="나"><button type="button" class="choice-btn" data-value="가">(가)</button><button type="button" class="choice-btn" data-value="나">(나)</button></span></td></tr></table></div>
+      <span class="fb"></span>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>물에 조각을 넣어 보자 (실제로는 매우 위험!)</div>
+    <div class="btn-row" id="wt-btns"><button type="button" class="btn small" data-w="Li">리튬</button><button type="button" class="btn small" data-w="Na">나트륨</button><button type="button" class="btn small" data-w="K">칼륨</button><button type="button" class="btn small" data-w="Ne">네온 기체</button></div>
+    <div class="sim-stage"><canvas id="wt-cv"></canvas><span class="tag" id="wt-tag"></span></div>
+    <div class="q" data-why="1족 — 리튬·나트륨·칼륨, 18족 — 헬륨·네온·아르곤. 같은 족 원소는 성질이 비슷해요.">
+      <div class="q-text"><span class="q-num">2</span>(가)의 원소는 주기율표에서 <span class="choice-group" data-key="pos_a" data-answer="1"><button type="button" class="choice-btn" data-value="1">1족</button><button type="button" class="choice-btn" data-value="2">2족</button><button type="button" class="choice-btn" data-value="18">18족</button></span>, (나)의 원소는 <span class="choice-group" data-key="pos_b" data-answer="18"><button type="button" class="choice-btn" data-value="1">1족</button><button type="button" class="choice-btn" data-value="17">17족</button><button type="button" class="choice-btn" data-value="18">18족</button></span>에 위치한다. 성질이 비슷한 원소는 주기율표에서 같은 <span class="choice-group" data-key="pos_c" data-answer="족"><button type="button" class="choice-btn" data-value="주기">주기</button><button type="button" class="choice-btn" data-value="족">족</button></span>에 위치한다.</div>
+      <span class="fb"></span>
+    </div>
+<figure class="fig"><img src="img/p147-fig4-12.jpg" alt="1족 원소의 성질과 18족 원소의 이용"><figcaption><span class="tb">그림 4-12</span>1족 원소의 성질과 18족 원소의 이용</figcaption></figure>
+    <div class="alt-box"><h4>다르게 해 보기 · 원소의 성질 조사하기</h4><p style="margin:0 0 6px;font-size:14px">1족 원소들과 18족 원소들의 성질을 조사하고 공통된 성질을 정리해 보자.</p><textarea class="free" data-key="alt" rows="2" data-keywords="은백색,무르,물,반응,안정" data-model="1족: 은백색 광택의 무른 금속으로 밀도가 작고 산소·물과 활발하게 반응한다. 18족: 다른 물질과 잘 반응하지 않는 안정한 기체이다."></textarea><span class="fb"></span></div>
+    <div class="block-q">
+      <b>🧩 첫 번째 블록 · 힌트 조각 3 (147쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">주기율표에서 ( <span class="choice-group" data-key="blk3" data-answer="다른"><button type="button" class="choice-btn" data-value="같은">같은</button><button type="button" class="choice-btn" data-value="다른">다른</button></span> ) 족에 위치한 나트륨과 염소는 성질이 서로 다르다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>142쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">147쪽</span></div>
+    <div class="q" data-why="주기율표">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 원소를 성질이 규칙적으로 나타나도록 배열한 표를 ( <input class="blank w-s" data-key="sc_1" data-answer="주기율표"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 1족 원소인 리튬, 나트륨, 칼륨 등을 석유에 넣어 보관하는 까닭을 원소의 성질과 관련하여 설명해 보자.</div><textarea class="free" data-key="sc_oil" rows="2" data-keywords="산소,물,반응,활발" data-model="1족 원소는 공기 중의 산소나 수분과 활발하게 반응하므로, 산소와 물이 닿지 않도록 석유 속에 넣어 보관한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>원소를 배치한 주기율표</div>
+    <div class="q" data-why="주기율표">
+      <div class="q-text"><span class="q-num">1</span>원소의 성질이 규칙적으로 나타나도록 원소들을 배열한 표를 <input class="blank w-s" data-key="t1" data-answer="주기율표"> 라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="가로줄이 주기, 세로줄이 족이에요(③ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">② 주기율표에서 원소들은 원자 번호 순서대로 나열되어 있다.</td><td><span class="choice-group" data-key="t2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">③ 주기율표의 가로줄을 족, 세로줄을 주기라고 한다.</td><td><span class="choice-group" data-key="t3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">④ 주기율표는 7주기, 18족으로 구성되어 있다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="성질, 수소, 18족">
+      <div class="q-text"><span class="q-num">5</span>주기율표에서 같은 족 원소들은 <input class="blank w-s" data-key="t5" data-answer="성질"> 이 비슷하다. 리튬, 나트륨, 칼륨은 물과 반응하여 <input class="blank w-s" data-key="t6" data-answer="수소"> 기체를 발생시킨다. <input class="blank w-s" data-key="t7" data-num="18" data-abs="0" style="width:45px"> 족 원소들은 안정적이므로 다른 물질과 잘 반응하지 않는다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="광고판 — 네온, 비행선 — 헬륨, 용접 보호 기체 — 아르곤">
+      <div class="q-text"><span class="q-num">8</span>각 설명에 해당하는 18족 원소를 고르시오.</div><table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑧ 전류가 흐르면 색을 나타내므로 광고판에 이용한다.</td><td><span class="choice-group" data-key="t8" data-answer="네온"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="네온">네온</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button></span></td></tr><tr><td style="text-align:left">⑨ 공기보다 밀도가 작아 비행선을 띄우는 데 이용한다.</td><td><span class="choice-group" data-key="t9" data-answer="헬륨"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="네온">네온</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button></span></td></tr><tr><td style="text-align:left">⑩ 용접 시 다른 물질이 금속과 반응하는 것을 막는 보호 기체로 이용한다.</td><td><span class="choice-group" data-key="t10" data-answer="아르곤"><button type="button" class="choice-btn" data-value="헬륨">헬륨</button><button type="button" class="choice-btn" data-value="네온">네온</button><button type="button" class="choice-btn" data-value="아르곤">아르곤</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>1. 원소와 화합물 · 첫 번째 블록 찾기 <span class="pg">148쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">4</span>주기율표</h4>
+      <div class="q" style="border-top:none" data-why="가로 — 주기, 세로 — 족">
+        <div class="q-text">⑴ 주기율표: 원소의 성질이 규칙적으로 나타나도록 원소들을 배열한 표<br>⑵ 원자 번호: 원자의 양성자 수에 따라 붙인 번호<br>⑶ 주기율표의 가로줄을 <input class="blank w-s" data-key="s9" data-answer="주기"> (이)라고 하고, 세로줄을 <input class="blank w-s" data-key="s10" data-answer="족"> (이)라고 한다. 같은 족 원소들은 성질이 비슷하다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q"><b>🧩 첫 번째 블록 찾기 · 이온 음료에 있는 Na와 Cl은 어떤 점이 다를까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① Na는 나트륨, Cl은 염소의 원소 기호이다. (137쪽) ② 나트륨과 염소는 양성자 수가 달라 서로 다른 종류의 원소이다. (140쪽) ③ 주기율표에서 다른 족에 위치한 나트륨과 염소는 성질이 서로 다르다. (147쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">세 조각을 모아 첫 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="원소 기호,양성자,족,성질" data-model="Na(나트륨)와 Cl(염소)은 원소 기호가 다른 서로 다른 원소로, 양성자 수가 11 개와 17 개로 다르고 주기율표에서 1족과 17족으로 다른 족에 있어 성질도 다르다."></textarea><span class="fb"></span></div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 원소와 화합물의 뜻과 원자의 구조를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>과정·기능</b> 화학식을 쓰고 주기율표에서 성질이 비슷한 원소를 찾을 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 원소 기호, 화학식, 주기율표를 학습하며 과학의 유용성을 느꼈는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅳ. 물질의 구성 · 1. 원소와 화합물 · 04 원소를 배치한 주기율표 · 비상교육 중학 과학 2 교과서(142~148쪽)·해 보기·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅳ-1-04 주기율표";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+const NM = ["", "수소", "헬륨", "리튬", "베릴륨", "붕소", "탄소", "질소", "산소", "플루오린", "네온", "나트륨", "마그네슘", "알루미늄", "규소", "인", "황", "염소", "아르곤", "칼륨", "칼슘", "스칸듐", "타이타늄", "바나듐", "크로뮴", "망가니즈", "철", "코발트", "니켈", "구리", "아연", "갈륨", "저마늄", "비소", "셀레늄", "브로민", "크립톤"];
+const SY = ["", "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr"];
+function pos(z) { if (z === 1) return [1, 1]; if (z === 2) return [1, 18]; if (z <= 10) return [2, z <= 4 ? z - 2 : z + 8]; if (z <= 18) return [3, z <= 12 ? z - 10 : z]; return [4, z - 18]; }
+const COLR = z => { const [p, g] = pos(z); if (z === 1) return "#e9f3ff"; if (g === 1) return "#ffd8cf"; if (g === 2) return "#ffe9c7"; if (g === 18) return "#e6dcff"; if (g === 17) return "#d8f3e0"; if (g >= 3 && g <= 12) return "#f1f1f1"; return "#fff6d6"; };
+const NOTE = { 1: "1족이지만 금속이 아닌 기체. 가장 가벼운 원소.", 2: "18족 — 공기보다 밀도가 작아 비행선에 이용.", 3: "1족 — 은백색의 무른 금속, 물과 반응.", 10: "18족 — 전류가 흐르면 빛을 내 광고판에 이용.", 11: "1족 — 칼로 자를 수 있을 만큼 무르고 물과 반응해 수소 발생.", 13: "3주기 13족 금속.", 17: "17족 — 나트륨과 결합해 염화 나트륨을 만든다.", 18: "18족 — 용접 시 보호 기체로 이용.", 19: "1족 — 물과 매우 격렬하게 반응.", 26: "4주기 8족 금속." };
+function build(id, cb) { let h = '<div class="h">1</div>' + Array.from({ length: 16 }, () => "<div></div>").join("") + '<div class="h">18</div>'; const grid = {}; for (let z = 1; z <= 36; z++) grid[pos(z).join(",")] = z;
+  for (let p = 1; p <= 4; p++) for (let g = 1; g <= 18; g++) { const z = grid[p + "," + g]; h += z ? cb(z) : "<div></div>"; } $(id).innerHTML = h; }
+build("pt", z => `<div class="c" data-z="${z}" style="background:${COLR(z)}">${z}<b>${SY[z]}</b>${NM[z]}</div>`);
+const SEEN = new Set();
+$("pt").addEventListener("click", e => { const c = e.target.closest("[data-z]"); if (!c) return; const z = +c.dataset.z, [p, g] = pos(z); SEEN.add(SY[z]); $("pt").querySelectorAll(".c").forEach(x => x.classList.toggle("sel", x === c)); $("pt-info").innerHTML = `<b>${NM[z]} (${SY[z]})</b> · 원자 번호 ${z} (양성자 ${z} 개) · ${p}주기 ${g}족${NOTE[z] ? " · " + NOTE[z] : ""}`; });
+WS.custom("pt_seen", { el: $("pt"), value: () => [...SEEN].join(",") });
+/* 카드 배치 */
+const CARDS = [1, 3, 6, 8, 11, 13, 17, 18], PL = {}; let cSel = null;
+function cpDraw() { $("cp").innerHTML = CARDS.filter(z => PL[z] == null).map(z => `<button type="button" data-c="${z}" class="${cSel === z ? "sel" : ""}">양성자 ${z} 개</button>`).join("") || '<span style="font-size:13px;color:#2fae5d;font-weight:800">모두 배치했어요!</span>';
+  build("pt2", z => { const here = Object.keys(PL).find(k => PL[k] === z); return here ? `<div class="c ${+here === z ? "ok" : ""}" data-s="${z}" style="background:${COLR(+here)}">${here}<b>${SY[+here]}</b>${NM[+here]}</div>` : `<div class="c slot" data-s="${z}">&nbsp;</div>`; }); }
+$("cp").addEventListener("click", e => { const b = e.target.closest("[data-c]"); if (b) { cSel = +b.dataset.c; cpDraw(); } });
+$("pt2").addEventListener("click", e => { const s = e.target.closest("[data-s]"); if (!s) return; const z = +s.dataset.s, here = Object.keys(PL).find(k => PL[k] === z); if (here) { delete PL[here]; cpDraw(); return; } if (cSel == null) return; PL[cSel] = z; cSel = null; cpDraw(); });
+cpDraw();
+WS.custom("place", { el: $("pt2"), value: () => CARDS.map(z => z + "→" + (PL[z] || "")).join(","), check: () => CARDS.every(z => PL[z] === z), answer: "양성자 수 = 원자 번호인 칸에 배치", why: "원자 번호가 양성자 수와 같은 칸에 카드를 놓아요. 잘못 놓은 카드는 다시 누르면 빠져요." });
+/* 물에 넣기 */
+let WT = null; const WTS = new Set();
+$("wt-btns").addEventListener("click", e => { const b = e.target.closest("[data-w]"); if (!b) return; WT = { k: b.dataset.w, t: performance.now(), x: 0.3 + Math.random() * 0.4 }; WTS.add(WT.k); $("wt-tag").textContent = { Li: "리튬: 물 위를 떠다니며 기포(수소)를 내요.", Na: "나트륨: 빠르게 돌아다니며 수소를 내고 녹아 작아져요.", K: "칼륨: 매우 격렬하게 반응해 보라색 불꽃이 생겨요!", Ne: "네온: 물과 반응하지 않아요." }[WT.k]; });
+WS.custom("wt_seen", { el: $("wt-cv"), value: () => [...WTS].join(",") });
+LB.loop($("wt-cv"), (dt, t) => { const g = LB.fit($("wt-cv"), 200), c = g.c, W = g.w, H = 200; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H); c.fillStyle = "rgba(90,160,240,.35)"; c.fillRect(20, 80, W - 40, 110); c.strokeStyle = "#7fa8c4"; c.strokeRect(20, 40, W - 40, 150);
+  if (!WT) return; const k = (performance.now() - WT.t) / 1000, lv = { Li: 1, Na: 2, K: 3, Ne: 0 }[WT.k];
+  if (lv === 0) { for (let i = 0; i < 6; i++) { c.fillStyle = "rgba(255,120,90,.6)"; c.beginPath(); c.arc(40 + (i * 53 + k * 30) % (W - 80), 60 - Math.sin(k + i) * 6, 4, 0, 7); c.fill(); } return; }
+  const sz = Math.max(0, 9 - k * lv * 1.2); WT.x += Math.sin(k * (3 + lv * 3)) * dt * 0.1 * lv; WT.x = Math.max(0.1, Math.min(0.9, WT.x)); const x = 20 + WT.x * (W - 40);
+  if (sz > 0) { c.fillStyle = "#d8dde2"; c.beginPath(); c.arc(x, 80, sz, 0, 7); c.fill(); c.strokeStyle = "rgba(255,255,255,.9)"; for (let i = 0; i < lv * 6; i++) { const ph = (t / 400 + i * 0.17) % 1; c.beginPath(); c.arc(x - 10 + (i * 7) % 20, 80 - ph * 30, 2, 0, 7); c.stroke(); } if (lv === 3) { c.fillStyle = `rgba(180,90,255,${0.5 + 0.4 * Math.sin(t / 60)})`; c.beginPath(); c.moveTo(x - 8, 74); c.quadraticCurveTo(x, 40 - Math.random() * 15, x + 8, 74); c.fill(); } }
+});
+
+</script>
+</body>
+</html>

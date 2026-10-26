@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅲ-1-05 — 물체의 색과 빛의 합성</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/3">← KISPP 과학실 · 중학교 2학년 Ⅲ. 빛과 파동</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p104-cartoon.jpg" alt="화면을 흰색으로 바꿨어. 어디 한번 자세히 들여다볼까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 빛과 파동 · 1. 빛 · 05 <span class="pg" style="margin:0">104~110쪽</span></span>
+      <h1>물체의 색과<br><span>빛의 합성</span></h1>
+      <p>“화면을 흰색으로 바꿨어.” “어디 한번 자세히 들여다볼까?” 스마트 기기의 흰색 화면을 확대해 보면 어떻게 보일까? 흰색 상자, 색 조명, 가상 현미경, RGB 조명 섞기로 물체의 색과 빛의 합성을 알아보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 물체의 색을 빛의 반사와 관련지어 설명하고, 영상 장치에서 빛의 합성으로 다양한 색이 표현되는 원리를 이해할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 자료 변환·비교·분석·해석하기</span>물체가 반사하는 빛의 색 관찰하기 <span class="pg">104~105쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol><li>아랫면이 뚫린 흰색 상자의 윗면과 옆면에 구멍을 뚫는다.</li><li>상자 아래에 빨간색 종이를 놓고 윗면 구멍에 손전등으로 빛을 비춘 뒤, 안쪽 면에 종이가 반사한 빛의 색을 관찰한다.</li><li>초록색 종이와 파란색 종이로 바꾸어 반복한다.</li></ol></div>
+      <figure class="fig" style="margin:0"><img src="img/p104-box.jpg" alt="흰색 상자 · 손전등 · 색종이"><figcaption><span class="tb">104쪽</span>흰색 상자 · 손전등 · 색종이</figcaption></figure>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 흰색 상자</span>옆 구멍으로 들여다보기</div>
+    <div class="btn-row" id="bx-btns"><button type="button" class="btn small main" data-c="r">빨간색 종이</button><button type="button" class="btn small" data-c="g">초록색 종이</button><button type="button" class="btn small" data-c="b">파란색 종이</button></div>
+    <div class="light-stage"><canvas id="bx-cv"></canvas></div>
+    <div class="q" data-why="종이는 자기 색의 빛만 반사하고 나머지 빛은 흡수해요. 그 반사된 빛이 상자 안쪽 면을 물들여요." data-hint="세 가지 종이를 모두 넣어 보세요.">
+      <div class="q-text"><span class="q-num">1</span>상자 안쪽 면은 빨간색 종이일 때 <span class="choice-group" data-key="bx1" data-answer="빨"><button type="button" class="choice-btn" data-value="빨">빨간색</button><button type="button" class="choice-btn" data-value="초">초록색</button><button type="button" class="choice-btn" data-value="흰">흰색</button></span>, 파란색 종이일 때 <span class="choice-group" data-key="bx2" data-answer="파"><button type="button" class="choice-btn" data-value="빨">빨간색</button><button type="button" class="choice-btn" data-value="파">파란색</button><button type="button" class="choice-btn" data-value="흰">흰색</button></span>으로 보인다. 물체의 색은 물체가 <span class="choice-group" data-key="bx3" data-answer="반사"><button type="button" class="choice-btn" data-value="반사">반사</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하는 빛의 색이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>물체의 색과 광원의 색 <span class="pg">105쪽</span></div>
+    <div class="book"><p>우리가 보는 물체의 색은 물체에서 반사하여 우리 눈으로 들어온 빛의 색으로 보인다. 예를 들어 <b>그림 3-8</b>과 같이 백색광 아래에서 딸기가 빨간색으로 보이는 것은 딸기가 ●백색광에 포함된 여러 가지 색의 빛 중에서 빨간색 빛은 반사하고, 나머지 색의 빛은 흡수하기 때문이다.</p>
+    <p>물체의 색은 광원의 색에 따라 다르게 보이기도 한다. <b>그림 3-9</b>와 같이 초록색 조명 아래에서는 선인장이 초록색 빛을 반사해 초록색으로 보이지만 파란색 조명 아래에서는 파란색 빛을 흡수하여 검게 보인다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><figure class="fig" style="margin:0"><img src="img/p105-fig3-8.jpg" alt="빛의 반사에 따른 물체의 색"><figcaption><span class="tb">그림 3-8</span>빛의 반사에 따른 물체의 색</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p105-fig3-9.jpg" alt="광원의 색에 따른 물체의 색"><figcaption><span class="tb">그림 3-9</span>광원의 색에 따른 물체의 색</figcaption></figure></div>
+    <div class="tip-box"><b>●백색광</b> 햇빛과 같이 백색으로 보이는 빛. 햇빛이 프리즘을 통과하면 여러 가지 색의 빛으로 나누어지므로 백색광에는 여러 가지 색의 빛이 합쳐져 있다.<br><b>💡 오개념 바로잡기</b> 검은색 물체는 모든 색의 빛을 흡수하므로 반사하는 빛이 없다. 검은색 빛을 반사하는 것이 아니다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">조명 바꾸기</span>무대 위의 딸기, 선인장, 화분</div>
+    <div class="btn-row" id="lt-btns"><button type="button" class="btn small main" data-l="w">⚪ 백색광</button><button type="button" class="btn small" data-l="r">🔴 빨간색 조명</button><button type="button" class="btn small" data-l="g">🟢 초록색 조명</button><button type="button" class="btn small" data-l="b">🔵 파란색 조명</button></div>
+    <div class="sim-stage"><canvas id="lt-cv"></canvas></div>
+    <div class="q" data-why="물체는 자기 색의 빛만 반사해요. 그 색의 빛이 조명에 없으면 반사할 빛이 없어 검게 보여요." data-hint="조명을 바꿔 보세요.">
+      <div class="q-text"><span class="q-num">1</span>초록색 조명 아래에서 파란색 화분은 <span class="choice-group" data-key="lt1" data-answer="검"><button type="button" class="choice-btn" data-value="파">파란색</button><button type="button" class="choice-btn" data-value="초">초록색</button><button type="button" class="choice-btn" data-value="검">검은색</button></span>, 파란색 조명 아래에서 초록색 선인장은 <span class="choice-group" data-key="lt2" data-answer="검"><button type="button" class="choice-btn" data-value="파">파란색</button><button type="button" class="choice-btn" data-value="초">초록색</button><button type="button" class="choice-btn" data-value="검">검은색</button></span>으로 보인다. 빨간색 조명 아래에서 딸기 꼭지는 <span class="choice-group" data-key="lt3" data-answer="검"><button type="button" class="choice-btn" data-value="빨">빨간색</button><button type="button" class="choice-btn" data-value="초">초록색</button><button type="button" class="choice-btn" data-value="검">검은색</button></span>으로 보인다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 디지털 탐구 도구 활용하기</span>영상 장치에서 다양한 색이 표현되는 원리 알아보기 <span class="pg">106~107쪽</span></div>
+    <div class="book"><p>텔레비전과 같은 영상 장치의 화면은 ●<span class="key">화소</span>로 이루어져 있어 다양한 색을 표현할 수 있다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol><li>스마트 기기의 카메라 렌즈에 맞춰 현미경 렌즈를 설치한다.</li><li>컴퓨터 모니터 화면에 다양한 색을 볼 수 있는 그림을 띄운다.</li><li><b>관찰</b> 각각의 색을 띠는 곳에 현미경 렌즈를 대고 화소의 모습을 관찰한다.</li><li>한 가지 색을 확대한 모습을 촬영하여 공유 플랫폼에 올린다.</li><li><b>추리</b> 다른 모둠이 공유한 화소의 모습을 보고 어떤 색인지 추리한다.</li></ol></div>
+      <figure class="fig" style="margin:0"><img src="img/p106-setup.jpg" alt="현미경 렌즈를 설치한 스마트 기기 · 컴퓨터 모니터"><figcaption><span class="tb">106쪽</span>현미경 렌즈를 설치한 스마트 기기 · 컴퓨터 모니터</figcaption></figure>
+    </div>
+    <div class="tip-box"><b>●화소</b> 영상 장치에서 색을 나타내는 최소 단위의 점으로 주로 세 가지 색으로 구성된다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 현미경 렌즈</span>화면 확대하기</div>
+    <div class="card-hint">왼쪽 ‘모니터’의 색깔 칸을 누르면 오른쪽에 확대한 화소가 보여요.</div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px"><div class="light-stage"><canvas id="mn-cv" style="cursor:pointer"></canvas></div><div class="sim-stage"><canvas id="zm-cv"></canvas><span class="tag" id="zm-tag"></span></div></div>
+    <div class="q" data-why="빨간색, 초록색, 파란색은 한 종류의 화소만 켜져요. 노란색은 빨간색+초록색, 흰색은 세 가지가 모두 켜져요.">
+      <div class="q-text"><span class="q-num">1</span>한 종류의 화소로만 표현되는 색을 모두 고르시오.</div><div class="multi-group" data-key="zm1" data-answer="빨,초,파"><button type="button" class="multi-btn" data-value="빨">빨간색</button><button type="button" class="multi-btn" data-value="초">초록색</button><button type="button" class="multi-btn" data-value="파">파란색</button><button type="button" class="multi-btn" data-value="노">노란색</button><button type="button" class="multi-btn" data-value="흰">흰색</button><button type="button" class="multi-btn" data-value="청">청록색</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>더 해 보기 · 조명으로 다양한 색 표현하기</h4><p style="margin:0;font-size:14px">손전등 3 개에 빨간색, 초록색, 파란색 셀로판지를 붙여 3 가지 색 조명을 만든 뒤 스크린에 비추어 다양한 색을 표현해 보자. ↓ 가상 조명으로 먼저 해 보자!</p></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>빛의 삼원색과 빛의 합성 <span class="pg">107~108쪽</span></div>
+    <div class="book"><p>현미경으로 화면을 확대하면 빨간색, 초록색, 파란색 빛을 볼 수 있다. 이 세 가지 색의 빛은 여러 가지 색을 표현하는 기본이 되는 빛으로 <span class="key">빛의 삼원색</span>이라고 한다. 빨간색과 초록색 빛을 합하면 노란색으로 보이고, 파란색과 빨간색 빛을 합하면 자홍색으로 보인다. 이처럼 서로 다른 색의 빛을 합하면 또 다른 색으로 보이는 현상을 <span class="key">빛의 합성</span>이라고 한다. 영상 장치는 빨간색, 초록색, 파란색 빛을 내는 화소로 이루어져 있으며, 이를 켜고 끄거나 밝기를 조절하여 다양한 색을 표현한다.</p></div>
+    <div class="card-title" style="margin-top:8px"><span class="badge sim">움직이는 그림 3-10</span>세 가지 색 조명 섞기</div>
+    <div class="card-hint">R, G, B 밝기(0~255)를 조절해 스크린에 비춰 보자. 그림 편집 앱처럼 0부터 255까지 조절할 수 있어요. 아래 미션 색을 만들어 보세요!</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>🔴 빨간색(R) <output id="mx-ro"></output></label><input type="range" id="mx-r" min="0" max="255" value="255"></div><div class="ctrl"><label>🟢 초록색(G) <output id="mx-go"></output></label><input type="range" id="mx-g" min="0" max="255" value="255"></div><div class="ctrl"><label>🔵 파란색(B) <output id="mx-bo"></output></label><input type="range" id="mx-b" min="0" max="255" value="0"></div></div>
+    <div class="sim-stage"><canvas id="mx-cv"></canvas></div>
+    <div class="tip-box" id="mx-mis"></div>
+    <div class="q" data-why="빛의 합성: R+G=노랑, G+B=청록, B+R=자홍, R+G+B=흰색">
+      <div class="q-text"><span class="q-num">1</span>빨간색 빛 + 초록색 빛 = <span class="choice-group" data-key="t8a" data-answer="노"><button type="button" class="choice-btn" data-value="노">노란색</button><button type="button" class="choice-btn" data-value="청">청록색</button><button type="button" class="choice-btn" data-value="자">자홍색</button></span>, 초록색 빛 + 파란색 빛 = <span class="choice-group" data-key="t8b" data-answer="청"><button type="button" class="choice-btn" data-value="노">노란색</button><button type="button" class="choice-btn" data-value="청">청록색</button><button type="button" class="choice-btn" data-value="자">자홍색</button></span>, 파란색 빛 + 빨간색 빛 = <span class="choice-group" data-key="t8c" data-answer="자"><button type="button" class="choice-btn" data-value="노">노란색</button><button type="button" class="choice-btn" data-value="청">청록색</button><button type="button" class="choice-btn" data-value="자">자홍색</button></span>, 세 가지를 모두 합하면 <span class="choice-group" data-key="t8d" data-answer="흰"><button type="button" class="choice-btn" data-value="흰">흰색</button><button type="button" class="choice-btn" data-value="검">검은색</button></span></div>
+      <span class="fb"></span>
+    </div>
+<figure class="fig"><img src="img/p107-fig3-11.jpg" alt="영상 장치에서 색을 표현할 때 화소의 모습"><figcaption><span class="tb">그림 3-11</span>영상 장치에서 색을 표현할 때 화소의 모습</figcaption></figure>
+<figure class="fig"><img src="img/p108-fig3-12.jpg" alt="빛의 합성 이용 — 대형 전광판, 조명 장치, 드론쇼, 건물 외벽 미디어 아트"><figcaption><span class="tb">그림 3-12</span>빛의 합성 이용 — 대형 전광판, 조명 장치, 드론쇼, 건물 외벽 미디어 아트</figcaption></figure>
+    <div class="block-q">
+      <b>🧩 첫 번째 블록 · 힌트 조각 2 (108쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">영상 장치의 화면은 빛의 삼원색의 화소로 이루어져 있으며, 화소에서 나오는 빛을 ( <input class="blank w-s" data-key="blk2" data-answer="합성"> )하여 화면에 다양한 색을 표현한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>104쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">108쪽</span></div>
+    <div class="q" data-why="빛의 삼원색은 빨간색, 초록색, 파란색이에요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 빛의 삼원색은 빨간색, <input class="blank w-s" data-key="sc_1a" data-answer="초록색|파란색"> , <input class="blank w-s" data-key="sc_1b" data-answer="파란색|초록색"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="흰색(R+G+B)에서 파란색이 줄면 빨간색+초록색 = 노란색 쪽으로 바뀌어요.">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 배경 화면이 흰색인 스마트 기기에서 시력 보호 기능을 켜면 파란색 화소의 밝기가 줄어든다. 배경 화면은 <span class="choice-group" data-key="sc_2" data-answer="노"><button type="button" class="choice-btn" data-value="노">노란빛</button><button type="button" class="choice-btn" data-value="파">파란빛</button><button type="button" class="choice-btn" data-value="청">청록빛</button></span>을 띠게 된다. (위 조명 섞기에서 R 255, G 255, B를 줄여 확인해 보자.)</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">과학이 톡</span>빛의 성질을 이용한 업사이클링 예술 작품 <span class="pg">109쪽</span></div>
+<figure class="fig" style="max-width:240px;float:right;margin:0 0 6px 10px"><img src="img/p109-art.jpg" alt="버려진 플라스틱 상자로 만든 업사이클링 작품"><figcaption><span class="tb">109쪽</span>버려진 플라스틱 상자로 만든 업사이클링 작품</figcaption></figure>    <div class="book"><p>업사이클링은 쓸모가 없거나 버려지는 물건으로 더 가치가 높은 물건을 만드는 일이다. 버려진 플라스틱 상자로 만든 작품은 상자에서 반사하거나 통과한 빛을 합성하여 다양한 색이 나타나도록 연출했고, 유리병으로 만든 조명은 빛의 굴절과 합성을 이용한다.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>가정이나 학교에서 버려지는 물건으로 빛의 성질(반사, 굴절, 합성)을 이용한 나만의 업사이클링 작품을 계획해 보자.</div><textarea class="free" data-key="art" rows="2" data-keywords="반사,굴절,합성" data-model="다 쓴 투명 페트병에 색 셀로판지를 붙이고 안에 LED를 넣어, 빛이 굴절하고 합성되어 여러 색으로 퍼지는 무드등을 만든다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>물체의 색과 빛의 합성</div>
+    <div class="q" data-why="흰색은 모두 반사, 검은색은 모두 흡수예요.">
+      <div class="q-text"><span class="q-num">1</span>물체의 색은 그 물체가 <input class="blank w-s" data-key="t1" data-answer="반사"> 하는 빛의 색이다. 햇빛 아래 종이가 흰색으로 보이는 것은 모든 색의 빛을 <span class="choice-group" data-key="t3a" data-answer="반사"><button type="button" class="choice-btn" data-value="반사">반사</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하기 때문이고, 검은색으로 보이는 것은 모두 <span class="choice-group" data-key="t3b" data-answer="흡수"><button type="button" class="choice-btn" data-value="반사">반사</button><button type="button" class="choice-btn" data-value="흡수">흡수</button></span>하기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="빛의 합성, 화소">
+      <div class="q-text"><span class="q-num">6</span>두 가지 이상의 색의 빛을 합하여 다른 색의 빛을 얻는 것을 빛의 <input class="blank w-s" data-key="t6" data-answer="합성"> 이라고 한다. 영상 장치의 화면은 삼원색의 빛을 내는 수많은 <input class="blank w-s" data-key="t7" data-answer="화소"> 로 이루어져 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화소는 빨간색, 초록색, 파란색 빛을 내요(⑵ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 영상 장치는 빛의 합성을 이용한다.</td><td><span class="choice-group" data-key="t9a" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 영상 장치는 빨간색, 파란색, 자홍색 빛을 내는 화소로 이루어져 있다.</td><td><span class="choice-group" data-key="t9b" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 각 화소에서 세 가지 색을 켜거나 꺼서 다양한 색을 표현한다.</td><td><span class="choice-group" data-key="t9c" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="청록색 = 초록색 + 파란색">
+      <div class="q-text"><span class="q-num">10</span>청록색 풍선을 표현할 때 켜져 있는 화소를 모두 고르시오.</div><div class="multi-group" data-key="t10" data-answer="초,파"><button type="button" class="multi-btn" data-value="빨">빨간색</button><button type="button" class="multi-btn" data-value="초">초록색</button><button type="button" class="multi-btn" data-value="파">파란색</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>1. 빛 · 첫 번째 블록 찾기 <span class="pg">110쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>물체의 색과 빛의 합성</h4>
+      <div class="q" style="border-top:none" data-why="물체의 색은 반사하는 빛의 색이고, 빛을 합하면 다른 색이 보여요(합성).">
+        <div class="q-text">⑴ 물체의 색: 물체가 <input class="blank w-s" data-key="s10" data-answer="반사"> 하는 빛의 색<br>⑵ 빛의 삼원색: 빨간색, 초록색, 파란색<br>⑶ 빛의 <input class="blank w-s" data-key="s11" data-answer="합성"> : 서로 다른 색의 빛을 합하면 또 다른 색으로 보이는 현상</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q"><b>🧩 첫 번째 블록 찾기 · 영상 장치로 원하는 색을 어떻게 나타낼까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① 영상 장치는 스스로 빛을 내는 광원이다. 영상 장치에서 나온 빛이 우리 눈에 들어오면 영상을 볼 수 있다. (95쪽) ② 영상 장치의 화면은 빛의 삼원색의 화소로 이루어져 있으며, 화소에서 나오는 빛을 합성하여 화면에 다양한 색을 표현한다. (108쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">두 조각을 모아 첫 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="광원,화소,삼원색,합성,밝기" data-model="영상 장치는 스스로 빛을 내는 광원으로, 빨간색·초록색·파란색 화소의 밝기를 조절해 빛을 합성하면 원하는 색을 나타낼 수 있다."></textarea><span class="fb"></span></div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 빛의 반사와 굴절, 거울과 렌즈의 상, 물체의 색과 빛의 합성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>과정·기능</b> 영상 장치가 색을 표현하는 원리를 관찰에 근거하여 추론했는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 빛의 성질을 관찰하며 과학의 심미적 가치를 느꼈는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅲ. 빛과 파동 · 1. 빛 · 05 물체의 색과 빛의 합성 · 비상교육 중학 과학 2 교과서(104~110쪽)·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록 · 아두이노 실험: <a href="arduino-rgb.html">RGB LED로 빛의 합성</a></footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅲ-1-05 물체의 색과 빛의 합성";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+const RGB = { r: [255, 40, 40], g: [40, 200, 70], b: [40, 90, 255] };
+/* ── 흰색 상자 ── */
+let BX = "r"; const BXS = new Set(["r"]);
+$("bx-btns").addEventListener("click", e => { const b = e.target.closest("[data-c]"); if (!b) return; BX = b.dataset.c; BXS.add(BX); $("bx-btns").querySelectorAll("button").forEach(x => x.classList.toggle("main", x === b)); });
+WS.custom("bx_seen", { el: $("bx-cv"), value: () => [...BXS].join(",") });
+LB.loop($("bx-cv"), () => {
+  const g = LB.fit($("bx-cv"), 220), c = g.c, W = g.w, H = 220, col = RGB[BX]; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const x = W / 2 - 90, y = 40; const grd = c.createLinearGradient(0, y + 150, 0, y); grd.addColorStop(0, `rgba(${col},0.75)`); grd.addColorStop(1, "rgba(255,255,255,0.95)");
+  c.fillStyle = grd; c.fillRect(x, y, 180, 150); c.strokeStyle = "#bbb"; c.strokeRect(x, y, 180, 150);
+  c.fillStyle = `rgb(${col})`; c.fillRect(x - 10, y + 150, 200, 14);
+  c.fillStyle = "#fff59d"; c.beginPath(); c.moveTo(W / 2 - 8, y); c.lineTo(W / 2 + 8, y); c.lineTo(W / 2 + 30, y + 150); c.lineTo(W / 2 - 30, y + 150); c.globalAlpha = 0.5; c.fill(); c.globalAlpha = 1;
+  c.fillStyle = "#555"; c.fillRect(W / 2 - 12, y - 30, 24, 28); c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText("손전등(백색광)", W / 2 + 16, y - 14); c.fillText("👁️ 옆 구멍", x + 186, y + 70);
+  c.fillText("반사된 빛이 안쪽 면을 물들여요", x, y + 182);
+});
+
+/* ── 조명 바꾸기 ── */
+let LT = "w"; const LTS = new Set(["w"]);
+$("lt-btns").addEventListener("click", e => { const b = e.target.closest("[data-l]"); if (!b) return; LT = b.dataset.l; LTS.add(LT); $("lt-btns").querySelectorAll("button").forEach(x => x.classList.toggle("main", x === b)); });
+WS.custom("lt_seen", { el: $("lt-cv"), value: () => [...LTS].join(",") });
+const LIGHT = { w: [1, 1, 1], r: [1, 0, 0], g: [0, 1, 0], b: [0, 0, 1] };
+const shade = (refl, base) => { const L = LIGHT[LT]; const k = [0, 1, 2].map(i => L[i] * refl[i]); const s = k[0] + k[1] + k[2]; if (s === 0) return "rgb(25,25,25)"; return `rgb(${base.map((v, i) => Math.round(v * (k[i] ? 1 : 0.12) + 20)).join(",")})`; };
+LB.loop($("lt-cv"), () => {
+  const g = LB.fit($("lt-cv"), 220), c = g.c, W = g.w, H = 220; const L = LIGHT[LT];
+  c.fillStyle = "#0b0f14"; c.fillRect(0, 0, W, H); const sp = c.createRadialGradient(W / 2, 0, 10, W / 2, 80, W * 0.6); sp.addColorStop(0, `rgba(${L.map(v => v * 255 + 30)},0.35)`); sp.addColorStop(1, "rgba(0,0,0,0)"); c.fillStyle = sp; c.fillRect(0, 0, W, H);
+  const red = shade([1, 0, 0], [220, 30, 40]), grn = shade([0, 1, 0], [40, 170, 60]), blu = shade([0, 0, 1], [40, 80, 220]);
+  const s = W / 3;
+  c.fillStyle = red; c.beginPath(); c.ellipse(s * 0.5, 140, 34, 40, 0, 0, 7); c.fill(); c.fillStyle = grn; c.beginPath(); c.ellipse(s * 0.5, 96, 18, 8, 0, 0, 7); c.fill();
+  c.fillStyle = grn; c.fillRect(s * 1.5 - 14, 70, 28, 80); c.beginPath(); c.arc(s * 1.5, 70, 14, Math.PI, 0); c.fill(); c.fillRect(s * 1.5 - 34, 95, 20, 12); c.fillRect(s * 1.5 + 14, 88, 18, 12);
+  c.fillStyle = blu; c.beginPath(); c.moveTo(s * 1.5 - 32, 150); c.lineTo(s * 1.5 + 32, 150); c.lineTo(s * 1.5 + 24, 196); c.lineTo(s * 1.5 - 24, 196); c.fill();
+  c.fillStyle = shade([1, 1, 1], [230, 230, 230]); c.fillRect(s * 2.5 - 30, 120, 60, 70); c.fillStyle = "#fff"; c.font = "11px Pretendard, sans-serif"; c.textAlign = "center";
+  c.fillText("딸기", s * 0.5, 205); c.fillText("선인장·화분", s * 1.5, 212); c.fillText("흰 종이", s * 2.5, 205); c.textAlign = "left";
+});
+
+/* ── 가상 현미경 ── */
+const SW = [["빨간색", [255, 0, 0]], ["초록색", [0, 255, 0]], ["파란색", [0, 0, 255]], ["노란색", [255, 255, 0]], ["청록색", [0, 255, 255]], ["자홍색", [255, 0, 255]], ["흰색", [255, 255, 255]], ["주황색", [255, 140, 0]]];
+let ZM = 6; const ZMS = new Set();
+$("mn-cv").addEventListener("click", e => { const r = $("mn-cv").getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, cw = r.width / 4; const i = Math.floor(x / cw) + (y > 100 ? 4 : 0); if (SW[i]) { ZM = i; ZMS.add(SW[i][0]); } });
+WS.custom("zm_seen", { el: $("zm-cv"), value: () => [...ZMS].join(",") });
+LB.loop($("mn-cv"), () => { const g = LB.fit($("mn-cv"), 200), c = g.c, W = g.w, cw = W / 4; SW.forEach((s, i) => { c.fillStyle = `rgb(${s[1]})`; c.fillRect((i % 4) * cw, i > 3 ? 100 : 0, cw, 100); }); c.strokeStyle = "#ffd23a"; c.lineWidth = 3; c.strokeRect((ZM % 4) * cw + 2, (ZM > 3 ? 100 : 0) + 2, cw - 4, 96); c.lineWidth = 1; });
+LB.loop($("zm-cv"), () => { const g = LB.fit($("zm-cv"), 200), c = g.c, W = g.w, H = 200, col = SW[ZM][1]; c.fillStyle = "#050505"; c.fillRect(0, 0, W, H); const pw = 30, ph = 42;
+  for (let y = 6; y < H; y += ph + 6) for (let x = 6; x < W; x += pw + 6) { [[255, 0, 0], [0, 255, 0], [0, 0, 255]].forEach((p, k) => { const v = col[k] / 255; c.fillStyle = `rgba(${p},${0.06 + 0.94 * v})`; c.fillRect(x + k * 10, y, 8, ph); }); }
+  $("zm-tag").textContent = SW[ZM][0] + " 부분 확대"; });
+
+/* ── 조명 섞기 ── */
+const MIS = [["노란색", [255, 255, 0]], ["자홍색", [255, 0, 255]], ["청록색", [0, 255, 255]], ["흰색", [255, 255, 255]]]; const DONE = new Set();
+function mxDraw() {
+  const r = +$("mx-r").value, gg = +$("mx-g").value, b = +$("mx-b").value; $("mx-ro").textContent = r; $("mx-go").textContent = gg; $("mx-bo").textContent = b;
+  const g = LB.fit($("mx-cv"), 240), c = g.c, W = g.w, H = 240; c.fillStyle = "#000"; c.fillRect(0, 0, W, H); c.globalCompositeOperation = "lighter";
+  const R = 70, cx = W / 2, cy = 125; [[r, 0, 0, cx, cy - 36], [0, gg, 0, cx - 40, cy + 30], [0, 0, b, cx + 40, cy + 30]].forEach(([a, bb, cc, x, y]) => { c.fillStyle = `rgb(${a},${bb},${cc})`; c.beginPath(); c.arc(x, y, R, 0, 7); c.fill(); });
+  c.globalCompositeOperation = "source-over"; c.fillStyle = `rgb(${r},${gg},${b})`; c.fillRect(W - 70, 10, 60, 40); c.strokeStyle = "#fff"; c.strokeRect(W - 70, 10, 60, 40); c.fillStyle = "#fff"; c.font = "11px Pretendard, sans-serif"; c.fillText("가운데 색", W - 68, 64);
+  MIS.forEach(m => { if (Math.abs(m[1][0] - r) < 30 && Math.abs(m[1][1] - gg) < 30 && Math.abs(m[1][2] - b) < 30) DONE.add(m[0]); });
+  $("mx-mis").innerHTML = "🎯 미션 — 스크린 가운데를 이 색으로 만들기: " + MIS.map(m => `<b style="color:${DONE.has(m[0]) ? "#2fae5d" : "#6b7b85"}">${DONE.has(m[0]) ? "✔ " : ""}${m[0]}</b>`).join(" · ");
+}
+["mx-r", "mx-g", "mx-b"].forEach(id => $(id).addEventListener("input", mxDraw)); mxDraw(); window.addEventListener("resize", mxDraw);
+WS.custom("mx_mission", { el: $("mx-cv"), value: () => [...DONE].join(",") });
+
+</script>
+</body>
+</html>

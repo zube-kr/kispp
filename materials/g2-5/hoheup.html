@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅴ-2-01 — 광합성과 호흡의 관계</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/5">← KISPP 과학실 · 중학교 2학년 Ⅴ. 식물과 에너지</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p176-cartoon.jpg" alt="자고 있니? 에너지를 만드는 중이야.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 식물과 에너지 · 2. 식물의 호흡과 에너지 · 01 <span class="pg" style="margin:0">175~179쪽</span></span>
+      <h1>광합성과<br><span>호흡의 관계</span></h1>
+      <p>“자고 있니?” “에너지를 만드는 중이야.” 식물은 살아가는 데 필요한 에너지를 어떻게 얻을까? 어둠상자 속 기체 농도 변화를 예상해 보고, 하루 동안 식물이 내보내고 흡수하는 기체를 관찰해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 광합성과 호흡의 관계를 설명하고, 광합성과 호흡 과정에서 일어나는 에너지의 출입과 물질의 변화를 분석할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">두 번째 블록</span>열매가 맺히기까지 식물은 양분을 어떻게 저장하고 이용할까? <span class="pg">175쪽</span></div>
+    <div class="book"><p>“이것 봐. 포도가 많이 맺혔어.” “알이 크고 탱탱한 포도는 새콤달콤하고 정말 맛있을 것 같아.” 이 단원의 힌트 조각을 모으면 식물이 에너지를 얻는 과정과 양분을 저장하고 이용하는 과정을 알아내어 두 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">식물은 뿌리, 줄기, 잎, 꽃으로 이루어져 있다.</button><button type="button" class="multi-btn" data-value="2">식물은 광합성으로 생명활동에 필요한 양분을 얻는다.</button><button type="button" class="multi-btn" data-value="3">잎에서 만든 양분은 줄기를 통해 식물 전체로 이동한다.</button></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>식물은 어떻게 에너지를 얻을까? <span class="pg">176쪽</span></div>
+    <div class="book"><p>식물이 싹을 틔우고 열매를 맺는 것과 같은 생명활동을 하려면 에너지가 필요하다. 식물은 광합성으로 만든 양분을 에너지원으로 사용한다. 식물은 세포에서 포도당이 산소와 반응하여 이산화 탄소와 물로 분해되면서 에너지를 얻는다. 이를 <span class="key">호흡</span>이라고 하고, 주로 <span class="key">마이토콘드리아</span>에서 일어난다. 식물은 호흡으로 얻은 에너지를 생명활동에 이용한다.</p></div>
+<figure class="fig"><img src="img/p176-thermal.jpg" alt="식물을 열화상 카메라로 촬영한 모습 — 식물이 호흡으로 에너지를 얻을 때 열이 발생한다."><figcaption><span class="tb">그림 5-3</span>식물을 열화상 카메라로 촬영한 모습 — 식물이 호흡으로 에너지를 얻을 때 열이 발생한다.</figcaption></figure>
+    <div class="q" data-why="호흡은 광합성과 반대 방향이에요: C₆H₁₂O₆ + O₂ → CO₂ + H₂O + 에너지">
+      <div class="q-text"><span class="q-num">1</span>호흡 식: 포도당( <input class="blank w-s" data-key="eq1" data-answer="C6H12O6" style="width:85px"> ) + 산소( <input class="blank w-s" data-key="eq2" data-answer="O2" style="width:45px"> ) → 이산화 탄소( <input class="blank w-s" data-key="eq3" data-answer="CO2" style="width:55px"> ) + 물( <input class="blank w-s" data-key="eq4" data-answer="H2O" style="width:55px"> ) + 에너지</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 자료 변환·비교·분석·해석하기</span>식물의 호흡에서 기체의 출입 알아보기 <span class="pg">177쪽</span></div>
+<figure class="fig"><img src="img/p177-setup.jpg" alt="어둠상자 속 밀폐 용기 · 이산화 탄소 센서 · 산소 센서"><figcaption><span class="tb">177쪽</span>어둠상자 속 밀폐 용기 · 이산화 탄소 센서 · 산소 센서</figcaption></figure>
+    <div class="card-hint">어둠상자 속 밀폐 용기 안의 산소 농도 그래프가 주어졌어요. 이산화 탄소 농도 그래프는 어떤 모양일지 골라 예상한 뒤 [측정 결과 보기]를 눌러 확인해 보자.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>이산화 탄소 그래프 예상</label><select id="pr"><option value="">고르기</option><option value="up">시간에 따라 증가</option><option value="down">시간에 따라 감소</option><option value="flat">거의 일정</option></select></div><div class="ctrl"><label>확인</label><button type="button" class="btn small main" id="pr-show">📈 측정 결과 보기</button></div></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px"><div class="light-stage"><canvas id="o2g"></canvas></div><div class="light-stage"><canvas id="co2g"></canvas></div></div>
+    <div class="q" data-why="빛이 없으면 광합성은 일어나지 않고 호흡만 일어나 산소는 줄고 이산화 탄소는 늘어요.">
+      <div class="q-text"><span class="q-num">1</span>빛이 없을 때 식물 주변에서 산소 농도는 <span class="choice-group" data-key="d1" data-answer="낮"><button type="button" class="choice-btn" data-value="낮">낮아지고</button><button type="button" class="choice-btn" data-value="높">높아지고</button></span>, 이산화 탄소 농도는 <span class="choice-group" data-key="d2" data-answer="높"><button type="button" class="choice-btn" data-value="낮">낮아진다</button><button type="button" class="choice-btn" data-value="높">높아진다</button></span>. 이는 식물이 호흡으로 산소를 <span class="choice-group" data-key="d3" data-answer="사용"><button type="button" class="choice-btn" data-value="사용">사용</button><button type="button" class="choice-btn" data-value="방출">방출</button></span>하고 이산화 탄소를 <span class="choice-group" data-key="d4" data-answer="방출"><button type="button" class="choice-btn" data-value="사용">사용</button><button type="button" class="choice-btn" data-value="방출">방출</button></span>하기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>💡 오개념 바로잡기 · 식물의 호흡은 잎에서만 일어날까?</h4><p style="margin:0;font-size:14px">뿌리, 줄기, 잎, 열매를 이루는 살아 있는 모든 세포에서는 양분을 분해하여 생명활동에 필요한 에너지를 만든다. 또 생명활동에는 항상 에너지가 필요하므로 식물의 호흡은 빛이 있을 때나 없을 때나 항상 일어난다.</p></div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 1 (179쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">식물은 ( <span class="choice-group" data-key="blk1" data-answer="호흡"><button type="button" class="choice-btn" data-value="호흡">호흡</button><button type="button" class="choice-btn" data-value="광합성">광합성</button><button type="button" class="choice-btn" data-value="증산">증산</button></span> )(으)로 얻은 에너지를 생명활동에 이용한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 변환·비교·분석·해석하기</span>광합성과 호흡 과정에서의 에너지 출입과 물질의 변화 분석하기 <span class="pg">178~179쪽</span></div>
+<figure class="fig"><img src="img/p178-model.jpg" alt="색점토 모형으로 광합성과 호흡 관계 모식도 완성하기"><figcaption><span class="tb">178쪽</span>색점토 모형으로 광합성과 호흡 관계 모식도 완성하기</figcaption></figure>
+    <div class="q" data-why="광합성: 이산화 탄소+물 → 포도당+산소 (빛에너지 흡수) / 호흡: 포도당+산소 → 이산화 탄소+물 (생명활동 에너지를 얻음)">
+      <div class="q-text"><span class="q-num">1</span><b>자료 변환</b> 모식도를 분석하여 광합성과 호흡 과정에서 일어나는 물질의 변화와 에너지의 출입을 표에 정리해 보자.</div><table class="data-t" style="margin-top:6px"><tr><th>구분</th><th>광합성</th><th>호흡</th></tr><tr><td>필요한 물질</td><td><div class="multi-group" data-key="ph_in" data-answer="이산화,물"><button type="button" class="multi-btn" data-value="이산화">이산화 탄소</button><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="포도당">포도당</button><button type="button" class="multi-btn" data-value="산소">산소</button></div></td><td><div class="multi-group" data-key="rs_in" data-answer="포도당,산소"><button type="button" class="multi-btn" data-value="이산화">이산화 탄소</button><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="포도당">포도당</button><button type="button" class="multi-btn" data-value="산소">산소</button></div></td></tr><tr><td>만들어진 물질</td><td><div class="multi-group" data-key="ph_out" data-answer="포도당,산소"><button type="button" class="multi-btn" data-value="이산화">이산화 탄소</button><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="포도당">포도당</button><button type="button" class="multi-btn" data-value="산소">산소</button></div></td><td><div class="multi-group" data-key="rs_out" data-answer="이산화,물"><button type="button" class="multi-btn" data-value="이산화">이산화 탄소</button><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="포도당">포도당</button><button type="button" class="multi-btn" data-value="산소">산소</button></div></td></tr><tr><td>에너지</td><td><span class="choice-group" data-key="ph_e" data-answer="흡수"><button type="button" class="choice-btn" data-value="흡수">빛에너지 흡수</button><button type="button" class="choice-btn" data-value="얻">생명활동 에너지를 얻음</button></span></td><td><span class="choice-group" data-key="rs_e" data-answer="얻"><button type="button" class="choice-btn" data-value="흡수">빛에너지 흡수</button><button type="button" class="choice-btn" data-value="얻">생명활동 에너지를 얻음</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+<figure class="fig"><img src="img/p179-fig5-4.jpg" alt="광합성과 호흡의 관계"><figcaption><span class="tb">그림 5-4</span>광합성과 호흡의 관계</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">하루 동안의 식물</span>낮과 밤의 기체 출입</div>
+    <div class="card-hint">시각을 바꾸어 보자. 빛이 강한 낮에는 광합성이 호흡보다 활발하고, 밤에는 호흡만 일어나요. 화살표는 식물이 내보내거나 흡수하는 기체예요.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>시각 <output id="dy-o"></output></label><input type="range" id="dy" min="0" max="24" step="0.5" value="12"></div></div>
+    <div class="fig-row" style="grid-template-columns:1fr 1fr;gap:8px"><div class="sim-stage"><canvas id="dy-cv"></canvas></div><div class="light-stage"><canvas id="dy-g"></canvas></div></div>
+    <div class="q" data-why="낮: 광합성 > 호흡 → 이산화 탄소 흡수, 산소 방출 / 밤: 호흡만 → 산소 흡수, 이산화 탄소 방출" data-hint="시각을 12시와 0시로 바꾸어 보세요.">
+      <div class="q-text"><span class="q-num">2</span>빛의 세기가 강한 낮에 식물은 이산화 탄소를 <span class="choice-group" data-key="dy1" data-answer="흡"><button type="button" class="choice-btn" data-value="흡">흡수</button><button type="button" class="choice-btn" data-value="방">방출</button></span>하고 산소를 <span class="choice-group" data-key="dy2" data-answer="방"><button type="button" class="choice-btn" data-value="흡">흡수</button><button type="button" class="choice-btn" data-value="방">방출</button></span>한다. 빛이 없는 밤에는 <span class="choice-group" data-key="dy3" data-answer="호흡"><button type="button" class="choice-btn" data-value="광합성">광합성만</button><button type="button" class="choice-btn" data-value="호흡">호흡만</button><button type="button" class="choice-btn" data-value="둘">광합성과 호흡이 모두</button></span> 일어난다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>더 해 보기 · 광합성과 호흡의 관계를 나타내는 노래 만들기</h4><p style="margin:0 0 6px;font-size:14px">광합성과 호흡 과정의 에너지 출입과 물질의 변화를 표현한 노래 가사를 만들어 보자.</p><textarea class="free" data-key="song" rows="3" placeholder="가사를 써 보세요."></textarea></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>176쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">179쪽</span></div>
+    <div class="q" data-why="호흡">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 식물은 광합성으로 양분을 만들고, ( <input class="blank w-s" data-key="sc_1" data-answer="호흡"> )으로 양분을 분해하여 살아가는 데 필요한 에너지를 얻는다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 농작물의 씨를 뿌리기 전에 밭을 갈아 흙 속에 공기가 잘 통하게 만드는 까닭을 식물의 호흡과 관련지어 설명해 보자.</div><textarea class="free" data-key="sc_soil" rows="2" data-keywords="뿌리,호흡,산소,공기" data-model="뿌리의 살아 있는 세포도 호흡하여 에너지를 얻는데, 호흡에는 산소가 필요하므로 흙 속에 공기(산소)가 잘 통하도록 밭을 간다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>광합성과 호흡의 관계</div>
+    <div class="q" data-why="산소, 호흡, 낮아, 높아">
+      <div class="q-text"><span class="q-num">1</span>식물은 세포에서 광합성으로 만들어진 양분이 <input class="blank w-s" data-key="t1a" data-answer="산소"> 와 반응하여 이산화 탄소와 물로 분해되면서 에너지를 얻는다. 이 과정을 <input class="blank w-s" data-key="t1b" data-answer="호흡"> 이라고 한다. 빛이 없을 때 식물 주변에서는 산소 농도가 <span class="choice-group" data-key="t2a" data-answer="낮아"><button type="button" class="choice-btn" data-value="낮아">낮아</button><button type="button" class="choice-btn" data-value="높아">높아</button></span>지고, 이산화 탄소 농도가 <span class="choice-group" data-key="t2b" data-answer="높아"><button type="button" class="choice-btn" data-value="낮아">낮아</button><button type="button" class="choice-btn" data-value="높아">높아</button></span>진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="호흡은 살아 있는 모든 세포에서 항상 일어나고(④, ⑨ X), 산소가 필요해요(⑤ X). 호흡은 양분을 분해하는 과정이에요(⑦ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">③ 식물의 호흡은 빛이 있을 때나 없을 때나 항상 일어난다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">④ 식물의 호흡은 잎에서만 일어난다.</td><td><span class="choice-group" data-key="t4" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑤ 식물은 호흡을 할 때 이산화 탄소가 필요하다.</td><td><span class="choice-group" data-key="t5" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑦ 광합성과 호흡은 모두 양분을 저장하는 과정이다.</td><td><span class="choice-group" data-key="t7" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑧ 광합성은 에너지를 저장하는 과정이고, 호흡은 에너지를 방출하는 과정이다.</td><td><span class="choice-group" data-key="t8" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑨ 광합성은 하루 중 빛이 있는 낮에 일어나고, 호흡은 밤에만 일어난다.</td><td><span class="choice-group" data-key="t9" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑩ 광합성으로 만들어진 물질은 호흡에 이용되기도 하고, 호흡으로 만들어진 물질은 광합성에 이용되기도 한다.</td><td><span class="choice-group" data-key="t10" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="A — 이산화 탄소, B — 포도당">
+      <div class="q-text"><span class="q-num">6</span>광합성에 필요한 물질은 ( A ), 물이고, 호흡에 필요한 물질은 ( B ), 산소이다. A: <span class="choice-group" data-key="t6a" data-answer="이산화"><button type="button" class="choice-btn" data-value="이산화">이산화 탄소</button><button type="button" class="choice-btn" data-value="포도당">포도당</button><button type="button" class="choice-btn" data-value="산소">산소</button></span> B: <span class="choice-group" data-key="t6b" data-answer="포도당"><button type="button" class="choice-btn" data-value="이산화">이산화 탄소</button><button type="button" class="choice-btn" data-value="포도당">포도당</button><button type="button" class="choice-btn" data-value="물">물</button></span></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>광합성과 호흡의 관계 <span class="pg">182쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>광합성과 호흡의 관계</h4>
+      <div class="q" style="border-top:none" data-why="광합성은 양분 생성, 호흡은 양분 분해">
+        <div class="q-text">⑴ 식물의 <input class="blank w-s" data-key="s1" data-answer="호흡"> : 포도당이 산소와 반응하여 이산화 탄소와 물로 분해되면서 생명활동에 필요한 에너지를 얻는 과정<br>⑵ 광합성 — 양분 <span class="choice-group" data-key="s2" data-answer="생성"><button type="button" class="choice-btn" data-value="생성">생성</button><button type="button" class="choice-btn" data-value="분해">분해</button></span>, 빛에너지 흡수 / 호흡 — 양분 분해, 생명활동에 필요한 에너지를 얻음</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>과정·기능</b> 광합성과 호흡 과정의 에너지 출입과 물질의 변화를 분석했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 모둠 구성원과 협력하며 모형을 창의적으로 표현했는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅴ. 식물과 에너지 · 2. 식물의 호흡과 에너지 · 01 광합성과 호흡의 관계 · 비상교육 중학 과학 2 교과서(175~179쪽)·해 보기·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록 · 그래프는 교육용 예시 값</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅴ-2-01 광합성과 호흡의 관계";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 어둠상자 ── */
+const o2 = Array.from({ length: 31 }, (_, i) => [i, 20.9 - 0.05 * i + (Math.random() - 0.5) * 0.02]), co2 = Array.from({ length: 31 }, (_, i) => [i, 450 + 22 * i + (Math.random() - 0.5) * 8]);
+let SHOW = false;
+function drw() { LB.graph($("o2g"), { h: 200, xMax: 30, yMin: 19, yMax: 21.5, xStep: 10, yStep: 0.5, xLabel: "시간(분)", yLabel: "산소 농도(%)", series: [{ color: "#2f7de1", pts: o2, width: 2.5 }] });
+  const pr = $("pr").value, guess = pr === "up" ? [[0, 450], [30, 1100]] : pr === "down" ? [[0, 1100], [30, 450]] : pr === "flat" ? [[0, 760], [30, 780]] : null;
+  const ser = []; if (guess) ser.push({ color: "#e4a52e", pts: guess, width: 2, label: "내 예상" }); if (SHOW) ser.push({ color: "#e4572e", pts: co2, width: 2.5, label: "측정" });
+  LB.graph($("co2g"), { h: 200, xMax: 30, yMin: 300, yMax: 1300, xStep: 10, yStep: 200, xLabel: "시간(분)", yLabel: "이산화 탄소(ppm)", series: ser.length ? ser : [{ color: "#ccc", pts: [[0, 450]] }] }); }
+$("pr").addEventListener("change", drw); $("pr-show").addEventListener("click", () => { if (!$("pr").value) { alert("먼저 예상을 골라 주세요."); return; } SHOW = true; drw(); }); drw(); window.addEventListener("resize", drw);
+WS.custom("pr_guess", { el: $("co2g"), value: () => $("pr").value + (SHOW ? "/확인" : ""), check: () => $("pr").value === "up", answer: "시간에 따라 증가", why: "빛이 없으면 호흡만 일어나 이산화 탄소가 방출돼요." });
+
+/* ── 하루 동안 ── */
+const light = h => Math.max(0, Math.sin((h - 6) / 12 * Math.PI)), PS = h => 1.6 * Math.min(1, light(h) * 1.3), RS = () => 0.45;
+function dyG() { const h = +$("dy").value, g = LB.graph($("dy-g"), { h: 220, xMax: 24, yMin: 0, yMax: 2, xStep: 6, yStep: 0.5, xLabel: "시각(시)", yLabel: "상대적인 양", series: [{ color: "#2fae5d", width: 2.5, label: "광합성", pts: Array.from({ length: 49 }, (_, i) => [i / 2, PS(i / 2)]) }, { color: "#e4572e", width: 2.5, label: "호흡", labelDy: 14, pts: [[0, RS()], [24, RS()]] }] }); const c = $("dy-g").getContext("2d"); c.strokeStyle = "#26393b"; c.setLineDash([3, 3]); c.beginPath(); c.moveTo(g.X(h), g.Y(0)); c.lineTo(g.X(h), g.Y(2)); c.stroke(); c.setLineDash([]); $("dy-o").textContent = h + " 시"; }
+$("dy").addEventListener("input", dyG); dyG(); window.addEventListener("resize", dyG);
+const SEENH = new Set();
+WS.custom("dy_seen", { el: $("dy-cv"), value: () => [...SEENH].join(",") });
+LB.loop($("dy-cv"), (dt, t) => { const h = +$("dy").value, L = light(h); SEENH.add(L > 0.6 ? "낮" : L === 0 ? "밤" : "아침저녁");
+  const g = LB.fit($("dy-cv"), 220), c = g.c, W = g.w, H = 220; const sky = c.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, `rgb(${20 + 150 * L},${30 + 170 * L},${60 + 180 * L})`); sky.addColorStop(1, `rgb(${30 + 120 * L},${40 + 140 * L},${50 + 100 * L})`); c.fillStyle = sky; c.fillRect(0, 0, W, H);
+  if (L > 0) { c.fillStyle = "#ffd23a"; c.beginPath(); c.arc(W * (h - 6) / 12, 40 - 20 * L, 14, 0, 7); c.fill(); } else { c.fillStyle = "#f2f2d0"; c.beginPath(); c.arc(W * 0.8, 30, 10, 0, 7); c.fill(); }
+  c.fillStyle = "#5a3a20"; c.fillRect(0, H - 30, W, 30); const cx = W / 2; c.fillStyle = "#6b4a2c"; c.fillRect(cx - 5, 110, 10, 80); c.fillStyle = "#3f9a3a"; c.beginPath(); c.ellipse(cx, 100, 50, 36, 0, 0, 7); c.fill();
+  const net = PS(h) - RS(); const arrow = (x, y, dx, lab, col) => { const k = (t / 1200) % 1; c.strokeStyle = col; c.fillStyle = col; c.lineWidth = 3; c.beginPath(); c.moveTo(x, y); c.lineTo(x + dx, y); c.stroke(); const ex = x + dx; c.beginPath(); c.moveTo(ex, y); c.lineTo(ex - Math.sign(dx) * 9, y - 6); c.lineTo(ex - Math.sign(dx) * 9, y + 6); c.fill(); c.lineWidth = 1; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(lab, Math.min(x, ex), y - 8); c.beginPath(); c.arc(x + dx * k, y, 3, 0, 7); c.fill(); };
+  if (net > 0.05) { arrow(W - 20, 80, -(W / 2 - 75), "이산화 탄소 흡수", "#e4e4e4"); arrow(cx + 55, 130, W / 2 - 75, "산소 방출", "#9fe8ff"); } else { arrow(W - 20, 80, -(W / 2 - 75), "산소 흡수", "#9fe8ff"); arrow(cx + 55, 130, W / 2 - 75, "이산화 탄소 방출", "#e4e4e4"); }
+  c.fillStyle = "#fff"; c.font = "12px Pretendard, sans-serif"; c.fillText(L === 0 ? "밤 — 호흡만 일어남" : net > 0.05 ? "낮 — 광합성 > 호흡" : "광합성 ≤ 호흡", 8, H - 10); });
+
+</script>
+</body>
+</html>

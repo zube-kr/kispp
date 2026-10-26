@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅲ-1-04 — 거울과 렌즈에 의한 상</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/3">← KISPP 과학실 · 중학교 2학년 Ⅲ. 빛과 파동</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p100-cartoon.jpg" alt="깜짝이야!">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 빛과 파동 · 1. 빛 · 04 <span class="pg" style="margin:0">100~103쪽</span></span>
+      <h1>거울과 렌즈에 의한<br><span>상</span></h1>
+      <p>“깜짝이야!” 고양이 얼굴이 크게 보이는 까닭은 무엇일까? 가상 촬영 장치로 볼록·오목 거울과 볼록·오목 렌즈 앞의 물체를 점점 멀어지게 하며 상의 모양과 크기 변화를 비교해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 거울과 렌즈에 의해 생기는 상의 특징을 비교할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 변환·비교·분석·해석하기</span>거울과 렌즈에 의한 상의 특징 관찰하기 <span class="pg">100~101쪽</span></div>
+    <div class="book"><p>거울과 렌즈는 그 면의 모양에 따라 상이 다양하게 나타난다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol><li><b>Ⓐ 거울</b> 볼록 거울을 스마트 기기와 마주 보게 놓고, 물체를 거울 앞에 거의 닿을 정도로 놓았다가 점점 멀어지게 하며 상의 변화를 동영상으로 촬영한다. 오목 거울로 반복한다.</li><li><b>Ⓑ 렌즈</b> 볼록 렌즈 뒤에 물체를 거의 닿게 놓았다가 점점 멀어지게 하며 촬영한다. 오목 렌즈로 반복한다.</li></ol><p style="font-size:12.5px;margin:6px 0 0">상의 크기는 물체의 크기와 비교하고, 상의 모양은 바로 서 있는지 거꾸로 서 있는지 관찰한다.</p></div>
+      <figure class="fig" style="margin:0"><img src="img/p100-setup.jpg" alt="스마트 기기 · 거치대 · 거울 · 물체"><figcaption><span class="tb">100쪽</span>스마트 기기 · 거치대 · 거울 · 물체</figcaption></figure>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 촬영</span>물체를 점점 멀어지게 하기</div>
+    <div class="card-hint">거울·렌즈를 고르고 거리 슬라이더를 천천히 늘려 보자. 오른쪽 동그라미가 스마트 기기 화면에 찍힌 상이에요. (물체 크기와 비교해 보세요.)</div>
+    <div class="btn-row" id="dv-btns"><button type="button" class="btn small main" data-d="cvm">볼록 거울</button><button type="button" class="btn small" data-d="ccm">오목 거울</button><button type="button" class="btn small" data-d="cvl">볼록 렌즈</button><button type="button" class="btn small" data-d="ccl">오목 렌즈</button></div>
+    <div class="ctrl-grid"><div class="ctrl"><label>물체까지의 거리 <output id="dv-o"></output></label><input type="range" id="dv-x" min="1" max="100" value="5"></div></div>
+    <div class="fig-row" style="grid-template-columns:1fr 200px;gap:8px;align-items:stretch"><div class="light-stage"><canvas id="dv-rail"></canvas></div><div class="sim-stage"><canvas id="dv-view"></canvas></div></div>
+    <div class="meter"><div class="m"><small>상의 모양</small><b id="dv-s">-</b></div><div class="m"><small>상의 크기 (물체의 몇 배)</small><b id="dv-m">-</b></div></div>
+    <div class="q" data-why="볼록 거울·오목 렌즈: 항상 작고 바로 선 상(멀어질수록 더 작아짐). 오목 거울·볼록 렌즈: 가까우면 크고 바로 선 상, 멀어지면 어느 순간 거꾸로 선 상이 나타나고 더 멀어질수록 작아져요." data-hint="네 가지를 모두 가까이에서 멀리까지 움직여 보세요.">
+      <div class="q-text"><span class="q-num">1</span><b>정리해 볼까</b> 거울·렌즈와 물체 사이의 거리가 멀어질 때 상의 특징 변화를 정리해 보자.</div><div class="scroll-x"><table class="data-t"><tr><th>거울·렌즈</th><th>상의 모양 변화</th><th>상의 크기 변화</th></tr><tr><td><b>볼록 거울</b></td><td><span class="choice-group" data-key="sh_cvm" data-answer="A"><button type="button" class="choice-btn" data-value="A">항상 바로 선다</button><button type="button" class="choice-btn" data-value="B">가까울 때 바로 서고, 멀어지면 어느 순간 거꾸로 선다</button></span></td><td><span class="choice-group" data-key="sz_cvm" data-answer="A"><button type="button" class="choice-btn" data-value="A">항상 물체보다 작고, 멀어질수록 더 작아진다</button><button type="button" class="choice-btn" data-value="B">가까울 때 물체보다 크고, 거꾸로 선 뒤 멀어질수록 작아진다</button></span></td></tr><tr><td><b>오목 거울</b></td><td><span class="choice-group" data-key="sh_ccm" data-answer="B"><button type="button" class="choice-btn" data-value="A">항상 바로 선다</button><button type="button" class="choice-btn" data-value="B">가까울 때 바로 서고, 멀어지면 어느 순간 거꾸로 선다</button></span></td><td><span class="choice-group" data-key="sz_ccm" data-answer="B"><button type="button" class="choice-btn" data-value="A">항상 물체보다 작고, 멀어질수록 더 작아진다</button><button type="button" class="choice-btn" data-value="B">가까울 때 물체보다 크고, 거꾸로 선 뒤 멀어질수록 작아진다</button></span></td></tr><tr><td><b>볼록 렌즈</b></td><td><span class="choice-group" data-key="sh_cvl" data-answer="B"><button type="button" class="choice-btn" data-value="A">항상 바로 선다</button><button type="button" class="choice-btn" data-value="B">가까울 때 바로 서고, 멀어지면 어느 순간 거꾸로 선다</button></span></td><td><span class="choice-group" data-key="sz_cvl" data-answer="B"><button type="button" class="choice-btn" data-value="A">항상 물체보다 작고, 멀어질수록 더 작아진다</button><button type="button" class="choice-btn" data-value="B">가까울 때 물체보다 크고, 거꾸로 선 뒤 멀어질수록 작아진다</button></span></td></tr><tr><td><b>오목 렌즈</b></td><td><span class="choice-group" data-key="sh_ccl" data-answer="A"><button type="button" class="choice-btn" data-value="A">항상 바로 선다</button><button type="button" class="choice-btn" data-value="B">가까울 때 바로 서고, 멀어지면 어느 순간 거꾸로 선다</button></span></td><td><span class="choice-group" data-key="sz_ccl" data-answer="A"><button type="button" class="choice-btn" data-value="A">항상 물체보다 작고, 멀어질수록 더 작아진다</button><button type="button" class="choice-btn" data-value="B">가까울 때 물체보다 크고, 거꾸로 선 뒤 멀어질수록 작아진다</button></span></td></tr></table></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>거울과 렌즈에 나타나는 상의 특징 <span class="pg">102~103쪽</span></div>
+    <div class="book"><p>볼록 거울로 물체를 비춰 보면 거울과 물체 사이의 거리에 관계없이 물체보다 크기가 작고 바로 선 상이 생긴다. 이때 물체가 거울에서 멀어질수록 상의 크기는 더 작아진다. 한편 오목 거울로 물체를 비춰 보면 거울과 물체 사이의 거리가 가까울 때에는 물체보다 크고 바로 선 상이 생긴다. 물체가 거울에서 멀어지면 어느 순간 물체보다 크고 거꾸로 선 상이 나타난다. 이때 물체와 거울 사이의 거리가 멀어질수록 상의 크기가 점점 작아진다.</p>
+    <p>볼록 렌즈를 통해 물체를 보면 렌즈와 물체 사이의 거리가 가까울 때에는 물체보다 크고 바로 선 상이 생긴다. 물체가 렌즈에서 멀어지면 어느 순간 물체보다 크고 거꾸로 선 상이 나타나고, 더 멀어질수록 상의 크기가 점점 작아진다. 한편 오목 렌즈를 통해 물체를 보면 거리에 관계없이 물체보다 크기가 작고 바로 선 상이 생기며, 멀어질수록 상의 크기는 더 작아진다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(4,1fr);gap:6px"><figure class="fig" style="margin:0"><img src="img/p102-cvx1.jpg" alt="볼록 거울 · 가까이"><figcaption>볼록 거울 · 가까이</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p102-ccv1.jpg" alt="오목 거울 · 가까이"><figcaption>오목 거울 · 가까이</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p102-ccv2.jpg" alt="오목 거울 · 멀리"><figcaption>오목 거울 · 멀리</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p103-lens1.jpg" alt="볼록 렌즈 · 가까이"><figcaption>볼록 렌즈 · 가까이</figcaption></figure></div>
+    <p style="font-size:12.5px;text-align:center;margin:4px 0"><span class="tb">그림 3-6 · 3-7</span> 거울과 렌즈에 나타나는 상의 특징</p>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>100쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">102~103쪽</span></div>
+    <div class="q" data-why="볼록 거울과 오목 렌즈는 항상 작고 바로 선 상이에요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> ( <span class="choice-group" data-key="sc_1a" data-answer="볼록"><button type="button" class="choice-btn" data-value="오목">오목</button><button type="button" class="choice-btn" data-value="볼록">볼록</button></span> ) 거울과 ( <span class="choice-group" data-key="sc_1b" data-answer="오목"><button type="button" class="choice-btn" data-value="오목">오목</button><button type="button" class="choice-btn" data-value="볼록">볼록</button></span> ) 렌즈에서는 항상 물체보다 크기가 작고 바로 선 상이 나타난다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><figure class="fig" style="max-width:200px;float:right;margin:0 0 6px 10px"><img src="img/p103-dew.jpg" alt="풀잎에 맺힌 이슬"><figcaption>풀잎에 맺힌 이슬</figcaption></figure><div class="q-text"><span class="q-num">2</span><b>사고력</b> 풀잎에 맺힌 이슬을 통해 보면 풍경이 거꾸로 보인다. 그 까닭을 렌즈를 통해 나타나는 상의 특징과 관련지어 설명해 보자.</div><textarea class="free" data-key="sc_dew" rows="2" data-keywords="볼록 렌즈,멀리,거꾸로" data-model="이슬방울은 가운데가 두꺼운 볼록 렌즈 역할을 한다. 볼록 렌즈로 멀리 있는 물체를 보면 작고 거꾸로 선 상이 생기므로 풍경이 거꾸로 보인다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>거울과 렌즈에 의한 상</div>
+    <div class="q" data-why="볼록 거울: 항상 작고 바로 선 상">
+      <div class="q-text"><span class="q-num">1</span>볼록 거울 앞에 물체를 놓으면 항상 <span class="choice-group" data-key="t1a" data-answer="작"><button type="button" class="choice-btn" data-value="같">실제와 크기가 같고</button><button type="button" class="choice-btn" data-value="작">실제보다 작고</button><button type="button" class="choice-btn" data-value="크">실제보다 크고</button></span> 바로 선 상이 생기며, 거울에서 멀어질수록 상의 크기는 <span class="choice-group" data-key="t1b" data-answer="작아"><button type="button" class="choice-btn" data-value="커">커</button><button type="button" class="choice-btn" data-value="작아">작아</button></span>진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="오목 거울: 가까우면 크고 바로 선 상, 아주 멀면 작고 거꾸로 선 상">
+      <div class="q-text"><span class="q-num">2</span>오목 거울 앞 물체가 가까이 있을 때 상은 실제보다 <span class="choice-group" data-key="t2a" data-answer="크고"><button type="button" class="choice-btn" data-value="작고">작고</button><button type="button" class="choice-btn" data-value="크고">크고</button></span> <span class="choice-group" data-key="t2b" data-answer="바로"><button type="button" class="choice-btn" data-value="바로">바로 선</button><button type="button" class="choice-btn" data-value="거꾸로">거꾸로 선</button></span> 상, 아주 멀리 있을 때는 실제보다 <span class="choice-group" data-key="t2c" data-answer="작고"><button type="button" class="choice-btn" data-value="작고">작고</button><button type="button" class="choice-btn" data-value="크고">크고</button></span> <span class="choice-group" data-key="t2d" data-answer="거꾸로"><button type="button" class="choice-btn" data-value="바로">바로 선</button><button type="button" class="choice-btn" data-value="거꾸로">거꾸로 선</button></span> 상이다.<br>④ 크고 바로 선 상과 작고 거꾸로 선 상을 모두 관찰할 수 있는 거울은 <span class="choice-group" data-key="t4" data-answer="오목"><button type="button" class="choice-btn" data-value="오목">오목 거울</button><button type="button" class="choice-btn" data-value="볼록">볼록 거울</button><button type="button" class="choice-btn" data-value="평면">평면거울</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="유리구슬, 물이 든 어항은 볼록 렌즈 역할을 해요.">
+      <div class="q-text"><span class="q-num">7</span>둥근 유리구슬로 아주 멀리 있는 물체를 볼 때 유리구슬이 <span class="choice-group" data-key="t7a" data-answer="볼록"><button type="button" class="choice-btn" data-value="오목">오목</button><button type="button" class="choice-btn" data-value="볼록">볼록</button></span> 렌즈의 역할을 하여 <span class="choice-group" data-key="t7b" data-answer="작고"><button type="button" class="choice-btn" data-value="작고">작고</button><button type="button" class="choice-btn" data-value="크고">크고</button></span> <span class="choice-group" data-key="t7c" data-answer="거꾸로"><button type="button" class="choice-btn" data-value="바로">바로 선</button><button type="button" class="choice-btn" data-value="거꾸로">거꾸로 선</button></span> 상을 관찰하게 된다. ⑧ 물이 든 어항 뒤의 물체가 확대되어 보이는 것은 어항이 <span class="choice-group" data-key="t8" data-answer="볼록"><button type="button" class="choice-btn" data-value="오목">오목</button><button type="button" class="choice-btn" data-value="볼록">볼록</button></span> 렌즈 역할을 하기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="볼록 거울과 오목 렌즈예요.">
+      <div class="q-text"><span class="q-num">10</span>물체와의 거리에 관계없이 항상 물체보다 작고 바로 선 상이 생기는 것을 모두 고르시오.</div><div class="multi-group" data-key="t10" data-answer="볼록거울,오목렌즈"><button type="button" class="multi-btn" data-value="오목거울">오목 거울</button><button type="button" class="multi-btn" data-value="볼록거울">볼록 거울</button><button type="button" class="multi-btn" data-value="오목렌즈">오목 렌즈</button><button type="button" class="multi-btn" data-value="볼록렌즈">볼록 렌즈</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>거울과 렌즈에 의한 상 <span class="pg">110쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>거울과 렌즈에 의한 상의 특징</h4>
+      <div class="q" style="border-top:none" data-why="볼록 거울·오목 렌즈는 항상 작고 바로 선 상, 오목 거울·볼록 렌즈는 가까우면 크고 바로 선 상이에요.">
+        <div class="q-text">평면거울: 물체와 크기와 모양이 같은 상<br><input class="blank w-s" data-key="s5" data-answer="볼록"> 거울 · <input class="blank w-s" data-key="s9" data-answer="오목"> 렌즈: 거리에 관계없이 물체보다 작고 바로 선 상<br>오목 거울 · 볼록 렌즈: 가까이 있을 때 물체보다 <span class="choice-group" data-key="s7" data-answer="크고"><button type="button" class="choice-btn" data-value="작고">작고</button><button type="button" class="choice-btn" data-value="크고">크고</button></span> 바로 선 상, 멀어지면 어느 순간 거꾸로 선 상</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>과정·기능</b> 관찰 결과를 바탕으로 거울과 렌즈에 의해 생기는 상의 특징을 옳게 비교했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 거리에 따라 변하는 상을 관찰하며 호기심이 생겼는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅲ. 빛과 파동 · 1. 빛 · 04 거울과 렌즈에 의한 상 · 비상교육 중학 과학 2 교과서(100~103쪽)·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅲ-1-04 거울과 렌즈에 의한 상";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 가상 촬영 ── */
+let DV = "cvm"; const SEEN = {};
+const F = { cvm: -20, ccm: 20, cvl: 20, ccl: -20 }, NM = { cvm: "볼록 거울", ccm: "오목 거울", cvl: "볼록 렌즈", ccl: "오목 렌즈" };
+$("dv-btns").addEventListener("click", e => { const b = e.target.closest("[data-d]"); if (!b) return; DV = b.dataset.d; $("dv-btns").querySelectorAll("button").forEach(x => x.classList.toggle("main", x === b)); dvUpd(); });
+function img() { const d = +$("dv-x").value, f = F[DV]; if (Math.abs(d - f) < 0.6) return { d, blur: true }; const di = 1 / (1 / f - 1 / d), m = -di / d; return { d, m }; }
+function dvUpd() {
+  const r = img(); $("dv-o").textContent = r.d + " cm"; SEEN[DV] = SEEN[DV] || new Set(); SEEN[DV].add(r.d < 15 ? "near" : r.d > 45 ? "far" : "mid");
+  $("dv-s").textContent = r.blur ? "상이 흐려 알아볼 수 없음" : r.m > 0 ? "바로 선 상" : "거꾸로 선 상"; $("dv-m").textContent = r.blur ? "-" : Math.abs(r.m).toFixed(2) + " 배" + (Math.abs(r.m) > 1.02 ? " (물체보다 큼)" : Math.abs(r.m) < 0.98 ? " (물체보다 작음)" : "");
+  const g = LB.fit($("dv-rail"), 200), c = g.c, W = g.w; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, 200);
+  const x0 = 50, sc = (W - 90) / 100; const lens = DV.endsWith("l");
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText(NM[DV], x0 - 30, 30);
+  c.strokeStyle = "#7fa8c4"; c.lineWidth = 4; c.beginPath(); if (lens) { c.ellipse(x0, 110, DV === "cvl" ? 8 : 3, 55, 0, 0, 7); } else { const s = DV === "ccm" ? 1 : -1; c.moveTo(x0 + s * 8, 55); c.quadraticCurveTo(x0 - s * 8, 110, x0 + s * 8, 165); } c.stroke(); c.lineWidth = 1;
+  c.fillStyle = "#c9b8a4"; c.fillRect(x0, 170, W - x0 - 20, 4);
+  for (let k = 0; k <= 100; k += 20) { c.fillStyle = "#6b7b85"; c.fillText(k + "", x0 + k * sc - 6, 190); }
+  const fx = x0 + Math.abs(F[DV]) * sc; c.fillStyle = "#e4572e"; if (F[DV] > 0) { c.beginPath(); c.arc(fx, 172, 3, 0, 7); c.fill(); c.fillText("초점", fx - 10, 160); }
+  c.font = "40px sans-serif"; c.fillText("🐰", x0 + r.d * sc - 18, 168); c.font = "11px Pretendard, sans-serif";
+  if (!lens) { c.fillText("📱 스마트 기기", W - 90, 40); } else { c.fillText("📱 은 렌즈 앞쪽", x0 - 45, 50); }
+}
+$("dv-x").addEventListener("input", dvUpd); dvUpd(); window.addEventListener("resize", dvUpd);
+LB.loop($("dv-view"), () => {
+  const g = LB.fit($("dv-view"), 200), c = g.c, W = g.w, H = 200, r = img(); c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H);
+  const cx = W / 2, cy = H / 2, R = Math.min(W, H) / 2 - 10; c.save(); c.beginPath(); c.arc(cx, cy, R, 0, 7); c.fillStyle = "#e8f1f6"; c.fill(); c.clip();
+  if (!r.blur) { const s = Math.min(4, Math.abs(r.m)); c.translate(cx, cy); c.scale(s, r.m > 0 ? s : -s); c.font = "48px sans-serif"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillText("🐰", 0, 0); }
+  else { c.filter = "blur(6px)"; c.font = "60px sans-serif"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillText("🐰", cx, cy); c.filter = "none"; }
+  c.restore(); c.strokeStyle = "#9fb3bf"; c.lineWidth = 6; c.beginPath(); c.arc(cx, cy, R, 0, 7); c.stroke(); c.lineWidth = 1;
+  c.fillStyle = "#fff"; c.font = "11px Pretendard, sans-serif"; c.fillText("화면에 찍힌 상", 8, 14);
+});
+WS.custom("dv_seen", { el: $("dv-view"), value: () => Object.keys(SEEN).map(k => NM[k] + ":" + [...SEEN[k]].join("/")).join(",") });
+
+</script>
+</body>
+</html>

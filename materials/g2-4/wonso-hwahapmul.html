@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅳ-1-01 — 원자로 이루어진 원소와 화합물</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.mtiles{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin:8px 0; }
+.mtile{ background:#fff; border:1px solid #e1e8ea; border-radius:12px; padding:6px; text-align:center; font-size:13px; }
+.mtile canvas{ display:block; width:100%; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/4">← KISPP 과학실 · 중학교 2학년 Ⅳ. 물질의 구성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p132-cartoon.jpg" alt="물이 무엇으로 이루어져 있는지 알고 싶어.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 물질의 구성 · 1. 원소와 화합물 · 01 <span class="pg" style="margin:0">131~133쪽</span></span>
+      <h1>원자로 이루어진<br><span>원소와 화합물</span></h1>
+      <p>“물이 무엇으로 이루어져 있는지 알고 싶어.” “난 물만 보이는데.” 물은 무엇으로 이루어져 있을까? 가상 장치로 물을 분해해 기체를 확인하고, 입자 모형으로 원소와 화합물을 구별해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 원소와 화합물의 뜻을 알 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">첫 번째 블록</span>이온 음료에 있는 Na와 Cl은 어떤 점이 다를까? <span class="pg">131쪽</span></div>
+    <div class="book"><p>“이온 음료 병에 붙어 있는 성분표를 확인해 보면 Na⁺, Cl⁻ 같은 것이 적혀 있어.” “Na와 Cl은 무엇을 나타내고 어떻게 읽어야 하는지 궁금해.” 이 단원의 힌트 조각을 모으면 원소와 화합물을 이해하고, 다양한 원소의 종류를 알아내어 첫 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">물질은 매우 작은 입자로 구성되어 있다.</button><button type="button" class="multi-btn" data-value="2">물질의 상태가 변해도 물질을 구성하는 입자는 달라지지 않는다.</button><button type="button" class="multi-btn" data-value="3">한 가지 물질로 이루어진 물질을 순물질이라고 한다.</button></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 과학적 증거에 기반하여 주장하기</span>물을 이루는 성분 알아보기 <span class="pg">132쪽</span></div>
+    <div class="book"><p>오래전 사람들은 물이 물질을 이루는 기본 성분이라고 생각했다. 과학이 발전하면서 물도 다른 성분으로 이루어져 있다는 사실이 밝혀졌다.</p></div>
+<figure class="fig"><img src="img/p132-electro.jpg" alt="수산화 나트륨을 녹인 물에 전류를 흐르게 하고, 발생한 기체에 성냥불과 향불을 대 본다."><figcaption><span class="tb">132쪽</span>수산화 나트륨을 녹인 물에 전류를 흐르게 하고, 발생한 기체에 성냥불과 향불을 대 본다.</figcaption></figure>
+    <div class="tip-box">물에 전류를 흐르게 하려고 수산화 나트륨을 녹인다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>물에 전류 흘리기</div>
+    <div class="card-hint">[전원 켜기]로 물을 분해한 뒤, 각 전극의 기체에 🔥 성냥불이나 🪔 향불을 대 보자.</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="el-on">⚡ 전원 켜기</button><button type="button" class="btn small" data-t="m-">🔥 (-)극 기체에 성냥불</button><button type="button" class="btn small" data-t="i-">🪔 (-)극 기체에 향불</button><button type="button" class="btn small" data-t="m+">🔥 (+)극 기체에 성냥불</button><button type="button" class="btn small" data-t="i+">🪔 (+)극 기체에 향불</button><button type="button" class="btn ghost small" id="el-reset">↺ 처음으로</button></div>
+    <div class="light-stage"><canvas id="el-cv"></canvas></div>
+    <div class="tip-box" id="el-msg">전원을 켜 보세요.</div>
+    <div class="q" data-why="(-)극 — 수소(‘퍽’), (+)극 — 산소(불꽃이 타오름), 수소 : 산소 = 2 : 1" data-hint="가상 실험의 두 관과 불꽃 반응을 확인하세요.">
+      <div class="q-text"><span class="q-num">1</span>(-)극에서 발생한 기체에 성냥불을 대면 ‘퍽’ 소리를 내며 타므로 <span class="choice-group" data-key="el1" data-answer="수소"><button type="button" class="choice-btn" data-value="수소">수소</button><button type="button" class="choice-btn" data-value="산소">산소</button><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소</button></span>, (+)극에서 발생한 기체에 향불을 대면 불꽃이 타오르므로 <span class="choice-group" data-key="el2" data-answer="산소"><button type="button" class="choice-btn" data-value="수소">수소</button><button type="button" class="choice-btn" data-value="산소">산소</button><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소</button></span>이다. 발생한 기체의 부피는 (-)극이 (+)극의 약 <input class="blank w-s" data-key="el3" data-num="2" data-abs="0" style="width:60px"> 배이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>두 전극에서 발생한 기체의 종류와 관련지어 물은 무엇으로 이루어져 있는지 이야기해 보자.</div><textarea class="free" data-key="el_why" rows="2" data-keywords="수소,산소,분해" data-model="물을 분해하면 수소와 산소가 생기므로 물은 수소와 산소로 이루어져 있다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>원자, 원소, 화합물 <span class="pg">133쪽</span></div>
+    <div class="book"><p>물질은 매우 작은 입자로 이루어져 있고, 물질을 이루는 기본 입자를 <span class="key">원자</span>라고 한다. 물을 분해하면 수소와 산소로 나누어지는데, 이때 생성되는 수소와 산소는 더 이상 다른 종류의 물질로 분해되지 않는다. 수소와 산소처럼 한 종류의 원자로 이루어진 물질을 <span class="key">원소</span>라고 한다. 원소에는 구리, 철, 황 등이 있다.</p>
+    <p>수소와 산소로 이루어진 물처럼 두 종류 이상의 입자가 모여 만들어진 물질을 <span class="key">화합물</span>이라고 한다. 식초에 들어 있는 아세트산은 탄소, 수소, 산소로, 천연가스의 주성분인 메테인은 탄소와 수소로 이루어져 있다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><figure class="fig" style="margin:0"><img src="img/p133-fig4-1.jpg" alt="여러 가지 원소 — 구리, 철, 황"><figcaption><span class="tb">그림 4-1</span>여러 가지 원소 — 구리, 철, 황</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p133-fig4-2.jpg" alt="화합물의 예 — 메테인, 아세트산"><figcaption><span class="tb">그림 4-2</span>화합물의 예 — 메테인, 아세트산</figcaption></figure></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">입자 모형 돋보기</span>원소일까, 화합물일까?</div>
+    <div class="card-hint">입자 모형에서 원자의 종류(색)를 세어 보자. 한 종류면 원소, 두 종류 이상이면 화합물이에요.</div>
+    <div class="q" data-why="수소, 산소, 구리, 황은 한 종류의 원자로 이루어진 원소, 물, 이산화 탄소, 메테인, 아세트산은 두 종류 이상의 원자로 이루어진 화합물이에요.">
+      <div class="q-text"><span class="q-num">1</span>각 물질을 원소와 화합물로 분류하시오.</div><div class="mtiles"><div class="mtile"><canvas data-m="H2"></canvas><b>수소</b><br><span class="choice-group" data-key="cl_H2" data-answer="원소"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="O2"></canvas><b>산소</b><br><span class="choice-group" data-key="cl_O2" data-answer="원소"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="H2O"></canvas><b>물</b><br><span class="choice-group" data-key="cl_H2O" data-answer="화합물"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="CO2"></canvas><b>이산화 탄소</b><br><span class="choice-group" data-key="cl_CO2" data-answer="화합물"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="Cu"></canvas><b>구리</b><br><span class="choice-group" data-key="cl_Cu" data-answer="원소"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="CH4"></canvas><b>메테인</b><br><span class="choice-group" data-key="cl_CH4" data-answer="화합물"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="S8"></canvas><b>황</b><br><span class="choice-group" data-key="cl_S8" data-answer="원소"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div><div class="mtile"><canvas data-m="C2H4O2"></canvas><b>아세트산</b><br><span class="choice-group" data-key="cl_C2H4O2" data-answer="화합물"><button type="button" class="choice-btn" data-value="원소">원소</button><button type="button" class="choice-btn" data-value="화합물">화합물</button></span></div></div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>검색해 보기 · 라부아지에의 물 분해 실험</h4><p style="margin:0;font-size:14px">라부아지에가 뜨거운 철 관에 물을 통과시켜 물이 원소가 아니라는 것을 밝혀낸 과정을 찾아보자.</p></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>132쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">133쪽</span></div>
+    <div class="q" data-why="원소와 화합물의 뜻">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 한 종류의 원자로 이루어진 물질을 ( <input class="blank w-s" data-key="sc_1a" data-answer="원소"> ), 두 종류 이상의 입자가 모여 만들어진 물질을 ( <input class="blank w-s" data-key="sc_1b" data-answer="화합물"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 탄소로 이루어져 있는 숯이 연소하면 이산화 탄소가 발생한다. 이산화 탄소는 원소와 화합물 중 무엇인지 설명해 보자.</div><textarea class="free" data-key="sc_co2" rows="2" data-keywords="화합물,탄소,산소,두 종류" data-model="이산화 탄소는 탄소와 산소, 두 종류의 원자로 이루어져 있으므로 화합물이다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>원자로 이루어진 원소와 화합물</div>
+    <div class="q" data-why="원자, 분해, 화합물">
+      <div class="q-text"><span class="q-num">1</span>물질을 이루는 기본 입자를 <input class="blank w-s" data-key="t1" data-answer="원자"> 라고 한다. 원소는 더 이상 다른 종류의 물질로 <input class="blank w-s" data-key="t2" data-answer="분해"> 되지 않는다. <input class="blank w-s" data-key="t3" data-answer="화합물"> 은 화학적인 방법으로 각 성분 물질로 분해할 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화합물은 성분 원소가 결합한 새로운 물질로, 성분 물질과 성질이 달라요(⑤, ⑥ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">④ 원소는 한 종류의 원자로 이루어진 물질이다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑤ 화합물은 두 종류 이상의 입자가 단순히 섞여 있는 물질이다.</td><td><span class="choice-group" data-key="t5" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑥ 화합물은 성분 물질의 성질이 그대로 나타난다.</td><td><span class="choice-group" data-key="t6" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="물은 분해되므로 원소가 아니에요. 황, 구리, 철은 원소예요.">
+      <div class="q-text"><span class="q-num">7</span>물을 이루는 <input class="blank w-s" data-key="t7" data-answer="원소"> 는 수소와 산소이다. 물은 분해되므로 <input class="blank w-s" data-key="t8" data-answer="원소"> 가 아니다. ⑨ 원소를 모두 고르시오.</div><div class="multi-group" data-key="t9" data-answer="황,구리,철"><button type="button" class="multi-btn" data-value="물">물</button><button type="button" class="multi-btn" data-value="황">황</button><button type="button" class="multi-btn" data-value="구리">구리</button><button type="button" class="multi-btn" data-value="철">철</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>원소와 화합물 <span class="pg">148쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>원소와 화합물</h4>
+      <div class="q" style="border-top:none" data-why="원자 — 기본 입자, 원소 — 한 종류, 화합물 — 두 종류 이상">
+        <div class="q-text">⑴ 원자: 물질을 이루는 기본 입자<br>⑵ 원소: 한 종류의 원자로 이루어진 물질<br>⑶ <input class="blank w-s" data-key="s1" data-answer="화합물"> : 두 종류 이상의 입자가 모여 만들어진 물질</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 원소와 화합물의 뜻을 알 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 물을 이루는 성분을 알아내며 과학에 흥미를 느꼈는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅳ. 물질의 구성 · 1. 원소와 화합물 · 01 원자로 이루어진 원소와 화합물 · 비상교육 중학 과학 2 교과서(131~133쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="mol.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅳ-1-01 원소와 화합물";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 물의 전기 분해 ── */
+const EL = { on: false, v: 0, tests: new Set(), flame: null };
+$("el-on").addEventListener("click", () => { EL.on = !EL.on; $("el-on").textContent = EL.on ? "⏸ 전원 끄기" : "⚡ 전원 켜기"; });
+$("el-reset").addEventListener("click", () => { Object.assign(EL, { on: false, v: 0, flame: null }); EL.tests.clear(); $("el-on").textContent = "⚡ 전원 켜기"; $("el-msg").textContent = "전원을 켜 보세요."; });
+const RES = { "m-": "‘퍽’ 소리를 내며 탔어요 → 수소 기체!", "i-": "향불이 꺼지지는 않지만 불꽃이 커지지 않아요.", "m+": "성냥불이 더 밝게 타올라요(산소가 연소를 도움).", "i+": "꺼져 가던 향불의 불꽃이 다시 타올라요 → 산소 기체!" };
+document.querySelectorAll("[data-t]").forEach(b => b.addEventListener("click", () => { if (EL.v < 4) { $("el-msg").textContent = "아직 기체가 충분히 모이지 않았어요. 전원을 켜고 기다려 보세요."; return; } EL.tests.add(b.dataset.t); EL.flame = { k: b.dataset.t, t: performance.now() }; $("el-msg").textContent = RES[b.dataset.t]; }));
+WS.custom("el_tests", { el: $("el-cv"), value: () => [...EL.tests].join(",") + " / 수소 " + EL.v.toFixed(0) + "mL" });
+LB.loop($("el-cv"), dt => {
+  if (EL.on) EL.v = Math.min(20, EL.v + dt * 2);
+  const g = LB.fit($("el-cv"), 250), c = g.c, W = g.w, H = 250, cx = W / 2; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  c.fillStyle = "rgba(150,200,255,.35)"; c.fillRect(cx - 120, 150, 240, 80); c.strokeStyle = "#7fa8c4"; c.strokeRect(cx - 120, 130, 240, 100);
+  [[-1, "(-)극", EL.v], [1, "(+)극", EL.v / 2]].forEach(([s, n, vol]) => { const x = cx + s * 55, top = 20, h = 190; c.strokeStyle = "#7fa8c4"; c.lineWidth = 2; c.strokeRect(x - 14, top, 28, h); c.lineWidth = 1;
+    const gas = vol / 20 * (h - 30); c.fillStyle = "rgba(150,200,255,.55)"; c.fillRect(x - 13, top + gas, 26, h - gas); c.fillStyle = "rgba(255,255,255,.9)"; c.fillRect(x - 13, top, 26, gas);
+    c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(n, x, top + h + 34); c.fillText(vol.toFixed(1) + " mL", x, top - 6);
+    for (let y = 0; y < h; y += 10) c.fillRect(x + 14, top + y, 4, 1);
+    if (EL.on) { c.strokeStyle = "rgba(255,255,255,.95)"; for (let k = 0; k < (s < 0 ? 8 : 4); k++) { const ph = (performance.now() / 700 + k * 0.23) % 1; c.beginPath(); c.arc(x - 6 + (k * 7) % 12, top + h - 6 - ph * (h - gas - 10), 2, 0, 7); c.stroke(); } }
+    c.fillStyle = "#444"; c.fillRect(x - 3, top + h - 6, 6, 30); c.textAlign = "left"; });
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText("수산화 나트륨을 녹인 물", cx - 116, 226); c.fillStyle = EL.on ? "#e4572e" : "#999"; c.fillText(EL.on ? "⚡ 전류가 흐르는 중" : "전원 꺼짐", 8, 16);
+  if (EL.flame && performance.now() - EL.flame.t < 1500) { const s = EL.flame.k.endsWith("-") ? -1 : 1, x = cx + s * 55, k = (performance.now() - EL.flame.t) / 1500; c.font = (EL.flame.k === "m-" ? 30 + 20 * Math.sin(k * 9) : EL.flame.k === "i+" ? 36 : 22) + "px sans-serif"; c.fillText(EL.flame.k === "m-" ? "💥" : "🔥", x - 14, 18); }
+});
+
+/* ── 입자 모형 ── */
+function mdraw() { document.querySelectorAll("canvas[data-m]").forEach(cv => { const g = LB.fit(cv, 90), c = g.c; c.fillStyle = "#f3f7f8"; c.fillRect(0, 0, g.w, 90); const k = cv.dataset.m; MOL.draw(c, g.w / 2, 45, k, k === "S8" || k === "Cu" ? 1 : 1.2); }); }
+mdraw(); window.addEventListener("resize", mdraw);
+
+</script>
+</body>
+</html>

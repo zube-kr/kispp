@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅲ-1-01 — 물체를 보는 과정</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/3">← KISPP 과학실 · 중학교 2학년 Ⅲ. 빛과 파동</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p92-cartoon.jpg" alt="깜짝이야! 언제 온 거야? 내가 안 보였어?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 빛과 파동 · 1. 빛 · 01 <span class="pg" style="margin:0">91~95쪽</span></span>
+      <h1>물체를 보는<br><span>과정</span></h1>
+      <p>“깜짝이야! 언제 온 거야?” “내가 안 보였어?” 어두운 곳에 있는 물체가 잘 보이지 않는 까닭은 무엇일까? 가상 활동판에서 빛의 반사와 굴절을 관찰하고, 가로등 아래 공을 보는 빛의 경로를 그려 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 빛의 반사와 굴절의 원리를 설명하고, 물체를 보는 과정을 빛의 경로로 표현할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">첫 번째 블록</span>영상 장치로 원하는 색을 어떻게 나타낼까? <span class="pg">91쪽</span></div>
+    <div class="book"><p>“우리 집 고양이가 텔레비전에 나온 고양이를 실제로 착각했는지 화면을 만지고 있어.” “텔레비전 같은 영상 장치는 실제 모습과 비슷하게 색을 나타내기 때문에 생생하게 실감할 수 있어.” 이 단원의 힌트 조각을 모으면 물체를 보는 과정과 색이 표현되는 원리를 알아내어 첫 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">물체를 보려면 빛이 있어야 한다.</button><button type="button" class="multi-btn" data-value="2">빛이 나아가다가 거울을 만나면 거울에서 반사한다.</button><button type="button" class="multi-btn" data-value="3">빛이 나아가다가 렌즈를 만나면 렌즈에서 굴절한다.</button></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 변환·비교·분석·해석하기</span>빛의 반사와 굴절의 특징 관찰하기 <span class="pg">92~93쪽</span></div>
+    <div class="book"><p>가로등이나 태양처럼 스스로 빛을 내는 물체를 <span class="key">광원</span>이라고 한다. 광원에서 나온 빛은 직진하다가 물체의 표면에 부딪쳐 방향을 바꾸어 나오거나 물질을 통과하면서 다른 방향으로 나아간다. 빛이 다른 물체의 경계면에서 진행 방향을 바꾸어 나오는 현상을 <span class="key">빛의 반사</span>라고 하고, 빛이 한 물질에서 다른 물질로 진행할 때 경계면에서 빛의 진행 방향이 꺾이는 현상을 <span class="key">빛의 굴절</span>이라고 한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:start"><figure class="fig" style="margin:0"><img src="img/p92-reflect.jpg" alt="활동판 위에 거울을 수직으로 세우고 광원 장치로 비스듬히 빛을 비춘다."><figcaption><span class="tb">탐구 Ⓐ</span>활동판 위에 거울을 수직으로 세우고 광원 장치로 비스듬히 빛을 비춘다.</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p93-refract.jpg" alt="물이 든 반원형 접시에 빛을 비춘다."><figcaption><span class="tb">탐구 Ⓑ</span>물이 든 반원형 접시에 빛을 비춘다.</figcaption></figure></div>
+    <div class="safe">⚠️ 거울이나 접시가 깨지지 않게 조심하고, 광원 장치의 빛을 눈에 직접 비추지 않는다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 활동판</span>빛의 반사와 굴절</div>
+    <div class="card-hint">거울/물 접시를 고르고 광원 장치의 위치(각도)를 바꾸어 보자. 각도는 활동판의 0°(법선)를 기준으로 재요. [기록]을 누르면 표에 적혀요.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>실험</label><select id="rf-m"><option value="m">Ⓐ 거울 (반사)</option><option value="w">Ⓑ 물이 든 반원형 접시 (굴절)</option></select></div><div class="ctrl"><label>광원 장치의 각도 <output id="rf-o"></output></label><input type="range" id="rf-a" min="10" max="80" step="10" value="30"></div><div class="ctrl"><label>기록</label><button type="button" class="btn small main" id="rf-rec">📍 기록</button></div></div>
+    <div class="light-stage"><canvas id="rf-cv"></canvas></div>
+    <div class="scroll-x"><table class="data-t" id="rf-tb"></table></div>
+    <div class="q" data-why="빛이 반사할 때 입사각과 반사각은 항상 같아요(빛의 반사 법칙)." data-hint="Ⓐ 거울에서 30°를 기록해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>거울 면을 향해 30°로 비춘 빛은 <input class="blank w-s" data-key="rf1" data-num="30" data-abs="0" style="width:60px">° 로 반사된다. 빛이 반사할 때 입사각과 반사각의 크기는 <span class="choice-group" data-key="rf2" data-answer="같"><button type="button" class="choice-btn" data-value="같">항상 같다</button><button type="button" class="choice-btn" data-value="다">다르다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="공기에서 물로 들어갈 때 빛은 법선 쪽으로 꺾여 굴절각이 입사각보다 작아요. 입사각이 커질수록 굴절각도 커져요." data-hint="Ⓑ 물 접시에서 위치 ①(작은 각)과 ②(큰 각)를 비교하세요.">
+      <div class="q-text"><span class="q-num">2</span>빛이 공기에서 물로 진행할 때 굴절각은 입사각보다 <span class="choice-group" data-key="rf3" data-answer="작"><button type="button" class="choice-btn" data-value="작">작다</button><button type="button" class="choice-btn" data-value="크">크다</button><button type="button" class="choice-btn" data-value="같">같다</button></span>. 입사각이 커질수록 굴절각은 <span class="choice-group" data-key="rf4" data-answer="커"><button type="button" class="choice-btn" data-value="커">커진다</button><button type="button" class="choice-btn" data-value="작">작아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="alt-box"><h4>다르게 해 보기 · 가상 실험으로 빛의 반사와 굴절 알아보기</h4><p style="margin:0;font-size:14px">스마트 기기로 ‘광학 실험 시뮬레이션’, ‘광학 가상 실험’을 검색하여 빛의 반사와 굴절을 관찰해 보자. (위의 가상 활동판도 가상 실험이에요!)</p></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>빛의 반사 법칙과 굴절 <span class="pg">94쪽</span></div>
+    <div class="book"><p>거울 면에 수직인 선을 <span class="key">법선</span>이라고 한다. 이때 거울 면에 입사하는 빛과 법선이 이루는 각을 <span class="key">입사각</span>이라고 하고, 반사하는 빛과 법선이 이루는 각을 <span class="key">반사각</span>이라고 한다. 빛이 반사할 때 입사각과 반사각의 크기는 항상 같다. 이를 <span class="key">빛의 반사 법칙</span>이라고 한다.</p>
+    <p>빛이 굴절할 때 두 물질의 경계면에서 굴절하는 빛과 법선이 이루는 각을 <span class="key">굴절각</span>이라고 한다. 빛이 굴절할 때 입사각이 커질수록 굴절각도 커진다.</p></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 모형 개발 및 이용하기</span>물체를 보는 과정 표현하기 <span class="pg">94~95쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:start"><figure class="fig" style="margin:0"><img src="img/p94-lamp.jpg" alt="가로등 아래에 놓인 공을 보는 과정에서 빛은 어떻게 나아갈까?"><figcaption><span class="tb">94쪽</span>가로등 아래에 놓인 공을 보는 과정에서 빛은 어떻게 나아갈까?</figcaption></figure>
+      <div><div class="card-hint">아래 버튼을 빛이 지나가는 순서대로 눌러 빛의 경로를 화살표로 그려 보자. (틀리면 [다시 그리기])</div>
+      <div class="btn-row" id="pt-btns"><button type="button" class="btn small" data-p="lamp">💡 가로등</button><button type="button" class="btn small" data-p="ball">🏀 공</button><button type="button" class="btn small" data-p="eye">👁️ 눈</button><button type="button" class="btn ghost small" id="pt-reset">↺ 다시 그리기</button></div>
+      <div class="light-stage"><canvas id="pt-cv"></canvas></div></div></div>
+    <div class="tip-box" id="pt-msg">광원에서 나온 빛이 물체를 만나면 어떻게 나아갈까?</div>
+    <div class="book"><p>우리가 물체를 보기 위해서는 빛이 있어야 하고, 그 빛이 우리 눈에 들어와야 한다. 스마트 기기의 화면은 스스로 빛을 내는 광원이다. 광원에서 나온 빛이 눈에 들어오면 광원을 볼 수 있다. 한편, 우리 주변에 있는 대부분의 물체는 스스로 빛을 내지 못한다. 광원이 아닌 물체는 광원에서 나온 빛을 반사하는데, 그 빛이 눈에 들어오면 물체를 볼 수 있다. 안경을 꼈을 때에는 물체에서 반사된 빛이 안경에서 굴절하여 눈에 들어와 그 물체를 볼 수 있다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"><figure class="fig" style="margin:0"><img src="img/p95-screen.jpg" alt="화면에서 나온 빛이 눈에 들어와 화면을 본다."><figcaption><span class="tb">그림 3-3</span>화면에서 나온 빛이 눈에 들어와 화면을 본다.</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p95-dog.jpg" alt="햇빛이 강아지에서 반사된 뒤 눈에 들어와 강아지를 본다."><figcaption><span class="tb">그림 3-3</span>햇빛이 강아지에서 반사된 뒤 눈에 들어와 강아지를 본다.</figcaption></figure></div>
+    <div class="block-q">
+      <b>🧩 첫 번째 블록 · 힌트 조각 1 (95쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">영상 장치는 스스로 빛을 내는 ( <span class="choice-group" data-key="blk1" data-answer="광원"><button type="button" class="choice-btn" data-value="광원">광원</button><button type="button" class="choice-btn" data-value="물체">물체</button><button type="button" class="choice-btn" data-value="거울">거울</button></span> )이다. 영상 장치에서 나온 빛이 우리 눈에 들어오면 영상을 볼 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>92쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">95쪽</span></div>
+    <div class="q" data-why="광원이 아닌 물체는 빛을 반사해요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 광원이 아닌 물체는 광원에서 나온 빛을 ( <input class="blank w-s" data-key="sc_1" data-answer="반사"> )한다. 그 빛이 눈에 들어오면 물체를 볼 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 밝은 낮에 물속에 있는 조약돌을 보는 과정에서 햇빛이 어떻게 나아갈지 빛의 반사와 굴절로 설명해 보자.</div><textarea class="free" data-key="sc_stone" rows="2" data-keywords="반사,굴절,물,눈" data-model="햇빛이 물속으로 굴절하여 들어가 조약돌에서 반사되고, 반사된 빛이 물에서 공기로 나올 때 굴절하여 눈에 들어온다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>물체를 보는 과정</div>
+    <div class="q" data-why="스스로 빛을 내는 물체는 광원이에요.">
+      <div class="q-text"><span class="q-num">1</span>가로등이나 태양처럼 스스로 빛을 내는 물체를 <input class="blank w-s" data-key="t1" data-answer="광원"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="별과 전등은 스스로 빛을 내는 광원이에요. 달은 햇빛을 반사할 뿐이에요.">
+      <div class="q-text"><span class="q-num">2</span>광원을 모두 고르시오. (별, 달, 책상, 칠판, 전등)</div><div class="multi-group" data-key="t2" data-answer="별,전등"><button type="button" class="multi-btn" data-value="별">별</button><button type="button" class="multi-btn" data-value="달">달</button><button type="button" class="multi-btn" data-value="책상">책상</button><button type="button" class="multi-btn" data-value="칠판">칠판</button><button type="button" class="multi-btn" data-value="전등">전등</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="반사와 굴절의 뜻이에요.">
+      <div class="q-text"><span class="q-num">3</span>빛이 경계면에서 진행 방향을 바꾸어 나오는 현상을 빛의 <input class="blank w-s" data-key="t3a" data-answer="반사"> , 한 물질에서 다른 물질로 진행할 때 경계면에서 진행 방향이 꺾이는 현상을 빛의 <input class="blank w-s" data-key="t3b" data-answer="굴절"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="입사각이 커지면 굴절각도 커져요(⑤ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">④ 빛이 반사할 때 입사각과 반사각의 크기는 항상 같다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑤ 빛이 굴절할 때 입사각이 커질수록 굴절각은 작아진다.</td><td><span class="choice-group" data-key="t5" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑥ 빛이 반사하거나 굴절할 때 경계면에 수직인 선을 법선이라고 한다.</td><td><span class="choice-group" data-key="t6" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="책을 볼 때: 전등 → 책 → 눈">
+      <div class="q-text"><span class="q-num">7</span>광원을 볼 때에는 광원에서 <span class="choice-group" data-key="t7a" data-answer="나온"><button type="button" class="choice-btn" data-value="나온">나온</button><button type="button" class="choice-btn" data-value="반사된">반사된</button></span> 빛이, 광원이 아닌 물체를 볼 때에는 물체에서 <span class="choice-group" data-key="t7b" data-answer="반사된"><button type="button" class="choice-btn" data-value="나온">나온</button><button type="button" class="choice-btn" data-value="반사된">반사된</button></span> 빛이 눈에 들어온다.<br>⑧ 전등 아래에서 책을 볼 때 빛의 경로를 순서대로 놓으시오.</div><ol class="order-list" data-key="t8" data-answer="lamp,book,eye"><li data-id="eye">눈</li><li data-id="lamp">전등</li><li data-id="book">책</li></ol>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>물체를 보는 과정 <span class="pg">110쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>물체를 보는 과정</h4>
+      <div class="q" style="border-top:none" data-why="반사 법칙(입사각=반사각), 굴절(입사각↑ 굴절각↑), 직진·반사·굴절한 빛이 눈에 들어와 물체가 보여요.">
+        <div class="q-text">⑴ 빛의 반사 법칙: 빛이 반사할 때 <input class="blank w-s" data-key="s1" data-answer="입사각"> 과 반사각의 크기가 같다.<br>⑵ 빛의 굴절: 빛이 굴절할 때 입사각이 커질수록 굴절각도 <span class="choice-group" data-key="s2" data-answer="커"><button type="button" class="choice-btn" data-value="커">커진다</button><button type="button" class="choice-btn" data-value="작">작아진다</button></span>.<br>⑶ 광원에서 나온 빛이 직진, <input class="blank w-s" data-key="s3" data-answer="반사"> , 굴절하여 눈에 들어오면 물체를 볼 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>과정·기능</b> 관찰 결과를 비교·해석하여 빛의 반사와 굴절의 특징을 설명했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 물체를 보는 과정을 빛의 경로로 표현하며 흥미를 느꼈는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅲ. 빛과 파동 · 1. 빛 · 01 물체를 보는 과정 · 비상교육 중학 과학 2 교과서(91~95쪽)·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅲ-1-01 물체를 보는 과정";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 가상 활동판 ── */
+const RF = { rows: [] };
+const refr = a => Math.asin(Math.sin(a * Math.PI / 180) / 1.33) * 180 / Math.PI;
+function rfDraw() {
+  const m = $("rf-m").value, a = +$("rf-a").value; $("rf-o").textContent = a + "°";
+  const g = LB.fit($("rf-cv"), 280), c = g.c, W = g.w, H = 280, cx = W / 2, cy = 150, R = Math.min(120, W / 2 - 20);
+  c.fillStyle = "#fbfbf6"; c.fillRect(0, 0, W, H);
+  // 각도기
+  c.strokeStyle = "#c9c9b8"; c.fillStyle = "#8a8a7a"; c.font = "10px Pretendard, sans-serif"; c.textAlign = "center";
+  for (let d = -80; d <= 80; d += 10) { const t = (d - 90) * Math.PI / 180; c.beginPath(); c.moveTo(cx + Math.cos(t) * (R - 6), cy + Math.sin(t) * (R - 6)); c.lineTo(cx + Math.cos(t) * R, cy + Math.sin(t) * R); c.stroke(); c.fillText(Math.abs(d) + "°", cx + Math.cos(t) * (R + 12), cy + Math.sin(t) * (R + 12) + 3);
+    if (m === "w") { const t2 = (d + 90) * Math.PI / 180; c.beginPath(); c.moveTo(cx + Math.cos(t2) * (R - 6), cy + Math.sin(t2) * (R - 6)); c.lineTo(cx + Math.cos(t2) * R, cy + Math.sin(t2) * R); c.stroke(); c.fillText(Math.abs(d) + "°", cx + Math.cos(t2) * (R + 12), cy + Math.sin(t2) * (R + 12) + 3); } }
+  c.setLineDash([4, 4]); c.strokeStyle = "#9aa"; c.beginPath(); c.moveTo(cx, cy - R); c.lineTo(cx, m === "w" ? cy + R : cy); c.stroke(); c.setLineDash([]); c.fillStyle = "#6b7b85"; c.fillText("법선 0°", cx, cy - R - 16);
+  if (m === "m") { c.fillStyle = "#b9d6ea"; c.fillRect(cx - R - 10, cy, 2 * R + 20, 8); c.fillStyle = "#26393b"; c.fillText("거울", cx + R - 10, cy + 22); }
+  else { c.fillStyle = "rgba(120,180,255,.35)"; c.beginPath(); c.arc(cx, cy, R - 10, 0, Math.PI); c.fill(); c.strokeStyle = "#7fa8c4"; c.stroke(); c.fillStyle = "#26393b"; c.fillText("물", cx + 40, cy + 40); c.fillText("공기", cx + 60, cy - 20); }
+  const ti = (-a - 90) * Math.PI / 180, sx = cx + Math.cos(ti) * R, sy = cy + Math.sin(ti) * R;
+  c.strokeStyle = "#e4272e"; c.lineWidth = 2.5; c.beginPath(); c.moveTo(sx, sy); c.lineTo(cx, cy); c.stroke();
+  let out; if (m === "m") { const to = (a - 90) * Math.PI / 180; out = [cx + Math.cos(to) * R, cy + Math.sin(to) * R]; } else { const r = refr(a) * Math.PI / 180; out = [cx + Math.sin(r) * (R - 10), cy + Math.cos(r) * (R - 10)]; }
+  c.beginPath(); c.moveTo(cx, cy); c.lineTo(out[0], out[1]); c.stroke(); c.lineWidth = 1;
+  c.fillStyle = "#222"; c.fillRect(sx - 14, sy - 8, 28, 16); c.textAlign = "left"; c.fillStyle = "#c2410c"; c.font = "bold 12px Pretendard, sans-serif";
+  c.fillText(m === "m" ? `입사각 ${a}° · 반사각 ${a}°` : `입사각 ${a}° · 굴절각 ${refr(a).toFixed(0)}°`, 8, 18);
+}
+function rfTable() { $("rf-tb").innerHTML = "<tr><th>실험</th><th>입사각(°)</th><th>반사각 / 굴절각(°)</th></tr>" + (RF.rows.length ? RF.rows.map(r => `<tr><td>${r[0] === "m" ? "Ⓐ 거울" : "Ⓑ 물 접시"}</td><td>${r[1]}</td><td><b>${r[2]}</b></td></tr>`).join("") : '<tr><td colspan="3">[기록]을 눌러 보세요.</td></tr>'); }
+$("rf-rec").addEventListener("click", () => { const m = $("rf-m").value, a = +$("rf-a").value; RF.rows.push([m, a, m === "m" ? a : Math.round(refr(a))]); rfTable(); });
+["rf-m", "rf-a"].forEach(id => $(id).addEventListener("input", rfDraw)); rfDraw(); rfTable(); window.addEventListener("resize", rfDraw);
+WS.custom("rf_log", { el: $("rf-tb"), value: () => RF.rows.map(r => r.join(":")).join(",") });
+
+/* ── 물체를 보는 경로 ── */
+const PT = { seq: [], t: 0 }, POS = { lamp: [0.2, 0.18], ball: [0.48, 0.82], eye: [0.85, 0.42] };
+$("pt-btns").addEventListener("click", e => { const b = e.target.closest("[data-p]"); if (!b) return; if (PT.seq[PT.seq.length - 1] !== b.dataset.p) PT.seq.push(b.dataset.p); PT.t = performance.now(); ptMsg(); });
+$("pt-reset").addEventListener("click", () => { PT.seq = []; ptMsg(); });
+const ok = () => PT.seq.join(">") === "lamp>ball>eye";
+function ptMsg() { $("pt-msg").textContent = !PT.seq.length ? "광원에서 나온 빛이 물체를 만나면 어떻게 나아갈까?" : ok() ? "✔ 맞아요! 가로등(광원)에서 나온 빛이 공에서 반사된 뒤 눈에 들어와 공을 볼 수 있어요." : PT.seq[0] === "eye" ? "눈에서 빛이 나가는 것은 아니에요. 빛은 광원에서 출발해요!" : PT.seq.length >= 3 ? "다시 생각해 보세요. 공은 스스로 빛을 내지 못해요." : "다음 지점을 골라 보세요."; }
+WS.custom("pt_path", { el: $("pt-cv"), value: () => PT.seq.join(">"), check: () => ok(), answer: "가로등 → 공 → 눈", why: "빛은 광원에서 나와 물체에서 반사된 뒤 눈에 들어와요." });
+LB.loop($("pt-cv"), (dt, t) => {
+  const g = LB.fit($("pt-cv"), 200), c = g.c, W = g.w, H = 200; c.fillStyle = "#1b2a3a"; c.fillRect(0, 0, W, H); c.fillStyle = "#3b4a3a"; c.fillRect(0, H - 30, W, 30);
+  const P = k => [POS[k][0] * W, POS[k][1] * H];
+  c.font = "26px sans-serif"; c.textAlign = "center"; [["lamp", "💡"], ["ball", "🏀"], ["eye", "👁️"]].forEach(([k, e]) => { const [x, y] = P(k); c.fillText(e, x, y + 9); });
+  c.strokeStyle = "#ffd23a"; c.fillStyle = "#ffd23a"; c.lineWidth = 2.5;
+  for (let i = 0; i < PT.seq.length - 1; i++) { const [x1, y1] = P(PT.seq[i]), [x2, y2] = P(PT.seq[i + 1]), ang = Math.atan2(y2 - y1, x2 - x1), ex = x2 - Math.cos(ang) * 20, ey = y2 - Math.sin(ang) * 20, sx = x1 + Math.cos(ang) * 20, sy = y1 + Math.sin(ang) * 20; c.beginPath(); c.moveTo(sx, sy); c.lineTo(ex, ey); c.stroke(); c.beginPath(); c.moveTo(ex, ey); c.lineTo(ex - 10 * Math.cos(ang - 0.4), ey - 10 * Math.sin(ang - 0.4)); c.lineTo(ex - 10 * Math.cos(ang + 0.4), ey - 10 * Math.sin(ang + 0.4)); c.fill(); const k = (t / 900 + i * 0.3) % 1; c.beginPath(); c.arc(sx + (ex - sx) * k, sy + (ey - sy) * k, 3.5, 0, 7); c.fill(); }
+  c.lineWidth = 1; c.textAlign = "left";
+});
+
+</script>
+</body>
+</html>

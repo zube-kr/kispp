@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅳ-2-02 — 전하를 띠는 이온</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/4">← KISPP 과학실 · 중학교 2학년 Ⅳ. 물질의 구성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p152-cartoon.jpg" alt="어? 나 끌려가고 있어. 난 너랑 반대로 가는 것 같아.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 물질의 구성 · 2. 물질의 구성 입자 · 02 <span class="pg" style="margin:0">152~156쪽</span></span>
+      <h1>전하를 띠는<br><span>이온</span></h1>
+      <p>“어? 나 끌려가고 있어.” “난 너랑 반대로 가는 것 같아.” 전원을 연결했을 때 이온이 이동하는 까닭은 무엇일까? 원자에서 전자를 빼고 더해 이온을 만들고, 가상 곤약 실험으로 색깔 이온의 이동을 관찰해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 이온이 전하를 띠는 과정을 알고 화학식으로 표현하며, 이온이 전하를 띠고 있음을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>이온은 어떻게 전하를 띨까? <span class="pg">152~153쪽</span></div>
+    <div class="book"><p>원자에는 (+)전하를 띠는 양성자와 (-)전하를 띠는 전자가 있으며, 그 수가 같으므로 원자는 전기적으로 중성이다. 원자는 전자를 잃기도 하고 전자를 얻기도 한다. 원자가 전자를 잃으면 (+)전하를 띠는 <span class="key">양이온</span>이 되고, 전자를 얻으면 (-)전하를 띠는 <span class="key">음이온</span>이 된다.</p>
+    <p>이온은 ●원소 기호를 사용하여 나타낼 수 있다. 원소 기호의 오른쪽 위에 이온이 띠고 있는 전하의 종류와 잃거나 얻은 전자 수를 함께 나타내는데, 잃거나 얻은 전자가 한 개일 때는 1을 생략한다.</p></div>
+<figure class="fig"><img src="img/p153-fig4-17.jpg" alt="이온의 표시와 이름 — 리튬 이온 Li⁺, 산화 이온 O²⁻"><figcaption><span class="tb">그림 4-17</span>이온의 표시와 이름 — 리튬 이온 Li⁺, 산화 이온 O²⁻</figcaption></figure>
+    <div class="tip-box"><b>●이온 이름을 부르는 규칙</b> 양이온은 주로 원소 이름 뒤에 ‘이온’을 붙이고, 음이온은 ‘소’로 끝날 경우 ‘소’를 떼고 ‘~화 이온’을 붙인다(염소 → 염화 이온). <b>●여러 가지 이온</b> 암모늄 이온 NH₄⁺, 탄산 이온 CO₃²⁻, 질산 이온 NO₃⁻, 수산화 이온 OH⁻</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">이온 만들기</span>전자를 잃고 얻어 보자</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>원자</label><select id="io-a"><option value="3">리튬 (Li)</option><option value="11" selected>나트륨 (Na)</option><option value="12">마그네슘 (Mg)</option><option value="8">산소 (O)</option><option value="9">플루오린 (F)</option><option value="16">황 (S)</option><option value="17">염소 (Cl)</option></select></div><div class="ctrl"><label>전자</label><div class="btn-row" style="margin:2px 0 0"><button type="button" class="btn small" id="io-lose">➖ 전자 잃기</button><button type="button" class="btn small" id="io-gain">➕ 전자 얻기</button></div></div></div>
+    <div class="sim-stage"><canvas id="io-cv"></canvas></div>
+    <div class="meter"><div class="m"><small>양성자 / 전자</small><b id="io-pe">-</b></div><div class="m"><small>입자</small><b id="io-nm">-</b></div><div class="m"><small>화학식</small><b id="io-f">-</b></div></div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기 · 모형 개발 및 이용하기</span>이온 모형을 보고 화학식으로 표현하기 <span class="pg">153쪽</span></div>
+    <div class="q" data-why="마그네슘 원자는 전자 2 개를 잃어 Mg²⁺, 나트륨은 1 개를 잃어 Na⁺, 염소는 1 개를 얻어 Cl⁻, 플루오린은 1 개를 얻어 F⁻가 돼요.">
+      <div class="q-text"><span class="q-num">1</span>이온 형성 과정에서 원자가 잃거나 얻은 전자 수를 확인하고, 각 이온을 화학식으로 표현해 보자. (위첨자는 그냥 이어 써요: Mg²⁺ → Mg2+)</div><table class="data-t" style="margin-top:6px"><tr><th>이온</th><th>양성자 / 전자</th><th>전자를</th><th>화학식</th></tr><tr><td>마그네슘 이온</td><td>12 / 10</td><td><span class="choice-group" data-key="ge0" data-answer="잃"><button type="button" class="choice-btn" data-value="잃">잃음</button><button type="button" class="choice-btn" data-value="얻">얻음</button></span></td><td><input class="blank w-s" data-key="fm0" data-answer="Mg2+|Mg²⁺" style="width:60px"></td></tr><tr><td>나트륨 이온</td><td>11 / 10</td><td><span class="choice-group" data-key="ge1" data-answer="잃"><button type="button" class="choice-btn" data-value="잃">잃음</button><button type="button" class="choice-btn" data-value="얻">얻음</button></span></td><td><input class="blank w-s" data-key="fm1" data-answer="Na+|Na⁺" style="width:60px"></td></tr><tr><td>염화 이온</td><td>17 / 18</td><td><span class="choice-group" data-key="ge2" data-answer="얻"><button type="button" class="choice-btn" data-value="잃">잃음</button><button type="button" class="choice-btn" data-value="얻">얻음</button></span></td><td><input class="blank w-s" data-key="fm2" data-answer="Cl-|Cl⁻" style="width:60px"></td></tr><tr><td>플루오린화 이온</td><td>9 / 10</td><td><span class="choice-group" data-key="ge3" data-answer="얻"><button type="button" class="choice-btn" data-value="잃">잃음</button><button type="button" class="choice-btn" data-value="얻">얻음</button></span></td><td><input class="blank w-s" data-key="fm3" data-answer="F-|F⁻" style="width:60px"></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 과학적 증거에 기반하여 주장하기</span>전기력을 이용한 실험으로 이온의 이동 관찰하기 <span class="pg">154~155쪽</span></div>
+    <div class="book"><p>이온으로 이루어진 물질이 녹아 있는 용액에 전원을 연결하면 ●전기력을 받아 양이온은 (-)극으로 이동하고, 음이온은 (+)극으로 이동한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start">
+      <div class="steps-box" style="margin:0"><ol><li>두께 2 cm 정도 되는 곤약의 가운데에 작은 홈을 내고 페트리 접시 위에 올려놓는다.</li><li>질산 칼륨 수용액을 부어 곤약을 충분히 적신다.</li><li>곤약 양쪽에 클립을 꽂고 ●과망가니즈산 칼륨 알갱이를 가운데 홈에 올려놓는다.</li><li><b>관찰</b> 전원 장치를 약 20 V로 맞추고 곤약에서 나타나는 변화를 관찰한다.</li><li>황산 구리(Ⅱ)로 과정 1~4를 반복한다.</li></ol></div>
+      <figure class="fig" style="margin:0"><img src="img/p154-setup.jpg" alt="곤약 · 클립 · 전원 장치"><figcaption><span class="tb">154쪽</span>곤약 · 클립 · 전원 장치</figcaption></figure>
+    </div>
+    <div class="safe">⚠️ 감전의 위험이 있으므로 전선을 맨손으로 만지지 않는다. 사용한 시약은 선생님의 안내에 따라 처리한다.</div>
+    <div class="tip-box"><b>●과망가니즈산 칼륨과 황산 구리(Ⅱ)</b> 과망가니즈산 칼륨은 과망가니즈산 이온(보라색)과 칼륨 이온으로, 황산 구리(Ⅱ)는 황산 이온과 구리 이온(푸른색)으로 나뉜다. <b>●전기력</b> 전하를 띤 입자에 작용하는 힘</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 곤약 실험</span>색깔 이온이 어디로 갈까?</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>올려놓을 물질</label><select id="ep-s"><option value="k">과망가니즈산 칼륨 (보라색)</option><option value="c">황산 구리(Ⅱ) (푸른색)</option></select></div><div class="ctrl"><label>전극</label><select id="ep-p"><option value="1">왼쪽 (-)극 · 오른쪽 (+)극</option><option value="-1">왼쪽 (+)극 · 오른쪽 (-)극</option></select></div><div class="ctrl"><label>전원</label><div class="btn-row" style="margin:2px 0 0"><button type="button" class="btn small main" id="ep-on">⚡ 전원 켜기</button><button type="button" class="btn ghost small" id="ep-reset">↺ 새 곤약</button></div></div></div>
+    <div class="light-stage"><canvas id="ep-cv"></canvas></div>
+    <div class="q" data-why="보라색 과망가니즈산 이온(MnO₄⁻)은 (-)전하라 (+)극으로, 푸른색 구리 이온(Cu²⁺)은 (+)전하라 (-)극으로 이동해요." data-hint="전극의 방향을 바꿔도 같은 결과인지 확인해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>과망가니즈산 칼륨의 보라색은 <span class="choice-group" data-key="ep1" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span> 쪽으로, 황산 구리(Ⅱ)의 푸른색은 <span class="choice-group" data-key="ep2" data-answer="-"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span> 쪽으로 이동한다. 따라서 보라색을 띤 이온은 <span class="choice-group" data-key="ep3" data-answer="음"><button type="button" class="choice-btn" data-value="양">(+)전하</button><button type="button" class="choice-btn" data-value="음">(-)전하</button></span>를, 푸른색을 띤 이온은 <span class="choice-group" data-key="ep4" data-answer="양"><button type="button" class="choice-btn" data-value="양">(+)전하</button><button type="button" class="choice-btn" data-value="음">(-)전하</button></span>를 띤다.</div>
+      <span class="fb"></span>
+    </div>
+<figure class="fig" style="max-width:48%;display:inline-block;margin:0 1%"><img src="img/p155-kmno4.jpg" alt="과망가니즈산 칼륨 — 칼륨 이온 K⁺, 과망가니즈산 이온 MnO₄⁻"><figcaption><span class="tb">그림 4-18</span>과망가니즈산 칼륨 — 칼륨 이온 K⁺, 과망가니즈산 이온 MnO₄⁻</figcaption></figure><figure class="fig" style="max-width:48%;display:inline-block;margin:0 1%"><img src="img/p155-cuso4.jpg" alt="황산 구리(Ⅱ) — 구리 이온 Cu²⁺, 황산 이온 SO₄²⁻"><figcaption><span class="tb">그림 4-18</span>황산 구리(Ⅱ) — 구리 이온 Cu²⁺, 황산 이온 SO₄²⁻</figcaption></figure>
+    <div class="alt-box"><h4>다르게 해 보기 · 이온의 이동 관찰하기</h4><p style="margin:0;font-size:14px">페트리 접시 양쪽에 클립을 꽂고 질산 칼륨 수용액을 부은 뒤 전원을 켜고, 과망가니즈산 칼륨 수용액을 한가운데에 1 방울 떨어뜨려 관찰해 보자.</p></div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 2 (155쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">이온은 ( <input class="blank w-s" data-key="blk2" data-answer="전하"> )을/를 띠므로 전원을 연결하면 나트륨 이온과 염화 이온이 이동한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>152쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">155쪽</span></div>
+    <div class="q" data-why="양이온, 음이온">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 원자가 전자를 잃으면 ( <input class="blank w-s" data-key="sc_1a" data-answer="양이온"> )이/가 되고, 전자를 얻으면 ( <input class="blank w-s" data-key="sc_1b" data-answer="음이온"> )이/가 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="음이온은 (+)극, 양이온은 (-)극으로 이동해요.">
+      <div class="q-text"><span class="q-num">2</span><b>사고력</b> 곤약에 부은 질산 칼륨 수용액의 질산 이온(NO₃⁻)은 <span class="choice-group" data-key="sc_2a" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span>으로, 칼륨 이온(K⁺)은 <span class="choice-group" data-key="sc_2b" data-answer="-"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span>으로 이동한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>전하를 띠는 이온</div>
+    <div class="q" data-why="중성, 잃어 → 양이온, 얻어 → 음이온">
+      <div class="q-text"><span class="q-num">1</span>원자는 양성자 수와 전자 수가 같으므로 전기적으로 <input class="blank w-s" data-key="t1" data-answer="중성"> 이다. 원자가 전자를 <span class="choice-group" data-key="t2a" data-answer="잃"><button type="button" class="choice-btn" data-value="잃">잃어</button><button type="button" class="choice-btn" data-value="얻">얻어</button></span> (+)전하를 띠는 입자를 양이온, 전자를 <span class="choice-group" data-key="t2b" data-answer="얻"><button type="button" class="choice-btn" data-value="잃">잃어</button><button type="button" class="choice-btn" data-value="얻">얻어</button></span> (-)전하를 띠는 입자를 음이온이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="음이온은 ‘~화 이온’(④ X), Li⁺는 ‘리튬 이온’이라고 불러요(⑤ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">③ 양이온은 원소 기호의 오른쪽 위에 잃은 전자의 수와 +를 표시한다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">④ 음이온의 이름은 원소 이름 뒤에 ‘~이온’을 붙인다.</td><td><span class="choice-group" data-key="t4" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑤ 리튬 원자가 전자 1 개를 잃어 형성된 이온은 Li⁺이며, 리튬화 이온이라고 부른다.</td><td><span class="choice-group" data-key="t5" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="H⁺, Na⁺, Cl⁻, S²⁻, Mg²⁺, O²⁻">
+      <div class="q-text"><span class="q-num">6</span>다음 이온의 이온식을 쓰시오.</div><div class="scroll-x"><table class="data-t" style="margin-top:6px"><tr><th>수소 이온</th><th>나트륨 이온</th><th>염화 이온</th><th>황화 이온</th><th>마그네슘 이온</th><th>산화 이온</th></tr><tr><td><input class="blank w-s" data-key="t6_0" data-answer="H+|H⁺" style="width:52px"></td><td><input class="blank w-s" data-key="t6_1" data-answer="Na+|Na⁺" style="width:52px"></td><td><input class="blank w-s" data-key="t6_2" data-answer="Cl-|Cl⁻" style="width:52px"></td><td><input class="blank w-s" data-key="t6_3" data-answer="S2-|S²⁻" style="width:52px"></td><td><input class="blank w-s" data-key="t6_4" data-answer="Mg2+|Mg²⁺" style="width:52px"></td><td><input class="blank w-s" data-key="t6_5" data-answer="O2-|O²⁻" style="width:52px"></td></tr></table></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="음이온(황산 이온, 과망가니즈산 이온) → (+)극, 양이온(칼륨 이온, 구리 이온) → (-)극">
+      <div class="q-text"><span class="q-num">7</span>이온이 들어 있는 수용액에 전류를 흘려 주면 음이온은 <span class="choice-group" data-key="t7a" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span>으로, 양이온은 <span class="choice-group" data-key="t7b" data-answer="-"><button type="button" class="choice-btn" data-value="+">(+)극</button><button type="button" class="choice-btn" data-value="-">(-)극</button></span>으로 이동한다. (황산 이온, 칼륨 이온, 과망가니즈산 이온, 구리 이온)</div><table class="data-t" style="margin-top:6px"><tr><td>⑧ (+)극으로 이동</td><td><div class="multi-group" data-key="t8" data-answer="황산,과망"><button type="button" class="multi-btn" data-value="황산">황산 이온</button><button type="button" class="multi-btn" data-value="칼륨">칼륨 이온</button><button type="button" class="multi-btn" data-value="과망">과망가니즈산 이온</button><button type="button" class="multi-btn" data-value="구리">구리 이온</button></div></td></tr><tr><td>⑨ (-)극으로 이동</td><td><div class="multi-group" data-key="t9" data-answer="칼륨,구리"><button type="button" class="multi-btn" data-value="황산">황산 이온</button><button type="button" class="multi-btn" data-value="칼륨">칼륨 이온</button><button type="button" class="multi-btn" data-value="과망">과망가니즈산 이온</button><button type="button" class="multi-btn" data-value="구리">구리 이온</button></div></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>2. 물질의 구성 입자 · 두 번째 블록 찾기 <span class="pg">156쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>전하를 띠는 이온</h4>
+      <div class="q" style="border-top:none" data-why="양이온(+)은 (-)극, 음이온(-)은 (+)극으로 이동해요.">
+        <div class="q-text">⑴ 양이온: 원자가 전자를 잃어 형성된 <span class="choice-group" data-key="s4" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)</button><button type="button" class="choice-btn" data-value="-">(-)</button></span>전하를 띠는 입자 / 음이온: 전자를 얻어 형성된 <span class="choice-group" data-key="s5" data-answer="-"><button type="button" class="choice-btn" data-value="+">(+)</button><button type="button" class="choice-btn" data-value="-">(-)</button></span>전하를 띠는 입자<br>⑵ 전기력을 받으면 <span class="choice-group" data-key="s6" data-answer="+"><button type="button" class="choice-btn" data-value="+">(+)</button><button type="button" class="choice-btn" data-value="-">(-)</button></span>전하를 띠는 이온은 (-)극으로, (-)전하를 띠는 이온은 (+)극으로 이동한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q"><b>🧩 두 번째 블록 찾기 · 땀에 젖은 손으로 콘센트를 만질 때 감전의 위험이 더 높은 까닭은 무엇일까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① 염화 나트륨은 이온으로 이루어진 물질이다. (151쪽) ② 이온은 전하를 띠므로 전원을 연결하면 나트륨 이온과 염화 이온이 이동한다. (155쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">두 조각을 모아 두 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="이온,전하,이동,전류" data-model="땀에는 염화 나트륨이 녹아 나트륨 이온과 염화 이온이 있다. 이온은 전하를 띠어 전원이 연결되면 이동하므로 전류가 잘 흐르게 되어 감전의 위험이 높아진다."></textarea><span class="fb"></span></div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 물질을 이루는 입자가 원자, 분자, 이온으로 존재함을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>과정·기능</b> 실험으로 이온이 전하를 띠고 있음을 확인할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 이온의 이동을 관찰하며 과학의 심미성을 느꼈는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅳ. 물질의 구성 · 2. 물질의 구성 입자 · 02 전하를 띠는 이온 · 비상교육 중학 과학 2 교과서(152~156쪽)·해 보기·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록 · 아두이노 실험: <a href="arduino-jeondo.html">수용액의 전기 전도성 측정</a></footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅳ-2-02 전하를 띠는 이온";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 이온 만들기 ── */
+const ESYM = { 3: "Li", 8: "O", 9: "F", 11: "Na", 12: "Mg", 16: "S", 17: "Cl" }, ENM = { 3: "리튬", 8: "산", 9: "플루오린", 11: "나트륨", 12: "마그네슘", 16: "황", 17: "염" }, FULLN = { 3: "리튬", 8: "산소", 9: "플루오린", 11: "나트륨", 12: "마그네슘", 16: "황", 17: "염소" };
+const IO = { p: 11, e: 11 }, MADE = new Set();
+$("io-a").addEventListener("change", () => { IO.p = IO.e = +$("io-a").value; ioUpd(); });
+$("io-lose").addEventListener("click", () => { IO.e = Math.max(IO.p - 3, IO.e - 1); ioUpd(); });
+$("io-gain").addEventListener("click", () => { IO.e = Math.min(IO.p + 3, IO.e + 1); ioUpd(); });
+function fstr() { const q = IO.p - IO.e, s = ESYM[IO.p]; return q === 0 ? s : s + (Math.abs(q) > 1 ? Math.abs(q) : "") + (q > 0 ? "+" : "-"); }
+function ioUpd() { const q = IO.p - IO.e; $("io-pe").textContent = `${IO.p} / ${IO.e}`; $("io-nm").textContent = q === 0 ? FULLN[IO.p] + " 원자 (중성)" : q > 0 ? FULLN[IO.p] + " 이온 (양이온)" : ENM[IO.p] + "화 이온 (음이온)"; $("io-f").innerHTML = q === 0 ? ESYM[IO.p] : ESYM[IO.p] + "<sup>" + (Math.abs(q) > 1 ? Math.abs(q) : "") + (q > 0 ? "+" : "−") + "</sup>"; if (q) MADE.add(fstr()); }
+ioUpd();
+WS.custom("io_made", { el: $("io-cv"), value: () => [...MADE].join(",") });
+LB.loop($("io-cv"), (dt, t) => { const g = LB.fit($("io-cv"), 230), c = g.c, W = g.w, H = 230, cx = W / 2, cy = H / 2; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H);
+  c.fillStyle = "#e4372e"; c.beginPath(); c.arc(cx, cy, 18, 0, 7); c.fill(); c.fillStyle = "#fff"; c.font = "bold 13px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText("+" + IO.p, cx, cy + 5);
+  const shells = [2, 8, 8]; let left = IO.e; shells.forEach((cap, k) => { const n = Math.min(cap, left); left -= n; const R = 40 + k * 30; c.strokeStyle = "rgba(120,170,210,.4)"; c.beginPath(); c.arc(cx, cy, R, 0, 7); c.stroke(); for (let j = 0; j < n; j++) { const a = j / cap * Math.PI * 2 + t / (900 + k * 400); c.fillStyle = "#3b8bff"; c.beginPath(); c.arc(cx + R * Math.cos(a), cy + R * Math.sin(a), 5, 0, 7); c.fill(); c.fillStyle = "#fff"; c.font = "bold 8px sans-serif"; c.fillText("−", cx + R * Math.cos(a), cy + R * Math.sin(a) + 3); } });
+  const q = IO.p - IO.e; c.font = "bold 14px Pretendard, sans-serif"; c.fillStyle = q > 0 ? "#ff8a80" : q < 0 ? "#80b8ff" : "#cfe"; c.fillText(q === 0 ? "전기적으로 중성" : q > 0 ? `전자 ${q}개를 잃음 → (+)전하` : `전자 ${-q}개를 얻음 → (-)전하`, cx, H - 12); c.textAlign = "left"; });
+
+/* ── 곤약 실험 ── */
+const EP = { on: false, t: 0, runs: new Set() };
+$("ep-on").addEventListener("click", () => { EP.on = !EP.on; $("ep-on").textContent = EP.on ? "⏸ 전원 끄기" : "⚡ 전원 켜기"; });
+$("ep-reset").addEventListener("click", () => { EP.t = 0; EP.on = false; $("ep-on").textContent = "⚡ 전원 켜기"; });
+["ep-s", "ep-p"].forEach(id => $(id).addEventListener("change", () => { EP.t = 0; }));
+WS.custom("ep_runs", { el: $("ep-cv"), value: () => [...EP.runs].join(",") });
+LB.loop($("ep-cv"), dt => { if (EP.on) { EP.t = Math.min(30, EP.t + dt * 2); if (EP.t > 6) EP.runs.add($("ep-s").value + ($("ep-p").value === "1" ? "L-" : "L+")); }
+  const g = LB.fit($("ep-cv"), 200), c = g.c, W = g.w, H = 200, x0 = 40, x1 = W - 40, cx = W / 2, pol = +$("ep-p").value, s = $("ep-s").value;
+  c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H); c.fillStyle = "#cfd7c6"; c.fillRect(x0, 60, x1 - x0, 80); c.strokeStyle = "#b7c0ae"; c.strokeRect(x0, 60, x1 - x0, 80);
+  const neg = pol === 1 ? x0 : x1, posx = pol === 1 ? x1 : x0; c.fillStyle = "#555"; c.fillRect(neg - 3, 50, 6, 100); c.fillRect(posx - 3, 50, 6, 100); c.font = "bold 14px Pretendard, sans-serif"; c.fillStyle = "#2f7de1"; c.fillText("(-)", neg - 10, 40); c.fillStyle = "#e4572e"; c.fillText("(+)", posx - 10, 40);
+  const d = EP.t / 30 * (x1 - x0) / 2 * 0.9, col = s === "k" ? "rgba(140,40,170," : "rgba(40,120,220,", dir = s === "k" ? (posx > cx ? 1 : -1) : (neg > cx ? 1 : -1);
+  for (let k = 0; k < 14; k++) { const f = k / 14; c.fillStyle = col + (0.6 - f * 0.4) + ")"; c.beginPath(); c.ellipse(cx + dir * d * (1 - f * 0.7), 100, 10 + f * 4, 26, 0, 0, 7); c.fill(); }
+  c.fillStyle = s === "k" ? "#5a1a70" : "#1a4aa0"; c.beginPath(); c.arc(cx, 100, 6, 0, 7); c.fill();
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText(EP.on ? `⚡ 20 V · ${EP.t.toFixed(0)}분 경과(가상)` : "전원 꺼짐", 8, 16); c.fillText("곤약 (질산 칼륨 수용액에 적심)", x0 + 4, 156); });
+
+</script>
+</body>
+</html>

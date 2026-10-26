@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅳ-2-01 — 물질을 이루는 입자</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.bingo{ display:grid; grid-template-columns:repeat(3,1fr); gap:6px; max-width:420px; margin:8px auto; }
+.bingo .b{ min-height:62px; border:2px solid #cfd8dc; border-radius:10px; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:12.5px; font-weight:800; cursor:pointer; text-align:center; padding:2px; }
+.bingo .b.mark{ background:#ffe58a; border-color:#e4a52e; }
+.bingo .b small{ font-weight:600; color:#6b7b85; }
+.pool{ display:flex; flex-wrap:wrap; gap:5px; margin:6px 0; }
+.pool button{ border:1px solid #cfd8dc; background:#fff; border-radius:14px; padding:4px 10px; font-weight:800; font-size:12.5px; cursor:pointer; }
+.pool button.sel{ outline:3px solid #0e7c80; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/4">← KISPP 과학실 · 중학교 2학년 Ⅳ. 물질의 구성</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p150-cartoon.jpg" alt="난 어디에 타야 하지?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 물질의 구성 · 2. 물질의 구성 입자 · 01 <span class="pg" style="margin:0">149~151쪽</span></span>
+      <h1>물질을 이루는<br><span>입자</span></h1>
+      <p>“난 어디에 타야 하지?” 염화 나트륨을 이루는 입자는 무엇일까? 입자 돋보기로 헬륨, 산소, 오존, 이산화 탄소, 염화 나트륨 속 입자를 들여다보고, 원자·분자·이온 빙고 놀이를 해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 물질을 이루는 입자는 원자, 분자, 이온 등으로 존재할 수 있음을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">두 번째 블록</span>땀에 젖은 손으로 콘센트를 만질 때 감전의 위험이 더 높은 까닭은 무엇일까? <span class="pg">149쪽</span></div>
+    <div class="book"><p>“오늘은 너무 더운 날이야. 손으로 이마에 난 땀을 닦고 선풍기를 틀려고 하는데, 땀에는 염화 나트륨(NaCl)이 있어서 땀에 젖은 손으로 콘센트를 만지면 맨손으로 만질 때보다 감전의 위험이 더 높대.” 이 단원의 힌트 조각을 모으면 물질을 이루는 입자를 이해하고 이온은 전하를 띠고 있음을 알아내어 두 번째 블록 질문에 답할 수 있다.</p></div>
+    <p style="font-size:13.5px;font-weight:800;margin:6px 0">이 단원과 관련해 이미 알고 있는 것에 표시해 보자.</p>
+    <div class="multi-group" id="know"><button type="button" class="multi-btn" data-value="1">물질을 이루는 기본 입자를 원자라고 한다.</button><button type="button" class="multi-btn" data-value="2">원자에는 (+)전하를 띠는 양성자와 (-)전하를 띠는 전자가 있다.</button><button type="button" class="multi-btn" data-value="3">전자는 다른 원자로 이동할 수 있다.</button></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>물질을 이루는 입자에는 어떤 것이 있을까? <span class="pg">150~151쪽</span></div>
+    <div class="book"><p>우리 주변에 있는 물질을 이루는 기본 입자는 원자이다. 헬륨, 네온, 아르곤 등의 원자는 매우 안정적이라서 독립된 상태로 존재한다. 한편 원자들이 결합하여 독립적으로 존재하며 그 물질의 성질을 나타내는 입자를 <span class="key">분자</span>라고 한다. 산소 분자는 산소 원자 두 개가 결합한 것이고, 이산화 탄소 분자는 산소 원자 두 개와 탄소 원자 한 개가 결합한 것이다. ●결합하는 원자의 종류와 수에 따라 분자의 종류는 달라진다.</p>
+    <p>원자는 전자를 잃거나 전자를 얻어 전하를 띨 수 있는데, 이처럼 전하를 띠는 입자를 <span class="key">이온</span>이라고 한다. 소금의 주성분인 염화 나트륨은 나트륨 이온과 염화 이온이 결합하여 만들어진 물질이다. 조개껍데기의 주성분인 탄산 칼슘, 습기 제거제로 사용하는 염화 칼슘, 제빵소다의 탄산수소 나트륨 등은 모두 이온이 결합하여 만들어진 물질이다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"><figure class="fig" style="margin:0"><img src="img/p150-fig4-13.jpg" alt="헬륨 기체를 이루는 헬륨 원자"><figcaption><span class="tb">그림 4-13</span>헬륨 기체를 이루는 헬륨 원자</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p150-fig4-14.jpg" alt="산소 분자 모형과 이산화 탄소 분자 모형"><figcaption><span class="tb">그림 4-14</span>산소 분자 모형과 이산화 탄소 분자 모형</figcaption></figure><figure class="fig" style="margin:0"><img src="img/p151-shell.jpg" alt="탄산 칼슘이 주성분인 조개껍데기"><figcaption><span class="tb">그림 4-15</span>탄산 칼슘이 주성분인 조개껍데기</figcaption></figure></div>
+    <div class="tip-box"><b>●같은 종류의 원자로 된 다른 분자</b> 산소 분자(O₂)와 오존 분자(O₃)처럼 같은 종류의 원자가 결합하더라도 원자의 수가 다르면 다른 분자이다.<br><b>💡 오개념 바로잡기</b> 염화 나트륨은 나트륨 이온과 염화 이온이 한 쌍씩 독립적으로 존재하지 않고, 규칙적으로 배열하여 서로를 둘러싼 형태로 존재하므로 분자가 아니다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">입자 돋보기</span>물질 속 입자 들여다보기</div>
+    <div class="btn-row" id="pv-btns"><button type="button" class="btn small main" data-v="He">헬륨 기체</button><button type="button" class="btn small" data-v="O2">산소 기체</button><button type="button" class="btn small" data-v="O3">오존 기체</button><button type="button" class="btn small" data-v="CO2">이산화 탄소</button><button type="button" class="btn small" data-v="NaCl">염화 나트륨</button></div>
+    <div class="sim-stage"><canvas id="pv-cv"></canvas><span class="tag" id="pv-tag"></span></div>
+    <div class="q" data-why="헬륨 — 독립된 원자, 산소·이산화 탄소 — 분자, 염화 나트륨 — 이온" data-hint="입자 돋보기로 다섯 가지를 모두 보세요.">
+      <div class="q-text"><span class="q-num">1</span>헬륨은 <span class="choice-group" data-key="pv1" data-answer="원자"><button type="button" class="choice-btn" data-value="원자">원자</button><button type="button" class="choice-btn" data-value="분자">분자</button><button type="button" class="choice-btn" data-value="이온">이온</button></span>, 산소와 이산화 탄소는 <span class="choice-group" data-key="pv2" data-answer="분자"><button type="button" class="choice-btn" data-value="원자">원자</button><button type="button" class="choice-btn" data-value="분자">분자</button><button type="button" class="choice-btn" data-value="이온">이온</button></span>, 염화 나트륨은 <span class="choice-group" data-key="pv3" data-answer="이온"><button type="button" class="choice-btn" data-value="원자">원자</button><button type="button" class="choice-btn" data-value="분자">분자</button><button type="button" class="choice-btn" data-value="이온">이온</button></span>(으)로 이루어진 물질이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 블록 · 힌트 조각 1 (151쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">염화 나트륨은 ( <span class="choice-group" data-key="blk1" data-answer="이온"><button type="button" class="choice-btn" data-value="원자">원자</button><button type="button" class="choice-btn" data-value="분자">분자</button><button type="button" class="choice-btn" data-value="이온">이온</button></span> )(으)로 이루어진 물질이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 자료 수집하기</span>원자, 분자, 이온으로 이루어진 물질 알아보기 — 빙고! <span class="pg">151쪽</span></div>
+    <div class="steps-box"><ol><li>3×3 놀이판의 각 칸에 조건에 맞는 물질을 적는다. <b>(독립된 원자로 이루어진 물질 2 종류 · 분자로 이루어진 물질 4 종류 · 이온으로 이루어진 물질 3 종류)</b></li><li>한 명씩 돌아가면서 물질을 하나씩 말하고, 해당 물질이 있으면 표시한다.</li><li>3 줄을 먼저 연결하면 빙고를 외친다.</li></ol></div>
+    <div class="card-hint">아래 물질을 고른 뒤 빈칸을 눌러 놓아 보자(다시 누르면 빼요). 9칸을 조건대로 채우면 [물질 부르기]로 빙고 놀이를 할 수 있어요.</div>
+    <div class="pool" id="bg-pool"></div>
+    <div class="bingo" id="bg"></div>
+    <div class="btn-row" style="justify-content:center"><button type="button" class="btn main small" id="bg-call">📣 물질 부르기</button><button type="button" class="btn ghost small" id="bg-reset">↺ 판 비우기</button></div>
+    <div class="tip-box" id="bg-msg"></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>150쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">151쪽</span></div>
+    <div class="q" data-why="분자, 이온">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 원자들이 결합하여 독립적으로 존재하며 그 물질의 성질을 나타내는 입자를 ( <input class="blank w-s" data-key="sc_1a" data-answer="분자"> ), 원자가 전자를 잃거나 얻어 전하를 띠는 입자를 ( <input class="blank w-s" data-key="sc_1b" data-answer="이온"> )(이)라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 물(H₂O)과 과산화 수소(H₂O₂)는 수소 원자와 산소 원자로 이루어져 있지만 성질이 서로 다르다. 그 까닭을 물질을 이루는 입자와 관련하여 설명해 보자.</div><textarea class="free" data-key="sc_h2o2" rows="2" data-keywords="원자의 수,분자,다르" data-model="결합하는 원자의 종류는 같지만 원자의 수가 달라 서로 다른 분자이기 때문이다. 분자의 종류가 다르면 물질의 성질도 다르다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>물질을 이루는 입자</div>
+    <div class="q" data-why="원자, 18족, 분자">
+      <div class="q-text"><span class="q-num">1</span>우리 주변 물질을 이루는 기본 입자는 <input class="blank w-s" data-key="t1a" data-answer="원자"> 이다. 헬륨, 네온, 아르곤 등 <input class="blank w-s" data-key="t1b" data-num="18" data-abs="0" style="width:45px"> 족 원자는 매우 안정적이라 독립된 상태로 존재한다. 원자들이 결합하여 독립적으로 존재하며 그 물질의 성질을 나타내는 입자를 <input class="blank w-s" data-key="t2" data-answer="분자"> 라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="산소(O₂)와 오존(O₃)처럼 원자의 수가 다르면 다른 분자예요(⑤ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">③ 분자가 원자로 나누어지면 그 성질을 잃는다.</td><td><span class="choice-group" data-key="t3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">④ 결합하는 원자의 종류와 수에 따라 분자의 종류가 달라진다.</td><td><span class="choice-group" data-key="t4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑤ 같은 종류의 원자가 결합하면 원자의 수가 달라도 같은 성질을 가진다.</td><td><span class="choice-group" data-key="t5" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="헬륨·네온 — 원자, 산소·이산화 탄소 — 분자, 염화 나트륨·탄산 칼슘 — 이온">
+      <div class="q-text"><span class="q-num">6</span>원자가 전자를 잃거나 얻어 전하를 띠는 입자를 <input class="blank w-s" data-key="t6" data-answer="이온"> 이라고 한다. (헬륨, 염화 나트륨, 산소, 네온, 이산화 탄소, 탄산 칼슘)</div><table class="data-t" style="margin-top:6px"><tr><td>⑦ 독립된 원자</td><td><div class="multi-group" data-key="t7" data-answer="헬륨,네온"><button type="button" class="multi-btn" data-value="헬륨">헬륨</button><button type="button" class="multi-btn" data-value="염화 나트륨">염화 나트륨</button><button type="button" class="multi-btn" data-value="산소">산소</button><button type="button" class="multi-btn" data-value="네온">네온</button><button type="button" class="multi-btn" data-value="이산화 탄소">이산화 탄소</button><button type="button" class="multi-btn" data-value="탄산 칼슘">탄산 칼슘</button></div></td></tr><tr><td>⑧ 분자</td><td><div class="multi-group" data-key="t8" data-answer="산소,이산화 탄소"><button type="button" class="multi-btn" data-value="헬륨">헬륨</button><button type="button" class="multi-btn" data-value="염화 나트륨">염화 나트륨</button><button type="button" class="multi-btn" data-value="산소">산소</button><button type="button" class="multi-btn" data-value="네온">네온</button><button type="button" class="multi-btn" data-value="이산화 탄소">이산화 탄소</button><button type="button" class="multi-btn" data-value="탄산 칼슘">탄산 칼슘</button></div></td></tr><tr><td>⑨ 이온</td><td><div class="multi-group" data-key="t9" data-answer="염화 나트륨,탄산 칼슘"><button type="button" class="multi-btn" data-value="헬륨">헬륨</button><button type="button" class="multi-btn" data-value="염화 나트륨">염화 나트륨</button><button type="button" class="multi-btn" data-value="산소">산소</button><button type="button" class="multi-btn" data-value="네온">네온</button><button type="button" class="multi-btn" data-value="이산화 탄소">이산화 탄소</button><button type="button" class="multi-btn" data-value="탄산 칼슘">탄산 칼슘</button></div></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="조개껍데기 — 탄산 칼슘">
+      <div class="q-text"><span class="q-num">10</span>조개껍데기의 주성분인 물질은 <span class="choice-group" data-key="t10" data-answer="탄산"><button type="button" class="choice-btn" data-value="탄산">탄산 칼슘</button><button type="button" class="choice-btn" data-value="염화">염화 칼슘</button><button type="button" class="choice-btn" data-value="나트륨">염화 나트륨</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>물질을 이루는 입자 <span class="pg">156쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>물질을 이루는 입자</h4>
+      <div class="q" style="border-top:none" data-why="원자, 분자(성질), 이온(전자를 잃거나 얻음)">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="원자"> : 물질을 이루는 기본 입자 (헬륨, 네온, 아르곤은 독립된 상태로 존재)<br>⑵ 분자: 원자들이 결합하여 독립적으로 존재하며 물질의 <input class="blank w-s" data-key="s2" data-answer="성질"> 을/를 나타내는 입자<br>⑶ 이온: 원자가 <input class="blank w-s" data-key="s3" data-answer="전자"> 을/를 잃거나 얻어 전하를 띠는 입자 (염화 나트륨, 탄산 칼슘 등)</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 물질을 이루는 입자가 원자, 분자, 이온으로 존재함을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 다양한 물질을 찾으며 과학적 호기심을 느꼈는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅳ. 물질의 구성 · 2. 물질의 구성 입자 · 01 물질을 이루는 입자 · 비상교육 중학 과학 2 교과서(149~151쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="mol.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅳ-2-01 물질을 이루는 입자";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 입자 돋보기 ── */
+let PV = "He"; const PVS = new Set(["He"]), P = [];
+const TAG = { He: "헬륨 원자 — 독립된 원자 상태", O2: "산소 분자 — 산소 원자 2 개가 결합", O3: "오존 분자 — 산소 원자 3 개가 결합 (산소와 다른 분자!)", CO2: "이산화 탄소 분자 — 탄소 1 + 산소 2", NaCl: "염화 나트륨 — 나트륨 이온(+)과 염화 이온(-)이 규칙적으로 배열 (분자가 아님)" };
+function pvInit() { P.length = 0; for (let i = 0; i < 14; i++) P.push({ x: Math.random(), y: Math.random(), vx: Math.random() - 0.5, vy: Math.random() - 0.5, a: Math.random() * 6, w: (Math.random() - 0.5) * 2 }); }
+pvInit();
+$("pv-btns").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; PV = b.dataset.v; PVS.add(PV); $("pv-btns").querySelectorAll("button").forEach(x => x.classList.toggle("main", x === b)); pvInit(); });
+WS.custom("pv_seen", { el: $("pv-cv"), value: () => [...PVS].join(",") });
+LB.loop($("pv-cv"), (dt, t) => { const g = LB.fit($("pv-cv"), 220), c = g.c, W = g.w, H = 220; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H); $("pv-tag").textContent = TAG[PV];
+  if (PV === "NaCl") { const s = 26, nx = Math.floor((W - 40) / s), ny = 7; for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) { const na = (i + j) % 2 === 0, x = 30 + i * s + Math.sin(t / 200 + i + j) * 1.2, y = 30 + j * s + Math.cos(t / 230 + i) * 1.2; MOL.atom(c, x, y, na ? "Na" : "Cl", na ? 0.75 : 0.9); c.fillStyle = "#fff"; c.font = "bold 10px sans-serif"; c.fillText(na ? "+" : "−", x + 6, y - 6); } return; }
+  P.forEach(p => { p.x += p.vx * dt * 0.25; p.y += p.vy * dt * 0.25; p.a += p.w * dt; if (p.x < 0.05 || p.x > 0.95) p.vx *= -1; if (p.y < 0.08 || p.y > 0.92) p.vy *= -1; const x = p.x * W, y = p.y * H; c.save(); c.translate(x, y); c.rotate(p.a); MOL.draw(c, 0, 0, PV === "He" ? "He" : PV, 0.9); c.restore(); }); });
+
+/* ── 빙고 ── */
+const SUB = [["헬륨", "He", "원자"], ["네온", "Ne", "원자"], ["아르곤", "Ar", "원자"], ["산소", "O₂", "분자"], ["물", "H₂O", "분자"], ["이산화 탄소", "CO₂", "분자"], ["암모니아", "NH₃", "분자"], ["메테인", "CH₄", "분자"], ["질소", "N₂", "분자"], ["염화 나트륨", "NaCl", "이온"], ["탄산 칼슘", "CaCO₃", "이온"], ["염화 칼슘", "CaCl₂", "이온"], ["탄산수소 나트륨", "NaHCO₃", "이온"]];
+const BG = { cell: Array(9).fill(null), sel: null, mark: new Set(), called: [] };
+function cnt() { const k = { 원자: 0, 분자: 0, 이온: 0 }; BG.cell.forEach(i => { if (i != null) k[SUB[i][2]]++; }); return k; }
+const okBoard = () => { const k = cnt(); return BG.cell.every(i => i != null) && k.원자 === 2 && k.분자 === 4 && k.이온 === 3; };
+function lines() { const L = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; return L.filter(l => l.every(i => BG.mark.has(i))).length; }
+function bgDraw() { $("bg-pool").innerHTML = SUB.map((s, i) => BG.cell.includes(i) ? "" : `<button type="button" data-p="${i}" class="${BG.sel === i ? "sel" : ""}">${s[0]}</button>`).join("");
+  $("bg").innerHTML = BG.cell.map((i, k) => `<div class="b ${BG.mark.has(k) ? "mark" : ""}" data-k="${k}">${i == null ? '<small>빈칸</small>' : SUB[i][0] + `<small>${SUB[i][1]}</small>`}</div>`).join("");
+  const k = cnt(); $("bg-msg").innerHTML = `채운 칸 — 원자 ${k.원자}/2 · 분자 ${k.분자}/4 · 이온 ${k.이온}/3 ${okBoard() ? "✔ 조건 완성! [물질 부르기]를 눌러 보세요." : ""}` + (BG.called.length ? `<br>불린 물질: ${BG.called.map(i => SUB[i][0]).join(", ")} · 완성한 줄 ${lines()}${lines() >= 3 ? " 🎉 빙고!" : ""}` : ""); }
+$("bg-pool").addEventListener("click", e => { const b = e.target.closest("[data-p]"); if (b) { BG.sel = +b.dataset.p; bgDraw(); } });
+$("bg").addEventListener("click", e => { const c = e.target.closest("[data-k]"); if (!c) return; const k = +c.dataset.k; if (BG.cell[k] != null && !BG.called.length) { BG.cell[k] = null; bgDraw(); return; } if (BG.sel != null && BG.cell[k] == null) { BG.cell[k] = BG.sel; BG.sel = null; bgDraw(); } });
+$("bg-call").addEventListener("click", () => { if (!okBoard()) { $("bg-msg").innerHTML += "<br>⚠️ 먼저 조건(원자 2, 분자 4, 이온 3)에 맞게 9칸을 채워요."; return; } const left = SUB.map((_, i) => i).filter(i => !BG.called.includes(i)); if (!left.length) return; const pick = left[Math.floor(Math.random() * left.length)]; BG.called.push(pick); const k = BG.cell.indexOf(pick); if (k >= 0) BG.mark.add(k); bgDraw(); });
+$("bg-reset").addEventListener("click", () => { BG.cell = Array(9).fill(null); BG.mark.clear(); BG.called = []; BG.sel = null; bgDraw(); });
+bgDraw();
+WS.custom("bingo", { el: $("bg"), value: () => BG.cell.map(i => i == null ? "" : SUB[i][0]).join(",") + (BG.called.length ? ` | ${lines()}줄` : ""), check: () => okBoard(), answer: "원자 2·분자 4·이온 3 종류로 놀이판 채우기", why: "헬륨·네온·아르곤은 원자, 산소·물·이산화 탄소 등은 분자, 염화 나트륨·탄산 칼슘 등은 이온으로 이루어진 물질이에요." });
+
+</script>
+</body>
+</html>

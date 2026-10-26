@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅴ-1-02 — 광합성에 영향을 미치는 환경요인</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/5">← KISPP 과학실 · 중학교 2학년 Ⅴ. 식물과 에너지</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p167-fig5-1.jpg" alt="">
+    <img class="lb-qmark" src="img/p170-cartoon.jpg" alt="아, 힘들다. 가시박, 버드나무">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 식물과 에너지 · 1. 광합성과 에너지 · 02 <span class="pg" style="margin:0">170~174쪽</span></span>
+      <h1>광합성에 영향을 미치는<br><span>환경요인</span></h1>
+      <p>“아, 힘들다.” 가시박에 뒤덮인 나무가 잘 자랄 수 없는 까닭은 무엇일까? 가상 산소 센서와 잎 조각 띄우기 실험으로 빛의 세기의 영향을 확인하고, 스마트팜 조절판으로 광합성량을 최대로 만들어 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 광합성에 영향을 미치는 환경요인을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 변인을 포함하여 탐구 설계 및 수행하기</span>환경요인과 광합성의 관계 탐구하기 <span class="pg">170~171쪽</span></div>
+    <div class="book"><p>식물이 잘 자라려면 광합성이 활발하게 일어나야 한다. 광합성은 빛의 세기, 이산화 탄소의 농도, 온도 등과 같은 환경요인의 영향을 받는다.</p></div>
+<figure class="fig"><img src="img/p170-setup.jpg" alt="어둠상자 안 — 산소 센서, 밀폐 용기, 엘이디등, 시금칫잎"><figcaption><span class="tb">170쪽</span>어둠상자 안 — 산소 센서, 밀폐 용기, 엘이디등, 시금칫잎</figcaption></figure>
+    <div class="steps-box"><ol><li>시금칫잎을 밀폐 용기에 넣고 산소 센서를 꽂아 엘이디등과 함께 어둠상자에 넣는다.</li><li>엘이디등을 가장 약하게 켰을 때 일정 시간 동안의 산소 농도를 측정한다.</li><li>환기한 뒤 중간 세기, 가장 센 빛으로 각각 측정한다. (측정 시간은 같게!)</li></ol></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 산소 센서</span>빛의 세기를 바꾸어 측정하기</div>
+    <div class="btn-row"><button type="button" class="btn small" data-li="1">🔅 가장 약한 빛</button><button type="button" class="btn small" data-li="2">🔆 중간 세기</button><button type="button" class="btn small" data-li="3">☀️ 가장 센 빛</button></div>
+    <div class="light-stage"><canvas id="o2-cv"></canvas></div>
+    <div class="q" data-why="산소가 늘어난 양 = 광합성량. 빛이 셀수록 산소 농도가 빠르게 늘어요." data-hint="세 조건을 모두 측정하세요.">
+      <div class="q-text"><span class="q-num">1</span>산소 농도를 측정하는 까닭은 광합성 과정에서 <span class="choice-group" data-key="o2a" data-answer="산소"><button type="button" class="choice-btn" data-value="산소">산소</button><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소</button><button type="button" class="choice-btn" data-value="물">물</button></span>가 발생하기 때문이다. 일정 시간 동안 산소 농도가 가장 빠르게 증가한 것은 <span class="choice-group" data-key="o2b" data-answer="3"><button type="button" class="choice-btn" data-value="1">가장 약한 빛</button><button type="button" class="choice-btn" data-value="2">중간 세기</button><button type="button" class="choice-btn" data-value="3">가장 센 빛</button></span>일 때이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 Ⓑ</span>이산화 탄소의 농도, 온도와 광합성의 관계를 알아보는 실험 설계하기 <span class="pg">171쪽</span></div>
+    <div class="card-hint">알아보고 싶은 환경요인을 정하고 가설과 실험 조건을 설계해 보자. (탐구 Ⓐ의 준비물을 참고하고, 더 필요한 준비물은 스마트 기기로 검색해요.)</div>
+    <div class="q" data-why="다르게 해야 할 조건은 온도 하나뿐이고, 빛의 세기·이산화 탄소 농도·시금칫잎의 양·측정 시간은 모두 같게 해야 해요.">
+      <div class="q-text"><span class="q-num">1</span><b>탐구 설계</b> ‘온도가 높을수록 광합성이 활발할 것이다’라는 가설을 확인하려면?</div><table class="data-t" style="margin-top:6px"><tr><td>다르게 해야 할 조건</td><td><div class="multi-group" data-key="dv" data-answer="온도"><button type="button" class="multi-btn" data-value="온도">물의 온도(밀폐 용기를 담근 물)</button><button type="button" class="multi-btn" data-value="빛">빛의 세기</button><button type="button" class="multi-btn" data-value="잎">시금칫잎의 양</button></div></td></tr><tr><td>같게 해야 할 조건</td><td><div class="multi-group" data-key="cv" data-answer="빛,이산화,잎,시간"><button type="button" class="multi-btn" data-value="빛">빛의 세기</button><button type="button" class="multi-btn" data-value="이산화">이산화 탄소 농도</button><button type="button" class="multi-btn" data-value="잎">시금칫잎의 양</button><button type="button" class="multi-btn" data-value="시간">측정 시간</button><button type="button" class="multi-btn" data-value="온도">온도</button></div></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>이산화 탄소의 농도와 광합성의 관계를 알아보는 실험 방법을 설계해 보자.</div><textarea class="free" data-key="design" rows="3" data-keywords="탄산수소 나트륨,농도,같게,빛" data-model="물, 0.5 %, 1 %, 2 % 탄산수소 나트륨 수용액(이산화 탄소 공급)에 같은 수의 시금칫잎 조각을 넣고, 같은 세기의 빛을 비추어 잎 조각이 모두 떠오르는 시간을 비교한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">다르게 해 보기</span>빛의 세기가 광합성에 미치는 영향 알아보기 — 잎 조각 띄우기 <span class="pg">171쪽</span></div>
+    <div class="steps-box"><ol><li>주사기에 시금칫잎 조각 5 개와 1 % 탄산수소 나트륨 수용액을 넣는다.</li><li>피스톤을 당겨 잎 조각 속 공기를 뺀 뒤 수용액이 담긴 비커에 넣는다(잎 조각이 가라앉음).</li><li>엘이디등 1 개를 켜서 잎 조각이 모두 떠오르는 시간을 측정하고, 켜진 개수를 늘리면서 반복한다.</li></ol></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 잎 조각 실험</span></div>
+    <div class="ctrl-grid"><div class="ctrl"><label>켠 엘이디등 개수 <output id="ld-o"></output></label><input type="range" id="ld-n" min="1" max="4" value="1"></div><div class="ctrl"><label>실험</label><button type="button" class="btn small main" id="ld-go">▶ 시작</button></div></div>
+    <div class="sim-stage"><canvas id="ld-cv"></canvas></div>
+    <div class="scroll-x"><table class="data-t" id="ld-tb"></table></div>
+    <div class="q" data-why="빛이 셀수록 광합성이 활발해 산소가 빨리 생기므로 잎 조각이 빨리 떠올라요." data-hint="1~4 개를 모두 실험하세요.">
+      <div class="q-text"><span class="q-num">1</span>엘이디등의 개수가 많을수록(빛이 셀수록) 잎 조각이 모두 떠오르는 시간이 <span class="choice-group" data-key="ld1" data-answer="짧"><button type="button" class="choice-btn" data-value="짧">짧아진다</button><button type="button" class="choice-btn" data-value="길">길어진다</button></span>. 잎 조각이 떠오르는 까닭은 광합성으로 생긴 <span class="choice-group" data-key="ld2" data-answer="산소"><button type="button" class="choice-btn" data-value="산소">산소</button><button type="button" class="choice-btn" data-value="이산화 탄소">이산화 탄소</button><button type="button" class="choice-btn" data-value="수소">수소</button></span>가 잎 조각 속에 모이기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>광합성에 영향을 미치는 환경요인 <span class="pg">172쪽</span></div>
+    <div class="book"><p>일정 시간 동안의 산소 농도 변화는 일정 시간 동안 식물의 광합성량을 뜻한다. 광합성량은 빛의 세기가 셀수록 증가하며, 빛의 세기가 어느 정도 이상 세지면 더 이상 증가하지 않는다. 광합성량은 이산화 탄소의 농도가 높을수록 증가하며, 어느 정도 이상 높아지면 더 이상 증가하지 않는다. 광합성량은 온도가 높을수록 증가하며, 일정 온도 이상에서는 급격하게 감소한다. 광합성은 환경요인이 모두 알맞게 유지될 때 활발하게 일어날 수 있다.</p></div>
+    <div class="card-title" style="margin-top:8px"><span class="badge sim">스마트팜 조절판 · 움직이는 그림 5-2</span>광합성량을 최대로!</div>
+    <div class="card-hint">빛의 세기, 이산화 탄소 농도, 온도를 조절해 광합성량을 최대로 만들어 보자. 세 그래프의 점이 지금 조건을 나타내요.</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>☀️ 빛의 세기 <output id="sf-lo"></output></label><input type="range" id="sf-l" min="0" max="100" value="30"></div><div class="ctrl"><label>🫧 이산화 탄소 농도 <output id="sf-co"></output></label><input type="range" id="sf-c" min="0" max="100" value="30"></div><div class="ctrl"><label>🌡️ 온도 <output id="sf-to"></output></label><input type="range" id="sf-t" min="0" max="50" value="15"></div></div>
+    <div class="fig-row" style="grid-template-columns:repeat(3,1fr);gap:6px"><div class="light-stage"><canvas id="g1"></canvas></div><div class="light-stage"><canvas id="g2"></canvas></div><div class="light-stage"><canvas id="g3"></canvas></div></div>
+    <div class="meter"><div class="m"><small>광합성량 (최대 100)</small><b id="sf-r">-</b></div><div class="m"><small>가장 부족한 요인</small><b id="sf-lim">-</b></div></div>
+    <div class="q" data-why="빛·이산화 탄소: 증가하다 일정해짐, 온도: 증가하다 일정 온도 이상에서 급격히 감소">
+      <div class="q-text"><span class="q-num">1</span>광합성량은 온도가 <span class="choice-group" data-key="tp1" data-answer="높"><button type="button" class="choice-btn" data-value="높">높을수록</button><button type="button" class="choice-btn" data-value="낮">낮을수록</button></span> 증가하다가 일정 온도 이상에서는 <span class="choice-group" data-key="tp2" data-answer="급"><button type="button" class="choice-btn" data-value="급">급격하게 감소한다</button><button type="button" class="choice-btn" data-value="계">계속 증가한다</button></span>. 빛의 세기가 어느 정도 이상 세지면 광합성량은 <span class="choice-group" data-key="tp3" data-answer="일"><button type="button" class="choice-btn" data-value="일">더 이상 증가하지 않는다</button><button type="button" class="choice-btn" data-value="계">계속 증가한다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 첫 번째 블록 · 힌트 조각 2 (172쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">광합성에 영향을 미치는 환경요인에는 빛의 세기, 이산화 탄소의 농도, ( <input class="blank w-s" data-key="blk2" data-answer="온도"> ) 등이 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>170쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">172쪽</span></div>
+    <div class="q" data-why="증가">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 광합성량은 이산화 탄소의 농도가 높을수록 ( <span class="choice-group" data-key="sc_1" data-answer="증가"><button type="button" class="choice-btn" data-value="감소">감소</button><button type="button" class="choice-btn" data-value="증가">증가</button></span> )하며, 어느 정도 이상 높아지면 더 이상 증가하지 않는다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 흐리거나 비가 오는 날이 많으면 농작물의 생산량이 줄어드는 까닭을 광합성에 영향을 미치는 환경요인과 관련지어 설명해 보자.</div><textarea class="free" data-key="sc_cloud" rows="2" data-keywords="빛의 세기,약,광합성량,양분" data-model="흐리거나 비가 오면 빛의 세기가 약해 광합성량이 줄어들고, 만들어지는 양분이 적어 농작물이 잘 자라지 못하기 때문이다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span>가시박에 뒤덮인 나무가 잘 자랄 수 없는 까닭을 써 보자.</div><textarea class="free" data-key="gasi" rows="2" data-keywords="빛,가려,광합성" data-model="가시박 덩굴이 나무를 덮어 빛을 가리므로 나무가 받는 빛의 세기가 약해져 광합성을 충분히 하지 못하기 때문이다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">과학이 톡</span>자연에서 배운 친환경 에너지 기술, 인공 광합성 <span class="pg">173쪽</span></div>
+<figure class="fig" style="max-width:220px;float:right;margin:0 0 6px 10px"><img src="img/p173-artificial.jpg" alt="인공 광합성의 활용"><figcaption><span class="tb">173쪽</span>인공 광합성의 활용</figcaption></figure>    <div class="book"><p>인공 광합성은 식물의 광합성을 모방하여 이산화 탄소와 물을 원료로 에탄올, 메탄올, 일산화 탄소와 같은 화합물을 만드는 기술이다. 화석 연료 대신 이산화 탄소를 사용하여 화합물을 생산하기 때문에 생산 과정에서 오염 물질이 발생하지 않는다. 현재 경제성이 낮고 기술적인 한계가 있어 계속 연구 중이다.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>진로와 직업</b> 대체 에너지 개발 연구원이 하는 일을 찾아보고, 대체 에너지를 개발할 때 고려할 점을 써 보자.</div><textarea class="free" data-key="career" rows="2" data-keywords="환경,비용,효율,안전" data-model="대체 에너지 개발 연구원은 태양광, 수소, 인공 광합성 등 새로운 에너지를 연구한다. 개발할 때는 환경 오염이 적은지, 만드는 비용과 효율, 안전성을 고려해야 한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>광합성에 영향을 미치는 환경요인</div>
+    <div class="q" data-why="빛의 세기가 셀수록 산소 농도가 더 빠르게 증가해요(ㄴ X). 온도는 같게 해야 할 조건이에요.">
+      <div class="q-text"><span class="q-num">1</span>빛의 세기를 가장 약한 빛, 중간 세기, 가장 센 빛으로 정하고 일정 시간 동안 산소 농도를 측정한 실험(빛을 바꾸기 전 환기함)에 대한 설명으로 옳은 것을 모두 고르시오.</div><div class="multi-group" data-key="t1" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. 빛의 세기가 광합성에 미치는 영향을 알아보는 실험이다.</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. 빛의 세기가 약할수록 산소 농도는 더 빠르게 증가한다.</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 이 실험에서 같게 해야 할 조건에는 ‘온도’가 포함된다.</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="증가, 강할, 높을, 이산화 탄소">
+      <div class="q-text"><span class="q-num">2</span>이산화 탄소의 농도가 높을수록 광합성량이 <span class="choice-group" data-key="t2" data-answer="증가"><button type="button" class="choice-btn" data-value="증가">증가</button><button type="button" class="choice-btn" data-value="감소">감소</button></span>한다. 빛의 세기가 <span class="choice-group" data-key="t3" data-answer="강할"><button type="button" class="choice-btn" data-value="강할">강할</button><button type="button" class="choice-btn" data-value="약할">약할</button></span>수록 광합성량이 증가하다가 일정 세기 이상이 되면 일정하게 유지된다. 광합성량은 온도가 <span class="choice-group" data-key="t4" data-answer="높을"><button type="button" class="choice-btn" data-value="높을">높을</button><button type="button" class="choice-btn" data-value="낮을">낮을</button></span>수록 증가한다. 광합성에 영향을 미치는 환경요인에는 빛의 세기, <input class="blank w-s" data-key="t5" data-answer="이산화 탄소|이산화탄소"> 의 농도, 온도가 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="A처럼 증가하다 일정해지는 것은 빛의 세기와 이산화 탄소의 농도, B처럼 증가하다 급격히 감소하는 것은 온도예요.">
+      <div class="q-text"><span class="q-num">6</span>그래프 A, B에 해당하는 환경요인을 고르시오.</div><div class="light-stage"><canvas id="ab-cv"></canvas></div><table class="data-t"><tr><td>A</td><td><div class="multi-group" data-key="t6a" data-answer="빛,이산화"><button type="button" class="multi-btn" data-value="빛">빛의 세기</button><button type="button" class="multi-btn" data-value="이산화">이산화 탄소의 농도</button><button type="button" class="multi-btn" data-value="온도">온도</button></div></td></tr><tr><td>B</td><td><div class="multi-group" data-key="t6b" data-answer="온도"><button type="button" class="multi-btn" data-value="빛">빛의 세기</button><button type="button" class="multi-btn" data-value="이산화">이산화 탄소의 농도</button><button type="button" class="multi-btn" data-value="온도">온도</button></div></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>1. 광합성과 에너지 · 첫 번째 블록 찾기 <span class="pg">174쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>광합성에 영향을 미치는 환경요인</h4>
+      <div class="q" style="border-top:none" data-why="빛의 세기, 이산화 탄소의 농도, 온도">
+        <div class="q-text"><input class="blank w-s" data-key="s5" data-answer="빛의 세기|빛"> · <input class="blank w-s" data-key="s6" data-answer="이산화 탄소의 농도|이산화 탄소 농도|이산화 탄소"> — 증가하다 어느 정도 이상이면 더 이상 증가하지 않음<br><input class="blank w-s" data-key="s7" data-answer="온도"> — 증가하다 일정 온도 이상에서 급격하게 감소</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="block-q"><b>🧩 첫 번째 블록 찾기 · 스마트팜에서 식물이 광합성을 활발하게 하려면 환경을 어떻게 조절해야 할까?</b>
+      <p style="margin:6px 0;color:#3a1600;font-size:14px">① 식물은 빛에너지, 이산화 탄소, 물을 이용하여 포도당을 만들고, 이 과정에서 산소가 발생한다. (169쪽) ② 광합성에 영향을 미치는 환경요인에는 빛의 세기, 이산화 탄소의 농도, 온도 등이 있다. (172쪽)</p>
+      <div class="q" style="border-top:none;padding:0"><div class="q-text" style="color:#3a1600">두 조각을 모아 첫 번째 블록 질문에 답해 보자. <b>블록 찾기 성공!</b></div><textarea class="free" data-key="blk_sum" rows="2" data-keywords="빛,이산화 탄소,온도,물,엘이디" data-model="흐린 날에는 엘이디등으로 빛을 충분히 비추고, 이산화 탄소 농도를 알맞게 높이며, 온도는 너무 높지 않게 적당히 유지하고 물을 충분히 주어 광합성이 활발하게 일어나도록 한다."></textarea><span class="fb"></span></div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>지식·이해</b> 광합성 과정과 환경요인과 광합성의 관계를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>과정·기능</b> 환경요인과 광합성의 관계를 탐구하는 실험을 설계할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 친구의 의견을 경청하며 실험 계획을 보완했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅴ. 식물과 에너지 · 1. 광합성과 에너지 · 02 광합성에 영향을 미치는 환경요인 · 비상교육 중학 과학 2 교과서(170~174쪽)·탐구 활동지·5분 테스트 바탕, 교과서 그림 수록 · 센서 그래프·스마트팜 모형은 교육용 예시 · 아두이노 실험: <a href="arduino-ipjogak.html">빛 센서로 잎 조각 실험</a></footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅴ-1-02 광합성에 영향을 미치는 환경요인";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 산소 센서 ── */
+const O2 = {};
+document.querySelectorAll("[data-li]").forEach(b => b.addEventListener("click", () => { const k = +b.dataset.li, rate = [0, 0.06, 0.16, 0.22][k]; O2[k] = Array.from({ length: 41 }, (_, i) => [i * 0.25, +(20.9 + rate * i * 0.25 + (Math.random() - 0.5) * 0.04).toFixed(2)]); o2Draw(); }));
+function o2Draw() { const C = ["", "#9ab0bd", "#e4a52e", "#e4572e"], N = ["", "약한 빛", "중간 세기", "센 빛"]; const ser = Object.keys(O2).map(k => ({ color: C[k], pts: O2[k], label: N[k], width: 2.5 })); LB.graph($("o2-cv"), { h: 230, xMax: 10, yMin: 20.5, yMax: 23.5, xStep: 2, yStep: 0.5, xLabel: "시간(분)", yLabel: "산소 농도(%)", series: ser.length ? ser : [{ color: "#ccc", pts: [[0, 20.9]] }] }); }
+o2Draw(); window.addEventListener("resize", o2Draw);
+WS.custom("o2_runs", { el: $("o2-cv"), value: () => Object.keys(O2).join(",") });
+
+/* ── 잎 조각 ── */
+const LD = { run: null, rows: {} };
+$("ld-n").addEventListener("input", () => $("ld-o").textContent = $("ld-n").value + " 개"); $("ld-o").textContent = "1 개";
+$("ld-go").addEventListener("click", () => { const n = +$("ld-n").value, T = 900 / (1 + 1.4 * (n - 1)) * (0.95 + Math.random() * 0.1); LD.run = { n, T, t: 0, discs: Array.from({ length: 5 }, (_, i) => ({ x: 0.2 + i * 0.15, tf: T * (0.75 + i * 0.06 + Math.random() * 0.04) })) }; });
+function ldTb() { $("ld-tb").innerHTML = "<tr><th>엘이디등 개수</th>" + [1, 2, 3, 4].map(n => `<th>${n} 개</th>`).join("") + "</tr><tr><td>모두 떠오르는 시간(초)</td>" + [1, 2, 3, 4].map(n => `<td><b>${LD.rows[n] ? Math.round(LD.rows[n]) : "-"}</b></td>`).join("") + "</tr>"; }
+ldTb();
+WS.custom("ld_log", { el: $("ld-tb"), value: () => Object.entries(LD.rows).map(([k, v]) => k + ":" + Math.round(v)).join(",") });
+LB.loop($("ld-cv"), dt => { const g = LB.fit($("ld-cv"), 220), c = g.c, W = g.w, H = 220; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H); const n = LD.run ? LD.run.n : +$("ld-n").value;
+  for (let k = 0; k < n; k++) { c.fillStyle = "#fff59d"; c.beginPath(); c.arc(W * 0.2 + k * W * 0.2, 18, 8, 0, 7); c.fill(); const gr = c.createLinearGradient(0, 20, 0, 120); gr.addColorStop(0, "rgba(255,245,157,.25)"); gr.addColorStop(1, "rgba(255,245,157,0)"); c.fillStyle = gr; c.fillRect(W * 0.2 + k * W * 0.2 - 30, 20, 60, 100); }
+  c.fillStyle = "rgba(150,200,255,.35)"; c.fillRect(W * 0.1, 60, W * 0.8, 150); c.strokeStyle = "#7fa8c4"; c.strokeRect(W * 0.1, 40, W * 0.8, 170);
+  if (LD.run) { LD.run.t += dt * 60; let all = true; LD.run.discs.forEach(d => { const f = Math.min(1, Math.max(0, (LD.run.t - d.tf * 0.85) / (d.tf * 0.15))); if (f < 1) all = false; const y = 200 - f * 136; c.fillStyle = "#3f9a3a"; c.beginPath(); c.ellipse(W * 0.1 + d.x * W * 0.8, y, 9, 4, 0, 0, 7); c.fill(); if (LD.run.t > d.tf * 0.3) { c.strokeStyle = "rgba(255,255,255,.7)"; c.beginPath(); c.arc(W * 0.1 + d.x * W * 0.8 + 6, y - 5, 1.5 + Math.min(2, LD.run.t / d.tf * 2), 0, 7); c.stroke(); } });
+    c.fillStyle = "#fff"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(`⏱ ${Math.round(LD.run.t)} 초 (가상 시간)`, W * 0.1 + 6, 56); if (all) { LD.rows[LD.run.n] = Math.max(...LD.run.discs.map(d => d.tf)); LD.run = null; ldTb(); } }
+  else { c.fillStyle = "#3f9a3a"; for (let i = 0; i < 5; i++) { c.beginPath(); c.ellipse(W * 0.1 + (0.2 + i * 0.15) * W * 0.8, 200, 9, 4, 0, 0, 7); c.fill(); } } });
+
+/* ── 스마트팜 ── */
+const fL = x => Math.min(1, x / 60), fC = x => Math.min(1, x / 55), fT = x => x <= 30 ? Math.max(0, x / 30) : Math.max(0, 1 - (x - 30) / 8);
+let BEST = 0;
+function sfDraw() { const l = +$("sf-l").value, co = +$("sf-c").value, t = +$("sf-t").value; $("sf-lo").textContent = l; $("sf-co").textContent = co; $("sf-to").textContent = t + " ℃";
+  const v = [fL(l), fC(co), fT(t)], r = Math.round(100 * Math.min(...v)); BEST = Math.max(BEST, r); $("sf-r").textContent = r; $("sf-lim").textContent = r >= 99 ? "없음 — 최고예요! 🎉" : ["빛의 세기", "이산화 탄소 농도", "온도"][v.indexOf(Math.min(...v))];
+  [["g1", fL, 100, l, "빛의 세기"], ["g2", fC, 100, co, "이산화 탄소 농도"], ["g3", fT, 50, t, "온도(℃)"]].forEach(([id, f, mx, x, lab]) => { const g = LB.graph($(id), { h: 160, xMax: mx, yMin: 0, yMax: 1.1, xStep: mx / 2, yStep: 0.5, xLabel: lab, yLabel: "광합성량", series: [{ color: "#2fae5d", width: 2.5, pts: Array.from({ length: 51 }, (_, i) => [i * mx / 50, f(i * mx / 50)]) }] }); const c = $(id).getContext("2d"); c.fillStyle = "#e4572e"; c.beginPath(); c.arc(g.X(x), g.Y(f(x)), 5, 0, 7); c.fill(); }); }
+["sf-l", "sf-c", "sf-t"].forEach(id => $(id).addEventListener("input", sfDraw)); sfDraw(); window.addEventListener("resize", sfDraw);
+WS.custom("sf_best", { el: $("g1"), value: () => "최고 " + BEST });
+
+/* ── 5분 테스트 A, B ── */
+function abDraw() { const g = LB.fit($("ab-cv"), 150), c = g.c, W = g.w; c.fillStyle = "#fff"; c.fillRect(0, 0, W, 150); [[0, "A", x => Math.min(1, x / 0.55)], [1, "B", x => x <= 0.7 ? x / 0.7 : Math.max(0, 1 - (x - 0.7) / 0.2)]].forEach(([k, n, f]) => { const x0 = 20 + k * W / 2, w = W / 2 - 40; c.strokeStyle = "#26393b"; c.beginPath(); c.moveTo(x0, 20); c.lineTo(x0, 120); c.lineTo(x0 + w, 120); c.stroke(); c.strokeStyle = "#2fae5d"; c.lineWidth = 2.5; c.beginPath(); for (let i = 0; i <= 50; i++) { const x = i / 50, y = 120 - f(x) * 90; i ? c.lineTo(x0 + x * w, y) : c.moveTo(x0, y); } c.stroke(); c.lineWidth = 1; c.fillStyle = "#26393b"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(n, x0 + w / 2, 142); c.font = "10px Pretendard, sans-serif"; c.fillText("광합성량", x0 - 14, 14); c.fillText("환경요인 →", x0 + w - 50, 134); }); }
+abDraw(); window.addEventListener("resize", abDraw);
+
+</script>
+</body>
+</html>

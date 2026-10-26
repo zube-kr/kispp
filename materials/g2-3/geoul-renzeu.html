@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중2 Ⅲ-1-03 — 생활 속 거울과 렌즈</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.pool{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+.pool button{ border:1px solid #cfd8dc; background:#fff; border-radius:16px; padding:5px 12px; font-weight:800; font-size:13.5px; cursor:pointer; }
+.pool button.sel{ outline:3px solid #0e7c80; }
+.bins{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px; }
+.bin{ border:2px dashed #cfd8dc; border-radius:12px; padding:8px; min-height:70px; background:#fff; cursor:pointer; }
+.bin h5{ margin:0 0 4px; font-size:13px; }
+.bin span{ display:inline-block; margin:2px; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:800; color:#fff; }
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g2/3">← KISPP 과학실 · 중학교 2학년 Ⅲ. 빛과 파동</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u1-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p98-cartoon.jpg" alt="왜 다르게 보이지?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 빛과 파동 · 1. 빛 · 03 <span class="pg" style="margin:0">98~99쪽</span></span>
+      <h1>생활 속<br><span>거울과 렌즈</span></h1>
+      <p>“왜 다르게 보이지?” 두 거울 면의 모양은 어떻게 다를까? 생활 속 거울과 렌즈를 모양에 따라 분류하고, 평행한 빛을 비추어 빛이 모이는지 퍼지는지 관찰해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 일상생활에서 사용하는 거울과 렌즈의 종류를 분류할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 자료 수집하기</span>일상생활에서 사용하는 거울과 렌즈의 종류 분류하기 <span class="pg">98쪽</span></div>
+<figure class="fig"><img src="img/p98-items.jpg" alt="손거울, 화장용 확대 거울, 자전거 손목 거울, 루페(확대경), 근시용 안경"><figcaption><span class="tb">98쪽</span>손거울, 화장용 확대 거울, 자전거 손목 거울, 루페(확대경), 근시용 안경</figcaption></figure>
+    <div class="card-hint">물건을 누른 뒤 알맞은 상자를 눌러 분류해 보자. 잘못 넣은 것은 상자 안에서 눌러 빼낼 수 있어요.</div>
+    <div class="pool" id="pool"></div>
+    <div class="bins" id="bins"></div>
+    <div class="btn-row"><button type="button" class="btn ghost small" id="sort-reset">↺ 다시 분류</button></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>각 거울과 렌즈에 생기는 상을 비교하고 이를 쓰임새와 관련지어 이야기해 보자.</div><textarea class="free" data-key="use" rows="2" data-keywords="넓은,크게,그대로,멀리" data-model="손거울(평면거울)은 모습을 그대로 보여 주고, 자전거 손목 거울(볼록 거울)은 작게 보이지만 넓은 범위를 보여 주며, 화장용 확대 거울(오목 거울)과 루페(볼록 렌즈)는 크게 보여 준다. 근시용 안경(오목 렌즈)은 멀리 있는 물체를 선명하게 보게 해 준다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>거울과 렌즈의 분류와 쓰임 <span class="pg">99쪽</span></div>
+    <div class="book"><p>거울은 모양에 따라 평면거울, 볼록 거울, 오목 거울로 분류할 수 있다. 세면대 거울이나 무용실 거울과 같이 <span class="key">평면거울</span>은 물체의 모습을 그대로 볼 때 사용한다. 도로 안전 거울이나 자동차 측면 거울과 같이 <span class="key">볼록 거울</span>은 넓은 범위를 볼 때 사용한다. 치과용 거울이나 화장용 확대 거울과 같이 <span class="key">오목 거울</span>은 물체를 크게 볼 때 사용한다.</p>
+    <p>렌즈는 모양에 따라 가운데 부분이 가장자리보다 두꺼운 <span class="key">볼록 렌즈</span>와 가운데 부분이 가장자리보다 얇은 <span class="key">오목 렌즈</span>로 분류할 수 있다. 현미경과 같이 볼록 렌즈는 물체를 크게 보기 위해 사용한다. 또 ●근시용 안경과 같이 오목 렌즈는 멀리 있는 물체를 선명하게 보기 위해 사용한다.</p></div>
+    <div class="tip-box"><b>●근시</b> 가까이 있는 물체는 잘 보이지만 멀리 있는 물체는 잘 보이지 않는 경우를 근시라고 한다.</div>
+<figure class="fig"><img src="img/p99-fig3-5.jpg" alt="여러 가지 거울과 렌즈의 사용"><figcaption><span class="tb">그림 3-5</span>여러 가지 거울과 렌즈의 사용</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">빛 따라가기</span>평행한 빛을 비추면?</div>
+    <div class="card-hint">거울이나 렌즈를 고르면 왼쪽에서 평행한 빛이 들어와요. 빛이 모이는지 퍼지는지 관찰해 보자.</div>
+    <div class="btn-row" id="ray-btns"><button type="button" class="btn small main" data-k="pm">평면거울</button><button type="button" class="btn small" data-k="vm">볼록 거울</button><button type="button" class="btn small" data-k="cm">오목 거울</button><button type="button" class="btn small" data-k="vl">볼록 렌즈</button><button type="button" class="btn small" data-k="cl">오목 렌즈</button></div>
+    <div class="sim-stage"><canvas id="ray-cv"></canvas><span class="tag" id="ray-tag"></span></div>
+    <div class="q" data-why="오목 거울과 볼록 렌즈는 빛을 한 점으로 모으고, 볼록 거울과 오목 렌즈는 빛을 퍼지게 해요." data-hint="다섯 가지를 모두 눌러 보세요.">
+      <div class="q-text"><span class="q-num">1</span>평행한 빛을 모으는 것은 <div class="multi-group" data-key="ray1" data-answer="cm,vl"><button type="button" class="multi-btn" data-value="pm">평면거울</button><button type="button" class="multi-btn" data-value="vm">볼록 거울</button><button type="button" class="multi-btn" data-value="cm">오목 거울</button><button type="button" class="multi-btn" data-value="vl">볼록 렌즈</button><button type="button" class="multi-btn" data-value="cl">오목 렌즈</button></div></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>98쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">99쪽</span></div>
+    <div class="q" data-why="볼록 거울은 넓은 범위를 볼 때 사용해요.">
+      <div class="q-text"><span class="q-num">1</span><b>개념 확인</b> 편의점의 감시 거울은 <span class="choice-group" data-key="sc_1a" data-answer="넓은"><button type="button" class="choice-btn" data-value="좁은">좁은</button><button type="button" class="choice-btn" data-value="넓은">넓은</button></span> 범위를 볼 수 있도록 <span class="choice-group" data-key="sc_1b" data-answer="볼록"><button type="button" class="choice-btn" data-value="볼록">볼록</button><button type="button" class="choice-btn" data-value="오목">오목</button></span> 거울을 사용한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>사고력</b> 근시인 사람이 오목 렌즈 안경을 쓰는 까닭을 써 보자.</div><textarea class="free" data-key="sc_myopia" rows="2" data-keywords="멀리,선명,오목" data-model="근시는 멀리 있는 물체가 잘 보이지 않으므로, 멀리 있는 물체를 선명하게 보기 위해 오목 렌즈를 사용한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">5분 테스트</span>생활 속 거울과 렌즈</div>
+    <div class="q" data-why="평면거울 — 그대로, 볼록 거울 — 넓은 범위, 오목 거울 — 크게">
+      <div class="q-text"><span class="q-num">1</span>평면거울은 물체의 모습을 <span class="choice-group" data-key="t1" data-answer="그대로"><button type="button" class="choice-btn" data-value="그대로">그대로</button><button type="button" class="choice-btn" data-value="크게">크게</button><button type="button" class="choice-btn" data-value="작게">작게</button></span> 볼 때, 볼록 거울은 <span class="choice-group" data-key="t2" data-answer="넓은"><button type="button" class="choice-btn" data-value="좁은">좁은</button><button type="button" class="choice-btn" data-value="넓은">넓은</button></span> 범위를 볼 때, 오목 거울은 물체의 모습을 <span class="choice-group" data-key="t3" data-answer="크게"><button type="button" class="choice-btn" data-value="그대로">그대로</button><button type="button" class="choice-btn" data-value="크게">크게</button><button type="button" class="choice-btn" data-value="작게">작게</button></span> 볼 때 사용한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="평면거울 — 전신 거울, 오목 거울 — 치과용 거울, 볼록 거울 — 자동차의 측면 거울">
+      <div class="q-text"><span class="q-num">4</span>거울의 종류와 이용하는 예를 연결하시오.</div><table class="data-t" style="margin-top:6px"><tr><td>평면거울</td><td><span class="choice-group" data-key="t4a" data-answer="전신"><button type="button" class="choice-btn" data-value="전신">전신 거울</button><button type="button" class="choice-btn" data-value="치과">치과용 거울</button><button type="button" class="choice-btn" data-value="측면">자동차 측면 거울</button></span></td></tr><tr><td>오목 거울</td><td><span class="choice-group" data-key="t4b" data-answer="치과"><button type="button" class="choice-btn" data-value="전신">전신 거울</button><button type="button" class="choice-btn" data-value="치과">치과용 거울</button><button type="button" class="choice-btn" data-value="측면">자동차 측면 거울</button></span></td></tr><tr><td>볼록 거울</td><td><span class="choice-group" data-key="t4c" data-answer="측면"><button type="button" class="choice-btn" data-value="전신">전신 거울</button><button type="button" class="choice-btn" data-value="치과">치과용 거울</button><button type="button" class="choice-btn" data-value="측면">자동차 측면 거울</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="볼록 렌즈 — 가운데가 두꺼움, 크게 보기 / 오목 렌즈 — 가운데가 얇음, 멀리 있는 물체를 선명하게">
+      <div class="q-text"><span class="q-num">6</span>가운데 부분이 가장자리보다 두꺼운 <span class="choice-group" data-key="t6a" data-answer="볼록"><button type="button" class="choice-btn" data-value="볼록">볼록</button><button type="button" class="choice-btn" data-value="오목">오목</button></span> 렌즈, 얇은 <span class="choice-group" data-key="t6b" data-answer="오목"><button type="button" class="choice-btn" data-value="볼록">볼록</button><button type="button" class="choice-btn" data-value="오목">오목</button></span> 렌즈로 분류한다. 볼록 렌즈는 물체를 <span class="choice-group" data-key="t7" data-answer="크게"><button type="button" class="choice-btn" data-value="그대로">그대로</button><button type="button" class="choice-btn" data-value="크게">크게</button><button type="button" class="choice-btn" data-value="작게">작게</button></span> 보기 위해, 오목 렌즈는 <span class="choice-group" data-key="t8" data-answer="멀리"><button type="button" class="choice-btn" data-value="가까이">가까이</button><button type="button" class="choice-btn" data-value="멀리">멀리</button></span> 있는 물체를 선명하게 보기 위해 사용한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="망원경, 현미경, 원시용 안경은 볼록 렌즈, 근시용 안경은 오목 렌즈를 이용해요.">
+      <div class="q-text"><span class="q-num">9</span>볼록 렌즈를 이용하는 예를 모두 고르시오.</div><div class="multi-group" data-key="t9" data-answer="망원경,현미경,원시"><button type="button" class="multi-btn" data-value="망원경">망원경</button><button type="button" class="multi-btn" data-value="현미경">현미경</button><button type="button" class="multi-btn" data-value="근시">근시용 안경</button><button type="button" class="multi-btn" data-value="원시">원시용 안경</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>생활 속 거울과 렌즈</div>
+    <div class="sum-sheet">
+      <h4><span class="n">📝</span>거울과 렌즈의 분류</h4>
+      <div class="q" style="border-top:none" data-why="볼록 거울은 넓은 범위, 오목 렌즈는 근시용 안경이에요.">
+        <div class="q-text">거울: 평면거울(그대로), <input class="blank w-s" data-key="s1" data-answer="볼록"> 거울(넓은 범위), 오목 거울(크게)<br>렌즈: 볼록 렌즈(크게 보기), <input class="blank w-s" data-key="s2" data-answer="오목"> 렌즈(멀리 있는 물체를 선명하게)</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>과정·기능</b> 거울과 렌즈의 종류를 모양에 따라 분류할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 거울과 렌즈를 분류하며 과학의 유용성을 느꼈는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중2 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="2">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 2 Ⅲ. 빛과 파동 · 1. 빛 · 03 생활 속 거울과 렌즈 · 비상교육 중학 과학 2 교과서(98~99쪽)·해 보기 활동지·5분 테스트 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중2 Ⅲ-1-03 생활 속 거울과 렌즈";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+const CAT = [["평면거울", "#7a8b94"], ["볼록 거울", "#2f7de1"], ["오목 거울", "#e4572e"], ["볼록 렌즈", "#2fae5d"], ["오목 렌즈", "#7a4fd6"]];
+const ITEMS = [["손거울", 0], ["화장용 확대 거울", 2], ["자전거 손목 거울", 1], ["루페(확대경)", 3], ["근시용 안경", 4], ["도로 안전 거울", 1], ["치과용 거울", 2], ["현미경", 3], ["무용실 거울", 0], ["자동차 측면 거울", 1]];
+const SORT = { sel: null, put: {} };
+function sortDraw() {
+  $("pool").innerHTML = ITEMS.map((it, i) => SORT.put[i] != null ? "" : `<button type="button" data-i="${i}" class="${SORT.sel === i ? "sel" : ""}">${it[0]}</button>`).join("") || '<span style="font-size:13px;color:#2fae5d;font-weight:800">모두 분류했어요!</span>';
+  $("bins").innerHTML = CAT.map((c, k) => `<div class="bin" data-k="${k}"><h5 style="color:${c[1]}">${c[0]}</h5>${ITEMS.map((it, i) => SORT.put[i] === k ? `<span style="background:${c[1]}" data-back="${i}">${it[0]}</span>` : "").join("")}</div>`).join("");
+}
+$("pool").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (!b) return; SORT.sel = +b.dataset.i; sortDraw(); });
+$("bins").addEventListener("click", e => { const bk = e.target.closest("[data-back]"); if (bk) { delete SORT.put[bk.dataset.back]; sortDraw(); return; } const bin = e.target.closest("[data-k]"); if (!bin || SORT.sel == null) return; SORT.put[SORT.sel] = +bin.dataset.k; SORT.sel = null; sortDraw(); });
+$("sort-reset").addEventListener("click", () => { SORT.put = {}; SORT.sel = null; sortDraw(); });
+sortDraw();
+WS.custom("sort", { el: $("bins"), value: () => ITEMS.map((it, i) => it[0] + ":" + (SORT.put[i] != null ? CAT[SORT.put[i]][0] : "")).join(","), check: () => ITEMS.every((it, i) => SORT.put[i] === it[1]), answer: "평면거울: 손거울·무용실 거울 / 볼록 거울: 자전거 손목 거울·도로 안전 거울·자동차 측면 거울 / 오목 거울: 화장용 확대 거울·치과용 거울 / 볼록 렌즈: 루페·현미경 / 오목 렌즈: 근시용 안경" });
+
+/* ── 빛 따라가기 ── */
+let RK = "pm"; const RS = new Set(["pm"]);
+const NAME = { pm: "평면거울 — 빛이 같은 각도로 반사", vm: "볼록 거울 — 빛이 퍼지며 반사", cm: "오목 거울 — 빛이 한 점에 모이며 반사", vl: "볼록 렌즈 — 빛이 한 점에 모이며 통과", cl: "오목 렌즈 — 빛이 퍼지며 통과" };
+$("ray-btns").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (!b) return; RK = b.dataset.k; RS.add(RK); $("ray-btns").querySelectorAll("button").forEach(x => x.classList.toggle("main", x === b)); });
+WS.custom("ray_seen", { el: $("ray-cv"), value: () => [...RS].join(",") });
+LB.loop($("ray-cv"), (dt, t) => {
+  const g = LB.fit($("ray-cv"), 220), c = g.c, W = g.w, H = 220, cx = W * 0.55, cy = H / 2; c.fillStyle = "#0d1b26"; c.fillRect(0, 0, W, H);
+  $("ray-tag").textContent = NAME[RK];
+  const lens = RK === "vl" || RK === "cl", f = 90 * (RK === "vm" || RK === "cl" ? -1 : 1);
+  c.strokeStyle = "#9fd3ff"; c.lineWidth = 3;
+  if (RK === "pm") { c.beginPath(); c.moveTo(cx, cy - 80); c.lineTo(cx, cy + 80); c.stroke(); }
+  else if (!lens) { const s = RK === "cm" ? 1 : -1; c.beginPath(); for (let y = -80; y <= 80; y += 4) { const x = cx + s * (y * y) / 400; y === -80 ? c.moveTo(x, cy + y) : c.lineTo(x, cy + y); } c.stroke(); }
+  else { c.fillStyle = "rgba(159,211,255,.35)"; c.beginPath(); const bulge = RK === "vl" ? 14 : -10, th = RK === "vl" ? 2 : 12; c.moveTo(cx - th, cy - 80); c.quadraticCurveTo(cx - th - bulge * 2, cy, cx - th, cy + 80); c.lineTo(cx + th, cy + 80); c.quadraticCurveTo(cx + th + bulge * 2, cy, cx + th, cy - 80); c.closePath(); c.fill(); c.stroke(); }
+  c.lineWidth = 1.6; const ph = (t / 1500) % 1;
+  for (let k = -3; k <= 3; k++) { if (!k) continue; const y = k * 22, hx = RK === "pm" ? cx : lens ? cx : cx + (RK === "cm" ? 1 : -1) * (y * y) / 400;
+    c.strokeStyle = "#ffd23a"; c.beginPath(); c.moveTo(10, cy + y); c.lineTo(hx, cy + y);
+    let dx, dy;
+    if (RK === "pm") { dx = -1; dy = 0; }
+    else if (!lens) { dx = -1; dy = f < 0 ? y / 90 : -y / 90; }
+    else { dx = 1; dy = f > 0 ? -y / 90 : y / 90; }
+    const L = 400, n = Math.hypot(dx, dy); c.lineTo(hx + dx / n * L, cy + y + dy / n * L); c.stroke();
+    if ((RK === "vm" || RK === "cl")) { c.setLineDash([3, 4]); c.strokeStyle = "rgba(255,210,58,.45)"; c.beginPath(); c.moveTo(hx, cy + y); c.lineTo(hx - dx / n * 200, cy + y - dy / n * 200); c.stroke(); c.setLineDash([]); }
+    c.fillStyle = "#fff"; const px = 10 + (hx - 10) * ph; c.beginPath(); c.arc(px, cy + y, 2.5, 0, 7); c.fill(); }
+  if (RK === "cm" || RK === "vl") { const fx = RK === "cm" ? cx - 90 : cx + 90; c.fillStyle = "#ff6b6b"; c.beginPath(); c.arc(fx, cy, 4, 0, 7); c.fill(); c.font = "11px Pretendard, sans-serif"; c.fillText("빛이 모이는 점", fx - 30, cy + 18); }
+});
+
+</script>
+</body>
+</html>

@@ -123,7 +123,7 @@
     <div class="card-title"><span class="badge sim">가상 실험</span>햇빛이 비치는 바닷가에서 모래와 바닷물 중 어느 쪽의 온도가 더 빠르게 높아질까? <span class="pg">97쪽</span></div>
     <div class="card-hint">하루 동안 햇빛을 받는 모래와 바닷물의 온도를 비교해 보자. 시간 막대를 움직이거나 [하루 재생]을 눌러 보자. 아래쪽 <b>물의 양</b>을 줄이면 <b>아랄해</b>처럼 호수가 말라 버린 지역이 돼요.</div>
     <div class="ctrl-grid">
-      <div class="ctrl"><label>시각 <output id="hr-o"></output></label><input type="range" id="hr" min="0" max="24" step="0.25" value="6"></div>
+      <div class="ctrl"><label>시각 <output id="hr-o"></output></label><input type="range" id="hr" min="0" max="24" step="any" value="6"></div>
       <div class="ctrl"><label>주변의 물(호수·바다) 양 <output id="wf-o"></output></label><input type="range" id="wf" min="0" max="100" step="5" value="100"></div>
     </div>
     <div class="btn-row"><button type="button" class="btn main small" id="day-go">▶ 하루 재생</button></div>
@@ -365,7 +365,7 @@ function dayCurves(wf) {
 }
 let DC = dayCurves(100), playing = false;
 function beachDraw() {
-  const hr = +$("hr").value, wf = +$("wf").value; $("hr-o").textContent = String(Math.floor(hr)).padStart(2, "0") + ":" + String(Math.round((hr % 1) * 60)).padStart(2, "0"); $("wf-o").textContent = wf + " %";
+  const hr = +$("hr").value, wf = +$("wf").value; const hm = Math.round(hr * 60); $("hr-o").textContent = String(Math.floor(hm / 60)).padStart(2, "0") + ":" + String(hm % 60).padStart(2, "0"); $("wf-o").textContent = wf + " %";
   const idx = Math.min(DC.length - 1, Math.round(hr / 0.05)), cur = DC[idx];
   const g = LB.fit($("beach-cv"), 210), c = g.c, W = g.w, H = 210, s = sun(hr);
   const sky = c.createLinearGradient(0, 0, 0, 120); sky.addColorStop(0, s > 0 ? `rgb(${80 + 100 * s},${140 + 80 * s},${200 + 40 * s})` : "#0c1a33"); sky.addColorStop(1, s > 0 ? "#cfe8ff" : "#24365c"); c.fillStyle = sky; c.fillRect(0, 0, W, 130);

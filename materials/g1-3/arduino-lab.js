@@ -2,9 +2,10 @@
    AL.setup({ root, key, ch:[이름1, 이름2], every:초, duration:초, yMin, yMax, sample:[[초, 값1, 값2], …] })
    AL.rows()            : 기록한 [초, 값1, 값2] 목록
    AL.onChange(fn)      : 기록이 바뀔 때마다 fn(rows) 호출
-   스케치는 arduino/heat-2ch.ino ("값1,값2" 줄을 1초마다 보냄, 9600 baud) */
+   스케치는 arduino/heat-2ch.ino ("값1,값2" 줄을 1초마다 보냄, 9600 baud)
+   다른 단원 폴더에서 쓸 때는 AL.base = "../g1-3/" 처럼 이 파일이 있는 폴더를 먼저 알려 준다. */
 (function () {
-  var AL = window.AL = {};
+  var AL = window.AL = { base: "" };
   var rows = [], cfg, listeners = [], live = [NaN, NaN], port = null, reader = null, reading = false, auto = null, t0 = 0;
   var $ = function (id) { return document.getElementById(id); };
   var COL = ["#e4572e", "#2f7de1"];
@@ -116,9 +117,9 @@
       '<tr><td rowspan="3"><b>센서 1</b><br>LM35 온도 센서</td><td>VCC (+)</td><td>5V</td></tr><tr><td>OUT (가운데)</td><td>A0</td></tr><tr><td>GND (−)</td><td>GND</td></tr>' +
       '<tr><td rowspan="3"><b>센서 2</b><br>써미스터 (NTC 10 kΩ)<br><small>또는 37종 키트 아날로그 온도 센서 모듈</small></td><td>한쪽 다리 (모듈: S)</td><td>A1 · 10 kΩ 저항을 거쳐 5V</td></tr><tr><td>다른 쪽 다리 (모듈: −)</td><td>GND</td></tr><tr><td>(모듈만: 가운데 +)</td><td>5V</td></tr></table>' +
       '<div class="tip-box"><b>💧 방수가 먼저!</b> 센서를 물에 넣을 때는 다리(핀)와 전선 연결 부분을 랩이나 열수축 튜브로 감싸고, 끝부분(감지부)만 물에 닿게 해요. 아두이노와 브레드보드는 물에서 멀리 두어요.</div>' +
-      '<div class="al-code"><div class="btn-row" style="margin:0 0 6px"><button type="button" class="btn small" id="al-copy">📋 코드 복사</button><a class="btn ghost small" href="arduino/heat-2ch.ino" download>⬇️ heat-2ch.ino 내려받기</a></div><pre id="al-src">코드를 불러오는 중…</pre></div>' +
+      '<div class="al-code"><div class="btn-row" style="margin:0 0 6px"><button type="button" class="btn small" id="al-copy">📋 코드 복사</button><a class="btn ghost small" href="' + AL.base + 'arduino/heat-2ch.ino" download>⬇️ heat-2ch.ino 내려받기</a></div><pre id="al-src">코드를 불러오는 중…</pre></div>' +
       '<div class="card-hint">아두이노 IDE에 붙여 넣고 업로드한 뒤 <b>시리얼 모니터는 닫고</b> 아래 [아두이노 연결하기]를 눌러요. 써미스터를 손으로 쥐었는데 온도가 내려가면 코드의 <code>NTC_REVERSED</code>를 1로 바꿔요.</div>';
-    fetch("arduino/heat-2ch.ino").then(function (r) { return r.text(); }).then(function (t) { $("al-src").textContent = t; }).catch(function () { $("al-src").textContent = "코드를 불러오지 못했어요. 위의 내려받기 버튼을 눌러 주세요."; });
+    fetch(AL.base + "arduino/heat-2ch.ino").then(function (r) { return r.text(); }).then(function (t) { $("al-src").textContent = t; }).catch(function () { $("al-src").textContent = "코드를 불러오지 못했어요. 위의 내려받기 버튼을 눌러 주세요."; });
     $("al-copy").addEventListener("click", function () {
       var t = $("al-src").textContent;
       (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { $("al-copy").textContent = "✅ 복사됨"; setTimeout(function () { $("al-copy").textContent = "📋 코드 복사"; }, 1500); })

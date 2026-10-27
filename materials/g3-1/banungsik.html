@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅰ-1-02 — 화학 반응을 나타내는 화학 반응식</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/1">← KISPP 과학실 · 중학교 3학년 Ⅰ. 화학 반응의 규칙과 에너지 변화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p17-fig1-3.jpg" alt="">
+    <img class="lb-qmark" src="img/p18-methane.jpg" alt="메테인 연소 반응">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 화학 반응의 규칙과 에너지 변화 · 1. 물질 변화와 화학 반응식 · 02 <span class="pg" style="margin:0">16~23쪽</span></span>
+      <h1>화학 반응을 나타내는<br><span>화학 반응식</span></h1>
+      <p>메테인이 연소하는 반응을 간단히 나타내는 방법은 무엇일까? 계수 맞추기 실험실에서 원자 모형을 늘였다 줄였다 하며 화학 반응식을 완성하고, 분자 공장에서 계수비가 분자 수의 비라는 것을 확인해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 간단한 화학 반응을 화학 반응식으로 표현하고, 화학 반응식에서 계수비를 입자 수의 비로 해석할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">두 번째 열쇠</span>숯의 주성분인 탄소가 연소하는 반응을 화학 반응식으로 나타내 보자 <span class="pg">16쪽</span></div>
+    <div class="book"><p>수소와 산소가 반응하면 화학 변화가 일어나 새로운 물질인 물이 생성된다. 이처럼 화학 변화가 일어나는 과정을 <span class="key">화학 반응</span>이라고 한다. 화학 반응이 일어날 때 <b>그림 1-2</b>와 같이 원자의 배열은 달라지지만, 원자의 종류와 수는 변하지 않는다. 즉, 화학 반응이 일어나면 원자의 배열이 달라져 반응 전 물질과 다른 새로운 물질이 생성된다.</p></div>
+<figure class="fig"><img src="img/p16-fig1-2.jpg" alt="물 생성 반응 모형 — 수소 + 산소 → 물"><figcaption><span class="tb">그림 1-2</span>물 생성 반응 모형 — 수소 + 산소 → 물</figcaption></figure>
+    <div class="tip-box"><b>화학식</b> 물질을 구성하는 원자의 종류와 수를 원소 기호를 이용하여 나타낸 식 (예: 산소 O₂, 이산화 탄소 CO₂) · <b>계수</b> 화학식 앞에 있는 숫자</div>
+    <div class="q" data-why="원자는 새로 생기거나 없어지지 않고, 서로 짝을 바꿀 뿐이에요.">
+      <div class="q-text"><span class="q-num">1</span>화학 반응이 일어날 때 원자의 <span class="choice-group" data-key="a1" data-answer="배열"><button type="button" class="choice-btn" data-value="종류">종류</button><button type="button" class="choice-btn" data-value="배열">배열</button><button type="button" class="choice-btn" data-value="개수">개수</button></span>은 달라지지만, 원자의 종류와 수는 변하지 않는다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>화학 반응을 간단히 나타내는 방법은 무엇일까? <span class="pg">16~17쪽</span></div>
+    <div class="book"><p>화학 반응을 모형으로 표현하면 복잡한 화학 반응을 나타내기 어렵다. 그러나 화학식을 이용하면 복잡한 화학 반응도 간단히 나타낼 수 있다. 화학식을 이용하여 화학 반응을 나타낸 것을 <span class="key">화학 반응식</span>이라고 한다. 화학 반응이 일어날 때 원자가 새로 생기거나 없어지지 않으므로 화학 반응식에서 반응 전후에 원자의 종류와 수가 같게 계수를 맞추어야 한다.</p></div>
+<figure class="fig" style="max-width:560px"><img src="img/p17-fig1-3.jpg" alt="물 생성 반응을 화학 반응식으로 나타내는 방법 — 1단계 이름으로, 2단계 화학식으로, 3단계 계수 맞추기"><figcaption><span class="tb">그림 1-3</span>물 생성 반응을 화학 반응식으로 나타내는 방법 — 1단계 이름으로, 2단계 화학식으로, 3단계 계수 맞추기</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">계수 맞추기 실험실</span>원자 수가 같아질 때까지 계수를 바꿔 보자</div>
+    <div class="btn-row" id="eq-sel"><button type="button" class="btn small" data-r="0">물 생성</button><button type="button" class="btn small" data-r="1">암모니아 생성</button><button type="button" class="btn small" data-r="2">메테인 연소</button><button type="button" class="btn small" data-r="3">과산화 수소 분해</button><button type="button" class="btn small" data-r="4">이산화 질소 생성</button></div>
+    <div id="eq-row" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin:10px 0;font-size:18px;font-weight:800"></div>
+    <div class="light-stage"><canvas id="eq-cv"></canvas></div>
+    <div id="eq-tally" class="scroll-x"></div>
+    <div class="tip-box" id="eq-msg">반응을 고른 뒤, 각 물질 아래의 ＋/－ 버튼으로 계수를 맞춰 보세요.</div>
+    <div class="q" data-why="물 생성, 암모니아 생성, 메테인 연소 반응을 모두 맞추면 통과! 계수는 가장 간단한 정수로 맞춰요." data-hint="세 반응 이상 균형을 맞춰 보세요."><div class="q-text"><span class="q-num">✔</span><span id="eq-ok"></span>실험실에서 균형을 맞춘 반응 수</div><span class="fb"></span></div>
+    <div class="block-q">
+      <b>🧩 두 번째 열쇠 (21쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">숯의 주성분인 탄소가 연소하는 반응을 화학 반응식으로 나타내면 C + O₂ → ( <input class="blank w-s" data-key="key2" data-answer="CO2|CO₂"> ) 이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 · 토의</span>화학 반응식으로 나타내는 화학 반응 <span class="pg">18~19쪽</span></div>
+    <div class="book"><p>화학 반응을 화학 반응식으로 나타내면 물질 변화를 쉽게 이해할 수 있다. 다음 탐구에서 몇 가지 간단한 화학 반응을 화학 반응식으로 나타내 보자.</p></div>
+    <div class="fig-row"><figure class="fig"><img src="img/p18-ammonia.jpg" alt="질소와 수소가 반응하여 암모니아가 생성된다."><figcaption><span class="tb">18쪽</span>질소와 수소가 반응하여 암모니아가 생성된다.</figcaption></figure><figure class="fig"><img src="img/p18-methane.jpg" alt="메테인이 연소하여 이산화 탄소와 물이 생성된다."><figcaption><span class="tb">18쪽</span>메테인이 연소하여 이산화 탄소와 물이 생성된다.</figcaption></figure></div>
+    <div class="q" data-why="질소 원자 2 개 → NH₃ 2 개, 그러면 수소 원자 6 개가 필요하므로 H₂ 3 개예요.">
+      <div class="q-text"><span class="q-num">1</span><b>암모니아 생성</b> 질소 + 수소 → 암모니아<br>N₂ + <input class="blank w-s" data-key="am1" data-num="3" data-abs="0" style="width:44px"> H₂ → <input class="blank w-s" data-key="am2" data-num="2" data-abs="0" style="width:44px"> NH₃</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="H 4 개 → H₂O 2 개, O는 CO₂의 2 개 + H₂O의 2 개 = 4 개 → O₂ 2 개">
+      <div class="q-text"><span class="q-num">2</span><b>메테인 연소</b> 메테인 + 산소 → 이산화 탄소 + 물<br>CH₄ + <input class="blank w-s" data-key="me1" data-num="2" data-abs="0" style="width:44px"> O₂ → CO₂ + <input class="blank w-s" data-key="me2" data-num="2" data-abs="0" style="width:44px"> H₂O</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="2H₂O₂ → 2H₂O + O₂">
+      <div class="q-text"><span class="q-num">3</span><b>과산화 수소 분해</b> 과산화 수소(H₂O₂)가 분해되어 물(H₂O)과 산소(O₂)가 생성된다.<br><input class="blank w-s" data-key="hp1" data-num="2" data-abs="0" style="width:44px"> H₂O₂ → <input class="blank w-s" data-key="hp2" data-num="2" data-abs="0" style="width:44px"> H₂O + O₂</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="Na 2 개, Cl 2 개 → NaCl 2 개">
+      <div class="q-text"><span class="q-num">4</span><b>탄산 나트륨과 염화 칼슘의 반응</b><br>Na₂CO₃ + CaCl₂ → CaCO₃ + <input class="blank w-s" data-key="nc1" data-num="2" data-abs="0" style="width:44px"> NaCl</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="종류, 입자 수의 비">
+      <div class="q-text"><span class="q-num">5</span><b>정리하기</b> 화학 반응식으로 반응물과 생성물의 <input class="blank w-s" data-key="ex1" data-answer="종류"> 를 알 수 있고, 계수비로 반응하거나 생성되는 물질의 <input class="blank w-s" data-key="ex2" data-answer="입자 수의 비|입자수의비|입자 수 비|분자 수의 비"> 를 알 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>탐구 기능</b> 화학 반응을 화학 반응식으로 옳게 나타내었는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>탐구 기능</b> 화학 반응식에서 알 수 있는 사실을 옳게 설명하였는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>인성</b> 탐구 활동에 적극적으로 참여하였는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>화학 반응식으로 알 수 있는 것은 무엇일까? <span class="pg">20쪽</span></div>
+    <div class="book"><p>화학 반응식으로 화학 반응에 관여하는 반응물과 생성물의 종류를 알 수 있다. 또, 화학 반응식에서 계수비로 반응하거나 생성되는 물질의 입자 수의 비를 알 수 있다. 예를 들어 <b>그림 1-4</b>와 같이 암모니아 생성 반응의 화학 반응식에서 질소와 수소가 반응물이며, 암모니아가 생성물임을 알 수 있다. 화학 반응식에서 계수비로는 질소, 수소, 암모니아가 <span class="key">1:3:2</span>의 분자 수의 비로 반응하거나 생성됨을 알 수 있다.</p></div>
+<figure class="fig"><img src="img/p20-fig1-4.jpg" alt="암모니아 생성 반응의 화학 반응식에서 계수비와 분자 수의 비"><figcaption><span class="tb">그림 1-4</span>암모니아 생성 반응의 화학 반응식에서 계수비와 분자 수의 비</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">분자 공장</span>질소 분자를 넣으면 암모니아가 몇 개 생길까?</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>질소 분자 <output id="nf-o"></output> 개</label><input type="range" id="nf" min="1" max="4" value="1"></div><div class="ctrl"><label>수소 분자 <output id="hf-o"></output> 개</label><input type="range" id="hf" min="1" max="12" value="3"></div></div>
+    <div class="light-stage"><canvas id="nf-cv"></canvas></div>
+    <div class="q" data-why="N₂ : H₂ : NH₃ = 1 : 3 : 2 이므로 H₂ 6 개 → N₂ 2 개, NH₃ 4 개" data-hint="분자 공장에서 수소 6 개를 넣어 보세요.">
+      <div class="q-text"><span class="q-num">1</span>수소 분자 6 개가 완전히 반응할 때 필요한 질소 분자는 <input class="blank w-s" data-key="f1" data-num="2" data-abs="0" style="width:60px"> 개이고, 생성되는 암모니아 분자는 <input class="blank w-s" data-key="f2" data-num="4" data-abs="0" style="width:60px"> 개이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>암모니아 생성 반응에서 반응 전후에 분자의 수를 비교해 보자.</div><textarea class="free" data-key="f_cmp" rows="2" data-keywords="4,2,줄어,분자 수" data-model="반응 전에는 질소 1 개 + 수소 3 개 = 4 개였는데, 반응 후 암모니아는 2 개로 분자 수가 줄어든다. 하지만 원자의 종류와 수는 같다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">STEAM · 생활 속 화학 반응</span>분자 요리와 에어백 <span class="pg">21~22쪽</span></div>
+    <div class="fig-row"><figure class="fig"><img src="img/p21-food.jpg" alt="새로운 맛을 창조하는 분자 요리 — 알긴산 나트륨과 염화 칼슘이 반응할 때 생기는 젤리 상태의 막을 이용"><figcaption><span class="tb">21쪽</span>새로운 맛을 창조하는 분자 요리 — 알긴산 나트륨과 염화 칼슘이 반응할 때 생기는 젤리 상태의 막을 이용</figcaption></figure><figure class="fig"><img src="img/p22-airbag.jpg" alt="에어백 — 아자이드화 나트륨이 분해되어 질소 기체가 발생한다."><figcaption><span class="tb">22쪽</span>에어백 — 아자이드화 나트륨이 분해되어 질소 기체가 발생한다.</figcaption></figure></div>
+    <div class="book"><p>분자 요리는 조리 과정에서 일어나는 재료의 물리 변화, 화학 변화 등을 분자 수준까지 과학적으로 분석하여 만든 요리이다. 예를 들어 알긴산 나트륨과 염화 칼슘이 반응할 때 젤리 상태의 막이 생기는 것을 이용하여 재료를 둥근 모양으로 만들기도 한다. 자동차가 충돌하면 아자이드화 나트륨 분해 반응이 빠르게 일어나 순식간에 에어백을 부풀게 하므로 사람이 자동차와 직접 부딪히는 것을 방지할 수 있다.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>일상생활에서 화학 반응을 유용하게 이용하는 예(예: 에어백, 용접, 소화기)를 하나 골라 화학 반응과 유용한 점을 소개해 보자.</div><textarea class="free" data-key="steam" rows="2" data-keywords="반응,발생,이용" data-model="소화기: 탄산수소 나트륨이 분해되어 이산화 탄소가 발생하고, 이산화 탄소가 산소를 차단하여 불을 끈다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>16쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">20쪽</span></div>
+    <div class="q" data-why="화학 반응">
+      <div class="q-text"><span class="q-num">1</span>화학 변화가 일어나는 과정을 <input class="blank w-s" data-key="k1" data-answer="화학 반응|화학반응"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화학 반응식">
+      <div class="q-text"><span class="q-num">2</span>화학식을 이용하여 화학 반응을 나타낸 것을 <input class="blank w-s" data-key="k2" data-answer="화학 반응식|화학반응식"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="입자 수">
+      <div class="q-text"><span class="q-num">3</span>화학 반응식에서 계수비는 반응하거나 생성되는 물질의 <input class="blank w-s" data-key="k3" data-answer="입자 수|입자수|분자 수|입자"> 의 비와 같다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="Na가 생성물에 2 개 있으므로 NaHCO₃ 2 개 → 2 : 1 : 1 : 1">
+      <div class="q-text"><span class="q-num">4</span><b>과학적 사고력</b> 탄산수소 나트륨(NaHCO₃)이 분해되는 반응<br><input class="blank w-s" data-key="k4a" data-num="2" data-abs="0" style="width:44px"> NaHCO₃ → Na₂CO₃ + CO₂ + H₂O<br>탄산수소 나트륨 : 탄산 나트륨 : 이산화 탄소 : 물 = <input class="blank w-s" data-key="k4b" data-num="2" data-abs="0" style="width:40px"> : 1 : 1 : 1</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인</span>화학 반응을 나타내는 화학 반응식</div>
+    <div class="q" data-why="화학 반응">
+      <div class="q-text"><span class="q-num">1</span>화학 변화가 일어나는 과정을 <input class="blank w-s" data-key="t1" data-answer="화학 반응|화학반응"> 이라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="원자의 배열이 바뀌어 분자의 종류가 변하지만, 원자의 종류와 개수는 그대로예요.">
+      <div class="q-text"><span class="q-num">2</span>화학 반응이 일어날 때 변하는 것과 변하지 않는 것을 고르시오.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 원자의 종류</td><td><span class="choice-group" data-key="t2_1" data-answer="X"><button type="button" class="choice-btn" data-value="O">○ 변한다</button><button type="button" class="choice-btn" data-value="X">× 변하지 않는다</button></span></td></tr><tr><td style="text-align:left">⑵ 분자의 종류</td><td><span class="choice-group" data-key="t2_2" data-answer="O"><button type="button" class="choice-btn" data-value="O">○ 변한다</button><button type="button" class="choice-btn" data-value="X">× 변하지 않는다</button></span></td></tr><tr><td style="text-align:left">⑶ 원자의 배열</td><td><span class="choice-group" data-key="t2_3" data-answer="O"><button type="button" class="choice-btn" data-value="O">○ 변한다</button><button type="button" class="choice-btn" data-value="X">× 변하지 않는다</button></span></td></tr><tr><td style="text-align:left">⑷ 원자의 개수</td><td><span class="choice-group" data-key="t2_4" data-answer="X"><button type="button" class="choice-btn" data-value="O">○ 변한다</button><button type="button" class="choice-btn" data-value="X">× 변하지 않는다</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+<div class="tip-box">(가) 물 → 수증기 (상태 변화) &nbsp;/&nbsp; (나) 물 → 수소 + 산소 (분해)</div>
+    <div class="q" data-why="상태 변화(가)에서는 분자 배열만 달라지고 성질은 그대로예요(⑴ X). 분해(나)에서는 원자 배열이 바뀌어 새 물질이 생겨요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ (가) 물이 수증기로 될 때 물의 성질은 변한다.</td><td><span class="choice-group" data-key="t3_1" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ (가)에서 물 분자의 배열이 변한다.</td><td><span class="choice-group" data-key="t3_2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ (나) 물이 분해될 때 물을 이루는 원자의 배열이 변한다.</td><td><span class="choice-group" data-key="t3_3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑷ (나)에서 물과 성질이 다른 새로운 물질이 생성된다.</td><td><span class="choice-group" data-key="t3_4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑸ (가)에서는 물리 변화, (나)에서는 화학 변화가 일어난다.</td><td><span class="choice-group" data-key="t3_5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="계수는 '원자'의 종류와 수가 같게 맞춰요. 분자의 종류는 반응 전후에 달라져요(⑵ X).">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 반응물은 화살표의 왼쪽에, 생성물은 화살표의 오른쪽에 쓴다.</td><td><span class="choice-group" data-key="t4_1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 반응 전후에 분자의 종류와 수가 같게 화학식 앞의 계수를 맞춘다.</td><td><span class="choice-group" data-key="t4_2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 화학 반응식을 쓸 때 계수가 1인 경우에는 생략한다.</td><td><span class="choice-group" data-key="t4_3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="화학 반응식으로 원자·분자의 종류와 입자 수비를 알 수 있지만, 원자의 크기는 알 수 없어요.">
+      <div class="q-text"><span class="q-num">5</span>화학 반응식을 통해 알 수 있는 것을 모두 고르시오.</div><div class="multi-group" data-key="t5" data-answer="ㄱ,ㄷ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. 원자의 종류</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. 원자의 크기</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 분자의 종류</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ. 입자 수비</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="⑴ 2 ⑵ 1, 2 ⑶ 2 ⑷ 1, 2">
+      <div class="q-text"><span class="q-num">6</span>빈칸에 알맞은 계수를 넣어 화학 반응식을 완성하시오(계수가 1인 경우에도 쓴다).<br>⑴ N₂ + 3H₂ → <input class="blank w-s" data-key="t6a" data-num="2" data-abs="0" style="width:40px"> NH₃<br>⑵ <input class="blank w-s" data-key="t6b" data-num="1" data-abs="0" style="width:40px"> CH₄ + 2O₂ → CO₂ + <input class="blank w-s" data-key="t6c" data-num="2" data-abs="0" style="width:40px"> H₂O<br>⑶ <input class="blank w-s" data-key="t6d" data-num="2" data-abs="0" style="width:40px"> H₂O₂ → 2H₂O + O₂<br>⑷ Na₂CO₃ + <input class="blank w-s" data-key="t6e" data-num="1" data-abs="0" style="width:40px"> CaCl₂ → CaCO₃ + <input class="blank w-s" data-key="t6f" data-num="2" data-abs="0" style="width:40px"> NaCl</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="계수비 = 분자 수의 비 = 2 : 1 : 2">
+      <div class="q-text"><span class="q-num">7</span>수증기 합성 반응 2H₂ + O₂ → 2H₂O 에서 반응물은 수소 분자 <input class="blank w-s" data-key="t7a" data-num="2" data-abs="0" style="width:40px"> 개, 산소 분자 <input class="blank w-s" data-key="t7b" data-num="1" data-abs="0" style="width:40px"> 개이고, 수소 : 산소 : 수증기의 분자 수의 비는 <input class="blank w-s" data-key="t7c" data-answer="2:1:2"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>화학 반응을 나타내는 화학 반응식 <span class="pg">23쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>화학 반응과 화학 반응식</h4>
+      <div class="q" style="border-top:none" data-why="배열, 화학식, 계수, 계수비">
+        <div class="q-text">⑴ 화학 반응: 화학 변화가 일어나는 과정 — 원자의 종류와 수는 변하지 않고, 원자의 <input class="blank w-s" data-key="s1" data-answer="배열"> 이 달라져 새로운 물질이 생성된다.<br>⑵ 화학 반응식: <input class="blank w-s" data-key="s2" data-answer="화학식"> 을 이용하여 화학 반응을 나타낸 것<br>⑶ 나타내는 방법: 반응물과 생성물의 이름 → 화학식 → 반응 전후 원자의 종류와 수가 같게 <input class="blank w-s" data-key="s3" data-answer="계수"> 맞추기 (예: 2H₂ + O₂ → 2H₂O)<br>⑷ 화학 반응식에서 <input class="blank w-s" data-key="s4" data-answer="계수비"> 는 반응하거나 생성되는 물질의 입자 수의 비와 같다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">간단한 화학 반응을 화학 반응식으로 표현할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">화학 반응식에서 계수비를 입자 수의 비로 해석할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅰ. 화학 반응의 규칙과 에너지 변화 · 1. 물질 변화와 화학 반응식 · 02 화학 반응을 나타내는 화학 반응식 · 비상교육 중학 과학 3 교과서(16~23쪽)·탐구·개념 확인 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../g2-4/mol.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅰ-1-02 화학 반응을 나타내는 화학 반응식";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 계수 맞추기 실험실 ── */
+const RX = [
+  { n: "물 생성", L: ["H2", "O2"], R: ["H2O"], ans: [2, 1, 2] },
+  { n: "암모니아 생성", L: ["N2", "H2"], R: ["NH3"], ans: [1, 3, 2] },
+  { n: "메테인 연소", L: ["CH4", "O2"], R: ["CO2", "H2O"], ans: [1, 2, 1, 2] },
+  { n: "과산화 수소 분해", L: ["H2O2"], R: ["H2O", "O2"], ans: [2, 2, 1] },
+  { n: "이산화 질소 생성", L: ["N2", "O2"], R: ["NO2"], ans: [1, 2, 2] } ];
+const SUB = s => s.replace(/(\d)/g, d => "₀₁₂₃₄₅₆₇₈₉"[d]);
+const atoms = f => { const o = {}; f.replace(/([A-Z][a-z]?)(\d*)/g, (_, e, n) => { o[e] = (o[e] || 0) + (+n || 1); }); return o; };
+let RI = 0, CO = [1, 1, 1]; const DONE = new Set();
+function eqBuild() { const r = RX[RI], sp = [...r.L, ...r.R]; if (CO.length !== sp.length) CO = sp.map(() => 1);
+  let h = ""; sp.forEach((f, i) => { if (i === r.L.length) h += '<span style="margin:0 6px">→</span>'; else if (i) h += "<span>+</span>";
+    h += `<span style="display:inline-flex;flex-direction:column;align-items:center;gap:2px"><span>${CO[i] > 1 ? CO[i] : ""}${SUB(f)}</span><span style="display:flex;gap:2px"><button type="button" class="btn ghost small" data-c="${i}" data-d="-1" style="padding:0 8px">－</button><button type="button" class="btn ghost small" data-c="${i}" data-d="1" style="padding:0 8px">＋</button></span></span>`; });
+  $("eq-row").innerHTML = h; eqDraw(); }
+$("eq-sel").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; RI = +b.dataset.r; CO = []; eqBuild(); });
+$("eq-row").addEventListener("click", e => { const b = e.target.closest("[data-c]"); if (!b) return; const i = +b.dataset.c; CO[i] = Math.max(1, Math.min(6, CO[i] + +b.dataset.d)); eqBuild(); });
+function eqDraw() { const r = RX[RI], sp = [...r.L, ...r.R], nL = r.L.length; const tl = {}, tr = {};
+  sp.forEach((f, i) => { const a = atoms(f); for (const e in a) { const t = i < nL ? tl : tr; t[e] = (t[e] || 0) + a[e] * CO[i]; } });
+  const els = [...new Set([...Object.keys(tl), ...Object.keys(tr)])]; const ok = els.every(e => tl[e] === tr[e]);
+  const simplest = ok && CO.join() === r.ans.join(); if (simplest) DONE.add(RI);
+  $("eq-tally").innerHTML = '<table class="data-t"><tr><th>원자</th>' + els.map(e => `<th>${e}</th>`).join("") + '</tr><tr><td>반응 전</td>' + els.map(e => `<td>${tl[e] || 0}</td>`).join("") + '</tr><tr><td>반응 후</td>' + els.map(e => `<td style="color:${tl[e] === tr[e] ? "#2f8a4d" : "#d2453b"};font-weight:800">${tr[e] || 0}</td>`).join("") + "</tr></table>";
+  $("eq-msg").innerHTML = simplest ? `✅ <b>${r.n}</b> 반응식 완성! 반응 전후 원자의 종류와 수가 같아요. (균형 맞춘 반응: ${DONE.size} 개)` : ok ? "원자 수는 같지만, 계수를 가장 간단한 정수로 나타내 보세요." : "빨간 숫자가 있는 원자는 반응 전후의 수가 달라요. 계수를 바꿔 보세요.";
+  const g = LB.fit($("eq-cv"), 200), c = g.c, W = g.w, H = 200; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const tot = sp.length, colW = W / (tot + 0.6); let x = colW * 0.55;
+  sp.forEach((f, i) => { if (i === nL) { c.fillStyle = "#26393b"; c.font = "bold 22px sans-serif"; c.fillText("→", x - colW * 0.35, 105); }
+    const n = CO[i], s = W < 500 ? 0.7 : 1.1; for (let k = 0; k < n; k++) MOL.draw(c, x, 40 + k * (130 / Math.max(n, 1)) + 10, f, s); x += colW; });
+  c.fillStyle = ok ? "#2f8a4d" : "#d2453b"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(ok ? "반응 전후 원자 수 같음" : "원자 수가 달라요", 10, 194); }
+eqBuild(); window.addEventListener("resize", eqDraw);
+WS.custom("eq_done", { el: $("eq-ok"), value: () => DONE.size + "", check: () => [0, 1, 2].every(i => DONE.has(i)), answer: "물 생성·암모니아 생성·메테인 연소 균형 맞추기" });
+
+/* ── 분자 공장 ── */
+function nfDraw() { const n = +$("nf").value, h = +$("hf").value; $("nf-o").textContent = n; $("hf-o").textContent = h;
+  const used = Math.min(n, Math.floor(h / 3)), nl = n - used, hl = h - used * 3, nh = used * 2;
+  const g = LB.fit($("nf-cv"), 220), c = g.c, W = g.w, H = 220; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H); const s = W < 500 ? 0.6 : 0.85;
+  const grid = (x0, w, list) => list.forEach((k, i) => { const cols = Math.max(2, Math.floor(w / 46)); MOL.draw(c, x0 + 24 + (i % cols) * 44, 50 + Math.floor(i / cols) * 34, k, s); });
+  grid(8, W * 0.42, [...Array(n).fill("N2"), ...Array(h).fill("H2")]);
+  c.fillStyle = "#26393b"; c.font = "bold 22px sans-serif"; c.fillText("→", W * 0.46, 115);
+  grid(W * 0.53, W * 0.45, [...Array(nh).fill("NH3"), ...Array(nl).fill("N2"), ...Array(hl).fill("H2")]);
+  c.font = "bold 12px Pretendard, sans-serif"; c.fillText(`반응 전: N₂ ${n}, H₂ ${h}`, 10, 22); c.fillText(`반응 후: NH₃ ${nh}` + (nl ? `, 남은 N₂ ${nl}` : "") + (hl ? `, 남은 H₂ ${hl}` : ""), W * 0.53, 22);
+  c.fillStyle = "#6b7b85"; c.font = "11px Pretendard, sans-serif"; c.fillText("N₂ : H₂ : NH₃ = 1 : 3 : 2", 10, 210); }
+["nf", "hf"].forEach(k => $(k).addEventListener("input", nfDraw)); nfDraw(); window.addEventListener("resize", nfDraw);
+
+</script>
+</body>
+</html>

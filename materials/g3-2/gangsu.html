@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅱ-2-03 — 지표에 내리는 강수</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/2">← KISPP 과학실 · 중학교 3학년 Ⅱ. 기권과 날씨</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-hero.jpg" alt="">
+    <img class="lb-qmark" src="img/p74-cartoon.jpg" alt="혼자서는 못 내려가지!">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 기권과 날씨 · 2. 구름과 강수 · 03 <span class="pg" style="margin:0">74~79쪽</span></span>
+      <h1>지표에 내리는<br><span>강수</span></h1>
+      <p>구름으로 떠 있는 물방울은 어떻게 떨어지게 될까? 구름 속을 들여다보며 얼음 알갱이가 자라는 빙정설과 물방울이 합쳐지는 병합설을 비교하고, 지표 기온에 따라 눈과 비가 갈리는 모습을 확인해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 강수 과정을 모형으로 표현할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>구름에서 어떻게 비를 내릴까? <span class="pg">74쪽</span></div>
+<figure class="fig" style="max-width:300px"><img src="img/p74-cartoon.jpg" alt="혼자서는 못 내려가지! 여기 여기 붙어라. — 구름으로 떠 있는 물방울은 어떻게 떨어지게 될까?"><figcaption><span class="tb">74쪽</span>혼자서는 못 내려가지! 여기 여기 붙어라. — 구름으로 떠 있는 물방울은 어떻게 떨어지게 될까?</figcaption></figure>
+    <div class="book"><p>우리나라가 속한 중위도나 고위도 지역에서 만들어지는 구름은 물방울과 얼음 알갱이로 이루어져 있다. 구름의 윗부분은 주로 얼음 알갱이로 이루어져 있고, 중간 부분에는 얼음 알갱이와 물방울이 함께 있으며, 아랫부분은 주로 물방울로 이루어져 있다. 얼음 알갱이는 물방울에서 증발한 수증기가 달라붙어 점점 무거워져 지표면으로 떨어진다. 이때 기온이 낮으면 그대로 떨어져 눈으로 내리고, 기온이 높으면 녹아서 비로 내린다. (<b>빙정설</b>)</p>
+    <p>한편, 저위도 지역에서는 온도가 0 ℃보다 높은 구름이 주로 만들어지며, 구름은 크고 작은 물방울로 이루어져 있다. 이러한 구름에서는 물방울들이 서로 부딪치면서 합쳐지고 점점 무거워져 비가 되어 내린다. (<b>병합설</b>)</p>
+    <p>구름에서 지표로 떨어지는 비나 눈 등을 <span class="key">강수</span>라고 한다.</p></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">구름 속 들여다보기</span>두 지역의 구름에서 비가 만들어지는 과정</div>
+    <div class="btn-row" id="rn-sel"><button type="button" class="btn small" data-m="0">❄️ 중위도·고위도 (빙정설)</button><button type="button" class="btn small" data-m="1">🌴 저위도 (병합설)</button></div>
+    <div class="ctrl-grid"><div class="ctrl"><label>지표 부근 기온 <output id="rn-to"></output> ℃</label><input type="range" id="rn-t" min="-10" max="25" value="10"></div></div>
+    <div class="light-stage"><canvas id="rn-cv"></canvas></div>
+    <div class="tip-box" id="rn-msg"></div>
+    <div class="q" data-why="빙정설: 물방울 → 증발 → 수증기가 얼음 알갱이에 달라붙음 → 무거워져 떨어짐 → 녹으면 비, 그대로면 눈" data-hint="빙정설 모드에서 기온을 바꿔 보세요.">
+      <div class="q-text"><span class="q-num">1</span>중위도나 고위도 지역의 구름 속에서는 <span class="choice-group" data-key="r1" data-answer="물"><button type="button" class="choice-btn" data-value="물">물방울</button><button type="button" class="choice-btn" data-value="얼">얼음 알갱이</button></span>에서 증발한 수증기가 <span class="choice-group" data-key="r2" data-answer="얼"><button type="button" class="choice-btn" data-value="물">물방울</button><button type="button" class="choice-btn" data-value="얼">얼음 알갱이</button></span>에 달라붙어 커진다. 지표 부근 기온이 낮으면 <span class="choice-group" data-key="r3" data-answer="눈"><button type="button" class="choice-btn" data-value="눈">눈</button><button type="button" class="choice-btn" data-value="비">비</button></span>, 높으면 <span class="choice-group" data-key="r4" data-answer="비"><button type="button" class="choice-btn" data-value="눈">눈</button><button type="button" class="choice-btn" data-value="비">비</button></span>가 내린다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="병합설 — 따뜻한 구름" data-hint="병합설 모드를 보세요.">
+      <div class="q-text"><span class="q-num">2</span>저위도 지역의 구름은 온도가 주로 0 ℃보다 <span class="choice-group" data-key="r5" data-answer="높"><button type="button" class="choice-btn" data-value="높">높기</button><button type="button" class="choice-btn" data-value="낮">낮기</button></span> 때문에 <span class="choice-group" data-key="r6" data-answer="물"><button type="button" class="choice-btn" data-value="얼">얼음 알갱이</button><button type="button" class="choice-btn" data-value="물">물방울</button></span>로만 이루어지며, 크고 작은 물방울이 서로 부딪치고 합쳐져 비가 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기 · 모형으로 표현</span>강수 과정을 모형으로 표현하기 <span class="pg">75쪽</span></div>
+<figure class="fig"><img src="img/p75-comic.jpg" alt="지역에 따른 강수 과정 만화 — 중위도나 고위도 지역(빙정설) · 저위도 지역(병합설)"><figcaption><span class="tb">75쪽</span>지역에 따른 강수 과정 만화 — 중위도나 고위도 지역(빙정설) · 저위도 지역(병합설)</figcaption></figure>
+    <div class="steps-box"><ol><li>빈칸에 들어갈 상황을 그려 강수 과정 만화를 완성한다.</li><li>빈칸에 그린 구름의 모습을 솜이나 고무찰흙을 이용하여 모형으로 표현해 본다.</li><li>구름 모형으로 두 지역의 강수 과정을 비교하여 설명해 본다.</li></ol></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge quiz">순서 맞추기</span>빙정설에 따라 눈·비가 내리는 순서</div>
+    <div class="q" data-why="물방울이 증발 → 수증기가 얼음 알갱이에 달라붙음 → 얼음 알갱이가 커지고 무거워짐 → 떨어지면서 녹으면 비, 그대로면 눈">
+      <ol class="order-list" data-key="ord" data-answer="a,b,c,d">
+        <li data-id="c">얼음 알갱이가 점점 커지고 무거워진다.</li>
+        <li data-id="a">구름 속 물방울에서 수증기가 증발한다.</li>
+        <li data-id="d">지표로 떨어지면서 기온이 높으면 녹아 비, 낮으면 눈이 된다.</li>
+        <li data-id="b">증발한 수증기가 얼음 알갱이에 달라붙는다.</li>
+      </ol>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>구름 모형으로 두 지역의 강수 과정을 비교하여 설명해 보자.</div><textarea class="free" data-key="cmp" rows="2" data-keywords="얼음 알갱이,물방울,부딪,합쳐,0 ℃" data-model="중위도·고위도 지역의 구름은 윗부분이 0 ℃ 이하라 얼음 알갱이가 수증기를 받아 커져서 떨어지고(빙정설), 저위도 지역의 구름은 0 ℃보다 따뜻해 물방울끼리 부딪치고 합쳐져 커져서 떨어진다(병합설)."></textarea><span class="fb"></span></div>
+    <div class="block-q">
+      <b>🧩 세 번째 열쇠 (76쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">구름 입자가 합쳐져 충분히 ( <span class="choice-group" data-key="key3" data-answer="커"><button type="button" class="choice-btn" data-value="커">커지고 무거워져야</button><button type="button" class="choice-btn" data-value="작">작고 가벼워져야</button></span> ) 비로 내린다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">STEAM · 의사소통</span>구름 그림말(이모티콘) 만들기 <span class="pg">77쪽</span></div>
+    <div class="steps-box"><ol><li>다양한 구름을 조사하여 특징을 찾아낸다.</li><li>감정이나 상태를 나타내는 표현(행복, 분노, 기쁨, 의기양양, 졸림, 슬픔 등)을 구상한다.</li><li>구름의 특징과 잘 연결되는 감정 표현을 담아 그림말을 완성한다.</li></ol></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>내가 만든 구름 그림말 — 구름의 종류, 표현한 감정, 그렇게 연결한 까닭을 써 보자.</div><textarea class="free" data-key="emoji" rows="2" data-keywords="" data-model="적란운 — '분노': 위로 높이 솟아오르고 천둥·번개와 소나기를 몰고 오는 모습이 화난 표정과 어울린다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">🔑</span><b>열쇠 모으기</b> 구름에서 비는 어떻게 만들어지는 걸까? '상승, 온도, 응결, 구름, 비'를 사용하여 내 생각을 써 보자.</div><textarea class="free" data-key="key_all" rows="3" data-keywords="상승,온도,응결,구름,비" data-model="수증기를 포함한 공기 덩어리가 상승하면 단열 팽창 하여 온도가 낮아지고, 이슬점에 도달하면 수증기가 응결하여 구름이 된다. 구름 입자가 합쳐져 충분히 커지고 무거워지면 비로 내린다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>74쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">76쪽</span></div>
+    <div class="q" data-why="물방울, 얼음 알갱이">
+      <div class="q-text"><span class="q-num">1</span>중위도나 고위도 지역에서 얼음 알갱이와 물방울이 함께 있는 구름 속에서는 <input class="blank w-s" data-key="k1a" data-answer="물방울"> 에서 증발한 수증기가 <input class="blank w-s" data-key="k1b" data-answer="얼음 알갱이|얼음알갱이"> 에 달라붙는다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="높기, 물방울">
+      <div class="q-text"><span class="q-num">2</span>저위도 지역의 구름은 온도가 주로 0 ℃보다 <span class="choice-group" data-key="k2a" data-answer="높"><button type="button" class="choice-btn" data-value="높">높기</button><button type="button" class="choice-btn" data-value="낮">낮기</button></span> 때문에 <span class="choice-group" data-key="k2b" data-answer="물"><button type="button" class="choice-btn" data-value="얼">얼음 알갱이</button><button type="button" class="choice-btn" data-value="물">물방울</button></span>로만 이루어진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 같은 기온에서 상대 습도가 낮은 공기 덩어리보다 상대 습도가 높은 공기 덩어리가 상승했을 때 구름이 더 빨리 만들어지는 까닭을 설명해 보자.</div><textarea class="free" data-key="k3" rows="2" data-keywords="이슬점,가까,조금,응결" data-model="상대 습도가 높은 공기는 수증기량이 많아 이슬점이 현재 기온에 가깝다. 그래서 조금만 상승해서 온도가 낮아져도 이슬점에 도달하여 응결이 빨리 일어난다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인</span>지표에 내리는 강수</div>
+    <div class="q" data-why="얼음 알갱이">
+      <div class="q-text"><span class="q-num">1</span>중위도나 고위도 지역에서 만들어지는 구름은 물방울과 <input class="blank w-s" data-key="t1" data-answer="얼음 알갱이|얼음알갱이"> 로 이루어져 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="높은">
+      <div class="q-text"><span class="q-num">2</span>저위도 지역에서는 온도가 0 ℃보다 <span class="choice-group" data-key="t2" data-answer="높"><button type="button" class="choice-btn" data-value="높">높은</button><button type="button" class="choice-btn" data-value="낮">낮은</button></span> 구름이 주로 만들어진다.</div>
+      <span class="fb"></span>
+    </div><div class="tip-box">(가) 0 ℃보다 따뜻한 구름 속에서 작은 물방울과 큰 물방울이 합쳐져 떨어지는 구름 / (나) 위쪽 −40 ℃~0 ℃ 부분에 얼음 알갱이가 있고 수증기가 얼음 알갱이에 달라붙는 구름</div>
+    <div class="q" data-why="(가) 병합설·저위도, (나) 빙정설·중위도나 고위도">
+      <div class="q-text"><span class="q-num">3</span>(가)와 (나)에 해당하는 것을 각각 고르시오. (ㄱ. 병합설 ㄴ. 빙정설 ㄷ. 저위도 지방 ㄹ. 중위도나 고위도 지방)</div><div style='margin-top:6px'>(가): <div class="multi-group" data-key="t3a" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></div>(나): <div class="multi-group" data-key="t3b" data-answer="ㄴ,ㄹ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ</button></div></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(가)는 물방울로만 된 따뜻한 구름이라 얼음 알갱이가 없고 눈도 내리지 않아요. 우리나라(중위도)는 (나)예요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ (가)와 (나)의 구름은 모두 윗부분이 주로 얼음 알갱이로 이루어져 있다.</td><td><span class="choice-group" data-key="t4_1" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ (가)의 구름은 기온이 낮으면 눈을 내린다.</td><td><span class="choice-group" data-key="t4_2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ (나)의 구름은 물방울에서 증발한 수증기가 얼음 알갱이에 붙어 비를 내린다.</td><td><span class="choice-group" data-key="t4_3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑷ 우리나라에서는 (나)의 구름이 만들어진다.</td><td><span class="choice-group" data-key="t4_4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>지표에 내리는 강수 <span class="pg">79쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>강수 과정</h4>
+      <div class="q" style="border-top:none" data-why="강수, 얼음 알갱이, 물방울, 빙정설">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="강수"> : 구름에서 지표로 떨어지는 비나 눈 등<br>⑵ 중위도나 고위도 지역: 0 ℃ 이하 차가운 구름 속에서 <input class="blank w-s" data-key="s2" data-answer="얼음 알갱이|얼음알갱이"> 에 물방울에서 증발한 수증기가 달라붙어 무거워지면 눈이나 비가 되어 떨어진다.<br>⑶ 저위도 지역: 0 ℃보다 온도가 높은 구름 속에서 크고 작은 <input class="blank w-s" data-key="s3" data-answer="물방울"> 들이 서로 부딪치고 합쳐져 무거워지면 비가 되어 내린다.<br>⑷ 우리나라와 같은 중위도 지역의 강수 과정은 <span class="choice-group" data-key="s4" data-answer="빙"><button type="button" class="choice-btn" data-value="빙">빙정설</button><button type="button" class="choice-btn" data-value="병">병합설</button></span>로 설명한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">강수 과정을 모형으로 표현할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">중위도·고위도와 저위도 지역의 강수 과정을 비교하여 설명할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅱ. 기권과 날씨 · 2. 구름과 강수 · 03 지표에 내리는 강수 · 비상교육 중학 과학 3 교과서(74~79쪽)·해 보기·개념 확인 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅱ-2-03 지표에 내리는 강수";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 구름 속 들여다보기 ── */
+let RM = 0; const rnSeen = new Set([0]);
+$("rn-sel").addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (!b) return; RM = +b.dataset.m; rnSeen.add(RM); init(); });
+WS.custom("rn_seen", { el: $("rn-cv"), value: () => [...rnSeen].sort().join(",") });
+let P = [];
+function init() { P = []; for (let i = 0; i < 70; i++) P.push(newP(true)); }
+function newP(any) { const ice = RM === 0 && Math.random() < 0.25; return { x: Math.random(), y: ice ? 0.04 + Math.random() * 0.3 : 0.08 + Math.random() * 0.5, r: ice ? 3.5 : 2 + Math.random() * (RM ? 2.5 : 1.2), ice, vy: 0, fall: false, melt: false }; }
+init();
+LB.loop($("rn-cv"), (dt, t) => { const T = +$("rn-t").value; $("rn-to").textContent = T; const g = LB.fit($("rn-cv"), 300), c = g.c, W = g.w, H = 300; dt = Math.min(dt * 1000, 50);
+  const top = 20, cb = 200, ground = 285; c.fillStyle = "#dbe9f6"; c.fillRect(0, 0, W, H);
+  const z0 = RM ? -1 : top + (cb - top) * 0.55, fz = RM ? null : z0; // 0 ℃ 높이 (구름 속)
+  const zMelt = T > 0 ? cb + (ground - cb) * Math.max(0, 1 - T / 8) : ground + 50; // 구름 아래 0 ℃선
+  c.fillStyle = "rgba(255,255,255,.85)"; c.beginPath(); c.ellipse(W / 2, (top + cb) / 2, W * 0.42, (cb - top) / 2 + 6, 0, 0, 7); c.fill();
+  if (!RM) { c.fillStyle = "rgba(160,200,255,.18)"; c.fillRect(W * 0.08, top, W * 0.84, fz - top); c.strokeStyle = "#2f7fd6"; c.setLineDash([5, 4]); c.beginPath(); c.moveTo(0, fz); c.lineTo(W, fz); c.stroke(); c.setLineDash([]); c.fillStyle = "#2f7fd6"; c.font = "bold 11px Pretendard, sans-serif"; c.fillText("0 ℃ (위: 얼음 알갱이 + 물방울)", 8, fz - 4); c.fillText("−40 ℃", 8, top + 12); }
+  else { c.fillStyle = "#d2453b"; c.font = "bold 11px Pretendard, sans-serif"; c.fillText("구름 전체가 0 ℃보다 따뜻함", 8, top + 12); }
+  if (T > 0 && zMelt < ground) { c.strokeStyle = "#e4572e"; c.setLineDash([4, 4]); c.beginPath(); c.moveTo(0, zMelt); c.lineTo(W, zMelt); c.stroke(); c.setLineDash([]); c.fillStyle = "#e4572e"; c.fillText("0 ℃ — 아래에서는 녹아요", 8, zMelt - 3); }
+  c.fillStyle = T > 0 ? "#7cb85b" : "#f4f7fb"; c.fillRect(0, ground, W, H - ground); c.strokeStyle = "#9fb0b8"; c.strokeRect(0, ground, W, 0.5);
+  let snow = 0, rain = 0;
+  P.forEach(p => { const px = W * (0.12 + 0.76 * p.x), py = top + p.y * (cb - top + 60);
+    if (!p.fall) {
+      if (!RM) { if (p.ice && py < fz) { p.r += dt * 0.004; } else if (!p.ice) { p.r = Math.max(1.2, p.r - dt * 0.0005); } if (p.ice && p.r > 9) p.fall = true; }
+      else { if (Math.random() < dt * 0.0012) p.r += 0.8; if (p.r > 7.5) p.fall = true; }
+      p.y += Math.sin(t / 700 + p.x * 9) * 0.0004 * dt; p.y = Math.max(0, Math.min(0.85, p.y)); }
+    else { p.vy = Math.min(p.vy + dt * 0.0004, 0.12); p.y += p.vy * dt * 0.01; if (p.ice && T > 0 && py > zMelt) { p.ice = false; p.melt = true; } }
+    if (py > ground) { Object.assign(p, newP()); return; }
+    if (p.fall) { p.ice ? snow++ : rain++; }
+    if (p.ice) { c.strokeStyle = "#3d74c4"; c.lineWidth = 2.2; for (let k = 0; k < 3; k++) { const a = k * Math.PI / 3; c.beginPath(); c.moveTo(px - Math.cos(a) * p.r, py - Math.sin(a) * p.r); c.lineTo(px + Math.cos(a) * p.r, py + Math.sin(a) * p.r); c.stroke(); } c.lineWidth = 1; }
+    else { c.fillStyle = p.fall ? "#2f7fd6" : "#7fb3e6"; c.beginPath(); c.arc(px, py, p.r, 0, 7); c.fill(); }
+    if (!RM && !p.ice && !p.fall && Math.random() < 0.02) { c.fillStyle = "rgba(150,170,200,.5)"; c.fillRect(px + 3, py - 3, 1.5, 1.5); } });
+  c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(RM ? "저위도 — 병합설" : "중위도·고위도 — 빙정설", W - 170, 16);
+  $("rn-msg").textContent = RM ? "작은 물방울들이 부딪치고 합쳐져 큰 물방울이 되면 무거워져 비로 떨어져요." : (T > 0 ? `지표 부근 기온 ${T} ℃ — 얼음 알갱이가 떨어지다가 0 ℃선 아래에서 녹아 비가 돼요.` : `지표 부근 기온 ${T} ℃ — 얼음 알갱이가 녹지 않고 그대로 눈으로 내려요.`) + " (물방울은 증발해 작아지고, 얼음 알갱이는 수증기를 받아 커져요.)"; });
+
+</script>
+</body>
+</html>

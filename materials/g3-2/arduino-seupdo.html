@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅱ 아두이노 실험 — 기온과 상대 습도</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/2">← KISPP 과학실 · 중학교 3학년 Ⅱ. 기권과 날씨</a>
+
+  <div class="lb-hero" style="min-height:180px">
+    <img class="bg" src="img/p69-humid.jpg" alt="">
+    <div class="in">
+      <span class="chip">아두이노 실험 보고서 · Ⅱ. 기권과 날씨 · 교과서 66~67쪽 연계</span>
+      <h1>뚜껑을 닫은 용기를 데우면<br><span>상대 습도는 어떻게 될까?</span></h1>
+      <p>DHT11 온습도 센서를 밀폐 용기에 넣고 따뜻한 물과 얼음물로 데웠다 식히며 기온과 상대 습도를 함께 기록하자. 수증기량을 직접 계산해 보면, 상대 습도가 왜 기온과 반대로 움직이는지 숫자로 확인할 수 있어요.</p>
+      
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">실험 정보</span>실험 보고서</div>
+    <div class="report-head"><div><b>실험 제목</b>밀폐된 공기의 기온과 상대 습도의 관계</div><div><b>관련 단원</b>Ⅱ-2-01 공기 속에 숨은 수증기</div><div><b>실험 형태</b>모둠 실험 (4명)</div><div><b>측정 도구</b>아두이노 UNO + DHT11 온습도 센서</div></div>
+    <div class="q"><div class="q-text"><span class="q-num">·</span>실험 날짜와 모둠원 이름</div><textarea class="free" data-key="team" rows="1" placeholder="예) 11월 16일 / 4모둠 김OO, 이OO, 박OO, 최OO"></textarea></div>
+    <div class="tip-box"><b>실험 목표</b> 수증기량이 일정한 밀폐 용기 속 공기를 데우고 식히면서 기온과 상대 습도를 함께 기록하여, 수증기량이 일정할 때 기온에 따라 상대 습도가 달라짐을 설명할 수 있다. (교과서 67쪽 ‘상대 습도 변화 알아보기’, 스스로 확인하기 3번 ‘난방과 상대 습도’)</div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">1</span>가설 세우기</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span>뚜껑을 꼭 닫은 용기 속 공기를 따뜻한 물로 데우면 상대 습도는 어떻게 될지, 얼음물로 식히면 어떻게 될지 예상해 보자.</div><textarea class="free" data-key="hypo" rows="2" data-keywords="데우면,낮아,식히면,높아,포화 수증기량" data-model="밀폐 용기 속 수증기량은 일정하므로, 데우면 포화 수증기량이 증가하여 상대 습도가 낮아지고, 식히면 포화 수증기량이 감소하여 상대 습도가 높아질 것이다."></textarea><span class="fb"></span></div>
+    <div class="q" data-why="밀폐하면 수증기가 드나들지 않아 수증기량이 일정해요. 이때 달라지는 것은 기온뿐이에요.">
+      <div class="q-text"><span class="q-num">2</span><b>변인 통제</b> 뚜껑을 꼭 닫는 까닭은 용기 속 공기의 <span class="choice-group" data-key="var" data-answer="수"><button type="button" class="choice-btn" data-value="수">수증기량을 일정하게 하기</button><button type="button" class="choice-btn" data-value="온">온도를 일정하게 하기</button><button type="button" class="choice-btn" data-value="기">기압을 높이기</button></span> 위해서이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">2</span>준비물과 회로 연결</div>
+    <div class="book" style="font-size:14px"><p><b>준비물</b> 아두이노 UNO, USB 케이블, DHT11 온습도 센서(모듈), 점퍼선(암-수, 긴 것), 뚜껑이 있는 투명 밀폐 용기(약 1 L), 절연 테이프, 넓은 수조 2 개(따뜻한 물 약 45 ℃, 얼음물), 노트북(크롬)</p></div>
+    <table class="data-t pin-t" style="max-width:520px"><tr><th>DHT11 핀</th><th>아두이노</th></tr><tr><td>VCC(+)</td><td>5V</td></tr><tr><td>DATA(S)</td><td>2번</td></tr><tr><td>GND(−)</td><td>GND</td></tr></table>
+    <div class="tip-box"><b>❗ 센서는 용기 안, 아두이노는 용기 밖!</b> 점퍼선을 용기 뚜껑 틈으로 빼고, 틈을 절연 테이프로 꼼꼼히 막아 공기가 드나들지 않게 해요. 센서가 용기 벽이나 바닥에 닿지 않게 가운데에 매달아요.</div>
+    <div class="al-code"><div class="btn-row" style="margin:0 0 6px"><button type="button" class="btn small" id="hm-copy">📋 코드 복사</button><a class="btn ghost small" href="arduino/humid.ino" download>⬇️ humid.ino 내려받기</a></div><pre id="hm-src">코드를 불러오는 중…</pre></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">3</span>실험 방법</div>
+    <div class="steps-box"><ol>
+      <li>센서를 넣은 용기의 뚜껑을 닫고 [아두이노 연결하기]를 누른다. 2 분 동안 실내에 두고 처음 값을 기록한다.</li>
+      <li>[▶ 자동 기록 시작]을 누른 뒤, 용기를 따뜻한 물이 담긴 수조에 넣어 8 분 동안 데운다. (용기가 물에 뜨면 손으로 눌러 준다.)</li>
+      <li>용기를 꺼내 물기를 닦고 얼음물 수조로 옮겨 8 분 동안 식힌다.</li>
+      <li>기록을 멈추고, 그래프에서 기온과 상대 습도의 변화를 비교한다. 표의 ‘수증기량’ 열(상대 습도 × 포화 수증기량)도 살펴본다.</li>
+    </ol></div>
+    <div class="safe">⚠️ 아두이노와 브레드보드에 물이 닿지 않게 수조에서 멀리 두고, 젖은 손으로 만지지 않는다. 뜨거운 물에 화상을 입지 않도록 주의한다.</div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge sim">4</span>측정하기 — 실시간 기록</div>
+    <div class="al-conn"><button type="button" class="btn main small" id="hm-connect">🔌 아두이노 연결하기</button><span class="al-dot" id="hm-dot"></span><span id="hm-ctext" style="font-size:13px;font-weight:700">연결 안 됨</span><span style="font-size:12px;color:var(--ink-soft)">크롬·엣지에서 연결돼요. 연결 없이도 [예시 값]으로 미리 볼 수 있어요.</span></div>
+    <div class="al-live">
+      <div class="al-box" style="border-color:#e4572e"><small>🌡️ 기온 (℃)</small><input type="number" step="0.1" id="hm-t"></div>
+      <div class="al-box" style="border-color:#2f7de1"><small>💧 상대 습도 (%)</small><input type="number" step="1" id="hm-h"></div>
+      <div class="al-box" style="border-color:#2fae5d"><small>🫧 수증기량 (g/kg, 계산)</small><input type="text" id="hm-q" readonly></div>
+    </div>
+    <div class="btn-row"><button type="button" class="btn primary small" id="hm-auto">▶ 자동 기록 시작 (10초마다)</button><button type="button" class="btn small" id="hm-now">📍 지금 값 기록</button><button type="button" class="btn small" id="hm-mark">🏷️ 구간 표시: <span id="hm-phase">실내</span></button><button type="button" class="btn ghost small" id="hm-sample">📎 예시 값으로 미리보기</button><button type="button" class="btn ghost small" id="hm-clear">🧹 표 초기화</button></div>
+    <div class="light-stage"><canvas id="hm-g"></canvas></div>
+    <div class="scroll-x" style="max-height:260px;overflow-y:auto"><table class="data-t" id="hm-tb"></table></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">5</span>결과 정리</div>
+    <div class="q" data-why="각 구간의 마지막 값(가장 많이 데우거나 식힌 상태)을 읽어요. 자동 분석 값과 비교해 보세요.">
+      <table class="data-t" style="max-width:560px">
+        <tr><th>구간</th><th>기온(℃)</th><th>상대 습도(%)</th></tr>
+        <tr><td>실내 (처음)</td><td><input class="blank w-s" id="r-t0" style="width:64px"></td><td><input class="blank w-s" id="r-h0" style="width:64px"></td></tr>
+        <tr><td>따뜻한 물 (데운 뒤)</td><td><input class="blank w-s" id="r-t1" style="width:64px"></td><td><input class="blank w-s" id="r-h1" style="width:64px"></td></tr>
+        <tr><td>얼음물 (식힌 뒤)</td><td><input class="blank w-s" id="r-t2" style="width:64px"></td><td><input class="blank w-s" id="r-h2" style="width:64px"></td></tr>
+      </table>
+      <div class="q-text" style="margin-top:6px;font-size:12.5px;color:var(--ink-soft)">자동 분석: <span id="r-auto">기록 없음</span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="밀폐 용기 속 수증기량은 거의 일정하고, 기온에 따라 포화 수증기량이 변해서 상대 습도가 반대로 변해요.">
+      <div class="q-text"><span class="q-num">1</span>용기를 데우면 기온은 높아지고 상대 습도는 <span class="choice-group" data-key="cmp_a" data-answer="낮"><button type="button" class="choice-btn" data-value="높">높아졌다</button><button type="button" class="choice-btn" data-value="낮">낮아졌다</button></span>. 식히면 상대 습도는 <span class="choice-group" data-key="cmp_b" data-answer="높"><button type="button" class="choice-btn" data-value="높">높아졌다</button><button type="button" class="choice-btn" data-value="낮">낮아졌다</button></span>. 그동안 계산한 수증기량은 <span class="choice-group" data-key="cmp_c" data-answer="거"><button type="button" class="choice-btn" data-value="거">거의 일정했다</button><button type="button" class="choice-btn" data-value="크">크게 변했다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">6</span>결론과 토의</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span><b>결론</b> 측정 결과를 근거로, 수증기량이 일정할 때 기온과 상대 습도의 관계를 포화 수증기량을 사용하여 설명해 보자.</div><textarea class="free" data-key="concl" rows="2" data-keywords="수증기량,일정,포화 수증기량,증가,낮아,감소,높아" data-model="밀폐 용기 속 수증기량은 거의 일정했다. 기온이 높아지면 포화 수증기량이 증가하여 상대 습도가 낮아졌고, 기온이 낮아지면 포화 수증기량이 감소하여 상대 습도가 높아졌다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>생활에 적용하기</b> 겨울철 밀폐된 교실에서 난방기를 오래 켜 두면 건조해지는 까닭과, 적정 습도(40 %~60 %)를 유지하는 방법을 써 보자.</div><textarea class="free" data-key="life" rows="2" data-keywords="기온,포화 수증기량,상대 습도,낮아,가습" data-model="난방으로 기온이 높아지면 수증기량은 그대로인데 포화 수증기량이 증가하여 상대 습도가 낮아지기 때문이다. 가습기를 쓰거나 젖은 빨래를 널고, 가끔 환기한다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>더 탐구하기</b> 얼음물로 오래 식혔을 때 용기 안쪽 벽에 물방울이 맺혔다면 그 까닭은 무엇일까? 이때 상대 습도와 수증기량은 어떻게 되었을까?</div><textarea class="free" data-key="dew" rows="2" data-keywords="이슬점,포화,응결,100" data-model="기온이 이슬점 아래로 내려가 포화 상태(상대 습도 약 100 %)가 되고, 포화 수증기량을 넘는 수증기가 응결하여 물방울이 맺혔다. 그래서 공기 중의 수증기량은 줄어든다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">7</span>스스로 평가 · 선생님께 한마디</div>
+    <table class="data-t"><tr><th style="text-align:left">평가 항목</th><th>스스로 평가</th></tr><tr><td style="text-align:left">아두이노 온습도 센서로 기온과 상대 습도를 함께 기록했다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">그래프와 수증기량 계산을 근거로 기온에 따른 상대 습도 변화를 설명했다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">물과 전기 기구를 안전하게 다루며 모둠원과 협력했다.</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr></table>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>실험하면서 어려웠던 점, 새로 알게 된 점, 선생님께 하고 싶은 말을 자유롭게 써 주세요.</div><textarea class="free" data-key="feedback" placeholder="느낀 점과 피드백"></textarea></div>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">보고서를 다 쓰면 제출해요. 측정 기록도 함께 선생님 스프레드시트(중3 탭)에 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅱ. 기권과 날씨 · 아두이노 실험 보고서 · 교과서 66~67쪽(포화 수증기량과 상대 습도)·스스로 확인하기 3번을 DHT11 온습도 센서로 재구성 · <a href="seupdo.html">워크시트로 돌아가기</a></footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅱ 아두이노 기온과 상대 습도";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+fetch("arduino/humid.ino").then(r => r.text()).then(t => $("hm-src").textContent = t).catch(() => $("hm-src").textContent = "코드를 불러오지 못했어요. 위의 내려받기 버튼을 눌러 주세요.");
+$("hm-copy").addEventListener("click", () => { const t = $("hm-src").textContent; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { $("hm-copy").textContent = "✅ 복사됨"; setTimeout(() => $("hm-copy").textContent = "📋 코드 복사", 1500); }).catch(() => {}); });
+const SAT = T => { const e = 6.112 * Math.exp(17.67 * T / (T + 243.5)); return 622 * e / (1013 - e); };
+const PH = ["실내", "따뜻한 물", "얼음물"]; let phase = 0, rows = [], timer = null, t0 = null;
+const val = id => { const v = parseFloat($(id).value); return isNaN(v) ? null : v; };
+function liveQ() { const t = val("hm-t"), h = val("hm-h"); $("hm-q").value = t != null && h != null ? (h / 100 * SAT(t)).toFixed(2) : ""; }
+["hm-t", "hm-h"].forEach(id => $(id).addEventListener("input", liveQ));
+function rec() { const t = val("hm-t"), h = val("hm-h"); if (t == null || h == null) { return false; } if (t0 == null) t0 = Date.now(); rows.push([Math.round((Date.now() - t0) / 1000), t, h, PH[phase]]); draw(); return true; }
+$("hm-now").addEventListener("click", () => { if (!rec()) alert("기온과 상대 습도 값이 필요해요. 아두이노를 연결하거나 직접 넣어 주세요."); });
+$("hm-auto").addEventListener("click", () => { if (timer) { clearInterval(timer); timer = null; $("hm-auto").textContent = "▶ 자동 기록 시작 (10초마다)"; return; } if (!rec()) { alert("기온과 상대 습도 값이 필요해요."); return; } timer = setInterval(rec, 10000); $("hm-auto").textContent = "⏸ 자동 기록 멈춤"; });
+$("hm-mark").addEventListener("click", () => { phase = (phase + 1) % 3; $("hm-phase").textContent = PH[phase]; });
+$("hm-clear").addEventListener("click", () => { if (rows.length && !confirm("기록을 모두 지울까요?")) return; rows = []; t0 = null; draw(); });
+$("hm-sample").addEventListener("click", () => { rows = []; const q = 8.4; for (let s = 0; s <= 1080; s += 20) { const m = s / 60; let T, ph; if (m < 2) { T = 24.0; ph = 0; } else if (m < 10) { T = 24 + 17 * (1 - Math.exp(-(m - 2) / 2.2)); ph = 1; } else { const Th = 24 + 17 * (1 - Math.exp(-8 / 2.2)); T = 9 + (Th - 9) * Math.exp(-(m - 10) / 2.0); ph = 2; }
+    const h = Math.min(95, q / SAT(T) * 100); rows.push([s, +(T + (Math.random() - .5) * 0.3).toFixed(1), Math.round(h + (Math.random() - .5) * 2), PH[ph]]); } draw(); });
+function draw() { const T = rows.map(r => [r[0] / 60, r[1]]), Hh = rows.map(r => [r[0] / 60, r[2]]), Q = rows.map(r => [r[0] / 60, r[2] / 100 * SAT(r[1]) * 5]); const xm = Math.max(10, Math.ceil((rows.length ? rows[rows.length - 1][0] / 60 : 0) / 2) * 2);
+  LB.graph($("hm-g"), { h: 260, xMax: xm, yMin: 0, yMax: 100, xStep: 2, yStep: 10, xLabel: "시간(분)", yLabel: "기온(℃) · 상대 습도(%)", series: rows.length ? [{ color: "#e4572e", pts: T, label: "기온", width: 2.5, labelDy: -8 }, { color: "#2f7de1", pts: Hh, label: "상대 습도", width: 2.5, labelDy: 12 }, { color: "#2fae5d", pts: Q, label: "수증기량×5", width: 1.5, labelDy: 0 }] : [{ color: "#ccc", pts: [[0, 0]] }] });
+  $("hm-tb").innerHTML = "<tr><th>시간(초)</th><th>구간</th><th>기온(℃)</th><th>상대 습도(%)</th><th>포화 수증기량(g/kg)</th><th>수증기량(g/kg)</th></tr>" + (rows.length ? rows.map(r => `<tr><td>${r[0]}</td><td>${r[3]}</td><td>${r[1].toFixed(1)}</td><td>${r[2]}</td><td>${SAT(r[1]).toFixed(1)}</td><td>${(r[2] / 100 * SAT(r[1])).toFixed(2)}</td></tr>`).join("") : '<tr><td colspan="6" style="color:#8a9a9c">아직 기록이 없어요</td></tr>');
+  const s = stat(); $("r-auto").textContent = s ? PH.map((p, i) => s[i] ? `${p} ${s[i][0].toFixed(1)} ℃ · ${s[i][1]} %` : `${p} 기록 없음`).join(" / ") : "기록 없음"; }
+function stat() { if (rows.length < 4) return null; return PH.map(p => { const r = rows.filter(x => x[3] === p); return r.length ? [r[r.length - 1][1], r[r.length - 1][2]] : null; }); }
+draw(); window.addEventListener("resize", draw);
+WS.custom("hm_log", { el: $("hm-tb"), value: () => rows.map(r => `${r[0]}:${r[1]}:${r[2]}:${r[3]}`).join(" ") });
+const near = (v, x, tol) => !isNaN(v) && Math.abs(v - x) <= tol;
+function dyn(key, el, ans, check) { const c = { el, value: () => el.value, check }; Object.defineProperty(c, "answer", { get: ans }); WS.custom(key, c); }
+[0, 1, 2].forEach(i => { dyn("r_t" + i, $("r-t" + i), () => stat() && stat()[i] ? stat()[i][0].toFixed(1) : "기록 없음", v => stat() && stat()[i] ? near(WS.toNumber(v), stat()[i][0], 1) : null);
+  dyn("r_h" + i, $("r-h" + i), () => stat() && stat()[i] ? String(stat()[i][1]) : "기록 없음", v => stat() && stat()[i] ? near(WS.toNumber(v), stat()[i][1], 3) : null); });
+// ── Web Serial: "ms,온도,습도" ──
+let port = null, reader = null, reading = false;
+function setUI(on) { $("hm-dot").classList.toggle("on", on); $("hm-ctext").textContent = on ? "실시간 연결됨" : "연결 안 됨"; $("hm-connect").textContent = on ? "🔌 연결 끊기" : "🔌 아두이노 연결하기"; }
+$("hm-connect").addEventListener("click", async () => {
+  if (reading) { reading = false; try { if (reader) await reader.cancel(); } catch (e) {} try { if (port) await port.close(); } catch (e) {} port = reader = null; setUI(false); return; }
+  if (!("serial" in navigator)) { alert("이 브라우저는 아두이노 직접 연결(Web Serial)을 지원하지 않아요. 크롬이나 엣지를 사용해 주세요."); return; }
+  try { port = await navigator.serial.requestPort(); await port.open({ baudRate: 9600 }); reading = true; setUI(true); readLoop(); }
+  catch (e) { if (e && e.name !== "NotFoundError") alert("아두이노 연결에 실패했어요. USB와 시리얼 모니터를 확인해 주세요."); }
+});
+async function readLoop() {
+  const dec = new TextDecoderStream(); port.readable.pipeTo(dec.writable).catch(() => {});
+  reader = dec.readable.getReader(); let buf = "";
+  try { while (reading) { const r = await reader.read(); if (r.done) break; buf += r.value || ""; let i; while ((i = buf.indexOf("\n")) >= 0) { const p = buf.slice(0, i).trim().split(","); buf = buf.slice(i + 1); const t = parseFloat(p[1]), h = parseFloat(p[2]); if (!isNaN(t)) $("hm-t").value = t.toFixed(1); if (!isNaN(h)) $("hm-h").value = Math.round(h); liveQ(); } } }
+  catch (e) { console.error(e); } finally { try { reader.releaseLock(); } catch (e) {} }
+}
+
+</script>
+</body>
+</html>

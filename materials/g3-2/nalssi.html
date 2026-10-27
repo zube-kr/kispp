@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅱ-3-03 — 매일 변하는 날씨</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/2">← KISPP 과학실 · 중학교 3학년 Ⅱ. 기권과 날씨</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p89-fig2-19.jpg" alt="">
+    <img class="lb-qmark" src="img/p88-cartoon.jpg" alt="나 오늘 저기압이야.">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 기권과 날씨 · 3. 기압과 날씨 · 03 <span class="pg" style="margin:0">88~95쪽</span></span>
+      <h1>매일 변하는<br><span>날씨</span></h1>
+      <p>저기압일 때 날씨는 흐릴까? 위에서 본 바람과 옆에서 본 공기의 움직임으로 저기압과 고기압을 비교하고, 온대 저기압을 직접 지나가게 해 우리 마을의 날씨 변화를 예보해 보자. 계절별 일기도와 국제 협력으로 Ⅱ단원을 마무리하자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 일기도를 활용하여 저기압, 고기압, 전선 등이 날씨에 미치는 영향을 설명하고, 계절별 일기도를 해석하여 날씨를 파악할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">해 보기 · 교과서</span>기압에 따라 날씨는 어떻게 변할까? <span class="pg">88~89쪽</span></div>
+<figure class="fig" style="max-width:320px"><img src="img/p88-cartoon.jpg" alt="나 오늘 저기압이야. — 오늘은 볕을 받기 힘들겠네. 저기압일 때 날씨는 흐릴까?"><figcaption><span class="tb">88쪽</span>나 오늘 저기압이야. — 오늘은 볕을 받기 힘들겠네. 저기압일 때 날씨는 흐릴까?</figcaption></figure>
+<figure class="fig"><img src="img/p88-weather.jpg" alt="우리나라 부근의 일기도와 인공위성에서 촬영한 구름 사진 (위성 사진에서 구름이 있는 부분은 하얗게 나타난다.)"><figcaption><span class="tb">88쪽</span>우리나라 부근의 일기도와 인공위성에서 촬영한 구름 사진 (위성 사진에서 구름이 있는 부분은 하얗게 나타난다.)</figcaption></figure>
+    <div class="book"><p>날씨는 기단과 전선뿐만 아니라 기압 때문에도 변한다. 일기도에서는 기압이 같은 지점을 선으로 연결하여 나타내는데, 이러한 선을 <span class="key">등압선</span>이라고 한다. 주위보다 기압이 낮은 곳을 <span class="key">저기압</span>이라 하고, 주위보다 기압이 높은 곳을 <span class="key">고기압</span>이라고 한다.</p>
+    <p>저기압에서는 바람이 주변에서 불어 들어오고 공기가 아래에서 위로 올라가는 상승 기류가 생긴다. 이때 상승하는 공기의 온도가 낮아져 공기 중의 수증기가 응결하여 구름이 생기고, 그 결과 날씨가 흐리거나 비나 눈이 내리기도 한다. 고기압에서는 바람이 주변으로 불어 나가고 공기가 위에서 아래로 내려오는 하강 기류가 생긴다. 이때 하강하는 공기의 온도가 높아져 구름이 생기지 않는다. 따라서 고기압인 지역은 날씨가 맑다.</p></div>
+<figure class="fig" style="max-width:520px"><img src="img/p89-fig2-18.jpg" alt="저기압과 고기압에서의 바람(북반구) — 저기압에서는 시계 반대 방향으로 바람이 불어 들어오고, 고기압에서는 시계 방향으로 바람이 불어 나간다."><figcaption><span class="tb">그림 2-18</span>저기압과 고기압에서의 바람(북반구) — 저기압에서는 시계 반대 방향으로 바람이 불어 들어오고, 고기압에서는 시계 방향으로 바람이 불어 나간다.</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">위에서 본 바람</span>북반구의 저기압과 고기압</div>
+    <div class="btn-row" id="lh-sel"><button type="button" class="btn small" data-p="L">저기압 (L)</button><button type="button" class="btn small" data-p="H">고기압 (H)</button></div>
+    <div class="fig-row"><div class="light-stage"><canvas id="lh-cv"></canvas></div><div class="light-stage"><canvas id="lh-side"></canvas></div></div>
+    <div class="q" data-why="저기압: 반시계 수렴·상승·흐림 / 고기압: 시계 발산·하강·맑음 (북반구)">
+      <div class="q-text"><span class="q-num">1</span>저기압과 고기압의 특징을 비교해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">바람이 시계 반대 방향으로 불어 들어온다.</td><td><span class="choice-group" data-key="lh1" data-answer="저"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span></td></tr><tr><td style="text-align:left">하강 기류가 생겨 구름이 생기지 않고 날씨가 맑다.</td><td><span class="choice-group" data-key="lh2" data-answer="고"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span></td></tr><tr><td style="text-align:left">상승 기류가 생겨 구름이 만들어지고 흐리거나 비가 온다.</td><td><span class="choice-group" data-key="lh3" data-answer="저"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span></td></tr><tr><td style="text-align:left">바람이 시계 방향으로 불어 나간다.</td><td><span class="choice-group" data-key="lh4" data-answer="고"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>온대 저기압과 날씨 변화 <span class="pg">89쪽</span></div>
+<figure class="fig" style="max-width:520px"><img src="img/p89-fig2-19.jpg" alt="온대 저기압 — 찬 기단과 따뜻한 기단 사이에서 한랭 전선과 온난 전선이 함께 나타난다."><figcaption><span class="tb">그림 2-19</span>온대 저기압 — 찬 기단과 따뜻한 기단 사이에서 한랭 전선과 온난 전선이 함께 나타난다.</figcaption></figure>
+    <div class="book"><p>우리나라와 같은 중위도 지역에서는 북쪽의 찬 기단과 남쪽의 따뜻한 기단이 만나서 한랭 전선과 온난 전선이 함께 나타나는 <span class="key">온대 저기압</span>이 자주 발생한다. 온대 저기압은 우리나라 부근에서는 서쪽에서 동쪽으로 이동하면서 통과하는 지역의 날씨를 변하게 한다.</p></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">온대 저기압 지나가기</span>시간을 흐르게 해 ⭐ 마을의 날씨 변화를 보자</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>시간 <output id="ec-o"></output></label><input type="range" id="ec" min="0" max="100" value="0"></div></div>
+    <div class="light-stage"><canvas id="ec-cv"></canvas></div>
+    <div class="tip-box" id="ec-msg"></div>
+    <div class="q" data-why="온난 전선 앞: 층운형 구름, 지속적인 비 → 두 전선 사이: 따뜻한 공기, 맑음 → 한랭 전선 뒤: 적운형 구름, 소나기 후 기온 하강" data-hint="시간을 끝까지 흐르게 해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>온대 저기압이 지나갈 때 ⭐ 마을의 날씨를 순서대로 정리해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">① 온난 전선이 다가올 때 (전선 앞쪽)</td><td><span class="choice-group" data-key="ec1" data-answer="지"><button type="button" class="choice-btn" data-value="지">넓은 지역에 지속적인 비</button><button type="button" class="choice-btn" data-value="맑">맑고 기온이 높음</button><button type="button" class="choice-btn" data-value="소">소나기, 기온이 낮아짐</button></span></td></tr><tr><td style="text-align:left">② 온난 전선과 한랭 전선 사이</td><td><span class="choice-group" data-key="ec2" data-answer="맑"><button type="button" class="choice-btn" data-value="지">넓은 지역에 지속적인 비</button><button type="button" class="choice-btn" data-value="맑">맑고 기온이 높음</button><button type="button" class="choice-btn" data-value="소">소나기, 기온이 낮아짐</button></span></td></tr><tr><td style="text-align:left">③ 한랭 전선이 지나갈 때 (전선 뒤쪽)</td><td><span class="choice-group" data-key="ec3" data-answer="소"><button type="button" class="choice-btn" data-value="지">넓은 지역에 지속적인 비</button><button type="button" class="choice-btn" data-value="맑">맑고 기온이 높음</button><button type="button" class="choice-btn" data-value="소">소나기, 기온이 낮아짐</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 분석 및 해석</span>우리나라 계절별 일기도 해석 <span class="pg">90~91쪽</span></div>
+<figure class="fig"><img src="img/p90-seasons.jpg" alt="우리나라 계절별 일기도 — 봄(2017년 3월) · 여름(2017년 7월) · 가을(2017년 10월) · 겨울(2017년 12월)"><figcaption><span class="tb">90쪽</span>우리나라 계절별 일기도 — 봄(2017년 3월) · 여름(2017년 7월) · 가을(2017년 10월) · 겨울(2017년 12월)</figcaption></figure>
+    <div class="steps-box"><ol><li>계절별 일기도에서 저기압, 고기압, 전선의 위치를 확인한다.</li><li>저기압과 고기압의 중심 부분을 서로 다른 색으로 표시한다.</li></ol></div>
+    <div class="book"><p><b>봄</b> 건조하며, 이동성 고기압과 저기압이 자주 지나가면서 날씨가 자주 바뀐다. 황사나 꽃샘추위가 나타나기도 한다. <b>여름</b> 초여름에는 많은 비가 내리고, 북태평양 기단의 세력이 커지면서 무더위와 열대야(최저 기온이 25 ℃ 이하로 내려가지 않는 밤)가 나타난다. 남고북저형의 기압 배치로 남동 계절풍이 분다. 여름과 초가을에는 태풍이 지나가기도 한다. <b>가을</b> 북태평양 기단의 세력이 약해지고 이동성 고기압의 영향으로 맑은 하늘이 자주 나타나며, 낮과 밤의 기온 차가 커지면서 첫서리가 내린다. <b>겨울</b> 시베리아 기단의 세력이 커져 춥고 건조하다. 서고동저형의 기압 배치로 북서 계절풍이 분다. 한파와 폭설 현상이 나타나기도 한다.</p></div>
+    <div class="q" data-why="겨울 서고동저, 여름 남고북저, 봄 이동성 고·저기압(황사), 가을 이동성 고기압(맑음)">
+      <div class="q-text"><span class="q-num">1</span><b>자료 해석</b> 일기도의 특징에 해당하는 계절을 고르시오.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">서고동저형 기압 배치, 북서 계절풍, 한파</td><td><span class="choice-group" data-key="sz1" data-answer="겨울"><button type="button" class="choice-btn" data-value="봄">봄</button><button type="button" class="choice-btn" data-value="여름">여름</button><button type="button" class="choice-btn" data-value="가을">가을</button><button type="button" class="choice-btn" data-value="겨울">겨울</button></span></td></tr><tr><td style="text-align:left">남고북저형 기압 배치, 남동 계절풍, 열대야</td><td><span class="choice-group" data-key="sz2" data-answer="여름"><button type="button" class="choice-btn" data-value="봄">봄</button><button type="button" class="choice-btn" data-value="여름">여름</button><button type="button" class="choice-btn" data-value="가을">가을</button><button type="button" class="choice-btn" data-value="겨울">겨울</button></span></td></tr><tr><td style="text-align:left">이동성 고기압과 저기압이 자주 지나감, 황사, 꽃샘추위</td><td><span class="choice-group" data-key="sz3" data-answer="봄"><button type="button" class="choice-btn" data-value="봄">봄</button><button type="button" class="choice-btn" data-value="여름">여름</button><button type="button" class="choice-btn" data-value="가을">가을</button><button type="button" class="choice-btn" data-value="겨울">겨울</button></span></td></tr><tr><td style="text-align:left">이동성 고기압의 영향으로 맑은 하늘, 큰 일교차, 첫서리</td><td><span class="choice-group" data-key="sz4" data-answer="가을"><button type="button" class="choice-btn" data-value="봄">봄</button><button type="button" class="choice-btn" data-value="여름">여름</button><button type="button" class="choice-btn" data-value="가을">가을</button><button type="button" class="choice-btn" data-value="겨울">겨울</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>의사소통</b> 계절별로 저기압, 고기압, 전선 등이 날씨에 미치는 영향을 토의하여 정리해 보자.</div><textarea class="free" data-key="sz_talk" rows="2" data-keywords="고기압,저기압,맑,흐" data-model="여름에는 북태평양 고기압이 확장해 덥고 습하며, 초여름에는 정체 전선(장마 전선) 때문에 비가 많이 온다. 겨울에는 시베리아 고기압의 영향으로 춥고 건조하다. 봄과 가을에는 이동성 고기압이 지날 때 맑고, 뒤따르는 저기압이 오면 흐리거나 비가 온다."></textarea><span class="fb"></span></div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>탐구 기능</b> 일기도에서 저기압, 고기압, 전선의 위치를 정확하게 확인하였는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>인성</b> 토의할 때 모둠 구성원의 의견을 존중하였는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">의사소통 · 날씨 정보 활용하기</span>날씨 정보를 어디에 쓸 수 있을까? <span class="pg">92쪽</span></div>
+<figure class="fig" style="max-width:380px"><img src="img/p92-biz.jpg" alt="영업에 활용한 날씨 정보 — 갑작스러운 비가 내리면 음료를 사는 사람들에게 우산을 빌려 준다 → 매출 상승"><figcaption><span class="tb">92쪽</span>영업에 활용한 날씨 정보 — 갑작스러운 비가 내리면 음료를 사는 사람들에게 우산을 빌려 준다 → 매출 상승</figcaption></figure>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>날씨 정보를 활용할 수 있는 분야(음료, 의류, 냉·난방기, 스포츠, 관광, 백화점 등)를 하나 정하고, 활용 방법을 써 보자.</div><textarea class="free" data-key="biz" rows="2" data-keywords="" data-model="의류: 기온이 갑자기 떨어진다는 예보가 있으면 미리 두꺼운 옷을 매장 앞쪽에 진열하고, 미세 먼지 예보가 있는 날에는 마스크를 함께 판매한다."></textarea><span class="fb"></span></div>
+    <div class="block-q">
+      <b>🧩 세 번째 열쇠 (91쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">저기압 지역에서는 ( <span class="choice-group" data-key="key3" data-answer="상"><button type="button" class="choice-btn" data-value="상">상승</button><button type="button" class="choice-btn" data-value="하">하강</button></span> ) 기류가 발달하여 구름이 생기고 날씨가 흐리거나 비나 눈이 내릴 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">🔑</span><b>열쇠 모으기</b> 날씨가 변하는 까닭은 무엇일까? '저기압, 상승 기류, 구름'을 사용하여 내 생각을 써 보자.</div><textarea class="free" data-key="key_all" rows="3" data-keywords="저기압,상승 기류,구름,기압,전선" data-model="바람은 기압 차이 때문에 발생하고, 성질이 다른 기단이 만나면 전선이 생겨 날씨가 변한다. 특히 저기압 지역에서는 상승 기류가 발달하여 구름이 생기고 흐리거나 비나 눈이 내린다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>88쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">91쪽</span></div>
+    <div class="q" data-why="고기압 맑음, 저기압 흐림">
+      <div class="q-text"><span class="q-num">1</span>일기도에서 <span class="choice-group" data-key="k1a" data-answer="고"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span>이 있는 지역은 날씨가 맑고, <span class="choice-group" data-key="k1b" data-answer="저"><button type="button" class="choice-btn" data-value="저">저기압</button><button type="button" class="choice-btn" data-value="고">고기압</button></span>이 있는 지역은 구름이 많고 날씨가 흐리다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="저기압 상승, 고기압 하강">
+      <div class="q-text"><span class="q-num">2</span>저기압의 중심부에서는 <span class="choice-group" data-key="k2a" data-answer="상"><button type="button" class="choice-btn" data-value="상">상승</button><button type="button" class="choice-btn" data-value="하">하강</button></span> 기류가 생기고, 고기압의 중심부에서는 <span class="choice-group" data-key="k2b" data-answer="하"><button type="button" class="choice-btn" data-value="상">상승</button><button type="button" class="choice-btn" data-value="하">하강</button></span> 기류가 생긴다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 온대 저기압이 지나고 있는 어느 지역의 현재 날씨가 맑고 따뜻하다고 할 때, 이 지역의 날씨가 앞으로 어떻게 바뀔지 설명해 보자.</div><textarea class="free" data-key="k3" rows="2" data-keywords="한랭 전선,소나기,기온,낮아" data-model="현재 온난 전선과 한랭 전선 사이에 있으므로, 곧 한랭 전선이 지나가면서 적운형 구름이 생겨 소나기가 내리고, 전선이 지나간 뒤에는 찬 공기의 영향으로 기온이 낮아진다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">대단원 · 스스로 정리하기</span>3. 기압과 날씨 <span class="pg">93쪽</span></div>
+    <div class="q" data-why="해안에서는 낮에 해풍, 밤에 육풍이 불어요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 1 기압은 약 1013 hPa이다.</td><td><span class="choice-group" data-key="u1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 지표에서 높이 올라갈수록 기압이 낮아진다.</td><td><span class="choice-group" data-key="u2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 기압 차이가 클수록 바람의 세기인 풍속이 빨라진다.</td><td><span class="choice-group" data-key="u3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑷ 해안에서 낮에는 주로 육풍이 불고, 밤에는 주로 해풍이 분다.</td><td><span class="choice-group" data-key="u4" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="가을은 맑고 일교차가 크며, 겨울은 한파와 폭설이 나타나요. 태풍과 장마는 여름이에요.">
+      <div class="q-text"><span class="q-num">✔</span>우리나라의 계절과 날씨 특징을 옳게 짝 지은 것을 모두 고르시오.</div><div class="multi-group" data-key="u5" data-answer="ㄱ,ㄴ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. 봄 - 황사, 꽃샘추위</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. 여름 - 폭염, 열대야</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 가을 - 한파, 폭설</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ. 겨울 - 태풍, 장마</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>기압과 날씨 변화</h4>
+      <div class="q" style="border-top:none" data-why="등압선, 반대 방향, 서쪽에서 동쪽">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="등압선"> : 일기도에서 기압이 같은 지점을 연결한 선<br>⑵ 저기압: 바람이 시계 <span class="choice-group" data-key="s2" data-answer="반"><button type="button" class="choice-btn" data-value="반">반대 방향</button><button type="button" class="choice-btn" data-value="정">방향</button></span>으로 불어 들어오고 상승 기류 → 흐림 / 고기압: 바람이 시계 방향으로 불어 나가고 하강 기류 → 맑음<br>⑶ 온대 저기압은 우리나라 부근에서 <span class="choice-group" data-key="s3" data-answer="서"><button type="button" class="choice-btn" data-value="서">서쪽에서 동쪽</button><button type="button" class="choice-btn" data-value="동">동쪽에서 서쪽</button></span>으로 이동한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">일기도를 활용하여 저기압, 고기압, 전선 등이 날씨에 미치는 영향을 설명할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">계절별 일기도를 해석하여 날씨를 파악할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">대단원 · 과학과 사회</span>지구 온난화 대처를 위한 국제 협력 <span class="pg">95쪽</span></div>
+<figure class="fig" style="max-width:420px"><img src="img/p95-arctic.jpg" alt="북극 지방의 얼음 분포 변화 — 1984년 9월과 2016년 9월 (얼음의 두께는 진한 흰색일수록 두껍다.)"><figcaption><span class="tb">95쪽</span>북극 지방의 얼음 분포 변화 — 1984년 9월과 2016년 9월 (얼음의 두께는 진한 흰색일수록 두껍다.)</figcaption></figure>
+    <div class="book"><p>최근 30여 년 동안 북극 지방 얼음의 분포 면적과 양이 줄어들고 있는데, 이는 지구 온난화 때문이다. 지구 온난화를 막으려면 화석 연료의 사용량을 줄이고, 친환경 에너지를 개발해야 한다. 아울러 국제 협력을 바탕으로 대기 중 온실 기체의 양을 줄이기 위한 노력이 필요하다.</p>
+    <p>1992 년 유엔 환경 개발 회의에서는 <b>기후 변화 협약</b>을 체결하였다. 1997 년에는 <b>교토 의정서</b>를 채택하여 온실 기체를 줄이기 위한 구체적인 목표를 정하였다. 2015 년 <b>파리 신기후체제</b>에서는 각국의 사정에 맞춰 온실 기체를 줄이는 방안을 자율적으로 정하고 그 이행을 국제 사회가 공동으로 검증하기로 약속하였다. 우리나라도 이러한 노력에 동참하고 있다.</p></div>
+    <div class="q" data-why="1992 기후 변화 협약 → 1997 교토 의정서 → 2015 파리 신기후체제">
+      <div class="q-text"><span class="q-num">1</span>국제 협력의 내용과 연도를 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">기후 변화 협약 체결 (유엔 환경 개발 회의)</td><td><span class="choice-group" data-key="ic1" data-answer="1992"><button type="button" class="choice-btn" data-value="1992">1992년</button><button type="button" class="choice-btn" data-value="1997">1997년</button><button type="button" class="choice-btn" data-value="2015">2015년</button></span></td></tr><tr><td style="text-align:left">교토 의정서 채택 — 선진국 의무 강화, 배출권 거래</td><td><span class="choice-group" data-key="ic2" data-answer="1997"><button type="button" class="choice-btn" data-value="1992">1992년</button><button type="button" class="choice-btn" data-value="1997">1997년</button><button type="button" class="choice-btn" data-value="2015">2015년</button></span></td></tr><tr><td style="text-align:left">파리 신기후체제 — 각국이 자율적으로 감축 방안 결정</td><td><span class="choice-group" data-key="ic3" data-answer="2015"><button type="button" class="choice-btn" data-value="1992">1992년</button><button type="button" class="choice-btn" data-value="1997">1997년</button><button type="button" class="choice-btn" data-value="2015">2015년</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>생각 나누기</b> 여러 국가들이 함께 지구 온난화에 대처하는 과정에서 발생할 수 있는 어려움과 해결 방안을 토의해 보자.</div><textarea class="free" data-key="ic_talk" rows="3" data-keywords="개발,부담,기술,지원" data-model="어려움: 개발 도상국은 경제 성장을 위해 화석 연료를 계속 써야 해서 감축 부담을 지기 어렵다. 해결 방안: 선진국이 친환경 에너지 기술과 자금을 지원하고, 각국의 사정에 맞는 감축 목표를 정해 함께 점검한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅱ. 기권과 날씨 · 3. 기압과 날씨 · 03 매일 변하는 날씨 · 대단원 마무리 · 비상교육 중학 과학 3 교과서(88~95쪽)·탐구 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅱ-3-03 매일 변하는 날씨";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 위에서 본 바람 ── */
+let LP = "L"; const lhSeen = new Set();
+$("lh-sel").addEventListener("click", e => { const b = e.target.closest("[data-p]"); if (b) { LP = b.dataset.p; lhSeen.add(LP); } });
+WS.custom("lh_seen", { el: $("lh-cv"), value: () => [...lhSeen].sort().join(",") });
+const PT = Array.from({ length: 90 }, () => ({ a: Math.random() * 7, r: 0.15 + Math.random() * 0.85 }));
+LB.loop($("lh-cv"), (dt, t) => { const g = LB.fit($("lh-cv"), 260), c = g.c, W = g.w, H = 260, cx = W / 2, cy = H / 2, R = Math.min(W, H) * 0.45, L = LP === "L";
+  c.fillStyle = L ? "#e9eef3" : "#eef7ff"; c.fillRect(0, 0, W, H);
+  for (let k = 1; k <= 4; k++) { c.strokeStyle = "#8a9aa4"; c.beginPath(); c.ellipse(cx, cy, R * k / 4 * 1.1, R * k / 4, 0, 0, 7); c.stroke(); c.fillStyle = "#6b7b85"; c.font = "10px sans-serif"; c.fillText(L ? 996 + k * 4 : 1032 - k * 4, cx + R * k / 4 * 1.1 - 22, cy - 3); }
+  PT.forEach(p => { const sp = dt * 0.9; p.a += (L ? -1 : 1) * sp * 0.9 / (0.3 + p.r); p.r += (L ? -1 : 1) * sp * 0.12; if (p.r < 0.12) p.r = 1; if (p.r > 1.05) p.r = 0.12;
+    const x = cx + Math.cos(p.a) * R * p.r * 1.1, y = cy + Math.sin(p.a) * R * p.r; const da = (L ? -1 : 1) * 0.35, x2 = cx + Math.cos(p.a - da) * R * (p.r - (L ? -0.06 : 0.06)) * 1.1, y2 = cy + Math.sin(p.a - da) * R * (p.r - (L ? -0.06 : 0.06));
+    c.strokeStyle = L ? "rgba(210,69,59,.75)" : "rgba(47,127,214,.75)"; c.lineWidth = 2; c.beginPath(); c.moveTo(x2, y2); c.lineTo(x, y); c.stroke(); c.lineWidth = 1; });
+  if (L) { c.fillStyle = "rgba(255,255,255,.9)"; [[-14, -6, 18], [8, -10, 20], [16, 6, 16], [-6, 8, 16]].forEach(([dx, dy, r]) => { c.beginPath(); c.arc(cx + dx, cy + dy, r, 0, 7); c.fill(); }); }
+  c.fillStyle = L ? "#d2453b" : "#2f7fd6"; c.font = "bold 22px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(L ? "저" : "고", cx, cy + 8); c.textAlign = "left";
+  c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(L ? "시계 반대 방향으로 불어 들어옴" : "시계 방향으로 불어 나감", 8, 18); c.font = "11px Pretendard, sans-serif"; c.fillText("위에서 본 모습 (북반구)", 8, H - 8);
+  const s = LB.fit($("lh-side"), 260), d = s.c, w2 = s.w; d.fillStyle = L ? "#cfd8e0" : "#bfe0ff"; d.fillRect(0, 0, w2, 260); d.fillStyle = "#6fa65a"; d.fillRect(0, 220, w2, 40);
+  for (let k = 0; k < 6; k++) { const ph = (t / 1600 + k / 6) % 1, x = w2 / 2 + (k - 2.5) * 22, y = L ? 210 - ph * 160 : 50 + ph * 160; d.strokeStyle = L ? "#d2453b" : "#2f7fd6"; d.lineWidth = 3; d.beginPath(); d.moveTo(x, y); d.lineTo(x, y + (L ? -18 : 18)); d.stroke(); d.lineWidth = 1; }
+  if (L) { d.fillStyle = "#fff"; [[-40, 50, 30], [0, 38, 38], [40, 50, 30], [-20, 62, 26], [22, 62, 26]].forEach(([dx, y, r]) => { d.beginPath(); d.arc(w2 / 2 + dx, y, r, 0, 7); d.fill(); }); for (let k = 0; k < 20; k++) { const ph = (t / 600 + k * 0.13) % 1; d.strokeStyle = "rgba(60,100,160,.6)"; d.beginPath(); d.moveTo(w2 / 2 - 50 + k * 5, 90 + ph * 130); d.lineTo(w2 / 2 - 52 + k * 5, 100 + ph * 130); d.stroke(); } }
+  else { d.fillStyle = "#ffd54a"; d.beginPath(); d.arc(w2 - 40, 40, 18, 0, 7); d.fill(); }
+  d.fillStyle = "#26393b"; d.font = "bold 12px Pretendard, sans-serif"; d.fillText(L ? "상승 기류 → 구름 → 흐림·비" : "하강 기류 → 구름 소멸 → 맑음", 8, 18); d.font = "11px Pretendard, sans-serif"; d.fillText("옆에서 본 모습", 8, 252); });
+
+/* ── 온대 저기압 지나가기 ── */
+const ecSeen = new Set();
+function ecDraw() { const k = +$("ec").value / 100; $("ec-o").textContent = Math.round(k * 48) + " 시간 뒤";
+  const g = LB.fit($("ec-cv"), 260), c = g.c, W = g.w, H = 260; c.fillStyle = "#e9f2e3"; c.fillRect(0, 0, W, H);
+  const lx = W * (0.08 + k * 0.84), ly = H * 0.28, sx = W * 0.62, sy = H * 0.7;
+  const warmEnd = [lx + W * 0.32, ly + H * 0.5], coldEnd = [lx - W * 0.1, ly + H * 0.62];
+  c.fillStyle = "rgba(255,150,120,.25)"; c.beginPath(); c.moveTo(lx, ly); c.lineTo(warmEnd[0], warmEnd[1]); c.lineTo(warmEnd[0], H); c.lineTo(coldEnd[0], H); c.lineTo(coldEnd[0], coldEnd[1]); c.closePath(); c.fill();
+  c.fillStyle = "rgba(120,140,170,.35)"; c.beginPath(); c.moveTo(lx, ly); for (let a = 0; a <= 1; a += 0.1) c.lineTo(lx + (warmEnd[0] - lx) * a + W * 0.14 * a, ly + (warmEnd[1] - ly) * a - 10); c.lineTo(warmEnd[0] - W * 0.0, warmEnd[1]); c.closePath(); c.fill();
+  c.strokeStyle = "#d2453b"; c.lineWidth = 3; c.beginPath(); c.moveTo(lx, ly); c.lineTo(warmEnd[0], warmEnd[1]); c.stroke(); for (let a = 0.15; a < 1; a += 0.22) { const x = lx + (warmEnd[0] - lx) * a, y = ly + (warmEnd[1] - ly) * a; c.fillStyle = "#d2453b"; c.beginPath(); c.arc(x, y, 7, Math.PI * 1.15, Math.PI * 2.15); c.fill(); }
+  c.strokeStyle = "#2f6fd0"; c.beginPath(); c.moveTo(lx, ly); c.lineTo(coldEnd[0], coldEnd[1]); c.stroke(); c.lineWidth = 1; for (let a = 0.15; a < 1; a += 0.22) { const x = lx + (coldEnd[0] - lx) * a, y = ly + (coldEnd[1] - ly) * a; c.fillStyle = "#2f6fd0"; c.beginPath(); c.moveTo(x - 7, y - 3); c.lineTo(x + 7, y + 3); c.lineTo(x + 6, y - 9); c.fill(); }
+  c.fillStyle = "#d2453b"; c.font = "bold 20px Pretendard, sans-serif"; c.fillText("저", lx - 8, ly - 8);
+  const xw = lx + (warmEnd[0] - lx) * ((sy - ly) / (warmEnd[1] - ly)), xc = lx + (coldEnd[0] - lx) * ((sy - ly) / (coldEnd[1] - ly));
+  let st, temp; if (sx > xw + W * 0.14) { st = "맑음 (온난 전선이 다가오는 중)"; temp = 14; } else if (sx > xw) { st = "🌧 층운형 구름, 넓은 지역에 지속적인 비"; temp = 15; ecSeen.add(1); } else if (sx > xc) { st = "☀️ 맑고 따뜻함 (따뜻한 공기 속)"; temp = 22; ecSeen.add(2); } else if (sx > xc - W * 0.1) { st = "⛈ 적운형 구름, 소나기"; temp = 17; ecSeen.add(3); } else { st = "🌤 맑고 기온이 낮아짐 (찬 공기 속)"; temp = 9; ecSeen.add(4); }
+  c.fillStyle = "#ffcf3a"; c.font = "22px sans-serif"; c.fillText("⭐", sx - 11, sy + 8); c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText("⭐ 마을", sx + 14, sy + 4);
+  c.font = "11px Pretendard, sans-serif"; c.fillStyle = "#6b7b85"; c.fillText("서", 6, H / 2); c.fillText("동", W - 16, H / 2); c.fillText("찬 기단", 8, 18); c.fillText("따뜻한 기단", W * 0.75, H - 8); c.fillText("이동 방향 → (서 → 동)", W / 2 - 50, 18);
+  $("ec-msg").textContent = `⭐ 마을: ${st} · 기온 약 ${temp} ℃`; }
+$("ec").addEventListener("input", ecDraw); ecDraw(); window.addEventListener("resize", ecDraw);
+WS.custom("ec_seen", { el: $("ec-cv"), value: () => [...ecSeen].sort().join(",") });
+
+</script>
+</body>
+</html>

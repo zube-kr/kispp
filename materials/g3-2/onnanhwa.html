@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅱ-1-03 — 점점 더워지는 지구</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/2">← KISPP 과학실 · 중학교 3학년 Ⅱ. 기권과 날씨</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p60-fig2-4.jpg" alt="">
+    <img class="lb-qmark" src="img/p63-balance.jpg" alt="지구 복사 평형">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 기권과 날씨 · 1. 기권과 지구 기온 · 03 <span class="pg" style="margin:0">60~65쪽</span></span>
+      <h1>점점 더워지는<br><span>지구</span></h1>
+      <p>아, 왜 이렇게 더워지는 거야? 지구 에너지 저울에서 온실 기체를 늘리고 100 년을 흐르게 해 지구 평균 기온이 어떻게 새 복사 평형을 찾아가는지 확인하고, 온실 기체를 줄이는 실천 방안을 찾아보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 지구 온난화를 지구 복사 평형의 관점으로 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>지구 온난화는 어떻게 일어날까? <span class="pg">60쪽</span></div>
+    <div class="book"><p>지구에서 복사 평형은 <b>그림 2-4</b>와 같은 과정으로 일어난다. 지구로 들어오는 태양 복사 에너지를 100 %라고 할 때, 약 30 %는 우주로 반사된다. 지구는 지구로 들어오는 태양 복사 에너지의 약 70 %를 흡수하며, 흡수한 것과 같은 양의 지구 복사 에너지를 우주로 방출하여 복사 평형을 이룬다. 하지만 그 과정에서 지표가 방출하는 지구 복사 에너지는 일부만 우주로 바로 방출되고, 나머지는 대기에 흡수되었다가 다시 지표와 우주로 방출된다. 온실 효과는 대기가 지표로 다시 방출하는 복사 에너지 때문에 나타난다.</p></div>
+<figure class="fig" style="max-width:520px"><img src="img/p60-fig2-4.jpg" alt="지구에서 복사 평형이 일어나는 과정 — 반사 30 %, 대기에 흡수 20 %, 지표에 흡수 50 %, 우주로 방출 70 %"><figcaption><span class="tb">그림 2-4</span>지구에서 복사 평형이 일어나는 과정 — 반사 30 %, 대기에 흡수 20 %, 지표에 흡수 50 %, 우주로 방출 70 %</figcaption></figure>
+    <div class="q" data-why="30 + 20 + 50 = 100 %, 흡수 20 + 50 = 70 % = 방출 70 %">
+      <div class="q-text"><span class="q-num">1</span>태양 복사 에너지 100 % 중 대기와 지표에서 반사되는 양은 <input class="blank w-s" data-key="b1" data-num="30" data-abs="0" style="width:60px"> %, 대기에 흡수되는 양은 <input class="blank w-s" data-key="b2" data-num="20" data-abs="0" style="width:60px"> %, 지표에 흡수되는 양은 <input class="blank w-s" data-key="b3" data-num="50" data-abs="0" style="width:60px"> %이다. 지구는 흡수한 <input class="blank w-s" data-key="b4" data-num="70" data-abs="0" style="width:60px"> %와 같은 양의 지구 복사 에너지를 우주로 방출한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">지구 에너지 저울</span>온실 기체를 늘리면 지구는 어떻게 될까?</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>대기 중 온실 기체의 양 <output id="gg-o"></output></label><input type="range" id="gg" min="0.6" max="1.8" step="0.05" value="1"></div></div>
+    <div class="btn-row"><button type="button" class="btn small" id="gg-run">⏩ 100 년 흐르게 하기</button><button type="button" class="btn ghost small" id="gg-r">↺ 처음으로</button></div>
+    <div class="fig-row"><div class="light-stage"><canvas id="gg-cv"></canvas></div><div class="light-stage"><canvas id="gg-gr"></canvas></div></div>
+    <div class="tip-box" id="gg-msg">온실 기체의 양을 바꾼 뒤 시간을 흐르게 해 보세요.</div>
+    <div class="q" data-why="온실 기체 ↑ → 대기가 지구 복사 에너지를 더 흡수하고 지표로 더 많이 방출 → 기온 ↑ → 더 높은 온도에서 다시 복사 평형" data-hint="온실 기체를 1.5 배 이상으로 늘리고 시간을 흐르게 해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>온실 기체가 늘어나면 우주로 나가는 지구 복사 에너지가 잠시 <span class="choice-group" data-key="g1" data-answer="줄"><button type="button" class="choice-btn" data-value="줄">줄어들어</button><button type="button" class="choice-btn" data-value="늘">늘어나</button></span> 흡수량보다 적어지므로 지구 평균 기온이 <span class="choice-group" data-key="g2" data-answer="높"><button type="button" class="choice-btn" data-value="높">높아진다</button><button type="button" class="choice-btn" data-value="낮">낮아진다</button></span>. 기온이 높아지면 방출량이 다시 늘어 <span class="choice-group" data-key="g3" data-answer="새"><button type="button" class="choice-btn" data-value="새">더 높은 온도에서 새로운 복사 평형</button><button type="button" class="choice-btn" data-value="복">처음과 같은 온도의 복사 평형</button></span>을 이룬다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">해 보기 · 자료 해석</span>지구 평균 기온이 높아지는 원인 알아보기 <span class="pg">61쪽</span></div>
+    <div class="book"><p>최근에는 인간 활동의 영향으로 대기 중으로 방출되는 이산화 탄소와 같은 온실 기체의 양이 증가하고 있다. 대기 중에 증가한 온실 기체는 지구 복사 에너지를 더 많이 흡수하고, 더 많은 복사 에너지를 지표로 방출한다. 그 결과 온실 효과가 강화되어 지구의 평균 기온이 높아지는데, 이를 <span class="key">지구 온난화</span>라고 한다.</p></div>
+<figure class="fig"><img src="img/p61-graph.jpg" alt="대기 중 이산화 탄소 농도 변화(출처: 미국해양대기청)와 지구 평균 기온 변화(출처: 미국항공우주국)"><figcaption><span class="tb">61쪽</span>대기 중 이산화 탄소 농도 변화(출처: 미국해양대기청)와 지구 평균 기온 변화(출처: 미국항공우주국)</figcaption></figure>
+    <div class="q" data-why="이산화 탄소 농도와 지구 평균 기온이 함께 높아져요.">
+      <div class="q-text"><span class="q-num">1</span>그래프에서 대기 중 이산화 탄소 농도가 <span class="choice-group" data-key="c1" data-answer="증"><button type="button" class="choice-btn" data-value="증">증가</button><button type="button" class="choice-btn" data-value="감">감소</button></span>할수록 지구 평균 기온도 <span class="choice-group" data-key="c2" data-answer="높"><button type="button" class="choice-btn" data-value="높">높아진다</button><button type="button" class="choice-btn" data-value="낮">낮아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>대기 중 이산화 탄소 농도 변화와 지구 평균 기온 변화 사이의 관계를 지구 복사 평형으로 설명해 보자.</div><textarea class="free" data-key="c_why" rows="2" data-keywords="흡수,지표,방출,온실 효과,강화" data-model="이산화 탄소가 늘면 대기가 지구 복사 에너지를 더 많이 흡수하고 지표로 더 많이 방출하므로 온실 효과가 강화되어, 지구는 더 높은 온도에서 복사 평형을 이루게 된다."></textarea><span class="fb"></span></div>
+    <div class="tip-box"><b>지구 온난화의 영향</b> 최근에는 지구 온난화의 영향으로 해수면이 상승하여 육지가 줄어들고, 기상 이변이 일어나며, 생태계가 변하는 등 지구 환경에 큰 변화가 생기고 있다.</div>
+    <div class="block-q">
+      <b>🧩 세 번째 열쇠 (61쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">( <input class="blank w-s" data-key="key3" data-answer="지구 온난화|지구온난화"> )는 대기의 온실 효과가 강화되어 나타나는 현상이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">참여 · 홍보</span>온실 기체를 줄이는 실천 방안 찾기 <span class="pg">62쪽</span></div>
+<figure class="fig" style="max-width:400px"><img src="img/p62-campaign.jpg" alt="태양 에너지 사용하기 · 쓰레기 분리수거 · 나무 심기 · 자전거 타기"><figcaption><span class="tb">62쪽</span>태양 에너지 사용하기 · 쓰레기 분리수거 · 나무 심기 · 자전거 타기</figcaption></figure>
+    <div class="steps-box"><ol><li>모둠 구성원끼리 역할을 분담하여 다양한 실천 방안을 모은다.</li><li>실천 방안을 가장 잘 홍보할 수 있는 방법(포스터, 사진, 기타)을 찾는다.</li><li>홍보 자료를 만들어 전시하거나 발표한다.</li></ol></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>우리 모둠의 실천 방안 3 가지와 홍보 문구를 써 보자.</div><textarea class="free" data-key="camp" rows="3" data-keywords="" data-model="① 가까운 거리는 걷거나 자전거 타기 ② 쓰지 않는 전기 플러그 뽑기 ③ 급식 남기지 않기 — 홍보 문구: '오늘 내가 아낀 1 kWh가 북극곰의 얼음을 지켜요!'"></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">🔑</span><b>열쇠 모으기</b> 지구 기온은 어떻게 변하고 있을까? '기권, 복사 평형, 온실 효과, 지구 온난화'를 사용하여 내 생각을 써 보자.</div><textarea class="free" data-key="key_all" rows="3" data-keywords="기권,복사 평형,온실 효과,지구 온난화" data-model="기권은 높이에 따른 기온 변화를 기준으로 4 개 층으로 구분한다. 지구는 복사 평형을 이루어 평균 기온이 일정하게 유지되지만, 최근 온실 기체가 늘어 온실 효과가 강화되면서 지구 온난화로 평균 기온이 높아지고 있다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>60쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">61쪽</span></div>
+    <div class="q" data-why="복사 평형">
+      <div class="q-text"><span class="q-num">1</span>지구는 전체적으로 흡수하는 태양 복사 에너지양과 방출하는 지구 복사 에너지양이 같아 <input class="blank w-s" data-key="k1" data-answer="복사 평형|복사평형"> 을 이룬다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="지구 온난화">
+      <div class="q-text"><span class="q-num">2</span>온실 효과가 강화되어 지구 평균 기온이 높아지는 현상을 <input class="blank w-s" data-key="k2" data-answer="지구 온난화|지구온난화"> 라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 시베리아나 알래스카의 항상 얼어 있는 땅(영구 동토)에는 탄소가 많이 묻혀 있다. 지구 온난화로 이 땅이 녹아 땅속 탄소가 온실 기체로 바뀌어 대기 중으로 방출될 때 일어날 수 있는 변화를 예상해 보자.</div><textarea class="free" data-key="k3" rows="2" data-keywords="온실 기체,증가,온난화,더,녹" data-model="대기 중 온실 기체가 증가하여 온실 효과가 더 강화되고 지구 온난화가 빨라진다. 그러면 언 땅이 더 많이 녹아 온실 기체가 또 방출되는 악순환이 일어난다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인</span>점점 더워지는 지구</div>
+<div class="tip-box">그림 2-4에서 A: 대기와 지표에서 반사, B: 대기에 흡수, C: 지표에 흡수, D: 우주로 방출되는 지구 복사 에너지 전체, E: 대기에서 지표로 방출</div>
+    <div class="q" data-why="반사 30, 흡수 70 = 방출 70. 대기가 지표로 다시 방출하는 E가 온실 효과를 일으켜요.">
+      <div class="q-text"><span class="q-num">1</span>⑴ A는 <input class="blank w-s" data-key="t1a" data-num="30" data-abs="0" style="width:60px"> %이다. ⑵ B + C는 <input class="blank w-s" data-key="t1b" data-num="70" data-abs="0" style="width:60px"> %이다. ⑶ D는 <input class="blank w-s" data-key="t1c" data-num="70" data-abs="0" style="width:60px"> %이다.<br>⑷ 지구가 흡수하는 태양 복사 에너지의 양은 <input class="blank w-s" data-key="t1d" data-num="70" data-abs="0" style="width:60px"> %이다. ⑸ 지구가 방출하는 지구 복사 에너지의 양은 <input class="blank w-s" data-key="t1e" data-num="70" data-abs="0" style="width:60px"> %이다.<br>⑹ A~E 중 온실 효과를 일으키는 것은 <span class="choice-group" data-key="t1f" data-answer="E"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button><button type="button" class="choice-btn" data-value="D">D</button><button type="button" class="choice-btn" data-value="E">E</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="지구 온난화">
+      <div class="q-text"><span class="q-num">2</span>온실 효과가 강화되어 지구의 평균 기온이 높아지는 현상을 <input class="blank w-s" data-key="t2" data-answer="지구 온난화|지구온난화"> 라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="온실 기체, 증가">
+      <div class="q-text"><span class="q-num">3</span>최근 지구는 대기 중에 증가한 <input class="blank w-s" data-key="t3a" data-answer="온실 기체|온실기체"> 의 영향으로 대기의 온실 효과가 계속 <span class="choice-group" data-key="t3b" data-answer="증"><button type="button" class="choice-btn" data-value="증">증가</button><button type="button" class="choice-btn" data-value="감">감소</button></span>하고 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="인간 활동(화석 연료 사용 등)으로 온실 기체가 증가하고 있어요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 이산화 탄소는 온실 기체이다.</td><td><span class="choice-group" data-key="t4_1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 최근 인간 활동의 영향으로 온실 기체의 양이 감소하고 있다.</td><td><span class="choice-group" data-key="t4_2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 지구의 평균 기온이 점점 증가하고 있다.</td><td><span class="choice-group" data-key="t4_3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>점점 더워지는 지구 <span class="pg">65쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>온실 효과와 지구 온난화</h4>
+      <div class="q" style="border-top:none" data-why="온실 효과, 지구 온난화, A = B + C">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="온실 효과|온실효과"> : 대기의 영향으로 대기가 없을 때보다 지구 평균 기온이 높게 나타나는 현상<br>⑵ <input class="blank w-s" data-key="s2" data-answer="지구 온난화|지구온난화"> : 대기 중 온실 기체가 증가하여 온실 효과가 강화됨으로써 지구 평균 기온이 높아지는 현상<br>⑶ 그림 2-4에서 지구로 들어오는 태양 복사 에너지 A, 반사되는 B, 지구가 방출하는 지구 복사 에너지 C 사이의 관계: <span class="choice-group" data-key="s3" data-answer="a"><button type="button" class="choice-btn" data-value="a">A = B + C</button><button type="button" class="choice-btn" data-value="b">A = B − C</button><button type="button" class="choice-btn" data-value="c">A + B = C</button></span></div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="⑴ 이산화 탄소 ⑵ 높인다 ⑶ 증가">
+      <div class="q-text"><span class="q-num">✔</span>온실 효과에 대한 설명에서 알맞은 말을 고르시오.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 온실 기체에는 ( ), 메테인 등이 있다.</td><td><span class="choice-group" data-key="s4" data-answer="이"><button type="button" class="choice-btn" data-value="이">이산화 탄소</button><button type="button" class="choice-btn" data-value="산">산소</button><button type="button" class="choice-btn" data-value="높">높인다</button><button type="button" class="choice-btn" data-value="낮">낮춘다</button><button type="button" class="choice-btn" data-value="증">증가</button><button type="button" class="choice-btn" data-value="감">감소</button></span></td></tr><tr><td style="text-align:left">⑵ 대기는 지구 복사 에너지를 흡수한 후 지표로 다시 방출하여 지구의 평균 기온을 ( ).</td><td><span class="choice-group" data-key="s5" data-answer="높"><button type="button" class="choice-btn" data-value="이">이산화 탄소</button><button type="button" class="choice-btn" data-value="산">산소</button><button type="button" class="choice-btn" data-value="높">높인다</button><button type="button" class="choice-btn" data-value="낮">낮춘다</button><button type="button" class="choice-btn" data-value="증">증가</button><button type="button" class="choice-btn" data-value="감">감소</button></span></td></tr><tr><td style="text-align:left">⑶ 대기 중 온실 기체가 ( )하면 지구 온난화가 일어난다.</td><td><span class="choice-group" data-key="s6" data-answer="증"><button type="button" class="choice-btn" data-value="이">이산화 탄소</button><button type="button" class="choice-btn" data-value="산">산소</button><button type="button" class="choice-btn" data-value="높">높인다</button><button type="button" class="choice-btn" data-value="낮">낮춘다</button><button type="button" class="choice-btn" data-value="증">증가</button><button type="button" class="choice-btn" data-value="감">감소</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">지구 온난화를 지구 복사 평형의 관점으로 설명할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">온실 기체를 줄이는 실천 방안을 찾아 참여할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅱ. 기권과 날씨 · 1. 기권과 지구 기온 · 03 점점 더워지는 지구 · 비상교육 중학 과학 3 교과서(60~65쪽)·해 보기·개념 확인 활동지 바탕, 교과서 그림 수록 · 에너지 저울은 단순화한 교육용 모형</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅱ-1-03 점점 더워지는 지구";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 지구 에너지 저울 ── */
+const GG = { T: 15, k: 1, yr: 0, run: 0, hist: [[0, 15]] };
+const gOut = (T, k) => 70 * Math.pow((T + 273) / 288, 4) / Math.pow(k, 0.15); // 우주로 나가는 지구 복사(%)
+$("gg").addEventListener("input", () => { GG.k = +$("gg").value; $("gg-o").textContent = GG.k.toFixed(2) + " 배"; }); $("gg-o").textContent = "1.00 배";
+$("gg-run").addEventListener("click", () => { GG.run = 1; });
+$("gg-r").addEventListener("click", () => { GG.T = 15; GG.yr = 0; GG.run = 0; GG.hist = [[0, 15]]; $("gg").value = 1; GG.k = 1; $("gg-o").textContent = "1.00 배"; ggGraph(); });
+function ggGraph() { LB.graph($("gg-gr"), { h: 230, xMax: 100, yMin: 0, yMax: 30, xStep: 20, yStep: 5, xLabel: "시간(년)", yLabel: "지구 평균 기온(℃)", series: [{ color: "#d2453b", pts: GG.hist, width: 2.5, label: GG.hist.length > 1 ? GG.T.toFixed(1) + " ℃" : "", labelDy: -10 }] }); }
+ggGraph(); window.addEventListener("resize", ggGraph);
+const ggSeen = new Set();
+LB.loop($("gg-cv"), (dt, t) => { if (GG.run && GG.yr < 100) { for (let s = 0; s < 2; s++) { const imb = 70 - gOut(GG.T, GG.k); GG.T += imb * 0.06; GG.yr += 0.5; } if (Math.round(GG.yr) % 2 === 0) { GG.hist.push([+GG.yr.toFixed(1), +GG.T.toFixed(2)]); ggGraph(); } if (GG.yr >= 100) { GG.run = 0; ggSeen.add(GG.k.toFixed(2)); } }
+  const out = gOut(GG.T, GG.k), g = LB.fit($("gg-cv"), 230), c = g.c, W = g.w, H = 230; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const bar = (x, v, col, lab) => { const h = v * 2; c.fillStyle = col; c.fillRect(x, 190 - h, 46, h); c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText(v.toFixed(1) + " %", x + 23, 184 - h); c.font = "11px Pretendard, sans-serif"; c.fillText(lab, x + 23, 206); c.textAlign = "left"; };
+  bar(W * 0.18, 70, "#f3b33d", "흡수(태양)"); bar(W * 0.18 + 70, out, "#e4572e", "방출(지구)");
+  const diff = 70 - out; c.font = "bold 13px Pretendard, sans-serif"; c.fillStyle = Math.abs(diff) < 0.4 ? "#2f8a4d" : "#d2453b"; c.fillText(Math.abs(diff) < 0.4 ? "⚖️ 복사 평형" : diff > 0 ? "흡수 > 방출 → 기온 상승" : "흡수 < 방출 → 기온 하강", W * 0.55, 60);
+  c.fillStyle = "#26393b"; c.fillText(`평균 기온 ${GG.T.toFixed(1)} ℃`, W * 0.55, 90); c.font = "12px Pretendard, sans-serif"; c.fillText(`${GG.yr.toFixed(0)} 년 경과`, W * 0.55, 112);
+  c.fillStyle = "#6b7b85"; c.font = "11px Pretendard, sans-serif"; c.fillText(`온실 기체 ${GG.k.toFixed(2)} 배`, 10, 20);
+  $("gg-msg").textContent = GG.run ? "시간이 흐르는 중…" : GG.yr >= 100 ? `온실 기체 ${GG.k.toFixed(2)} 배 → 100 년 뒤 평균 기온 ${GG.T.toFixed(1)} ℃ (처음 15 ℃)` : "온실 기체의 양을 바꾼 뒤 시간을 흐르게 해 보세요."; });
+WS.custom("gg_runs", { el: $("gg-cv"), value: () => [...ggSeen].join(",") });
+
+</script>
+</body>
+</html>

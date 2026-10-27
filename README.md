@@ -89,6 +89,7 @@
 `materials/g1-7/`(중1 Ⅶ. 태양계)의 아두이노 실험 보고서는 빛 센서(CDS)용 `light-lab.js`와 `arduino/light.ino`를 씁니다(위치별 기록 `LL.points`, 연속 기록 `LL.stream`).
 `materials/g2-1/`(중2 Ⅰ. 물질의 특성)의 아두이노 실험 보고서는 `../g1-3/arduino-lab.js`를 `AL.base = "../g1-3/"`로 불러 2채널 온도(팔미트산 5 g·10 g)를 기록합니다. `materials/g2-2/`(중2 Ⅱ. 지권의 변화)의 지진계 보고서는 MPU-6050 가속도 센서용 `arduino/seismo.ino`("시간(ms),ax,ay,az", 115200 baud, 라이브러리 없이 Wire만 사용)를 쓰고, 연결·그래프 코드는 보고서 페이지 안에 들어 있습니다.
 `materials/g2-3/`(중2 Ⅲ. 빛과 파동)의 RGB LED 보고서는 `arduino/rgb.ino`(웹 페이지가 "R,G,B" 한 줄을 보내면 9·10·11번 핀 PWM으로 켬, 9600 baud)를 쓰고, 소리 단원은 Web Audio로 소리를 내고 원하면 마이크(getUserMedia)로 파형을 그립니다. `materials/g2-4/`(중2 Ⅳ. 물질의 구성)는 입자 모형을 `mol.js`(MOL.draw)로 그리고, 전기 전도성 보고서는 `arduino/conduct.ino`("시간(ms),값", 7번 핀으로 잠깐만 전압을 걸어 측정)를 씁니다. `materials/g2-5/`(중2 Ⅴ. 식물과 에너지)의 잎 조각 보고서는 `../g1-7/light-lab.js`를 `LL.base = "../g1-7/"`로 불러 씁니다.
+`materials/g3-1/`(중3 Ⅰ. 화학 반응의 규칙과 에너지 변화)은 입자 모형을 `../g2-4/mol.js`로 그리고, 손난로·손 냉장고 보고서는 `../g1-3/arduino-lab.js`(2채널 온도)를 씁니다. `materials/g3-2/`(중3 Ⅱ. 기권과 날씨)의 복사 평형 보고서는 같은 `arduino-lab.js`를, 상대 습도 보고서는 DHT11용 `arduino/humid.ino`("시간(ms),온도,습도", 9600 baud, Adafruit DHT 라이브러리)를 쓰고 연결·그래프 코드는 보고서 페이지 안에 있습니다. 전선 단원에는 three.js 3D 전선 모형이 들어 있습니다.
 
 ### 아두이노 실험 보고서 (materials/g1-3/arduino-*.html)
 

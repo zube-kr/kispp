@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅲ-2-01 — 깊이에 따른 해수의 온도</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/3">← KISPP 과학실 · 중학교 3학년 Ⅲ. 수권과 해수의 순환</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-sea.jpg" alt="">
+    <img class="lb-qmark" src="img/b1-cartoon.jpg" alt="바다에 깊이 들어갈수록 해수의 온도는 어떻게 변할까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 01 <span class="pg" style="margin:0">246~251쪽</span></span>
+      <h1>깊이에 따른<br><span>해수의 온도</span></h1>
+      <p>바다에 깊이 들어갈수록 해수의 온도는 어떻게 변할까? 가상 수온 측정 장치에 적외선등과 선풍기를 켜며 깊이별 수온을 기록해 그래프를 그리고, 바다 수온 탐사정으로 위도와 바람에 따른 해수의 층상 구조를 탐험해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 해수의 깊이에 따른 수온 분포를 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">궁금증 출발</span>해수는 어떤 특징이 있을까? <span class="pg">246~247쪽</span></div>
+    <div class="book"><p><b>바다를 이루는 해수</b> — 제주도로 친구들과 놀러 갔어. 바닷가를 산책하며 친구들과 이야기를 나누다가 바다를 이루는 해수가 궁금해졌어. 문득 해수에 대해서 잘 모르고 있다는 생각이 들었지. 해수는 어떤 특징이 있을까?</p></div>
+<figure class="fig"><img src="img/u2-sea.jpg" alt="제주도 바다"><figcaption><span class="tb">247쪽</span>제주도 바다</figcaption></figure>
+    <div class="tip-box">🔑 <b>열쇠 찾기</b> 01 깊이에 따른 해수의 온도 — 해수의 깊이에 따른 수온 분포를 알아본다. · 02 여러 물질이 녹아 있는 해수 — 해수에는 무엇이 녹아 있는지 확인한다. · 03 우리나라 주변을 흐르는 해수 · 04 드나드는 해수 — 해수의 움직임을 알아본다.</div>
+    <div class="q"><div class="q-text"><span class="q-num">💭</span><b>내 생각 말하기</b> 해수는 … (이미 배운 내용: 해수에는 짠맛과 쓴맛이 나는 물질이 녹아 있다.)</div><textarea class="free" data-key="my_start" rows="2" data-keywords="" data-model="해수는 짠맛이 나고, 깊이 들어갈수록 차가워지며, 일정한 방향으로 흐를 것 같다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 탐구 설계 및 수행</span>해수의 연직 수온 분포 <span class="pg">248~249쪽</span></div>
+    <div class="book"><p>햇빛을 잘 받는 해수면은 비교적 수온이 높다. 해수면 아래로 깊이 들어가면 해수의 온도가 어떻게 변하는지 다음 탐구로 알아보자.</p></div>
+<figure class="fig"><img src="img/b1-setup.jpg" alt="준비물: 수온 측정 장치, 물, 적외선등(150 W), 선풍기, 온도계(5 개), 자"><figcaption><span class="tb">248쪽</span>준비물: 수온 측정 장치, 물, 적외선등(150 W), 선풍기, 온도계(5 개), 자</figcaption></figure>
+    <div class="q"><div class="q-text"><span class="q-num">1</span><b>가설 설정</b> 깊이에 따라 수온이 어떻게 변할지 예상하여 적어 보자. (해수는 햇빛의 영향을 받아 깊이가 ___수록 수온이 ___ 거야. 해수면 부근은 바람의 영향을 받아 수온이 ___ 거야.)</div><textarea class="free" data-key="hypo" rows="2" data-keywords="깊을,낮,일정" data-model="해수는 햇빛의 영향을 받아 깊이가 깊을수록 수온이 낮을 거야. 해수면 부근은 바람의 영향을 받아 수온이 일정할 거야."></textarea><span class="fb"></span></div>
+    <div class="q" data-why="적외선등 = 햇빛(태양 에너지), 선풍기 = 바람">
+      <div class="q-text"><span class="q-num">2</span><b>탐구 설계</b> 각 단계에서 실제 자연의 무엇을 나타내는 기구를 사용할까?</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">1 단계 — 햇빛을 나타내는 기구</td><td><span class="choice-group" data-key="d1" data-answer="lamp"><button type="button" class="choice-btn" data-value="lamp">적외선등</button><button type="button" class="choice-btn" data-value="fan">선풍기</button><button type="button" class="choice-btn" data-value="th">온도계</button></span></td></tr><tr><td style="text-align:left">2 단계 — 바람을 나타내는 기구</td><td><span class="choice-group" data-key="d2" data-answer="fan"><button type="button" class="choice-btn" data-value="lamp">적외선등</button><button type="button" class="choice-btn" data-value="fan">선풍기</button><button type="button" class="choice-btn" data-value="th">온도계</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="tip-box"><b>활동 도우미</b> 온도계의 눈금이 모두 같은 상태에서 실험을 시작한다. 온도계 하나는 구부가 수면에서 0.5 cm 정도 잠기게 설치한다. 적외선등에서 방출된 열이 수면 전체에 고르게 전달될 수 있게 한다.</div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험실</span>수온 측정 장치 (물 20 ℃에서 시작)</div>
+    <div class="card-hint">적외선등을 켜고 각 온도계 값이 더 이상 변하지 않을 때(약 15 분, 화면에서는 1 초 = 1 분) 기록하자. 그다음 선풍기를 켜서 2 단계를 해 보자.</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="tk-lamp">💡 적외선등 켜기</button><button type="button" class="btn small" id="tk-fan">🌀 선풍기 켜기</button><button type="button" class="btn ghost small" id="tk-reset">↺ 물 바꾸기(처음으로)</button></div>
+    <div class="light-stage"><canvas id="tk-cv"></canvas></div>
+    <div class="tip-box" id="tk-msg">적외선등을 켜 보세요.</div>
+    <div class="q" data-why="적외선등만 켜면 수면 가까운 곳이 가장 따뜻하고 깊을수록 낮아요. 선풍기를 켜면 수면 부근(A, B)이 섞여 수온이 같아져요." data-hint="각 단계에서 ‘평형’ 표시가 뜬 뒤 온도계를 읽으세요.">
+      <div class="q-text"><span class="q-num">3</span><b>탐구 수행</b> 각 온도계의 수온이 일정해졌을 때의 값을 기록하자(℃, 소수 첫째 자리).</div>
+      <div class="scroll-x"><table class="data-t"><tr><th>온도계</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr><tr><th>깊이(cm)</th><td>0.5</td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><th>1 단계 수온(℃)<br><small>적외선등</small></th><td><input class="blank w-s" data-key="s1_A" data-num="28.8" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s1_B" data-num="23.4" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s1_C" data-num="21.0" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s1_D" data-num="20.3" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s1_E" data-num="20.1" data-abs="0.3" style="width:54px"></td></tr><tr><th>2 단계 수온(℃)<br><small>적외선등 + 선풍기</small></th><td><input class="blank w-s" data-key="s2_A" data-num="25.0" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s2_B" data-num="25.0" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s2_C" data-num="22.2" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s2_D" data-num="20.4" data-abs="0.3" style="width:54px"></td><td><input class="blank w-s" data-key="s2_E" data-num="20.1" data-abs="0.3" style="width:54px"></td></tr></table></div>
+      <span class="fb"></span>
+    </div>
+    <div class="light-stage"><canvas id="tk-g"></canvas></div>
+    <div class="q" data-why="적외선등의 에너지는 대부분 수면 부근에서 흡수되고, 바람은 수면 부근의 물을 섞어 수온을 고르게 만들어요.">
+      <div class="q-text"><span class="q-num">4</span><b>정리하기</b> 적외선등만 비추었을 때에는 수면 가까운 곳의 수온이 가장 <span class="choice-group" data-key="c1" data-answer="높"><button type="button" class="choice-btn" data-value="높">높고</button><button type="button" class="choice-btn" data-value="낮">낮고</button></span>, 깊어질수록 수온이 점점 <span class="choice-group" data-key="c2" data-answer="낮"><button type="button" class="choice-btn" data-value="높">높아진다</button><button type="button" class="choice-btn" data-value="낮">낮아진다</button></span>. 선풍기로 바람을 일으키면 수면 부근의 수온이 <span class="choice-group" data-key="c3" data-answer="일"><button type="button" class="choice-btn" data-value="일">일정해진다</button><button type="button" class="choice-btn" data-value="더">더 높아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>의사소통</b> 실험 결과로부터 실제 바다에서 깊이에 따른 수온 변화에 영향을 주는 요인을 찾고, 어떤 작용을 하는지 토의해 보자.</div><textarea class="free" data-key="fac" rows="3" data-keywords="태양 에너지,바람,흡수,섞" data-model="태양 에너지는 해수면 부근에서 대부분 흡수되어 표층의 수온을 높이고, 바람은 해수면 부근의 해수를 섞어 수온이 일정한 층을 만든다."></textarea><span class="fb"></span></div>
+    <div class="tip-box">🔌 <b>아두이노로 직접 재 보자!</b> 온도 센서 2 개를 수면 가까이와 깊은 곳에 넣고 적외선등·선풍기를 켜며 수온 변화를 자동으로 기록하는 <a href="arduino-suon.html">아두이노 실험 보고서</a></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>해수의 층상 구조 <span class="pg">250쪽</span></div>
+    <div class="book"><p>해수면 부근에서는 태양 에너지가 대부분 흡수되어 수온이 높으며, 바람이 해수를 섞어 주어 수온이 일정한 층이 나타난다. 이를 <span class="key">혼합층</span>이라고 한다. 혼합층 아래에는 수온이 급격히 변하는 <span class="key">수온 약층</span>이 나타나며, 수온 약층 아래에는 수온이 낮고 일정한 <span class="key">심해층</span>이 나타난다. 해수는 깊이에 따른 수온 변화에 따라 이와 같이 구분한다.</p></div>
+<figure class="fig" style="max-width:440px"><img src="img/b1-fig7-5.jpg" alt="해수의 층상 구조"><figcaption><span class="tb">그림 7-5</span>해수의 층상 구조</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">바다 수온 탐사정</span>위도와 바람을 바꿔 보자</div>
+    <div class="card-hint">탐사정이 바다를 0 m부터 3000 m까지 내려가며 수온을 잰다고 생각하자. 태양 에너지(위도)와 바람 세기를 바꾸면 층상 구조가 어떻게 달라질까?</div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">바다</b><button type="button" class="btn main small" data-lat="0">🌴 적도 부근(저위도)</button><button type="button" class="btn small" data-lat="1">🌊 중위도</button><button type="button" class="btn small" data-lat="2">🧊 극 부근(고위도)</button></div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">바람 세기</b><input type="range" id="oc-w" min="0" max="10" value="4" style="flex:1;min-width:160px"><span id="oc-wv" style="font-size:13px;font-weight:700">보통</span></div>
+    <div class="light-stage"><canvas id="oc-cv"></canvas></div>
+    <div class="q" data-why="혼합층 — 태양 에너지·바람, 수온 약층 — 급격한 변화, 심해층 — 낮고 일정">
+      <div class="q-text"><span class="q-num">1</span>다음 설명에 해당하는 층을 고르시오.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">바람의 영향을 받아 수온이 일정하다.</td><td><span class="choice-group" data-key="ly1" data-answer="mix"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr><tr><td style="text-align:left">태양 에너지를 대부분 흡수하여 수온이 가장 높다.</td><td><span class="choice-group" data-key="ly2" data-answer="mix"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr><tr><td style="text-align:left">깊이가 깊어질수록 수온이 급격히 낮아진다.</td><td><span class="choice-group" data-key="ly3" data-answer="thermo"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr><tr><td style="text-align:left">수온이 낮고 일정하며, 위도에 관계없이 비슷하다.</td><td><span class="choice-group" data-key="ly4" data-answer="deep"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="바람이 강하면 더 깊은 곳까지 섞여 혼합층이 두꺼워져요. 고위도는 표층과 심층의 수온 차이가 작아 층상 구조가 뚜렷하지 않아요." data-hint="탐사정에서 바람과 위도를 바꿔 보세요.">
+      <div class="q-text"><span class="q-num">2</span>바람이 강하게 불수록 혼합층의 두께는 <span class="choice-group" data-key="ly5" data-answer="두"><button type="button" class="choice-btn" data-value="두">두꺼워진다</button><button type="button" class="choice-btn" data-value="얇">얇아진다</button><button type="button" class="choice-btn" data-value="같">변하지 않는다</button></span>. 극 부근(고위도) 바다는 표층 수온이 낮아 수온 약층이 <span class="choice-group" data-key="ly6" data-answer="약"><button type="button" class="choice-btn" data-value="약">잘 나타나지 않는다</button><button type="button" class="choice-btn" data-value="강">더 뚜렷하다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 첫 번째 열쇠</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">바다 깊은 곳으로 들어가면 해수의 수온이 <span class="choice-group" data-key="key1" data-answer="낮"><button type="button" class="choice-btn" data-value="낮">낮아진다</button><button type="button" class="choice-btn" data-value="높">높아진다</button></span> .</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">창의 융합</span>해수에서 얻는 전기, 해양 온도 차 발전 <span class="pg">251쪽</span></div>
+<figure class="fig"><img src="img/b1-otec.jpg" alt="해양 온도 차 발전소(미국 하와이)"><figcaption><span class="tb">251쪽</span>해양 온도 차 발전소(미국 하와이)</figcaption></figure>
+    <div class="book"><p>해수면 부근은 태양 에너지를 흡수하여 수온이 높고, 특히 열대 바다에서는 수온이 25 ℃ 이상 되기도 한다. 그런데 깊이 500 m~1000 m 이상인 심해에서는 일 년 내내 수온이 4 ℃ 정도로 낮게 유지된다. 이러한 해수의 깊이에 따른 온도 차이를 이용하여 전기를 얻는 것을 해양 온도 차 발전이라고 한다. 해양 온도 차 발전은 이산화 탄소를 발생시키지 않는 신재생 에너지 중 하나이며, 태양광 발전과 달리 낮뿐만 아니라 밤에도 발전이 가능하다.</p></div>
+    <div class="q" data-why="표층 25 ℃ 이상과 심해 4 ℃의 차이를 이용하므로 표층이 따뜻한 열대(저위도) 바다가 유리해요.">
+      <div class="q-text"><span class="q-num">1</span>해양 온도 차 발전은 <span class="choice-group" data-key="ot1" data-answer="h"><button type="button" class="choice-btn" data-value="h">표층(혼합층)과 심해층</button><button type="button" class="choice-btn" data-value="t">수온 약층과 혼합층</button><button type="button" class="choice-btn" data-value="d">심해층과 심해층</button></span>의 온도 차이를 이용하며, 표층 수온이 높은 <span class="choice-group" data-key="ot2" data-answer="저"><button type="button" class="choice-btn" data-value="저">저위도</button><button type="button" class="choice-btn" data-value="고">고위도</button></span> 바다에서 유리하다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>해양 온도 차 발전을 소개하는 영상의 내용을 구상해 보자(조건, 장단점, 우리나라에서 발전소 건설이 가능한 위치 포함).</div><textarea class="free" data-key="otec" rows="3" data-keywords="온도 차,신재생,밤,장점,단점,위치" data-model="조건: 표층과 심해의 온도 차가 20 ℃ 이상이어야 한다. 장점: 이산화 탄소가 나오지 않고 밤낮 없이 발전한다. 단점: 건설비가 많이 들고 효율이 낮다. 위치: 우리나라는 수심이 깊고 여름 표층이 따뜻한 동해 또는 남쪽 먼바다가 가능하다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기 · 개념 확인 활동지</span>깊이에 따른 해수의 온도 <span class="pg">250쪽</span></div>
+    <div class="q" data-why="바람, 수온 약층, 심해층">
+      <div class="q-text"><span class="q-num">1</span>혼합층을 형성하는 데 영향을 주는 요인은 태양 에너지와 <input class="blank w-s" data-key="sc1" data-answer="바람"> 이다. 해수는 깊이에 따른 수온 변화에 따라 혼합층, <input class="blank w-s" data-key="sc2a" data-answer="수온 약층">, <input class="blank w-s" data-key="sc2b" data-answer="심해층"> 으로 구분한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 바람이 강하게 불수록 혼합층의 두께는 어떻게 달라질지 설명해 보자.</div><textarea class="free" data-key="sc_wind" rows="2" data-keywords="두꺼,깊은,섞" data-model="바람이 강하게 불수록 해수가 더 깊은 곳까지 섞이므로 혼합층의 두께가 두꺼워진다."></textarea><span class="fb"></span></div>
+    <div class="q" data-why="높, 일정, 낮, 해수면, (깊이에 따른) 수온 변화">
+      <div class="q-text"><span class="q-num">4</span>혼합층은 태양 에너지를 받아 수온이 <span class="choice-group" data-key="t2a" data-answer="높"><button type="button" class="choice-btn" data-value="높">높</button><button type="button" class="choice-btn" data-value="낮">낮</button></span>고, 바람이 불어 수온이 <span class="choice-group" data-key="t2b" data-answer="일"><button type="button" class="choice-btn" data-value="일">일정</button><button type="button" class="choice-btn" data-value="변">급격히 변</button></span>하다. 심해층은 연중 수온이 <span class="choice-group" data-key="t4" data-answer="낮"><button type="button" class="choice-btn" data-value="높">높</button><button type="button" class="choice-btn" data-value="낮">낮</button></span>고 일정하다. 혼합층의 수온이 가장 높은 까닭은 태양 에너지가 <input class="blank w-s" data-key="t8" data-answer="해수면"> 부근에서 대부분 흡수되기 때문이다. 해수의 층상 구조를 나누는 기준은 해수의 <input class="blank w-s" data-key="t9" data-answer="깊이에 따른 수온 변화|수온 변화|수온"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>해수의 온도 <span class="pg">259쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>해수의 온도</h4>
+      <div class="q" style="border-top:none" data-why="태양 에너지, 바람, 혼합층, 수온 약층">
+        <div class="q-text">① 깊이에 따른 수온 분포에 영향을 미치는 요인은 <input class="blank w-s" data-key="s1" data-answer="태양 에너지|햇빛"> 와 <input class="blank w-s" data-key="s2" data-answer="바람"> 이다.<br>② 해수는 깊이에 따른 수온 분포에 따라 위에서부터 <input class="blank w-s" data-key="s3" data-answer="혼합층">, <input class="blank w-s" data-key="s4" data-answer="수온 약층">, 심해층으로 구분한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">가설에 맞게 탐구를 설계하였다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">깊이에 따른 수온 변화를 그래프로 정확하게 변환하였다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">모둠 구성원과 협력하여 활동하였다.</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 01 깊이에 따른 해수의 온도 · 비상교육 중학 과학 2(2015 개정) 교과서 Ⅶ단원(246~251쪽)·탐구·개념 확인 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅲ-2-01 깊이에 따른 해수의 온도";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 수온 측정 장치 ── */
+const DEP = [["A", .5], ["B", 2], ["C", 4], ["D", 6], ["E", 8]];
+const ss = (z, lamp, fan) => !lamp ? 20 : !fan ? 20 + 12 * Math.exp(-z / 1.6) : (z <= 3 ? 25 : 20 + 5 * Math.exp(-(z - 3) / 1.2));
+const TK = { lamp: false, fan: false, T: DEP.map(() => 20), t: 0, seen: new Set(), stable: 0 };
+$("tk-lamp").addEventListener("click", () => { TK.lamp = !TK.lamp; $("tk-lamp").textContent = TK.lamp ? "💡 적외선등 끄기" : "💡 적외선등 켜기"; TK.t = 0; });
+$("tk-fan").addEventListener("click", () => { TK.fan = !TK.fan; $("tk-fan").textContent = TK.fan ? "🌀 선풍기 끄기" : "🌀 선풍기 켜기"; TK.t = 0; });
+$("tk-reset").addEventListener("click", () => { Object.assign(TK, { lamp: false, fan: false, t: 0 }); TK.T = DEP.map(() => 20); $("tk-lamp").textContent = "💡 적외선등 켜기"; $("tk-fan").textContent = "🌀 선풍기 켜기"; });
+WS.custom("tk_seen", { el: $("tk-cv"), value: () => [...TK.seen].join(",") });
+LB.loop($("tk-cv"), dt => { const m = dt; TK.t += m; let mx = 0;
+  DEP.forEach(([n, z], i) => { const tg = ss(z, TK.lamp, TK.fan), d = (tg - TK.T[i]) * (1 - Math.exp(-m / 3)); TK.T[i] += d; mx = Math.max(mx, Math.abs(tg - TK.T[i])); if (Math.abs(tg - TK.T[i]) < 0.04) TK.T[i] = tg; });
+  const stable = mx < 0.05; if (stable && TK.lamp) TK.seen.add(TK.fan ? "2" : "1");
+  const H = 280, sc = Math.min(1, $("tk-cv").clientWidth / 360), g = LB.fit($("tk-cv"), H * sc), c = g.c, W = g.w / sc; c.scale(sc, sc); c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const x0 = Math.max(70, W / 2 - 110), tw = 200, y0 = 66, th = 160, cmPx = th / 9.5;
+  if (TK.lamp) { const gr = c.createRadialGradient(x0 + tw / 2, 10, 5, x0 + tw / 2, 10, 120); gr.addColorStop(0, "rgba(255,120,60,.5)"); gr.addColorStop(1, "rgba(255,120,60,0)"); c.fillStyle = gr; c.fillRect(x0 - 40, 0, tw + 80, 140); }
+  c.fillStyle = "#455a64"; c.beginPath(); c.moveTo(x0 + tw / 2 - 30, 30); c.lineTo(x0 + tw / 2 + 30, 30); c.lineTo(x0 + tw / 2 + 18, 10); c.lineTo(x0 + tw / 2 - 18, 10); c.fill(); c.fillStyle = TK.lamp ? "#ff7043" : "#bbb"; c.beginPath(); c.arc(x0 + tw / 2, 33, 7, 0, 7); c.fill();
+  c.font = "11px Pretendard, sans-serif"; c.fillStyle = "#26393b"; c.textAlign = "center"; c.fillText("적외선등", x0 + tw / 2 + 52, 26);
+  // 물 (온도 색)
+  for (let k = 0; k < 40; k++) { const z = (k + .5) * 9.5 / 40, T = (() => { for (let i = 0; i < DEP.length - 1; i++) if (z <= DEP[i + 1][1]) { const a = DEP[i], b = DEP[i + 1], u = Math.max(0, (z - a[1]) / (b[1] - a[1])); return TK.T[i] + (TK.T[i + 1] - TK.T[i]) * u; } return TK.T[4]; })(), q = Math.min(1, (T - 20) / 10);
+    c.fillStyle = `rgb(${120 + 135 * q},${180 - 60 * q},${235 - 150 * q})`; c.fillRect(x0, y0 + k * th / 40, tw, th / 40 + 1); }
+  c.strokeStyle = "#78909c"; c.lineWidth = 2; c.strokeRect(x0, y0 - 6, tw, th + 6); c.lineWidth = 1;
+  if (TK.fan) { c.font = "26px sans-serif"; c.fillText("🌀", x0 - 30, y0 - 8); c.strokeStyle = "rgba(255,255,255,.8)"; for (let k = 0; k < 3; k++) { const ph = (performance.now() / 500 + k / 3) % 1; c.beginPath(); c.moveTo(x0 + ph * tw, y0 + 6 + k * 10); c.lineTo(x0 + ph * tw + 20, y0 + 6 + k * 10); c.stroke(); } }
+  DEP.forEach(([n, z], i) => { const x = x0 + 22 + i * 38, y = y0 + z * cmPx; c.strokeStyle = "#555"; c.beginPath(); c.moveTo(x, y0 - 18); c.lineTo(x, y); c.stroke(); c.fillStyle = "#d2453b"; c.beginPath(); c.arc(x, y, 4, 0, 7); c.fill();
+    c.fillStyle = "#26393b"; c.font = "bold 11px Pretendard, sans-serif"; c.fillText(n, x, y0 - 22); c.font = "bold 11px Consolas, monospace"; c.fillStyle = "#1d2733"; c.fillRect(x - 17, y0 + th + 6, 34, 15); c.fillStyle = "#ff8a65"; c.fillText(TK.T[i].toFixed(1), x, y0 + th + 17); });
+  c.textAlign = "right"; c.fillStyle = "#26393b"; c.font = "10px Pretendard, sans-serif"; [0, 2, 4, 6, 8].forEach(z => c.fillText(z + " cm", x0 - 4, y0 + z * cmPx + 3));
+  c.textAlign = "left"; c.font = "12px Pretendard, sans-serif"; c.fillText(`⏱ ${Math.floor(TK.t)} 분`, 8, H - 8); c.textAlign = "center"; c.fillText("수온(℃)", x0 + tw / 2, H - 6);
+  $("tk-msg").textContent = !TK.lamp ? (TK.fan ? "선풍기만 켜면 물 온도는 그대로예요. 적외선등을 켜 보세요." : "적외선등을 켜 보세요.") : stable ? (TK.fan ? "✅ 평형! 2 단계 값을 기록하세요. A와 B의 수온이 같아졌어요(혼합층)." : "✅ 평형! 1 단계 값을 기록하세요. 그다음 선풍기를 켜 보세요.") : "수온이 변하는 중… 일정해질 때까지 기다려요.";
+});
+/* ── 기록 그래프 (깊이 아래로) ── */
+function tkG() { const sc = Math.min(1, $("tk-g").clientWidth / 360), H = 220, g = LB.fit($("tk-g"), H * sc), c = g.c, W = g.w / sc; c.scale(sc, sc); c.fillStyle = "#fff"; c.fillRect(0, 0, W, H);
+  const L = 50, R = W - 20, T = 30, Bt = H - 20, X = t => L + (t - 18) / 14 * (R - L), Y = z => T + z / 9 * (Bt - T);
+  c.strokeStyle = "#e1e8ea"; c.fillStyle = "#5b6b6d"; c.font = "10px Pretendard, sans-serif"; c.textAlign = "center";
+  for (let t = 18; t <= 32; t += 2) { c.beginPath(); c.moveTo(X(t), T); c.lineTo(X(t), Bt); c.stroke(); c.fillText(t, X(t), T - 6); }
+  c.textAlign = "right"; for (let z = 0; z <= 8; z += 2) { c.beginPath(); c.moveTo(L, Y(z)); c.lineTo(R, Y(z)); c.stroke(); c.fillText(z, L - 6, Y(z) + 3); }
+  c.fillText("깊이(cm)", L - 4, H - 4); c.textAlign = "left"; c.fillText("수온(℃) →", R - 50, 12);
+  [["s1", "#e4572e", "1 단계 적외선등"], ["s2", "#2f7fd6", "2 단계 + 선풍기"]].forEach(([k, col, lab], j) => {     const P = DEP.map(([n, z]) => { const v = $q(k + "_" + n).value; return v === "" ? null : [WS.toNumber(v), z]; }).filter(p => p && isFinite(p[0]));
+    c.strokeStyle = c.fillStyle = col; c.lineWidth = 2; c.beginPath(); P.forEach((p, i) => i ? c.lineTo(X(p[0]), Y(p[1])) : c.moveTo(X(p[0]), Y(p[1]))); c.stroke(); c.lineWidth = 1; P.forEach(p => { c.beginPath(); c.arc(X(p[0]), Y(p[1]), 3.5, 0, 7); c.fill(); });
+    c.font = "11px Pretendard, sans-serif"; c.fillText("● " + lab, L + 6 + j * 130, Bt + 14 > H ? H - 2 : Bt + 14); }); }
+const $q = k => document.querySelector(`[data-key="${k}"]`);
+document.querySelectorAll('[data-key^="s1_"],[data-key^="s2_"]').forEach(el => el.addEventListener("input", tkG)); tkG(); window.addEventListener("resize", tkG);
+/* ── 바다 수온 탐사정 ── */
+const OC = { lat: 0, seen: new Set() }, SST = [28, 18, 3];
+document.querySelectorAll("[data-lat]").forEach(b => b.addEventListener("click", () => { OC.lat = +b.dataset.lat; document.querySelectorAll("[data-lat]").forEach(x => x.classList.toggle("main", x === b)); }));
+$("oc-w").addEventListener("input", () => { const v = +$("oc-w").value; $("oc-wv").textContent = v < 3 ? "약함" : v < 7 ? "보통" : "강함"; });
+WS.custom("oc_seen", { el: $("oc-cv"), value: () => [...OC.seen].sort().join(",") });
+function prof(z, lat, w) { const s = SST[lat], deep = 2.5, hm = 20 + w * 18; if (z <= hm) return s; const tc = 900; if (z <= tc) { const u = (z - hm) / (tc - hm); return deep + (s - deep) * Math.pow(1 - u, 2.2) + (lat === 2 ? 0 : 0); } return deep - (z - tc) / 2100 * 1; }
+LB.loop($("oc-cv"), () => { const w = +$("oc-w").value; OC.seen.add(OC.lat + ":" + (w < 3 ? "l" : w < 7 ? "m" : "h"));
+  const H = 260, sc = Math.min(1, $("oc-cv").clientWidth / 360), g = LB.fit($("oc-cv"), H * sc), c = g.c, W = g.w / sc; c.scale(sc, sc);
+  const L = 56, R = W - 100, T = 34, Bt = H - 16, X = t => L + t / 30 * (R - L), zmap = z => z <= 1000 ? z / 1000 * .55 : .55 + (z - 1000) / 2000 * .45, Y = z => T + zmap(z) * (Bt - T);
+  const gr = c.createLinearGradient(0, T, 0, Bt); gr.addColorStop(0, "#64b5f6"); gr.addColorStop(1, "#0d2a52"); c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H); c.fillStyle = gr; c.fillRect(L, T, R - L, Bt - T);
+  c.fillStyle = "#26393b"; c.font = "10px Pretendard, sans-serif"; c.textAlign = "center"; for (let t = 0; t <= 30; t += 5) c.fillText(t, X(t), T - 4); c.textAlign = "right"; [0, 200, 500, 1000, 2000, 3000].forEach(z => { c.fillText(z, L - 4, Y(z) + 3); c.strokeStyle = "rgba(255,255,255,.2)"; c.beginPath(); c.moveTo(L, Y(z)); c.lineTo(R, Y(z)); c.stroke(); });
+  c.save(); c.translate(12, (T + Bt) / 2); c.rotate(-Math.PI / 2); c.textAlign = "center"; c.fillText("깊이(m)", 0, 0); c.restore(); c.textAlign = "left"; c.fillText("수온(℃)", R - 30, 12);
+  c.strokeStyle = "#ff7043"; c.lineWidth = 3; c.beginPath(); for (let z = 0; z <= 3000; z += 10) { const x = X(prof(z, OC.lat, w)), y = Y(z); z ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); c.lineWidth = 1;
+  const hm = 20 + w * 18; const lay = OC.lat === 2 ? [] : [["혼합층", 0, hm, "#ff9800"], ["수온 약층", hm, 900, "#43a047"], ["심해층", 900, 3000, "#7e57c2"]];
+  lay.forEach(([n, a, b, col]) => { c.strokeStyle = col; c.lineWidth = 2; c.beginPath(); c.moveTo(R + 8, Y(a) + 1); c.lineTo(R + 8, Y(b) - 1); c.stroke(); c.lineWidth = 1; c.fillStyle = col; c.font = "bold 11px Pretendard, sans-serif"; c.fillText(n, R + 14, (Y(a) + Y(b)) / 2 + 4); });
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText(OC.lat === 2 ? "표층도 차가워 층이 뚜렷하지 않아요" : `혼합층 두께 약 ${Math.round(hm)} m`, R - 140 > L ? R - 150 : L + 4, Bt - 6);
+});
+
+</script>
+</body>
+</html>

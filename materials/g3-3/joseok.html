@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅲ-2-04 — 드나드는 해수</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/3">← KISPP 과학실 · 중학교 3학년 Ⅲ. 수권과 해수의 순환</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/u2-sea.jpg" alt="">
+    <img class="lb-qmark" src="img/b4-cartoon.jpg" alt="해수는 언제 다시 들어올까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 04 <span class="pg" style="margin:0">256~262쪽</span></span>
+      <h1>드나드는<br><span>해수</span></h1>
+      <p>해수는 언제 다시 들어올까? 가상 바닷가에서 3 일 동안 시간을 흘려 보내며 만조와 간조, 조차를 찾고, 조석 예보 자료로 갯벌 체험과 배가 나가기 좋은 시간을 정한 뒤, 대단원 최종 점검으로 수권과 해수의 순환을 정리하자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 조석 현상을 이해하고 관련 자료를 해석할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 자료 분석 및 해석</span>조석 현상에 대한 실시간 자료 해석 <span class="pg">256~257쪽</span></div>
+    <div class="book"><p>바닷가에서는 해수가 육지를 향해 들어오는 밀물과 바다를 향해 빠져나가는 썰물을 쉽게 볼 수 있다. 이때 밀물로 해수면의 높이가 가장 높아졌을 때를 <span class="key">만조</span>라 하고, 썰물로 해수면의 높이가 가장 낮아졌을 때를 <span class="key">간조</span>라고 한다. 이처럼 해수면의 높이가 주기적으로 높아졌다 낮아지는 현상을 <span class="key">조석</span>이라고 한다.</p></div>
+<figure class="fig" style="max-width:360px"><img src="img/b4-pc.jpg" alt="모둠별로 국립해양조사원(www.khoa.go.kr)의 스마트 조석 예보에서 조사하고 싶은 지역의 3 일 동안의 조석 예보를 찾는다."><figcaption><span class="tb">256쪽</span>모둠별로 국립해양조사원(www.khoa.go.kr)의 스마트 조석 예보에서 조사하고 싶은 지역의 3 일 동안의 조석 예보를 찾는다.</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 바닷가</span>3 일 동안의 해수면 높이 (인천 앞바다 모형)</div>
+    <div class="card-hint">시간 슬라이더를 움직이거나 [▶ 시간 흐르기]를 눌러 보자. 위는 바닷가 모습, 아래는 해수면 높이 그래프예요. 만조와 간조가 언제 오는지 찾아보세요.</div>
+    <div class="btn-row" style="align-items:center"><button type="button" class="btn main small" id="td-play">▶ 시간 흐르기</button><input type="range" id="td-t" min="0" max="72" step="0.05" value="0" style="flex:1;min-width:160px"><span id="td-tv" style="font-size:13px;font-weight:700;min-width:120px">1 일째 00:00</span></div>
+    <div class="light-stage"><canvas id="td-cv"></canvas></div>
+    <div class="light-stage"><canvas id="td-g"></canvas></div>
+    <div class="tip-box" id="td-msg"></div>
+    <div class="q" data-why="만조와 간조는 하루에 약 두 번씩(약 12 시간 25 분 간격) 일어나요. 가상 바닷가의 그래프처럼 높이차는 매일 조금씩 달라져요." data-hint="그래프에서 산(만조)과 골짜기(간조)의 개수를 세어 보세요.">
+      <div class="q-text"><span class="q-num">1</span><b>정리하기</b> 하루 동안 만조와 간조는 약 <input class="blank w-s" data-key="td1" data-num="2" data-abs="0" style="width:60px"> 번씩 일어난다. 3 일 동안 만조와 간조 때의 해수면 높이차는 <span class="choice-group" data-key="td2" data-answer="변"><button type="button" class="choice-btn" data-value="같">매일 똑같다</button><button type="button" class="choice-btn" data-value="변">매일 조금씩 달라진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>의사소통</b> 만조와 간조를 실생활에 활용할 수 있는 방안을 토의해 보자.</div><textarea class="free" data-key="td_use" rows="2" data-keywords="갯벌,간조,만조,배,바다 갈라짐" data-model="간조 때에는 갯벌이 드러나므로 조개나 굴을 캐고, 바다 갈라짐 길을 걸어 볼 수 있다. 만조 때에는 바닷물이 깊어 고기잡이배가 항구를 드나들기 좋다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>조석 현상은 어떤 특징이 있을까? <span class="pg">257쪽</span></div>
+    <div class="book"><p>우리나라 해안에서 만조와 간조는 하루에 약 두 번씩 일어난다. 연속되는 만조와 간조 때의 해수면 높이차를 <span class="key">조차</span>라고 한다. 조차는 매일 조금씩 달라지므로 만조와 간조가 일어나는 시간을 알면 실생활에 활용할 수 있다. 고기잡이배가 바다로 나가거나 들어올 때, 갯벌에서 조개나 굴을 캘 때 등에 활용하고, 바다 갈라짐이 나타나는 지역으로 여행갈 때에도 활용한다.</p></div>
+<figure class="fig" style="max-width:420px"><img src="img/b4-fig7-8.jpg" alt="2017 년 11 월 21 일~26 일 동안 인천 앞바다의 해수면 높이 변화(출처: 국립해양조사원, 2017)"><figcaption><span class="tb">그림 7-8</span>2017 년 11 월 21 일~26 일 동안 인천 앞바다의 해수면 높이 변화(출처: 국립해양조사원, 2017)</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge lab">자료 해석</span>2017 년 11 월 21 일 어느 해안의 조석 예보</div>
+    <div class="scroll-x"><table class="data-t" style="max-width:520px"><tr><th>구분</th><th>간조</th><th>만조</th><th>간조</th><th>만조</th></tr><tr><th>시각</th><td>00:24</td><td>06:10</td><td>12:21</td><td>18:31</td></tr><tr><th>높이(cm)</th><td>117</td><td>778</td><td>56</td><td>843</td></tr></table></div>
+    <div class="q" data-why="조차 = 778 − 56 = 722 cm. 갯벌은 간조(12:21) 무렵에 가장 넓게 드러나고, 배는 해수면이 높은 만조(06:10) 직후 물이 충분할 때 나가는 것이 안전해요.">
+      <div class="q-text"><span class="q-num">1</span>06:10 만조와 12:21 간조 사이의 조차는 <input class="blank w-s" data-key="tb1" data-num="722" data-abs="0" style="width:60px"> cm이다. 조개를 캐기에 가장 적절한 활동 시간은 <span class="choice-group" data-key="tb2" data-answer="11"><button type="button" class="choice-btn" data-value="2">2 시~4 시</button><button type="button" class="choice-btn" data-value="7">7 시~9 시</button><button type="button" class="choice-btn" data-value="11">11 시~13 시</button></span>이고, 배를 타고 먼바다로 나가기에 가장 적절한 시간은 <span class="choice-group" data-key="tb3" data-answer="7"><button type="button" class="choice-btn" data-value="2">2 시~4 시</button><button type="button" class="choice-btn" data-value="7">7 시~9 시</button><button type="button" class="choice-btn" data-value="11">11 시~13 시</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>과학적 문제 해결력</b> 위의 두 활동 시간을 고른 까닭을 해수면의 높이와 관련지어 설명해 보자.</div><textarea class="free" data-key="tb_why" rows="3" data-keywords="간조,갯벌,드러,만조,깊" data-model="11 시~13 시는 간조(12:21) 무렵이라 해수면이 가장 낮아 갯벌이 넓게 드러나므로 조개를 캐기 좋다. 7 시~9 시는 만조(06:10) 직후라 해수면이 높아 배가 바닥에 닿지 않고 먼바다로 나가기 좋다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>256쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">257쪽</span></div>
+    <div class="q" data-why="조석, 만조">
+      <div class="q-text"><span class="q-num">1</span>해수면의 높이가 주기적으로 높아졌다 낮아지는 현상을 <input class="blank w-s" data-key="sc1" data-answer="조석"> 이라고 한다. 밀물로 해수면의 높이가 가장 높아졌을 때를 <input class="blank w-s" data-key="sc2" data-answer="만조"> 라고 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="조개잡이(간조 때 갯벌)와 바다 갈라짐 체험(간조 때 길이 드러남)은 조석을 활용해요. 뗏목 여행은 조석과 직접 관계가 없어요.">
+      <div class="q-text"><span class="q-num">3</span>다음 중 조석 현상을 활용한 예를 모두 고르시오.</div><div class="multi-group" data-key="sc3" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. 조개잡이</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. 뗏목 여행</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. 바다 갈라짐 체험</button></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">핵심 역량 키우기</span>바다 갈라짐 체험 여행 계획 세우기 <span class="pg">258쪽</span></div>
+    <div class="book"><p>우리나라 서해안 지역에서는 바다 갈라짐이 자주 나타난다. ① 바다 갈라짐을 체험할 수 있는 지역을 찾는다. ② 해당 지역의 조석 예보를 조사하여 여행하는 날에 바다 갈라짐이 나타나는 시간을 알아 둔다. ③ 교통편과 비용을 포함한 여행 계획서를 구체적으로 작성한다.</p></div>
+    <div class="q" data-why="간조 때 바닷물이 빠지면서 바닥이 드러나요. 조차가 클수록 더 낮아지므로 길이 잘 드러나요.">
+      <div class="q-text"><span class="q-num">1</span>바다 갈라짐은 해수면이 가장 낮아지는 <span class="choice-group" data-key="sp1" data-answer="간"><button type="button" class="choice-btn" data-value="만">만조</button><button type="button" class="choice-btn" data-value="간">간조</button></span> 무렵에 나타나므로, 조차가 <span class="choice-group" data-key="sp2" data-answer="큰"><button type="button" class="choice-btn" data-value="큰">큰</button><button type="button" class="choice-btn" data-value="작">작은</button></span> 날에 더 넓고 오래 길이 드러난다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>나의 바다 갈라짐 여행 계획서 (지역, 날짜, 바다 갈라짐 시간, 교통편, 안전 수칙)</div><textarea class="free" data-key="sp_plan" rows="3" data-keywords="간조,시간,지역,교통,안전" data-model="지역: 충남 보령 무창포. 날짜: 조석 예보에서 조차가 큰 날(보름 무렵). 간조 시각 전후 1 시간에 바닷길 체험, 만조가 되기 전에 반드시 돌아온다. 교통편: 버스로 이동, 비용 약 2 만 원."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 짚고 가기 · 스스로 최종 점검하기</span>수권과 해수의 순환 대단원 정리 <span class="pg">260~261쪽</span></div>
+    <div class="q" data-why="해수, 빙하, 담수, 지하수">
+      <div class="q-text"><span class="q-num">➊</span>수권을 이루는 물 중 <input class="blank w-s" data-key="f1a" data-answer="해수"> 가 가장 많고, 그 다음으로 <input class="blank w-s" data-key="f1b" data-answer="빙하"> 가 많은 양을 차지한다. 우리가 수자원으로 주로 이용하는 물은 <input class="blank w-s" data-key="f2a" data-answer="담수"> 이며, 이 중 <input class="blank w-s" data-key="f2b" data-answer="지하수"> 는 땅속 지층이나 암석 사이의 빈틈을 채우고 있거나 매우 느리게 흐르는 물이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="염분, 일정, 만조, 간조, 다르게">
+      <div class="q-text"><span class="q-num">➌</span>해수 1000 g에 포함된 염류의 총량을 g 수로 나타낸 것을 <input class="blank w-s" data-key="f4" data-answer="염분"> 이라고 하며, 해역에 관계없이 각 염류가 차지하는 비율은 <input class="blank w-s" data-key="f4b" data-answer="일정"> 하다. 밀물로 해수면이 가장 높은 때를 <input class="blank w-s" data-key="f6a" data-answer="만조">, 가장 낮은 때를 <input class="blank w-s" data-key="f6b" data-answer="간조"> 라 하며, 이 두 시기의 높이차는 매일 <span class="choice-group" data-key="f6c" data-answer="달"><button type="button" class="choice-btn" data-value="달">다르게</button><button type="button" class="choice-btn" data-value="같">같게</button></span> 나타난다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(가) 혼합층 (나) 수온 약층 (다) 심해층">
+      <div class="q-text"><span class="q-num">03</span>깊이에 따른 수온 분포 그래프에서 (가)~(다)의 이름은? ((가) 0~150 m, (나) 150~1000 m, (다) 1000 m 아래)</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">(가)</td><td><span class="choice-group" data-key="f3a" data-answer="mix"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr><tr><td style="text-align:left">(나)</td><td><span class="choice-group" data-key="f3b" data-answer="thermo"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr><tr><td style="text-align:left">(다)</td><td><span class="choice-group" data-key="f3c" data-answer="deep"><button type="button" class="choice-btn" data-value="mix">혼합층</button><button type="button" class="choice-btn" data-value="thermo">수온 약층</button><button type="button" class="choice-btn" data-value="deep">심해층</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="㉠ 태양 에너지 ㉡ 바람">
+      <div class="q-text"><span class="q-num">04</span>(가)에서는 바다에 도달한 <span class="choice-group" data-key="f04a" data-answer="sun"><button type="button" class="choice-btn" data-value="sun">태양 에너지</button><button type="button" class="choice-btn" data-value="wind">바람</button></span>가 대부분 해수면 부근에서 흡수되기 때문에 수온이 높고, <span class="choice-group" data-key="f04b" data-answer="wind"><button type="button" class="choice-btn" data-value="sun">태양 에너지</button><button type="button" class="choice-btn" data-value="wind">바람</button></span>의 영향으로 섞이기 때문에 깊이에 따른 수온이 거의 일정하다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="빙하가 녹은 물은 짠맛이 나지 않는 담수예요(④).">
+      <div class="q-text"><span class="q-num">02</span>수자원의 활용에 대한 설명으로 옳지 않은 것은? <span class="choice-group" data-key="f02" data-answer="4"><button type="button" class="choice-btn" data-value="1">① 해수는 짠맛을 제거하여 활용한다.</button><button type="button" class="choice-btn" data-value="2">② 하천수, 호수는 바로 활용할 수 있다.</button><button type="button" class="choice-btn" data-value="3">③ 생활에 주로 활용하는 물은 담수이다.</button><button type="button" class="choice-btn" data-value="4">④ 빙하가 녹은 물에는 염류가 포함되어 있다.</button><button type="button" class="choice-btn" data-value="5">⑤ 지하수는 지속적으로 채워져 수자원으로서 가치가 높다.</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="(가) 35, (나) 30, (다) 34.2 psu. 염화 마그네슘 비율은 3.8/35 ≈ 3.3/30 ≈ 3.7/34.2 ≈ 11 % — 염분비 일정 법칙">
+      <div class="q-text"><span class="q-num">09</span><b>과학적 탐구 능력</b> 해역 (가) 염화 나트륨 27.2, 염화 마그네슘 3.8, 황산 마그네슘 1.7, 기타 2.3 g / (나) 23.3, 3.3, 1.4, 2.0 g / (다) 26.6, 3.7, 1.6, 2.3 g. 염분이 높은 순서는 <span class="choice-group" data-key="f09a" data-answer="acb"><button type="button" class="choice-btn" data-value="abc">(가) > (나) > (다)</button><button type="button" class="choice-btn" data-value="acb">(가) > (다) > (나)</button><button type="button" class="choice-btn" data-value="cab">(다) > (가) > (나)</button></span>이고, 각 해수에서 염화 마그네슘이 차지하는 비율은 <span class="choice-group" data-key="f09b" data-answer="same"><button type="button" class="choice-btn" data-value="same">약 11 %로 거의 같다</button><button type="button" class="choice-btn" data-value="diff">염분이 높을수록 크다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">07</span><b>과학적 사고력</b> 지하수가 수자원으로서 가치가 높은 까닭을 지하수의 특징과 관련하여 설명하시오.</div><textarea class="free" data-key="f07" rows="2" data-keywords="빗물,채워,지속,많" data-model="지하수는 하천수와 호수보다 양이 많고, 빗물이 땅속으로 스며들어 계속 채워지므로 지속적으로 활용할 수 있기 때문이다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기 · 궁금증 해결하기</span>조석 · 해수는 어떤 특징이 있을까? <span class="pg">258~259쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>조석</h4>
+      <div class="q" style="border-top:none" data-why="조석, 만조, 간조, 달라진다">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="조석"> : 해수면의 높이가 주기적으로 높아졌다 낮아지는 현상<br>⑵ <input class="blank w-s" data-key="s2" data-answer="만조"> : 밀물로 해수면의 높이가 가장 높아졌을 때 · <input class="blank w-s" data-key="s3" data-answer="간조"> : 썰물로 해수면의 높이가 가장 낮아졌을 때<br>⑶ 만조와 간조일 때의 해수면의 높이차는 매일 조금씩 <span class="choice-group" data-key="s4" data-answer="달"><button type="button" class="choice-btn" data-value="달">달라진다</button><button type="button" class="choice-btn" data-value="같">같다</button></span>.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="alt-box"><h4>🔑 열쇠 모으기 — 해수는 어떤 특징이 있을까?</h4><p style="margin:0;font-size:14px">첫 번째 열쇠: 바다 깊은 곳으로 들어가면 해수의 수온이 낮아진다. · 두 번째 열쇠: 해수에는 염화 나트륨이 가장 많이 녹아 있어 짠맛이 강하다. · 세 번째 열쇠: 해수는 일정한 방향으로 나타나는 지속적인 흐름을 보인다.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">🌊</span><b>궁금증 해결</b> 꼭 포함해야 하는 용어(수온, 염류, 해류)를 사용하여 해수의 특징을 써 보자.</div><textarea class="free" data-key="key_ans" rows="3" data-keywords="수온,염류,해류" data-model="해수는 깊이에 따라 수온이 달라 혼합층, 수온 약층, 심해층으로 나뉘고, 깊이 들어갈수록 수온이 낮아진다. 해수에는 염화 나트륨을 비롯한 여러 염류가 녹아 있어 짠맛이 나며, 각 염류의 비율은 일정하다. 또 해수는 해류처럼 일정한 방향으로 지속적으로 흐르고, 조석으로 해수면 높이가 주기적으로 변한다."></textarea><span class="fb"></span></div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">조석 예보 자료를 옳게 조사하고 해수면의 높이차를 해석하였다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">만조와 간조를 실생활에 활용하는 방안을 제시하였다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">토의할 때 다른 모둠 구성원의 의견을 존중하였다.</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 04 드나드는 해수 · 비상교육 중학 과학 2(2015 개정) 교과서 Ⅶ단원(256~262쪽)·탐구·개념 짚고 가기·최종 점검 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅲ-2-04 드나드는 해수";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 가상 바닷가 (조석 모형) ── */
+// 반일주조: 주기 12.42 시간, 진폭이 3 일 동안 서서히 줄어듦(사리 → 조금 쪽으로), 21 일 자료와 비슷하게 맞춤
+const TP = 12.42, h = t => 450 + (370 - t * 1.6) * Math.cos(2 * Math.PI * (t - 6.2) / TP) + 25 * Math.cos(2 * Math.PI * (t - 18.4) / 24.8);
+const TD = { t: 0, play: false, seen: new Set() };
+const ext = []; for (let t = 0.02; t < 72; t += 0.02) { const a = h(t - .02), b = h(t), c = h(t + .02); if (b > a && b >= c) ext.push(["만조", t, b]); if (b < a && b <= c) ext.push(["간조", t, b]); }
+const fmt = t => `${Math.floor(t / 24) + 1} 일째 ${String(Math.floor(t % 24)).padStart(2, "0")}:${String(Math.floor((t % 1) * 60)).padStart(2, "0")}`;
+$("td-play").addEventListener("click", () => { TD.play = !TD.play; $("td-play").textContent = TD.play ? "⏸ 멈추기" : "▶ 시간 흐르기"; });
+$("td-t").addEventListener("input", () => { TD.t = +$("td-t").value; });
+WS.custom("td_seen", { el: $("td-cv"), value: () => [...TD.seen].join(",") });
+LB.loop($("td-cv"), dt => { if (TD.play) { TD.t = (TD.t + dt * 3) % 72; $("td-t").value = TD.t; }
+  const t = TD.t, H0 = h(t); $("td-tv").textContent = fmt(t);
+  const near = ext.find(e => Math.abs(e[1] - t) < .35); if (near) TD.seen.add(near[0] + Math.floor(near[1]));
+  const H = 180, sc = Math.min(1, $("td-cv").clientWidth / 360), g = LB.fit($("td-cv"), H * sc), c = g.c, W = g.w / sc; c.scale(sc, sc);
+  c.fillStyle = "#e3f2fd"; c.fillRect(0, 0, W, H);
+  const ground = x => 60 + (x / W) * 110, wy = 170 - (H0 + 50) / 950 * 120;   // 경사진 갯벌, 해수면 높이
+  c.fillStyle = "#8d6e63"; c.beginPath(); c.moveTo(0, H); c.lineTo(0, ground(0)); c.lineTo(W, ground(W)); c.lineTo(W, H); c.fill();
+  const xs = Math.max(0, Math.min(W, (wy - 60) / 110 * W)); c.fillStyle = "rgba(41,121,255,.65)"; c.beginPath(); c.moveTo(xs, wy); c.lineTo(W, wy); c.lineTo(W, ground(W)); c.closePath(); c.fill();
+  // 드러난 갯벌의 조개
+  c.font = "14px sans-serif"; for (let x = W * .25; x < W; x += W * .12) if (ground(x) < wy - 4) c.fillText("🦪", x, ground(x) + 14);
+  const bx = Math.min(W - 30, xs + 40); c.font = "22px sans-serif"; c.fillText("⛵", bx - 10, wy + 4);
+  c.fillStyle = "#26393b"; c.font = "bold 13px Pretendard, sans-serif"; c.textAlign = "left"; c.fillText(`해수면 높이 ${Math.round(H0)} cm`, 8, 18); if (near) { c.fillStyle = near[0] === "만조" ? "#1565c0" : "#bf360c"; c.fillText(`${near[0]}! (${Math.round(near[2])} cm)`, 8, 36); }
+  $("td-msg").textContent = H0 < 250 ? "갯벌이 넓게 드러났어요 — 조개를 캐기 좋은 때예요." : H0 > 650 ? "바닷물이 가득 들어왔어요 — 배가 드나들기 좋은 때예요." : h(t + .1) > H0 ? "밀물: 해수가 육지를 향해 들어오고 있어요." : "썰물: 해수가 바다를 향해 빠져나가고 있어요.";
+});
+LB.loop($("td-g"), () => { const H = 170, sc = Math.min(1, $("td-g").clientWidth / 360), g = LB.fit($("td-g"), H * sc), c = g.c, W = g.w / sc; c.scale(sc, sc); c.fillStyle = "#fff"; c.fillRect(0, 0, W, H);
+  const L = 40, R = W - 10, T = 12, Bt = H - 24, X = t => L + t / 72 * (R - L), Y = v => Bt - v / 900 * (Bt - T);
+  c.strokeStyle = "#e1e8ea"; c.fillStyle = "#5b6b6d"; c.font = "10px Pretendard, sans-serif"; c.textAlign = "right"; for (let v = 0; v <= 900; v += 300) { c.beginPath(); c.moveTo(L, Y(v)); c.lineTo(R, Y(v)); c.stroke(); c.fillText(v, L - 4, Y(v) + 3); }
+  c.textAlign = "center"; for (let d = 0; d <= 72; d += 12) { c.beginPath(); c.moveTo(X(d), T); c.lineTo(X(d), Bt); c.stroke(); c.fillText(d % 24 === 0 ? `${d / 24 + 1}일 0시` : "12시", X(d), Bt + 12); }
+  c.strokeStyle = "#e4572e"; c.lineWidth = 2; c.beginPath(); for (let t = 0; t <= 72; t += .1) { t ? c.lineTo(X(t), Y(h(t))) : c.moveTo(X(t), Y(h(t))); } c.stroke(); c.lineWidth = 1;
+  ext.forEach(e => { if (e[1] > TD.t) return; c.fillStyle = e[0] === "만조" ? "#1565c0" : "#bf360c"; c.beginPath(); c.arc(X(e[1]), Y(e[2]), 3, 0, 7); c.fill(); });
+  c.strokeStyle = "#26393b"; c.setLineDash([4, 3]); c.beginPath(); c.moveTo(X(TD.t), T); c.lineTo(X(TD.t), Bt); c.stroke(); c.setLineDash([]);
+  c.save(); c.translate(10, (T + Bt) / 2); c.rotate(-Math.PI / 2); c.fillStyle = "#5b6b6d"; c.fillText("해수면 높이(cm)", 0, 0); c.restore(); });
+
+</script>
+</body>
+</html>

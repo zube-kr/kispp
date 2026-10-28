@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅲ-2-03 — 우리나라 주변을 흐르는 해수</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/3">← KISPP 과학실 · 중학교 3학년 Ⅲ. 수권과 해수의 순환</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/b3-fig7-7.jpg" alt="">
+    <img class="lb-qmark" src="img/b3-cartoon.jpg" alt="제주도 바다에서 부산까지 어떻게 왔을까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 03 <span class="pg" style="margin:0">254~255쪽</span></span>
+      <h1>우리나라 주변을<br><span>흐르는 해수</span></h1>
+      <p>제주도 바다에 빠진 유리병은 어떻게 부산까지 왔을까? 표층 수온 분포와 해류 그림을 비교해 난류와 한류를 구별하고, 해류 모식도에서 유리병을 띄워 보며 동한 난류와 북한 한류의 세기에 따라 조경 수역이 어떻게 움직이는지 알아보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 우리나라 주변 해류의 종류와 특성을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>우리나라 주변의 해류 확인하기 <span class="pg">254쪽</span></div>
+    <div class="book"><p>제주도 바다에 빠진 유리병과 같은 물건이 부산에서 발견되는 경우가 있다. 이는 해수에 일정한 흐름이 있기 때문이다. 바다에서 일정한 방향으로 나타나는 지속적인 해수의 흐름을 <span class="key">해류</span>라고 한다.</p></div>
+<figure class="fig"><img src="img/b3-ganada.jpg" alt="(가) 우리나라 주변의 표층 수온 분포(1 월) (나) 우리나라 주변 해류(대략) (출처: 국립수산과학원, 2017)"><figcaption><span class="tb">254쪽</span>(가) 우리나라 주변의 표층 수온 분포(1 월) (나) 우리나라 주변 해류(대략) (출처: 국립수산과학원, 2017)</figcaption></figure>
+    <div class="q" data-why="남쪽(저위도)의 따뜻한 물이 북쪽으로 흐르면 주변보다 따뜻하고, 북쪽의 찬물이 남쪽으로 흐르면 주변보다 차가워요.">
+      <div class="q-text"><span class="q-num">1</span>(가)와 (나)를 비교하면 저위도에서 고위도로 흐르는 해류는 주변보다 수온이 <span class="choice-group" data-key="gn1" data-answer="높"><button type="button" class="choice-btn" data-value="높">높고</button><button type="button" class="choice-btn" data-value="낮">낮고</button></span>, 고위도에서 저위도로 흐르는 해류는 주변보다 수온이 <span class="choice-group" data-key="gn2" data-answer="낮"><button type="button" class="choice-btn" data-value="높">높다</button><button type="button" class="choice-btn" data-value="낮">낮다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>(가)와 (나)를 비교하여 저위도에서 고위도로 흐르는 해류와 고위도에서 저위도로 흐르는 해류의 수온은 어떠한지 설명해 보자.</div><textarea class="free" data-key="gn_why" rows="2" data-keywords="저위도,고위도,따뜻,차갑,높,낮" data-model="저위도에서 고위도로 흐르는 해류는 따뜻한 남쪽 바다의 물을 싣고 와서 주변보다 수온이 높고, 고위도에서 저위도로 흐르는 해류는 차가운 북쪽 바다의 물을 싣고 와서 주변보다 수온이 낮다."></textarea><span class="fb"></span></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 실험</span>제주도의 유리병은 어떻게 부산까지 왔을까?</div>
+    <div class="card-hint">[유리병 띄우기]를 누르고 해류를 따라 떠가는 유리병을 지켜보자. 해류의 세기를 바꾸면 조경 수역의 위치도 바뀌어요.</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="db-go">🍾 제주도에서 유리병 띄우기</button><button type="button" class="btn small" id="db-lab">🏷 해류 이름 보기</button><button type="button" class="btn ghost small" id="db-reset">↺ 처음으로</button></div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px;min-width:110px">🔴 동한 난류 세기</b><input type="range" id="db-w" min="1" max="10" value="5" style="flex:1;min-width:140px"></div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px;min-width:110px">🔵 북한 한류 세기</b><input type="range" id="db-c" min="1" max="10" value="5" style="flex:1;min-width:140px"></div>
+    <div class="light-stage"><canvas id="db-cv"></canvas></div>
+    <div class="tip-box" id="db-msg">유리병을 띄워 보세요.</div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>우리나라 주변에는 어떤 해류가 흐를까? <span class="pg">255쪽</span></div>
+    <div class="book"><p>저위도에서 고위도로 흐르는 비교적 따뜻한 해류를 <span class="key">난류</span>라고 하며, 고위도에서 저위도로 흐르는 비교적 찬 해류를 <span class="key">한류</span>라고 한다. 우리나라 주변에는 난류와 한류가 모두 흐르고 있다.</p>
+    <p>우리나라 주변 난류 중 황해를 흐르는 해류를 <b>황해 난류</b>라 하고, 동해를 흐르는 해류를 <b>동한 난류</b>라고 한다. 두 난류는 태평양을 흐르는 해류(쿠로시오 해류)에서 일부가 갈라져 나온 것이다. 또, 우리나라 주변 한류에는 동해를 흐르는 <b>북한 한류</b>가 있는데, 이는 북쪽에서 남쪽으로 흐르는 해류의 일부이다. 그리고 난류와 한류가 만나는 해역을 <span class="key">조경 수역</span>이라고 하며, 조경 수역에서는 좋은 어장이 만들어진다. 우리나라의 동해에는 동한 난류와 북한 한류가 만나 조경 수역이 형성된다.</p></div>
+<figure class="fig"><img src="img/b3-fig7-7.jpg" alt="우리나라 주변 해류 — 해류가 강할수록 선의 두께가 두껍고, 뚜렷하지 않은 해류는 점선으로 표시하였다(출처: 국립해양조사원, 2017)."><figcaption><span class="tb">그림 7-7</span>우리나라 주변 해류 — 해류가 강할수록 선의 두께가 두껍고, 뚜렷하지 않은 해류는 점선으로 표시하였다(출처: 국립해양조사원, 2017).</figcaption></figure>
+    <div class="q" data-why="황해 난류·동한 난류는 쿠로시오 해류에서 갈라져 나온 난류, 북한 한류만 한류예요.">
+      <div class="q-text"><span class="q-num">1</span>각 해류를 난류와 한류로 구분하고, 흐르는 바다를 확인해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">황해 난류</td><td><span class="choice-group" data-key="c_ys" data-answer="w"><button type="button" class="choice-btn" data-value="w">난류 (저위도 → 고위도)</button><button type="button" class="choice-btn" data-value="c">한류 (고위도 → 저위도)</button></span></td></tr><tr><td style="text-align:left">동한 난류</td><td><span class="choice-group" data-key="c_ek" data-answer="w"><button type="button" class="choice-btn" data-value="w">난류 (저위도 → 고위도)</button><button type="button" class="choice-btn" data-value="c">한류 (고위도 → 저위도)</button></span></td></tr><tr><td style="text-align:left">북한 한류</td><td><span class="choice-group" data-key="c_nk" data-answer="c"><button type="button" class="choice-btn" data-value="w">난류 (저위도 → 고위도)</button><button type="button" class="choice-btn" data-value="c">한류 (고위도 → 저위도)</button></span></td></tr><tr><td style="text-align:left">쿠로시오 해류</td><td><span class="choice-group" data-key="c_kr" data-answer="w"><button type="button" class="choice-btn" data-value="w">난류 (저위도 → 고위도)</button><button type="button" class="choice-btn" data-value="c">한류 (고위도 → 저위도)</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="북한 한류, 동해">
+      <div class="q-text"><span class="q-num">2</span>그림의 해류 중 고위도에서 저위도로 흐르는 해류는 <span class="choice-group" data-key="c2" data-answer="nk"><button type="button" class="choice-btn" data-value="ys">황해 난류</button><button type="button" class="choice-btn" data-value="ek">동한 난류</button><button type="button" class="choice-btn" data-value="nk">북한 한류</button><button type="button" class="choice-btn" data-value="kr">쿠로시오 해류</button></span>이고, 우리나라에서 조경 수역이 형성되는 바다는 <span class="choice-group" data-key="c3" data-answer="east"><button type="button" class="choice-btn" data-value="west">황해</button><button type="button" class="choice-btn" data-value="south">남해</button><button type="button" class="choice-btn" data-value="east">동해</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 세 번째 열쇠</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">해수는 <input class="blank w-s" data-key="key3" data-answer="일정한|일정"> 방향으로 나타나는 지속적인 흐름을 보인다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>254쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">255쪽</span></div>
+    <div class="q" data-why="난류, 동한 난류·북한 한류">
+      <div class="q-text"><span class="q-num">1</span>저위도에서 고위도로 흐르는 비교적 따뜻한 해류를 <input class="blank w-s" data-key="sc1" data-answer="난류"> 라고 한다. 동해를 흐르는 해류에는 <input class="blank w-s" data-key="sc2a" data-answer="동한 난류|북한 한류"> 와 <input class="blank w-s" data-key="sc2b" data-answer="북한 한류|동한 난류"> 가 있다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 우리나라 동해에서 북한 한류가 강하게 흐르면, 조경 수역의 위치는 어떻게 달라질지 설명해 보자.</div><textarea class="free" data-key="sc_front" rows="2" data-keywords="남쪽,내려,한류,강" data-model="북한 한류가 강해지면 찬 해수가 더 남쪽까지 내려오므로 동한 난류와 만나는 조경 수역의 위치가 평소보다 남쪽으로 이동한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인 활동지</span>우리나라 주변을 흐르는 해수</div>
+    <div class="q" data-why="해류, 저위도→고위도(난류), 고위도→저위도(한류)">
+      <div class="q-text"><span class="q-num">1</span>해수에서 일정한 방향으로 나타나는 지속적인 흐름을 <input class="blank w-s" data-key="t1" data-answer="해류"> 라고 한다. 난류는 <span class="choice-group" data-key="t2a" data-answer="저"><button type="button" class="choice-btn" data-value="저">저위도</button><button type="button" class="choice-btn" data-value="고">고위도</button></span>에서 <span class="choice-group" data-key="t2b" data-answer="고"><button type="button" class="choice-btn" data-value="저">저위도</button><button type="button" class="choice-btn" data-value="고">고위도</button></span>로 흐르는 따뜻한 해류이고, 한류는 <span class="choice-group" data-key="t3a" data-answer="고"><button type="button" class="choice-btn" data-value="저">저위도</button><button type="button" class="choice-btn" data-value="고">고위도</button></span>에서 <span class="choice-group" data-key="t3b" data-answer="저"><button type="button" class="choice-btn" data-value="저">저위도</button><button type="button" class="choice-btn" data-value="고">고위도</button></span>로 흐르는 차가운 해류이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="⑴ 황해 난류 ⑵ 북한 한류 ⑶ 동한 난류">
+      <div class="q-text"><span class="q-num">4</span>다음 특징에 알맞은 해류의 이름을 연결하시오.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 황해를 저위도에서 고위도로 흐르는 해류</td><td><span class="choice-group" data-key="t4a" data-answer="ys"><button type="button" class="choice-btn" data-value="ys">황해 난류</button><button type="button" class="choice-btn" data-value="ek">동한 난류</button><button type="button" class="choice-btn" data-value="nk">북한 한류</button></span></td></tr><tr><td style="text-align:left">⑵ 우리나라 주변 한류</td><td><span class="choice-group" data-key="t4b" data-answer="nk"><button type="button" class="choice-btn" data-value="ys">황해 난류</button><button type="button" class="choice-btn" data-value="ek">동한 난류</button><button type="button" class="choice-btn" data-value="nk">북한 한류</button></span></td></tr><tr><td style="text-align:left">⑶ 동해를 저위도에서 고위도로 흐르는 해류</td><td><span class="choice-group" data-key="t4c" data-answer="ek"><button type="button" class="choice-btn" data-value="ys">황해 난류</button><button type="button" class="choice-btn" data-value="ek">동한 난류</button><button type="button" class="choice-btn" data-value="nk">북한 한류</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="난류와 한류, 동해">
+      <div class="q-text"><span class="q-num">5</span>조경 수역은 <input class="blank w-s" data-key="t5a" data-answer="난류|한류"> 와 <input class="blank w-s" data-key="t5b" data-answer="한류|난류"> 가 만나는 해역이다. 우리나라 주변에서 조경 수역이 형성되는 위치는 <input class="blank w-s" data-key="t7" data-answer="동해"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>우리나라 주변 해류 <span class="pg">259쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>우리나라 주변 해류</h4>
+      <div class="q" style="border-top:none" data-why="동한 난류, 북한 한류, 조경 수역">
+        <div class="q-text">• 난류 — 황해 난류: 저위도에서 고위도로 흐르는 해류로 황해에 나타난다. · <input class="blank w-s" data-key="s1" data-answer="동한 난류"> : 저위도에서 고위도로 흐르는 해류로, 동해에 나타난다.<br>• 한류 — <input class="blank w-s" data-key="s2" data-answer="북한 한류"> : 고위도에서 저위도로 흐르는 해류로, 동해에 나타난다.<br>• <input class="blank w-s" data-key="s3" data-answer="조경 수역"> : 난류와 한류가 만나는 해역</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">우리나라 주변 해류의 종류와 특성을 설명할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">수온 분포 자료를 해석하여 난류와 한류를 구별할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">조경 수역이 좋은 어장이 되는 까닭에 관심을 가졌다.</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅲ. 수권과 해수의 순환 · 2. 해수의 특성과 순환 · 03 우리나라 주변을 흐르는 해수 · 비상교육 중학 과학 2(2015 개정) 교과서 Ⅶ단원(254~255쪽)·해 보기·개념 확인 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅲ-2-03 우리나라 주변을 흐르는 해수";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+/* ── 유리병과 해류 (모식도) ── */
+const DB = { t: -1, lab: false, seen: new Set() };
+$("db-go").addEventListener("click", () => { DB.t = 0; });
+$("db-reset").addEventListener("click", () => { DB.t = -1; $("db-msg").textContent = "유리병을 띄워 보세요."; });
+$("db-lab").addEventListener("click", () => DB.lab = !DB.lab);
+["db-w", "db-c"].forEach(id => $(id).addEventListener("input", () => DB.seen.add(id)));
+WS.custom("db_seen", { el: $("db-cv"), value: () => [...DB.seen].join(",") });
+// 정규화 좌표(0~1)로 그린 한반도 주변 모식도 — 정확한 지도가 아니라 해류의 흐름을 보여 주는 그림
+const KOR = [[0.42,0.05],[0.47,0.12],[0.5,0.22],[0.52,0.32],[0.53,0.42],[0.55,0.52],[0.56,0.62],[0.55,0.7],[0.523,0.75],[0.486,0.78],[0.448,0.76],[0.436,0.68],[0.417,0.6],[0.424,0.5],[0.405,0.42],[0.386,0.34],[0.399,0.25],[0.38,0.17],[0.399,0.1],[0.43,0.05]];
+const JPN = [[.68, .62], [.74, .55], [.80, .45], [.86, .35], [.92, .26], [.96, .30], [.92, .42], [.86, .55], [.80, .66], [.72, .74], [.64, .80], [.60, .76]];
+function path(c, P, W, H, s) { c.beginPath(); P.forEach((p, i) => i ? c.lineTo(p[0] * W, p[1] * H) : c.moveTo(p[0] * W, p[1] * H)); if (s) c.closePath(); }
+function along(P, u) { let L = 0; const d = []; for (let i = 0; i < P.length - 1; i++) { const l = Math.hypot(P[i + 1][0] - P[i][0], P[i + 1][1] - P[i][1]); d.push(l); L += l; } let s = u * L; for (let i = 0; i < d.length; i++) { if (s <= d[i]) { const t = s / d[i]; return [P[i][0] + (P[i + 1][0] - P[i][0]) * t, P[i][1] + (P[i + 1][1] - P[i][1]) * t]; } s -= d[i]; } return P[P.length - 1]; }
+LB.loop($("db-cv"), dt => {
+  const w = +$("db-w").value, cc = +$("db-c").value, front = .40 + (cc - w) * .025;   // 조경 수역 위치(위쪽일수록 북쪽)
+  const H = 320, sc = Math.min(1, $("db-cv").clientWidth / 360), g = LB.fit($("db-cv"), H * sc), c = g.c, W0 = g.w / sc; c.scale(sc, sc);
+  const W = Math.min(W0, 520), ox = (W0 - W) / 2; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W0, H); c.save(); c.translate(ox, 0);
+  c.fillStyle = "#bbdefb"; c.fillRect(0, 0, W, H); c.fillStyle = "#c5e1a5"; c.strokeStyle = "#8bc34a";
+  path(c, [[0, 0], [.62, 0], [.58, .05], [.47, .07], [.42, .05], [.35, .05], [.30, .10], [.27, .17], [.18, .13], [.10, .30], [.15, .42], [.06, .55], [0, .56]], W, H, true); c.fill();   // 대륙
+  path(c, KOR, W, H, true); c.fill();
+  path(c, JPN, W, H, true); c.fill(); c.beginPath(); c.ellipse(.43 * W, .88 * H, 18, 8, 0, 0, 7); c.fill();   // 제주도
+  c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.textAlign = "center"; c.fillText("제주도", .43 * W, .88 * H + 22); c.fillText("●부산", .58 * W, .76 * H); c.fillText("동해", .66 * W, .30 * H); c.fillText("황해", .18 * W, .62 * H);
+  // 해류 경로
+  const ek = [[.52, .98], [.55, .86], [.60, .74], [.60, .60], [.59, front + .08], [.62, front], [.75, front - .06]], nk = [[.56, .02], [.55, .10], [.56, .20], [.57, front - .06], [.59, front]], ys = [[.45, .98], [.36, .86], [.24, .72], [.18, .56]], kr = [[.30, 1.02], [.48, .99], [.70, .92], [.95, .80]];
+  const arrow = (P, col, wd, dash) => { c.strokeStyle = col; c.lineWidth = wd; c.setLineDash(dash ? [6, 5] : []); path(c, P, W, H); c.stroke(); c.setLineDash([]); const a = P[P.length - 2], b = P[P.length - 1], an = Math.atan2((b[1] - a[1]) * H, (b[0] - a[0]) * W); c.fillStyle = col; c.save(); c.translate(b[0] * W, b[1] * H); c.rotate(an); c.beginPath(); c.moveTo(6, 0); c.lineTo(-8, -7); c.lineTo(-8, 7); c.fill(); c.restore(); c.lineWidth = 1; };
+  arrow(kr, "rgba(229,57,53,.75)", 9, false); arrow(ek, "rgba(229,57,53,.85)", 2 + w * .6, false); arrow(ys, "rgba(229,57,53,.75)", 2.5, true); arrow(nk, "rgba(30,90,200,.85)", 2 + cc * .6, false);
+  // 조경 수역
+  c.fillStyle = "rgba(255,213,74,.35)"; c.beginPath(); c.ellipse(.62 * W, front * H, 40, 14, 0, 0, 7); c.fill(); c.font = "15px sans-serif"; c.fillText("🐟🐟", .66 * W, front * H + 5); c.font = "bold 11px Pretendard, sans-serif"; c.fillStyle = "#7a5b00"; c.fillText("조경 수역", .80 * W, front * H - 4);
+  if (DB.lab) { c.font = "bold 11px Pretendard, sans-serif"; [["동한 난류", .67, .66, "#c62828"], ["북한 한류", .64, .14, "#1e5ac8"], ["황해 난류", .30, .80, "#c62828"], ["쿠로시오 해류", .80, .95, "#c62828"]].forEach(([n, x, y, col]) => { c.fillStyle = col; c.fillText(n, x * W, y * H); }); }
+  // 유리병
+  if (DB.t >= 0) { DB.t = Math.min(1, DB.t + dt * .12); const P = [[.43, .86], [.52, .82], [.57, .78]], P2 = ek.slice(2); const p = DB.t < .4 ? along(P, DB.t / .4) : along(P2, (DB.t - .4) / .6 * .6);
+    c.font = "18px sans-serif"; c.fillText("🍾", p[0] * W, p[1] * H + 6); DB.seen.add("bottle");
+    $("db-msg").textContent = DB.t < .4 ? "제주도 앞바다에서 출발한 유리병이 대한 해협 쪽으로 흘러가요…" : DB.t < .55 ? "부산 앞바다 도착! 쿠로시오 해류에서 갈라진 난류를 타고 왔어요." : "계속 두면 동한 난류를 따라 동해를 거슬러 북쪽(조경 수역)까지 올라가요."; }
+  c.restore(); c.fillStyle = "#5b6b6d"; c.font = "10px Pretendard, sans-serif"; c.textAlign = "left"; c.fillText("모식도 — 실제 지도와 모양·거리가 다를 수 있어요", 6, H - 6);
+});
+
+</script>
+</body>
+</html>

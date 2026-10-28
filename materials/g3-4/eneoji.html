@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅳ-2-02 — 일을 하여 생긴 에너지</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/4">← KISPP 과학실 · 중학교 3학년 Ⅳ. 운동과 에너지</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p117-fig3-9.jpg" alt="">
+    <img class="lb-qmark" src="img/p116-cartoon.jpg" alt="3 m 떨어졌으니까 에너지가…….">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 운동과 에너지 · 2. 일과 에너지 · 02 <span class="pg" style="margin:0">116~119쪽</span></span>
+      <h1>일을 하여 생긴<br><span>에너지</span></h1>
+      <p>물체가 떨어질 때 생기는 에너지는 얼마일까? 가상 말뚝 박기로 추를 들어 올린 일이 위치 에너지가 되는 과정을 확인하고, 가상 속력 측정기로 자유 낙하 하는 쇠구슬의 운동 에너지를 재어 중력이 한 일과 비교해 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 일과 에너지의 관계를 설명하고, 중력에 대해 한 일을 위치 에너지로, 중력이 한 일을 운동 에너지로 표현할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>일과 에너지의 관계 알아보기 <span class="pg">116쪽</span></div>
+<figure class="fig" style="max-width:280px"><img src="img/p116-cartoon.jpg" alt="3 m 떨어졌으니까 에너지가……. — 물체가 떨어질 때 생기는 에너지는 얼마일까?"><figcaption><span class="tb">116쪽</span>3 m 떨어졌으니까 에너지가……. — 물체가 떨어질 때 생기는 에너지는 얼마일까?</figcaption></figure>
+    <div class="book"><p>높은 곳에 있는 물은 물레방아를 돌리는 일을 할 수 있고, 바람은 돛단배를 미는 일을 할 수 있다. 이와 같이 높은 곳에 있는 물체나 움직이는 물체는 일을 할 수 있는 능력이 있는데, 일을 할 수 있는 능력을 <span class="key">에너지</span>라고 한다.</p></div>
+<figure class="fig"><img src="img/p116-pile.jpg" alt="무거운 추를 들어 올려 말뚝을 박는 모습"><figcaption><span class="tb">116쪽</span>무거운 추를 들어 올려 말뚝을 박는 모습</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 말뚝 박기</span>추를 들어 올린 뒤 떨어뜨려 보자</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>추의 질량 <output id="pd-mo"></output> kg</label><input type="range" id="pd-m" min="10" max="50" step="10" value="20"></div><div class="ctrl"><label>들어 올린 높이 <output id="pd-ho"></output> m</label><input type="range" id="pd-h" min="0.5" max="3" step="0.5" value="1.5"></div></div>
+    <div class="btn-row"><button type="button" class="btn primary small" id="pd-drop">⬇️ 추 떨어뜨리기</button><button type="button" class="btn ghost small" id="pd-r">↺ 새 말뚝</button></div>
+    <div class="light-stage"><canvas id="pd-cv"></canvas></div>
+    <div id="pd-log" class="scroll-x"></div>
+    <div class="q" data-why="중력에 대해 한 일 → 추의 위치 에너지 → 말뚝을 박는 일. 일과 에너지는 서로 전환돼요." data-hint="질량과 높이를 바꿔 2 번 이상 떨어뜨려 보세요.">
+      <div class="q-text"><span class="q-num">1</span>추를 들어 올리는 <span class="choice-group" data-key="pd1" data-answer="일"><button type="button" class="choice-btn" data-value="일">일</button><button type="button" class="choice-btn" data-value="에">에너지</button></span>을 하면 추의 <span class="choice-group" data-key="pd2" data-answer="에"><button type="button" class="choice-btn" data-value="일">일</button><button type="button" class="choice-btn" data-value="에">에너지</button></span>가 증가하고, 에너지를 가진 추가 떨어지면서 말뚝을 박는 일을 한다. 추를 더 높이 들어 올리거나 더 무거운 추를 쓰면 말뚝이 <span class="choice-group" data-key="pd3" data-answer="깊"><button type="button" class="choice-btn" data-value="깊">더 깊이</button><button type="button" class="choice-btn" data-value="얕">더 얕게</button></span> 박힌다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>중력에 대해 한 일과 위치 에너지 <span class="pg">117쪽</span></div>
+    <div class="book"><p>추를 들어 올리는 일을 하면 추의 에너지가 증가하는데, 이는 중력에 대해 한 일이 추의 에너지로 전환되었기 때문이다. 추를 떨어뜨리면 추는 떨어지면서 말뚝을 박는 일을 하는데, 이는 추의 에너지가 일로 전환되었기 때문이다. 이와 같이 일과 에너지는 서로 전환될 수 있으며, 에너지의 단위는 일의 단위와 같은 J(줄)을 사용한다.</p>
+    <p>일정한 속력으로 물체를 들어 올릴 때에는 중력에 대해 한 일이 물체의 위치 에너지가 된다. 질량이 m(kg)인 물체를 높이 h(m)만큼 들어 올릴 때 중력에 대해 한 일 = 물체의 무게 × 올라간 높이 = 9.8 × 질량 × 올라간 높이 = 9.8mh 이다. 따라서 <span class="key">중력에 의한 위치 에너지(J) = 9.8mh</span> 이다. 중력에 의한 위치 에너지는 질량과 높이에 비례한다.</p></div>
+    <div class="fig-row"><figure class="fig"><img src="img/p117-fig3-9.jpg" alt="중력에 의한 위치 에너지 = 9.8mh"><figcaption><span class="tb">그림 3-9</span>중력에 의한 위치 에너지 = 9.8mh</figcaption></figure><figure class="fig"><img src="img/p117-fig3-10.jpg" alt="중력에 의한 위치 에너지와 질량, 높이의 관계"><figcaption><span class="tb">그림 3-10</span>중력에 의한 위치 에너지와 질량, 높이의 관계</figcaption></figure></div>
+    <div class="tip-box"><b>위치 에너지의 기준면</b> 중력에 의한 위치 에너지는 높이에 비례하므로 높이의 기준면에 따라 달라질 수 있다. 바닥을 기준면으로 하면 책상 위 물체의 위치 에너지는 9.8mh이지만, 책상 면을 기준면으로 하면 0이다.</div>
+    <div class="q" data-why="9.8 × 2 × 5 = 98 J, 높이에 비례하므로 2 배">
+      <div class="q-text"><span class="q-num">1</span>질량이 2 kg인 물체를 기준면으로부터 5 m 높이까지 들어 올렸을 때 물체의 중력에 의한 위치 에너지는 <input class="blank w-s" data-key="pe1" data-num="98" data-abs="0.5" style="width:60px"> J이다. 같은 물체를 10 m 높이로 들어 올리면 위치 에너지는 <span class="choice-group" data-key="pe2" data-answer="2"><button type="button" class="choice-btn" data-value="2">2 배</button><button type="button" class="choice-btn" data-value="4">4 배</button><button type="button" class="choice-btn" data-value="같">같다</button></span>가 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 · 측정</span>자유 낙하 하는 물체에서의 일과 운동 에너지 <span class="pg">118~119쪽</span></div>
+<figure class="fig" style="max-width:220px"><img src="img/p118-fig3-11.jpg" alt="운동 에너지 = ½mv²"><figcaption><span class="tb">그림 3-11</span>운동 에너지 = ½mv²</figcaption></figure>
+    <div class="book"><p>물체를 높은 곳에서 가만히 놓아 물체가 자유 낙하를 하면 중력이 물체에 한 일이 물체의 <span class="key">운동 에너지</span>가 된다. 질량이 m(kg)인 물체가 속력 v(m/s)로 운동할 때 <b>운동 에너지(J) = ½ × 질량 × 속력² = ½mv²</b> 이다. 물체의 질량이 2 배, 3 배가 되면 운동 에너지는 2 배, 3 배가 되고, 속력이 2 배, 3 배가 되면 운동 에너지는 4 배, 9 배가 된다.</p></div>
+<figure class="fig" style="max-width:520px"><img src="img/p118-fig3-12.jpg" alt="운동 에너지와 질량, 속력의 관계"><figcaption><span class="tb">그림 3-12</span>운동 에너지와 질량, 속력의 관계</figcaption></figure><figure class="fig" style="max-width:220px"><img src="img/p119-setup.jpg" alt="투명한 플라스틱 관 · 속력 측정기 · 모래를 넣은 종이컵 — O점에서 쇠구슬을 떨어뜨려 A점의 속력을 잰다."><figcaption><span class="tb">119쪽</span>투명한 플라스틱 관 · 속력 측정기 · 모래를 넣은 종이컵 — O점에서 쇠구슬을 떨어뜨려 A점의 속력을 잰다.</figcaption></figure>
+    <div class="steps-box"><ol><li>쇠구슬의 질량을 측정한다.</li><li>스탠드로 투명한 플라스틱 관을 지면에 수직으로 세우고, 모래를 넣은 종이컵을 관 아래에 놓는다. (실에 추를 매달아 관이 수직인지 확인)</li><li>관의 아래쪽에 속력 측정기를 설치하고 O점에서 A점까지의 거리를 잰다.</li><li><b>측정</b> 속력 측정기를 켜고 O점에서 쇠구슬을 떨어뜨려 속력을 측정한다.</li></ol></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 속력 측정기</span>쇠구슬을 3 번 떨어뜨려 A점의 속력을 재자</div>
+    <div class="ctrl-grid"><div class="ctrl"><label>쇠구슬의 질량 <output id="sp-mo"></output> kg</label><input type="range" id="sp-m" min="0.02" max="0.1" step="0.02" value="0.04"></div><div class="ctrl"><label>O점 ~ A점 거리 <output id="sp-ho"></output> m</label><input type="range" id="sp-h" min="0.5" max="1.5" step="0.25" value="1"></div></div>
+    <div class="btn-row"><button type="button" class="btn primary small" id="sp-drop">⚪ 쇠구슬 떨어뜨리기</button><button type="button" class="btn ghost small" id="sp-r">↺ 기록 지우기</button></div>
+    <div class="light-stage"><canvas id="sp-cv"></canvas></div>
+    <div id="sp-tb" class="scroll-x"></div>
+    <div class="q" data-why="W = 9.8 × 0.04 × 1 = 0.392 J, Ek = ½ × 0.04 × 4.4² ≒ 0.387 J → 거의 같아요(측정 오차)." data-hint="측정을 3 번 해서 평균을 내 보세요.">
+      <div class="q-text"><span class="q-num">1</span><b>정리하기</b> 쇠구슬의 질량 0.04 kg, O~A 1 m일 때 중력이 쇠구슬에 한 일은 <input class="blank w-s" data-key="sp1" data-num="0.392" data-abs="0.01" style="width:64px"> J이고, A점에서 측정한 속력이 약 4.4 m/s이면 운동 에너지는 약 <input class="blank w-s" data-key="sp2" data-num="0.39" data-abs="0.02" style="width:64px"> J이다. 따라서 중력이 한 일과 운동 에너지는 <span class="choice-group" data-key="sp3" data-answer="같"><button type="button" class="choice-btn" data-value="같">같다</button><button type="button" class="choice-btn" data-value="일">중력이 한 일이 더 크다</button><button type="button" class="choice-btn" data-value="운">운동 에너지가 더 크다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="book"><p>물체가 자유 낙하 하는 동안 중력이 물체에 한 일의 양과 물체의 운동 에너지가 같다. 이는 물체가 자유 낙하 할 때 중력이 한 일이 모두 운동 에너지로 전환되기 때문이다.</p></div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>탐구 기능</b> 쇠구슬이 자유 낙하 할 수 있도록 실험 기구를 설치하였는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>탐구 기능</b> 일의 양과 운동 에너지를 옳게 구하였는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>인성</b> 서로 역할을 분담하여 실험을 수행하였는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+    <div class="block-q">
+      <b>🧩 두 번째 열쇠 (119쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">처마에서 떨어지는 빗방울이 자유 낙하를 하면 중력이 한 일이 빗방울의 ( <input class="blank w-s" data-key="key2" data-answer="운동"> ) 에너지가 되어 바닥을 파는 일을 할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>116쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">119쪽</span></div>
+    <div class="q" data-why="에너지">
+      <div class="q-text"><span class="q-num">1</span>물체에 일을 하면 물체의 <input class="blank w-s" data-key="k1" data-answer="에너지"> 가 증가한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="중력">
+      <div class="q-text"><span class="q-num">2</span>물체가 자유 낙하 할 때 <input class="blank w-s" data-key="k2" data-answer="중력"> 이 한 일은 물체의 운동 에너지가 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="일 = 무게 × 높이, 달에서 무게가 1/6이므로 같은 일로 6 배 높이 올라가요.">
+      <div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 지구와 달에서 질량이 같은 물체에 같은 양의 일을 하여 들어 올렸다. 달의 중력이 지구의 1/6이라면 달에서 물체가 올라간 높이는 지구에서의 <input class="blank w-s" data-key="k3" data-num="6" data-abs="0" style="width:60px"> 배이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인</span>일을 하여 생긴 에너지</div>
+    <div class="q" data-why="땅(기준면)에 놓여 있는 돌은 위치 에너지가 0이고 움직이지도 않아요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 에너지는 일을 할 수 있는 능력으로 단위로는 J(줄)을 사용한다.</td><td><span class="choice-group" data-key="t1_1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 일과 에너지는 서로 전환될 수 있다.</td><td><span class="choice-group" data-key="t1_2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 댐에 고인 물, 날아가는 야구공, 땅에 놓여 있는 돌은 모두 에너지를 가진다.</td><td><span class="choice-group" data-key="t1_3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="질량, 높이, 0">
+      <div class="q-text"><span class="q-num">2</span>중력에 의한 위치 에너지는 물체의 <input class="blank w-s" data-key="t2a" data-answer="질량"> 에 비례하고, 기준면으로부터의 <input class="blank w-s" data-key="t2b" data-answer="높이"> 에 비례한다. 따라서 기준면에 있는 물체의 중력에 의한 위치 에너지는 <input class="blank w-s" data-key="t2c" data-num="0" data-abs="0" style="width:60px"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="Ep는 m과 h에 각각 정비례 → 원점을 지나는 직선(ㄱ, ㄷ)">
+      <div class="q-text"><span class="q-num">3</span>중력에 의한 위치 에너지(Ep)와 질량(m) 및 높이(h) 사이의 관계를 옳게 나타낸 그래프를 모두 고르시오.</div><div class="multi-group" data-key="t3" data-answer="ㄱ,ㄷ"><button type="button" class="multi-btn" data-value="ㄱ">ㄱ. Ep-m: 원점을 지나는 직선</button><button type="button" class="multi-btn" data-value="ㄴ">ㄴ. Ep-m: 반비례 곡선</button><button type="button" class="multi-btn" data-value="ㄷ">ㄷ. Ep-h: 원점을 지나는 직선</button><button type="button" class="multi-btn" data-value="ㄹ">ㄹ. Ep-h: 위로 휘는 곡선</button></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="9.8 × 2 × 5 = 98 J">
+      <div class="q-text"><span class="q-num">4</span>질량이 2 kg인 물체를 기준면으로부터 5 m 높이까지 들어 올리는 일을 하였다. 이때 물체의 중력에 의한 위치 에너지는 <input class="blank w-s" data-key="t4" data-num="98" data-abs="0.5" style="width:60px"> J이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="질량, 속력">
+      <div class="q-text"><span class="q-num">5</span>운동 에너지는 물체의 <input class="blank w-s" data-key="t5a" data-answer="질량"> 에 비례하고, <input class="blank w-s" data-key="t5b" data-answer="속력"> 의 제곱에 비례한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="중력이 한 일 = 운동 에너지">
+      <div class="q-text"><span class="q-num">6</span>어떤 물체가 높은 곳에서 자유 낙하 하는 동안 중력이 물체에 한 일이 20 J이었다. 이때 물체의 운동 에너지는 <input class="blank w-s" data-key="t6" data-num="20" data-abs="0" style="width:60px"> J이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>일을 하여 생긴 에너지 <span class="pg">123쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>위치 에너지와 운동 에너지</h4>
+      <div class="q" style="border-top:none" data-why="에너지, 중력, 2, 4">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="에너지"> : 일을 할 수 있는 능력 — 일과 에너지는 서로 전환될 수 있다.<br>⑵ 물체를 들어 올릴 때 물체에 작용하는 <input class="blank w-s" data-key="s2" data-answer="중력"> 만큼의 힘이 필요하고, 중력에 대해 한 일 9.8mh가 위치 에너지가 된다.<br>⑶ 운동 에너지 = ½mv² — 질량이 2 배이면 <input class="blank w-s" data-key="s3" data-num="2" data-abs="0" style="width:60px"> 배, 속력이 2 배이면 <input class="blank w-s" data-key="s4" data-num="4" data-abs="0" style="width:60px"> 배가 된다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">일과 에너지의 관계를 설명할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">중력에 대해 한 일을 위치 에너지로, 중력이 한 일을 운동 에너지로 표현할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅳ. 운동과 에너지 · 2. 일과 에너지 · 02 일을 하여 생긴 에너지 · 비상교육 중학 과학 3 교과서 Ⅲ단원(116~119쪽)·해 보기·탐구·개념 확인 활동지 바탕, 교과서 그림 수록 · 측정값은 교육용 예시</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅳ-2-02 일을 하여 생긴 에너지";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 가상 말뚝 박기 ── */
+const PD = { depth: 0, st: 0, t0: 0, log: [] }; // st 0 대기, 1 낙하
+$("pd-m").addEventListener("input", () => $("pd-mo").textContent = $("pd-m").value); $("pd-h").addEventListener("input", () => $("pd-ho").textContent = $("pd-h").value); $("pd-mo").textContent = 20; $("pd-ho").textContent = 1.5;
+$("pd-drop").addEventListener("click", () => { if (PD.st) return; PD.st = 1; PD.t0 = performance.now(); });
+$("pd-r").addEventListener("click", () => { PD.depth = 0; PD.st = 0; PD.log = []; pdLog(); });
+function pdLog() { $("pd-log").innerHTML = PD.log.length ? '<table class="data-t"><tr><th>질량(kg)</th><th>높이(m)</th><th>위치 에너지 9.8mh(J)</th><th>말뚝이 박힌 깊이(cm)</th></tr>' + PD.log.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].toFixed(0)}</td><td>${r[3].toFixed(1)}</td></tr>`).join("") + "</table>" : ""; }
+WS.custom("pd_log", { el: $("pd-cv"), value: () => PD.log.length + "", check: () => PD.log.length >= 2, answer: "질량·높이를 바꿔 2 번 이상 떨어뜨리기" });
+LB.loop($("pd-cv"), (dt, t) => { const m = +$("pd-m").value, h = +$("pd-h").value, g = LB.fit($("pd-cv"), 260), c = g.c, W = g.w, H = 260; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const gy = 200, cx = W * 0.4, sc = 40; c.fillStyle = "#c9a46a"; c.fillRect(0, gy, W, 60);
+  let top = gy - 50 + PD.depth * 0.6 - 20, wy = top - 30 - h * sc;
+  if (PD.st) { const s = (t - PD.t0) / 1000, fall = 0.5 * 9.8 * s * s * sc; wy = Math.min(top - 30, top - 30 - h * sc + fall); if (wy >= top - 30) { const d = 9.8 * m * h / 30; PD.depth += d; PD.log.push([m, h, 9.8 * m * h, d]); pdLog(); PD.st = 0; } }
+  c.fillStyle = "#8a6a3a"; c.fillRect(cx - 10, top, 20, gy + 40 - top); c.fillStyle = "#6b4f2a"; c.fillRect(cx - 12, top - 4, 24, 6);
+  c.strokeStyle = "#888"; c.lineWidth = 3; c.beginPath(); c.moveTo(cx + 60, gy); c.lineTo(cx + 60, 20); c.lineTo(cx, 20); c.stroke(); c.lineWidth = 1; c.beginPath(); c.moveTo(cx, 20); c.lineTo(cx, wy); c.stroke();
+  const ww = 20 + m * 0.5; c.fillStyle = "#555"; c.fillRect(cx - ww / 2, wy, ww, 30); c.fillStyle = "#fff"; c.font = "bold 11px sans-serif"; c.textAlign = "center"; c.fillText(m + "kg", cx, wy + 19); c.textAlign = "left";
+  c.setLineDash([3, 3]); c.strokeStyle = "#e4572e"; c.beginPath(); c.moveTo(cx - 60, top - 30 - h * sc + 30); c.lineTo(cx - 60, top); c.stroke(); c.setLineDash([]); c.fillStyle = "#e4572e"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText(`h = ${h} m`, cx - 120, top - h * sc / 2);
+  c.fillStyle = "#26393b"; c.fillText(`위치 에너지 = 9.8 × ${m} × ${h} = ${(9.8 * m * h).toFixed(0)} J`, 10, 18); c.fillText(`말뚝 깊이 ${PD.depth.toFixed(1)} cm`, W - 140, 18); });
+
+/* ── 가상 속력 측정기 ── */
+const SP = { rows: [], drop: 0, t0: 0 };
+["sp-m", "sp-h"].forEach(k => $(k).addEventListener("input", () => { $("sp-mo").textContent = (+$("sp-m").value).toFixed(2); $("sp-ho").textContent = $("sp-h").value; })); $("sp-mo").textContent = "0.04"; $("sp-ho").textContent = "1";
+$("sp-drop").addEventListener("click", () => { if (!SP.drop) { SP.drop = 1; SP.t0 = performance.now(); } });
+$("sp-r").addEventListener("click", () => { SP.rows = []; spTb(); });
+function spTb() { if (!SP.rows.length) { $("sp-tb").innerHTML = ""; return; } const m = SP.rows[SP.rows.length - 1][0], h = SP.rows[SP.rows.length - 1][1], same = SP.rows.filter(r => r[0] === m && r[1] === h).slice(-3), avg = same.reduce((s, r) => s + r[2], 0) / same.length;
+  $("sp-tb").innerHTML = `<table class="data-t"><tr><th>횟수</th>${same.map((_, i) => `<td>${i + 1} 회</td>`).join("")}<td>평균</td></tr><tr><th>속력(m/s)</th>${same.map(r => `<td>${r[2].toFixed(2)}</td>`).join("")}<td><b>${avg.toFixed(2)}</b></td></tr></table>
+  <p style="font-size:13px;margin:6px 0">질량 ${m.toFixed(2)} kg · O~A ${h} m → 중력이 한 일 = 9.8 × ${m.toFixed(2)} × ${h} = <b>${(9.8 * m * h).toFixed(3)} J</b> · 운동 에너지 = ½ × ${m.toFixed(2)} × ${avg.toFixed(2)}² = <b>${(0.5 * m * avg * avg).toFixed(3)} J</b></p>`; }
+WS.custom("sp_runs", { el: $("sp-cv"), value: () => SP.rows.length + "" });
+LB.loop($("sp-cv"), (dt, t) => { const m = +$("sp-m").value, h = +$("sp-h").value, g = LB.fit($("sp-cv"), 260), c = g.c, W = g.w, H = 260; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const cx = W * 0.35, top = 20, sc = 140; const ay = top + h * sc;
+  c.fillStyle = "rgba(200,225,255,.4)"; c.fillRect(cx - 10, top, 20, 225); c.strokeStyle = "#8fb3c9"; c.strokeRect(cx - 10, top, 20, 225);
+  c.fillStyle = "#333"; c.fillRect(cx + 10, ay - 6, 26, 12); c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText("O", cx - 24, top + 6); c.fillText("A (속력 측정기)", cx + 40, ay + 4);
+  c.fillStyle = "#d9c9a3"; c.fillRect(cx - 18, 245, 36, 14);
+  let by = top; if (SP.drop) { const s = (t - SP.t0) / 1000 * 0.6; by = top + Math.min(225, 0.5 * 9.8 * s * s * sc); if (by >= ay && !SP.hit) { SP.hit = 1; const v = Math.sqrt(2 * 9.8 * h) * (1 + (Math.random() - 0.5) * 0.03); SP.rows.push([m, h, v]); spTb(); } if (by >= top + 225) { SP.drop = 0; SP.hit = 0; } }
+  c.fillStyle = "#9aa6ad"; c.beginPath(); c.arc(cx, by + 6, 6 + m * 40, 0, 7); c.fill();
+  const last = SP.rows[SP.rows.length - 1]; c.fillStyle = "#1e2b2f"; c.fillRect(W - 170, 20, 150, 40); c.fillStyle = "#6dff8f"; c.font = "bold 15px monospace"; c.fillText(last ? last[2].toFixed(2) + " m/s" : "-.-- m/s", W - 160, 46); c.fillStyle = "#26393b"; c.font = "11px Pretendard, sans-serif"; c.fillText("속력 측정기 화면", W - 170, 76); });
+
+</script>
+</body>
+</html>

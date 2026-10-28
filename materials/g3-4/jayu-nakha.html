@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅳ-1-03 — 자유 낙하 하는 물체의 운동</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/4">← KISPP 과학실 · 중학교 3학년 Ⅳ. 운동과 에너지</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p107-sky.jpg" alt="">
+    <img class="lb-qmark" src="img/p106-cartoon.jpg" alt="번지 점프를 할 때 떨어질수록 속력은 어떻게 될까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 운동과 에너지 · 1. 등속 운동과 자유 낙하 운동 · 03 <span class="pg" style="margin:0">106~111쪽</span></span>
+      <h1>자유 낙하 하는<br><span>물체의 운동</span></h1>
+      <p>번지 점프를 할 때 떨어질수록 속력은 어떻게 될까? 가상 색 띠를 잘라 세워 자유 낙하 운동의 속력 변화를 그래프로 확인하고, 진공 낙하 장치로 공과 깃털을 지구와 달에서 떨어뜨려 보자.</p>
+      <div class="goal">🎯 이 단원을 배우면 — 자유 낙하 하는 물체의 운동을 분석하고, 속력 변화를 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기</span>자유 낙하 운동 분석하기 <span class="pg">106쪽</span></div>
+<figure class="fig" style="max-width:280px"><img src="img/p106-cartoon.jpg" alt="번지 점프를 할 때 떨어질수록 속력은 어떻게 될까?"><figcaption><span class="tb">106쪽</span>번지 점프를 할 때 떨어질수록 속력은 어떻게 될까?</figcaption></figure>
+    <div class="book"><p>높은 곳에서 물체를 가만히 놓으면 아래로 떨어지는데, 공기 저항이 없을 때 이러한 운동을 <span class="key">자유 낙하 운동</span>이라고 한다. 다음 활동으로 자유 낙하 하는 물체의 속력은 어떻게 변하는지 알아보자.</p></div>
+<figure class="fig"><img src="img/p106-activity.jpg" alt="자유 낙하 하는 공의 위치를 색 띠에 표시하고, 구간마다 잘라 그래프에 순서대로 세워서 붙인다."><figcaption><span class="tb">106쪽</span>자유 낙하 하는 공의 위치를 색 띠에 표시하고, 구간마다 잘라 그래프에 순서대로 세워서 붙인다.</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 색 띠</span>0.1 초마다 찍은 공의 위치를 잘라 세워 보자</div>
+    <div class="btn-row"><button type="button" class="btn primary small" id="ff-drop">⚽ 공 떨어뜨리기</button><button type="button" class="btn small" id="ff-cut">✂️ 구간별로 잘라 세우기</button><button type="button" class="btn ghost small" id="ff-r">↺ 처음으로</button></div>
+    <div class="light-stage"><canvas id="ff-cv"></canvas></div>
+    <div class="q" data-why="같은 시간 간격의 이동 거리 = 속력, 띠 길이가 일정하게 늘어나므로 속력이 일정하게 커져요." data-hint="공을 떨어뜨리고 띠를 잘라 세워 보세요.">
+      <div class="q-text"><span class="q-num">1</span>구간 ①~⑤의 길이(같은 시간 동안 이동한 거리)는 순서대로 <span class="choice-group" data-key="ff1" data-answer="커"><button type="button" class="choice-btn" data-value="커">일정하게 길어진다</button><button type="button" class="choice-btn" data-value="같">모두 같다</button><button type="button" class="choice-btn" data-value="작">점점 짧아진다</button></span>. 띠를 세운 그래프의 꼭대기를 이으면 <span class="choice-group" data-key="ff2" data-answer="직"><button type="button" class="choice-btn" data-value="직">원점을 지나는 기울어진 직선</button><button type="button" class="choice-btn" data-value="수">시간축에 나란한 직선</button></span> 모양이 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">교과서</span>자유 낙하 하는 물체의 속력은 어떻게 변할까? <span class="pg">107쪽</span></div>
+    <div class="book"><p>자유 낙하 하는 물체는 같은 시간 동안 이동한 구간 거리가 시간에 따라 일정하게 커진다. 물체 사이의 시간 간격이 일정할 때 물체가 이동한 거리는 속력을 뜻하므로, 자유 낙하 하는 물체는 <b>그림 3-4</b>와 같이 속력이 일정하게 커진다는 것을 알 수 있다. 즉, 자유 낙하 운동에서는 시간에 따른 속력 변화가 일정하다.</p>
+    <p>자유 낙하 하는 물체가 시간에 따라 속력이 일정하게 커지는 것은 물체가 낙하하는 동안 아래 방향으로 일정한 크기의 <span class="key">중력</span>을 계속 받기 때문이다. 번지 점프나 스카이다이빙을 할 때 공기 저항이 없다면 사람에게 중력만 작용하여 시간에 따라 속력이 일정하게 빨라지는 자유 낙하 운동을 한다.</p></div>
+    <div class="fig-row"><figure class="fig"><img src="img/p107-fig3-4.jpg" alt="자유 낙하 운동의 시간-속력 그래프"><figcaption><span class="tb">그림 3-4</span>자유 낙하 운동의 시간-속력 그래프</figcaption></figure><figure class="fig"><img src="img/p107-sky.jpg" alt="스카이다이빙"><figcaption><span class="tb">그림 3-5</span>스카이다이빙</figcaption></figure></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">두 그래프 겹쳐 보기</span>등속 운동과 자유 낙하 운동</div>
+    <div class="light-stage"><canvas id="vt-cv"></canvas></div>
+    <div class="q" data-why="자유 낙하: 속력이 일정하게 커짐 / 등속: 속력 일정">
+      <div class="q-text"><span class="q-num">1</span>자유 낙하 운동의 시간-속력 그래프는 <span class="choice-group" data-key="vt1" data-answer="기"><button type="button" class="choice-btn" data-value="기">원점을 지나는 기울어진 직선</button><button type="button" class="choice-btn" data-value="수">시간축에 나란한 직선</button></span>이고, 등속 운동의 시간-속력 그래프는 <span class="choice-group" data-key="vt2" data-answer="수"><button type="button" class="choice-btn" data-value="기">원점을 지나는 기울어진 직선</button><button type="button" class="choice-btn" data-value="수">시간축에 나란한 직선</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">탐구 수행</span>질량이 다른 물체가 자유 낙하 할 때의 속력 변화 비교 <span class="pg">108~109쪽</span></div>
+<figure class="fig" style="max-width:240px"><img src="img/p108-vacuum.jpg" alt="진공 낙하 실험 장치"><figcaption><span class="tb">108쪽</span>진공 낙하 실험 장치</figcaption></figure>
+    <div class="book"><p>공기 중에서 공과 깃털을 같은 높이에서 동시에 떨어뜨리면 공이 먼저 바닥에 도달한다. 진공에서 공과 깃털이 자유 낙하 할 때에는 속력이 어떻게 변하는지 비교해 보자.</p></div>
+    <div class="steps-box"><ol><li><b>예상</b> 진공에서 질량이 서로 다른 공과 깃털이 자유 낙하 할 때 바닥에 먼저 도달하는 물체는 어느 것인지 예상한다.</li><li><b>탐구 수행</b> 진공 낙하 실험 장치를 뒤집어 세우면서 공과 깃털이 동시에 낙하하는 장면을 동영상으로 촬영한다.</li><li>촬영한 영상을 관찰하여 바닥에 도달할 때의 공과 깃털의 모습을 비교한다.</li></ol></div>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span><b>예상</b> 진공에서 공과 깃털 중 바닥에 먼저 도달하는 것은 무엇일까?</div><textarea class="free" data-key="pred" rows="2" data-keywords="" data-model="내 생각에는 공기 저항이 없으므로 공과 깃털이 동시에 떨어질 것 같다."></textarea><span class="fb"></span></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">가상 진공 낙하 장치</span>공기를 빼고 뒤집어 보자</div>
+    <div class="btn-row" id="vc-env"><button type="button" class="btn small" data-e="air">🌬️ 공기 있음</button><button type="button" class="btn small" data-e="vac">🫙 진공</button><button type="button" class="btn small" data-e="moon">🌙 달 (진공, 중력 1/6)</button><button type="button" class="btn primary small" id="vc-go">🔄 뒤집기 (동시에 낙하)</button></div>
+    <div class="light-stage"><canvas id="vc-cv"></canvas></div>
+    <div class="q" data-why="진공에서는 공기 저항이 없으므로 중력만 받아 속력 변화가 같아요." data-hint="진공 조건에서 뒤집어 보세요.">
+      <div class="q-text"><span class="q-num">1</span><b>정리하기</b> 진공에서 공과 깃털이 같은 높이에서 동시에 자유 낙하 하면 <span class="choice-group" data-key="vc1" data-answer="동"><button type="button" class="choice-btn" data-value="공">공이 먼저</button><button type="button" class="choice-btn" data-value="동">두 물체가 동시에</button><button type="button" class="choice-btn" data-value="깃">깃털이 먼저</button></span> 바닥에 도달한다. 자유 낙하 하는 물체는 질량과 관계없이 속력이 빨라지는 정도가 <span class="choice-group" data-key="vc2" data-answer="같"><button type="button" class="choice-btn" data-value="같">같다</button><button type="button" class="choice-btn" data-value="다">다르다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>탐구 기능</b> 실험 결과가 잘 나타나도록 탐구를 수행하였는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>탐구 기능</b> 실험 결과를 근거로 하여 결론을 도출하였는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>인성</b> 모둠 구성원과 협력하며 활동하였는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+    <div class="tip-box">🔌 <b>아두이노로 직접 재 보자!</b> 초음파 센서로 수평면의 자동차와 빗면의 수레를 기록해 등속 운동과 빨라지는 운동을 비교하는 <a href="arduino-deungsok.html">아두이노 실험 보고서</a></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>중력 가속도와 중력의 크기 <span class="pg">109쪽</span></div>
+    <div class="book"><p>지표면 근처에서 자유 낙하 하는 모든 물체는 1 초에 약 <b>9.8 m/s</b>씩 속력이 빨라진다. 이렇게 속력이 일정하게 빨라지는 것은 물체에 중력이 작용하기 때문이다. 물체에 작용하는 중력의 크기는 무게와 같으며 무게는 질량에 비례하므로, 중력의 크기(N)는 물체가 자유 낙하 할 때의 속력 변화량인 9.8에 질량(kg)을 곱하여 구한다. <b>중력의 크기 = 9.8 × 질량</b> (9.8: 중력 가속도 상수)</p></div>
+<figure class="fig"><img src="img/p109-fig3-6.jpg" alt="물체에 작용하는 중력의 크기 — 질량이 1 kg인 아령: 9.8 N, 질량이 3 kg인 아령: 29.4 N"><figcaption><span class="tb">그림 3-6</span>물체에 작용하는 중력의 크기 — 질량이 1 kg인 아령: 9.8 N, 질량이 3 kg인 아령: 29.4 N</figcaption></figure>
+    <div class="q" data-why="9.8 × 3 = 29.4 N, 질량과 관계없이 1 초에 9.8 m/s씩 빨라져요.">
+      <div class="q-text"><span class="q-num">1</span>질량이 3 kg인 아령에 작용하는 중력의 크기는 <input class="blank w-s" data-key="g1" data-num="29.4" data-abs="0.1" style="width:60px"> N이다. 무게가 9.8 N, 29.4 N인 두 물체가 동시에 자유 낙하 하면 1 초 뒤 속력은 모두 <input class="blank w-s" data-key="g2" data-num="9.8" data-abs="0.1" style="width:60px"> m/s로 같다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="block-q">
+      <b>🧩 두 번째 열쇠 (109쪽)</b>
+      <div class="q" style="border-top:none;padding:0" data-why="">
+        <div class="q-text" style="color:#3a1600">자이로 드롭이 떨어질 때에는 중력이 작용하여 시간에 따라 속력이 일정하게 빨라지는 ( <input class="blank w-s" data-key="key2" data-answer="자유 낙하|자유낙하"> ) 운동을 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">🔑</span><b>열쇠 모으기</b> 자이로 드롭이 올라갈 때와 떨어질 때의 운동은 어떻게 다를까? '속력, 등속, 중력, 자유 낙하'를 사용하여 설명해 보자.</div><textarea class="free" data-key="key_all" rows="3" data-keywords="속력,등속,중력,자유 낙하" data-model="자이로 드롭이 올라갈 때에는 시간에 따라 속력이 일정하므로 등속 운동을 한다. 떨어질 때에는 중력이 작용하여 시간에 따라 속력이 일정하게 빨라지는 자유 낙하 운동을 한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 확인하기</span>106쪽 학습 목표를 달성했는지 확인해 보자 <span class="pg">109쪽</span></div>
+    <div class="q" data-why="일정하게 빨라지는">
+      <div class="q-text"><span class="q-num">1</span>자유 낙하 하는 물체는 속력이 <span class="choice-group" data-key="k1" data-answer="빨"><button type="button" class="choice-btn" data-value="일">일정한</button><button type="button" class="choice-btn" data-value="빨">일정하게 빨라지는</button></span> 운동을 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="9.8">
+      <div class="q-text"><span class="q-num">2</span>지표면 근처에서 자유 낙하 하는 모든 물체는 1 초에 약 <input class="blank w-s" data-key="k2" data-num="9.8" data-abs="0.05" style="width:60px"> m/s씩 속력이 빨라진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>과학적 사고력</b> 지구와 달에서 동일한 물체가 같은 높이에서 각각 자유 낙하 하면 속력이 어떻게 변하는지 비교하여 설명해 보자.</div><textarea class="free" data-key="k3" rows="2" data-keywords="달,중력,작,천천히,일정하게" data-model="두 곳 모두 속력이 일정하게 빨라지지만, 달은 중력이 지구의 약 1/6이므로 1 초마다 빨라지는 정도가 더 작아 더 천천히 빨라지고 바닥에 늦게 도달한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">개념 확인</span>자유 낙하 하는 물체의 운동</div>
+    <div class="q" data-why="커지는">
+      <div class="q-text"><span class="q-num">1</span>자유 낙하 하는 물체는 시간에 따라 속력이 일정하게 <span class="choice-group" data-key="t1" data-answer="커"><button type="button" class="choice-btn" data-value="작">작아지는</button><button type="button" class="choice-btn" data-value="커">커지는</button></span> 운동을 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="tip-box">(가) 간격 일정 · (나) 간격이 점점 좁아짐 · (다) 간격이 점점 넓어짐 / 시간-속력 그래프: A 원점에서 증가 · B 일정 · C 감소</div>
+    <div class="q" data-why="간격이 점점 넓어지는 (다), 속력이 일정하게 커지는 A">
+      <div class="q-text"><span class="q-num">2</span>자유 낙하 운동을 연속으로 기록한 자료는 <span class="choice-group" data-key="t2a" data-answer="다"><button type="button" class="choice-btn" data-value="가">가</button><button type="button" class="choice-btn" data-value="나">나</button><button type="button" class="choice-btn" data-value="다">다</button></span>이고, 시간-속력 그래프는 <span class="choice-group" data-key="t2b" data-answer="A"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button><button type="button" class="choice-btn" data-value="C">C</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="9.8 m/s">
+      <div class="q-text"><span class="q-num">3</span>지표면 근처에서 자유 낙하 하는 물체는 1 초에 속력이 <input class="blank w-s" data-key="t3" data-num="9.8" data-abs="0.05" style="width:60px"> m/s씩 빨라진다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="중력">
+      <div class="q-text"><span class="q-num">4</span>자유 낙하 하는 물체가 속력이 일정하게 빨라지는 까닭은 지구 중심 방향으로 <input class="blank w-s" data-key="t4" data-answer="중력"> 이 계속 작용하기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="모두 동시에, 중력">
+      <div class="q-text"><span class="q-num">5</span>진공 상태에서 공과 깃털을 자유 낙하 시키면 <span class="choice-group" data-key="t5" data-answer="동"><button type="button" class="choice-btn" data-value="공">공이 먼저 떨어진다</button><button type="button" class="choice-btn" data-value="깃">깃털이 먼저 떨어진다</button><button type="button" class="choice-btn" data-value="동">모두 동시에 떨어진다</button></span>. 이때 공과 깃털에 작용하는 힘은 <input class="blank w-s" data-key="t6" data-answer="중력"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="9.8 × 10 = 98 N">
+      <div class="q-text"><span class="q-num">7</span>질량이 10 kg인 물체에 작용하는 중력의 크기는 <input class="blank w-s" data-key="t7" data-num="98" data-abs="0.5" style="width:60px"> N이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>자유 낙하 하는 물체의 운동 <span class="pg">111쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>자유 낙하 운동</h4>
+      <div class="q" style="border-top:none" data-why="자유 낙하 운동, 중력, 길어진다">
+        <div class="q-text">⑴ <input class="blank w-s" data-key="s1" data-answer="자유 낙하 운동|자유낙하운동|자유 낙하"> : 공기 저항이 없을 때 물체를 가만히 놓아 물체가 아래로 떨어지는 운동 — 아래 방향으로 <input class="blank w-s" data-key="s2" data-answer="중력"> 을 받으며 운동한다.<br>⑵ 일정한 시간 간격으로 찍은 연속 사진에서 같은 시간 동안 이동한 거리는 점점 <span class="choice-group" data-key="s3" data-answer="길"><button type="button" class="choice-btn" data-value="길">길어진다</button><button type="button" class="choice-btn" data-value="짧">짧아진다</button></span>.<br>⑶ 질량이 다른 두 물체가 자유 낙하 할 때 속력 변화가 같고, 1 초마다 약 9.8 m/s씩 빨라진다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="자유 낙하 하는 물체는 질량과 관계없이 동시에 도달해요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">⑴ 중력을 받으면서 운동한다.</td><td><span class="choice-group" data-key="s4" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑵ 1 초마다 약 9.8 m/s씩 속력이 빨라진다.</td><td><span class="choice-group" data-key="s5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">⑶ 질량이 다른 두 물체가 같은 높이에서 동시에 자유 낙하 하면 질량이 큰 물체가 바닥에 먼저 도달한다.</td><td><span class="choice-group" data-key="s6" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">자유 낙하 하는 물체의 운동을 분석할 수 있다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">자유 낙하 하는 물체의 속력 변화를 설명할 수 있다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 답안은 선생님 스프레드시트(중3 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅳ. 운동과 에너지 · 1. 등속 운동과 자유 낙하 운동 · 03 자유 낙하 하는 물체의 운동 · 비상교육 중학 과학 3 교과서 Ⅲ단원(106~111쪽)·해 보기·탐구·개념 확인 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅳ-1-03 자유 낙하 하는 물체의 운동";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+if ($("know")) WS.custom("know", { el: $("know"), value: () => [...$("know").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+/* ── 가상 색 띠 ── */
+let FF = 0, FFt = 0, CUT = false; const g = 9.8;
+$("ff-drop").addEventListener("click", () => { FF = 1; FFt = performance.now(); CUT = false; }); $("ff-cut").addEventListener("click", () => { if (FF) CUT = true; }); $("ff-r").addEventListener("click", () => { FF = 0; CUT = false; });
+WS.custom("ff_cut", { el: $("ff-cv"), value: () => CUT ? "cut" : "" });
+LB.loop($("ff-cv"), (dt, t) => { const G = LB.fit($("ff-cv"), 300), c = G.c, W = G.w, H = 300; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const sx = 70, top = 20, sc = 230 / (0.5 * g * 0.25); // 0.5 s 동안 약 1.2 m → 230 px
+  c.fillStyle = "#fde7d2"; c.fillRect(sx - 14, top, 28, 250); c.strokeStyle = "#e8b48a"; c.strokeRect(sx - 14, top, 28, 250);
+  const tt = FF ? Math.min(0.5, (t - FFt) / 1000 * 0.35) : 0, n = Math.floor(tt / 0.1 + 1e-9);
+  for (let k = 0; k <= n; k++) { const y = top + 0.5 * g * Math.pow(k * 0.1, 2) * sc; c.fillStyle = "#e4572e"; c.beginPath(); c.arc(sx, y + 6, 6, 0, 7); c.fill(); c.fillStyle = "#26393b"; c.fillRect(sx + 14, y + 6, 8, 1); if (k) { c.font = "11px Pretendard, sans-serif"; c.fillText("①②③④⑤"[k - 1], sx + 26, y); } }
+  if (FF && tt < 0.5) { const y = top + 0.5 * g * tt * tt * sc; c.fillStyle = "rgba(228,87,46,.6)"; c.beginPath(); c.arc(sx, y + 6, 6, 0, 7); c.fill(); }
+  c.fillStyle = "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText("색 띠 (0.1 초 간격)", 10, 14);
+  const gx = W * 0.42, gw = W * 0.5, gb = 270; c.strokeStyle = "#9aabb0"; c.beginPath(); c.moveTo(gx, 30); c.lineTo(gx, gb); c.lineTo(gx + gw, gb); c.stroke(); c.fillStyle = "#26393b"; c.fillText("구간 거리 (= 속력)", gx + 4, 40); c.fillText("시간 →", gx + gw - 40, gb + 16);
+  if (CUT) { const bw = gw / 6; for (let k = 1; k <= 5; k++) { const d = 0.5 * g * (Math.pow(k * 0.1, 2) - Math.pow((k - 1) * 0.1, 2)) * sc; c.fillStyle = "#fde7d2"; c.fillRect(gx + (k - 0.5) * bw, gb - d, bw * 0.8, d); c.strokeStyle = "#e8b48a"; c.strokeRect(gx + (k - 0.5) * bw, gb - d, bw * 0.8, d); c.fillStyle = "#26393b"; c.fillText("①②③④⑤"[k - 1], gx + (k - 0.1) * bw, gb + 14); }
+    c.strokeStyle = "#e4572e"; c.lineWidth = 2; c.setLineDash([5, 4]); c.beginPath(); c.moveTo(gx, gb); for (let k = 1; k <= 5; k++) { const d = 0.5 * g * (Math.pow(k * 0.1, 2) - Math.pow((k - 1) * 0.1, 2)) * sc; c.lineTo(gx + (k - 0.1) * bw, gb - d); } c.stroke(); c.setLineDash([]); c.lineWidth = 1; } });
+
+/* ── 등속 vs 자유 낙하 ── */
+function vtDraw() { LB.graph($("vt-cv"), { h: 220, xMax: 3, yMin: 0, yMax: 30, xStep: 0.5, yStep: 5, xLabel: "시간(s)", yLabel: "속력(m/s)", series: [{ color: "#e4572e", pts: [[0, 0], [3, 29.4]], label: "자유 낙하 (1 초에 9.8 m/s씩)", labelDy: 0 }, { color: "#2f7fd6", pts: [[0, 10], [3, 10]], label: "등속 운동", labelDy: 14 }] }); }
+vtDraw(); window.addEventListener("resize", vtDraw);
+
+/* ── 진공 낙하 장치 ── */
+let ENV = "air", VC = 0, VCt = 0; const vcSeen = new Set();
+$("vc-env").addEventListener("click", e => { const b = e.target.closest("[data-e]"); if (b) { ENV = b.dataset.e; VC = 0; } });
+$("vc-go").addEventListener("click", () => { VC = 1; VCt = performance.now(); vcSeen.add(ENV); });
+WS.custom("vc_seen", { el: $("vc-cv"), value: () => [...vcSeen].sort().join(",") });
+LB.loop($("vc-cv"), (dt, t) => { const G = LB.fit($("vc-cv"), 300), c = G.c, W = G.w, H = 300; c.fillStyle = ENV === "moon" ? "#1d2333" : "#f6fafa"; c.fillRect(0, 0, W, H);
+  const tx = W / 2, top = 20, L = 250, gg = ENV === "moon" ? 9.8 / 6 : 9.8, sc = L / 1.0, s = VC ? (t - VCt) / 1000 * 0.45 : 0;
+  c.fillStyle = ENV === "air" ? "rgba(200,225,255,.35)" : "rgba(255,255,255,.08)"; c.fillRect(tx - 50, top, 100, L + 16); c.strokeStyle = "#8fb3c9"; c.lineWidth = 2; c.strokeRect(tx - 50, top, 100, L + 16); c.lineWidth = 1;
+  const yb = Math.min(L, 0.5 * gg * s * s * sc), yf = ENV === "air" ? Math.min(L, 0.35 * s * sc + 0 * s) : yb;
+  c.fillStyle = "#f39b2a"; c.beginPath(); c.arc(tx - 22, top + 10 + yb, 9, 0, 7); c.fill();
+  c.save(); c.translate(tx + 22, top + 10 + yf); c.rotate(ENV === "air" ? Math.sin(s * 6) * 0.5 : 0.2); c.strokeStyle = ENV === "moon" ? "#ddd" : "#999"; c.beginPath(); c.moveTo(0, -12); c.lineTo(0, 12); c.stroke(); c.fillStyle = ENV === "moon" ? "rgba(240,240,240,.8)" : "rgba(200,200,200,.8)"; c.beginPath(); c.ellipse(4, -2, 6, 12, 0.2, 0, 7); c.fill(); c.restore();
+  const done = yb >= L && yf >= L;
+  c.fillStyle = ENV === "moon" ? "#fff" : "#26393b"; c.font = "bold 12px Pretendard, sans-serif"; c.fillText({ air: "공기 있음", vac: "진공 (지구)", moon: "달 (진공, 중력 1/6)" }[ENV], 10, 18);
+  c.font = "12px Pretendard, sans-serif"; c.fillText(VC ? (done ? (ENV === "air" ? "공이 먼저, 깃털은 한참 뒤에 도착" : "공과 깃털이 동시에 도착!") : (ENV === "air" ? (yb >= L ? "공 도착! 깃털은 아직 하늘하늘…" : "낙하 중…") : "나란히 떨어지는 중…")) : "[뒤집기]를 누르세요", 10, H - 12); });
+
+</script>
+</body>
+</html>

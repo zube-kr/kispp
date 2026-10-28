@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 Ⅴ 아두이노 실험 — 빛과 소리 자극에 대한 반응 시간</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/g3/5">← KISPP 과학실 · 중학교 3학년 Ⅴ. 자극과 반응</a>
+
+  <div class="lb-hero" style="min-height:180px">
+    <img class="bg" src="img/p148-fig4-12.jpg" alt="">
+    <div class="in">
+      <span class="chip">아두이노 실험 보고서 · Ⅴ. 자극과 반응 · 교과서 146~148쪽 연계</span>
+      <h1>빛을 보고, 소리를 듣고,<br><span>버튼을 누르기까지 몇 초?</span></h1>
+      <p>LED가 켜지거나 버저가 울리면 최대한 빨리 버튼을 눌러 반응 시간을 1/1000 초 단위로 재 보자. 대뇌의 판단을 거치는 의식적 반응에 얼마나 걸리는지, 빛과 소리 자극에 차이가 있는지 확인해요.</p>
+      
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">실험 정보</span>실험 보고서</div>
+    <div class="report-head"><div><b>실험 제목</b>빛과 소리 자극에 대한 반응 시간 측정</div><div><b>관련 단원</b>Ⅴ-2-02 신경계를 통해 일어나는 반응</div><div><b>실험 형태</b>2인 1조</div><div><b>측정 도구</b>아두이노 UNO + LED · 능동 부저 · 푸시 버튼</div></div>
+    <div class="q"><div class="q-text"><span class="q-num">·</span>실험 날짜와 실험자 이름</div><textarea class="free" data-key="team" rows="1" placeholder="예) 11월 30일 / 김OO, 이OO"></textarea></div>
+    <div class="tip-box"><b>실험 목표</b> LED 빛과 버저 소리 자극을 받고 버튼을 누르는 의식적 반응의 시간을 1/1000 초 단위로 측정하여, 자극이 감각 기관 → 감각 신경 → 대뇌 → 운동 신경 → 근육을 거치는 데 걸리는 시간을 설명할 수 있다.</div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">1</span>가설 세우기</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span>빛을 보고 버튼을 누를 때와 소리를 듣고 버튼을 누를 때, 반응 시간은 얼마나 걸리고 어느 쪽이 더 빠를지 예상해 보자.</div><textarea class="free" data-key="hypo" rows="2" data-keywords="0.2,초,대뇌,소리,빛" data-model="둘 다 대뇌의 판단을 거치는 의식적 반응이므로 0.2 초 정도 걸릴 것이다. 소리 자극이 빛 자극보다 조금 더 빠를 것 같다."></textarea><span class="fb"></span></div>
+    <div class="q" data-why="자신의 의지로 판단해 누르는 반응이므로 대뇌를 거치는 의식적 반응이에요.">
+      <div class="q-text"><span class="q-num">2</span><b>반응의 종류</b> 자극을 받고 버튼을 누르는 반응은 <span class="choice-group" data-key="kind" data-answer="의"><button type="button" class="choice-btn" data-value="의">의식적 반응</button><button type="button" class="choice-btn" data-value="무">무조건 반사</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">2</span>준비물과 회로 연결</div>
+    <div class="book" style="font-size:14px"><p><b>준비물</b> 아두이노 UNO, USB 케이블, 브레드보드, LED, 220 Ω 저항, 능동 부저(액티브 부저), 푸시 버튼, 점퍼선, 노트북(크롬)</p></div>
+    <table class="data-t pin-t" style="max-width:540px"><tr><th>부품</th><th>연결</th></tr><tr><td>LED(+220 Ω 저항)</td><td>긴 다리 → 8번, 짧은 다리 → GND</td></tr><tr><td>능동 부저</td><td>+ → 9번, − → GND</td></tr><tr><td>푸시 버튼</td><td>한쪽 다리 → 2번, 대각선 다리 → GND (내부 풀업, 저항 필요 없음)</td></tr></table>
+    <div class="al-code"><div class="btn-row" style="margin:0 0 6px"><button type="button" class="btn small" id="rt-copy">📋 코드 복사</button><a class="btn ghost small" href="arduino/reaction.ino" download>⬇️ reaction.ino 내려받기</a></div><pre id="rt-src">코드를 불러오는 중…</pre></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">3</span>실험 방법</div>
+    <div class="steps-box"><ol>
+      <li>측정할 사람은 LED와 버저를 볼 수 있게 앉고, 주로 쓰는 손 검지를 버튼 위에 살짝 올려놓는다.</li>
+      <li>[아두이노 연결하기] 후 다른 사람이 [💡 빛 자극] 또는 [🔔 소리 자극]을 누른다. 1.5~4 초 뒤 자극이 나오면 최대한 빨리 버튼을 누른다.</li>
+      <li>빛, 소리 자극을 각각 10 번씩 측정한다(순서를 섞어서). 미리 누르면 반칙으로 기록하지 않는다.</li>
+      <li>역할을 바꾸어 반복한다. 아두이노가 없으면 [⌨️ 화면으로 해 보기]로 키보드 스페이스 키를 눌러 측정한다.</li>
+    </ol></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge sim">4</span>측정하기</div>
+    <div class="al-conn"><button type="button" class="btn main small" id="rt-connect">🔌 아두이노 연결하기</button><span class="al-dot" id="rt-dot"></span><span id="rt-ctext" style="font-size:13px;font-weight:700">연결 안 됨</span><span style="font-size:12px;color:var(--ink-soft)">크롬·엣지에서 연결돼요. 연결 없이도 화면으로 해 보거나 예시 값을 볼 수 있어요.</span></div>
+    <div class="btn-row"><button type="button" class="btn primary small" data-m="L">💡 빛 자극</button><button type="button" class="btn primary small" data-m="S">🔔 소리 자극</button><button type="button" class="btn small" id="rt-screen">⌨️ 화면으로 해 보기</button><button type="button" class="btn ghost small" id="rt-sample">📎 예시 값</button><button type="button" class="btn ghost small" id="rt-clear">🧹 표 초기화</button></div>
+    <div id="rt-stage" style="height:120px;border-radius:12px;background:#26393b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;user-select:none;cursor:pointer">준비</div>
+    <div class="light-stage"><canvas id="rt-g"></canvas></div>
+    <div class="scroll-x"><table class="data-t" id="rt-tb"></table></div>
+  </section>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">5</span>결과 정리</div>
+    <div class="q" data-why="표의 평균값을 그대로 읽어요(가장 빠른 값과 느린 값도 확인).">
+      <table class="data-t" style="max-width:520px"><tr><th>자극</th><th>측정 횟수</th><th>평균 반응 시간(ms)</th></tr>
+      <tr><td>💡 빛</td><td id="n-L">0</td><td><input class="blank w-s" id="r-L" style="width:70px"></td></tr>
+      <tr><td>🔔 소리</td><td id="n-S">0</td><td><input class="blank w-s" id="r-S" style="width:70px"></td></tr></table>
+      <div class="q-text" style="margin-top:6px;font-size:12.5px;color:var(--ink-soft)">자동 분석: <span id="r-auto">기록 없음</span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="의식적 반응은 감각 신경 → 대뇌(판단) → 운동 신경으로 경로가 길어 0.15~0.3 초 정도 걸려요.">
+      <div class="q-text"><span class="q-num">1</span>측정한 반응 시간은 약 <span class="choice-group" data-key="cmp_a" data-answer="2"><button type="button" class="choice-btn" data-value="0">0.01 초 정도</button><button type="button" class="choice-btn" data-value="2">0.2 초 정도</button><button type="button" class="choice-btn" data-value="2s">2 초 정도</button></span>로, 무릎 반사(약 0.04 초)보다 <span class="choice-group" data-key="cmp_b" data-answer="느"><button type="button" class="choice-btn" data-value="빠">빨랐다</button><button type="button" class="choice-btn" data-value="느">느렸다</button></span>. 버튼을 누르는 반응은 <span class="choice-group" data-key="cmp_c" data-answer="대"><button type="button" class="choice-btn" data-value="대">대뇌의 판단</button><button type="button" class="choice-btn" data-value="척">척수만</button></span>을 거치기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">6</span>결론과 토의</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span><b>결론</b> 측정 결과를 바탕으로, 자극을 받고 버튼을 누르기까지 자극이 전달되는 경로와 시간이 걸리는 까닭을 설명해 보자.</div><textarea class="free" data-key="concl" rows="2" data-keywords="감각 기관,감각 신경,대뇌,운동 신경,근육,판단" data-model="빛(또는 소리)이 눈(귀)의 감각 세포를 자극하면 감각 신경을 통해 대뇌로 전달되고, 대뇌가 판단하여 운동 신경을 통해 손가락 근육으로 신호를 보내 버튼을 누른다. 경로가 길고 대뇌의 판단 과정이 있어 약 0.2 초가 걸린다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>더 생각하기</b> 빛과 소리의 평균 반응 시간에 차이가 있었다면 그 까닭은 무엇일까? 생활에서 이 결과를 어떻게 활용할 수 있을까?</div><textarea class="free" data-key="apply" rows="2" data-keywords="소리,빛,빠르,경고,출발" data-model="보통 소리 자극에 대한 반응이 조금 더 빠르다. 그래서 육상 경기는 출발 신호를 소리(총소리)로 하고, 위험을 알리는 경고는 빛과 소리를 함께 쓴다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>오차 분석</b> 같은 사람이라도 측정할 때마다 반응 시간이 달라지는 까닭을 2 가지 써 보자.</div><textarea class="free" data-key="err" rows="2" data-keywords="집중,피로,예측,연습" data-model="집중하는 정도가 달라지고, 여러 번 하면 피로해지거나 반대로 익숙해진다. 자극이 나올 때를 예측하고 미리 준비하면 빨라진다."></textarea><span class="fb"></span></div>
+  </section>
+
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">7</span>스스로 평가 · 선생님께 한마디</div>
+    <table class="data-t"><tr><th style="text-align:left">평가 항목</th><th>스스로 평가</th></tr><tr><td style="text-align:left">회로를 바르게 연결하고 빛·소리 자극의 반응 시간을 공정하게 측정했다.</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">측정 결과를 근거로 의식적 반응의 경로를 설명했다.</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">역할을 나누어 협력하며 실험했다.</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr></table>
+    <div class="q"><div class="q-text"><span class="q-num">💬</span>실험하면서 어려웠던 점, 새로 알게 된 점, 선생님께 하고 싶은 말을 자유롭게 써 주세요.</div><textarea class="free" data-key="feedback" placeholder="느낀 점과 피드백"></textarea></div>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">보고서를 다 쓰면 제출해요. 측정 기록도 함께 선생님 스프레드시트(중3 탭)에 저장돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="3">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP 과학실 · 프놈펜한국국제학교 · 중학교 과학 3 Ⅴ. 자극과 반응 · 아두이노 실험 보고서 · 교과서 146~148쪽(자극에 대한 반응 경로)을 LED·버저·버튼 반응 시간 측정으로 재구성 · <a href="baneung.html">워크시트로 돌아가기</a></footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "중3 Ⅴ 아두이노 반응 시간";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+
+fetch("arduino/reaction.ino").then(r => r.text()).then(t => $("rt-src").textContent = t).catch(() => $("rt-src").textContent = "코드를 불러오지 못했어요. 위의 내려받기 버튼을 눌러 주세요.");
+$("rt-copy").addEventListener("click", () => { const t = $("rt-src").textContent; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { $("rt-copy").textContent = "✅ 복사됨"; setTimeout(() => $("rt-copy").textContent = "📋 코드 복사", 1500); }).catch(() => {}); });
+let rows = []; // [mode, ms]
+const NAME = { L: "빛", S: "소리" };
+const avg = m => { const r = rows.filter(x => x[0] === m); return r.length ? r.reduce((s, x) => s + x[1], 0) / r.length : null; };
+function draw() { $("rt-tb").innerHTML = "<tr><th>회</th><th>자극</th><th>반응 시간(ms)</th></tr>" + (rows.length ? rows.map((r, i) => `<tr><td>${i + 1}</td><td>${NAME[r[0]]}</td><td>${r[1]}</td></tr>`).join("") : '<tr><td colspan="3" style="color:#8a9a9c">아직 기록이 없어요</td></tr>');
+  ["L", "S"].forEach(m => $("n-" + m).textContent = rows.filter(x => x[0] === m).length);
+  const a = avg("L"), b = avg("S"); $("r-auto").textContent = rows.length ? `빛 평균 ${a ? a.toFixed(0) + " ms" : "-"} · 소리 평균 ${b ? b.toFixed(0) + " ms" : "-"}` : "기록 없음";
+  const ser = ["L", "S"].map((m, k) => ({ color: k ? "#e4572e" : "#2f7fd6", dots: true, width: 0.001, label: NAME[m], pts: rows.map((r, i) => [i + 1, r[1]]).filter((p, i) => rows[i][0] === m) }));
+  LB.graph($("rt-g"), { h: 220, xMax: Math.max(10, rows.length + 1), yMin: 0, yMax: 600, xStep: 2, yStep: 100, xLabel: "측정 순서", yLabel: "반응 시간(ms)", series: rows.length ? ser : [{ color: "#ccc", pts: [[0, 0]] }] }); }
+draw(); window.addEventListener("resize", draw);
+$("rt-sample").addEventListener("click", () => { rows = []; for (let i = 0; i < 10; i++) { rows.push(["L", Math.round(235 + (Math.random() - .5) * 60)]); rows.push(["S", Math.round(195 + (Math.random() - .5) * 50)]); } draw(); });
+$("rt-clear").addEventListener("click", () => { if (rows.length && !confirm("기록을 모두 지울까요?")) return; rows = []; draw(); });
+WS.custom("rt_log", { el: $("rt-tb"), value: () => rows.map(r => r.join(":")).join(" ") });
+function dyn(key, el, ans, check) { const c = { el, value: () => el.value, check }; Object.defineProperty(c, "answer", { get: ans }); WS.custom(key, c); }
+["L", "S"].forEach(m => dyn("r_" + m, $("r-" + m), () => avg(m) ? avg(m).toFixed(0) : "기록 필요", v => avg(m) ? Math.abs(WS.toNumber(v) - avg(m)) <= 5 : null));
+// ── 화면으로 해 보기 ──
+let scr = null; const stage = $("rt-stage");
+function scrStart(m) { stage.style.background = "#26393b"; stage.textContent = "기다리세요…"; const tm = setTimeout(() => { scr.t0 = performance.now(); stage.style.background = m === "L" ? "#ffd54a" : "#26393b"; stage.textContent = m === "L" ? "지금! (스페이스 또는 클릭)" : "🔔 삐!"; if (m === "S") beep(); }, 1500 + Math.random() * 2500); scr = { m, tm, t0: 0 }; }
+function beep() { try { const A = new (window.AudioContext || window.webkitAudioContext)(), o = A.createOscillator(); o.frequency.value = 880; o.connect(A.destination); o.start(); setTimeout(() => { o.stop(); A.close(); }, 200); } catch (e) {} }
+function hit() { if (!scr) return; if (!scr.t0) { clearTimeout(scr.tm); stage.textContent = "너무 빨라요! (반칙)"; scr = null; return; } const ms = Math.round(performance.now() - scr.t0); rows.push([scr.m, ms]); stage.style.background = "#26393b"; stage.textContent = `${NAME[scr.m]} ${ms} ms`; scr = null; draw(); }
+stage.addEventListener("click", hit); document.addEventListener("keydown", e => { if (e.code === "Space" && scr) { e.preventDefault(); hit(); } });
+let screenMode = false; $("rt-screen").addEventListener("click", () => { screenMode = !screenMode; $("rt-screen").textContent = screenMode ? "⌨️ 화면 모드 켜짐" : "⌨️ 화면으로 해 보기"; stage.textContent = screenMode ? "💡/🔔 버튼을 눌러 시작" : "준비"; });
+document.querySelectorAll("[data-m]").forEach(b => b.addEventListener("click", async () => { const m = b.dataset.m; if (reading && writer) { try { await writer.write(new TextEncoder().encode(m)); stage.textContent = `${NAME[m]} 자극 대기 중… 아두이노를 보세요`; } catch (e) {} } else if (screenMode) scrStart(m); else alert("아두이노를 연결하거나 [화면으로 해 보기]를 켜 주세요."); }));
+// ── Web Serial: "RT,L,234" / "EARLY,L" ──
+let port = null, reader = null, writer = null, reading = false;
+function setUI(on) { $("rt-dot").classList.toggle("on", on); $("rt-ctext").textContent = on ? "실시간 연결됨" : "연결 안 됨"; $("rt-connect").textContent = on ? "🔌 연결 끊기" : "🔌 아두이노 연결하기"; }
+$("rt-connect").addEventListener("click", async () => {
+  if (reading) { reading = false; try { if (reader) await reader.cancel(); } catch (e) {} try { writer && writer.releaseLock(); } catch (e) {} try { if (port) await port.close(); } catch (e) {} port = reader = writer = null; setUI(false); return; }
+  if (!("serial" in navigator)) { alert("이 브라우저는 아두이노 직접 연결(Web Serial)을 지원하지 않아요. 크롬이나 엣지를 사용해 주세요."); return; }
+  try { port = await navigator.serial.requestPort(); await port.open({ baudRate: 9600 }); writer = port.writable.getWriter(); reading = true; setUI(true); readLoop(); }
+  catch (e) { if (e && e.name !== "NotFoundError") alert("아두이노 연결에 실패했어요. USB와 시리얼 모니터를 확인해 주세요."); }
+});
+async function readLoop() { const dec = new TextDecoderStream(); port.readable.pipeTo(dec.writable).catch(() => {}); reader = dec.readable.getReader(); let buf = "";
+  try { while (reading) { const r = await reader.read(); if (r.done) break; buf += r.value || ""; let i; while ((i = buf.indexOf("\n")) >= 0) { const p = buf.slice(0, i).trim().split(","); buf = buf.slice(i + 1);
+    if (p[0] === "RT" && (p[1] === "L" || p[1] === "S")) { const ms = parseInt(p[2]); if (ms > 0 && ms < 3000) { rows.push([p[1], ms]); stage.textContent = `${NAME[p[1]]} ${ms} ms`; draw(); } else stage.textContent = "시간 초과"; }
+    else if (p[0] === "EARLY") stage.textContent = "너무 빨라요! (반칙)"; } } }
+  catch (e) { console.error(e); } finally { try { reader.releaseLock(); } catch (e) {} } }
+
+</script>
+</body>
+</html>

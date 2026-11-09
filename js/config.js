@@ -11,7 +11,10 @@ window.KISPP_CONFIG = {
     "중1": "https://script.google.com/macros/s/AKfycby7g0MJdkO7jS9Evxtnm9pFwoZxd4u0FUwUucr4zaSGn3HnSAr79ULPaR0fmT_3ngMlAg/exec",
     "중2": "https://script.google.com/macros/s/AKfycbx2LkRzkVNrprzErKFYLUvSbjQqkS1xLrHV02YcbcBGNqdwb7uQ4mWDtkf4wh0yfa0E1Q/exec",
     "중3": "https://script.google.com/macros/s/AKfycbytWKer-u6zdAhkOtb8iiY6OyEmv0L5qxT_1zI0kjs7-J48wO4TBh_M3yHk394s5ZUR1A/exec",
-    "고1": "https://script.google.com/macros/s/AKfycbzxO5sDWe-V4NWVgdAth1-rYes1XBUsUCgsn-PKXLjh5RkaCJgEHXz8KK44_woGb7JN/exec"
+    "고1": "https://script.google.com/macros/s/AKfycbzxO5sDWe-V4NWVgdAth1-rYes1XBUsUCgsn-PKXLjh5RkaCJgEHXz8KK44_woGb7JN/exec",
+    // 중학교 정보 전용 스프레드시트('프놈펜_중_정보', apps-script/code-info.gs)의 웹 앱 주소.
+    // 넣으면 정보 답안이 이 시트의 중1·중2·중3 탭으로 갑니다. 비어 있으면 학생 학년 시트의 '정보' 탭으로 갑니다.
+    "정보": ""
   }
   // 둘 다 비어 있으면 화면에서 채점만 되고 스프레드시트로는 전송되지 않습니다.
 };
@@ -21,7 +24,8 @@ window.KISPP_CONFIG = {
 (function (c) {
   var TABS = { g1: "중1", g2: "중2", g3: "중3", is1: "고1", is2: "고1", se1: "고1", se2: "고1" };
   var m = location.pathname.match(/\/materials\/([a-z]+\d)-/);
-  // 정보 워크시트(materials/in1-…)는 학생이 적은 학년(1·2·3)의 중N 시트로 보내고, 그 시트의 '정보' 탭에 저장합니다.
+  // 정보 워크시트(materials/in1-…): SUBMIT_URLS["정보"]가 있으면 그 시트의 중N 탭(?tab=중2)으로,
+  // 없으면 학생이 적은 학년의 중N 시트의 '정보' 탭(?tab=정보)으로 보냅니다.
   // 학년 칸이 비었거나 1~3이 아니면 주소가 비어 있어 전송하지 않습니다(다른 시트로 새지 않게).
   if (m && m[1] === "in1") {
     var urls = c.SUBMIT_URLS || {};
@@ -29,8 +33,9 @@ window.KISPP_CONFIG = {
     Object.defineProperty(c, "SUBMIT_URL", { configurable: true, enumerable: true, get: function () {
       var el = document.getElementById("ws-grade");
       var g = el ? String(el.value).replace(/[^0-9]/g, "") : "";
-      var base = /^[123]$/.test(g) ? urls["중" + g] || "" : "";
-      return base ? base + (base.indexOf("?") < 0 ? "?" : "&") + "tab=" + encodeURIComponent("정보") : "";
+      if (!/^[123]$/.test(g)) return "";
+      var own = urls["정보"] || "", base = own || urls["중" + g] || "", tab = own ? "중" + g : "정보";
+      return base ? base + (base.indexOf("?") < 0 ? "?" : "&") + "tab=" + encodeURIComponent(tab) : "";
     } });
     return;
   }

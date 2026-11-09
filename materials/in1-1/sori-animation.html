@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅰ-2-03 — 소리에 반응하는 애니메이션 장치 만들기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/1">← KISPP · 중학교 정보 Ⅰ. 컴퓨팅 시스템</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p28-sound.jpg" alt="">
+    <img class="lb-qmark" src="img/p28-cartoon.jpg" alt="만들기 어렵지 않을 것 같은데, 나도 한번 만들어 볼까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 컴퓨팅 시스템 · 2. 피지컬 컴퓨팅 프로그래밍 · 03 <span class="pg" style="margin:0">28~31쪽</span></span>
+      <h1>소리에 반응하는<br><span>애니메이션 장치 만들기</span></h1>
+      <p>큰 소리가 나면 춤추며 노래하는 장치를 만들어 보자. 박수(또는 진짜 마이크)로 가상 마이크로비트를 깨워 ‘작동 시작’ 변수의 역할을 확인하고, 나만의 춤 아이콘을 그리고, ‘학교 종’을 작곡해 연주한 뒤, 모둠 박수 대결 장치를 실행해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 문제 해결에 적합한 센서를 선택하고 동작을 제어하는 프로그램을 작성하여, 큰 소리가 나면 영상과 소리가 재생되는 애니메이션 장치를 만들 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">문제 상황 · 문제의 이해와 분석</span>소리에 반응하는 애니메이션 장치 만들기 <span class="pg">28~29쪽</span></div>
+<figure class="fig"><img src="img/p28-cartoon.jpg" alt="“재미있는 영상 보고 있네.” “친구가 올린 짧은 영상을 보고 있어. 짧지만 특징을 잘 살려서 재미있어.” “만들기 어렵지 않을 것 같은데, 나도 한번 만들어 볼까?”"><figcaption><span class="tb">28쪽</span>“재미있는 영상 보고 있네.” “친구가 올린 짧은 영상을 보고 있어. 짧지만 특징을 잘 살려서 재미있어.” “만들기 어렵지 않을 것 같은데, 나도 한번 만들어 볼까?”</figcaption></figure>
+    <div class="book"><p>영상의 주요 장면을 추출한 사진이나 영상은 인터넷 게시글, 사회 관계망 서비스(SNS) 등에서 자주 볼 수 있다. 큰 소리가 나면 아이콘과 멜로디가 재생되는 애니메이션 장치를 만들어 보자.</p></div>
+<figure class="fig"><img src="img/p28-sound.jpg" alt="소리 센서는 주변 소리의 크기를 측정하여 0~255 범위의 값으로 알려 준다. 뒷면의 MICROPHONE이 표시된 칩에 마이크가 내장되어 있으며, 소리가 감지되면 앞면의 마이크 모양 LED에 불이 켜진다. 스피커는 주파수를 이용해 다양한 음을 출력할 수 있다."><figcaption><span class="tb">28쪽</span>소리 센서는 주변 소리의 크기를 측정하여 0~255 범위의 값으로 알려 준다. 뒷면의 MICROPHONE이 표시된 칩에 마이크가 내장되어 있으며, 소리가 감지되면 앞면의 마이크 모양 LED에 불이 켜진다. 스피커는 주파수를 이용해 다양한 음을 출력할 수 있다.</figcaption></figure>
+    <div class="q" data-why="‘작동 시작’ 변수가 신호등처럼 음악과 애니메이션을 시작하게 해요.">
+      <div class="q-text"><span class="q-num">1</span><b>알고리즘 설계하기</b> 작은 문제와 알고리즘을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">초기화</td><td><span class="choice-group" data-key="al1" data-answer="i"><button type="button" class="choice-btn" data-value="i">시작을 멜로디로 알리고, ‘작동 시작’ 변수 생성 및 기준값을 초기화한다.</button><button type="button" class="choice-btn" data-value="l">큰 소리가 감지되면 ‘작동 시작’ 변수에 1을 저장한다.</button><button type="button" class="choice-btn" data-value="m">‘작동 시작’ 변숫값이 1이면 애니메이션 멜로디를 출력한다.</button><button type="button" class="choice-btn" data-value="a">‘작동 시작’ 변숫값이 1이면 LED 스크린에 춤을 추는 듯한 애니메이션을 출력한다.</button></span></td></tr><tr><td style="text-align:left">큰 소리 감지하기</td><td><span class="choice-group" data-key="al2" data-answer="l"><button type="button" class="choice-btn" data-value="i">시작을 멜로디로 알리고, ‘작동 시작’ 변수 생성 및 기준값을 초기화한다.</button><button type="button" class="choice-btn" data-value="l">큰 소리가 감지되면 ‘작동 시작’ 변수에 1을 저장한다.</button><button type="button" class="choice-btn" data-value="m">‘작동 시작’ 변숫값이 1이면 애니메이션 멜로디를 출력한다.</button><button type="button" class="choice-btn" data-value="a">‘작동 시작’ 변숫값이 1이면 LED 스크린에 춤을 추는 듯한 애니메이션을 출력한다.</button></span></td></tr><tr><td style="text-align:left">음악 출력</td><td><span class="choice-group" data-key="al3" data-answer="m"><button type="button" class="choice-btn" data-value="i">시작을 멜로디로 알리고, ‘작동 시작’ 변수 생성 및 기준값을 초기화한다.</button><button type="button" class="choice-btn" data-value="l">큰 소리가 감지되면 ‘작동 시작’ 변수에 1을 저장한다.</button><button type="button" class="choice-btn" data-value="m">‘작동 시작’ 변숫값이 1이면 애니메이션 멜로디를 출력한다.</button><button type="button" class="choice-btn" data-value="a">‘작동 시작’ 변숫값이 1이면 LED 스크린에 춤을 추는 듯한 애니메이션을 출력한다.</button></span></td></tr><tr><td style="text-align:left">애니메이션 출력</td><td><span class="choice-group" data-key="al4" data-answer="a"><button type="button" class="choice-btn" data-value="i">시작을 멜로디로 알리고, ‘작동 시작’ 변수 생성 및 기준값을 초기화한다.</button><button type="button" class="choice-btn" data-value="l">큰 소리가 감지되면 ‘작동 시작’ 변수에 1을 저장한다.</button><button type="button" class="choice-btn" data-value="m">‘작동 시작’ 변숫값이 1이면 애니메이션 멜로디를 출력한다.</button><button type="button" class="choice-btn" data-value="a">‘작동 시작’ 변숫값이 1이면 LED 스크린에 춤을 추는 듯한 애니메이션을 출력한다.</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">프로그래밍하기 · 평가하기</span>소리에 반응하는 애니메이션을 실행해 보자 <span class="pg">29~30쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div id="code1"></div>
+      <div><div id="mb1"></div><div class="btn-row"><button type="button" class="btn main small" id="clap">👏 크게 박수 치기</button><button type="button" class="btn small" id="mic">🎤 진짜 마이크 쓰기</button></div><div class="tip-box" id="var1">‘작동 시작’ = 0</div></div>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">나만의 아이콘</span>LED를 눌러 춤 동작 하나를 그려 보자</div>
+    <div class="card-hint">그린 그림은 애니메이션의 두 번째 장면으로 바로 쓰여요.</div>
+    <div id="grid1"></div>
+    <div class="q" data-why="소리 크기가 기준값(250) 이상일 때만 ‘작동 시작’이 1이 되고, 음악이 끝나면 0으로 돌아가요." data-hint="소리 슬라이더를 조금만 올렸을 때와 박수 칠 때를 비교해 보세요.">
+      <div class="q-text"><span class="q-num">1</span><b>평가하기</b> 가상 마이크로비트로 확인하고 답해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">애니메이션 시작을 감지하여 ‘작동 시작’ 변수가 1이 되는가?</td><td><span class="choice-group" data-key="ck1" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">음악과 애니메이션을 한 번 실행하면 ‘작동 시작’ 변수가 0으로 초기화되는가?</td><td><span class="choice-group" data-key="ck2" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">작은 소리(기준값 미만)에도 애니메이션이 시작되는가?</td><td><span class="choice-group" data-key="ck3" data-answer="n"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="기준값이 낮을수록 작은 소리도 ‘큰 소리’로 판단해요.">
+      <div class="q-text"><span class="q-num">2</span>큰 소리 기준값을 250에서 100으로 낮추면 애니메이션이 <span class="choice-group" data-key="th1" data-answer="more"><button type="button" class="choice-btn" data-value="more">더 작은 소리에도 시작된다</button><button type="button" class="choice-btn" data-value="less">더 큰 소리에서만 시작된다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 모둠</span>스피커와 소리 센서를 활용한 장치 만들기 <span class="pg">31쪽</span></div>
+<figure class="fig"><img src="img/p31-song.jpg" alt="학교 종 (김메리 작사·작곡)"><figcaption><span class="tb">31쪽</span>학교 종 (김메리 작사·작곡)</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">마이크로비트 작곡기</span>‘학교 종’을 입력해 연주해 보자</div>
+    <div class="card-hint">건반을 눌러 악보 순서대로 음을 넣고 [▶ 연주]를 눌러 보자. 박자는 악보처럼 자동으로 맞춰 줘요.</div>
+    <div class="btn-row" id="keys"></div>
+    <div class="tip-box" id="song" style="min-height:40px;word-break:keep-all">(아직 입력한 음이 없어요)</div>
+    <div class="btn-row"><button type="button" class="btn main small" id="play">▶ 연주</button><button type="button" class="btn ghost small" id="undo">↩ 하나 지우기</button><button type="button" class="btn ghost small" id="clr">🧹 모두 지우기</button></div>
+    <div id="mb2"></div>
+    <div class="q" data-why="학교 종: 솔솔라라 솔솔미 솔솔미미 레 / 솔솔라라 솔솔미 솔미레미 도 — 모두 25 음이에요.">
+      <div class="q-text"><span class="q-num">1</span>내가 입력한 ‘학교 종’ 악보 (25 음)</div>
+      <div class="q-text" id="song-check" style="font-size:13px;color:var(--ink-soft)"></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>위의 ‘학교 종’ 노래에 어울리는 애니메이션을 구상해 보자(장면별 LED 그림과 바뀌는 타이밍).</div><textarea class="free" data-key="anim_idea" rows="3" data-keywords="장면,종,LED,박자" data-model="1장면: 종 모양을 그리고 ‘땡땡땡’ 박자마다 종이 좌우로 흔들리게 한다. 2장면: ‘어서 모이자’에서 사람 아이콘 세 개가 차례로 나타난다. 3장면: ‘기다리신다’에서 하트로 끝낸다."></textarea><span class="fb"></span></div>
+    <div class="book" style="margin-top:12px"><p><b>3</b> 두 개의 모둠 중 박수 소리의 누적 크기가 큰 모둠을 알려 주는 장치를 만들어 보자. ① A 버튼을 누르면 5 초 동안 소리의 크기를 그래프로 보여 주면서 값을 누적하여 저장한다. ② B 버튼을 누르면 5 초 동안 같은 방법으로 저장한다. ③ 로고 모양의 터치 센서를 누르면 A와 B의 누적값을 비교하여 큰 문자를 출력한다.</p></div>
+<figure class="fig" style="max-width:220px"><img src="img/p31-clap.jpg" alt="“1번 모둠 박수 쳐 주세요.”"><figcaption><span class="tb">31쪽</span>“1번 모둠 박수 쳐 주세요.”</figcaption></figure>
+    <div id="mb3"></div>
+    <div class="btn-row"><button type="button" class="btn main small" id="clap3">👏 박수!</button><span class="tip-box" id="cl-msg" style="margin:0;flex:1">A 또는 B를 눌러 측정을 시작하고, 5 초 동안 👏 버튼을 빠르게 눌러 보세요.</span></div>
+    <div class="q" data-why="누적값이 큰 A가 출력돼요. A와 B의 값을 비교하려면 각각 저장할 변수가 필요해요.">
+      <div class="q-text"><span class="q-num">3</span>박수 대결 장치에서 A 모둠 누적값이 4120, B 모둠 누적값이 3890이면 로고를 터치했을 때 <span class="choice-group" data-key="cl1" data-answer="A"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button></span>가 출력된다. 누적값을 저장하려면 모둠마다 <span class="choice-group" data-key="cl2" data-answer="2"><button type="button" class="choice-btn" data-value="1">변수 1 개를 같이</button><button type="button" class="choice-btn" data-value="2">변수를 따로(2 개)</button></span> 써야 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">정리하기</span>소리에 반응하는 애니메이션 장치</div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>소리 센서와 스피커</h4>
+      <div class="q" style="border-top:none" data-why="0~255, 스피커, 기준값">
+        <div class="q-text">소리 센서는 주변 소리의 크기를 <input class="blank w-s" data-key="s1" data-num="0" data-abs="0" style="width:44px"> ~ <input class="blank w-s" data-key="s2" data-num="255" data-abs="0" style="width:52px"> 범위의 값으로 알려 주고, <input class="blank w-s" data-key="s3" data-answer="스피커"> 는 주파수를 이용해 다양한 음을 출력한다. 큰 소리를 판단하려면 소리 크기를 <input class="blank w-s" data-key="s4" data-answer="기준값"> 과 비교한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 변수를 신호처럼 사용하여 음악과 애니메이션을 시작·종료하는 원리를 이해했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 악보를 음과 박자로 바꾸어 프로그램으로 표현할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>디지털 문화 소양</b> 창의적인 아이디어로 애니메이션을 구상했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅰ. 컴퓨팅 시스템 · 2. 피지컬 컴퓨팅 프로그래밍 · 03 소리에 반응하는 애니메이션 장치 만들기 · 비상교육 중학교 정보 교과서(28~31쪽)·해 보기 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="microbit.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅰ-2-03 소리에 반응하는 애니메이션 장치";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+$("code1").innerHTML = MB.blocks([["start", "시작하면", [["var", "<b>작동 시작</b> 에 <b>0</b> 저장"], ["input", "<b>큰</b> 소리 기준값을 <b>250</b> 으로 설정"], ["music", "재생 <b>멜로디 전원 켜는 멜로디</b> 배경에서 실행"]]], ["input", "<b>큰</b> 소리 들릴 때", [["var", "<b>작동 시작</b> 에 <b>1</b> 저장"]]],
+  ["loop", "무한 반복", [["logic", "만약 <b>작동 시작 = 1</b> 이면", [["music", "재생 <b>뛰어오르는 멜로디</b>"], ["basic", "일시중지 1000 ms"], ["music", "재생 <b>뛰어내리는 멜로디</b>"], ["basic", "일시중지 2000 ms"], ["var", "<b>작동 시작</b> 에 <b>0</b> 저장"]]]]], ["loop", "무한 반복", [["logic", "만약 <b>작동 시작 = 1</b> 이면", [["basic", "LED 출력 (장면 1 → 장면 2 → 장면 3)"]]]]]]);
+const m1 = MB.create("mb1", { sensors: ["sound"] }); m1.loudLevel = 250; let go = 0; const ev = new Set();
+const g1 = MB.grid("grid1"); g1.set(MB.ICONS.DANCE2);
+const upd = () => $("var1").textContent = "‘작동 시작’ = " + go;
+const UP = [[262, .5], [330, .5], [392, .5], [523, 1]], DOWN = [[523, .5], [392, .5], [330, .5], [262, 1]];
+m1.play([[262, .5], [392, .5], [523, 1]], 240);
+function trigger() { if (go) return; go = 1; ev.add("go"); upd(); const frames = () => [MB.ICONS.DANCE1, g1.get(), MB.ICONS.DANCE3]; let f = 0;
+  const anim = setInterval(() => { if (!go) { clearInterval(anim); m1.clear(); return; } m1.plot(frames()[f++ % 3]); }, 300);
+  const t1 = m1.play(UP, 240); setTimeout(() => { const t2 = m1.play(DOWN, 240); setTimeout(() => { go = 0; ev.add("reset"); upd(); }, t2 + 2000); }, t1 + 1000); }
+m1.on("loud", trigger);
+$("clap").addEventListener("click", () => { m1.setSensor("sound", 255); m1.fire("loud"); m1._loud = true; setTimeout(() => { m1.setSensor("sound", 40); m1._loud = false; }, 400); });
+WS.custom("run_ev", { el: $("mb1"), value: () => [...ev].sort().join(",") });
+WS.custom("my_icon", { el: $("grid1"), value: () => g1.get() });
+// 진짜 마이크(선택)
+let micOn = false;
+$("mic").addEventListener("click", async () => { if (micOn) return; try { const st = await navigator.mediaDevices.getUserMedia({ audio: true }); const A = new (window.AudioContext || window.webkitAudioContext)(), an = A.createAnalyser(); A.createMediaStreamSource(st).connect(an); an.fftSize = 512; const buf = new Uint8Array(an.fftSize); micOn = true; $("mic").textContent = "🎤 마이크 켜짐";
+  (function rd() { an.getByteTimeDomainData(buf); let m = 0; for (const v of buf) m = Math.max(m, Math.abs(v - 128)); const lv = Math.min(255, m * 2.2); m1.setSensor("sound", Math.round(lv)); if (lv >= 250 && !m1._loud) { m1._loud = true; m1.fire("loud"); } if (lv < 250) m1._loud = false; requestAnimationFrame(rd); })(); }
+  catch (e) { alert("마이크를 쓸 수 없어요. 👏 버튼으로 해 보세요."); } });
+/* ── 학교 종 작곡기 ── */
+const NOTE = { "도": 262, "레": 294, "미": 330, "파": 349, "솔": 392, "라": 440, "시": 494, "높은도": 523 };
+const ANS = "솔솔라라솔솔미솔솔미미레솔솔라라솔솔미솔미레미도".split("");
+const BEATS = [1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3];
+let song = []; const m2 = MB.create("mb2", {});
+$("keys").innerHTML = Object.keys(NOTE).map(n => `<button type="button" class="btn small" data-n="${n}">${n}</button>`).join("");
+function sDraw() { $("song").textContent = song.length ? song.join(" ") + `  (${song.length} 음)` : "(아직 입력한 음이 없어요)"; const ok = song.join("") === ANS.join(""); $("song-check").textContent = song.length ? (ok ? "✅ 악보와 똑같아요!" : `${song.length} / 25 음 입력`) : ""; }
+document.querySelectorAll("[data-n]").forEach(b => b.addEventListener("click", () => { const n = b.dataset.n; if (song.length < 40) song.push(n); m2.tone(NOTE[n], 200); m2.icon("NOTE"); sDraw(); }));
+$("undo").addEventListener("click", () => { song.pop(); sDraw(); }); $("clr").addEventListener("click", () => { song = []; sDraw(); });
+$("play").addEventListener("click", () => { const notes = song.map((n, i) => [NOTE[n], i < BEATS.length ? BEATS[i] * .5 : .5]); m2.play(notes, 120); notes.forEach((_, k) => setTimeout(() => m2.icon(k % 2 ? "NOTE" : "SMALL_SQUARE"), notes.slice(0, k).reduce((s, x) => s + x[1] * 500, 0))); });
+sDraw();
+const songEl = $("song-check");
+WS.custom("song", { el: songEl, value: () => song.join(""), check: () => song.length ? song.join("") === ANS.join("") : null, answer: ANS.join("") });
+/* ── 박수 대결 ── */
+const m3 = MB.create("mb3", { sensors: ["logo"] }); const tot = { A: 0, B: 0 }; let rec = null, boost = 0; const clEv = new Set();
+$("clap3").addEventListener("click", () => { boost = 255; });
+function record(k) { if (rec) return; rec = k; tot[k] = 0; clEv.add(k); const t0 = performance.now();
+  (function step() { const el = performance.now() - t0; if (el > 5000) { rec = null; m3.show(k); $("cl-msg").textContent = `${k} 모둠 누적값 ${Math.round(tot[k])} — ${tot.A && tot.B ? "로고를 터치해 비교해 보세요." : "다른 모둠도 측정해 보세요."}`; return; }
+    const lv = Math.max(15 + Math.random() * 20, boost); boost *= .82; tot[k] += lv / 10; const h = Math.round(lv / 255 * 5);
+    m3.plot(Array.from({ length: 25 }, (_, i) => 4 - Math.floor(i / 5) < h ? "#" : ".").join("")); $("cl-msg").textContent = `${k} 모둠 측정 중 ${(5 - el / 1000).toFixed(1)} 초 · 누적 ${Math.round(tot[k])}`; setTimeout(step, 60); })(); }
+m3.on("A", () => record("A")).on("B", () => record("B")).on("logo", () => { if (!tot.A || !tot.B) { $("cl-msg").textContent = "A와 B를 모두 측정해야 비교할 수 있어요."; return; } clEv.add("logo"); const w = tot.A >= tot.B ? "A" : "B"; m3.show(w); $("cl-msg").textContent = `A ${Math.round(tot.A)} vs B ${Math.round(tot.B)} → ${w} 모둠 승리! 🎉`; });
+WS.custom("clap_ev", { el: $("mb3"), value: () => [...clEv].sort().join(",") + " A:" + Math.round(tot.A) + " B:" + Math.round(tot.B) });
+
+</script>
+</body>
+</html>

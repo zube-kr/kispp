@@ -14,7 +14,7 @@ window.KISPP_CONFIG = {
     "고1": "https://script.google.com/macros/s/AKfycbzxO5sDWe-V4NWVgdAth1-rYes1XBUsUCgsn-PKXLjh5RkaCJgEHXz8KK44_woGb7JN/exec",
     // 중학교 정보 전용 스프레드시트('프놈펜_중_정보', apps-script/code-info.gs)의 웹 앱 주소.
     // 넣으면 정보 답안이 이 시트의 중1·중2·중3 탭으로 갑니다. 비어 있으면 학생 학년 시트의 '정보' 탭으로 갑니다.
-    "정보": ""
+    "정보": "https://script.google.com/macros/s/AKfycbznP8oHwgoQA5gOR7uuwd1uUIIGQs4dcB2BLF3S8YqcWiPE75dcHMvTVus5ZsXQ9oky/exec"
   }
   // 둘 다 비어 있으면 화면에서 채점만 되고 스프레드시트로는 전송되지 않습니다.
 };

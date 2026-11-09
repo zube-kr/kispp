@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅱ-1-02 — 다양한 데이터의 디지털 표현</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.px-grid{display:grid;grid-template-columns:repeat(10,24px);gap:2px;width:max-content;background:#cfd8dc;padding:2px;border-radius:6px;touch-action:none}
+.px-grid button{width:24px;height:24px;border:0;background:#fff;cursor:pointer;padding:0}.px-grid button.on{background:#26393b}
+.bin-out{font:600 12.5px/1.6 Consolas,monospace;background:#1d2733;color:#9fe3a7;border-radius:8px;padding:8px 10px;white-space:pre;overflow-x:auto}
+.ascii-t td,.ascii-t th{padding:3px 6px;font-size:12px}
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/2">← KISPP · 중학교 정보 Ⅱ. 데이터</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p50-bitmap.jpg" alt="">
+    <img class="lb-qmark" src="img/p49-charcode.jpg" alt="문자 코드를 이용한 사람과 컴퓨터 간의 문자 상호 변환">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 데이터 · 1. 데이터의 표현 · 02 <span class="pg" style="margin:0">48~55쪽 · 85쪽</span></span>
+      <h1>다양한 데이터의<br><span>디지털 표현</span></h1>
+      <p>컴퓨터는 문자, 그림, 소리, 영상을 어떻게 0과 1로 바꿀까? 내 이름을 아스키 코드로 바꾸고, 하트를 픽셀로 칠해 이진수로 저장하고, 소리를 표본화·양자화해 직접 들어 보고, 프레임률을 바꿔 동영상을 비교한 뒤, 디지털 문자 변환 게임으로 마무리하자.</p>
+      <div class="goal">🎯 학습 목표 — 실생활 데이터를 디지털로 표현하는 방법을 설명하고, 문자·이미지·소리·동영상 데이터를 디지털 형태로 표현할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>데이터의 디지털 표현 <span class="pg">48쪽</span></div>
+    <div class="book"><p>사람이 눈, 귀와 같은 감각 기관을 통해 인지하는 문자, 이미지, 소리, 동영상 등의 데이터는 아날로그 형식이다. 이러한 아날로그 데이터를 컴퓨터로 처리하기 위해서는 디지털 데이터로 바꾸어야 한다. 컴퓨터와 같은 디지털 기기는 꺼짐, 켜짐과 같이 두 가지 상태만 처리할 수 있기 때문에 데이터를 <span class="key">이진수</span>(0과 1로만 이루어진 수의 체계)로 표현한다. 컴퓨터는 전기 신호의 높고 낮음을 구분하여 이진수로 데이터를 저장하고 처리하는데, 미세한 전기 신호를 명확하게 구분하기 어렵기 때문이다.</p></div>
+    <div class="q" data-why="자리가 하나 늘 때마다 2 배: 2³ = 8, 2⁴ = 16, 2⁷ = 128(아스키 코드가 7 자리인 까닭)">
+      <div class="q-text"><span class="q-num">1</span>이진수 3 자리로 서로 다른 값을 <input class="blank w-s" data-key="b3" data-num="8" data-abs="0" style="width:60px"> 가지, 4 자리로 <input class="blank w-s" data-key="b4" data-num="16" data-abs="0" style="width:60px"> 가지, 7 자리로 <input class="blank w-s" data-key="b7" data-num="128" data-abs="0" style="width:60px"> 가지 나타낼 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서 · 해 보기</span>문자의 디지털 표현 — 문자 코드 <span class="pg">49쪽</span></div>
+    <div class="book"><p>컴퓨터는 문자를 디지털로 표현하기 위해 0과 1의 이진수를 조합한 <span class="key">문자 코드</span>를 사용한다. 디지털 기기에 ‘오후 1시에 만나자.’를 입력하면 기기 내부에서 문자 코드를 사용하여 이 문장을 이진수로 변환하고, 다시 이진수에 문자 코드가 적용되어 화면에 보여 준다. 대표적인 문자 코드에는 영문자, 숫자, 기호 등을 표현하는 <b>아스키(ASCII) 코드</b>와 다양한 언어를 표현하는 <b>유니코드(unicode)</b>가 있다.</p></div>
+<figure class="fig" style="max-width:440px"><img src="img/p49-charcode.jpg" alt="문자 코드를 이용한 사람과 컴퓨터 간의 문자 상호 변환"><figcaption><span class="tb">그림 Ⅱ-3</span>문자 코드를 이용한 사람과 컴퓨터 간의 문자 상호 변환</figcaption></figure>
+    <div class="scroll-x"><table class="data-t ascii-t"><tr><td><b>A</b></td><td>1000001</td><td><b>B</b></td><td>1000010</td><td><b>C</b></td><td>1000011</td><td><b>D</b></td><td>1000100</td></tr><tr><td><b>E</b></td><td>1000101</td><td><b>F</b></td><td>1000110</td><td><b>G</b></td><td>1000111</td><td><b>H</b></td><td>1001000</td></tr><tr><td><b>I</b></td><td>1001001</td><td><b>J</b></td><td>1001010</td><td><b>K</b></td><td>1001011</td><td><b>L</b></td><td>1001100</td></tr><tr><td><b>M</b></td><td>1001101</td><td><b>N</b></td><td>1001110</td><td><b>O</b></td><td>1001111</td><td><b>P</b></td><td>1010000</td></tr><tr><td><b>Q</b></td><td>1010001</td><td><b>R</b></td><td>1010010</td><td><b>S</b></td><td>1010011</td><td><b>T</b></td><td>1010100</td></tr><tr><td><b>U</b></td><td>1010101</td><td><b>V</b></td><td>1010110</td><td><b>W</b></td><td>1010111</td><td><b>X</b></td><td>1011000</td></tr><tr><td><b>Y</b></td><td>1011001</td><td><b>Z</b></td><td>1011010</td></tr></table></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">문자 코드 변환기</span>입력하면 컴퓨터 속 이진수가 보여요</div>
+    <div class="btn-row" style="align-items:center"><input id="tx-in" value="KIS" maxlength="16" style="flex:1;min-width:160px;padding:8px;border:1px solid #cfd8dc;border-radius:8px;font-size:15px"><select id="tx-code" style="padding:8px;border-radius:8px"><option value="ascii">아스키 코드(7 비트)</option><option value="uni">유니코드(16 진수 · 이진수)</option></select></div>
+    <div class="bin-out" id="tx-out"></div>
+    <div class="q" data-why="C = 67 = 1000011, J = 74 = 1001010, 1001000 = H, 1001001 = I">
+      <div class="q-text"><span class="q-num">1</span><b>해 보기</b> 아스키 코드로 C는 <input class="blank w-s" data-key="as1" data-answer="1000011" style="width:110px">, J는 <input class="blank w-s" data-key="as2" data-answer="1001010" style="width:110px"> 이다. 1001000 1001001 을 문자로 바꾸면 <input class="blank w-s" data-key="as3" data-answer="HI|hi" style="width:60px"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>내 영문 이름 약자와 그 이진수 표현을 적어 보자(변환기로 확인).</div><textarea class="free" data-key="myname" rows="2" data-keywords="" data-model="KMS → 1001011 1001101 1010011"></textarea><span class="fb"></span></div>
+    <div class="q" data-why="아스키 코드는 7 비트로 128 가지뿐이라 한글 11,172 자를 모두 담을 수 없어요. 변환기를 유니코드로 바꾸어 ‘가’를 입력해 보세요.">
+      <div class="q-text"><span class="q-num">3</span>유니코드에서 ‘가’는 16 진수 <input class="blank w-s" data-key="un1" data-answer="AC00|ac00" style="width:70px"> 이다. 한글처럼 많은 글자를 표현하려면 <span class="choice-group" data-key="un2" data-answer="uni"><button type="button" class="choice-btn" data-value="ascii">아스키 코드</button><button type="button" class="choice-btn" data-value="uni">유니코드</button></span>가 필요하다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서 · 해 보기 1·2</span>이미지의 디지털 표현 — 픽셀과 해상도 <span class="pg">50~51쪽</span></div>
+    <div class="book"><p>이미지를 디지털 데이터로 표현하는 방식에는 <span class="key">픽셀</span>로 표현하는 <b>비트맵 방식</b>과 수식을 이용하여 점과 선으로 표현하는 <b>벡터 방식</b>이 있다. 비트맵 방식은 이미지를 픽셀 단위로 구분하여 표현하며, 픽셀 하나는 한 개의 색상을 표현할 수 있다. 이미지를 표현하는 데 몇 개의 픽셀이 사용되었는지를 나타내는 <span class="key">해상도</span>가 높을수록 이미지를 실제와 같이 표현할 수 있다. 컴퓨터는 색상 코드를 사용하여 픽셀 정보를 숫자로 저장하고 표현한다. (BMP: 용량이 크다, JPG: 사진을 고화질로, PNG: 고화질 저용량)</p></div>
+<figure class="fig" style="max-width:460px"><img src="img/p50-bitmap.jpg" alt="비트맵 방식의 이미지 표현 — 흑백은 0(검은색)과 1(흰색), 검은색·흰색과 무지개색 9 가지는 0~8을 이진수(0000~1000)로 표현"><figcaption><span class="tb">그림 Ⅱ-4</span>비트맵 방식의 이미지 표현 — 흑백은 0(검은색)과 1(흰색), 검은색·흰색과 무지개색 9 가지는 0~8을 이진수(0000~1000)로 표현</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">해 보기 1</span>하트를 픽셀로 칠하고 이진수로 바꾸자</div>
+    <div class="card-hint">왼쪽 하트 선이 조금이라도 지나가는 칸을 눌러(끌어서) 칠해 보자. 칠한 칸은 1, 칠하지 않은 칸은 0이 돼요.</div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(150px,max-content));gap:14px;align-items:start"><canvas id="ht-cv" width="150" height="150" style="width:150px;height:150px;background:#fff;border-radius:8px"></canvas><div class="px-grid" id="px"></div><div class="bin-out" id="px-out" style="min-width:120px"></div></div>
+    <div class="btn-row"><button type="button" class="btn small" id="px-auto">💡 선이 지나간 칸 보기(자동)</button><button type="button" class="btn ghost small" id="px-clr">🧹 지우기</button></div>
+    <div class="q" data-why="2 가지 → 1 비트(0, 1), 9 가지 → 4 비트(0000~1000, 3 비트는 8 가지뿐), 10 × 10 × 1 = 100 비트">
+      <div class="q-text"><span class="q-num">1</span>흑백 2 가지 색은 픽셀 하나에 <input class="blank w-s" data-key="pb1" data-num="1" data-abs="0" style="width:60px"> 비트, 검은색·흰색과 무지개색 9 가지는 픽셀 하나에 <input class="blank w-s" data-key="pb2" data-num="4" data-abs="0" style="width:60px"> 비트가 필요하다. 10×10 흑백 그림은 모두 <input class="blank w-s" data-key="pb3" data-num="100" data-abs="0" style="width:60px"> 비트로 저장된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">해 보기 2</span>해상도에 따른 화질과 용량</div>
+    <figure class="fig" style="max-width:440px"><img src="img/p51-res.jpg" alt="낮은 해상도(640×426)와 높은 해상도(1920×1280) 이미지를 확대한 모습"><figcaption><span class="tb">51쪽</span>낮은 해상도(640×426)와 높은 해상도(1920×1280) 이미지를 확대한 모습</figcaption></figure>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">한 변의 픽셀 수</b><input type="range" id="rs" min="4" max="96" value="12" style="flex:1;min-width:160px"><span id="rs-v" style="font-weight:800;min-width:110px"></span></div>
+    <div class="light-stage"><canvas id="rs-cv"></canvas></div>
+    <div class="q" data-why="640×426×3 = 817,920 바이트 ≈ 0.8 MB, 1920×1280×3 = 7,372,800 바이트 ≈ 7.4 MB(약 9 배)">
+      <div class="q-text"><span class="q-num">2</span>색 하나를 24 비트(3 바이트)로 저장하는 BMP 파일이라면, 640×426 이미지는 약 <input class="blank w-s" data-key="rs1" data-num="0.8" data-abs="0.05" style="width:60px"> MB, 1920×1280 이미지는 약 <input class="blank w-s" data-key="rs2" data-num="7.4" data-abs="0.1" style="width:60px"> MB이다. 높은 해상도 이미지의 장점은 <span class="choice-group" data-key="rs3" data-answer="q"><button type="button" class="choice-btn" data-value="q">확대해도 선명하다</button><button type="button" class="choice-btn" data-value="s">저장 용량이 작다</button></span>, 단점은 <span class="choice-group" data-key="rs4" data-answer="s"><button type="button" class="choice-btn" data-value="q">확대하면 흐려진다</button><button type="button" class="choice-btn" data-value="s">저장 용량이 크다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서 · 해 보기 1</span>소리의 디지털 표현 — 표본화·양자화·부호화 <span class="pg">52~54쪽</span></div>
+    <div class="book"><p>소리는 물체의 진동으로 생긴 파형이 공기를 통해 전달되는 것으로 디지털 기기에서 변환 과정을 거쳐 디지털로 표현된다. 아날로그 소리의 파형을 일정 간격으로 나누고(<b>표본화</b>), 소리의 크기를 가까운 정숫값으로 표현한 뒤(<b>양자화</b>), 이진수로 변환하여(<b>부호화</b>) 디지털로 표현하는 과정을 거친다. (WAV: 용량이 크다, MP3: 들을 수 없는 소리를 삭제한 압축 형식, MID: 전자 악기와 컴퓨터 간 데이터 교환용)</p></div>
+<figure class="fig" style="max-width:380px"><img src="img/p52-sound.jpg" alt="아날로그 소리가 디지털로 변환되는 과정"><figcaption><span class="tb">그림 Ⅱ-5</span>아날로그 소리가 디지털로 변환되는 과정</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">소리 변환기</span>간격과 비트 수를 바꾸며 소리를 디지털로 바꿔 보자</div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px;min-width:110px">⏱ 표본화 간격</b><select id="sd-n"><option value="8">1 초(8 개)</option><option value="16">0.5 초(16 개)</option><option value="32">0.25 초(32 개)</option></select><b style="font-size:13px;margin-left:8px">📏 양자화 비트</b><select id="sd-b"><option value="3">3 비트(0~7)</option><option value="2">2 비트(0~3)</option><option value="4">4 비트(0~15)</option></select></div>
+    <div class="light-stage"><canvas id="sd-cv"></canvas></div>
+    <div class="bin-out" id="sd-out"></div>
+    <div class="btn-row"><button type="button" class="btn small" id="sd-orig">🔊 원래 소리(440 Hz)</button><button type="button" class="btn small" data-bits="8">🔊 8 비트로 바꾼 소리</button><button type="button" class="btn small" data-bits="3">🔊 3 비트로 바꾼 소리</button><button type="button" class="btn small" data-bits="1">🔊 1 비트로 바꾼 소리</button></div>
+    <div class="q" data-why="표본화(나누기) → 양자화(정수로) → 부호화(이진수로)">
+      <div class="q-text"><span class="q-num">1</span>디지털 변환 과정의 단계를 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">소리의 파형을 일정한 시간 간격으로 나눈다.</td><td><span class="choice-group" data-key="sp1" data-answer="s"><button type="button" class="choice-btn" data-value="s">표본화</button><button type="button" class="choice-btn" data-value="q">양자화</button><button type="button" class="choice-btn" data-value="e">부호화</button></span></td></tr><tr><td style="text-align:left">각 간격의 소리 크기를 가까운 정숫값으로 나타낸다.</td><td><span class="choice-group" data-key="sp2" data-answer="q"><button type="button" class="choice-btn" data-value="s">표본화</button><button type="button" class="choice-btn" data-value="q">양자화</button><button type="button" class="choice-btn" data-value="e">부호화</button></span></td></tr><tr><td style="text-align:left">정숫값을 0과 1의 이진수로 바꾼다.</td><td><span class="choice-group" data-key="sp3" data-answer="e"><button type="button" class="choice-btn" data-value="s">표본화</button><button type="button" class="choice-btn" data-value="q">양자화</button><button type="button" class="choice-btn" data-value="e">부호화</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1 → 001, 4 → 100, 3 → 011, 1 → 001. 자주, 촘촘하게 잴수록 정확하지만 데이터가 많아져요." data-hint="소리 변환기에서 간격과 비트를 바꿔 들어 보세요.">
+      <div class="q-text"><span class="q-num">2</span>정숫값 1, 4, 3, 1을 이진수 변환표(1=001, 2=010, 3=011, 4=100)로 부호화하면 <input class="blank w-s" data-key="sd1" data-answer="001 100 011 001|001100011001" style="width:190px"> 이다. 표본화 간격을 짧게 하고 비트 수를 늘리면 원래 소리에 <span class="choice-group" data-key="sd2" data-answer="close"><button type="button" class="choice-btn" data-value="close">더 가까워지지만 용량이 커진다</button><button type="button" class="choice-btn" data-value="far">더 멀어지지만 용량이 작아진다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서 · 해 보기 2</span>동영상의 디지털 표현 — 프레임률 <span class="pg">53~54쪽</span></div>
+    <div class="book"><p>정지된 이미지를 <b>프레임</b>이라고 하고, 텔레비전 화상처럼 움직이는 영상을 동영상이라고 한다. 동영상은 이미지, 소리, 문자를 모두 포함할 수 있다. 동영상은 여러 개의 프레임을 빠른 속도로 넘겼을 때 생기는 <span class="key">잔상 효과</span>를 이용한 것이다. 1 초 동안 보이는 프레임의 수를 <span class="key">프레임률</span>(FPS, frames per second)이라고 하며, 이는 동영상의 품질을 결정한다. 프레임률이 높으면 움직임이 자연스러운 동영상을 볼 수 있지만, 용량은 커지게 된다. (AVI: 용량이 크다, MP4: 저용량 고화질, MOV: 애플의 저용량 고화질)</p></div>
+<figure class="fig" style="max-width:340px"><img src="img/p53-video.jpg" alt="디지털 동영상 제작 및 편집 과정"><figcaption><span class="tb">그림 Ⅱ-6</span>디지털 동영상 제작 및 편집 과정</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">프레임률 비교</span>15·30·60 FPS로 같은 움직임을 재생해 보자</div>
+    <div class="btn-row"><button type="button" class="btn small" data-fps="5">5 FPS</button><button type="button" class="btn small main" data-fps="15">15 FPS</button><button type="button" class="btn small" data-fps="30">30 FPS</button><button type="button" class="btn small" data-fps="60">60 FPS</button></div>
+    <div class="light-stage"><canvas id="fp-cv"></canvas></div>
+    <div class="q" data-why="30 × 10 = 300, 60 × 10 = 600, 60 ÷ 15 = 4">
+      <div class="q-text"><span class="q-num">1</span>10 초 동영상을 30 FPS로 만들면 프레임이 <input class="blank w-s" data-key="fp1" data-num="300" data-abs="0" style="width:60px"> 장, 60 FPS로 만들면 <input class="blank w-s" data-key="fp2" data-num="600" data-abs="0" style="width:60px"> 장 필요하다. 프레임 한 장의 크기가 같다면 60 FPS 동영상의 용량은 15 FPS의 약 <input class="blank w-s" data-key="fp3" data-num="4" data-abs="0" style="width:60px"> 배이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>해 보기 2</b> 프레임률을 15, 30, 60으로 바꾸었을 때 나타나는 변화를 움직임과 파일 용량 측면에서 비교해 보자.</div><textarea class="free" data-key="fps" rows="2" data-keywords="자연스럽,끊,용량,커" data-model="15 FPS는 움직임이 뚝뚝 끊겨 보이지만 용량이 작고, 60 FPS는 움직임이 가장 부드럽지만 같은 길이에서 프레임 수가 4 배라 용량이 크다. 30 FPS는 그 중간이다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">과정 중심의 수행 활동 1 · 모둠</span>디지털 문자 변환 게임 <span class="pg">85쪽</span></div>
+    <div class="book"><p>모스 부호를 변형하여 만든 ‘디지털 문자 변환표’를 이용하여 단어를 이진수로 변환하고 다시 문자로 변환하는 게임을 해 보자. ① 변환할 문자를 정해 전달하기 ② 변환표로 이진수로 바꾸기(예: 파이팅 → 111 0 101 001 1100 001 101) ③ 이진수를 다시 문자로 바꾸기(→ ㅍ ㅏ ㅇ ㅣ ㅌ ㅣ ㅇ) ④ 단어를 만들어 정답 외치기</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px"><table class="data-t ascii-t"><tr><th>자음</th><th>이진수</th></tr><tr><td><b>ㄱ</b></td><td>0100</td></tr><tr><td><b>ㄴ</b></td><td>0010</td></tr><tr><td><b>ㄷ</b></td><td>1000</td></tr><tr><td><b>ㄹ</b></td><td>0001</td></tr><tr><td><b>ㅁ</b></td><td>11</td></tr><tr><td><b>ㅂ</b></td><td>011</td></tr><tr><td><b>ㅅ</b></td><td>110</td></tr><tr><td><b>ㅇ</b></td><td>101</td></tr><tr><td><b>ㅈ</b></td><td>0110</td></tr><tr><td><b>ㅊ</b></td><td>1010</td></tr><tr><td><b>ㅋ</b></td><td>1001</td></tr><tr><td><b>ㅌ</b></td><td>1100</td></tr><tr><td><b>ㅍ</b></td><td>111</td></tr><tr><td><b>ㅎ</b></td><td>0111</td></tr></table><table class="data-t ascii-t"><tr><th>모음</th><th>이진수</th></tr><tr><td><b>ㅏ</b></td><td>0</td></tr><tr><td><b>ㅑ</b></td><td>00</td></tr><tr><td><b>ㅓ</b></td><td>1</td></tr><tr><td><b>ㅕ</b></td><td>000</td></tr><tr><td><b>ㅗ</b></td><td>01</td></tr><tr><td><b>ㅛ</b></td><td>10</td></tr><tr><td><b>ㅜ</b></td><td>0000</td></tr><tr><td><b>ㅠ</b></td><td>010</td></tr><tr><td><b>ㅡ</b></td><td>100</td></tr><tr><td><b>ㅣ</b></td><td>001</td></tr><tr><td><b>ㅐ</b></td><td>1101</td></tr><tr><td><b>ㅔ</b></td><td>1011</td></tr></table></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">변환 게임기</span>단어 ↔ 이진수</div>
+    <div class="btn-row" style="align-items:center"><input id="kg-in" value="파이팅" maxlength="12" style="flex:1;min-width:140px;padding:8px;border:1px solid #cfd8dc;border-radius:8px;font-size:15px"><button type="button" class="btn small main" id="kg-enc">→ 이진수로</button></div>
+    <div class="bin-out" id="kg-out"></div>
+    <div class="btn-row" style="align-items:center"><input id="kg-bin" value="110 0 0001 0 101" style="flex:1;min-width:140px;padding:8px;border:1px solid #cfd8dc;border-radius:8px;font:14px Consolas,monospace"><button type="button" class="btn small main" id="kg-dec">→ 자모로</button></div>
+    <div class="bin-out" id="kg-out2"></div>
+    <div class="card-hint">이진수를 자모로 바꿀 때는 자음·모음이 번갈아 온다고 생각해요(초성 → 중성 → 받침). 같은 이진수가 자음표와 모음표에 다 있을 수 있어서 순서가 중요해요.</div>
+    <div class="q" data-why="ㅈ 0110, ㅓ 1, ㅇ 101, ㅂ 011, ㅗ 01 / 110 ㅅ, 0 ㅏ, 0001 ㄹ, 0 ㅏ, 101 ㅇ → 사랑">
+      <div class="q-text"><span class="q-num">1</span>‘정보’를 변환하면 ㅈ <input class="blank w-s" data-key="kg1" data-answer="0110" style="width:60px"> ㅓ <input class="blank w-s" data-key="kg2" data-answer="1" style="width:40px"> ㅇ <input class="blank w-s" data-key="kg3" data-answer="101" style="width:50px"> ㅂ <input class="blank w-s" data-key="kg4" data-answer="011" style="width:50px"> ㅗ <input class="blank w-s" data-key="kg5" data-answer="01" style="width:40px"> 이다. 110 0 0001 0 101 을 문자로 바꾸면 <input class="blank w-s" data-key="kg6" data-answer="사랑" style="width:60px"> 이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>평가하기</b> 모둠원과 문장을 이진수로 바꾸고 다시 문자로 바꾸는 게임을 하면서 어려웠던 점과 해결 방법을 적어 보자.</div><textarea class="free" data-key="kg_talk" rows="2" data-keywords="띄어,구분,순서,자음,모음" data-model="같은 이진수가 자음과 모음에 모두 있어서 헷갈렸다. 자음과 모음이 번갈아 나오는 순서를 정하고, 글자 사이를 띄어 써서 구분했다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">확인 꼭꼭 · 핵심 콕콕</span>다양한 데이터의 디지털 표현 <span class="pg">55·88~89쪽</span></div>
+    <div class="q" data-why="컴퓨터 내부에서는 모두 이진수(디지털)로 처리돼요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">02 문자, 이미지, 소리, 동영상과 같은 실생활 데이터는 컴퓨터 내부에서 모두 아날로그로 처리된다.</td><td><span class="choice-group" data-key="ev1" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="㉡은 벡터 방식, ㉣은 반대(많을수록 정교)">
+      <div class="q-text"><span class="q-num">02</span>비트맵 방식의 설명으로 알맞은 것을 모두 고른 것은? (㉠ 픽셀 단위로 구분해 표현한다. ㉡ 수식을 이용하여 선, 색상, 모양 등을 표현한다. ㉢ 색상 코드로 픽셀 정보를 저장한다. ㉣ 픽셀 수와 색상 수가 적을수록 실제와 같아진다.) <span class="choice-group" data-key="ev2" data-answer="2"><button type="button" class="choice-btn" data-value="1">① ㉠, ㉡</button><button type="button" class="choice-btn" data-value="2">② ㉠, ㉢</button><button type="button" class="choice-btn" data-value="3">③ ㉠, ㉣</button><button type="button" class="choice-btn" data-value="4">④ ㉡, ㉢</button><button type="button" class="choice-btn" data-value="5">⑤ ㉢, ㉣</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>다양한 데이터의 디지털 표현</h4>
+      <div class="q" style="border-top:none" data-why="이진수, 비트맵, 벡터, 이진수, 잔상 효과">
+        <div class="q-text">컴퓨터는 0과 1로 이루어진 <input class="blank w-s" data-key="s1" data-answer="이진수"> 조합 문자 코드를 이용하여 문자를 디지털로 표현한다. 이미지를 디지털로 표현하는 방식에는 픽셀로 표현하는 <input class="blank w-s" data-key="s2" data-answer="비트맵"> 방식과 수식을 이용하여 점과 선으로 표현하는 <input class="blank w-s" data-key="s3" data-answer="벡터"> 방식이 있다. 소리 파형의 크기를 정숫값으로 표현하고, 이 정숫값을 <input class="blank w-s" data-key="s4" data-answer="이진수"> (으)로 변환하여 디지털 소리로 표현한다. 동영상은 여러 프레임을 빠르게 넘겼을 때 움직이는 것처럼 보이는 <input class="blank w-s" data-key="s5" data-answer="잔상 효과"> 를 이용한 것이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 문자, 이미지, 소리, 동영상을 컴퓨팅 시스템에서 표현하는 방법을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 다양한 데이터를 디지털 형태로 표현할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>가치·태도</b> 모둠원과 협력하여 변환 게임의 각 단계를 해결했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅱ. 데이터 · 1. 데이터의 표현 · 02 다양한 데이터의 디지털 표현 · 비상교육 중학교 정보 교과서(48~55쪽, 85쪽, 88~89쪽) 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅱ-1-02 다양한 데이터의 디지털 표현";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* ── 문자 코드 ── */
+function txDraw() { const s = $("tx-in").value, uni = $("tx-code").value === "uni";
+  $("tx-out").textContent = [...s].map(ch => { const c = ch.codePointAt(0); if (uni) return `${ch}  U+${c.toString(16).toUpperCase().padStart(4, "0")}  ${c.toString(2).padStart(16, "0").replace(/(.{4})/g, "$1 ").trim()}`; return c < 128 ? `${ch === " " ? "␠" : ch}  ${c.toString(2).padStart(7, "0")}` : `${ch}  (아스키 코드에 없어요 → 유니코드로 바꿔 보세요)`; }).join("\n") || "(입력해 보세요)"; }
+["tx-in", "tx-code"].forEach(id => $(id).addEventListener("input", txDraw)); txDraw();
+WS.custom("tx_try", { el: $("tx-out"), value: () => $("tx-in").value + " / " + $("tx-code").value });
+/* ── 픽셀 하트 ── */
+const PX = $("px"), cells = []; let paint = null;
+for (let i = 0; i < 100; i++) { const b = document.createElement("button"); b.type = "button"; PX.appendChild(b); cells.push(b); }
+const setC = (b, on) => { b.classList.toggle("on", on); pxOut(); };
+PX.addEventListener("pointerdown", e => { const b = e.target.closest("button"); if (!b) return; e.preventDefault(); paint = !b.classList.contains("on"); setC(b, paint); });
+PX.addEventListener("pointerover", e => { const b = e.target.closest("button"); if (b && paint !== null) setC(b, paint); });
+window.addEventListener("pointerup", () => paint = null);
+function pxOut() { let t = ""; for (let r = 0; r < 10; r++) t += cells.slice(r * 10, r * 10 + 10).map(b => b.classList.contains("on") ? 1 : 0).join("") + "\n"; $("px-out").textContent = t; }
+const hc = $("ht-cv").getContext("2d"); function heart(c, s) { c.beginPath(); for (let t = 0; t <= 6.3; t += .02) { const x = 16 * Math.sin(t) ** 3, y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t); const X = 75 + x * s, Y = 72 - y * s; t ? c.lineTo(X, Y) : c.moveTo(X, Y); } c.closePath(); }
+hc.fillStyle = "#fff"; hc.fillRect(0, 0, 150, 150); hc.strokeStyle = "#26393b"; hc.lineWidth = 3; heart(hc, 4); hc.stroke();
+$("px-auto").addEventListener("click", () => { const off = document.createElement("canvas"); off.width = 150; off.height = 150; const c = off.getContext("2d"); c.strokeStyle = "#000"; c.lineWidth = 3; heart(c, 4); c.stroke(); const d = c.getImageData(0, 0, 150, 150).data;
+  cells.forEach((b, i) => { const cx = i % 10, cy = Math.floor(i / 10); let hit = false; for (let y = cy * 15; y < cy * 15 + 15 && !hit; y++) for (let x = cx * 15; x < cx * 15 + 15; x++) if (d[(y * 150 + x) * 4 + 3] > 40) { hit = true; break; } b.classList.toggle("on", hit); }); pxOut(); });
+$("px-clr").addEventListener("click", () => { cells.forEach(b => b.classList.remove("on")); pxOut(); }); pxOut();
+WS.custom("px_bits", { el: $("px-out"), value: () => $("px-out").textContent.replace(/\n/g, " ").trim() });
+/* ── 해상도 ── */
+const src = document.createElement("canvas"); src.width = src.height = 192; (c => { const g = c.createRadialGradient(80, 70, 10, 96, 96, 96); g.addColorStop(0, "#ffe082"); g.addColorStop(1, "#ef6c00"); c.fillStyle = "#bbdefb"; c.fillRect(0, 0, 192, 192); c.fillStyle = g; c.beginPath(); c.arc(96, 96, 70, 0, 7); c.fill(); c.fillStyle = "#26393b"; c.beginPath(); c.arc(72, 82, 9, 0, 7); c.arc(120, 82, 9, 0, 7); c.fill(); c.lineWidth = 7; c.strokeStyle = "#26393b"; c.beginPath(); c.arc(96, 104, 36, .2, Math.PI - .2); c.stroke(); })(src.getContext("2d"));
+function rsDraw() { const n = +$("rs").value, cv = $("rs-cv"), w = cv.clientWidth || 600, H = 200, dpr = Math.min(2, devicePixelRatio || 1); cv.width = w * dpr; cv.height = H * dpr; cv.style.height = H + "px"; const c = cv.getContext("2d"); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  c.fillStyle = "#fff"; c.fillRect(0, 0, w, H); const small = document.createElement("canvas"); small.width = small.height = n; small.getContext("2d").drawImage(src, 0, 0, n, n); c.imageSmoothingEnabled = false; c.drawImage(small, 10, 10, 180, 180);
+  c.fillStyle = "#26393b"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(`${n} × ${n} 픽셀`, 205, 40); c.font = "12px Pretendard, sans-serif"; c.fillText(`픽셀 ${(n * n).toLocaleString()} 개`, 205, 62); c.fillText(`24 비트 색 → ${(n * n * 3).toLocaleString()} 바이트`, 205, 82); $("rs-v").textContent = `${n} × ${n}`; }
+$("rs").addEventListener("input", rsDraw); rsDraw(); window.addEventListener("resize", rsDraw);
+WS.custom("rs_n", { el: $("rs-cv"), value: () => $("rs").value });
+/* ── 소리 ── */
+const wave = t => 3.6 + 2.6 * Math.sin(t * 1.15 + .3) + .8 * Math.sin(t * 2.7);  // 0~8초, 크기 0~7 근처
+function sdDraw() { const n = +$("sd-n").value, bits = +$("sd-b").value, top = 2 ** bits - 1, cv = $("sd-cv"), w = cv.clientWidth || 600, sc = Math.min(1, w / 360), H = 230, dpr = Math.min(2, devicePixelRatio || 1); cv.width = w * dpr; cv.height = H * sc * dpr; cv.style.height = H * sc + "px"; const c = cv.getContext("2d"); c.setTransform(dpr * sc, 0, 0, dpr * sc, 0, 0); const W = w / sc;
+  const L = 34, R = W - 10, T = 14, Bt = H - 26, X = t => L + t / 8 * (R - L), Y = v => Bt - v / 7.6 * (Bt - T);
+  c.fillStyle = "#fff"; c.fillRect(0, 0, W, H); c.strokeStyle = "#eef2f4"; c.fillStyle = "#5b6b6d"; c.font = "10px sans-serif"; c.textAlign = "right";
+  for (let k = 0; k <= top; k++) { const v = k * 7 / top, y = Y(v); c.beginPath(); c.moveTo(L, y); c.lineTo(R, y); c.stroke(); if (top <= 15) c.fillText(k, L - 4, y + 3); }
+  const vals = []; for (let i = 0; i < n; i++) { const t = (i + .5) * 8 / n, v = wave(t), q = Math.max(0, Math.min(top, Math.round(v / 7 * top))); vals.push(q); c.fillStyle = "rgba(242,165,22,.75)"; c.fillRect(X(i * 8 / n) + 1, Y(q * 7 / top), (R - L) / n - 2, Bt - Y(q * 7 / top)); }
+  c.strokeStyle = "#2f7fd6"; c.lineWidth = 2; c.beginPath(); for (let t = 0; t <= 8; t += .02) { t ? c.lineTo(X(t), Y(wave(t))) : c.moveTo(X(t), Y(wave(t))); } c.stroke(); c.lineWidth = 1;
+  c.fillStyle = "#5b6b6d"; c.textAlign = "center"; for (let s = 0; s <= 8; s++) c.fillText(s, X(s), Bt + 13); c.fillText("시간(초)", (L + R) / 2, H - 2);
+  $("sd-out").textContent = `정숫값  ${vals.join(" ")}\n이진수  ${vals.map(v => v.toString(2).padStart(bits, "0")).join(" ")}\n데이터 양  ${n} 개 × ${bits} 비트 = ${n * bits} 비트`; }
+["sd-n", "sd-b"].forEach(id => $(id).addEventListener("change", () => { sdDraw(); sdSeen.add($("sd-n").value + "/" + $("sd-b").value); })); const sdSeen = new Set(); sdDraw(); window.addEventListener("resize", sdDraw);
+let AC; function play(bits) { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const sr = AC.sampleRate, len = sr * .8, buf = AC.createBuffer(1, len, sr), d = buf.getChannelData(0), lv = bits ? 2 ** bits - 1 : 0;
+  for (let i = 0; i < len; i++) { let v = Math.sin(2 * Math.PI * 440 * i / sr); if (bits) v = Math.round((v + 1) / 2 * lv) / lv * 2 - 1; d[i] = v * .18 * Math.min(1, i / 800, (len - i) / 800); } const s = AC.createBufferSource(); s.buffer = buf; s.connect(AC.destination); s.start(); sdSeen.add("play" + bits); } catch (e) {} }
+$("sd-orig").addEventListener("click", () => play(0)); document.querySelectorAll("[data-bits]").forEach(b => b.addEventListener("click", () => play(+b.dataset.bits)));
+WS.custom("sd_seen", { el: $("sd-cv"), value: () => [...sdSeen].join(",") });
+/* ── 프레임률 ── */
+let fps = 15, acc = 0, fx = 0; const fpSeen = new Set(["15"]);
+document.querySelectorAll("[data-fps]").forEach(b => b.addEventListener("click", () => { fps = +b.dataset.fps; fpSeen.add(b.dataset.fps); document.querySelectorAll("[data-fps]").forEach(x => x.classList.toggle("main", x === b)); }));
+WS.custom("fp_seen", { el: $("fp-cv"), value: () => [...fpSeen].join(",") });
+let tt = 0; LB.loop($("fp-cv"), dt => { tt += dt; acc += dt; if (acc >= 1 / fps) { acc %= 1 / fps; fx = tt; }
+  const H = 150, sc = Math.min(1, $("fp-cv").clientWidth / 360), g = LB.fit($("fp-cv"), H * sc), c = (g.c.scale(sc, sc), g.c), W = g.w / sc;
+  c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H); const x = 30 + ((fx * 140) % (W - 60)), y = 80 - Math.abs(Math.sin(fx * 4)) * 50;
+  c.fillStyle = "#e4572e"; c.beginPath(); c.arc(x, y, 16, 0, 7); c.fill(); c.fillStyle = "#90a4ae"; c.fillRect(0, 98, W, 4);
+  c.fillStyle = "#26393b"; c.font = "bold 13px Pretendard, sans-serif"; c.fillText(`${fps} FPS — 1 초에 ${fps} 장`, 10, 124); c.font = "12px Pretendard, sans-serif"; c.fillText(`10 초 동영상 = ${fps * 10} 프레임`, 10, 142); });
+/* ── 디지털 문자 변환 ── */
+const CONS = {"ㄱ": "0100", "ㄴ": "0010", "ㄷ": "1000", "ㄹ": "0001", "ㅁ": "11", "ㅂ": "011", "ㅅ": "110", "ㅇ": "101", "ㅈ": "0110", "ㅊ": "1010", "ㅋ": "1001", "ㅌ": "1100", "ㅍ": "111", "ㅎ": "0111"}, VOW = {"ㅏ": "0", "ㅑ": "00", "ㅓ": "1", "ㅕ": "000", "ㅗ": "01", "ㅛ": "10", "ㅜ": "0000", "ㅠ": "010", "ㅡ": "100", "ㅣ": "001", "ㅐ": "1101", "ㅔ": "1011"};
+const CHO = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ", JUNG = "ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ", JONG = ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+function jamo(s) { const out = []; for (const ch of s) { const c = ch.charCodeAt(0) - 0xAC00; if (c < 0 || c > 11171) { out.push(ch); continue; } out.push(CHO[Math.floor(c / 588)], JUNG[Math.floor(c % 588 / 28)]); if (c % 28) out.push(JONG[c % 28]); } return out.filter(j => j !== "ㅇ" || true); }
+const kgSeen = new Set();
+$("kg-enc").addEventListener("click", () => { const s = $("kg-in").value, js = []; [...s].forEach(ch => { const c = ch.charCodeAt(0) - 0xAC00; if (c < 0 || c > 11171) return; const cho = CHO[Math.floor(c / 588)], jung = JUNG[Math.floor(c % 588 / 28)], jong = JONG[c % 28]; if (cho !== "ㅇ" || true) js.push(cho); js.push(jung); if (jong) js.push(jong); });
+  const miss = js.filter(j => !CONS[j] && !VOW[j]); kgSeen.add("enc");
+  $("kg-out").textContent = js.map(j => `${j}:${CONS[j] || VOW[j] || "?"}`).join("  ") + "\n→ " + js.map(j => CONS[j] || VOW[j] || "?").join(" ") + (miss.length ? `\n(표에 없는 자모: ${[...new Set(miss)].join(", ")})` : ""); });
+$("kg-dec").addEventListener("click", () => { const parts = $("kg-bin").value.trim().split(/\s+/), RC = {}, RV = {}; Object.entries(CONS).forEach(([k, v]) => RC[v] = k); Object.entries(VOW).forEach(([k, v]) => RV[v] = k); kgSeen.add("dec");
+  // 자음 → 모음 → (받침 자음이면 받침) 순서로 읽기
+  const out = []; let want = "c"; parts.forEach((p, i) => { let j; if (want === "c") { j = RC[p] || RV[p]; want = RC[p] ? "v" : "c"; } else if (want === "v") { j = RV[p] || RC[p]; want = "c"; } out.push(j || "?"); });
+  $("kg-out2").textContent = out.join(" "); });
+$("kg-enc").click();
+WS.custom("kg_seen", { el: $("kg-out"), value: () => [...kgSeen].join(",") + " " + $("kg-in").value });
+
+</script>
+</body>
+</html>

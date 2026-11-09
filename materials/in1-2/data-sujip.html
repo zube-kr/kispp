@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅱ-2-01 — 데이터의 수집과 관리</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.tok{display:inline-block;margin:3px 2px;padding:4px 8px;border-radius:14px;border:1px solid #cfd8dc;background:#fff;cursor:pointer;font-size:13.5px}
+.tok.r{background:#d6ecff;border-color:#2f7fd6}.tok.w{background:#ffe7c2;border-color:#f2a516}.tok.t{background:#ffd9d2;border-color:#e4572e}
+.attr-btn.on{outline:3px solid #26393b}
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/2">← KISPP · 중학교 정보 Ⅱ. 데이터</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p57-problem.jpg" alt="">
+    <img class="lb-qmark" src="img/p56-scale.jpg" alt="급식 잔반 측정기">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅱ. 데이터 · 2. 데이터 분석 · 01 <span class="pg" style="margin:0">56~63쪽</span></span>
+      <h1>데이터의<br><span>수집과 관리</span></h1>
+      <p>급식 잔반을 줄이려면 어떤 데이터가 필요할까? 문제에 맞는 데이터와 수집 방법을 고르고, 일기 예보 뉴스를 속성별로 나누어 보자. 미니 코답으로 가족 여행 데이터를 정렬·추가해 지도에 찍고, 서울 무료 와이파이 11,742 곳을 구별로 살펴보자.</p>
+      <div class="goal">🎯 학습 목표 — 문제 해결 목적에 적합한 데이터를 다양한 방법으로 수집하고, 목적에 맞게 구분하여 응용 소프트웨어로 관리할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">중단원 열기 · 생각 나누기</span>급식 잔반 측정기는 어떤 데이터를 모을까? <span class="pg">56쪽</span></div>
+<figure class="fig" style="max-width:460px"><img src="img/p56-scale.jpg" alt="“다 먹느냐, 남기느냐 그것이 문제로다!” “더 담느냐, 덜 담느냐 그것이 문제로다!” — 식판을 배식 후와 식사 후 두 번 스캔하여 잔반량을 측정한다."><figcaption><span class="tb">56쪽</span>“다 먹느냐, 남기느냐 그것이 문제로다!” “더 담느냐, 덜 담느냐 그것이 문제로다!” — 식판을 배식 후와 식사 후 두 번 스캔하여 잔반량을 측정한다.</figcaption></figure>
+    <div class="q"><div class="q-text"><span class="q-num">💭</span><b>생각 나누기</b> 급식 잔반 측정기를 통해 어떤 데이터가 수집되고, 이것을 어떻게 활용할 수 있을지 이야기해 보자.</div><textarea class="free" data-key="think" rows="2" data-keywords="" data-model="학생별·메뉴별 배식량과 잔반량, 날짜와 시간이 수집된다. 많이 남는 메뉴는 배식량을 줄이거나 조리법을 바꾸고, 잘 먹는 메뉴는 식단에 자주 넣는 데 활용할 수 있다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>문제 해결에 적합한 데이터 <span class="pg">57쪽</span></div>
+    <div class="book"><p>문제에 따라 데이터 없이 해결 가능한 것도 있지만, 다양한 데이터를 수집하고 분석하여 해결해야 하는 문제도 있다. 데이터를 이용해 문제를 해결하기 위해서는 <span class="key">문제 해결에 적합한 데이터를 수집하는 것</span>이 중요하다.</p></div>
+<figure class="fig" style="max-width:460px"><img src="img/p57-problem.jpg" alt="문제 해결에 적합한 데이터의 예시"><figcaption><span class="tb">그림 Ⅱ-7</span>문제 해결에 적합한 데이터의 예시</figcaption></figure>
+    <div class="q" data-why="문제를 해결하는 데 직접 관련된 데이터를 골라야 해요.">
+      <div class="q-text"><span class="q-num">1</span>각 문제를 해결하는 데 알맞은 데이터를 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">스마트폰 사용 습관을 개선하려면 어떻게 해야 할까?</td><td><span class="choice-group" data-key="pd1" data-answer="phone"><button type="button" class="choice-btn" data-value="phone">사용 앱·사용 횟수·사용 장소·총사용 시간</button><button type="button" class="choice-btn" data-value="wx">기온·습도·강수량·바람 세기</button><button type="button" class="choice-btn" data-value="sport">신체 조건·개인 성적·경기 기록·팀 성적</button><button type="button" class="choice-btn" data-value="food">식단·급식 인원·잔반량·날짜</button></span></td></tr><tr><td style="text-align:left">앞으로의 날씨는 어떻게 예상할 수 있을까?</td><td><span class="choice-group" data-key="pd2" data-answer="wx"><button type="button" class="choice-btn" data-value="phone">사용 앱·사용 횟수·사용 장소·총사용 시간</button><button type="button" class="choice-btn" data-value="wx">기온·습도·강수량·바람 세기</button><button type="button" class="choice-btn" data-value="sport">신체 조건·개인 성적·경기 기록·팀 성적</button><button type="button" class="choice-btn" data-value="food">식단·급식 인원·잔반량·날짜</button></span></td></tr><tr><td style="text-align:left">운동 경기의 승부는 어떻게 예측할까?</td><td><span class="choice-group" data-key="pd3" data-answer="sport"><button type="button" class="choice-btn" data-value="phone">사용 앱·사용 횟수·사용 장소·총사용 시간</button><button type="button" class="choice-btn" data-value="wx">기온·습도·강수량·바람 세기</button><button type="button" class="choice-btn" data-value="sport">신체 조건·개인 성적·경기 기록·팀 성적</button><button type="button" class="choice-btn" data-value="food">식단·급식 인원·잔반량·날짜</button></span></td></tr><tr><td style="text-align:left">급식 잔반량을 줄일 수 있는 방법은 무엇일까?</td><td><span class="choice-group" data-key="pd4" data-answer="food"><button type="button" class="choice-btn" data-value="phone">사용 앱·사용 횟수·사용 장소·총사용 시간</button><button type="button" class="choice-btn" data-value="wx">기온·습도·강수량·바람 세기</button><button type="button" class="choice-btn" data-value="sport">신체 조건·개인 성적·경기 기록·팀 성적</button><button type="button" class="choice-btn" data-value="food">식단·급식 인원·잔반량·날짜</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">교과서</span>데이터의 수집 <span class="pg">58쪽</span></div>
+    <div class="book"><p>데이터를 수집하는 방법에는 인터뷰, 관찰, 설문 조사, 센서 이용과 같이 데이터를 직접 수집하는 방법과 검색 엔진, 데이터 전문 웹 사이트 등에서 이미 정리해 놓은 데이터를 수집하는 방법 등이 있다.</p>
+    <p><b>직접 수집</b> — 목적에 맞는 정확하고 다양한 종류의 데이터를 수집할 수 있는 장점이 있으나 시간과 비용이 많이 드는 단점이 있다. <b>검색 엔진과 데이터 전문 웹 사이트</b> — 원하는 데이터를 빠르고 편리하게 수집할 수 있지만, 검색 엔진은 데이터의 검증이 필요하고, 데이터 전문 웹 사이트는 문제 해결에 적합한 데이터를 찾기 어려울 수 있다. (공공데이터포털 data.go.kr, 국가통계포털 kosis.kr, AI 허브, 캐글 kaggle.com, 방송통계포털)</p></div>
+<figure class="fig"><img src="img/p58-direct.jpg" alt="데이터를 직접 수집하는 방법 — 인터뷰, 관찰, 설문 조사, 센서 이용"><figcaption><span class="tb">58쪽</span>데이터를 직접 수집하는 방법 — 인터뷰, 관찰, 설문 조사, 센서 이용</figcaption></figure>
+    <div class="q" data-why="센서 — 자동 측정, 설문 — 여러 사람에게 같은 질문, 인터뷰 — 질문과 답변, 관찰 — 지켜보며 기록, 데이터 전문 웹 사이트 — 정리된 통계, 검색 엔진 — 인터넷 검색">
+      <div class="q-text"><span class="q-num">1</span>다음 상황에 알맞은 데이터 수집 방법을 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">교실의 온도와 습도를 1 시간마다 기록한다.</td><td><span class="choice-group" data-key="me1" data-answer="ss"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr><tr><td style="text-align:left">우리 반 친구 전체에게 좋아하는 급식 메뉴를 물어본다.</td><td><span class="choice-group" data-key="me2" data-answer="sv"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr><tr><td style="text-align:left">영양사 선생님께 식단을 짜는 방법을 여쭈어본다.</td><td><span class="choice-group" data-key="me3" data-answer="iv"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr><tr><td style="text-align:left">점심시간 동안 급식실 줄의 길이를 지켜보며 기록한다.</td><td><span class="choice-group" data-key="me4" data-answer="ob"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr><tr><td style="text-align:left">전국 중학생 수를 국가통계포털에서 내려받는다.</td><td><span class="choice-group" data-key="me5" data-answer="ds"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr><tr><td style="text-align:left">‘우리 동네 맛집’ 사진을 인터넷에서 찾아본다.</td><td><span class="choice-group" data-key="me6" data-answer="se"><button type="button" class="choice-btn" data-value="iv">인터뷰</button><button type="button" class="choice-btn" data-value="ob">관찰</button><button type="button" class="choice-btn" data-value="sv">설문 조사</button><button type="button" class="choice-btn" data-value="ss">센서 이용</button><button type="button" class="choice-btn" data-value="se">검색 엔진</button><button type="button" class="choice-btn" data-value="ds">데이터 전문 웹 사이트</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="검색 엔진의 데이터는 출처와 정확성을 꼭 확인해야 해요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">직접 수집하면 목적에 맞는 정확한 데이터를 얻을 수 있지만 시간과 비용이 많이 든다.</td><td><span class="choice-group" data-key="mo1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">검색 엔진으로 찾은 데이터는 검증할 필요가 없다.</td><td><span class="choice-group" data-key="mo2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서</span>데이터의 구분 — 데이터 속성 찾기 <span class="pg">59쪽</span></div>
+    <div class="book"><p>수집한 데이터는 그 의미를 파악하여 공통점을 기준으로 구분하거나 형식에 따라 구분하여 문제 해결 목적에 맞게 활용할 수 있다. 지역, 날씨, 최고 기온과 같이 데이터의 의미, 공통점을 기준으로 묶을 수 있는 부분에 해당하는 것을 <span class="key">데이터 속성</span>이라고 한다(의미를 지니면서 더 이상 분리되지 않는 데이터의 최소 단위). 데이터를 속성별로 구분하여 정리하면 필요한 정보를 빠르게 찾을 수 있고 데이터의 활용도를 높일 수 있다.</p></div>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">속성 분류기</span>일기 예보 뉴스를 속성별로 나누어 보자</div>
+    <div class="card-hint">위에서 속성을 고른 다음, 뉴스 속 낱말을 눌러 그 속성으로 표시하자. 아래 표가 자동으로 정리돼요.</div>
+    <div class="btn-row"><button type="button" class="btn small attr-btn on" data-at="r" style="background:#d6ecff">📍 지역</button><button type="button" class="btn small attr-btn" data-at="w" style="background:#ffe7c2">⛅ 날씨</button><button type="button" class="btn small attr-btn" data-at="t" style="background:#ffd9d2">🌡 최고 기온</button><button type="button" class="btn small attr-btn" data-at="" >지우개</button></div>
+    <div class="book" id="news" style="line-height:2.1"></div>
+    <div id="news-t"></div>
+    <div class="q" data-why="지역: 서울·대전·강릉·광주·부산·제주 / 날씨: 흐림·흐림·비·맑음·맑음·맑음 / 최고 기온: 23·22·20·26·28·29 ℃">
+      <div class="q-text"><span class="q-num">1</span>속성별로 모두 바르게 나누었는가? (지역 6 개, 날씨 6 개, 최고 기온 6 개)</div><div id="news-chk" style="font-size:13px;margin-top:4px"></div>
+      <span class="fb"></span>
+    </div>
+<figure class="fig" style="max-width:460px"><img src="img/p59-kind.jpg" alt="데이터 특성에 따른 종류 — 범주형(문자나 기호로 대상을 구분): 성별, 성취 등급 / 수치형(숫자로 크기나 차이를 비교): 전자 우편 수, 추의 무게"><figcaption><span class="tb">59쪽</span>데이터 특성에 따른 종류 — 범주형(문자나 기호로 대상을 구분): 성별, 성취 등급 / 수치형(숫자로 크기나 차이를 비교): 전자 우편 수, 추의 무게</figcaption></figure>
+    <div class="q" data-why="문자나 기호로 구분하면 범주형, 숫자로 크기를 비교하면 수치형이에요. 성취 등급은 기호(A, B, C)로 구분하므로 범주형이에요.">
+      <div class="q-text"><span class="q-num">2</span>범주형과 수치형으로 구분해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">혈액형</td><td><span class="choice-group" data-key="kd1" data-answer="c"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr><tr><td style="text-align:left">키(cm)</td><td><span class="choice-group" data-key="kd2" data-answer="n"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr><tr><td style="text-align:left">교통수단(버스, 기차, 비행기)</td><td><span class="choice-group" data-key="kd3" data-answer="c"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr><tr><td style="text-align:left">위도·경도</td><td><span class="choice-group" data-key="kd4" data-answer="n"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr><tr><td style="text-align:left">하루 스마트폰 사용 시간</td><td><span class="choice-group" data-key="kd5" data-answer="n"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr><tr><td style="text-align:left">성취 등급(A, B, C)</td><td><span class="choice-group" data-key="kd6" data-answer="c"><button type="button" class="choice-btn" data-value="c">범주형</button><button type="button" class="choice-btn" data-value="n">수치형</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">교과서 · 코답 따라 하기</span>데이터의 관리 — 가족 여행 계획하기 <span class="pg">60~62쪽</span></div>
+    <div class="book"><p>응용 소프트웨어를 이용하면 수집한 데이터를 문제 해결 목적에 맞게 구분하여 효율적으로 관리할 수 있다. ‘가족 여행 계획하기’라는 문제를 해결하기 위해 필요한 데이터에는 여행지, 여행지 위치, 여행 기간, 교통수단, 숙박 시설 등이 있다. 코답(CODAP)에서 속성별로 입력한 뒤, <b>정렬·편집·변환</b>하고 <b>저장·공유</b>한다. 지도 기능을 이용하려면 위도는 Latitude, 경도는 Longitude로 이름을 바꿔야 한다. (행: 가로로 나열된 데이터의 개별 항목, 열: 세로로 나열된 데이터의 속성, 셀: 행과 열이 만나 값을 입력하는 단위)</p></div>
+<figure class="fig" style="max-width:420px"><img src="img/p60-travel.jpg" alt="데이터 수집과 구분 후 입력 완료된 데이터"><figcaption><span class="tb">그림 Ⅱ-8</span>데이터 수집과 구분 후 입력 완료된 데이터</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">미니 코답</span>여행 데이터 표 — 머리글을 눌러 정렬해 보자</div>
+    <div id="tv-t"></div>
+    <div class="btn-row" style="align-items:center"><input id="tv-name" placeholder="여행지" style="width:80px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><input id="tv-lat" placeholder="위도" style="width:70px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><input id="tv-lon" placeholder="경도" style="width:70px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><input id="tv-day" placeholder="여행 기간" style="width:76px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><input id="tv-tr" placeholder="교통수단" style="width:70px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><input id="tv-st" placeholder="숙박 시설" style="width:70px;padding:6px;border:1px solid #cfd8dc;border-radius:6px"><button type="button" class="btn small main" id="tv-add">＋ 행 추가</button><button type="button" class="btn ghost small" id="tv-del">− 마지막 행 삭제</button></div>
+    <div class="card-hint">예) 강릉 37.75 128.88 2박 3일 기차 펜션 — 추가하면 지도에도 바로 나타나요.</div>
+    <div class="light-stage"><canvas id="tv-map" class="dl-cv"></canvas></div>
+    <div class="q" data-why="위도가 클수록 북쪽: 경주 35.86 > 전주 35.82 > 부산 35.18 > 여수 34.76 > 제주 33.5" data-hint="미니 코답 표에서 위도와 교통수단 머리글을 눌러 보세요.">
+      <div class="q-text"><span class="q-num">1</span>‘위도’로 내림차순 정렬하면 맨 위에 오는 여행지는 <span class="choice-group" data-key="tv1" data-answer="경주"><button type="button" class="choice-btn" data-value="경주">경주</button><button type="button" class="choice-btn" data-value="부산">부산</button><button type="button" class="choice-btn" data-value="여수">여수</button><button type="button" class="choice-btn" data-value="전주">전주</button><button type="button" class="choice-btn" data-value="제주">제주</button></span>이고, 가장 남쪽에 있는 여행지는 <span class="choice-group" data-key="tv2" data-answer="제주"><button type="button" class="choice-btn" data-value="경주">경주</button><button type="button" class="choice-btn" data-value="부산">부산</button><button type="button" class="choice-btn" data-value="여수">여수</button><button type="button" class="choice-btn" data-value="전주">전주</button><button type="button" class="choice-btn" data-value="제주">제주</button></span>이다. ‘교통수단’을 오름차순(가나다) 정렬하면 <span class="choice-group" data-key="tv3" data-answer="ok"><button type="button" class="choice-btn" data-value="ok">기차 → 버스 → 비행기</button><button type="button" class="choice-btn" data-value="no">비행기 → 버스 → 기차</button></span> 순서로 묶인다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="스프레드시트 — 표 형태로 계산·관리, 데이터베이스 — 대량 데이터, 클라우드 — 어디서나 저장·공유">
+      <div class="q-text"><span class="q-num">2</span>데이터 관리용 응용 소프트웨어를 알맞게 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">용돈 기록장, 과목별 점수 자동 계산, 그래프 작성</td><td><span class="choice-group" data-key="sw1" data-answer="ss"><button type="button" class="choice-btn" data-value="ss">스프레드시트</button><button type="button" class="choice-btn" data-value="db">데이터베이스</button><button type="button" class="choice-btn" data-value="cl">클라우드 서비스</button></span></td></tr><tr><td style="text-align:left">중학교 전체 학생의 성적, 인터넷 쇼핑몰의 고객·상품 관리</td><td><span class="choice-group" data-key="sw2" data-answer="db"><button type="button" class="choice-btn" data-value="ss">스프레드시트</button><button type="button" class="choice-btn" data-value="db">데이터베이스</button><button type="button" class="choice-btn" data-value="cl">클라우드 서비스</button></span></td></tr><tr><td style="text-align:left">어디서나 인터넷에 접속하여 문서·사진을 저장하고 함께 편집</td><td><span class="choice-group" data-key="sw3" data-answer="cl"><button type="button" class="choice-btn" data-value="ss">스프레드시트</button><button type="button" class="choice-btn" data-value="db">데이터베이스</button><button type="button" class="choice-btn" data-value="cl">클라우드 서비스</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 개별</span>응용 소프트웨어를 이용해 수집한 데이터 관리하기 — 무료 와이파이 위치 <span class="pg">63쪽</span></div>
+    <div class="book"><p>지방행정 인허가 데이터 개방 웹 사이트(localdata.go.kr)의 ‘무료 와이파이 정보’를 내려받아 설치 장소명, 설치 장소 상세, 와이파이 SSID, 도로명 주소, WGS84 위도, WGS84 경도만 남기고, 위도·경도 속성 이름을 Latitude·Longitude로 바꾼 뒤 지도로 표시한다. 아래는 넣어 둔 <b>서울특별시 무료 와이파이 정보.csv(11,742 곳)</b>를 그대로 그린 지도이다.</p></div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">구</b><select id="wf-gu"></select><b style="font-size:13px;margin-left:6px">설치 시설</b><select id="wf-kind"></select><span id="wf-n" style="font-weight:800;font-size:13px"></span></div>
+    <div class="light-stage"><canvas id="wf-map" class="dl-cv"></canvas></div>
+    <div id="wf-t"></div>
+    <div class="q" data-why="구별 개수 표를 개수 순으로 정렬하면 강서구 1,458 곳이 가장 많고 마포구 13 곳이 가장 적어요. 숫자 위치 정보를 지도 이미지로 바꾸면 이해하기 쉬워요." data-hint="구별 개수 표의 ‘개수’ 머리글을 눌러 정렬해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>서울에서 무료 와이파이가 가장 많은 구는 <span class="choice-group" data-key="wf1" data-answer="강서구"><button type="button" class="choice-btn" data-value="강남구">강남구</button><button type="button" class="choice-btn" data-value="강서구">강서구</button><button type="button" class="choice-btn" data-value="송파구">송파구</button><button type="button" class="choice-btn" data-value="마포구">마포구</button></span>이고, 가장 적은 구는 <span class="choice-group" data-key="wf2" data-answer="마포구"><button type="button" class="choice-btn" data-value="종로구">종로구</button><button type="button" class="choice-btn" data-value="성북구">성북구</button><button type="button" class="choice-btn" data-value="마포구">마포구</button><button type="button" class="choice-btn" data-value="강북구">강북구</button></span>이다. 위도·경도를 지도로 나타내면 <span class="choice-group" data-key="wf3" data-answer="map"><button type="button" class="choice-btn" data-value="map">위치를 한눈에 알아보기 쉽다</button><button type="button" class="choice-btn" data-value="num">숫자를 더 정확하게 읽을 수 있다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>내가 사는(또는 가 보고 싶은) 지역에서 같은 방법으로 지도에 표시해 보면 좋을 데이터를 하나 고르고, 어떤 속성이 필요한지 적어 보자.</div><textarea class="free" data-key="my_map" rows="2" data-keywords="위도,경도,Latitude,Longitude,속성" data-model="공중 화장실 위치 — 화장실 이름, 주소, 개방 시간, 위도(Latitude), 경도(Longitude)"></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">확인 꼭꼭 · 핵심 콕콕</span>데이터의 수집과 관리 <span class="pg">83·88~89쪽</span></div>
+    <div class="q" data-why="속성별 구분의 장점이에요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">03 데이터를 속성별로 구분하여 정리하면 목적에 따라 필요한 정보를 빠르게 찾을 수 있고, 데이터의 활용도를 높일 수 있다.</td><td><span class="choice-group" data-key="ev1" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="시간과 비용이 많이 드는 것은 직접 수집이에요(㉡ X).">
+      <div class="q-text"><span class="q-num">05</span>데이터 수집에 관한 설명으로 알맞은 것을 모두 고른 것은? (㉠ 관찰, 인터뷰, 설문 조사, 센서 이용은 직접 수집하는 방법이다. ㉡ 검색 엔진과 데이터 전문 웹 사이트를 이용하면 시간과 비용이 많이 든다. ㉢ 데이터를 수집할 때는 객관성, 품질, 정확성을 확인해야 한다.) <span class="choice-group" data-key="ev2" data-answer="4"><button type="button" class="choice-btn" data-value="1">① ㉡</button><button type="button" class="choice-btn" data-value="2">② ㉢</button><button type="button" class="choice-btn" data-value="3">③ ㉠, ㉡</button><button type="button" class="choice-btn" data-value="4">④ ㉠, ㉢</button><button type="button" class="choice-btn" data-value="5">⑤ ㉠, ㉡, ㉢</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="우현과 예성은 범주형과 수치형을 바꾸어 말했어요.">
+      <div class="q-text"><span class="q-num">06</span>바르게 설명한 친구는? <span class="choice-group" data-key="ev3" data-answer="eun"><button type="button" class="choice-btn" data-value="woo">우현: 수치형 데이터의 예에는 성별, 혈액형, 성취 등급이 있어.</button><button type="button" class="choice-btn" data-value="ye">예성: 키, 몸무게, 전자 우편 수는 범주형 데이터라고 할 수 있어.</button><button type="button" class="choice-btn" data-value="eun">은지: 수집한 데이터를 체계적으로 구분하면 데이터의 활용도를 높일 수 있어.</button></span></div>
+      <span class="fb"></span>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>데이터의 수집과 관리</h4>
+      <div class="q" style="border-top:none" data-why="데이터 전문 웹 사이트, 응용 소프트웨어">
+        <div class="q-text">데이터를 수집하는 방법에는 인터뷰, 관찰, 설문 조사, 센서 이용과 같이 직접 수집하는 방법과 검색 엔진과 <input class="blank w-s" data-key="s1" data-answer="데이터 전문 웹 사이트"> (을)를 이용하는 방법이 있다. 수집한 데이터는 데이터의 의미, 공통점을 기준으로 구분하고 활용할 수 있다. <input class="blank w-s" data-key="s2" data-answer="응용 소프트웨어"> (을)를 이용하면 데이터의 수집과 구분, 정렬·편집, 저장과 공유를 효율적으로 할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 데이터를 수집하는 다양한 방법을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 문제 해결에 적합한 데이터를 수집하고, 목적에 맞게 구분하여 관리할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>디지털 문화 소양</b> 응용 소프트웨어를 활용하여 데이터를 관리할 수 있는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅱ. 데이터 · 2. 데이터 분석 · 01 데이터의 수집과 관리 · 비상교육 중학교 정보 교과서(56~63쪽, 83쪽, 88~89쪽)·가족 여행 계획.codap·무료 와이파이 정보.csv 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="datalab.js"></script>
+<script src="data/wifi.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅱ-2-01 데이터의 수집과 관리";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* ── 속성 분류기 ── */
+const NEWS = [["오늘", ""], ["서울", "r"], ["과", ""], ["대전", "r"], ["은", ""], ["흐리고,", "w", "흐림"], ["강릉", "r"], ["에는", ""], ["비", "w", "비"], ["가 내리겠으며,", ""], ["광주", "r"], ["와", ""], ["부산,", "r", "부산"], ["제주", "r"], ["는", ""], ["맑겠습니다.", "w", "맑음"], ["서울의 최고 기온은", ""], ["23 ℃,", "t", "23 ℃"], ["대전은", ""], ["22 ℃,", "t", "22 ℃"], ["강릉은", ""], ["20 ℃,", "t", "20 ℃"], ["광주는", ""], ["26 ℃,", "t", "26 ℃"], ["부산은", ""], ["28 ℃,", "t", "28 ℃"], ["제주는", ""], ["29 ℃", "t", "29 ℃"], ["로 예상됩니다.", ""]];
+// ‘흐리고’는 서울·대전 두 곳, ‘맑겠습니다’는 광주·부산·제주 세 곳에 해당 → 표에서 지역 순서대로 날씨를 채워 줌
+let at = "r"; const tag = NEWS.map(() => "");
+document.querySelectorAll("[data-at]").forEach(b => b.addEventListener("click", () => { at = b.dataset.at; document.querySelectorAll("[data-at]").forEach(x => x.classList.toggle("on", x === b)); }));
+$("news").innerHTML = NEWS.map((w, i) => w[1] || i === 0 ? `<span class="tok" data-i="${i}">${w[0]}</span>` : `<span>${w[0]}</span>`).join(" ");
+$("news").querySelectorAll(".tok").forEach(s => s.addEventListener("click", () => { const i = +s.dataset.i; tag[i] = at; s.className = "tok" + (at ? " " + at : ""); newsDraw(); }));
+function newsDraw() { const pick = k => NEWS.map((w, i) => tag[i] === k ? (w[2] || w[0].replace(/[,.]/g, "")) : null).filter(Boolean);
+  const r = pick("r"), w = pick("w"), t = pick("t"), W = [];
+  // 날씨 펼치기: 흐림 → 서울·대전, 비 → 강릉, 맑음 → 광주·부산·제주
+  w.forEach(x => { if (x === "흐림") W.push("흐림", "흐림"); else if (x === "맑음") W.push("맑음", "맑음", "맑음"); else W.push(x); });
+  const n = Math.max(r.length, W.length, t.length);
+  $("news-t").innerHTML = `<div class="scroll-x"><table class="data-t"><tr><th>지역</th><th>날씨</th><th>최고 기온</th></tr>${Array.from({ length: n }, (_, i) => `<tr><td>${r[i] || ""}</td><td>${W[i] || ""}</td><td>${t[i] || ""}</td></tr>`).join("")}</table></div>`;
+  $("news-chk").textContent = ok() ? "✅ 모두 바르게 나누었어요!" : `지역 ${r.length}/6 · 날씨 ${W.length}/6 · 최고 기온 ${t.length}/6`; }
+const ok = () => NEWS.every((w, i) => (w[1] || "") === tag[i]);
+newsDraw();
+WS.custom("news", { el: $("news"), value: () => ok() ? "완성" : tag.filter(Boolean).length + "개 표시", check: () => tag.some(Boolean) ? ok() : null, answer: "지역·날씨·최고 기온 6 개씩" });
+/* ── 가족 여행 ── */
+const TR = [["경주", 35.86, 129.22, "3박 4일", "버스", "펜션"], ["부산", 35.18, 129.08, "4박 5일", "기차", "리조트"], ["여수", 34.76, 127.66, "2박 3일", "기차", "리조트"], ["전주", 35.82, 127.15, "2박 3일", "버스", "호텔"], ["제주", 33.5, 126.53, "4박 5일", "비행기", "호텔"]];
+const KOR = [[38.6, 128.35], [37.8, 128.9], [37.0, 129.4], [36.0, 129.55], [35.5, 129.4], [35.1, 129.1], [34.9, 128.6], [34.7, 127.8], [34.5, 127.3], [34.3, 126.6], [34.6, 126.3], [35.1, 126.4], [35.6, 126.5], [36.0, 126.6], [36.5, 126.3], [36.9, 126.2], [37.4, 126.6], [37.75, 126.6], [37.95, 126.7], [38.3, 127.5]];
+const under = (c, X, Y) => { c.fillStyle = "#f3efe2"; c.strokeStyle = "#c9bfa1"; c.beginPath(); KOR.forEach((p, i) => i ? c.lineTo(X(p[1]), Y(p[0])) : c.moveTo(X(p[1]), Y(p[0]))); c.closePath(); c.fill(); c.stroke(); c.beginPath(); c.ellipse(X(126.55), Y(33.38), Math.abs(X(126.95) - X(126.55)), Math.abs(Y(33.38) - Y(33.55)), 0, 0, 7); c.fill(); c.stroke(); };
+const tvSeen = new Set();
+const tv = DL.table("tv-t", ["여행지", "위도", "경도", "여행 기간", "교통수단", "숙박 시설"], TR, { onSort: (i, d) => tvSeen.add(i + (d > 0 ? "+" : "-")) });
+function tvMap() { DL.map($("tv-map"), { h: 300, bounds: [33.0, 38.7, 125.9, 129.7], under, pts: tv.rows().filter(r => !isNaN(r[1]) && !isNaN(r[2])).map((r, i) => [r[1], r[2], DL.PAL[i % 15], r[0]]) }); }
+tvMap(); window.addEventListener("resize", tvMap);
+$("tv-add").addEventListener("click", () => { const v = id => $(id).value.trim(), lat = parseFloat(v("tv-lat")), lon = parseFloat(v("tv-lon")); if (!v("tv-name") || isNaN(lat) || isNaN(lon)) { alert("여행지 이름과 위도·경도(숫자)를 입력해 주세요."); return; } tv.set(tv.rows().concat([[v("tv-name"), lat, lon, v("tv-day"), v("tv-tr"), v("tv-st")]])); tvSeen.add("add"); tvMap(); });
+$("tv-del").addEventListener("click", () => { const r = tv.rows().slice(); r.pop(); tv.set(r); tvSeen.add("del"); tvMap(); });
+WS.custom("tv_ops", { el: $("tv-t"), value: () => [...tvSeen].join(",") + " / " + tv.rows().length + "행" });
+/* ── 무료 와이파이 ── */
+const GU = WIFI.gus, KIND = WIFI.kinds;
+$("wf-gu").innerHTML = '<option value="-1">서울 전체</option>' + GU.map((g, i) => `<option value="${i}">${g}</option>`).join("");
+$("wf-kind").innerHTML = '<option value="-1">전체</option>' + KIND.map((g, i) => `<option value="${i}">${g}</option>`).join("");
+const cnt = {}; WIFI.rows.forEach(r => cnt[r[2]] = (cnt[r[2]] || 0) + 1);
+const wt = DL.table("wf-t", ["구", "무료 와이파이 개수"], GU.map((g, i) => [g, cnt[i] || 0]), { max: 25, onSort: () => wfSeen.add("sort") });
+const wfSeen = new Set();
+function wfDraw() { const g = +$("wf-gu").value, k = +$("wf-kind").value, rows = WIFI.rows.filter(r => (g < 0 || r[2] === g) && (k < 0 || r[3] === k)); $("wf-n").textContent = `${rows.length.toLocaleString()} 곳`;
+  DL.map($("wf-map"), { h: 330, bounds: g < 0 ? [37.42, 37.70, 126.76, 127.19] : null, pts: rows.length ? rows.map(r => [r[0], r[1], DL.PAL[r[2] % 15]]) : [[37.56, 126.97, "#ccc"]] }); }
+["wf-gu", "wf-kind"].forEach(id => $(id).addEventListener("change", () => { wfSeen.add(id + $(id).value); wfDraw(); })); wfDraw(); window.addEventListener("resize", wfDraw);
+WS.custom("wf_seen", { el: $("wf-map"), value: () => [...wfSeen].join(",") });
+
+</script>
+</body>
+</html>

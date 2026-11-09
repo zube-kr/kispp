@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-2-1 프로그래밍 시작하기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p108-robot.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 2. 프로그래밍 <span class="pg" style="margin:0">108~112쪽</span></span>
+      <h1>프로그래밍<br><span>시작하기</span></h1>
+      <p>설계한 알고리즘을 컴퓨터가 이해하는 명령어로 나타내면 프로그램이 된다. 로봇에게 명령어로 길을 알려 주고, 엔트리의 화면 구성과 입력·처리·출력을 익힌 뒤, 변수를 이용한 두 수 계산기를 직접 실행해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 프로그래밍의 개념과 구현 과정을 설명하고, 입출력을 이용한 사칙 연산 계산기 프로그램을 통해 프로그래밍 과정을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">생각 나누기</span>로봇을 움직이는 프로그램 작성하기 <span class="pg">108쪽</span></div>
+<figure class="fig" style="max-width:480px"><img src="img/p108-robot.jpg" alt="로봇이 과일 가게, 떡집, 빵집을 순서대로 거쳐 원래 있던 곳으로 되돌아오려고 한다."><figcaption><span class="tb">108쪽</span>로봇이 과일 가게, 떡집, 빵집을 순서대로 거쳐 원래 있던 곳으로 되돌아오려고 한다.</figcaption></figure>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start">
+      <canvas id="rb-cv" class="cl-cv" style="max-width:300px;background:#fff"></canvas>
+      <div><div class="btn-row" id="rb-pal"></div>
+        <div class="tip-box" style="min-height:40px"><b>내 프로그램</b> <span id="rb-prog" style="font-weight:700"></span></div>
+        <div class="btn-row"><button type="button" class="btn small main" id="rb-run">▶ 실행</button><button type="button" class="btn ghost small" id="rb-undo">↶ 지우기</button><button type="button" class="btn ghost small" id="rb-clr">⟲ 모두 지우기</button></div>
+        <div class="tip-box" id="rb-msg">명령어를 눌러 프로그램을 만들고 ▶ 실행하세요. 로봇은 지금 오른쪽을 보고 있어요.</div></div>
+    </div>
+    <div class="q" data-why="‘앞, 앞, 오른쪽 돌기’를 4 번 반복하면 과일 가게 → 떡집 → 빵집 → 제자리로 돌아와요." data-hint="명령어를 그대로 쓰면 12 개, 반복을 쓰면 6 개면 돼요.">
+      <div class="q-text"><span class="q-num">1</span>명령어에서 반복되는 곳을 찾아 나타내면: 반복 횟수 <input class="blank w-s" data-key="rb1" data-num="4" data-abs="0" style="width:44px"> → 반복 시작 → <span class="choice-group" data-key="rb2" data-answer="f"><button type="button" class="choice-btn" data-value="f">앞으로 한 칸 가기</button><button type="button" class="choice-btn" data-value="r">오른쪽으로 90° 돌기</button><button type="button" class="choice-btn" data-value="l">왼쪽으로 90° 돌기</button></span> → <span class="choice-group" data-key="rb3" data-answer="f"><button type="button" class="choice-btn" data-value="f">앞으로 한 칸 가기</button><button type="button" class="choice-btn" data-value="r">오른쪽으로 90° 돌기</button><button type="button" class="choice-btn" data-value="l">왼쪽으로 90° 돌기</button></span> → <span class="choice-group" data-key="rb4" data-answer="r"><button type="button" class="choice-btn" data-value="f">앞으로 한 칸 가기</button><button type="button" class="choice-btn" data-value="r">오른쪽으로 90° 돌기</button><button type="button" class="choice-btn" data-value="l">왼쪽으로 90° 돌기</button></span> → 반복 끝</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">1. 프로그래밍</span>프로그램 · 프로그래밍 · 프로그래밍 언어 <span class="pg">109쪽</span></div>
+    <div class="book"><p>컴퓨팅 시스템으로 문제를 해결하기 위해서는 설계한 알고리즘을 컴퓨팅 시스템이 이해할 수 있는 명령어로 나타내야 한다. 이처럼 문제 해결을 위해 컴퓨팅 시스템이 이해할 수 있는 명령어를 처리 순서대로 모아 놓은 것을 <span class="key">프로그램</span>이라고 하고, 프로그램을 만드는 과정을 <span class="key">프로그래밍</span>이라고 한다. 이때 컴퓨팅 시스템에 명령을 내리기 위해 사용하는 언어가 <span class="key">프로그래밍 언어</span>이다.</p>
+    <p>설계한 알고리즘에 따라 작성한 프로그램에 오류가 있거나 원하는 결과가 나오지 않으면 프로그램을 수정하고 재실행하는 과정을 반복한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))"><div class="tip-box"><b>언어 번역</b> 작성한 프로그램이 컴퓨터에서 실행될 수 있도록 컴퓨터가 이해할 수 있는 언어로 바꾸는 과정</div><div class="tip-box"><b>디버그(debug)</b> 프로그램을 단계별로 실행시키면서 오류를 찾아내는 과정으로 디버깅이라고도 한다.</div></div>
+    <div class="q" data-why="문제 상황 → ① 문제 이해 및 분석 → ② 추상화 → ③ 알고리즘 설계 → ④ 프로그램 작성 및 수정 → ⑤ 실행(언어 번역) → ⑥ 결과 확인 → 프로그램 완성. ④~⑥이 프로그래밍 과정이에요.">
+      <div class="q-text"><span class="q-num">1</span>[그림 Ⅲ-7] 컴퓨터를 이용한 문제 해결 과정의 순서를 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">문제 이해 및 분석</td><td><span class="choice-group" data-key="pg1" data-answer="1"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr><tr><td style="text-align:left">추상화</td><td><span class="choice-group" data-key="pg2" data-answer="2"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr><tr><td style="text-align:left">알고리즘 설계</td><td><span class="choice-group" data-key="pg3" data-answer="3"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr><tr><td style="text-align:left">프로그램 작성 및 수정</td><td><span class="choice-group" data-key="pg4" data-answer="4"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr><tr><td style="text-align:left">실행(언어 번역)</td><td><span class="choice-group" data-key="pg5" data-answer="5"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr><tr><td style="text-align:left">결과 확인</td><td><span class="choice-group" data-key="pg6" data-answer="6"><button type="button" class="choice-btn" data-value="1">1</button><button type="button" class="choice-btn" data-value="2">2</button><button type="button" class="choice-btn" data-value="3">3</button><button type="button" class="choice-btn" data-value="4">4</button><button type="button" class="choice-btn" data-value="5">5</button><button type="button" class="choice-btn" data-value="6">6</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="프로그래밍 과정은 작성 → 실행 → 확인 → 수정을 반복해요.">
+      <div class="q-text"><span class="q-num">2</span>결과 확인에서 오류가 발견되면 <span class="choice-group" data-key="pg7" data-answer="debug"><button type="button" class="choice-btn" data-value="debug">디버그를 거쳐 프로그램을 수정하고 다시 실행한다</button><button type="button" class="choice-btn" data-value="end">그대로 프로그램을 완성한다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">2. 프로그래밍 환경 · 3. 프로그램의 입력·처리·출력</span>엔트리 화면 구성과 인사하는 프로그램 <span class="pg">110쪽</span></div>
+<figure class="fig" style="max-width:460px"><img src="img/p110-entry.jpg" alt="[그림 Ⅲ-8] 엔트리 화면 구성 (https://playentry.org)"><figcaption><span class="tb">110쪽</span>[그림 Ⅲ-8] 엔트리 화면 구성 (https://playentry.org)</figcaption></figure>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>엔트리 화면 구성 요소와 설명을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">오브젝트가 명령대로 실행되는 화면</td><td><span class="choice-group" data-key="en1" data-answer="run"><button type="button" class="choice-btn" data-value="run">실행 화면</button><button type="button" class="choice-btn" data-value="obj">오브젝트 목록</button><button type="button" class="choice-btn" data-value="pack">블록 꾸러미</button><button type="button" class="choice-btn" data-value="asm">블록 조립소</button></span></td></tr><tr><td style="text-align:left">오브젝트들을 모아 놓은 곳으로 각각의 정보를 확인하고 수정할 수 있음</td><td><span class="choice-group" data-key="en2" data-answer="obj"><button type="button" class="choice-btn" data-value="run">실행 화면</button><button type="button" class="choice-btn" data-value="obj">오브젝트 목록</button><button type="button" class="choice-btn" data-value="pack">블록 꾸러미</button><button type="button" class="choice-btn" data-value="asm">블록 조립소</button></span></td></tr><tr><td style="text-align:left">블록을 종류별로 모아 놓은 곳</td><td><span class="choice-group" data-key="en3" data-answer="pack"><button type="button" class="choice-btn" data-value="run">실행 화면</button><button type="button" class="choice-btn" data-value="obj">오브젝트 목록</button><button type="button" class="choice-btn" data-value="pack">블록 꾸러미</button><button type="button" class="choice-btn" data-value="asm">블록 조립소</button></span></td></tr><tr><td style="text-align:left">명령어 블록을 이용하여 실제 프로그래밍을 하는 영역</td><td><span class="choice-group" data-key="en4" data-answer="asm"><button type="button" class="choice-btn" data-value="run">실행 화면</button><button type="button" class="choice-btn" data-value="obj">오브젝트 목록</button><button type="button" class="choice-btn" data-value="pack">블록 꾸러미</button><button type="button" class="choice-btn" data-value="asm">블록 조립소</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="가로 480 × 세로 270">
+      <div class="q-text"><span class="q-num">2</span>엔트리 실행 화면의 좌표는 가운데(x:0, y:0)를 중심으로 x축은 −<input class="blank w-s" data-key="en5" data-num="240" data-abs="0" style="width:50px"> ~ <input class="blank w-s" data-key="en6" data-num="240" data-abs="0" style="width:50px">, y축은 −<input class="blank w-s" data-key="en7" data-num="135" data-abs="0" style="width:50px"> ~ <input class="blank w-s" data-key="en8" data-num="135" data-abs="0" style="width:50px"> 범위이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start;margin-top:12px">
+      <div id="hi-code"></div>
+      <div><div class="light-stage" style="padding:12px;text-align:center;min-height:120px;background:#eaf6ff"><div id="hi-bubble" style="display:inline-block;background:#fff;border:2px solid #4f6af5;border-radius:14px;padding:6px 12px;font-weight:800;min-height:20px">시작하기를 눌러 보세요</div><div style="font-size:46px">🤖</div></div>
+        <div class="btn-row"><input id="hi-name" placeholder="이름 입력" style="width:110px" disabled><button type="button" class="btn small main" id="hi-go">▶ 시작하기</button></div></div>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">3</span>인사하는 프로그램에서 입력·처리·출력을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">‘홍길동’이라는 이름을 키보드에 입력한다.</td><td><span class="choice-group" data-key="io1" data-answer="i"><button type="button" class="choice-btn" data-value="i">입력</button><button type="button" class="choice-btn" data-value="p">처리</button><button type="button" class="choice-btn" data-value="o">출력</button></span></td></tr><tr><td style="text-align:left">대답과 ‘님 안녕하세요?’라는 말을 덧붙인다.</td><td><span class="choice-group" data-key="io2" data-answer="p"><button type="button" class="choice-btn" data-value="i">입력</button><button type="button" class="choice-btn" data-value="p">처리</button><button type="button" class="choice-btn" data-value="o">출력</button></span></td></tr><tr><td style="text-align:left">모니터 화면에 ‘홍길동님 안녕하세요?’가 나타난다.</td><td><span class="choice-group" data-key="io3" data-answer="o"><button type="button" class="choice-btn" data-value="i">입력</button><button type="button" class="choice-btn" data-value="p">처리</button><button type="button" class="choice-btn" data-value="o">출력</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">4. 프로그램 만들기 · 해 보기</span>두 수를 입력받아 사칙 연산하기 — 두 수 계산기 <span class="pg">111~112쪽</span></div>
+    <div class="book"><p>두 수를 입력받은 후 덧셈, 뺄셈, 곱셈, 나눗셈 오브젝트를 누르면 입력받은 두 수의 연산 결과를 알려 주는 프로그램을 만들어 보자. ➊ 두 수를 입력받아 ‘첫 번째 수’, ‘두 번째 수’ 변수에 저장한다. ➋ 두 수의 사칙 연산 결과를 ‘결과’ 변수에 저장한다. ➌ 엔트리봇을 누르면 기존 값을 모두 지우고 새로운 두 수를 입력받는다.</p></div>
+    <div class="tip-box"><b>변수</b> 프로그램 실행 과정에서 기억해야 할 값을 저장하는 공간이다. 한 개의 값만 저장되며, 기존의 값이 있으면 지워지고 새로운 값이 저장된다. · <b>산술 연산</b> 덧셈, 뺄셈, 곱셈, 나눗셈의 사칙 연산과 거듭제곱, 절댓값 등. 특히 나눗셈에는 몫을 구하는 연산과 나머지를 구하는 연산이 있다.</div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start">
+      <div><div class="light-stage" style="padding:12px;background:#f3fbef">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;font:800 13px sans-serif"><span class="tip-box" style="margin:0">첫 번째 수 <b id="cv-a">0</b></span><span class="tip-box" style="margin:0">두 번째 수 <b id="cv-b">0</b></span><span class="tip-box" style="margin:0">결과 <b id="cv-r">0</b></span></div>
+        <div style="text-align:center;margin:8px 0"><button type="button" id="cv-bot" style="font-size:44px;background:none;border:none;cursor:pointer" title="엔트리봇">🤖</button><div id="cv-say" style="font-weight:800;font-size:13px">엔트리봇을 눌러 두 수를 입력하세요.</div></div>
+        <div id="cv-ask" style="display:none" class="btn-row"><input id="cv-in" inputmode="decimal" style="width:110px"><button type="button" class="btn small main" id="cv-ok">확인</button></div>
+        <div class="btn-row" style="justify-content:center"><button type="button" class="btn small" data-op="+">＋</button><button type="button" class="btn small" data-op="-">－</button><button type="button" class="btn small" data-op="*">×</button><button type="button" class="btn small" data-op="/">÷</button><button type="button" class="btn small" data-op="%" style="border-style:dashed">% (해 보기)</button></div></div></div>
+      <div id="cv-code"></div>
+    </div>
+    <div class="q" data-why="17 ÷ 5 = 3.4, 17을 5로 나눈 몫은 3, 나머지는 2" data-hint="계산기에 직접 입력해 확인해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>첫 번째 수에 17, 두 번째 수에 5를 입력하면: ＋ 결과 <input class="blank w-s" data-key="cv1" data-num="22" data-abs="0" style="width:50px">, － 결과 <input class="blank w-s" data-key="cv2" data-num="12" data-abs="0" style="width:50px">, × 결과 <input class="blank w-s" data-key="cv3" data-num="85" data-abs="0" style="width:50px">, ÷ 결과 <input class="blank w-s" data-key="cv4" data-num="3.4" data-abs="0.001" style="width:50px">, % 결과 <input class="blank w-s" data-key="cv5" data-num="2" data-abs="0" style="width:50px"></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="변수에는 한 개의 값만 저장되며, 새 값이 들어오면 기존 값은 지워져요.">
+      <div class="q-text"><span class="q-num">2</span>‘결과’ 변수에 22가 저장된 상태에서 × 오브젝트를 누르면 ‘결과’ 변수에는 <span class="choice-group" data-key="cv6" data-answer="new"><button type="button" class="choice-btn" data-value="new">85만 저장된다</button><button type="button" class="choice-btn" data-value="both">22와 85가 함께 저장된다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="짝수 % 2 = 0, 홀수 % 2 = 1">
+      <div class="q-text"><span class="q-num">3</span><b>해 보기</b> % 오브젝트를 누르면 첫 번째 수를 두 번째 수로 나눈 <span class="choice-group" data-key="cv7" data-answer="rem"><button type="button" class="choice-btn" data-value="rem">나머지</button><button type="button" class="choice-btn" data-value="quo">몫</button></span>를 ‘결과’ 변수에 저장한다. 어떤 수가 짝수인지 알아보려면 그 수를 <input class="blank w-s" data-key="cv8" data-num="2" data-abs="0" style="width:44px">(으)로 나눈 나머지가 <input class="blank w-s" data-key="cv9" data-num="0" data-abs="0" style="width:44px">인지 확인하면 된다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>프로그래밍 시작하기 <span class="pg">109~112쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>프로그램과 프로그래밍</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">문제 해결을 위해 컴퓨터가 이해할 수 있는 명령어를 처리 순서대로 모아 놓은 것을 <input class="blank w-s" data-key="s1" data-answer="프로그램" style="width:70px">이라고 하고, 그것을 만드는 과정을 <input class="blank w-s" data-key="s2" data-answer="프로그래밍" style="width:80px">이라고 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>변수</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">프로그램 실행 과정에서 기억해야 할 값을 저장하는 공간을 <input class="blank w-s" data-key="s3" data-answer="변수" style="width:50px">(이)라고 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">프로그래밍의 개념과 구현 과정을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">입출력을 이용한 사칙 연산 계산기 프로그램을 통해 프로그래밍 과정을 설명할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 프로그래밍 시작하기(108~112쪽) · 비상교육 중학교 정보 교과서·엔트리 예제 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-2-1 프로그래밍 시작하기";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 로봇 */
+const CMD = { F: "⬆ 앞으로 한 칸", L: "↰ 왼쪽 90°", R: "↱ 오른쪽 90°", S: "🔁 반복 시작", E: "⛔ 반복 끝" };
+let prog = [], rep = 4, rbT = null, rb = { x: 0, y: 0, d: 0, vis: [] }, rbOK = new Set();
+const SHOP = { "2,0": ["🍎", "과일 가게"], "1,1": ["🏪", "편의점"], "2,2": ["🍡", "떡집"], "0,2": ["🍞", "빵집"] };
+$("rb-pal").innerHTML = Object.keys(CMD).map(k => `<button type="button" class="btn small" data-c="${k}">${CMD[k]}</button>`).join("") + `<label style="font-size:13px;font-weight:700">반복 횟수 <input type="number" id="rb-n" min="1" max="9" value="4" style="width:48px"></label>`;
+document.querySelectorAll("[data-c]").forEach(b => b.addEventListener("click", () => { if (prog.length < 20) prog.push(b.dataset.c === "S" ? "S" + ($("rb-n").value || 1) : b.dataset.c); rbShow(); }));
+$("rb-undo").addEventListener("click", () => { prog.pop(); rbShow(); }); $("rb-clr").addEventListener("click", () => { prog = []; rbShow(); });
+function rbShow() { $("rb-prog").innerHTML = prog.length ? prog.map(c => c[0] === "S" ? `🔁 ${c.slice(1)}번 반복 시작` : CMD[c]).join(" → ") + ` <small>(${prog.length}개)</small>` : "(비어 있음)"; }
+function expand(p) { const out = []; let i = 0; while (i < p.length) { const c = p[i]; if (c[0] === "S") { const n = +c.slice(1); let j = i + 1, body = []; while (j < p.length && p[j] !== "E") body.push(p[j++]); if (j >= p.length) return null; for (let k = 0; k < n; k++) out.push(...body); i = j + 1; } else if (c === "E") return null; else { out.push(c); i++; } } return out; }
+function rbDraw() { const g = CL.fit($("rb-cv"), 300, 300); g.clearRect(0, 0, 300, 300); g.textAlign = "center";
+  for (let y = 0; y < 3; y++) for (let x = 0; x < 3; x++) { g.fillStyle = rb.vis.includes(x + "," + y) ? "#ffe8cc" : "#f6f8fa"; g.fillRect(x * 100 + 2, y * 100 + 2, 96, 96); const s = SHOP[x + "," + y]; if (s) { g.font = "34px sans-serif"; g.fillText(s[0], x * 100 + 50, y * 100 + 52); g.font = "bold 12px sans-serif"; g.fillStyle = "#333"; g.fillText(s[1], x * 100 + 50, y * 100 + 80); } }
+  g.save(); g.translate(rb.x * 100 + 50, rb.y * 100 + 50); g.font = "30px sans-serif"; g.fillText("🤖", 0, 12); g.rotate(rb.d * Math.PI / 2); g.fillStyle = "#e63946"; g.beginPath(); g.moveTo(44, 0); g.lineTo(32, -8); g.lineTo(32, 8); g.fill(); g.restore(); }
+$("rb-run").addEventListener("click", () => { clearInterval(rbT); const ex = expand(prog); if (!ex) { $("rb-msg").innerHTML = "반복 시작과 반복 끝이 짝이 맞지 않아요."; return; }
+  rb = { x: 0, y: 0, d: 0, vis: ["0,0"] }; const order = []; let i = 0; rbDraw();
+  rbT = setInterval(() => { if (i >= ex.length) { clearInterval(rbT); const ok = order.join(",") === "과일 가게,떡집,빵집" && rb.x === 0 && rb.y === 0;
+      if (ok) rbOK.add(prog.some(c => c[0] === "S") ? "loop" : "seq");
+      $("rb-msg").innerHTML = ok ? `🎉 성공! 과일 가게 → 떡집 → 빵집 → 제자리 (명령어 ${prog.length} 개${prog.some(c => c[0] === "S") ? ", 반복 사용" : ""})` : `들른 곳: ${order.join(" → ") || "없음"} — 순서나 마지막 위치를 확인해 보세요.`; return; }
+    const c = ex[i++]; if (c === "L") rb.d = (rb.d + 3) % 4; else if (c === "R") rb.d = (rb.d + 1) % 4; else { const nx = rb.x + [1, 0, -1, 0][rb.d], ny = rb.y + [0, 1, 0, -1][rb.d];
+      if (nx < 0 || ny < 0 || nx > 2 || ny > 2) { clearInterval(rbT); $("rb-msg").innerHTML = "💥 판 밖으로 나갈 수 없어요!"; return; } rb.x = nx; rb.y = ny; rb.vis.push(nx + "," + ny); const s = SHOP[nx + "," + ny]; if (s && s[1] !== "편의점" && order[order.length - 1] !== s[1]) order.push(s[1]); }
+    rbDraw(); }, 380); });
+rbShow(); rbDraw(); window.addEventListener("resize", rbDraw);
+WS.custom("robot", { el: $("rb-prog"), value: () => prog.join(" "), check: () => rbOK.size ? rbOK.has("loop") : null, answer: "4번 반복 시작 → 앞 → 앞 → 오른쪽 90° → 반복 끝" });
+
+/* 인사 프로그램 */
+$("hi-code").innerHTML = CL.blocks([["start", "▶ 시작하기 버튼을 클릭했을 때", [["var", "<b>이름을 입력하세요.</b> 을(를) 묻고 대답 기다리기"], ["look", "<b>대답</b> + <b>님 안녕하세요?</b> 을(를) 말하기"]]]]);
+let hiSaid = "";
+$("hi-go").addEventListener("click", () => { if ($("hi-name").disabled) { $("hi-name").disabled = false; $("hi-name").focus(); $("hi-bubble").textContent = "이름을 입력하세요."; $("hi-go").textContent = "확인"; }
+  else { const n = $("hi-name").value.trim(); if (!n) return; hiSaid = n + "님 안녕하세요?"; $("hi-bubble").textContent = hiSaid; $("hi-name").disabled = true; $("hi-go").textContent = "▶ 시작하기"; } });
+$("hi-name").addEventListener("keydown", e => { if (e.key === "Enter") $("hi-go").click(); });
+WS.custom("hi", { el: $("hi-bubble"), value: () => hiSaid });
+
+/* 두 수 계산기 */
+$("cv-code").innerHTML = CL.blocks([["start", "▶ 시작하기 버튼을 클릭했을 때 (엔트리봇)", [["var", "<b>첫 번째 수를 입력하세요.</b> 을(를) 묻고 대답 기다리기"], ["var", "<b>첫 번째 수</b> 를 <b>대답</b> (으)로 정하기"], ["var", "<b>두 번째 수를 입력하세요.</b> 을(를) 묻고 대답 기다리기"], ["var", "<b>두 번째 수</b> 를 <b>대답</b> (으)로 정하기"]]],
+  ["start", "오브젝트를 클릭했을 때 (더하기)", [["var", "<b>결과</b> 를 <b>첫 번째 수 값</b> + <b>두 번째 수 값</b> (으)로 정하기"]]],
+  ["start", "오브젝트를 클릭했을 때 (%)", [["var", "<b>결과</b> 를 ( <b>첫 번째 수 값</b> / <b>두 번째 수 값</b> 의 <b>나머지</b> ) (으)로 정하기"]]],
+  ["start", "오브젝트를 클릭했을 때 (엔트리봇) — 초기화", [["var", "<b>첫 번째 수</b>, <b>두 번째 수</b>, <b>결과</b> 를 <b>0</b> (으)로 정하기"], ["var", "두 수를 다시 묻고 대답 기다리기 …"]]]]);
+let cv = { a: 0, b: 0, r: 0, step: 0 }, cvOps = new Set();
+function cvShow() { $("cv-a").textContent = cv.a; $("cv-b").textContent = cv.b; $("cv-r").textContent = cv.r; }
+$("cv-bot").addEventListener("click", () => { cv = { a: 0, b: 0, r: 0, step: 1 }; cvShow(); $("cv-ask").style.display = "flex"; $("cv-say").textContent = "첫 번째 수를 입력하세요."; $("cv-in").value = ""; $("cv-in").focus(); });
+$("cv-ok").addEventListener("click", () => { const v = parseFloat($("cv-in").value); if (isNaN(v)) return; if (cv.step === 1) { cv.a = v; cv.step = 2; $("cv-say").textContent = "두 번째 수를 입력하세요."; $("cv-in").value = ""; $("cv-in").focus(); } else { cv.b = v; cv.step = 0; $("cv-ask").style.display = "none"; $("cv-say").textContent = "연산 오브젝트를 눌러 보세요."; } cvShow(); });
+$("cv-in").addEventListener("keydown", e => { if (e.key === "Enter") $("cv-ok").click(); });
+document.querySelectorAll("[data-op]").forEach(b => b.addEventListener("click", () => { const { a, b: c } = cv, op = b.dataset.op;
+  if ((op === "/" || op === "%") && c === 0) { $("cv-say").textContent = "0으로 나눌 수 없어요!"; return; }
+  cv.r = +({ "+": a + c, "-": a - c, "*": a * c, "/": a / c, "%": a % c }[op]).toFixed(6); cvOps.add(op); cvShow(); $("cv-say").textContent = `결과를 ${cv.r}(으)로 정했어요.`; }));
+cvShow();
+WS.custom("calc", { el: $("cv-r"), value: () => [...cvOps].join("") });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-2-3 중첩 제어 구조</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p124-nested.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 2. 프로그래밍 <span class="pg" style="margin:0">124~131쪽</span></span>
+      <h1>중첩 제어 구조<br><span>프로그래밍</span></h1>
+      <p>반복 속의 반복, 선택 속의 반복처럼 제어 구조 안에 또 다른 제어 구조를 넣으면 더 복잡한 일을 짧게 표현할 수 있다. 연필로 다각형을 회전시켜 문양을 그리고, 응급 처치 방법을 차례로 알려 주는 안전 지킴이를 실행해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 중첩 제어 구조의 의미를 예를 들어 설명하고, 중첩 제어 구조를 이용하여 문제를 해결하는 프로그램을 작성할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">1. 중첩 제어 구조의 의미</span>제어 구조 속의 제어 구조 <span class="pg">124쪽</span></div>
+    <div class="book"><p>프로그램의 실행 순서를 조절하는 구조를 <b>제어 구조</b>라고 한다. 제어 구조에는 순차·반복·선택 구조가 있으며, 제어 구조 속에 또 다른 제어 구조를 포함하고 있는 것을 <span class="key">중첩 제어 구조</span>라고 한다.</p></div>
+<figure class="fig" style="max-width:520px"><img src="img/p124-nested.jpg" alt="[그림 Ⅲ-10] 중첩 제어 구조의 여러 가지 예시"><figcaption><span class="tb">124쪽</span>[그림 Ⅲ-10] 중첩 제어 구조의 여러 가지 예시</figcaption></figure>
+    <div class="btn-row" style="justify-content:center" id="ns-btn"></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div><canvas id="ns-cv" class="cl-cv" style="background:#fff;max-width:320px"></canvas><div class="btn-row" style="justify-content:center"><label id="ns-inl" style="font-weight:800">변의 개수 <input type="number" id="ns-n" value="5" style="width:56px"></label><button type="button" class="btn small main" id="ns-run">▶ 실행</button></div><div class="tip-box" id="ns-msg"></div></div>
+      <div id="ns-code"></div>
+    </div>
+    <div class="q" data-why="바깥 구조 → 안쪽 구조 순서로 읽어요.">
+      <div class="q-text"><span class="q-num">1</span>각 프로그램은 어떤 중첩 제어 구조인지 골라 보자(위에서 직접 실행해 보세요).</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">사각형을 4 번 반복해 그리는 일을 60°씩 회전하며 6 번 반복한다.</td><td><span class="choice-group" data-key="ns1" data-answer="rr"><button type="button" class="choice-btn" data-value="rr">반복 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="rs">반복 구조 안의 선택 구조</button><button type="button" class="choice-btn" data-value="sr">선택 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="ss">선택 구조 안의 선택 구조</button></span></td></tr><tr><td style="text-align:left">계속 반복하면서 변의 개수를 입력받고, 2보다 크면 반복을 멈춘다.</td><td><span class="choice-group" data-key="ns2" data-answer="rs"><button type="button" class="choice-btn" data-value="rr">반복 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="rs">반복 구조 안의 선택 구조</button><button type="button" class="choice-btn" data-value="sr">선택 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="ss">선택 구조 안의 선택 구조</button></span></td></tr><tr><td style="text-align:left">변의 개수가 2보다 크면 변의 개수만큼 반복하여 다각형을 그린다.</td><td><span class="choice-group" data-key="ns3" data-answer="sr"><button type="button" class="choice-btn" data-value="rr">반복 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="rs">반복 구조 안의 선택 구조</button><button type="button" class="choice-btn" data-value="sr">선택 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="ss">선택 구조 안의 선택 구조</button></span></td></tr><tr><td style="text-align:left">변의 개수가 2보다 크면, 다시 10보다 큰지에 따라 변의 길이를 다르게 정한다.</td><td><span class="choice-group" data-key="ns4" data-answer="ss"><button type="button" class="choice-btn" data-value="rr">반복 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="rs">반복 구조 안의 선택 구조</button><button type="button" class="choice-btn" data-value="sr">선택 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="ss">선택 구조 안의 선택 구조</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="2보다 크지 않으면 ‘아니면’ 쪽이 실행돼요.">
+      <div class="q-text"><span class="q-num">2</span>‘선택 구조 안의 반복 구조’ 프로그램에서 변의 개수로 6을 입력하면 한 번 돌 때마다 360 ÷ 6 = <input class="blank w-s" data-key="ns5" data-num="60" data-abs="0" style="width:44px">° 씩 회전하고, 2를 입력하면 <span class="choice-group" data-key="ns6" data-answer="msg"><button type="button" class="choice-btn" data-value="msg">‘3 이상의 값을 다시 입력하세요.’라고 말한다</button><button type="button" class="choice-btn" data-value="draw">이각형을 그린다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">2. 중첩 제어 구조 프로그래밍</span>다각형을 여러 번 회전하여 문양을 그리는 프로그램 <span class="pg">125~126쪽</span></div>
+    <div class="book"><p>➊ 다각형의 변의 개수, 변의 길이, 회전 횟수를 입력받아 저장한다. ➋ 입력한 변의 개수가 3 이상인지, 변의 길이가 10 이상인지 확인한다. ➌ 연필 오브젝트를 누르면 입력받은 ‘변의 개수’, ‘변의 길이’, ‘회전 횟수’에 따라 문양을 그린다. ➍ 다시하기 오브젝트를 누르면 새롭게 입력받아 저장한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div><canvas id="pt-cv" class="cl-cv" style="background:#fff;max-width:340px"></canvas>
+        <div class="btn-row" style="justify-content:center;font-weight:800;font-size:13px"><label>변의 개수 <input type="number" id="pt-n" value="4" style="width:50px"></label><label>변의 길이 <input type="number" id="pt-l" value="50" style="width:54px"></label><label>회전 횟수 <input type="number" id="pt-r" value="10" style="width:50px"></label></div>
+        <div class="btn-row" style="justify-content:center"><button type="button" class="btn small main" id="pt-go">✏️ 연필 누르기(그리기)</button><button type="button" class="btn ghost small" id="pt-clr">🔄 다시하기</button></div>
+        <div class="tip-box" id="pt-msg">예시: 변의 개수 4, 변의 길이 50, 회전 횟수 10회</div></div>
+      <div id="pt-code"></div>
+    </div>
+    <div class="q" data-why="360 ÷ 4 = 90, 360 ÷ 10 = 36, 4 × 10 = 40">
+      <div class="q-text"><span class="q-num">1</span>변의 개수 4, 변의 길이 50, 회전 횟수 10으로 그리면 다각형을 그릴 때 한 변마다 <input class="blank w-s" data-key="pt1" data-num="90" data-abs="0" style="width:44px">° 돌고, 다각형 하나를 그린 뒤 <input class="blank w-s" data-key="pt2" data-num="36" data-abs="0" style="width:44px">° 돈다. 연필이 그리는 선분은 모두 <input class="blank w-s" data-key="pt3" data-num="40" data-abs="0" style="width:44px"> 개이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="둘 중 하나라도 조건을 어기면 다시 입력해요(5 ≥ 3이지만 8 &lt; 10).">
+      <div class="q-text"><span class="q-num">2</span>입력값을 확인하는 조건은 ‘변의 개수 &lt; 3’ <span class="choice-group" data-key="pt4" data-answer="or"><button type="button" class="choice-btn" data-value="and">그리고</button><button type="button" class="choice-btn" data-value="or">또는</button></span> ‘변의 길이 &lt; 10’이면 다시 입력하도록 안내하는 것이다. 변의 개수 5, 변의 길이 8을 입력하면 <span class="choice-group" data-key="pt5" data-answer="re"><button type="button" class="choice-btn" data-value="re">다시 입력해야 한다</button><button type="button" class="choice-btn" data-value="ok">그대로 그린다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>나만의 문양을 그려 보자(변의 개수 3 이상, 길이 10 이상, 회전 횟수 2 이상).</div><div class="tip-box" id="pt-log" style="margin-top:6px">아직 그린 문양이 없어요.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">프로젝트 실습 · 해 보기</span>안전 지킴이 프로그램 만들기 <span class="pg">127~131쪽</span></div>
+<figure class="fig" style="max-width:460px"><img src="img/p127-safety.jpg" alt="“앗 뜨거! 얼음을 대야 하나?” “우선 빨리 찬물에 씻어! 그다음 어떻게 해야 하지?” “이런 응급 상황에 대처할 수 있는 방법을 알려 주는 프로그램이 있으면 좋을 텐데.”"><figcaption><span class="tb">127쪽</span>“앗 뜨거! 얼음을 대야 하나?” “우선 빨리 찬물에 씻어! 그다음 어떻게 해야 하지?” “이런 응급 상황에 대처할 수 있는 방법을 알려 주는 프로그램이 있으면 좋을 텐데.”</figcaption></figure>
+    <div class="book"><p>➊ 프로그램이 시작되면 안내판에 사용 방법을 알려 준다. ➋ 빨간 LED 오브젝트를 누르면 화상과 과호흡 중 입력받아 응급 처치 방법을 카운트 값을 이용하여 안내한다. ➌ 하트 오브젝트를 누르면 성인, 유아, 자동제세동기 중 입력받아 심폐소생술 방법을 카운트 값을 이용하여 안내한다. <b>해 보기</b> ➍ 불 오브젝트를 누르고 ‘소화기’ 또는 ‘소화전’을 입력하면 사용법을 안내한다.</p></div>
+    <div class="light-stage" style="padding:12px;background:#f7f2ff">
+      <div style="display:flex;justify-content:space-around;font-size:40px;text-align:center"><button type="button" class="sf-obj" data-sf="led" style="background:none;border:none;cursor:pointer;font-size:40px">🔴<br><small style="font-size:12px">빨간 LED</small></button><button type="button" class="sf-obj" data-sf="heart" style="background:none;border:none;cursor:pointer;font-size:40px">❤️<br><small style="font-size:12px">기본 하트</small></button><button type="button" class="sf-obj" data-sf="fire" style="background:none;border:none;cursor:pointer;font-size:40px">🔥<br><small style="font-size:12px">불(해 보기)</small></button></div>
+      <div class="tip-box" id="sf-say" style="font-size:15px;min-height:44px">[응급 상황, 심폐소생술 사용법 안내] 응급 상황 안내는 왼쪽 빨간 LED를 클릭, 심폐소생술 안내는 하트를 클릭</div>
+      <div class="btn-row" id="sf-ask" style="display:none"></div>
+      <div class="btn-row"><label style="font-size:13px;font-weight:700"><input type="checkbox" id="sf-voice"> 🔊 음성으로 읽어 주기</label><button type="button" class="btn small" id="sf-next" style="display:none">다음 ▶</button><span id="sf-cnt" style="font-size:13px;font-weight:800;color:#e157d6"></span></div>
+    </div>
+    <div id="sf-code"></div>
+    <div class="tip-box" style="font-size:12px">안내 문구는 생활안전 국민행동요령의 내용을 간추린 것이에요. 실제 응급 상황에서는 먼저 119에 신고하세요.</div>
+    <div class="q" data-why="선택(어떤 응급 상황?) 안에서 반복(처치 방법 개수만큼 안내)">
+      <div class="q-text"><span class="q-num">1</span>빨간 LED 프로그램은 ‘만일 대답 = 화상 이라면’ 안에 ‘화상 처치 방법의 수만큼 반복하기’가 들어 있으므로 <span class="choice-group" data-key="sf1" data-answer="sr"><button type="button" class="choice-btn" data-value="rr">반복 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="rs">반복 구조 안의 선택 구조</button><button type="button" class="choice-btn" data-value="sr">선택 구조 안의 반복 구조</button><button type="button" class="choice-btn" data-value="ss">선택 구조 안의 선택 구조</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1, 2, 3, 4, 5번째를 안내하고 마지막에 한 번 더 증가하여 6" data-hint="직접 안내를 끝까지 들으며 카운트를 확인해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>‘카운트’ 변수는 처음에 <input class="blank w-s" data-key="sf2" data-num="1" data-abs="0" style="width:40px"> (으)로 정하고, 처치 방법을 하나 안내할 때마다 <input class="blank w-s" data-key="sf3" data-num="1" data-abs="0" style="width:40px">씩 증가하여 몇 번째 항목을 안내할지 정한다. 화상 처치 방법이 5 개라면 반복이 끝난 뒤 카운트 값은 <input class="blank w-s" data-key="sf4" data-num="6" data-abs="0" style="width:40px">이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">3</span><b>평가하기</b> 프로그램을 점검해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">빨간 LED 오브젝트를 누르고 화상이나 과호흡을 입력하면 관련된 응급 처치 방법이 안내되는가?</td><td><span class="choice-group" data-key="ev1" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">하트 오브젝트를 누르고 성인, 유아, 자동제세동기 중에서 입력하면 관련된 심폐소생술 방법이 안내되는가?</td><td><span class="choice-group" data-key="ev2" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">4</span><b>해 보기</b> 생활안전 국민행동요령에서 추가하고 싶은 상황(예: 지진, 화재 대피, 벌 쏘임)을 고르고, 어떤 오브젝트와 입력값으로 안내할지 설계해 보자.</div><textarea class="free" data-key="add" rows="3" data-keywords="오브젝트,입력,반복,카운트,안내" data-model="지진 오브젝트(🏠)를 누르고 ‘실내’ 또는 ‘실외’를 입력받아, 선택한 상황의 행동 요령 수만큼 반복하며 카운트번째 항목을 음성과 글로 안내한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>중첩 제어 구조 <span class="pg">124~131쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>중첩 제어 구조</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">제어 구조 속에 또 다른 제어 구조를 포함하고 있는 것을 <input class="blank w-s" data-key="s1" data-answer="중첩 제어 구조" style="width:110px">(이)라고 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">중첩 제어 구조의 의미를 예를 들어 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">중첩 제어 구조를 이용하여 문양 그리기 프로그램을 작성할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">중첩 제어 구조를 이용하여 응급 처치 방법을 안내하는 프로그램을 작성할 수 있는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 중첩 제어 구조(124~126쪽)·안전 지킴이 프로그램 만들기(127~131쪽) · 비상교육 중학교 정보 교과서·엔트리 예제 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-2-3 중첩 제어 구조";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 거북이(연필) 그리기 */
+function Turtle(cv, W, H) { const t = { x: W / 2, y: H / 2, a: 0, segs: [], g: null };
+  t.reset = () => { t.x = W / 2; t.y = H / 2; t.a = 0; t.segs = []; t.draw(); };
+  t.fd = d => { const nx = t.x + d * Math.cos(t.a * Math.PI / 180), ny = t.y + d * Math.sin(t.a * Math.PI / 180); t.segs.push([t.x, t.y, nx, ny, t.segs.length]); t.x = nx; t.y = ny; };
+  t.rt = a => { t.a += a; };
+  t.draw = (upto) => { const g = CL.fit(cv, W, H); g.clearRect(0, 0, W, H); g.lineWidth = 1.6; const n = upto == null ? t.segs.length : upto;
+    t.segs.slice(0, n).forEach(s => { g.strokeStyle = `hsl(${(s[4] * 9) % 360},70%,45%)`; g.beginPath(); g.moveTo(s[0], s[1]); g.lineTo(s[2], s[3]); g.stroke(); });
+    const p = n ? t.segs[n - 1] : null; g.font = "20px sans-serif"; g.fillText("✏️", (p ? p[2] : W / 2) - 2, (p ? p[3] : H / 2) - 2); };
+  return t; }
+function animate(t, msg, done) { let i = 0; const N = t.segs.length, step = Math.max(1, Math.ceil(N / 60)); clearInterval(t.timer); t.timer = setInterval(() => { i = Math.min(N, i + step); t.draw(i); if (i >= N) { clearInterval(t.timer); done && done(); } }, 30); }
+
+/* 중첩 예시 4가지 */
+const NS = { rr: ["반복 안의 반복", false], rs: ["반복 안의 선택", true], sr: ["선택 안의 반복", true], ss: ["선택 안의 선택", true] };
+const NSC = { rr: [["start", "▶ 시작하기 버튼을 클릭했을 때", [["brush", "그리기 시작하기"], ["flow", "<b>6</b> 번 반복하기", [["flow", "<b>4</b> 번 반복하기", [["move", "이동 방향으로 <b>100</b> 만큼 움직이기"], ["move", "방향을 <b>90°</b> 만큼 회전하기"]]], ["move", "방향을 <b>60°</b> 만큼 회전하기"]]]]]],
+  rs: [["start", "▶ 시작하기 버튼을 클릭했을 때", [["flow", "계속 반복하기", [["var", "<b>몇 각형을 그릴까요?</b> 을(를) 묻고 대답 기다리기"], ["var", "<b>변의 개수</b> 를 <b>대답</b> (으)로 정하기"], ["flow", "만일 <b>변의 개수 &gt; 2</b> (이)라면", [["flow", "반복 중단하기"]], "아니면", [["look", "<b>3 이상의 값을 다시 입력하세요.</b> 을(를) 2 초 동안 말하기"]]]]]]]],
+  sr: [["start", "▶ 시작하기 버튼을 클릭했을 때", [["brush", "그리기 시작하기"], ["var", "<b>몇 각형을 그릴까요?</b> 을(를) 묻고 대답 기다리기"], ["var", "<b>변의 개수</b> 를 <b>대답</b> (으)로 정하기"], ["flow", "만일 <b>변의 개수 &gt; 2</b> (이)라면", [["flow", "<b>변의 개수</b> 번 반복하기", [["move", "이동 방향으로 <b>50</b> 만큼 움직이기"], ["move", "방향을 <b>360 / 변의 개수</b> 만큼 회전하기"]]]], "아니면", [["look", "<b>3 이상의 값을 다시 입력하세요.</b> 을(를) 2 초 동안 말하기"]]]]]],
+  ss: [["start", "▶ 시작하기 버튼을 클릭했을 때", [["var", "<b>몇 각형을 그릴까요?</b> 을(를) 묻고 대답 기다리기"], ["var", "<b>변의 개수</b> 를 <b>대답</b> (으)로 정하기"], ["flow", "만일 <b>변의 개수 &gt; 2</b> (이)라면", [["flow", "만일 <b>변의 개수 &gt; 10</b> (이)라면", [["var", "<b>변의 길이</b> 를 <b>30</b> (으)로 정하기"]], "아니면", [["var", "<b>변의 길이</b> 를 <b>50</b> 만큼 더하기"]]]], "아니면", [["look", "<b>3 이상의 값을 다시 입력하세요.</b> 을(를) 2 초 동안 말하기"]]]]]] };
+const T1 = Turtle($("ns-cv"), 320, 320); let nk = "rr";
+$("ns-btn").innerHTML = Object.keys(NS).map(k => `<button type="button" class="btn small${k === "rr" ? " main" : ""}" data-ns="${k}">${NS[k][0]}</button>`).join("");
+document.querySelectorAll("[data-ns]").forEach(b => b.addEventListener("click", () => { nk = b.dataset.ns; document.querySelectorAll("[data-ns]").forEach(x => x.classList.toggle("main", x === b)); nsShow(); }));
+function nsShow() { $("ns-code").innerHTML = CL.blocks(NSC[nk]); $("ns-inl").style.visibility = NS[nk][1] ? "visible" : "hidden"; $("ns-msg").textContent = "▶ 실행을 눌러 보세요."; T1.reset(); }
+$("ns-run").addEventListener("click", () => { const n = +$("ns-n").value; T1.reset();
+  if (nk === "rr") { T1.x = 140; T1.y = 170; for (let i = 0; i < 6; i++) { for (let j = 0; j < 4; j++) { T1.fd(70); T1.rt(90); } T1.rt(60); } animate(T1); $("ns-msg").textContent = "사각형(4번 반복)을 60°씩 회전하며 6번 반복!"; return; }
+  if (nk === "rs") { $("ns-msg").textContent = n > 2 ? `${n}은(는) 2보다 크다 → 반복 중단하기` : "3 이상의 값을 다시 입력하세요. (계속 반복 중…)"; return; }
+  if (nk === "sr") { if (n > 2 && n <= 40) { T1.x = 160 - 25; T1.y = 230; for (let i = 0; i < n; i++) { T1.fd(Math.min(50, 300 / n)); T1.rt(360 / n); } animate(T1); $("ns-msg").textContent = `${n}각형: ${n}번 반복, 한 번에 ${+(360 / n).toFixed(2)}°씩 회전`; } else $("ns-msg").textContent = n > 40 ? "너무 커요! 40 이하로 해 볼까요?" : "3 이상의 값을 다시 입력하세요."; return; }
+  if (nk === "ss") $("ns-msg").textContent = n > 2 ? (n > 10 ? `${n} &gt; 10 → 변의 길이를 30으로 정하기`.replace("&gt;", ">") : `${n}은(는) 10 이하 → 변의 길이에 50 더하기`) : "3 이상의 값을 다시 입력하세요."; });
+nsShow();
+
+/* 문양 그리기 */
+$("pt-code").innerHTML = CL.blocks([["start", "오브젝트를 클릭했을 때 (연필)", [["brush", "그리기 시작하기"], ["flow", "<b>회전 횟수</b> 번 반복하기", [["flow", "<b>변의 개수</b> 번 반복하기", [["move", "이동 방향으로 <b>변의 길이</b> 만큼 움직이기"], ["move", "방향을 <b>360 / 변의 개수</b> 만큼 회전하기"]]], ["move", "방향을 <b>360 / 회전 횟수</b> 만큼 회전하기"]]], ["brush", "그리기 멈추기"]]],
+  ["start", "▶ 시작하기 버튼을 클릭했을 때 (연필)", [["move", "x: <b>0</b> y: <b>0</b> 위치로 이동하기"], ["flow", "계속 반복하기", [["var", "변의 개수 · 변의 길이 · 회전 횟수 묻고 저장하기"], ["flow", "만일 <b>변의 개수 &lt; 3</b> 또는 <b>변의 길이 &lt; 10</b> (이)라면", [["look", "<b>변의 개수는 3 이상, 변의 길이는 10 이상 입력되어야 합니다.</b> 말하기"]], "아니면", [["flow", "반복 중단하기"]]]]]]]]);
+const T2 = Turtle($("pt-cv"), 340, 340); const ptLog = [];
+$("pt-go").addEventListener("click", () => { const n = Math.round(+$("pt-n").value), l = +$("pt-l").value, r = Math.round(+$("pt-r").value);
+  if (n < 3 || l < 10) { $("pt-msg").innerHTML = "⚠️ 변의 개수는 3 이상, 변의 길이는 10 이상 입력되어야 합니다."; return; }
+  if (n * r > 3000 || r < 1) { $("pt-msg").innerHTML = "너무 많아요! 변의 개수 × 회전 횟수를 3000 이하로 해 주세요."; return; }
+  T2.reset(); const sc = Math.min(1, 150 / (l * n / Math.PI)); for (let i = 0; i < r; i++) { for (let j = 0; j < n; j++) { T2.fd(l * sc); T2.rt(360 / n); } T2.rt(360 / r); }
+  animate(T2, null, () => { $("pt-msg").innerHTML = `변의 개수 ${n}, 변의 길이 ${l}, 회전 횟수 ${r} → 선분 <b>${n * r}</b> 개, 한 변마다 ${+(360 / n).toFixed(2)}°, 다각형마다 ${+(360 / r).toFixed(2)}° 회전${sc < 1 ? " (화면에 맞게 줄여서 그림)" : ""}`; ptLog.push(`${n}-${l}-${r}`); $("pt-log").innerHTML = "그린 문양: " + ptLog.map(x => x.replace(/-/g, "·")).join(", "); }); });
+$("pt-clr").addEventListener("click", () => { T2.reset(); $("pt-msg").textContent = "새로운 값을 입력하고 연필을 누르세요."; });
+T2.reset();
+WS.custom("pt_log", { el: $("pt-log"), value: () => ptLog.join(","), check: () => ptLog.length ? ptLog.some(x => { const [n, l, r] = x.split("-").map(Number); return n >= 3 && l >= 10 && r >= 2; }) : null, answer: "변의 개수 3 이상·길이 10 이상·회전 2 이상 문양" });
+
+/* 안전 지킴이 */
+const GUIDE = {
+  "화상": ["화상 부위를 흐르는 시원한 물에 15~20분 정도 충분히 식힌다. 얼음을 직접 대지 않는다.", "부어오르기 전에 반지, 시계, 팔찌 등을 빼낸다.", "물집은 터뜨리지 않는다.", "깨끗한 거즈나 천으로 화상 부위를 느슨하게 덮는다.", "화상이 넓거나 깊으면 119에 신고하고 병원으로 간다."],
+  "과호흡": ["환자를 안정시키고 편안한 자세로 앉힌다.", "코로 천천히 들이쉬고 입으로 천천히 내쉬도록 함께 호흡한다.", "비닐봉지를 입에 대는 방법은 위험할 수 있으므로 하지 않는다.", "증상이 계속되거나 의식이 흐려지면 119에 신고한다."],
+  "성인": ["어깨를 두드리며 의식이 있는지 확인한다.", "주변 사람을 지목해 119 신고와 자동제세동기를 요청한다.", "얼굴과 가슴을 보며 호흡이 있는지 확인한다.", "가슴 중앙을 약 5 cm 깊이로 분당 100~120회 속도로 30회 압박한다.", "기도를 열고 인공호흡을 2회 한다(어렵다면 가슴 압박만 계속한다).", "119 구급대가 올 때까지 가슴 압박 30회와 인공호흡 2회를 반복한다."],
+  "유아": ["어깨를 두드리며 의식이 있는지 확인한다.", "119 신고와 자동제세동기를 요청한다.", "호흡이 있는지 확인한다.", "한 손 또는 두 손으로 가슴 중앙을 약 5 cm 깊이로 30회 압박한다.", "인공호흡을 2회 한다.", "구급대가 올 때까지 가슴 압박과 인공호흡을 반복한다."],
+  "자동제세동기": ["자동제세동기의 전원을 켠다.", "패드 하나는 오른쪽 빗장뼈 아래, 다른 하나는 왼쪽 젖꼭지 아래 옆구리에 붙인다.", "‘분석 중’ 안내가 나오면 환자에게서 떨어진다.", "제세동이 필요하면 모두 떨어진 것을 확인하고 버튼을 누른다.", "즉시 가슴 압박을 다시 시작한다."],
+  "소화기": ["안전핀을 뽑는다.", "바람을 등지고 서서 노즐(호스)을 불 쪽으로 향한다.", "손잡이를 힘껏 움켜쥔다.", "빗자루로 쓸듯이 불을 향해 골고루 뿌린다."],
+  "소화전": ["소화전 문을 연다.", "호스를 꺼내 불이 난 곳 가까이 펼친다.", "밸브를 돌려 연다.", "노즐을 단단히 잡고 불을 향해 물을 뿌린다(두 사람이 함께)."] };
+const OBJ = { led: ["화상, 과호흡 중 무엇을 알려드릴까요?", ["화상", "과호흡"]], heart: ["성인, 유아, 자동제세동기 중 입력해 주세요.", ["성인", "유아", "자동제세동기"]], fire: ["소화기, 소화전 중 무엇을 알려드릴까요?", ["소화기", "소화전"]] };
+$("sf-code").innerHTML = CL.blocks([["start", "오브젝트를 클릭했을 때 (빨간 LED)", [["var", "<b>카운트</b> 를 <b>1</b> (으)로 정하기"], ["var", "<b>화상, 과호흡 중 무엇을 알려드릴까요?</b> 을(를) 묻고 대답 기다리기"],
+  ["flow", "만일 <b>대답 = 화상</b> (이)라면", [["flow", "<b>화상 처치 방법의 수</b> 번 반복하기", [["look", "화상 처치 방법의 <b>카운트</b> 번째 항목 말하기"], ["ai", "화상 처치 방법의 <b>카운트</b> 번째 항목 읽어 주고 기다리기"], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"]]]]],
+  ["flow", "만일 <b>대답 = 과호흡</b> (이)라면", [["flow", "<b>과호흡 처치 방법의 수</b> 번 반복하기", [["look", "… <b>카운트</b> 번째 항목 말하기 · 읽어 주기"], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"]]]]], ["look", "말풍선 지우기"]]]]);
+let sf = { list: null, c: 1, key: "" }; const sfSeen = new Set();
+document.querySelectorAll("[data-sf]").forEach(b => b.addEventListener("click", () => { const o = OBJ[b.dataset.sf]; sf = { list: null, c: 1, key: "" }; $("sf-next").style.display = "none"; $("sf-say").innerHTML = "🗨 " + o[0]; $("sf-cnt").textContent = "카운트 = 1";
+  $("sf-ask").style.display = "flex"; $("sf-ask").innerHTML = o[1].map(x => `<button type="button" class="btn small" data-ans="${x}">${x}</button>`).join("") + '<input id="sf-in" placeholder="직접 입력" style="width:100px"><button type="button" class="btn small" id="sf-ok">입력</button>';
+  $("sf-ask").querySelectorAll("[data-ans]").forEach(x => x.addEventListener("click", () => sfAns(x.dataset.ans))); $("sf-ok").addEventListener("click", () => sfAns($("sf-in").value.trim())); }));
+function speak(t) { if ($("sf-voice").checked && window.speechSynthesis) { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "ko-KR"; speechSynthesis.speak(u); } catch (e) {} } }
+function sfAns(a) { $("sf-ask").style.display = "none"; if (!GUIDE[a]) { $("sf-say").innerHTML = `‘${a}’은(는) 어떤 조건에도 맞지 않아 아무것도 안내하지 않아요. (선택 구조!)`; return; } sf = { list: GUIDE[a], c: 1, key: a }; sfShow(); }
+function sfShow() { const L = sf.list; if (sf.c > L.length) { $("sf-say").innerHTML = `✅ ${sf.key} 안내 끝 (말풍선 지우기)`; $("sf-next").style.display = "none"; $("sf-cnt").textContent = `카운트 = ${sf.c} (반복 ${L.length}번 끝)`; sfSeen.add(sf.key); return; }
+  $("sf-say").innerHTML = `<b>${sf.key} ${sf.c}/${L.length}</b> ${L[sf.c - 1]}`; speak(L[sf.c - 1]); $("sf-cnt").textContent = `카운트 = ${sf.c}`; $("sf-next").style.display = "inline-flex"; }
+$("sf-next").addEventListener("click", () => { sf.c++; sfShow(); });
+WS.custom("sf_seen", { el: $("sf-say"), value: () => [...sfSeen].join(",") });
+
+</script>
+</body>
+</html>

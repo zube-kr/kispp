@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-2-4 리스트와 프로그래밍</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+.ls-box{display:inline-flex;flex-direction:column;border:2px solid #d35ad6;border-radius:10px;overflow:hidden;min-width:170px;background:#fff;vertical-align:top;margin:4px}
+.ls-box .hd{background:#d35ad6;color:#fff;font-weight:800;font-size:13px;padding:4px 10px}.ls-box .it{display:flex;gap:8px;padding:3px 10px;font-size:13.5px;border-top:1px solid #f3e1f3}
+.ls-box .it i{font-style:normal;color:#d35ad6;font-weight:800;min-width:16px}.ls-box .it.new{background:#fff3c4}.ls-box .ft{font-size:11.5px;color:#888;padding:3px 10px;border-top:1px solid #f3e1f3}
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p135-contact.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 2. 프로그래밍 <span class="pg" style="margin:0">132~139쪽</span></span>
+      <h1>리스트와<br><span>프로그래밍</span></h1>
+      <p>변수에는 값을 하나만 담을 수 있지만, 리스트에는 여러 값을 번호 순서대로 담을 수 있다. 도서명 리스트를 직접 고치고, 리스트로 만든 ◯ × 퀴즈를 풀어 본 뒤, 추가·삭제·수정·검색이 되는 비상 연락망을 다뤄 보자.</p>
+      <div class="goal">🎯 학습 목표 — 리스트의 의미와 필요성을 설명하고, 리스트를 이용하여 문제를 해결하는 프로그램을 작성할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">1. 리스트의 의미</span>도서명 리스트 — 생성·초기화, 추가, 삭제, 수정 <span class="pg">132쪽</span></div>
+    <div class="book"><p><span class="key">리스트</span>는 여러 개의 데이터를 순차적으로 저장할 수 있는 공간이다. 프로그램에 필요한 자료를 임시로 기억했다가 사용하려면 변수를 이용한다. 하지만 변수는 하나의 자료만 저장할 수 있기 때문에 여러 개의 자료를 저장할 때에는 리스트를 사용한다.</p></div>
+    <div class="tip-box"><b>할 일</b> ① 새로운 도서가 들어왔다 → ‘김정호’와 ‘정약용’을 추가한다. ② ‘신사임당’ 책이 분실되었다 → 해당 항목을 삭제한다. ③ 책 제목이 잘못 입력되었다 → ‘헬린켈러’를 ‘헬렌켈러’로 수정한다.</div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div style="text-align:center"><div id="bk-list"></div></div>
+      <div><div class="btn-row"><input id="bk-v" placeholder="항목 값" style="width:100px"><button type="button" class="btn small" id="bk-add">항목을 추가하기</button></div>
+        <div class="btn-row"><input id="bk-i" type="number" placeholder="번째" style="width:60px"><button type="button" class="btn small" id="bk-del">번째 항목을 삭제하기</button><button type="button" class="btn small" id="bk-chg">번째 항목을 값으로 바꾸기</button></div>
+        <div class="btn-row"><button type="button" class="btn ghost small" id="bk-reset">⟲ 초깃값으로</button></div>
+        <div class="tip-box" id="bk-msg">항목 값과 번째를 넣고 블록 단추를 눌러 보세요.</div><div id="bk-code"></div></div>
+    </div>
+    <div class="q" data-why="앞의 항목을 삭제하면 뒤의 항목 번호가 하나씩 앞당겨져요.">
+      <div class="q-text"><span class="q-num">1</span>리스트 초깃값이 [세종대왕, 신사임당, 헬린켈러, 손기정, 장보고]일 때 ‘헬린켈러’는 <input class="blank w-s" data-key="bk1" data-num="3" data-abs="0" style="width:40px"> 번째 항목이다. 만약 ‘신사임당’을 먼저 삭제하면 ‘헬린켈러’는 <input class="blank w-s" data-key="bk2" data-num="2" data-abs="0" style="width:40px"> 번째 항목이 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>위의 리스트를 할 일 ①~③대로 바꾸어 보자(완성되면 아래 기록에 ✅가 표시돼요).</div><div class="tip-box" id="bk-done" style="margin-top:6px">목표: 세종대왕 · 헬렌켈러 · 손기정 · 장보고 · 김정호 · 정약용</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>변수에는 <span class="choice-group" data-key="bk3" data-answer="one"><button type="button" class="choice-btn" data-value="one">값을 하나만</button><button type="button" class="choice-btn" data-value="many">여러 값을 차례로</button></span> 저장할 수 있고, 리스트는 여러 개의 데이터를 <span class="choice-group" data-key="bk4" data-answer="seq"><button type="button" class="choice-btn" data-value="seq">순차적으로(번호 순서대로)</button><button type="button" class="choice-btn" data-value="rand">순서 없이 섞어서</button></span> 저장한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">2. 리스트와 프로그래밍</span>리스트를 활용한 ◯ × 퀴즈 프로그램 만들기 <span class="pg">133~134쪽</span></div>
+    <div class="book"><p>➊ 문제와 정답을 리스트에 저장한다. ➋ 문제를 제시하고 답을 입력받는다. ➌ 문제를 맞춘 점수를 확인한다. ‘문제’, ‘정답’, ‘선택’ 리스트를 만들고 각 리스트 항목 수를 5로 설정한 후 문제와 정답을 입력한다.</p></div>
+    <div class="light-stage" style="padding:12px;background:#f2f8ff">
+      <div class="tip-box" id="oq-q" style="font-size:16px;text-align:center;min-height:50px">문제가 나오면 ◯, ×를 선택하세요. 총 5문제가 나옵니다.</div>
+      <div class="btn-row" style="justify-content:center"><button type="button" class="btn" id="oq-o" style="font-size:22px;min-width:70px">◯</button><button type="button" class="btn" id="oq-x" style="font-size:22px;min-width:70px">×</button><button type="button" class="btn ghost small" id="oq-start">▶ 시작하기</button></div>
+      <div style="text-align:center" id="oq-lists"></div><div style="text-align:center;font-size:13px;font-weight:800;color:#e157d6" id="oq-var"></div>
+    </div>
+    <div id="oq-code"></div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>선택 버튼을 누를 때마다 ‘선택’ 리스트의 ‘카운트’ 위치에 값을 넣고 ‘카운트’를 <input class="blank w-s" data-key="oq1" data-num="1" data-abs="0" style="width:40px"> 증가한다. ‘카운트’ 값이 <input class="blank w-s" data-key="oq2" data-num="5" data-abs="0" style="width:40px">보다 크면 ‘점수 확인’ 신호를, 아니면 ‘다음 문제’ 신호를 보낸다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1. 아날로그 데이터는 연속적 → ×, 5. 온도는 아날로그 데이터 → ×" data-hint="퀴즈를 풀어 보고 정답 리스트를 확인하세요.">
+      <div class="q-text"><span class="q-num">2</span>‘점수 확인’ 신호를 받으면 <input class="blank w-s" data-key="oq3" data-num="5" data-abs="0" style="width:40px"> 번 반복하며 ‘정답’ 리스트와 ‘선택’ 리스트의 ‘카운트’번째 항목이 같으면 ‘점수’에 1을 더한다. 이 퀴즈의 정답 리스트는 [<span class="choice-group" data-key="oq4" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span>, ×, ◯, ◯, <span class="choice-group" data-key="oq5" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span>]이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>퀴즈를 끝까지 풀고 점수를 확인해 보자.</div><div class="tip-box" id="oq-res" style="margin-top:6px">아직 점수를 확인하지 않았어요.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">프로젝트 실습 · 해 보기</span>비상 연락망 프로그램 만들기 <span class="pg">135~139쪽</span></div>
+<figure class="fig" style="max-width:460px"><img src="img/p135-contact.jpg" alt="“○○이가 안 왔구나. 연락해 봐야겠네.” “선생님 ○○이 연락처 바뀌었어요.” “학생들의 연락처를 관리해 주는 프로그램이 있으면 좋을 텐데.”"><figcaption><span class="tb">135쪽</span>“○○이가 안 왔구나. 연락해 봐야겠네.” “선생님 ○○이 연락처 바뀌었어요.” “학생들의 연락처를 관리해 주는 프로그램이 있으면 좋을 텐데.”</figcaption></figure>
+    <div class="book"><p>➊ 추가하기를 누르면 이름과 연락처를 입력받아 저장한다. ➋ 삭제하기를 누르면 번호를 입력받아 이름과 연락처를 삭제한다. ➌ 바꾸기를 누르면 번호를 입력받아 이름 또는 연락처를 변경한다. ➍ 모두 취소를 누르면 이름과 연락처를 모두 삭제한다. ➎ 검색을 누르면 번호를 입력받아 연락처를 알려 준다.</p></div>
+    <div class="light-stage" style="padding:12px">
+      <div class="btn-row" style="justify-content:center"><button type="button" class="btn small" data-ct="add">➕ 추가하기</button><button type="button" class="btn small" data-ct="del">➖ 삭제하기</button><button type="button" class="btn small" data-ct="chg">✏️ 바꾸기</button><button type="button" class="btn small" data-ct="clr">🗑 모두 취소</button><button type="button" class="btn small" data-ct="find">🔍 검색</button>
+        <label style="font-size:12.5px;font-weight:700"><input type="checkbox" id="ct-v2"> 해 보기(여러 명 추가·이름 검색)</label></div>
+      <div class="tip-box" id="ct-say" style="min-height:24px;font-weight:700">🤖 단추를 눌러 보세요. (연습용 가상 연락처예요)</div>
+      <div class="btn-row" id="ct-ask" style="display:none"><input id="ct-in" style="width:160px"><button type="button" class="btn small main" id="ct-ok">확인</button></div>
+      <div style="text-align:center" id="ct-lists"></div>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>작은 문제와 필요한 블록을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">학생 추가하기</td><td><span class="choice-group" data-key="ct1" data-answer="add"><button type="button" class="choice-btn" data-value="add">대답 항목을 리스트에 추가하기</button><button type="button" class="choice-btn" data-value="zero">리스트 번호 번째 항목을 0으로 바꾸기</button><button type="button" class="choice-btn" data-value="chg">리스트 번호 번째 항목을 대답으로 바꾸기</button><button type="button" class="choice-btn" data-value="rm1">항목 수만큼 반복하며 1번째 항목 삭제하기</button><button type="button" class="choice-btn" data-value="get">연락처 리스트의 대답 번째 항목 말하기</button></span></td></tr><tr><td style="text-align:left">학생 삭제하기</td><td><span class="choice-group" data-key="ct2" data-answer="zero"><button type="button" class="choice-btn" data-value="add">대답 항목을 리스트에 추가하기</button><button type="button" class="choice-btn" data-value="zero">리스트 번호 번째 항목을 0으로 바꾸기</button><button type="button" class="choice-btn" data-value="chg">리스트 번호 번째 항목을 대답으로 바꾸기</button><button type="button" class="choice-btn" data-value="rm1">항목 수만큼 반복하며 1번째 항목 삭제하기</button><button type="button" class="choice-btn" data-value="get">연락처 리스트의 대답 번째 항목 말하기</button></span></td></tr><tr><td style="text-align:left">이름 및 연락처 바꾸기</td><td><span class="choice-group" data-key="ct3" data-answer="chg"><button type="button" class="choice-btn" data-value="add">대답 항목을 리스트에 추가하기</button><button type="button" class="choice-btn" data-value="zero">리스트 번호 번째 항목을 0으로 바꾸기</button><button type="button" class="choice-btn" data-value="chg">리스트 번호 번째 항목을 대답으로 바꾸기</button><button type="button" class="choice-btn" data-value="rm1">항목 수만큼 반복하며 1번째 항목 삭제하기</button><button type="button" class="choice-btn" data-value="get">연락처 리스트의 대답 번째 항목 말하기</button></span></td></tr><tr><td style="text-align:left">모두 삭제하기</td><td><span class="choice-group" data-key="ct4" data-answer="rm1"><button type="button" class="choice-btn" data-value="add">대답 항목을 리스트에 추가하기</button><button type="button" class="choice-btn" data-value="zero">리스트 번호 번째 항목을 0으로 바꾸기</button><button type="button" class="choice-btn" data-value="chg">리스트 번호 번째 항목을 대답으로 바꾸기</button><button type="button" class="choice-btn" data-value="rm1">항목 수만큼 반복하며 1번째 항목 삭제하기</button><button type="button" class="choice-btn" data-value="get">연락처 리스트의 대답 번째 항목 말하기</button></span></td></tr><tr><td style="text-align:left">연락처 검색하기</td><td><span class="choice-group" data-key="ct5" data-answer="get"><button type="button" class="choice-btn" data-value="add">대답 항목을 리스트에 추가하기</button><button type="button" class="choice-btn" data-value="zero">리스트 번호 번째 항목을 0으로 바꾸기</button><button type="button" class="choice-btn" data-value="chg">리스트 번호 번째 항목을 대답으로 바꾸기</button><button type="button" class="choice-btn" data-value="rm1">항목 수만큼 반복하며 1번째 항목 삭제하기</button><button type="button" class="choice-btn" data-value="get">연락처 리스트의 대답 번째 항목 말하기</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="입력한 번호가 ‘이름’ 리스트의 항목 수보다 크면 번호를 확인하라고 알려 줘요.">
+      <div class="q-text"><span class="q-num">2</span>교과서 프로그램은 학생을 삭제할 때 항목을 지우지 않고 0으로 바꾼다. 그 까닭은 항목을 지우면 그 뒤 학생들의 <span class="choice-group" data-key="ct6" data-answer="num"><button type="button" class="choice-btn" data-value="num">번호가 하나씩 앞당겨져 바뀌기</button><button type="button" class="choice-btn" data-value="name">이름이 지워지기</button></span> 때문이다. ‘이름’ 리스트에 3 명이 있을 때 번호 5를 검색하면 ‘<span class="choice-group" data-key="ct7" data-answer="chk"><button type="button" class="choice-btn" data-value="chk">번호를 확인해 주세요.</button><button type="button" class="choice-btn" data-value="none">(아무 말도 하지 않는다)</button></span>’라고 말한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="Tip: 이름 리스트의 데이터를 처음부터 하나씩 확인하여 찾으면 해당 번호의 연락처를 알려 준다.">
+      <div class="q-text"><span class="q-num">3</span><b>해 보기</b> 이름으로 검색하려면 ‘이름’ 리스트를 <span class="choice-group" data-key="ct8" data-answer="loop"><button type="button" class="choice-btn" data-value="loop">처음부터 항목 수만큼 반복하며 하나씩</button><button type="button" class="choice-btn" data-value="one">마지막 항목 하나만</button></span> 확인하여 입력한 이름과 같으면 같은 번호의 ‘연락처’ 항목을 알려 준다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">4</span><b>평가하기</b> 위 프로그램으로 점검해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">추가하기를 누르면 이름과 연락처가 리스트에 추가되는가?</td><td><span class="choice-group" data-key="ev1" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">삭제하기를 누르면 해당 번호의 정보를 삭제하는가?</td><td><span class="choice-group" data-key="ev2" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">모두 취소를 누르면 리스트의 데이터가 모두 삭제되는가?</td><td><span class="choice-group" data-key="ev3" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">검색을 누르고 번호를 입력하면 해당 번호의 연락처를 알려 주는가?</td><td><span class="choice-group" data-key="ev4" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>리스트 <span class="pg">132~139쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>리스트</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">여러 개의 데이터를 순차적으로 저장할 수 있는 공간을 <input class="blank w-s" data-key="s1" data-answer="리스트" style="width:60px">(이)라고 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="여러 개 = 리스트, 하나 = 변수">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">여러 개의 데이터를 순차적으로 저장할 수 있는 저장 장소를 변수라고 한다.</td><td><span class="choice-group" data-key="s2" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">리스트의 항목은 번호(위치)로 찾아 값을 읽거나 바꿀 수 있다.</td><td><span class="choice-group" data-key="s3" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">리스트의 의미와 필요성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">리스트를 이용하여 여러 개의 ◯ × 문제를 풀고 점수를 확인하는 프로그램을 작성할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">리스트를 이용하여 자료를 추가·삭제·수정·검색하는 프로그램을 설계할 수 있는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 리스트와 프로그래밍(132~134쪽)·비상 연락망 프로그램 만들기(135~139쪽) · 비상교육 중학교 정보 교과서·엔트리 예제 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-2-4 리스트와 프로그래밍";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+const LB = (name, arr, hi) => `<div class="ls-box"><div class="hd">${name}</div>${arr.length ? arr.map((v, i) => `<div class="it${hi === i ? " new" : ""}"><i>${i + 1}</i>${v}</div>`).join("") : '<div class="it" style="color:#aaa">(비어 있음)</div>'}<div class="ft">길이 ${arr.length}</div></div>`;
+/* 도서명 */
+const BK0 = ["세종대왕", "신사임당", "헬린켈러", "손기정", "장보고"], GOAL = ["세종대왕", "헬렌켈러", "손기정", "장보고", "김정호", "정약용"];
+let bk = BK0.slice(), bkHi = -1, bkOps = [];
+$("bk-code").innerHTML = CL.blocks([["start", "▶ 시작하기 버튼을 클릭했을 때", [["list", "<b>도서명</b> <b>3</b> 번째 항목을 <b>헬렌켈러</b> (으)로 바꾸기"], ["list", "<b>김정호</b> 항목을 <b>도서명</b> 에 추가하기"], ["list", "<b>정약용</b> 항목을 <b>도서명</b> 에 추가하기"], ["list", "<b>2</b> 번째 항목을 <b>도서명</b> 에서 삭제하기"]]]]);
+function bkShow(m) { $("bk-list").innerHTML = LB("도서명", bk, bkHi); if (m) $("bk-msg").innerHTML = m; const ok = bk.join() === GOAL.join();
+  $("bk-done").innerHTML = (ok ? "✅ 완성! " : "목표: ") + GOAL.join(" · "); }
+$("bk-add").addEventListener("click", () => { const v = $("bk-v").value.trim(); if (!v) return bkShow("항목 값을 입력하세요."); bk.push(v); bkHi = bk.length - 1; bkOps.push("add"); bkShow(`‘${v}’ 항목을 도서명에 추가했어요 (맨 뒤 ${bk.length}번째).`); });
+$("bk-del").addEventListener("click", () => { const i = +$("bk-i").value; if (!(i >= 1 && i <= bk.length)) return bkShow(`1~${bk.length} 사이의 번째를 입력하세요.`); const v = bk.splice(i - 1, 1)[0]; bkHi = -1; bkOps.push("del"); bkShow(`${i}번째 항목 ‘${v}’을(를) 삭제했어요. 뒤의 항목들이 앞으로 당겨졌어요.`); });
+$("bk-chg").addEventListener("click", () => { const i = +$("bk-i").value, v = $("bk-v").value.trim(); if (!(i >= 1 && i <= bk.length) || !v) return bkShow("번째와 항목 값을 모두 입력하세요."); const o = bk[i - 1]; bk[i - 1] = v; bkHi = i - 1; bkOps.push("chg"); bkShow(`${i}번째 항목 ‘${o}’을(를) ‘${v}’(으)로 바꾸었어요.`); });
+$("bk-reset").addEventListener("click", () => { bk = BK0.slice(); bkHi = -1; bkShow("초깃값으로 되돌렸어요."); });
+bkShow();
+WS.custom("books", { el: $("bk-done"), value: () => bk.join("·"), check: () => bkOps.length ? bk.join() === GOAL.join() : null, answer: GOAL.join("·") });
+
+/* OX 퀴즈 */
+const QQ = ["아날로그 데이터는 불연속적이다.", "디지털 데이터는 연속적이다.", "소리는 아날로그 데이터이다.", "빛은 아날로그 데이터이다.", "온도는 디지털 데이터이다."], QA = ["×", "×", "◯", "◯", "×"];
+let oq = { c: 0, sel: [], score: null, show: false }, oqDone = "";
+$("oq-code").innerHTML = CL.blocks([["start", "<b>다음 문제</b> 신호를 받았을 때 (글 상자)", [["look", "<b>문제</b> 의 <b>카운트</b> 번째 항목 라고 글쓰기"]]],
+  ["start", "오브젝트를 클릭했을 때 (◯ 버튼)", [["list", "<b>◯</b> 을(를) <b>선택</b> 의 <b>카운트</b> 번째에 넣기"], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"], ["flow", "만일 <b>카운트 &gt; 5</b> (이)라면", [["start", "<b>점수 확인</b> 신호 보내기"]], "아니면", [["start", "<b>다음 문제</b> 신호 보내기"]]]]],
+  ["start", "<b>점수 확인</b> 신호를 받았을 때 (글 상자)", [["list", "리스트 <b>정답</b>, <b>선택</b> 보이기"], ["var", "<b>점수</b> 를 <b>0</b>, <b>카운트</b> 를 <b>1</b> (으)로 정하기"], ["flow", "<b>5</b> 번 반복하기", [["flow", "만일 <b>정답 의 카운트 번째 항목 = 선택 의 카운트 번째 항목</b> (이)라면", [["var", "<b>점수</b> 에 <b>1</b> 만큼 더하기"]]], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"]]], ["look", "<b>정답 개수는</b> + <b>점수</b> 라고 글쓰기"]]]]);
+function oqShow() { const n = oq.c; $("oq-q").innerHTML = oq.score != null ? `🎉 정답 개수는 <b>${oq.score}</b>` : n >= 1 ? `<b>${n}.</b> ${QQ[n - 1]}` : "문제가 나오면 ◯, ×를 선택하세요. 총 5문제가 나옵니다.";
+  $("oq-lists").innerHTML = LB("문제", QQ.map((q, i) => q.slice(0, 9) + "…"), n - 1) + (oq.show ? LB("정답", QA) : "") + LB("선택", oq.sel, oq.sel.length - 1); $("oq-var").textContent = `카운트 = ${n}` + (oq.score != null ? ` · 점수 = ${oq.score}` : ""); }
+$("oq-start").addEventListener("click", () => { oq = { c: 1, sel: [], score: null, show: false }; oqShow(); });
+function pick(v) { if (oq.c < 1 || oq.score != null) return; oq.sel[oq.c - 1] = v; oq.c++; if (oq.c > 5) { oq.show = true; oq.score = QA.filter((a, i) => a === oq.sel[i]).length; oqDone = oq.sel.join(""); $("oq-res").innerHTML = `내 선택: ${oq.sel.join(" ")} → 정답 개수 <b>${oq.score}</b>`; } oqShow(); }
+$("oq-o").addEventListener("click", () => pick("◯")); $("oq-x").addEventListener("click", () => pick("×")); oqShow();
+WS.custom("oq", { el: $("oq-res"), value: () => oqDone, check: () => oqDone ? true : null, answer: "퀴즈 완료" });
+
+/* 비상 연락망 */
+let NM = ["강하늘", "윤바다", "서은별"], PH = ["010-0000-1111", "010-0000-2222", "010-0000-3333"], ctHi = null, ctQ = [], ctUsed = new Set();
+function ctShow() { $("ct-lists").innerHTML = LB("이름", NM, ctHi) + LB("연락처", PH, ctHi); }
+function say(t) { $("ct-say").innerHTML = "🤖 " + t; }
+function ask(prompt, cb) { say(prompt); $("ct-ask").style.display = "flex"; $("ct-in").value = ""; $("ct-in").focus(); ctQ = [cb]; }
+$("ct-ok").addEventListener("click", () => { const v = $("ct-in").value.trim(), cb = ctQ.pop(); $("ct-ask").style.display = "none"; cb && cb(v); });
+$("ct-in").addEventListener("keydown", e => { if (e.key === "Enter") $("ct-ok").click(); });
+const ACT = {
+  add: () => { const one = done => ask("추가하고자 하는 이름을 입력하세요.", n => ask("추가하고자 하는 연락처를 입력하세요.", p => { NM.push(n); PH.push(p); ctHi = NM.length - 1; ctShow(); done(); }));
+    if ($("ct-v2").checked) ask("몇 명을 추가할까요?", k => { let m = Math.max(0, Math.min(5, parseInt(k) || 0)); const rep = () => { if (m-- > 0) one(rep); else say("추가를 마쳤어요."); }; rep(); }); else one(() => say("추가했어요.")); },
+  del: () => ask("삭제하고자 하는 번호를 입력하세요.", v => { const i = +v; if (!(i >= 1 && i <= NM.length)) return say("번호를 확인해 주세요."); ask(`${NM[i - 1]}님 정보 삭제는 1, 아니면 다른 키를 누르세요.`, a => { if (a === "1") { NM[i - 1] = "0"; PH[i - 1] = "0"; ctHi = i - 1; ctShow(); say(`${i}번 정보를 0으로 바꾸었어요.`); } else say("삭제를 취소했습니다."); }); }),
+  chg: () => ask("수정하고자 하는 번호를 입력하세요.", v => { const i = +v; if (!(i >= 1 && i <= NM.length)) return say("번호를 확인해 주세요."); ask("이름을 바꾸려면 1, 연락처를 바꾸려면 2, 모두 바꾸려면 3을 입력하세요.", a => {
+      const setN = then => ask("수정할 이름을 입력해 주세요.", n => { NM[i - 1] = n; ctHi = i - 1; ctShow(); then && then(); }), setP = () => ask("수정할 연락처를 입력해 주세요.", p => { PH[i - 1] = p; ctHi = i - 1; ctShow(); say("수정했어요."); });
+      if (a === "1") setN(() => say("수정했어요.")); else if (a === "2") setP(); else if (a === "3") setN(setP); else say("1, 2, 3 중에서 입력해 주세요."); }); }),
+  clr: () => ask("모두 지우려면 1, 아니면 아무 키나 눌러 주세요.", a => { if (a === "1") { const n = NM.length; for (let k = 0; k < n; k++) { NM.shift(); PH.shift(); } ctHi = null; ctShow(); say(`항목 수(${n})만큼 반복하며 1번째 항목을 삭제했어요.`); } else say("삭제를 취소했습니다."); }),
+  find: () => ask($("ct-v2").checked ? "이름이나 번호를 입력해 주세요." : "번호를 입력해 주세요.", v => { if (v !== "" && !isNaN(v)) { const i = +v; if (i >= 1 && i <= NM.length) { ctHi = i - 1; ctShow(); say(PH[i - 1]); } else say("번호를 확인해 주세요."); return; }
+      if (!$("ct-v2").checked) return say("번호를 입력해 주세요."); const i = NM.indexOf(v); if (i < 0) return say("이름을 확인해 주세요."); ctHi = i; ctShow(); say(`${v}: ${PH[i]} (이름 리스트를 1번부터 하나씩 확인해 ${i + 1}번째에서 찾았어요)`); }) };
+document.querySelectorAll("[data-ct]").forEach(b => b.addEventListener("click", () => { ctUsed.add(b.dataset.ct); ctHi = null; ctShow(); ACT[b.dataset.ct](); }));
+ctShow();
+WS.custom("ct_used", { el: $("ct-lists"), value: () => [...ctUsed].join(",") });
+
+</script>
+</body>
+</html>

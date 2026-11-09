@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-1-3 알고리즘의 이해와 표현</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p100-park.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 1. 추상화와 알고리즘 <span class="pg" style="margin:0">100~102쪽</span></span>
+      <h1>알고리즘의<br><span>이해와 표현</span></h1>
+      <p>알고리즘은 초기 상태를 목표 상태로 바꾸는 작업의 순서이다. 도서관 반납 처리를 자연어·의사 코드·순서도로 나타내고 순서도를 직접 실행해 본 뒤, 심폐 소생술 알고리즘에서 순차·선택·반복 구조를 찾아보자.</p>
+      <div class="goal">🎯 학습 목표 — 알고리즘의 중요성과 표현 방법을 설명하고, 순차·선택·반복 구조를 이해할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">1. 알고리즘의 의미와 중요성</span>초기 상태를 목표 상태로 바꾸는 작업의 순서 <span class="pg">100쪽</span></div>
+    <div class="book"><p>추상화를 거쳐 추출한 핵심 요소를 이용하여 문제를 초기 상태에서 목표 상태로 변화시키기 위해 해야 할 작업을 순서대로 설명하거나 구조화하여 표현한 것을 <span class="key">알고리즘</span>이라고 한다.</p>
+    <p>문제를 해결하기 위해서는 여러 가지 방식으로 알고리즘을 설계할 수 있지만 잘못 설계한 알고리즘은 문제를 해결할 수 없기 때문에 목표 상태에 도달할 수 있는 알고리즘을 설계하는 것이 중요하다.</p></div>
+<figure class="fig" style="max-width:460px"><img src="img/p100-park.jpg" alt="[그림 Ⅲ-5] 알고리즘을 통해 ‘놀이공원에서 모든 놀이 기구 이용하기’ 문제 해결하기"><figcaption><span class="tb">100쪽</span>[그림 Ⅲ-5] 알고리즘을 통해 ‘놀이공원에서 모든 놀이 기구 이용하기’ 문제 해결하기</figcaption></figure>
+    <div class="tip-box"><b>알고리즘의 조건</b> ① 0개 이상 입력을 받아 1개 이상의 결과를 출력해야 한다. ② 수행하는 명령이 명확하게 제시되어야 한다. ③ 알고리즘의 시작과 종료가 반드시 있어야 한다. ④ 모든 명령을 논리적으로 수행할 수 있어야 한다.</div>
+    <div class="q" data-why="‘적당히’, ‘알맞게’는 명확하지 않고, 끝없는 반복은 종료가 없어요." data-hint="조건 ②·③을 떠올려 보세요.">
+      <div class="q-text"><span class="q-num">1</span>다음은 알고리즘의 조건을 지켰는지 판단해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">‘라면에 물을 적당히 넣고 알맞게 끓인다.’</td><td><span class="choice-group" data-key="c1" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">‘1부터 시작해 1씩 더하는 일을 끝없이 반복한다.’</td><td><span class="choice-group" data-key="c2" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">‘두 수를 입력받아 더한 값을 출력하고 끝낸다.’</td><td><span class="choice-group" data-key="c3" data-answer="O"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">2. 알고리즘의 표현</span>자연어 · 의사 코드 · 순서도 — 도서관 반납 도서 처리 <span class="pg">101쪽</span></div>
+    <div class="book"><p>알고리즘은 자연어, 순서도 등 여러 가지 방법으로 표현할 수 있다. “도서관에서 이용자가 반납한 도서의 반납일을 확인한다. 만약 반납일이 지났으면 연체일을 안내한다.”를 세 가지 방법으로 나타내 보자.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div><div class="tip-box"><b>자연어</b> ➊ 이용자에게서 대출 도서를 반납받는다. ➋ 반납일을 확인한다. ➌ 만약 도서의 반납일이 지났으면 ➍로 이동하고 그렇지 않으면 프로그램을 종료한다. ➍ 연체일을 계산한다. ➎ 연체일을 알려 주고 프로그램을 종료한다.</div>
+        <div class="tip-box" style="font-family:monospace;white-space:pre;line-height:1.6;overflow-x:auto"><b style="font-family:sans-serif">의사 코드</b>
+시작
+  도서 반납
+  반납일 ← 대출한 책의 반납일
+  만약 (오늘 날짜 〉 반납일)
+     연체일 ← 오늘 날짜 – 반납일
+     연체일 안내
+끝</div>
+        <div class="tip-box"><b>▶ 순서도 실행해 보기</b><br>반납일 <input type="date" id="lb-due" value="2026-11-02"> <br>오늘 날짜 <input type="date" id="lb-today" value="2026-11-09"><br><button type="button" class="btn small main" id="lb-run" style="margin-top:6px">▶ 실행</button> <span id="lb-out" style="font-weight:800"></span></div></div>
+      <div id="lb-flow"></div>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>알고리즘 표현 방법과 특징을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">일상생활에서 사용하는 언어로 이해하기 쉽지만 의미가 모호하게 전달될 수 있다.</td><td><span class="choice-group" data-key="r1" data-answer="nl"><button type="button" class="choice-btn" data-value="nl">자연어</button><button type="button" class="choice-btn" data-value="pc">의사 코드</button><button type="button" class="choice-btn" data-value="fc">순서도</button></span></td></tr><tr><td style="text-align:left">자연어를 프로그래밍 언어처럼 사용하여 의미를 명확하게 파악할 수 있다.</td><td><span class="choice-group" data-key="r2" data-answer="pc"><button type="button" class="choice-btn" data-value="nl">자연어</button><button type="button" class="choice-btn" data-value="pc">의사 코드</button><button type="button" class="choice-btn" data-value="fc">순서도</button></span></td></tr><tr><td style="text-align:left">약속된 기호를 사용하여 흐름을 한눈에 파악하기 쉽다.</td><td><span class="choice-group" data-key="r3" data-answer="fc"><button type="button" class="choice-btn" data-value="nl">자연어</button><button type="button" class="choice-btn" data-value="pc">의사 코드</button><button type="button" class="choice-btn" data-value="fc">순서도</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">2</span>순서도 기호의 뜻을 연결해 보자(오른쪽 순서도를 보며).</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left"><svg width='60' height='24'><rect x='2' y='3' width='56' height='18' rx='9' fill='#e8f6ee' stroke='#5b6b78'/></svg> 둥근 사각형</td><td><span class="choice-group" data-key="f1" data-answer="t"><button type="button" class="choice-btn" data-value="t">시작과 끝</button><button type="button" class="choice-btn" data-value="io">자료의 입출력</button><button type="button" class="choice-btn" data-value="d">조건 판단(예/아니요)</button><button type="button" class="choice-btn" data-value="p">계산 등의 자료 처리</button></span></td></tr><tr><td style="text-align:left"><svg width='60' height='24'><polygon points='10,3 58,3 50,21 2,21' fill='#eef4ff' stroke='#5b6b78'/></svg> 평행사변형</td><td><span class="choice-group" data-key="f2" data-answer="io"><button type="button" class="choice-btn" data-value="t">시작과 끝</button><button type="button" class="choice-btn" data-value="io">자료의 입출력</button><button type="button" class="choice-btn" data-value="d">조건 판단(예/아니요)</button><button type="button" class="choice-btn" data-value="p">계산 등의 자료 처리</button></span></td></tr><tr><td style="text-align:left"><svg width='60' height='24'><polygon points='30,1 58,12 30,23 2,12' fill='#fff6e0' stroke='#5b6b78'/></svg> 마름모</td><td><span class="choice-group" data-key="f3" data-answer="d"><button type="button" class="choice-btn" data-value="t">시작과 끝</button><button type="button" class="choice-btn" data-value="io">자료의 입출력</button><button type="button" class="choice-btn" data-value="d">조건 판단(예/아니요)</button><button type="button" class="choice-btn" data-value="p">계산 등의 자료 처리</button></span></td></tr><tr><td style="text-align:left"><svg width='60' height='24'><rect x='2' y='3' width='56' height='18' fill='#fff' stroke='#5b6b78'/></svg> 직사각형</td><td><span class="choice-group" data-key="f4" data-answer="p"><button type="button" class="choice-btn" data-value="t">시작과 끝</button><button type="button" class="choice-btn" data-value="io">자료의 입출력</button><button type="button" class="choice-btn" data-value="d">조건 판단(예/아니요)</button><button type="button" class="choice-btn" data-value="p">계산 등의 자료 처리</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="9 − 2 = 7. 반납일이 지나지 않았으면 연체일을 계산하지 않아요." data-hint="날짜를 바꾸어 ▶ 실행해 보세요.">
+      <div class="q-text"><span class="q-num">3</span>반납일이 11월 2일이고 오늘이 11월 9일이면 연체일은 <input class="blank w-s" data-key="lb1" data-num="7" data-abs="0" style="width:50px"> 일이다. 반납일이 11월 12일이면 순서도는 ‘연체되었는가?’에서 <span class="choice-group" data-key="lb2" data-answer="no"><button type="button" class="choice-btn" data-value="yes">예</button><button type="button" class="choice-btn" data-value="no">아니요</button></span>로 이동하여 바로 끝난다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">3. 알고리즘의 구조 · 지식 충전소</span>순차 · 선택 · 반복 구조 — 심폐 소생술 알고리즘 <span class="pg">102쪽</span></div>
+    <div class="book"><p>알고리즘은 <b>순차·반복·선택 구조</b>를 조합해서 설계한다. 순차 구조는 정해진 순서대로 작업을 실행하는 구조이고, 선택 구조는 조건에 따라 처리하는 내용이나 순서가 달라지는 구조이다. 반복 구조는 정해진 횟수만큼 같은 작업을 반복하여 실행하거나 주어진 조건을 만족할 때까지 작업을 반복적으로 실행하는 구조이다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div id="cpr-flow"></div>
+      <div><div class="btn-row"><button type="button" class="btn small main" id="cpr-step">한 단계 ▶</button><button type="button" class="btn small" id="cpr-auto">⏩ 자동 실행</button><button type="button" class="btn ghost small" id="cpr-reset">⟲ 처음부터</button></div>
+        <label style="display:flex;gap:6px;align-items:center;font-size:14px;font-weight:700;margin:6px 0"><input type="checkbox" id="cpr-wake"> 환자가 의식을 되찾음</label>
+        <div class="tip-box" id="cpr-cnt" style="font-size:14px"></div>
+        <div class="tip-box" id="cpr-msg"></div>
+        <div style="font-size:11.5px;color:#667">•자료: 질병관리청(2020)</div></div>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>심폐 소생술 알고리즘의 각 부분은 어떤 구조인지 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">환자를 발견하면 먼저 119에 신고한다.</td><td><span class="choice-group" data-key="cp1" data-answer="seq"><button type="button" class="choice-btn" data-value="seq">순차 구조</button><button type="button" class="choice-btn" data-value="sel">선택 구조</button><button type="button" class="choice-btn" data-value="rep">반복 구조</button></span></td></tr><tr><td style="text-align:left">환자의 의식이 있는지 없는지에 따라 심폐 소생술을 할 것인지 말 것인지가 달라진다.</td><td><span class="choice-group" data-key="cp2" data-answer="sel"><button type="button" class="choice-btn" data-value="seq">순차 구조</button><button type="button" class="choice-btn" data-value="sel">선택 구조</button><button type="button" class="choice-btn" data-value="rep">반복 구조</button></span></td></tr><tr><td style="text-align:left">환자의 의식이 있을 때까지 가슴 압박을 실시한다.</td><td><span class="choice-group" data-key="cp3" data-answer="rep"><button type="button" class="choice-btn" data-value="seq">순차 구조</button><button type="button" class="choice-btn" data-value="sel">선택 구조</button><button type="button" class="choice-btn" data-value="rep">반복 구조</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="30 × 3 = 90" data-hint="자동 실행 후 3 번째 묶음이 끝날 때 가슴 압박 횟수를 확인해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>가슴 압박과 인공호흡을 한 번 묶어서 하는 동안 가슴 압박은 <input class="blank w-s" data-key="cp4" data-num="30" data-abs="0" style="width:50px"> 회, 인공호흡은 <input class="blank w-s" data-key="cp5" data-num="2" data-abs="0" style="width:50px"> 회 실시한다. 환자가 깨어나지 않아 이 묶음을 3 번 반복하면 가슴 압박은 모두 <input class="blank w-s" data-key="cp6" data-num="90" data-abs="0" style="width:50px"> 회이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="tip-box"><b>🧪 해 보기</b> 시뮬레이터에서 묶음을 3 번 이상 반복한 뒤 ‘환자가 의식을 되찾음’을 눌러 알고리즘을 끝까지 실행해 보자.</div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>알고리즘의 이해와 표현 <span class="pg">100~102·107쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>알고리즘의 중요성</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text"><input class="blank w-s" data-key="s1" data-answer="알고리즘" style="width:80px">을(를) 통해 초기 상태에서 목표 상태로 변화시켜 문제를 해결할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>알고리즘의 표현</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">알고리즘은 <input class="blank w-s" data-key="s2" data-answer="자연어" style="width:60px">, 의사 코드, <input class="blank w-s" data-key="s3" data-answer="순서도" style="width:60px"> 등 여러 가지 방법으로 표현할 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>알고리즘의 구조</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">알고리즘은 <input class="blank w-s" data-key="s4" data-answer="순차" style="width:50px">·반복·<input class="blank w-s" data-key="s5" data-answer="선택" style="width:50px"> 구조를 조합해서 설계한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">알고리즘의 중요성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">알고리즘을 자연어, 의사 코드, 순서도로 표현할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">순차·선택·반복 구조를 구별할 수 있는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 알고리즘의 이해와 표현(100~102쪽) · 비상교육 중학교 정보 교과서 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-1-3 알고리즘의 이해와 표현";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 도서관 순서도 */
+const lbHi = CL.flow($("lb-flow"), 340, 420, [
+  { id: 1, t: "term", x: 150, y: 25, w: 100, text: "시작" }, { id: 2, t: "io", x: 150, y: 85, text: "도서 반납" },
+  { id: 3, t: "dec", x: 150, y: 165, w: 170, h: 60, text: "연체되었는가?" }, { id: 4, t: "proc", x: 150, y: 250, w: 200, text: "연체일 ← 오늘 날짜 − 반납일" },
+  { id: 5, t: "io", x: 150, y: 320, text: "연체일 출력" }, { id: 6, t: "term", x: 150, y: 392, w: 100, text: "끝" }],
+  [{ pts: [[150, 43], [150, 67]] }, { pts: [[150, 103], [150, 135]] }, { pts: [[150, 195], [150, 232]], label: "예", lx: 162, ly: 218 },
+   { pts: [[150, 268], [150, 302]] }, { pts: [[150, 338], [150, 374]] }, { pts: [[235, 165], [300, 165], [300, 392], [202, 392]], label: "아니요", lx: 270, ly: 157 }]);
+let lbT = [], lbRuns = [];
+$("lb-run").addEventListener("click", () => { lbT.forEach(clearTimeout); lbT = [];
+  const due = new Date($("lb-due").value), td = new Date($("lb-today").value); if (isNaN(due) || isNaN(td)) { $("lb-out").textContent = "날짜를 입력하세요."; return; }
+  const d = Math.round((td - due) / 864e5), late = d > 0, path = late ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 6];
+  $("lb-out").textContent = ""; path.forEach((n, i) => lbT.push(setTimeout(() => { lbHi(n); if (n === 5) $("lb-out").textContent = `📢 연체일: ${d}일`; if (n === 6 && !late) $("lb-out").textContent = "연체되지 않았어요 → 끝"; }, i * 650)));
+  lbT.push(setTimeout(() => lbHi(0), path.length * 650 + 600)); lbRuns.push(late ? d : 0); });
+
+/* 심폐 소생술 순서도 */
+const cpHi = CL.flow($("cpr-flow"), 380, 580, [
+  { id: 1, t: "term", x: 170, y: 25, w: 100, text: "시작" }, { id: 2, t: "proc", x: 170, y: 80, text: "응급 환자 발생" }, { id: 3, t: "proc", x: 170, y: 135, text: "119 신고" },
+  { id: 4, t: "dec", x: 170, y: 205, w: 190, h: 60, text: "환자의 의식이\n있는가?" }, { id: 5, t: "proc", x: 170, y: 290, text: "가슴 압박 1회 실시" },
+  { id: 6, t: "dec", x: 170, y: 370, w: 200, h: 60, text: "가슴 압박을\n30회 했는가?" }, { id: 7, t: "proc", x: 170, y: 455, text: "인공호흡 1회 실시" },
+  { id: 8, t: "dec", x: 170, y: 535, w: 190, h: 60, text: "인공호흡을\n2회 했는가?" }, { id: 9, t: "term", x: 330, y: 205, w: 80, text: "끝" }],
+  [{ pts: [[170, 43], [170, 62]] }, { pts: [[170, 98], [170, 117]] }, { pts: [[170, 153], [170, 175]] }, { pts: [[265, 205], [288, 205]], label: "예", lx: 276, ly: 197 },
+   { pts: [[170, 235], [170, 272]], label: "아니요", lx: 195, ly: 257 }, { pts: [[170, 308], [170, 340]] },
+   { pts: [[70, 370], [45, 370], [45, 290], [95, 290]], label: "아니요", lx: 48, ly: 362 }, { pts: [[170, 400], [170, 437]], label: "예", lx: 182, ly: 422 },
+   { pts: [[170, 473], [170, 505]] }, { pts: [[265, 535], [310, 535], [310, 455], [245, 455]], label: "아니요", lx: 290, ly: 527 },
+   { pts: [[75, 535], [12, 535], [12, 205], [75, 205]], label: "예", lx: 24, ly: 527 }]);
+let cp, cpTimer = null;
+function cpReset() { cp = { n: 0, comp: 0, br: 0, tot: 0, cyc: 0, done: false }; clearInterval(cpTimer); cpTimer = null; $("cpr-auto").textContent = "⏩ 자동 실행"; cpHi(0); cpShow("‘한 단계 ▶’를 눌러 시작해 보세요."); }
+function cpShow(m) { $("cpr-cnt").innerHTML = `이번 묶음 가슴 압박 <b>${cp.comp}</b>회 · 인공호흡 <b>${cp.br}</b>회<br>전체 가슴 압박 <b>${cp.tot}</b>회 · 끝낸 묶음 <b>${cp.cyc}</b>번`; if (m) $("cpr-msg").innerHTML = m; }
+function cpStep() { if (cp.done) return; const wake = $("cpr-wake").checked; let m = "", nx;
+  switch (cp.n) { case 0: nx = 1; m = "알고리즘 시작"; break; case 1: nx = 2; m = "<b>순차</b>: 응급 환자 발생"; break; case 2: nx = 3; m = "<b>순차</b>: 119에 신고"; break;
+    case 3: nx = 4; m = "<b>선택</b>: 의식을 확인해요"; break;
+    case 4: nx = wake ? 9 : 5; cp.comp = 0; cp.br = 0; m = wake ? "의식이 있다 → 예 → 끝" : "의식이 없다 → 아니요 → 가슴 압박 시작"; break;
+    case 5: cp.comp++; cp.tot++; nx = 6; m = `가슴 압박 ${cp.comp}회`; break;
+    case 6: nx = cp.comp >= 30 ? 7 : 5; m = cp.comp >= 30 ? "30회 했다 → 예 → 인공호흡" : `<b>반복</b>: 아직 ${cp.comp}회 → 아니요 → 다시 가슴 압박`; break;
+    case 7: cp.br++; nx = 8; m = `인공호흡 ${cp.br}회`; break;
+    case 8: if (cp.br >= 2) { cp.cyc++; nx = 4; m = "2회 했다 → 예 → 다시 의식 확인(<b>반복</b>)"; } else { nx = 7; m = "아직 1회 → 아니요 → 다시 인공호흡"; } break;
+    case 9: cp.done = true; nx = 9; m = "🎉 환자가 의식을 되찾아 알고리즘이 끝났어요."; clearInterval(cpTimer); cpTimer = null; $("cpr-auto").textContent = "⏩ 자동 실행"; break; }
+  cp.n = nx; cpHi(nx); cpShow(m); }
+$("cpr-step").addEventListener("click", cpStep); $("cpr-reset").addEventListener("click", () => { $("cpr-wake").checked = false; cpReset(); });
+$("cpr-auto").addEventListener("click", () => { if (cpTimer) { clearInterval(cpTimer); cpTimer = null; $("cpr-auto").textContent = "⏩ 자동 실행"; } else { cpTimer = setInterval(cpStep, 90); $("cpr-auto").textContent = "⏸ 멈춤"; } });
+cpReset();
+WS.custom("cpr", { el: $("cpr-cnt"), value: () => `묶음 ${cp.cyc}, 압박 ${cp.tot}, ${cp.done ? "종료" : "진행 중"}`, check: () => cp.tot ? cp.done && cp.cyc >= 3 : null, answer: "3 묶음 이상 반복 후 의식 회복 → 끝" });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-1-2 문제의 추상화</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p97-game.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 1. 추상화와 알고리즘 <span class="pg" style="margin:0">96~99쪽</span></span>
+      <h1>문제의<br><span>추상화</span></h1>
+      <p>같은 제주도라도 목적에 따라 도로 지도, 맛집 지도, 연락처 목록처럼 필요한 정보만 남긴다. 게임과 자동판매기를 직접 움직여 보며 문제를 작은 문제로 나누고(문제 분해) 꼭 필요한 요소만 골라내는(핵심 요소 추출) 연습을 해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 추상화의 의미와 중요성을 설명하고, 문제를 작은 문제로 나누고 핵심 요소를 추출하여 문제 해결 방법을 설명할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">1. 추상화의 의미</span>목적에 따라 필요한 것만 남기기 <span class="pg">96쪽</span></div>
+    <div class="book"><p>문제의 목적에 따라 문제 해결에 필요한 요소를 찾아내고 문제를 작은 문제로 나누어 해결 가능한 수준으로 만드는 것을 <span class="key">추상화</span>라고 한다. 추상화는 문제의 복잡성을 줄여 주고, 효율적으로 문제를 해결할 수 있게 해 준다.</p>
+    <p>예를 들어, 제주도를 여행할 때 원하는 목적에 따라 제주도를 지역 지도, 도로 지도, 맛집 지도, 관광지 연락처 목록 등으로 각각 다르게 추상화할 수 있다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><figure class="fig"><img src="img/p96-jeju.jpg" alt="지도에서 지역 경계만 추출하여 행정 구역을 한눈에"><figcaption><span class="tb">96쪽</span>지도에서 지역 경계만 추출하여 행정 구역을 한눈에</figcaption></figure><figure class="fig"><img src="img/p96-contact.jpg" alt="주요 관광지의 다양한 정보에서 전화번호만 추출"><figcaption><span class="tb">96쪽</span>주요 관광지의 다양한 정보에서 전화번호만 추출</figcaption></figure></div>
+    <div class="light-stage"><canvas id="jj-cv" class="cl-cv" style="background:#fff;max-width:520px"></canvas></div>
+    <div class="btn-row" style="justify-content:center"><button type="button" class="btn small main" data-jj="all">원래 정보 전체</button><button type="button" class="btn small" data-jj="area">지역 지도</button><button type="button" class="btn small" data-jj="road">도로 지도</button><button type="button" class="btn small" data-jj="food">맛집 지도</button></div>
+    <div class="q" data-why="같은 제주도라도 목적에 따라 남길 정보가 달라져요.">
+      <div class="q-text"><span class="q-num">1</span>목적에 알맞은 추상화를 골라 보자(위의 단추로 직접 추상화해 보세요).</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">이동 경로를 쉽게 계획하고 싶다.</td><td><span class="choice-group" data-key="jj1" data-answer="road"><button type="button" class="choice-btn" data-value="area">지역 지도</button><button type="button" class="choice-btn" data-value="road">도로 지도</button><button type="button" class="choice-btn" data-value="food">맛집 지도</button><button type="button" class="choice-btn" data-value="tel">연락처 목록</button></span></td></tr><tr><td style="text-align:left">행정 구역을 한눈에 파악하고 싶다.</td><td><span class="choice-group" data-key="jj2" data-answer="area"><button type="button" class="choice-btn" data-value="area">지역 지도</button><button type="button" class="choice-btn" data-value="road">도로 지도</button><button type="button" class="choice-btn" data-value="food">맛집 지도</button><button type="button" class="choice-btn" data-value="tel">연락처 목록</button></span></td></tr><tr><td style="text-align:left">식사할 장소를 쉽게 확인하고 싶다.</td><td><span class="choice-group" data-key="jj3" data-answer="food"><button type="button" class="choice-btn" data-value="area">지역 지도</button><button type="button" class="choice-btn" data-value="road">도로 지도</button><button type="button" class="choice-btn" data-value="food">맛집 지도</button><button type="button" class="choice-btn" data-value="tel">연락처 목록</button></span></td></tr><tr><td style="text-align:left">관광지에 전화로 예약하고 싶다.</td><td><span class="choice-group" data-key="jj4" data-answer="tel"><button type="button" class="choice-btn" data-value="area">지역 지도</button><button type="button" class="choice-btn" data-value="road">도로 지도</button><button type="button" class="choice-btn" data-value="food">맛집 지도</button><button type="button" class="choice-btn" data-value="tel">연락처 목록</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="불필요한 정보를 덜어 내니까요.">
+      <div class="q-text"><span class="q-num">2</span>추상화를 하면 문제의 복잡성이 <span class="choice-group" data-key="jj5" data-answer="down"><button type="button" class="choice-btn" data-value="down">줄어든다</button><button type="button" class="choice-btn" data-value="up">늘어난다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">2. 추상화 방법</span>문제 분해와 핵심 요소 추출 — 위험물 피하기 게임 <span class="pg">97~98쪽</span></div>
+    <div class="book"><p>문제를 추상화하기 위해 ‘<b>문제 분해</b>’와 ‘<b>핵심 요소 추출</b>’의 방법을 사용할 수 있다. 이러한 과정을 통해 해결해야 할 문제의 범위를 좁히고 구체화할 수 있다.</p></div>
+    <canvas id="gm-cv" class="cl-cv"></canvas>
+    <div id="gm-pad"></div>
+    <div class="tip-box" id="gm-msg">화면을 누르거나 스페이스 키를 누르면 시작하고, 다시 누르면 점프해요. 위험물을 하나 넘을 때마다 10 점!</div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="tip-box"><b>문제 분해</b> 하나의 큰 문제를 해결하는 것이 어렵기 때문에 해결 가능한 작은 문제로 나누어 해결하는 것. 작은 문제를 모두 해결하면 문제가 해결되므로 복잡성을 줄일 수 있다.</div>
+      <div class="tip-box"><b>핵심 요소 추출</b> 문제 해결에 불필요한 요소를 제거하고 필요한 요소를 선정하는 것. 핵심 요소 추출을 위해서는 문제의 목적을 명확히 파악하는 것이 중요하다.</div>
+    </div>
+    <div class="q" data-why="문제 분해: 캐릭터 움직이기 / 위험물 기능 설정하기 / 점수 확인하기">
+      <div class="q-text"><span class="q-num">1</span>[표 Ⅲ-1] 위험물 피하기 게임의 핵심 요소가 어느 작은 문제에 필요한지 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">캐릭터 이름 · 위치 · 모습</td><td><span class="choice-group" data-key="gm1" data-answer="c"><button type="button" class="choice-btn" data-value="c">캐릭터 움직이기</button><button type="button" class="choice-btn" data-value="d">위험물 기능 설정하기</button><button type="button" class="choice-btn" data-value="s">점수 확인하기</button></span></td></tr><tr><td style="text-align:left">위험물의 종류 · 위치</td><td><span class="choice-group" data-key="gm2" data-answer="d"><button type="button" class="choice-btn" data-value="c">캐릭터 움직이기</button><button type="button" class="choice-btn" data-value="d">위험물 기능 설정하기</button><button type="button" class="choice-btn" data-value="s">점수 확인하기</button></span></td></tr><tr><td style="text-align:left">시작 점수 · 점수 계산식 · 점수 표시 위치</td><td><span class="choice-group" data-key="gm3" data-answer="s"><button type="button" class="choice-btn" data-value="c">캐릭터 움직이기</button><button type="button" class="choice-btn" data-value="d">위험물 기능 설정하기</button><button type="button" class="choice-btn" data-value="s">점수 확인하기</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="게임의 목적(위험물 피하기)에 따라 행동을 표현하는 데 필요한 이름·위치·모습만 남겨요.">
+      <div class="q-text"><span class="q-num">2</span>현실의 인물은 이름, 크기, 생김새, 성별, 혈액형 등 많은 요소가 있지만 ‘위험물 피하기 게임’의 캐릭터를 표현하는 데 필요한 핵심 요소만 골라 보자.<div class="multi-group" data-key="gm4" data-answer="1,2,3"><button type="button" class="multi-btn" data-value="1">이름</button><button type="button" class="multi-btn" data-value="2">위치</button><button type="button" class="multi-btn" data-value="3">모습</button><button type="button" class="multi-btn" data-value="4">혈액형</button><button type="button" class="multi-btn" data-value="5">성별</button><button type="button" class="multi-btn" data-value="6">좋아하는 음식</button></div></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기 1 · 개별 탐구</span>게임 만들기의 핵심 요소 추출하기 <span class="pg">98쪽</span></div>
+    <div class="book"><p>게임과 관련된 요소를 써 보고, 그중 <b>캐릭터 업그레이드</b>를 위한 핵심 요소를 추출해 보자.</p></div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span>게임과 관련된 요소를 생각나는 대로 써 보자.</div><textarea class="free" data-key="gelem" rows="2" data-keywords="캐릭터,스토리,전투,탐험,아이템" data-model="캐릭터 생성 및 발전, 스토리 설정, 선택과 결정, 탐험과 탐색, 전투와 전략 등"></textarea><span class="fb"></span></div>
+    <div class="q" data-why="업그레이드(강해지기)라는 목적에 직접 관련된 값만 골라요.">
+      <div class="q-text"><span class="q-num">2</span>그중 캐릭터 업그레이드를 위한 핵심 요소를 모두 골라 보자.<div class="multi-group" data-key="up1" data-answer="1,2,3,4,5"><button type="button" class="multi-btn" data-value="1">캐릭터의 체력</button><button type="button" class="multi-btn" data-value="2">공격력</button><button type="button" class="multi-btn" data-value="3">스킬 등급</button><button type="button" class="multi-btn" data-value="4">착용할 수 있는 아이템 레벨</button><button type="button" class="multi-btn" data-value="5">착용할 수 있는 무기 종류</button><button type="button" class="multi-btn" data-value="6">배경 음악</button><button type="button" class="multi-btn" data-value="7">게임 회사 이름</button><button type="button" class="multi-btn" data-value="8">하늘의 구름 모양</button></div></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 2 · 모둠 실습</span>음료수 자동판매기 추상화하기 <span class="pg">99쪽</span></div>
+<figure class="fig" style="max-width:460px"><img src="img/p99-vending.jpg" alt="돈을 넣고 → 음료수를 고르면 → 음료수와 거스름돈이 나온다"><figcaption><span class="tb">99쪽</span>돈을 넣고 → 음료수를 고르면 → 음료수와 거스름돈이 나온다</figcaption></figure>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start">
+      <div id="vm-shelf" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px"></div>
+      <div><div class="tip-box" style="font-size:15px">투입된 금액 <b id="vm-money">0</b> 원</div>
+        <div class="btn-row"><button type="button" class="btn small" data-coin="100">100원</button><button type="button" class="btn small" data-coin="500">500원</button><button type="button" class="btn small" data-coin="1000">1000원</button><button type="button" class="btn ghost small" id="vm-ret">거스름돈 반환</button></div>
+        <div class="tip-box" id="vm-msg">돈을 넣고 음료수를 골라 보세요.</div></div>
+    </div>
+    <div class="tip-box" style="font-size:12.5px"><b>🧾 해 보기: 음료수를 하나 이상 사고 거스름돈까지 받아 보자.</b><br><span id="vm-log">기록 없음</span></div>
+    <div class="q" data-why="자판기 소프트웨어가 해야 하는 일만 골라요.">
+      <div class="q-text"><span class="q-num">1</span>음료수 자동판매기가 동작하는 과정을 생각하며 작은 문제로 나누어 보자.<div class="multi-group" data-key="vm1" data-answer="1,2,3"><button type="button" class="multi-btn" data-value="1">재고 표시하기</button><button type="button" class="multi-btn" data-value="2">음료수 제공하기</button><button type="button" class="multi-btn" data-value="3">거스름돈 반환하기</button><button type="button" class="multi-btn" data-value="4">자판기 색칠하기</button><button type="button" class="multi-btn" data-value="5">음료수 공장 짓기</button></div></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">2</span>분해한 작은 문제를 해결하는 데 필요한 핵심 요소를 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">재고 표시하기</td><td><span class="choice-group" data-key="vm2" data-answer="a"><button type="button" class="choice-btn" data-value="a">음료수 종류·가격·남은 개수</button><button type="button" class="choice-btn" data-value="b">음료수 가격·선택된 음료수·투입된 금액</button><button type="button" class="choice-btn" data-value="c">음료수 가격·투입된 금액</button></span></td></tr><tr><td style="text-align:left">음료수 제공하기</td><td><span class="choice-group" data-key="vm3" data-answer="b"><button type="button" class="choice-btn" data-value="a">음료수 종류·가격·남은 개수</button><button type="button" class="choice-btn" data-value="b">음료수 가격·선택된 음료수·투입된 금액</button><button type="button" class="choice-btn" data-value="c">음료수 가격·투입된 금액</button></span></td></tr><tr><td style="text-align:left">거스름돈 반환하기</td><td><span class="choice-group" data-key="vm4" data-answer="c"><button type="button" class="choice-btn" data-value="a">음료수 종류·가격·남은 개수</button><button type="button" class="choice-btn" data-value="b">음료수 가격·선택된 음료수·투입된 금액</button><button type="button" class="choice-btn" data-value="c">음료수 가격·투입된 금액</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="투입 금액 − 가격 = 거스름돈">
+      <div class="q-text"><span class="q-num">3</span>‘거스름돈 반환하기’에서 수행해야 할 작업: 선택된 음료수의 가격이 투입된 금액보다 <span class="choice-group" data-key="vm5" data-answer="lt"><button type="button" class="choice-btn" data-value="lt">작으면</button><button type="button" class="choice-btn" data-value="gt">크면</button></span> 그 차이를 계산하여 반환한다. 1500 원을 넣고 1200 원짜리 음료수를 고르면 거스름돈은 <input class="blank w-s" data-key="vm6" data-num="300" data-abs="0" style="width:60px"> 원이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>문제의 추상화 <span class="pg">96~99·107쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>추상화</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">문제의 목적에 따라 문제 해결에 필요한 요소를 찾아내고 문제를 작은 문제로 나누어 해결 가능한 수준으로 만드는 것을 <input class="blank w-s" data-key="s1" data-answer="추상화" style="width:70px">(이)라고 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>추상화 방법</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">큰 문제를 해결 가능한 작은 문제로 나누는 것은 <input class="blank w-s" data-key="s2" data-answer="문제 분해" style="width:80px">, 불필요한 요소를 제거하고 필요한 요소를 선정하는 것은 <input class="blank w-s" data-key="s3" data-answer="핵심 요소 추출" style="width:100px">이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="목적에 따라 표현하는 대상의 핵심 요소는 달라질 수 있어요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">핵심 요소는 문제의 목적과 관계없이 항상 같다.</td><td><span class="choice-group" data-key="s4" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">작은 문제를 모두 해결하면 원래의 큰 문제가 해결된다.</td><td><span class="choice-group" data-key="s5" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">추상화의 의미와 중요성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">해결해야 할 문제를 작은 문제로 나누고 핵심 요소를 추출할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 문제의 추상화(96~99쪽) · 비상교육 중학교 정보 교과서 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-1-2 문제의 추상화";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 제주도 추상화 — 단순화한 가상 지도 */
+const JR = [[[60,120],[150,70],[260,60],[380,70],[470,110],[480,160],[400,200],[270,215],[140,205],[70,170]]];
+const AREA = [[150,70,140,205],[260,60,270,215],[380,70,400,200]];
+const ROAD = [[[70,150],[160,100],[260,90],[380,100],[470,140]],[[70,150],[150,190],[270,200],[400,185],[470,140]],[[260,90],[265,140],[270,200]]];
+const FOOD = [["🍜 고기국수", 120, 120], ["🐟 갈치조림", 330, 180], ["🍊 귤 카페", 410, 120], ["🐷 흑돼지", 220, 160]];
+const SPOT = [["⛰", 265, 140], ["🏖", 90, 160], ["🌋", 455, 125]];
+let jm = "all";
+document.querySelectorAll("[data-jj]").forEach(b => b.addEventListener("click", () => { jm = b.dataset.jj; document.querySelectorAll("[data-jj]").forEach(x => x.classList.toggle("main", x === b)); jjDraw(); }));
+function jjDraw() { const g = CL.fit($("jj-cv"), 540, 270); g.clearRect(0, 0, 540, 270); g.lineJoin = "round";
+  const isl = () => { g.beginPath(); JR[0].forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.closePath(); };
+  isl(); g.fillStyle = jm === "all" ? "#b9df8c" : "#eef4ea"; g.fill(); g.strokeStyle = "#6a8a50"; g.lineWidth = 2; g.stroke();
+  if (jm === "all" || jm === "area") { g.save(); isl(); g.clip(); ["#ffd6a5", "#caffbf", "#9bf6ff", "#bdb2ff"].forEach((c, i) => { if (jm !== "area") return; g.fillStyle = c; g.fillRect([0, 150, 265, 390][i], 0, [150, 115, 125, 150][i], 270); }); g.restore();
+    g.setLineDash([5, 4]); g.strokeStyle = "#7a5"; AREA.forEach(a => { g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(a[2], a[3]); g.stroke(); }); g.setLineDash([]);
+    if (jm === "area") { g.fillStyle = "#333"; g.font = "bold 13px sans-serif"; g.textAlign = "center"; [["한림", 100, 140], ["애월·제주시", 205, 120], ["서귀포", 330, 150], ["성산·표선", 430, 150]].forEach(t => g.fillText(t[0], t[1], t[2])); } }
+  if (jm === "all" || jm === "road") { g.strokeStyle = jm === "road" ? "#e63946" : "#a66"; g.lineWidth = jm === "road" ? 4 : 2; ROAD.forEach(r => { g.beginPath(); r.forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.stroke(); }); }
+  g.font = "18px sans-serif"; g.textAlign = "center";
+  if (jm === "all") SPOT.forEach(s => g.fillText(s[0], s[1], s[2]));
+  if (jm === "all" || jm === "food") { g.font = jm === "food" ? "bold 13px sans-serif" : "11px sans-serif"; FOOD.forEach(f => { g.fillStyle = "#222"; g.fillText(f[0], f[1], f[2]); }); }
+  g.fillStyle = "#335"; g.font = "bold 13px sans-serif"; g.textAlign = "left"; g.fillText({ all: "원래 정보: 경계·도로·관광지·음식점이 모두 섞여 복잡하다", area: "지역 지도: 지역 경계만 추출", road: "도로 지도: 도로만 추출", food: "맛집 지도: 주요 음식점만 추출" }[jm], 12, 250); }
+jjDraw(); window.addEventListener("resize", jjDraw);
+
+/* 위험물 피하기 게임 */
+let gs = { run: false, y: 0, vy: 0, hz: [], score: 0, t: 0, over: false, best: 0 };
+function gmStart() { gs = { run: true, y: 0, vy: 0, hz: [], score: 0, t: 0, over: false, best: gs.best }; }
+function gmJump() { if (!gs.run) { gmStart(); return; } if (gs.y === 0) gs.vy = 11; }
+$("gm-cv").addEventListener("pointerdown", e => { e.preventDefault(); gmJump(); });
+document.addEventListener("keydown", e => { if (e.key === " " && document.activeElement.tagName !== "TEXTAREA" && document.activeElement.tagName !== "INPUT") { const r = $("gm-cv").getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) { e.preventDefault(); gmJump(); } } });
+CL.pad($("gm-pad"), [" "], (k, d, rep) => { if (d && !rep) gmJump(); });
+function gmStep() { const g = CL.fit($("gm-cv"), 600, 200);
+  if (gs.run) { gs.t++; gs.vy -= 0.6; gs.y = Math.max(0, gs.y + gs.vy); if (gs.y === 0) gs.vy = 0;
+    const sp = 4 + gs.score / 60; if (!gs.hz.length || gs.hz[gs.hz.length - 1].x < 600 - 160 - Math.random() * 200) gs.hz.push({ x: 640, k: Math.random() < .25 ? "⚠️" : "🔥", p: false });
+    gs.hz.forEach(h => { h.x -= sp; if (!h.p && h.x < 60) { h.p = true; gs.score += 10; } if (h.x > 62 && h.x < 108 && gs.y < 30) { gs.run = false; gs.over = true; gs.best = Math.max(gs.best, gs.score); } });
+    gs.hz = gs.hz.filter(h => h.x > -40); }
+  g.fillStyle = "#8ec5f0"; g.fillRect(0, 0, 600, 200); g.fillStyle = "#fff"; g.font = "28px sans-serif"; g.fillText("☁️", 120, 50); g.fillText("☁️", 420, 40);
+  g.fillStyle = "#b7793f"; g.fillRect(0, 170, 600, 30);
+  g.font = "34px sans-serif"; g.textAlign = "center"; g.fillText("🏃", 85, 165 - gs.y); gs.hz.forEach(h => g.fillText(h.k, h.x, 166));
+  g.fillStyle = "#111"; g.font = "bold 16px sans-serif"; g.textAlign = "right"; g.fillText("점수: " + String(gs.score).padStart(5, "0"), 590, 24);
+  g.textAlign = "left"; g.font = "bold 11px sans-serif"; g.fillStyle = "#234"; g.fillText("캐릭터(이름·위치·모습)", 50, 110 - gs.y); g.fillText("위험물(종류·위치)", 440, 120); g.fillText("점수(시작 점수·계산식·표시 위치)", 380, 44);
+  if (!gs.run) { g.fillStyle = "rgba(0,0,0,.45)"; g.fillRect(0, 70, 600, 50); g.fillStyle = "#fff"; g.textAlign = "center"; g.font = "bold 16px sans-serif"; g.fillText(gs.over ? `게임 끝! ${gs.score} 점 (최고 ${gs.best} 점) — 다시 누르면 시작` : "눌러서 시작", 300, 100); }
+  requestAnimationFrame(gmStep); }
+requestAnimationFrame(gmStep);
+WS.custom("gm_best", { el: $("gm-cv"), value: () => gs.best || gs.score });
+
+/* 자판기 */
+const DR = [["🥤", "콜라", 1200, 3], ["🧃", "주스", 1500, 1], ["💧", "물", 800, 5], ["🍵", "녹차", 1000, 0]];
+let money = 0, vLog = [];
+function vmDraw() { $("vm-shelf").innerHTML = DR.map((d, i) => `<button type="button" class="btn small" data-dr="${i}" style="flex-direction:column;height:auto;padding:8px;display:flex;align-items:center" ${d[3] ? "" : "disabled"}><span style="font-size:26px">${d[0]}</span>${d[1]} ${d[2]}원<br><small>남은 개수 ${d[3]}${d[3] ? "" : " (품절)"}</small></button>`).join("");
+  document.querySelectorAll("[data-dr]").forEach(b => b.addEventListener("click", () => buy(+b.dataset.dr))); $("vm-money").textContent = money;
+  $("vm-log").innerHTML = vLog.length ? vLog.join("<br>") : "기록 없음"; }
+function buy(i) { const d = DR[i]; if (money < d[2]) { $("vm-msg").innerHTML = `${d[1]}는 ${d[2]}원이에요. 투입된 금액(${money}원)이 부족해요.`; return; }
+  money -= d[2]; d[3]--; vLog.push(`${d[1]} 제공(${d[2]}원) → 남은 금액 ${money}원, ${d[1]} 남은 개수 ${d[3]}`); $("vm-msg").innerHTML = `${d[0]} ${d[1]}가 나왔어요! ‘거스름돈 반환’을 누르면 ${money}원을 돌려받아요.`; vmDraw(); }
+document.querySelectorAll("[data-coin]").forEach(b => b.addEventListener("click", () => { money += +b.dataset.coin; $("vm-msg").innerHTML = "음료수를 골라 보세요."; vmDraw(); }));
+$("vm-ret").addEventListener("click", () => { if (!money) return; vLog.push(`거스름돈 ${money}원 반환`); $("vm-msg").innerHTML = `💰 거스름돈 ${money}원이 나왔어요.`; money = 0; vmDraw(); });
+vmDraw();
+WS.custom("vm_log", { el: $("vm-log"), value: () => vLog.join(" / "), check: () => vLog.length ? vLog.some(x => x.includes("제공")) && vLog.some(x => x.includes("반환")) : null, answer: "음료수 제공 + 거스름돈 반환" });
+
+</script>
+</body>
+</html>

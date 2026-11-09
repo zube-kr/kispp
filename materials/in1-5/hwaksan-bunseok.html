@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅴ-2-1 정보의 확산과 사이버 폭력 데이터 분석</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+
+.pic-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.pic{background:#fff;border:1px solid #dfe6ea;border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.pic img{width:100%;border-radius:8px;display:block}
+.pic .choice-group{flex-wrap:wrap;justify-content:center}
+.pic .choice-btn{font-size:12px;padding:4px 8px}
+.ind{font-weight:900;font-size:14px;margin:12px 0 2px;color:#5b3d8f}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip5{border:1px solid #cdd6dd;background:#fff;border-radius:16px;padding:5px 11px;font:700 13px sans-serif;cursor:pointer}
+.chip5.on{background:#7a4fc4;color:#fff;border-color:#7a4fc4}
+.tl-row{display:grid;grid-template-columns:80px 1fr 1fr 34px;gap:6px;margin:4px 0;align-items:center}
+.tl-row input,.tl-row select{width:100%;box-sizing:border-box;padding:6px;border:1px solid #cfd8de;border-radius:8px;font:600 13px sans-serif}
+@media(max-width:520px){.tl-row{grid-template-columns:70px 1fr 34px}.tl-row .tl-tech{grid-column:2/3}}
+.pn{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pn .card5{border-radius:12px;padding:10px;background:#fff;border:1px solid #e0e4ea;font-size:13px;line-height:1.5}
+.pn .card5 b{display:block;font-size:14px;margin-bottom:3px}
+.meter5{height:16px;border-radius:9px;background:#eee;overflow:hidden;display:flex}
+.meter5 i{display:block;height:100%}
+.msg{border:1px solid #d7dde3;border-radius:14px;background:#fff;padding:10px 12px;margin:8px 0;font-size:13.5px;line-height:1.5}
+.msg .from{font-size:12px;color:#66727c;font-weight:800}
+.hot{position:relative;display:inline-block;max-width:100%}
+.hot img{display:block;max-width:100%;border-radius:10px}
+.hot .spot{position:absolute;border:2.5px dashed transparent;border-radius:10px;cursor:pointer;background:transparent}
+.hot .spot.found{border-color:#e5484d;background:rgba(229,72,77,.12)}
+
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/5">← KISPP · 중학교 정보 Ⅴ. 디지털 문화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p221-survey.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 디지털 문화 · 2. 디지털 윤리 <span class="pg" style="margin:0">225~226쪽</span></span>
+      <h1>정보의 확산과<br><span>사이버 폭력 데이터 분석</span></h1>
+      <p>SNS에 올린 글 하나는 10분 만에 몇 명에게 퍼질까? 교과서 네트워크 그림을 시뮬레이터로 재생해 확산 속도를 체험하고, 공공 데이터 658 명의 응답을 코답처럼 그래프로 그려 사이버 폭력의 가해자가 주로 누구인지 분석해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 디지털 공간에서 정보가 확산되는 속도를 체험하고, 사이버 폭력 실태 데이터를 분석하여 의미를 해석할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">해 보기 1 · 모둠</span>디지털 공간에서 정보의 확산 속도 체험하기 <span class="pg">225쪽</span></div>
+    <div class="book"><p>오른쪽 그림은 사회 관계망 서비스(SNS)에서 홍길동이라는 사람의 계정과 연결되어 있는 사용자 네트워크의 예시를 나타낸 것이다. 홍길동이 사진이나 글을 올리면 친구 관계인 모든 사용자가 볼 수 있다. <b>검은 사람</b> 한 명은 1차 확산 100 명, <b>보라 사람</b> 한 명은 2차 확산 100 명을 나타내고, 선 위의 ‘분’은 연결된 모든 사람이 보는 데 걸린 시간이다.</p></div>
+    <div class="light-stage" style="padding:12px"><b style="font-size:13.5px">📡 확산 시뮬레이터 — 홍길동이 누군가의 개인 정보를 올렸다. 시간을 움직이며 퍼져 나가는 모습을 관찰해 보자.</b>
+      <svg id="nw" viewBox="0 0 440 440" style="width:100%;max-width:440px;display:block;margin:6px auto"></svg>
+      <label style="display:flex;gap:8px;align-items:center;font-weight:800">⏱ <input type="range" id="nw-t" min="0" max="10" step="0.5" value="0" style="flex:1"><b id="nw-tv" style="width:52px">0분</b></label>
+      <div class="btn-row"><button type="button" class="btn small main" id="nw-play">▶ 0분부터 재생</button><label style="font-weight:800;font-size:13px;display:flex;gap:4px;align-items:center"><input type="checkbox" id="nw-share" checked> 1차로 본 사람들이 다시 공유한다</label></div>
+      <div class="tip-box" id="nw-msg"></div></div>
+    <div class="q" data-why="검은 사람이 모두 7 명이므로 7 × 100 = 700 명이에요.">
+      <div class="q-text"><span class="q-num">1</span>홍길동이 누군가의 개인 정보를 자신의 계정에 업로드하였을 때, 홍길동과 직접 연결되어 있는 사람(1차 확산)은 <input class="blank w-s" data-key="nw1" data-num="700" data-abs="0" style="width:70px">명이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="1차 확산자와 연결된 2차 확산자(보라 사람)는 모두 31 명이므로 3,100 명이에요.">
+      <div class="q-text"><span class="q-num">2</span>1차로 본 사람들 모두가 자신의 계정에 다시 공유하게 된다면 2차로 <input class="blank w-s" data-key="nw2" data-num="3100" data-abs="0" style="width:70px">명이 보게 된다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="홍길동에서 1차, 2차 확산자로 이어진 선의 시간을 더하면 가장 오래 걸리는 경로가 2+5=7분, 5+2=7분이에요. 모두 10분 미만이므로 700+3,100=3,800 명." data-hint="가장 오래 걸리는 경로의 시간 합을 찾아보세요.">
+      <div class="q-text"><span class="q-num">3</span>10분 안에는 모두 <input class="blank w-s" data-key="nw3" data-num="3800" data-abs="0" style="width:70px">명에게 확산된다. 연결된 사람 모두가 게시 글을 보기까지는 <input class="blank w-s" data-key="nw4" data-num="7" data-abs="0" style="width:40px">분이면 충분하다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">4</span>공유를 끄고 다시 재생해 보자. 1차로 본 사람들이 공유하지 않으면 10분이 지나도 <input class="blank w-s" data-key="nw5" data-num="700" data-abs="0" style="width:70px">명에게만 퍼진다. 그래서 잘못된 정보나 개인 정보를 보았을 때에는 <span class="choice-group" data-key="nw6" data-answer="stop"><button type="button" class="choice-btn" data-value="stop">다시 공유하지 않고 신고한다</button><button type="button" class="choice-btn" data-value="share">친구들에게 빨리 알린다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">5</span>사이버 폭력의 사례를 조사하고, 각 사례의 예방 및 대처 방법을 정리해 보자.</div><textarea class="free" data-key="case" rows="3" data-keywords="증거,요청,신고,거절,캡처,삭제" data-model="사례: 내가 들어가고 싶지 않은 단체 채팅방에서 지속적으로 나를 초대하고 여러 명이 나에게 욕설을 하거나 괴롭히는 등 정신적인 피해를 주었다. / 예방 및 대처 방법: 나의 거절 의사를 정확하게 알리고, 만약 지속적으로 초대한다면 해당 화면을 캡처해 증거를 확보하고 학교에 도움을 요청하거나 학교 폭력 신고 센터에 신고한다."></textarea><span class="fb"></span></div>
+    <div class="tip-box" style="background:#fffdf3;border-color:#e8d9a8"><b>예</b> 나황당 군은 휴대 전화로 온종일 낯선 사람에게 장난 전화와 욕설 문자를 받았다. 이는 평소 사이가 좋지 않던 같은 반 친구 김침해 군이 나황당 군의 전화번호를 자신의 SNS에 공개하고 어린 친구들을 괴롭히는 나쁜 친구라는 내용의 조작된 영상과 글을 게시하였기 때문이다. → 조작된 영상을 유포하는 것은 디지털 범죄임을 확실히 알리고 삭제할 것을 요청한다. 만약 거부하면 학교나 경찰 등에 도움을 요청한다.</div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 2 · 모둠</span>사이버 폭력 실태 데이터 분석하기 <span class="pg">226쪽</span></div>
+    <div class="book"><p>공공데이터포털(data.go.kr)에서 ‘사이버 폭력 실태조사’를 검색하면 ‘한국지능정보사회진흥원_사이버폭력 실태조사’를 내려받을 수 있다. 여기서는 ‘인터넷/스마트폰을 이용하여 나를 괴롭힌 사람은 주로 누구였습니까?’ 문항을 가공한 교과서 실습 데이터(658 명)를 코답(CODAP)처럼 분석해 보자. <b>Known</b>: 아는 사람, <b>Unknown</b>: 모르는 사람</p></div>
+    <div class="light-stage" style="padding:12px">
+      <b style="font-size:13.5px">➊ 데이터 표</b> <span style="font-size:12px;color:#667">(전체 <b id="cd-n"></b>명 · 처음 30 명만 표시)</span>
+      <div class="scroll-x" style="max-height:190px;overflow:auto;margin:6px 0"><table class="data-t" id="cd-t" style="font-size:11.5px;white-space:nowrap"></table></div>
+      <b style="font-size:13.5px">➋ 그래프 — 가로축: ‘나를 괴롭힌 사람은 주로 누구였습니까?’</b>
+      <div class="btn-row"><label style="font-weight:800;font-size:13px;display:flex;gap:4px;align-items:center"><input type="checkbox" id="cd-cnt"> ➌ 빈도수와 백분율 표시</label></div>
+      <div style="font-size:13px;font-weight:800;margin-top:4px">➍➎ 값 색칠하기 — 항목을 골라 그래프에 끌어 놓듯 눌러 보자.</div>
+      <div class="chips" id="cd-attr"></div>
+      <canvas id="cd-cv" class="cl-cv" style="background:#fff"></canvas>
+      <div class="tip-box" id="cd-msg">항목을 고르면 그 항목에 ‘Y’라고 답한 사람의 점이 색칠돼요.</div></div>
+    <div class="q" data-why="빈도수와 백분율을 켜면 막대 위에 숫자가 나와요. 341 ÷ 658 × 100 ≈ 51.8 %" data-hint="➌ 체크 상자를 켜 보세요.">
+      <div class="q-text"><span class="q-num">1</span>나를 괴롭힌 사람이 아는 사람(Known)이라고 답한 사람은 <input class="blank w-s" data-key="cd1" data-num="341" data-abs="0" style="width:60px">명으로 전체의 약 <input class="blank w-s" data-key="cd2" data-num="51.8" data-abs="0.6" style="width:60px">%이고, 모르는 사람(Unknown)은 <input class="blank w-s" data-key="cd3" data-num="317" data-abs="0" style="width:60px">명이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="한 사람이 여러 항목에 ‘Y’라고 답할 수도 있어요." data-hint="항목을 하나씩 색칠해 색칠된 점의 수를 비교해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>아는 사람 중 가해자로 가장 많이 꼽힌 사람은 <span class="choice-group" data-key="cd4" data-answer="f"><button type="button" class="choice-btn" data-value="c">누구나 알고 있는 유명한 사람</button><button type="button" class="choice-btn" data-value="f">친한 친구</button><button type="button" class="choice-btn" data-value="s">선·후배</button><button type="button" class="choice-btn" data-value="k">얼굴만 아는 사이</button><button type="button" class="choice-btn" data-value="o">온라인을 통해 알게 된 사람</button></span>(<input class="blank w-s" data-key="cd5" data-num="193" data-abs="0" style="width:50px">명)이고, 두 번째는 <span class="choice-group" data-key="cd6" data-answer="k"><button type="button" class="choice-btn" data-value="s">선·후배</button><button type="button" class="choice-btn" data-value="k">얼굴만 아는 사이</button><button type="button" class="choice-btn" data-value="o">온라인을 통해 알게 된 사람</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span>데이터의 의미를 해석한 뒤 친구들과 이야기해 보자. (인터넷과 스마트폰을 이용하여 나를 괴롭힌 사람은 누구인가? 아는 사람에게 괴롭힘을 당한다면 주로 누구인가?)</div><textarea class="free" data-key="mean" rows="3" data-keywords="아는 사람,친한 친구,절반,윤리,책임" data-model="사이버 폭력의 절반 이상이 나를 아는 사람이 괴롭힌다는 것을 데이터 분석을 통해 알게 되었다. 사이버 폭력을 가하는 사람 중 아는 사람이 많고, 특히 친구가 주로 사이버 폭력의 가해자라는 사실이 놀라웠다. 디지털 공간에서도 자신의 행동에 책임을 느끼고 디지털 윤리를 반드시 지켜야 할 것 같다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>정보의 확산과 사이버 폭력 데이터 <span class="pg">225~226쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>디지털 공간의 특징</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">디지털 공간은 정보의 전달 속도가 빠른 <input class="blank w-s" data-key="s1" data-answer="신속성" style="width:60px">과 정보의 전달 범위가 넓은 <input class="blank w-s" data-key="s2" data-answer="광역성" style="width:60px">이 있어 한번 올린 정보가 순식간에 많은 사람에게 퍼진다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>데이터로 본 사이버 폭력</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">인터넷/스마트폰으로 나를 괴롭힌 사람은 <span class="choice-group" data-key="s3" data-answer="k"><button type="button" class="choice-btn" data-value="k">아는 사람</button><button type="button" class="choice-btn" data-value="u">모르는 사람</button></span>이 조금 더 많았고, 그중에서도 <input class="blank w-s" data-key="s4" data-answer="친한 친구|친구" style="width:70px">가 가장 많았다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">디지털 공간에서 정보가 확산되는 속도와 범위를 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">공공 데이터를 분석하여 사이버 폭력의 실태를 해석할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅴ. 디지털 문화 · 해 보기: 정보의 확산 속도 체험하기(225쪽)·사이버 폭력 실태 데이터 분석하기(226쪽) · 비상교육 중학교 정보 교과서 바탕, 실습 데이터: 한국지능정보사회진흥원 사이버폭력 실태조사(2021) 가공 자료</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../in1-3/codelab.js"></script>
+<script src="data/cyber.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅴ-2-1 해 보기 정보 확산·사이버 폭력 데이터";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 확산 네트워크 (교과서 225쪽 그림의 값) — [각도, 1차 시간, 2차 시간, 2차 인원(×100)] */
+const NW = [[-90, 2, 5, 3], [-140, 5, 2, 3], [-40, 1, 4, 4], [180, 3, 1, 4], [0, 4, 1, 8], [130, 1, 3, 6], [50, 2, 2, 3]];
+let nwT = 0, nwPlay = null; const nwLog = [];
+function man(x, y, s, c) { return `<g fill="${c}"><circle cx="${x}" cy="${y - 7 * s}" r="${3.4 * s}"/><rect x="${x - 4 * s}" y="${y - 3 * s}" width="${8 * s}" height="${11 * s}" rx="${2.5 * s}"/></g>`; }
+function nwDraw() { const share = $("nw-share").checked, C = 220; let s = `<circle cx="${C}" cy="${C}" r="205" fill="#fdecef" stroke="#e7a3b4"/><circle cx="${C}" cy="${C}" r="125" fill="#e8f0fb" stroke="#7aa0d8"/>`;
+  let n1 = 0, n2 = 0;
+  NW.forEach(([a, t1, t2, k]) => { const r = a * Math.PI / 180, x1 = C + 95 * Math.cos(r), y1 = C + 95 * Math.sin(r), x2 = C + 172 * Math.cos(r), y2 = C + 172 * Math.sin(r);
+    const on1 = nwT >= t1, on2 = share && nwT >= t1 + t2; if (on1) n1++; if (on2) n2 += k;
+    const p1 = Math.min(1, Math.max(0, nwT / t1)), p2 = share ? Math.min(1, Math.max(0, (nwT - t1) / t2)) : 0;
+    s += `<line x1="${C}" y1="${C}" x2="${x1}" y2="${y1}" stroke="#bbb" stroke-width="2"/><line x1="${C}" y1="${C}" x2="${C + (x1 - C) * p1}" y2="${C + (y1 - C) * p1}" stroke="#e5484d" stroke-width="3"/>`;
+    s += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#bbb" stroke-width="2" ${share ? "" : 'stroke-dasharray="3 4"'}/><line x1="${x1}" y1="${y1}" x2="${x1 + (x2 - x1) * p2}" y2="${y1 + (y2 - y1) * p2}" stroke="#e5484d" stroke-width="3"/>`;
+    const lx = C + 55 * Math.cos(r) + 12 * Math.sin(r), ly = C + 55 * Math.sin(r) - 12 * Math.cos(r) + 4, mx = C + 140 * Math.cos(r) + 12 * Math.sin(r), my = C + 140 * Math.sin(r) - 12 * Math.cos(r) + 4;
+    s += `<text x="${lx}" y="${ly}" font-size="11" font-weight="800" text-anchor="middle" fill="#334">${t1}분</text><text x="${mx}" y="${my}" font-size="11" font-weight="800" text-anchor="middle" fill="#334">${t2}분</text>`;
+    s += `<g opacity="${on1 ? 1 : .3}">${man(x1, y1 + 3, 1.25, on1 ? "#111" : "#555")}</g>`;
+    const cols = Math.min(4, k), rows = Math.ceil(k / 4); let gi = "";
+    for (let i = 0; i < k; i++) { const cx = x2 + (i % 4 - (Math.min(4, k - Math.floor(i / 4) * 4) - 1) / 2) * 11, cy = y2 + (Math.floor(i / 4) - (rows - 1) / 2) * 17 + 4; gi += man(cx, cy, .9, on2 ? "#7a5fd0" : "#bdb4d8"); }
+    s += `<g>${gi}</g>`; });
+  s += man(C, C + 4, 1.6, "#fff") + `<g>${man(C, C + 4, 1.4, "#2f6fd0")}</g><rect x="${C - 26}" y="${C + 18}" width="52" height="17" rx="8" fill="#2f6fd0"/><text x="${C}" y="${C + 31}" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">홍길동</text>`;
+  $("nw").innerHTML = s; $("nw-tv").textContent = nwT + "분";
+  $("nw-msg").innerHTML = `⏱ <b>${nwT}분</b> 동안 — 1차 확산 <b>${n1 * 100}</b>명 + 2차 확산 <b>${n2 * 100}</b>명 = 모두 <b style="color:#e5484d">${(n1 + n2) * 100}</b>명` + (share ? "" : " <small>(공유하지 않음)</small>"); return (n1 + n2) * 100; }
+$("nw-t").addEventListener("input", () => { nwT = +$("nw-t").value; nwDraw(); });
+$("nw-share").addEventListener("change", () => { nwDraw(); });
+$("nw-play").addEventListener("click", () => { clearInterval(nwPlay); nwT = 0; nwPlay = setInterval(() => { nwT = Math.round((nwT + .5) * 2) / 2; $("nw-t").value = nwT; const tot = nwDraw(); if (nwT >= 10) { clearInterval(nwPlay); nwLog.push(($("nw-share").checked ? "공유" : "비공유") + " 10분=" + tot); } }, 220); });
+nwDraw(); WS.custom("nw_log", { el: $("nw"), value: () => nwLog.join(",") });
+/* 미니 코답 */
+const AT = ["누구나 알고 있는 유명한 사람", "친한 친구", "선·후배", "얼굴만 아는 사이", "온라인을 통해 알게 된 사람"], AC = ["#e8742a", "#e5484d", "#2f9e5b", "#2f7fd6", "#8a54d6"];
+const D = CYBER.map(s => ({ k: s[0] === "K", y: [...s.slice(1)].map(c => c === "1") }));
+$("cd-n").textContent = D.length;
+$("cd-t").innerHTML = "<tr><th>번호</th><th>나를 괴롭힌 사람은 주로 누구였습니까?</th>" + AT.map(a => `<th>${a}</th>`).join("") + "</tr>" + D.slice(0, 30).map((d, i) => `<tr><td>${i + 1}</td><td>${d.k ? "Known" : "Unknown"}</td>${d.y.map(v => `<td>${v ? "Y" : ""}</td>`).join("")}</tr>`).join("");
+let cdA = -1; const cdSeen = new Set();
+$("cd-attr").innerHTML = AT.map((a, i) => `<button type="button" class="chip5" data-i="${i}">${a}</button>`).join("");
+function cdDraw() { const W = 480, H = 230, g = CL.fit($("cd-cv"), W, H); g.clearRect(0, 0, W, H); const show = $("cd-cnt").checked;
+  const grp = [D.filter(d => d.k), D.filter(d => !d.k)], lab = ["Known", "Unknown"], cx = [130, 350], per = 26, sz = 6.4;
+  g.strokeStyle = "#ccd"; g.beginPath(); g.moveTo(20, 204); g.lineTo(460, 204); g.stroke();
+  grp.forEach((arr, j) => { const sorted = cdA < 0 ? arr : arr.slice().sort((a, b) => b.y[cdA] - a.y[cdA]);
+    sorted.forEach((d, i) => { const x = cx[j] - per * sz / 2 + (i % per) * sz + sz / 2, y = 200 - Math.floor(i / per) * sz - sz / 2; g.fillStyle = cdA >= 0 && d.y[cdA] ? AC[cdA] : cdA >= 0 ? "#d9dde3" : "#e8742a"; g.beginPath(); g.arc(x, y, sz / 2 - .6, 0, 7); g.fill(); });
+    g.fillStyle = "#333"; g.font = "bold 13px sans-serif"; g.textAlign = "center"; g.fillText(lab[j], cx[j], 222);
+    if (show) { const top = 200 - Math.ceil(arr.length / per) * sz - 8; g.fillText(`${arr.length} (${(arr.length / D.length * 100).toFixed(1)}%)`, cx[j], top); }
+    if (cdA >= 0) { const c = arr.filter(d => d.y[cdA]).length; if (c) { g.fillStyle = AC[cdA]; g.font = "bold 12px sans-serif"; g.fillText(`색칠 ${c}명`, cx[j], 20); } } });
+  g.textAlign = "left";
+  document.querySelectorAll("#cd-attr .chip5").forEach(b => { const on = +b.dataset.i === cdA; b.classList.toggle("on", on); b.style.background = on ? AC[cdA] : ""; b.style.borderColor = on ? AC[cdA] : ""; });
+  if (cdA >= 0) { const c = D.filter(d => d.y[cdA]).length; $("cd-msg").innerHTML = `‘<b style="color:${AC[cdA]}">${AT[cdA]}</b>’에 Y라고 답한 사람: <b>${c}</b>명 (모두 Known 쪽에 있어요)<br><small>살펴본 항목: ${[...cdSeen].map(i => AT[i]).join(", ")}</small>`; } }
+$("cd-attr").addEventListener("click", e => { const b = e.target.closest(".chip5"); if (!b) return; cdA = +b.dataset.i === cdA ? -1 : +b.dataset.i; if (cdA >= 0) cdSeen.add(cdA); cdDraw(); });
+$("cd-cnt").addEventListener("change", cdDraw); cdDraw(); window.addEventListener("resize", cdDraw);
+WS.custom("cd_seen", { el: $("cd-cv"), value: () => [...cdSeen].map(i => AT[i]).join(",") });
+
+</script>
+</body>
+</html>

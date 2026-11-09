@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅴ-2-1 사이버 폭력 예방</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+
+.pic-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.pic{background:#fff;border:1px solid #dfe6ea;border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.pic img{width:100%;border-radius:8px;display:block}
+.pic .choice-group{flex-wrap:wrap;justify-content:center}
+.pic .choice-btn{font-size:12px;padding:4px 8px}
+.ind{font-weight:900;font-size:14px;margin:12px 0 2px;color:#5b3d8f}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip5{border:1px solid #cdd6dd;background:#fff;border-radius:16px;padding:5px 11px;font:700 13px sans-serif;cursor:pointer}
+.chip5.on{background:#7a4fc4;color:#fff;border-color:#7a4fc4}
+.tl-row{display:grid;grid-template-columns:80px 1fr 1fr 34px;gap:6px;margin:4px 0;align-items:center}
+.tl-row input,.tl-row select{width:100%;box-sizing:border-box;padding:6px;border:1px solid #cfd8de;border-radius:8px;font:600 13px sans-serif}
+@media(max-width:520px){.tl-row{grid-template-columns:70px 1fr 34px}.tl-row .tl-tech{grid-column:2/3}}
+.pn{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pn .card5{border-radius:12px;padding:10px;background:#fff;border:1px solid #e0e4ea;font-size:13px;line-height:1.5}
+.pn .card5 b{display:block;font-size:14px;margin-bottom:3px}
+.meter5{height:16px;border-radius:9px;background:#eee;overflow:hidden;display:flex}
+.meter5 i{display:block;height:100%}
+.msg{border:1px solid #d7dde3;border-radius:14px;background:#fff;padding:10px 12px;margin:8px 0;font-size:13.5px;line-height:1.5}
+.msg .from{font-size:12px;color:#66727c;font-weight:800}
+.hot{position:relative;display:inline-block;max-width:100%}
+.hot img{display:block;max-width:100%;border-radius:10px}
+.hot .spot{position:absolute;border:2.5px dashed transparent;border-radius:10px;cursor:pointer;background:transparent}
+.hot .spot.found{border-color:#e5484d;background:rgba(229,72,77,.12)}
+
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/5">← KISPP · 중학교 정보 Ⅴ. 디지털 문화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p223-cope.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 디지털 문화 · 2. 디지털 윤리 <span class="pg" style="margin:0">220~224쪽</span></span>
+      <h1>사이버 폭력<br><span>예방</span></h1>
+      <p>얼굴이 보이지 않는 디지털 공간에서는 말 한마디가 더 날카로워지기도 한다. 실태 조사 그래프로 청소년과 성인의 사이버 폭력을 비교하고, 여러 사례가 어떤 유형인지 가려내며, 수상한 메시지함 속 피싱·스미싱·가짜 뉴스·파밍을 찾아 대처해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 디지털 윤리의 개념과 필요성을 설명하고, 사이버 폭력의 심각성을 알고 사이버 폭력에 대응하는 방안을 세울 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">생각 나누기</span>지금 쓰는 그 댓글, 마음에 꽃을 박습니다 <span class="pg">220쪽</span></div>
+<figure class="fig" style="max-width:470px"><img src="img/p220-ads.jpg" alt="디지털 공간 예절 공익 광고(자료: 한국방송광고진흥공사, 2023)"><figcaption><span class="tb">220쪽</span>디지털 공간 예절 공익 광고(자료: 한국방송광고진흥공사, 2023)</figcaption></figure>
+    <div class="book"><p>디지털 사회로 급격히 변화하면서 사이버 폭력 문제가 증가하고, 이에 따라 디지털 윤리의 중요성이 커지고 있다. 공익 광고를 보면서 디지털 공간에서 글을 올리거나 자료를 주고받을 때 어떤 점을 주의해야 할지 알아보자.</p></div>
+    <div class="tip-box"><b>💬 댓글 다시 쓰기</b> 친구가 올린 글에 이런 댓글이 달리려고 해요. 같은 생각을 전하면서도 상처를 주지 않는 댓글을 골라 보자.</div>
+    <div class="q" data-why="상대를 존중하고 배려하는 말로 바꾸어도 내 생각은 충분히 전할 수 있어요. 캡처해서 돌리는 것도 사이버 폭력이 될 수 있어요.">
+      <div class="q-text"><span class="q-num">1</span>더 좋은 댓글을 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">친구의 그림 자랑 글: “이게 그림이냐? 유치원생도 이것보단 잘 그리겠다 ㅋㅋ”</td><td><span class="choice-group" data-key="cm1" data-answer="b"><button type="button" class="choice-btn" data-value="a">😶 그냥 아무 말도 안 하고 단체방에 캡처해서 돌린다</button><button type="button" class="choice-btn" data-value="b">🙂 느낀 점을 존중하는 말로 전한다(예: ‘색이 예쁘다! 다음엔 배경도 보고 싶어’)</button></span></td></tr><tr><td style="text-align:left">발표 영상: “목소리 너무 작아서 짜증 남. 발표 왜 함?”</td><td><span class="choice-group" data-key="cm2" data-answer="b"><button type="button" class="choice-btn" data-value="a">😶 그냥 아무 말도 안 하고 단체방에 캡처해서 돌린다</button><button type="button" class="choice-btn" data-value="b">🙂 느낀 점을 존중하는 말로 전한다(예: ‘색이 예쁘다! 다음엔 배경도 보고 싶어’)</button></span></td></tr><tr><td style="text-align:left">게임 패배 후: “너 때문에 졌잖아. 다시는 같이 하지 마라.”</td><td><span class="choice-group" data-key="cm3" data-answer="b"><button type="button" class="choice-btn" data-value="a">😶 그냥 아무 말도 안 하고 단체방에 캡처해서 돌린다</button><button type="button" class="choice-btn" data-value="b">🙂 느낀 점을 존중하는 말로 전한다(예: ‘색이 예쁘다! 다음엔 배경도 보고 싶어’)</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>디지털 공간에서 내가 받은 댓글 중 가장 힘이 나고 기분이 좋았던 것은 무엇인지 써 보자.</div><textarea class="free" data-key="good" rows="2" data-keywords="" data-model="발표 영상에 ‘준비 많이 한 게 느껴져! 덕분에 이해가 잘 됐어’라는 댓글을 받아서 다음 발표도 자신감이 생겼다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">1. 디지털 윤리의 필요성</span>디지털 공간의 특징과 사이버 폭력 실태 <span class="pg">221쪽</span></div>
+    <div class="book"><p>디지털 공간에서 우리는 현실에서와 마찬가지로 친구들과 소통하고, 필요한 물건을 구매하며, 수업을 듣는 등 많은 시간을 보낸다. 하지만 디지털 공간에서는 이름과 얼굴이 잘 드러나지 않는다는 특성을 악용하여 다른 사람에게 욕설을 하거나 비방하는 사람도 있다. 또한, 이러한 사이버 폭력을 상대방이 먼저 시도했다는 명분으로 이를 정당한 행동으로 생각하며 죄책감을 느끼지 못하는 사람도 많다.</p>
+    <p>사이버 폭력은 일반적인 폭력과 마찬가지로 상대방에게 큰 피해와 상처를 주는 범죄 행위가 될 수 있다. 디지털 공간에서도 자기의 행동에 책임을 느끼고, 타인을 존중하고 배려하는 <b>디지털 윤리</b>를 반드시 지켜야 한다.</p></div>
+    <div class="tip-box"><b>사이버 폭력</b> 디지털 공간에서 언어, 문자, 영상 등을 이용해 다른 사람에게 피해를 주는 행위를 말하며, 디지털 범죄의 일종이다.</div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>디지털 공간의 특징과 설명을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">어떠한 행위를 한 사람이 누구인지 드러나지 않는다.</td><td><span class="choice-group" data-key="sp1" data-answer="an"><button type="button" class="choice-btn" data-value="an">익명성</button><button type="button" class="choice-btn" data-value="nf">비대면성</button><button type="button" class="choice-btn" data-value="sp">신속성</button><button type="button" class="choice-btn" data-value="wd">광역성</button></span></td></tr><tr><td style="text-align:left">상대방을 직접 만나지 않고 상호 작용할 수 있다.</td><td><span class="choice-group" data-key="sp2" data-answer="nf"><button type="button" class="choice-btn" data-value="an">익명성</button><button type="button" class="choice-btn" data-value="nf">비대면성</button><button type="button" class="choice-btn" data-value="sp">신속성</button><button type="button" class="choice-btn" data-value="wd">광역성</button></span></td></tr><tr><td style="text-align:left">정보의 전달 속도가 빠르다.</td><td><span class="choice-group" data-key="sp3" data-answer="sp"><button type="button" class="choice-btn" data-value="an">익명성</button><button type="button" class="choice-btn" data-value="nf">비대면성</button><button type="button" class="choice-btn" data-value="sp">신속성</button><button type="button" class="choice-btn" data-value="wd">광역성</button></span></td></tr><tr><td style="text-align:left">지리적 한계를 벗어나 정보의 전달 범위가 넓다.</td><td><span class="choice-group" data-key="sp4" data-answer="wd"><button type="button" class="choice-btn" data-value="an">익명성</button><button type="button" class="choice-btn" data-value="nf">비대면성</button><button type="button" class="choice-btn" data-value="sp">신속성</button><button type="button" class="choice-btn" data-value="wd">광역성</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="light-stage" style="padding:12px"><b style="font-size:13.5px">📊 [그림 Ⅴ-2] 사이버 폭력 실태 조사 — 버튼을 눌러 청소년과 성인을 비교해 보자.</b>
+      <div class="btn-row"><button type="button" class="btn small main" id="sv-teen">청소년</button><button type="button" class="btn small" id="sv-adult">성인</button><button type="button" class="btn ghost small" id="sv-both">함께 보기</button></div>
+      <canvas id="sv-cv" class="cl-cv" style="background:#fff"></canvas>
+      <div class="tip-box" id="sv-msg" style="font-size:12.5px">자료: 방송통신위원회(2023)</div></div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>청소년 사이버 폭력 가해 동기 1위는 <span class="choice-group" data-key="sv1" data-answer="rev"><button type="button" class="choice-btn" data-value="rev">상대방이 먼저 그런 행동을 해서, 보복하기 위해</button><button type="button" class="choice-btn" data-value="fun">재미나 장난으로, 스트레스 해소를 위해</button><button type="button" class="choice-btn" data-value="hate">상대방이 싫어서</button></span>이고, 성인의 가해 동기 1위는 <span class="choice-group" data-key="sv2" data-answer="fun"><button type="button" class="choice-btn" data-value="rev">보복하기 위해</button><button type="button" class="choice-btn" data-value="fun">재미나 장난으로, 스트레스 해소를 위해</button><button type="button" class="choice-btn" data-value="hate">상대방이 싫어서</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-hint="그래프 위쪽 ‘피해 경험’ 부분의 가해 경험자 숫자를 읽어 보세요.">
+      <div class="q-text"><span class="q-num">3</span>청소년 가해 경험자 중 피해 경험이 있는 사람은 <input class="blank w-s" data-key="sv3" data-num="79.9" data-abs="0.1" style="width:60px">%이다. 디지털 공간에서 피해자가 다시 가해자가 되는 일이 많은 이유는 사이버 폭력의 심각성을 잘 모르거나 <input class="blank w-s" data-key="sv4" data-answer="디지털 윤리|디지털윤리" style="width:80px"> 의식이 부족하기 때문이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">2. 사이버 폭력 및 범죄의 유형</span>이건 어떤 사이버 폭력일까? <span class="pg">222쪽</span></div>
+    <div class="book"><p>사이버 폭력 및 범죄는 디지털 공간을 통해 빠르게 퍼지고 사이버 스토킹 등으로 이어질 수 있어 피해가 심각하다. 사이버 폭력 및 범죄는 밖으로 잘 드러나지 않지만 피해를 입게 되면 친구를 사귀기 어려워하고 우울과 불안, 또는 자기 비하와 같은 심각한 정신적 영향을 주기도 한다.</p></div>
+    <div class="q" data-why="개인 정보 유출: 타인의 개인 정보를 유포 / 사이버 성폭력: 허락 없이 성적인 내용 전달·요청 / 언어폭력: 욕설·인신 공격성 발언 / 스토킹: 의사와 상관없이 불안감·공포감을 일으키는 메시지 반복 / 명예 훼손: 사실 여부와 관계없이 명예를 훼손하는 글·사진 공개 / 사이버 불링: SNS·메신저 등을 이용한 집단 괴롭힘">
+      <div class="q-text"><span class="q-num">1</span>사례와 사이버 폭력 및 범죄의 유형을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">반 친구의 전화번호와 집 주소를 SNS에 올려 모르는 사람들이 연락하게 했다.</td><td><span class="choice-group" data-key="ty1" data-answer="leak"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr><tr><td style="text-align:left">상대방이 원하지 않는데 성적인 내용의 메시지와 사진을 계속 보냈다.</td><td><span class="choice-group" data-key="ty2" data-answer="sex"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr><tr><td style="text-align:left">게임 채팅창에서 상대 팀에게 욕설과 인신 공격성 발언을 했다.</td><td><span class="choice-group" data-key="ty3" data-answer="lang"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr><tr><td style="text-align:left">헤어진 친구에게 하루에도 수십 번 ‘어디야? 답장해’라는 메시지를 보내 불안하게 만들었다.</td><td><span class="choice-group" data-key="ty4" data-answer="stalk"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr><tr><td style="text-align:left">사실인지 확인하지 않고 ‘○○가 물건을 훔쳤다’는 글과 사진을 커뮤니티에 올렸다.</td><td><span class="choice-group" data-key="ty5" data-answer="def"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr><tr><td style="text-align:left">단체 대화방에 한 친구를 초대한 뒤 여러 명이 함께 놀리고, 나가면 다시 초대했다.</td><td><span class="choice-group" data-key="ty6" data-answer="bully"><button type="button" class="choice-btn" data-value="leak">개인 정보 유출</button><button type="button" class="choice-btn" data-value="sex">사이버 성폭력</button><button type="button" class="choice-btn" data-value="lang">사이버 언어폭력</button><button type="button" class="choice-btn" data-value="stalk">사이버 스토킹</button><button type="button" class="choice-btn" data-value="def">사이버 명예 훼손</button><button type="button" class="choice-btn" data-value="bully">사이버 불링</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>사이버 불링은 상대방의 감정이나 피해 정도를 알기 어렵고, <span class="choice-group" data-key="ty7" data-answer="play"><button type="button" class="choice-btn" data-value="play">장난이나 놀이 문화로 여기는 잘못된 인식</button><button type="button" class="choice-btn" data-value="law">법으로 금지되지 않았다는 사실</button></span> 때문에 큰 피해를 입을 수 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">3. 사이버 폭력 예방과 대처</span>피해를 입었다면 이렇게! <span class="pg">223쪽</span></div>
+    <div class="book"><p>사이버 폭력을 예방하려면 먼저 사이버 폭력의 유형과 피해를 이해하여 디지털 공간에서 상대방을 존중하고, 자기의 행동에 책임을 지며, 다른 사람에게 피해를 주지 않도록 해야 한다. 만약 사이버 폭력으로 피해를 입었다면 다음과 같은 방법으로 대처하고 문제를 함께 해결하려고 노력해야 한다.</p></div>
+<figure class="fig" style="max-width:470px"><img src="img/p223-cope.jpg" alt="사이버 폭력에 대처하는 방법"><figcaption><span class="tb">223쪽</span>사이버 폭력에 대처하는 방법</figcaption></figure>
+    <div class="q" data-why="증거를 지우면 도움을 받기 어려워요. 맞대응은 나도 가해자가 되는 길이에요.">
+      <div class="q-text"><span class="q-num">1</span>단체 대화방에서 계속 욕설을 듣고 있다. 올바른 대처 방법을 있는 대로 골라 보자.<div class="multi-group" data-key="cp1" data-answer="2,3,5,6"><button type="button" class="multi-btn" data-value="1">똑같이 욕설로 맞대응한다</button><button type="button" class="multi-btn" data-value="2">대화 내용을 캡처해 증거 자료를 확보한다</button><button type="button" class="multi-btn" data-value="3">감정적으로 대응하지 말고 거부 의사를 밝힌다</button><button type="button" class="multi-btn" data-value="4">증거가 남지 않게 대화방을 바로 지운다</button><button type="button" class="multi-btn" data-value="5">혼자 고민하지 말고 믿을 만한 어른이나 친구에게 말한다</button><button type="button" class="multi-btn" data-value="6">심각하면 학교나 경찰(117)에 도움을 요청한다</button></div></div>
+      <span class="fb"></span>
+    </div>
+    <div class="tip-box"><b>사이버 폭력 신고</b> 학교 폭력 신고 센터 ☎ 117 · 안전 Dream(www.safe182.go.kr) · 도란도란 학교폭력예방교육(doran.edunet.net)</div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>폭력 없는 사이버 공간 만들기 10대 수칙</b> — 내가 지키고 있는 것에 체크해 보자. (자료: 한국인터넷진흥원, 2014)</div><div class="multi-group" id="rule10"><button type="button" class="multi-btn" data-value="1">인터넷에서 다른 사람을 비난하는 말과 글을 쓰지 않겠습니다.</button><button type="button" class="multi-btn" data-value="2">인터넷에서 검증되지 않은 정보를 유출하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="3">인터넷에서 나와 다른 사람의 개인 정보를 함부로 공개하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="4">인터넷에서 다른 사람을 따돌리는 행동을 하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="5">인터넷에서 다른 사람이 싫어하는 행동을 강요하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="6">인터넷에서 다른 사람의 명예를 훼손하는 행동을 하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="7">인터넷에서 성적 불쾌감을 느끼게 하는 행동을 하지 않겠습니다.</button><button type="button" class="multi-btn" data-value="8">인터넷에서 사람들과 건강하게 소통하도록 노력하겠습니다.</button><button type="button" class="multi-btn" data-value="9">사이버 폭력을 바로 알고, 예방에 힘쓰겠습니다.</button><button type="button" class="multi-btn" data-value="10">인터넷으로 세상을 아름답게 만들기 위해 고민하고, 실천하겠습니다.</button></div><div class="tip-box" id="rule-msg">체크한 수칙: 0 / 10</div></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">지식 충전소</span>디지털 범죄 사례와 대처 방안 — 수상한 메시지함 <span class="pg">224쪽</span></div>
+    <div class="book"><p>디지털 공간에서는 거짓 정보와 디지털 범죄로 피해를 입지 않도록 해야 한다. 디지털 공간에서의 범죄는 지속적으로 발생하고 그 방법도 더욱 교묘해지기 때문에 주의를 기울여야 한다.</p></div>
+    <div class="pn" style="margin-bottom:6px"><div class="card5"><b>피싱</b>금융 기관이나 공공 기관을 가장한 메일을 보내 가짜 은행 사이트로 접속하게 한다.</div><div class="card5"><b>스미싱</b>쿠폰 다운로드, 택배 배송 조회, 무료 수신 거부 등의 링크를 눌러 악성 프로그램을 설치하게 한다.</div><div class="card5"><b>가짜 뉴스</b>디지털 기술로 합성·조작된 영상을 유포해 잘못된 정보로 피해를 준다.</div><div class="card5"><b>파밍</b>PC를 악성코드에 감염시켜 정상 홈페이지에 접속해도 가짜 사이트로 연결해 금융 정보를 빼낸다.</div></div>
+    <div class="tip-box"><b>📥 수상한 메시지함</b> 아래 메시지는 모두 연습용으로 꾸민 것이에요. 각각 어떤 수법인지, 어떻게 대처해야 하는지 골라 보자.</div>
+    <div class="msg" style="display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start"><img src="img/p224-smish.jpg" alt="" style="width:72px;border-radius:8px"><div><div class="from">📩 문자 메시지</div><div style="margin:3px 0 6px">[국제발신] 고객님의 택배가 주소 불명으로 보관 중입니다. 주소 확인 ▶ http://bit.ly/xx-deliv</div>
+      <div class="q" style="border:none;padding:0" data-why=""><div class="q-text" style="font-size:13px">수법: <span class="choice-group" data-key="cr0t" data-answer="smish"><button type="button" class="choice-btn" data-value="phish">피싱</button><button type="button" class="choice-btn" data-value="smish">스미싱</button><button type="button" class="choice-btn" data-value="fake">가짜 뉴스</button><button type="button" class="choice-btn" data-value="pharm">파밍</button></span><br>대처: <span class="choice-group" data-key="cr0a" data-answer="del"><button type="button" class="choice-btn" data-value="del">링크를 누르지 않고 바로 삭제한다</button><button type="button" class="choice-btn" data-value="org">접속하지 말고 해당 기관에 사실을 확인한다</button><button type="button" class="choice-btn" data-value="src">출처와 사실 관계를 확인하고 퍼뜨리지 않는다</button><button type="button" class="choice-btn" data-value="noapp">출처를 알 수 없는 프로그램은 설치하지 않고, 금융 정보를 입력하지 않는다</button></span></div><span class="fb"></span></div></div></div>
+    <div class="msg" style="display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start"><img src="img/p224-phish.jpg" alt="" style="width:72px;border-radius:8px"><div><div class="from">📧 전자 우편 · ○○은행 고객센터</div><div style="margin:3px 0 6px">보안 등급 상향 안내 — 아래 주소에 접속하여 계좌 번호와 비밀번호를 다시 등록하지 않으면 거래가 정지됩니다.</div>
+      <div class="q" style="border:none;padding:0" data-why=""><div class="q-text" style="font-size:13px">수법: <span class="choice-group" data-key="cr1t" data-answer="phish"><button type="button" class="choice-btn" data-value="phish">피싱</button><button type="button" class="choice-btn" data-value="smish">스미싱</button><button type="button" class="choice-btn" data-value="fake">가짜 뉴스</button><button type="button" class="choice-btn" data-value="pharm">파밍</button></span><br>대처: <span class="choice-group" data-key="cr1a" data-answer="org"><button type="button" class="choice-btn" data-value="del">링크를 누르지 않고 바로 삭제한다</button><button type="button" class="choice-btn" data-value="org">접속하지 말고 해당 기관에 사실을 확인한다</button><button type="button" class="choice-btn" data-value="src">출처와 사실 관계를 확인하고 퍼뜨리지 않는다</button><button type="button" class="choice-btn" data-value="noapp">출처를 알 수 없는 프로그램은 설치하지 않고, 금융 정보를 입력하지 않는다</button></span></div><span class="fb"></span></div></div></div>
+    <div class="msg" style="display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start"><img src="img/p224-fake.jpg" alt="" style="width:72px;border-radius:8px"><div><div class="from">▶️ 동영상 공유 사이트</div><div style="margin:3px 0 6px">[충격 단독] 유명 가수 ○○, 오늘 은퇴 선언! — 처음 보는 계정이 올린, 입 모양이 어색한 영상</div>
+      <div class="q" style="border:none;padding:0" data-why=""><div class="q-text" style="font-size:13px">수법: <span class="choice-group" data-key="cr2t" data-answer="fake"><button type="button" class="choice-btn" data-value="phish">피싱</button><button type="button" class="choice-btn" data-value="smish">스미싱</button><button type="button" class="choice-btn" data-value="fake">가짜 뉴스</button><button type="button" class="choice-btn" data-value="pharm">파밍</button></span><br>대처: <span class="choice-group" data-key="cr2a" data-answer="src"><button type="button" class="choice-btn" data-value="del">링크를 누르지 않고 바로 삭제한다</button><button type="button" class="choice-btn" data-value="org">접속하지 말고 해당 기관에 사실을 확인한다</button><button type="button" class="choice-btn" data-value="src">출처와 사실 관계를 확인하고 퍼뜨리지 않는다</button><button type="button" class="choice-btn" data-value="noapp">출처를 알 수 없는 프로그램은 설치하지 않고, 금융 정보를 입력하지 않는다</button></span></div><span class="fb"></span></div></div></div>
+    <div class="msg" style="display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start"><img src="img/p224-pharm.jpg" alt="" style="width:72px;border-radius:8px"><div><div class="from">🖥️ 내 컴퓨터</div><div style="margin:3px 0 6px">무료 게임 프로그램을 설치한 뒤 즐겨찾기로 은행 홈페이지에 들어갔더니, ‘보안 카드 번호 전체를 입력하세요’라는 창이 떴다.</div>
+      <div class="q" style="border:none;padding:0" data-why=""><div class="q-text" style="font-size:13px">수법: <span class="choice-group" data-key="cr3t" data-answer="pharm"><button type="button" class="choice-btn" data-value="phish">피싱</button><button type="button" class="choice-btn" data-value="smish">스미싱</button><button type="button" class="choice-btn" data-value="fake">가짜 뉴스</button><button type="button" class="choice-btn" data-value="pharm">파밍</button></span><br>대처: <span class="choice-group" data-key="cr3a" data-answer="noapp"><button type="button" class="choice-btn" data-value="del">링크를 누르지 않고 바로 삭제한다</button><button type="button" class="choice-btn" data-value="org">접속하지 말고 해당 기관에 사실을 확인한다</button><button type="button" class="choice-btn" data-value="src">출처와 사실 관계를 확인하고 퍼뜨리지 않는다</button><button type="button" class="choice-btn" data-value="noapp">출처를 알 수 없는 프로그램은 설치하지 않고, 금융 정보를 입력하지 않는다</button></span></div><span class="fb"></span></div></div></div>
+
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>사이버 폭력 예방 <span class="pg">220~224쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>디지털 윤리의 필요성</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">사이버 폭력은 상대방에게 큰 피해와 상처를 주는 범죄 행위가 될 수 있기 때문에 자기의 행동에 책임을 느끼고, 타인을 존중하고 배려하는 <input class="blank w-s" data-key="s1" data-answer="디지털 윤리|디지털윤리" style="width:80px">(을)를 반드시 지켜야 한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>사이버 폭력의 유형</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">개인 정보 유출, 사이버 성폭력, 사이버 언어폭력, 사이버 스토킹, 사이버 명예 훼손, SNS·메신저 등을 이용한 집단 괴롭힘인 사이버 <input class="blank w-s" data-key="s2" data-answer="불링" style="width:50px"> 등이 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>사이버 폭력에 대처하는 방법</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text"><input class="blank w-s" data-key="s3" data-answer="증거" style="width:50px"> 자료를 확보하고, 감정적으로 대응하지 말고 거부 의사를 밝히며, 학교나 관련 기관에 도움을 요청한다. 심각하다면 경찰에 신고한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">디지털 윤리의 개념과 필요성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">사이버 폭력의 심각성을 알고 사이버 폭력에 대응하는 방안을 세울 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅴ. 디지털 문화 · 사이버 폭력 예방(220~224쪽) · 비상교육 중학교 정보 교과서 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../in1-3/codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅴ-2-1 사이버 폭력 예방";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 사이버 폭력 실태 그래프 */
+const SV = { teen: { c: "#8cc152", v: [["상대방이 먼저 그런 행동을 해서, 보복하기 위해", 38.4], ["상대방이 싫어서, 상대방에게 화가 나서", 24.2], ["재미나 장난으로, 스트레스 해소를 위해", 21.2], ["그냥 특별한 이유 없이", 17.5], ["내 의견과 달라서, 상대방이 틀린 말을 해서", 14.3], ["주변에서 함께 하므로, 친구들과 어울리기 위해", 6.1]], p: [43.9, 79.9] },
+  adult: { c: "#1fb2e3", v: [["재미나 장난으로, 스트레스 해소를 위해", 39.2], ["상대방이 먼저 그런 행동을 해서, 보복하기 위해", 31.9], ["상대방이 싫어서, 상대방에게 화가 나서", 13.0], ["주변에서 함께 하므로, 친구들과 어울리기 위해", 11.2], ["그냥 특별한 이유 없이", 9.6], ["내 의견과 달라서, 상대방이 틀린 말을 해서", 7.7]], p: [31.6, 71.5] } };
+let svMode = "teen"; const svSeen = new Set(["teen"]);
+function svDraw() { const both = svMode === "both", H = both ? 350 : 280, g = CL.fit($("sv-cv"), 480, H); g.clearRect(0, 0, 480, H);
+  const keys = both ? ["teen", "adult"] : [svMode]; const labels = SV.teen.v.map(r => r[0]);
+  g.font = "bold 12px sans-serif"; g.fillStyle = "#333"; g.fillText("가해 동기 (%)", 10, 16);
+  labels.forEach((lab, i) => { const y = 30 + i * (both ? 48 : 34); g.fillStyle = "#444"; g.font = "11px sans-serif"; g.fillText(lab, 10, y + 10);
+    keys.forEach((k, j) => { const v = SV[k].v.find(r => r[0] === lab)[1], yy = y + 14 + j * 14; g.fillStyle = SV[k].c; g.fillRect(10, yy, v / 40 * 380, 11); g.fillStyle = "#222"; g.font = "bold 10px sans-serif"; g.fillText(v.toFixed(1), 14 + v / 40 * 380, yy + 9); }); });
+  const yb = H - 22; g.font = "bold 11.5px sans-serif"; keys.forEach((k, j) => { g.fillStyle = SV[k].c; g.fillRect(10 + j * 235, yb - 9, 10, 10); g.fillStyle = "#333"; g.fillText(k === "teen" ? "청소년" : "성인", 24 + j * 235, yb); });
+  ["sv-teen", "sv-adult", "sv-both"].forEach(id => $(id).classList.toggle("main", id === "sv-" + svMode));
+  $("sv-msg").innerHTML = keys.map(k => `<b>${k === "teen" ? "청소년" : "성인"}</b> 피해 경험자 중 가해 경험 ${SV[k].p[0]}%, 가해 경험자 중 피해 경험 ${SV[k].p[1]}%`).join("<br>") + "<br><small>자료: 방송통신위원회(2023)</small>"; }
+["teen", "adult", "both"].forEach(k => $("sv-" + k).addEventListener("click", () => { svMode = k; svSeen.add(k); svDraw(); }));
+svDraw(); window.addEventListener("resize", svDraw); WS.custom("sv_seen", { el: $("sv-cv"), value: () => [...svSeen].join(",") });
+/* 10대 수칙 */
+const rUpd = () => { const n = $("rule10").querySelectorAll(".picked").length; $("rule-msg").innerHTML = `체크한 수칙: <b>${n}</b> / 10` + (n === 10 ? " — 모두 지키고 있어요! 👏" : n >= 7 ? " — 거의 다 왔어요." : ""); };
+$("rule10").addEventListener("click", () => setTimeout(rUpd, 0)); rUpd();
+WS.custom("rule10", { el: $("rule10"), value: () => [...$("rule10").querySelectorAll(".picked")].map(b => b.dataset.value).join(",") });
+
+</script>
+</body>
+</html>

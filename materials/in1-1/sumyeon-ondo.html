@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅰ-2-02 — 수면 온도 알림이 장치 만들기</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/1">← KISPP · 중학교 정보 Ⅰ. 컴퓨팅 시스템</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p24-sensor.jpg" alt="">
+    <img class="lb-qmark" src="img/p24-cartoon.jpg" alt="방 안 온도를 자동으로 측정하여 알려 주는 장치를 만들어 볼까?">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅰ. 컴퓨팅 시스템 · 2. 피지컬 컴퓨팅 프로그래밍 · 02 <span class="pg" style="margin:0">24~27쪽</span></span>
+      <h1>수면 온도<br><span>알림이 장치 만들기</span></h1>
+      <p>밤에 잘 때 내 방은 너무 춥거나 덥지 않을까? 온도 센서와 빛 감지 센서로 밤과 낮을 구분하는 프로그램을 가상 마이크로비트로 실행하고, 하루를 흘려 보내는 스마트 가로등과 온도에 따라 도는 선풍기로 조건문을 익혀 보자.</p>
+      <div class="goal">🎯 학습 목표 — 문제 해결에 적합한 센서를 선택하고 동작을 제어하는 프로그램을 작성하여, 밤과 낮을 구분하고 밤에 방 안의 온도를 표시해 주는 장치를 만들 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">문제 상황 · 문제의 이해와 분석</span>수면 온도 알림이 장치 만들기 <span class="pg">24~25쪽</span></div>
+<figure class="fig"><img src="img/p24-cartoon.jpg" alt="“에취! 밤에 자고 일어났더니 감기에 걸렸어.” “방 안 온도가 너무 낮았던 게 아닐까? 봄철 알맞은 실내 온도는 19~23 ℃라고 해.” “방 안 온도를 자동으로 측정하여 알려 주는 장치를 만들어 볼까?”"><figcaption><span class="tb">24쪽</span>“에취! 밤에 자고 일어났더니 감기에 걸렸어.” “방 안 온도가 너무 낮았던 게 아닐까? 봄철 알맞은 실내 온도는 19~23 ℃라고 해.” “방 안 온도를 자동으로 측정하여 알려 주는 장치를 만들어 볼까?”</figcaption></figure>
+    <div class="book"><p>밤에 잠을 잘 때 건강을 위해 알맞은 실내 온도를 유지하는 것은 매우 중요하다. 온도 센서와 빛 감지 센서를 이용해 밤과 낮을 구분하고 밤에 방 안의 온도를 표시해 주는 장치를 만들어 보자. (계절별 실내 적정 온도 — 봄·가을: 19~23 ℃, 여름: 24~27 ℃, 겨울: 18~21 ℃)</p></div>
+<figure class="fig"><img src="img/p24-sensor.jpg" alt="온도 센서는 주변의 온도를 측정하는 장치로 −5~50 ℃ 범위 내의 값을 측정한다. 빛 감지 센서는 주변 빛의 양을 측정하는 장치로 0(어두움)~255(밝음)의 값으로 빛의 밝기를 감지한다."><figcaption><span class="tb">24쪽</span>온도 센서는 주변의 온도를 측정하는 장치로 −5~50 ℃ 범위 내의 값을 측정한다. 빛 감지 센서는 주변 빛의 양을 측정하는 장치로 0(어두움)~255(밝음)의 값으로 빛의 밝기를 감지한다.</figcaption></figure>
+    <div class="q" data-why="온도 확인 — A 버튼, 밤과 낮 — B 버튼, 야간 안내 — 흔들림">
+      <div class="q-text"><span class="q-num">1</span><b>문제 나누기</b> 작은 문제와 알고리즘을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">온도 확인</td><td><span class="choice-group" data-key="sp1" data-answer="a"><button type="button" class="choice-btn" data-value="a">A 버튼을 누르면 현재 온도를 LED 스크린에 출력한다.</button><button type="button" class="choice-btn" data-value="b">B 버튼을 누르면 빛 감지 센서값으로 어두운지 밝은지를 아이콘으로 표현한다.</button><button type="button" class="choice-btn" data-value="s">흔들림이 감지되면 빛 감지 센서와 온도 센서로 야간의 적정 온도 상태를 안내한다.</button></span></td></tr><tr><td style="text-align:left">밤과 낮 확인</td><td><span class="choice-group" data-key="sp2" data-answer="b"><button type="button" class="choice-btn" data-value="a">A 버튼을 누르면 현재 온도를 LED 스크린에 출력한다.</button><button type="button" class="choice-btn" data-value="b">B 버튼을 누르면 빛 감지 센서값으로 어두운지 밝은지를 아이콘으로 표현한다.</button><button type="button" class="choice-btn" data-value="s">흔들림이 감지되면 빛 감지 센서와 온도 센서로 야간의 적정 온도 상태를 안내한다.</button></span></td></tr><tr><td style="text-align:left">야간 적정 온도 상태 안내</td><td><span class="choice-group" data-key="sp3" data-answer="s"><button type="button" class="choice-btn" data-value="a">A 버튼을 누르면 현재 온도를 LED 스크린에 출력한다.</button><button type="button" class="choice-btn" data-value="b">B 버튼을 누르면 빛 감지 센서값으로 어두운지 밝은지를 아이콘으로 표현한다.</button><button type="button" class="choice-btn" data-value="s">흔들림이 감지되면 빛 감지 센서와 온도 센서로 야간의 적정 온도 상태를 안내한다.</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="tip-box"><b>밤과 낮의 기준값 정하기</b> 주변 밝기에 따라 다르므로 빛 감지 센서값을 측정하여 자신만의 기준값을 정해야 한다(예: 128).</div>
+  </section>
+  <section class="card" data-part="sim">
+    <div class="card-title"><span class="badge sim">프로그래밍하기 · 평가하기</span>수면 온도 알림이를 가상 마이크로비트로 실행해 보자 <span class="pg">25~26쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div id="code1"></div>
+      <div><div id="mb1"></div>
+        <label class="mb-sl" style="margin-top:6px"><b>📏 밤·낮 기준값</b><input type="range" id="th" min="20" max="240" value="128"><span id="thv">128</span></label></div>
+    </div>
+    <div class="tip-box" id="msg1">🌡 온도와 💡 빛 밝기를 바꾸고 A, B, 흔들기를 눌러 보세요.</div>
+    <div class="q" data-why="밤(빛 < 128)일 때만 안내해요: 19 ℃ 미만 ↓, 23 ℃ 초과 ↑, 19~23 ℃ 하트. 낮(빛 ≥ 128)에는 LED 스크린을 지워요." data-hint="슬라이더를 맞추고 흔들기를 눌러 보세요.">
+      <div class="q-text"><span class="q-num">1</span>다음 상황에서 흔들기를 하면 LED 스크린에 무엇이 나타날까? (기준값 128, 적정 온도 19~23 ℃) 가상 마이크로비트로 확인해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">빛 50, 온도 17 ℃</td><td><span class="choice-group" data-key="ru1" data-answer="S"><button type="button" class="choice-btn" data-value="N">북쪽 화살표(↑)</button><button type="button" class="choice-btn" data-value="S">남쪽 화살표(↓)</button><button type="button" class="choice-btn" data-value="H">하트</button><button type="button" class="choice-btn" data-value="C">LED 스크린 지우기</button></span></td></tr><tr><td style="text-align:left">빛 50, 온도 21 ℃</td><td><span class="choice-group" data-key="ru2" data-answer="H"><button type="button" class="choice-btn" data-value="N">북쪽 화살표(↑)</button><button type="button" class="choice-btn" data-value="S">남쪽 화살표(↓)</button><button type="button" class="choice-btn" data-value="H">하트</button><button type="button" class="choice-btn" data-value="C">LED 스크린 지우기</button></span></td></tr><tr><td style="text-align:left">빛 50, 온도 26 ℃</td><td><span class="choice-group" data-key="ru3" data-answer="N"><button type="button" class="choice-btn" data-value="N">북쪽 화살표(↑)</button><button type="button" class="choice-btn" data-value="S">남쪽 화살표(↓)</button><button type="button" class="choice-btn" data-value="H">하트</button><button type="button" class="choice-btn" data-value="C">LED 스크린 지우기</button></span></td></tr><tr><td style="text-align:left">빛 200, 온도 26 ℃</td><td><span class="choice-group" data-key="ru4" data-answer="C"><button type="button" class="choice-btn" data-value="N">북쪽 화살표(↑)</button><button type="button" class="choice-btn" data-value="S">남쪽 화살표(↓)</button><button type="button" class="choice-btn" data-value="H">하트</button><button type="button" class="choice-btn" data-value="C">LED 스크린 지우기</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="100 < 128 → 어두운 상태. 방마다 밝기가 달라 직접 재서 기준값을 정해요.">
+      <div class="q-text"><span class="q-num">2</span>B 버튼을 눌렀을 때 빛 감지 센서값이 100이면 <span class="choice-group" data-key="ru5" data-answer="dark"><button type="button" class="choice-btn" data-value="dark">어두운 상태 아이콘(빈 네모)</button><button type="button" class="choice-btn" data-value="bright">밝은 상태 아이콘(작은 네모)</button></span>이 출력된다. 내 방에 맞게 기준값을 정하려면 <span class="choice-group" data-key="ru6" data-answer="m"><button type="button" class="choice-btn" data-value="m">밤과 낮에 빛 감지 센서값을 직접 측정해서</button><button type="button" class="choice-btn" data-value="f">항상 128로</button></span> 정해야 한다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>개선하기</b> 흔들림을 감지하지 않아도 밤이 되면 적정 온도를 안내하도록 프로그램을 어떻게 고치면 좋을지 써 보자.</div><textarea class="free" data-key="improve" rows="2" data-keywords="무한 반복,계속,반복" data-model="‘흔들림 감지될 때’ 대신 ‘무한 반복하기’ 블록 안에 같은 조건문을 넣으면, 흔들지 않아도 계속 빛과 온도를 확인하여 밤이 되면 자동으로 안내한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 모둠</span>빛 감지 센서와 온도 센서를 활용한 장치 만들기 <span class="pg">27쪽</span></div>
+<figure class="fig"><img src="img/p27-lamp.jpg" alt="“어두워지니 자동으로 불이 켜지네. 어떤 원리로 불이 켜지는 것일까?” 주변이 밝을 때와 어두울 때"><figcaption><span class="tb">27쪽</span>“어두워지니 자동으로 불이 켜지네. 어떤 원리로 불이 켜지는 것일까?” 주변이 밝을 때와 어두울 때</figcaption></figure>
+    <div class="book"><p><b>1</b> (1) 주변이 어두워지면 최대 밝기로 켜지는 가로등 — 빛 감지 센서값이 128 이상이면 꺼지고, 128 미만이면 켜진다. (2) 주변이 어두운 정도에 따라 밝기가 조절되는 스마트 가로등 — 128 이상: 밝은 상태, 85 이상 128 미만: 조금 어두운 상태, 85 미만: 완전히 어두운 상태.</p></div>
+<figure class="fig"><img src="img/p27-lamp3.jpg" alt="빛 감지 센서값에 따라 밝기가 달라지는 스마트 가로등"><figcaption><span class="tb">27쪽</span>빛 감지 센서값에 따라 밝기가 달라지는 스마트 가로등</figcaption></figure>
+    <div class="card-title" style="margin-top:12px"><span class="badge sim">스마트 가로등</span>하루를 흘려 보내며 가로등을 관찰하자</div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">🕒 시각</b><input type="range" id="lp-t" min="0" max="24" step="0.25" value="12" style="flex:1;min-width:160px"><span id="lp-tv" style="font-weight:800;min-width:56px">12:00</span></div>
+    <div class="light-stage"><canvas id="lp-cv"></canvas></div>
+    <div class="q" data-why="어두울수록 가로등을 밝게 켜요.">
+      <div class="q-text"><span class="q-num">1</span>스마트 가로등 프로그램에서 각 조건일 때 LED 밝기(0~255)를 정해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">빛 감지 센서값 128 이상</td><td><span class="choice-group" data-key="lp1" data-answer="0"><button type="button" class="choice-btn" data-value="0">0 (꺼짐)</button><button type="button" class="choice-btn" data-value="128">128 (중간 밝기)</button><button type="button" class="choice-btn" data-value="255">255 (최대 밝기)</button></span></td></tr><tr><td style="text-align:left">85 이상 128 미만</td><td><span class="choice-group" data-key="lp2" data-answer="128"><button type="button" class="choice-btn" data-value="0">0 (꺼짐)</button><button type="button" class="choice-btn" data-value="128">128 (중간 밝기)</button><button type="button" class="choice-btn" data-value="255">255 (최대 밝기)</button></span></td></tr><tr><td style="text-align:left">85 미만</td><td><span class="choice-group" data-key="lp3" data-answer="255"><button type="button" class="choice-btn" data-value="0">0 (꺼짐)</button><button type="button" class="choice-btn" data-value="128">128 (중간 밝기)</button><button type="button" class="choice-btn" data-value="255">255 (최대 밝기)</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="book" style="margin-top:12px"><p><b>2</b> 온도에 따라 선풍기 날개의 회전 속도를 조절하는 애니메이션을 만들려고 한다. 조건 — 30 ℃ 이상: 초강풍, 28 ℃ 이상 30 ℃ 미만: 강풍, 25 ℃ 이상 28 ℃ 미만: 약풍, 22 ℃ 이상 25 ℃ 미만: 미풍, 22 ℃ 미만: 정지</p></div>
+    <div class="btn-row" style="align-items:center"><b style="font-size:13px">🌡 온도</b><input type="range" id="fn-t" min="15" max="35" value="26" style="flex:1;min-width:160px"><span id="fn-tv" style="font-weight:800;min-width:56px">26 ℃</span></div>
+    <div class="light-stage"><canvas id="fn-cv"></canvas></div>
+    <div class="q" data-why="경곗값에 주의! 28 ℃는 ‘28 이상 30 미만’이므로 강풍이에요." data-hint="온도 슬라이더로 확인해 보세요.">
+      <div class="q-text"><span class="q-num">2</span>다음 온도에서 선풍기는 어떻게 동작할까?</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">21 ℃</td><td><span class="choice-group" data-key="fn1" data-answer="0"><button type="button" class="choice-btn" data-value="0">정지</button><button type="button" class="choice-btn" data-value="1">미풍</button><button type="button" class="choice-btn" data-value="2">약풍</button><button type="button" class="choice-btn" data-value="3">강풍</button><button type="button" class="choice-btn" data-value="4">초강풍</button></span></td></tr><tr><td style="text-align:left">24 ℃</td><td><span class="choice-group" data-key="fn2" data-answer="1"><button type="button" class="choice-btn" data-value="0">정지</button><button type="button" class="choice-btn" data-value="1">미풍</button><button type="button" class="choice-btn" data-value="2">약풍</button><button type="button" class="choice-btn" data-value="3">강풍</button><button type="button" class="choice-btn" data-value="4">초강풍</button></span></td></tr><tr><td style="text-align:left">27 ℃</td><td><span class="choice-group" data-key="fn3" data-answer="2"><button type="button" class="choice-btn" data-value="0">정지</button><button type="button" class="choice-btn" data-value="1">미풍</button><button type="button" class="choice-btn" data-value="2">약풍</button><button type="button" class="choice-btn" data-value="3">강풍</button><button type="button" class="choice-btn" data-value="4">초강풍</button></span></td></tr><tr><td style="text-align:left">28 ℃</td><td><span class="choice-group" data-key="fn4" data-answer="3"><button type="button" class="choice-btn" data-value="0">정지</button><button type="button" class="choice-btn" data-value="1">미풍</button><button type="button" class="choice-btn" data-value="2">약풍</button><button type="button" class="choice-btn" data-value="3">강풍</button><button type="button" class="choice-btn" data-value="4">초강풍</button></span></td></tr><tr><td style="text-align:left">31 ℃</td><td><span class="choice-group" data-key="fn5" data-answer="4"><button type="button" class="choice-btn" data-value="0">정지</button><button type="button" class="choice-btn" data-value="1">미풍</button><button type="button" class="choice-btn" data-value="2">약풍</button><button type="button" class="choice-btn" data-value="3">강풍</button><button type="button" class="choice-btn" data-value="4">초강풍</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">확인 꼭꼭 · 단원 평가하기</span>수면 온도 알림이 장치 <span class="pg">41쪽</span></div>
+<div id="code2"></div>
+    <div class="q" data-why="‘그리고’ 이므로 두 조건(빛 < 128 — 어두움, 온도 > 25)이 모두 참일 때만 high">
+      <div class="q-text"><span class="q-num">06</span>위 코드를 실행했을 때 ‘high’라고 출력되는 조건은? <span class="choice-group" data-key="ev1" data-answer="3"><button type="button" class="choice-btn" data-value="1">① 온도가 25 ℃보다 높을 때</button><button type="button" class="choice-btn" data-value="2">② 주변이 밝고 온도가 25 ℃보다 높을 때</button><button type="button" class="choice-btn" data-value="3">③ 주변이 어둡고 온도가 25 ℃보다 높을 때</button><button type="button" class="choice-btn" data-value="4">④ 주변이 밝거나 온도가 25 ℃보다 높을 때</button><button type="button" class="choice-btn" data-value="5">⑤ 주변이 어둡거나 온도가 25 ℃보다 높을 때</button></span></div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">정리하기</span>수면 온도 알림이 장치</div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>센서값과 조건</h4>
+      <div class="q" style="border-top:none" data-why="0~255, 기준값">
+        <div class="q-text">빛 감지 센서는 주변 빛의 양을 <input class="blank w-s" data-key="s1" data-num="0" data-abs="0" style="width:44px"> (어두움)~<input class="blank w-s" data-key="s2" data-num="255" data-abs="0" style="width:52px"> (밝음)의 값으로 감지하고, 온도 센서는 주변 온도를 측정한다. 밤과 낮을 구분하려면 빛 감지 센서값을 <input class="blank w-s" data-key="s3" data-answer="기준값"> 과 비교한다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 온도 센서와 빛 감지 센서를 선택하여 조건에 따라 동작을 제어하는 프로그램을 이해했는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 경곗값(이상·미만)을 정확하게 판단했는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left"><b>디지털 문화 소양</b> 생활 속 문제를 해결하는 장치를 친구들과 함께 구상했는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅰ. 컴퓨팅 시스템 · 2. 피지컬 컴퓨팅 프로그래밍 · 02 수면 온도 알림이 장치 만들기 · 비상교육 중학교 정보 교과서(24~27쪽, 41쪽)·해 보기 활동지 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="microbit.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅰ-2-02 수면 온도 알림이 장치 만들기";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+$("code1").innerHTML = MB.blocks([["input", "<b>A</b> 버튼 누를 때", [["basic", "숫자 출력 <b>온도(℃)</b>"], ["basic", "일시중지 <b>500</b> ms"], ["basic", "LED 스크린 지우기"]]],
+  ["input", "<b>B</b> 버튼 누를 때", [["logic", "만약 <b>빛 밝기 &lt; 128</b> 이면", [["basic", "아이콘 출력 ▢ (어두움)"]]], ["logic", "아니면", [["basic", "아이콘 출력 ▪ (밝음)"]]], ["basic", "일시중지 500 ms · LED 스크린 지우기"]]],
+  ["input", "<b>흔들림</b> 감지될 때", [["logic", "만약 <b>빛 밝기 &lt; 128</b> 이면", [["logic", "만약 <b>온도 &lt; 19</b> 이면 → 화살표 출력 <b>남쪽 ↓</b>"], ["logic", "아니고 만약 <b>온도 &gt; 23</b> 이면 → 화살표 출력 <b>북쪽 ↑</b>"], ["logic", "아니면 → 아이콘 출력 <b>♥</b>"]]], ["logic", "아니면 → LED 스크린 지우기"]]]]);
+const m1 = MB.create("mb1", { sensors: ["shake", "temp", "light"] }); const ev = new Set();
+let TH = 128; $("th").addEventListener("input", () => { TH = +$("th").value; $("thv").textContent = TH; ev.add("th"); });
+const back = () => setTimeout(() => m1.clear(), 900);
+m1.on("A", () => { ev.add("A"); m1.show(m1.s.temp, () => setTimeout(() => m1.clear(), 500)); $("msg1").textContent = `A: 현재 온도 ${m1.s.temp} ℃`; })
+  .on("B", () => { ev.add("B"); const dark = m1.s.light < TH; m1.icon(dark ? "SQUARE" : "SMALL_SQUARE"); back(); $("msg1").textContent = `B: 빛 ${m1.s.light} ${dark ? "<" : "≥"} ${TH} → ${dark ? "어두운 상태(밤)" : "밝은 상태(낮)"}`; })
+  .on("shake", () => { ev.add("shake"); const L = m1.s.light, T = m1.s.temp; let r;
+    if (L < TH) { if (T < 19) { m1.icon("ARROW_S"); r = "추워요 — 남쪽 화살표 ↓"; } else if (T > 23) { m1.icon("ARROW_N"); r = "더워요 — 북쪽 화살표 ↑"; } else { m1.icon("HEART"); r = "알맞아요 — 하트 ♥"; } } else { m1.clear(); r = "낮이라 LED 스크린을 지워요"; }
+    $("msg1").textContent = `흔들기: 빛 ${L}, 온도 ${T} ℃ → ${r}`; });
+WS.custom("run_ev", { el: $("mb1"), value: () => [...ev].sort().join(",") });
+/* ── 스마트 가로등 ── */
+const lpSeen = new Set(); $("lp-t").addEventListener("input", () => lpSeen.add(Math.round(+$("lp-t").value)));
+WS.custom("lp_seen", { el: $("lp-cv"), value: () => lpSeen.size + "시간" });
+const lightAt = t => Math.round(Math.max(0, Math.min(255, 255 * Math.sin(Math.PI * (t - 5.5) / 13.5) * 1.6)));
+LB.loop($("lp-cv"), () => { const t = +$("lp-t").value, L = lightAt(t), lv = L >= 128 ? 0 : L >= 85 ? 128 : 255; $("lp-tv").textContent = `${String(Math.floor(t)).padStart(2, "0")}:${String(Math.round(t % 1 * 60)).padStart(2, "0")}`;
+  const H = 200, sc = Math.min(1, $("lp-cv").clientWidth / 360), g = LB.fit($("lp-cv"), H * sc), c = (g.c.scale(sc, sc), g.c), W = g.w / sc;
+  const k = L / 255; c.fillStyle = `rgb(${20 + 150 * k},${30 + 170 * k},${70 + 170 * k})`; c.fillRect(0, 0, W, H); c.fillStyle = "#4e5d4a"; c.fillRect(0, H - 30, W, 30);
+  if (k > .05) { c.fillStyle = "#ffd54a"; c.beginPath(); c.arc(W * (t - 5) / 14, 50 + 60 * (1 - Math.sin(Math.PI * Math.max(0, Math.min(1, (t - 5) / 14)))), 16, 0, 7); c.fill(); } else { c.fillStyle = "#eee"; c.beginPath(); c.arc(W * .8, 40, 12, 0, 7); c.fill(); }
+  const x = W * .45; c.fillStyle = "#555"; c.fillRect(x - 3, 50, 6, H - 80); c.fillRect(x - 3, 50, 50, 6);
+  if (lv) { const gr = c.createRadialGradient(x + 47, 62, 4, x + 47, 62, 110 * lv / 255); gr.addColorStop(0, `rgba(255,230,140,${.9 * lv / 255})`); gr.addColorStop(1, "rgba(255,230,140,0)"); c.fillStyle = gr; c.beginPath(); c.moveTo(x + 47, 60); c.lineTo(x - 30, H - 30); c.lineTo(x + 124, H - 30); c.fill(); }
+  c.fillStyle = lv ? `rgb(255,${200 + 55 * lv / 255},120)` : "#999"; c.beginPath(); c.arc(x + 47, 60, 9, 0, 7); c.fill();
+  c.fillStyle = k > .5 ? "#26393b" : "#fff"; c.font = "bold 12px Pretendard, sans-serif"; c.textAlign = "left"; c.fillText(`빛 감지 센서값 ${L}`, 8, 18); c.fillText(`→ 가로등 밝기 ${lv} ${lv === 255 ? "(완전히 어두움)" : lv ? "(조금 어두움)" : "(밝음, 꺼짐)"}`, 8, 36); });
+/* ── 선풍기 ── */
+const fnSeen = new Set(); let ang = 0; $("fn-t").addEventListener("input", () => { $("fn-tv").textContent = $("fn-t").value + " ℃"; fnSeen.add($("fn-t").value); });
+WS.custom("fn_seen", { el: $("fn-cv"), value: () => [...fnSeen].join(",") });
+LB.loop($("fn-cv"), dt => { const T = +$("fn-t").value, lv = T >= 30 ? 4 : T >= 28 ? 3 : T >= 25 ? 2 : T >= 22 ? 1 : 0; ang += dt * lv * 5;
+  const H = 170, sc = Math.min(1, $("fn-cv").clientWidth / 360), g = LB.fit($("fn-cv"), H * sc), c = (g.c.scale(sc, sc), g.c), W = g.w / sc; c.fillStyle = "#f6fafa"; c.fillRect(0, 0, W, H);
+  const cx = W * .3, cy = 75; c.strokeStyle = "#90a4ae"; c.lineWidth = 2; c.beginPath(); c.arc(cx, cy, 58, 0, 7); c.stroke(); c.lineWidth = 1; c.fillStyle = "#90a4ae"; c.fillRect(cx - 4, cy + 58, 8, 26); c.fillRect(cx - 30, cy + 82, 60, 8);
+  for (let i = 0; i < 3; i++) { c.save(); c.translate(cx, cy); c.rotate(ang + i * 2.094); c.fillStyle = "rgba(47,127,214,.75)"; c.beginPath(); c.ellipse(28, 0, 26, 11, 0, 0, 7); c.fill(); c.restore(); }
+  c.fillStyle = "#26393b"; c.beginPath(); c.arc(cx, cy, 7, 0, 7); c.fill();
+  c.font = "bold 16px Pretendard, sans-serif"; c.textAlign = "left"; c.fillText(["정지", "미풍", "약풍", "강풍", "초강풍"][lv], W * .58, 70); c.font = "12px Pretendard, sans-serif"; c.fillText(`온도 ${T} ℃`, W * .58, 92);
+  for (let i = 0; i < 4; i++) { c.fillStyle = i < lv ? "#2f7fd6" : "#dfe6e9"; c.fillRect(W * .58 + i * 22, 104, 18, 10); } });
+/* ── 단원 평가 코드 ── */
+$("code2").innerHTML = MB.blocks([["loop", "무한 반복", [["logic", "만약 <b>빛 밝기 &lt; 128</b> 그리고 <b>온도(℃) &gt; 25</b> 이면", [["basic", "문자 출력 <b>high</b>"]]]]]]);
+
+</script>
+</body>
+</html>

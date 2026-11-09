@@ -250,6 +250,11 @@
     bio: svgI('<path d="M5 19c0-9 5-14 14-14 0 9-5 14-14 14z"/><path d="M5 19l8-8"/>'),
     earth: svgI('<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>'),
     int: svgI('<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>'),
+    cs: svgI('<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>'),
+    data: svgI('<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
+    algo: svgI('<path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/>'),
+    ai: svgI('<rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"/>'),
+    dc: svgI('<circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>'),
     megaphone: svgI('<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>'),
     gamepad: svgI('<path d="M6 8h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5 2l-1-1H8l-1 1a3 3 0 0 1-5-2v-2a4 4 0 0 1 4-4z"/><path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>')
   };
@@ -309,7 +314,7 @@
     return `
       <section class="hero">
         <div>
-          <span class="tag">2022 개정 교육과정 · 중·고등학교 과학</span>
+          <span class="tag">2022 개정 교육과정 · 중·고등학교 과학 · 중학교 정보</span>
           <h1>궁금한 것은 <em>실험</em>으로,<br>배운 것은 <em>생활</em>로.</h1>
           <p>프놈펜한국국제학교 중·고등학생을 위한 과학 수업 공간입니다.<br>학년이나 과목을 고르고 이번 시간에 배울 단원으로 들어가 보세요.</p>
           ${levels().map(lv => `<div class="quick"><small>${lv}</small>${GRADES.map((x, i) => x.level !== lv ? '' :
@@ -320,7 +325,7 @@
 
       <div class="sec-head">
         <h2><span style="color:${g.color}">${g.title}</span> 단원</h2>
-        <div class="legend">${Object.values(DOMAINS).map(d => `<span><i style="background:${d.color}"></i>${d.name}</span>`).join('')}</div>
+        <div class="legend">${[...new Set(g.units.map(u => u.domain))].map(k => DOMAINS[k]).map(d => `<span><i style="background:${d.color}"></i>${d.name}</span>`).join('')}</div>
       </div>
       <div class="cards">${g.units.map((u, k) => `
         ${u.group && u.group !== (g.units[k - 1] || {}).group ? `<div class="card-grp">${u.group}</div>` : ''}

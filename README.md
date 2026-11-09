@@ -91,6 +91,12 @@
 `materials/g2-3/`(중2 Ⅲ. 빛과 파동)의 RGB LED 보고서는 `arduino/rgb.ino`(웹 페이지가 "R,G,B" 한 줄을 보내면 9·10·11번 핀 PWM으로 켬, 9600 baud)를 쓰고, 소리 단원은 Web Audio로 소리를 내고 원하면 마이크(getUserMedia)로 파형을 그립니다. `materials/g2-4/`(중2 Ⅳ. 물질의 구성)는 입자 모형을 `mol.js`(MOL.draw)로 그리고, 전기 전도성 보고서는 `arduino/conduct.ino`("시간(ms),값", 7번 핀으로 잠깐만 전압을 걸어 측정)를 씁니다. `materials/g2-5/`(중2 Ⅴ. 식물과 에너지)의 잎 조각 보고서는 `../g1-7/light-lab.js`를 `LL.base = "../g1-7/"`로 불러 씁니다. `materials/g2-7/`(중2 Ⅶ. 전기와 자기)의 옴의 법칙 보고서는 `arduino/ohm.ino`(가변 저항 가운데 다리 → A0, 측정할 저항과 1 kΩ 기준 저항 사이 → A1, "OHM,mV0,mV1"을 0.2 초마다 보냄, 9600 baud)를 쓰며, 전류 = A1 ÷ 1 kΩ, 저항 전압 = A0 − A1로 계산합니다.
 `materials/g3-1/`(중3 Ⅰ. 화학 반응의 규칙과 에너지 변화)은 입자 모형을 `../g2-4/mol.js`로 그리고, 손난로·손 냉장고 보고서는 `../g1-3/arduino-lab.js`(2채널 온도)를 씁니다. `materials/g3-2/`(중3 Ⅱ. 기권과 날씨)의 복사 평형 보고서는 같은 `arduino-lab.js`를, 상대 습도 보고서는 DHT11용 `arduino/humid.ino`("시간(ms),온도,습도", 9600 baud, Adafruit DHT 라이브러리)를 쓰고 연결·그래프 코드는 보고서 페이지 안에 있습니다. 전선 단원에는 three.js 3D 전선 모형이 들어 있습니다. `materials/g3-4/`(중3 Ⅳ. 운동과 에너지, 교과서 Ⅲ단원)의 운동 비교 보고서는 `../g1-5/ultra-lab.js`(`UL.base = "../g1-5/"`, 초음파 센서 `UL.stream`)로 두 번의 기록을 ①·② 칸에 저장해 함께 그립니다. `materials/g3-5/`(중3 Ⅴ. 자극과 반응)의 반응 시간 보고서는 `arduino/reaction.ino`(웹이 "L"/"S"를 보내면 LED/버저 자극 후 버튼 반응 시간을 "RT,L,234"로 보냄, 9600 baud)를 쓰고, 아두이노 없이 화면·스페이스 키로도 측정할 수 있습니다. `materials/g3-6/`(중3 Ⅵ. 생식과 유전)은 염색체 그리기를 `chromo.js`(CH.cell/CH.chr)로 공유합니다. `materials/g3-3/`(중3 Ⅲ. 수권과 해수의 순환)은 비상교육 과학 2(2015 개정) Ⅶ단원 교과서를 바탕으로 했고, 수온 보고서는 `../g1-3/arduino-lab.js`(2채널 온도, 수면 0.5 cm·깊이 8 cm)를 씁니다.
 
+### 중학교 정보 (materials/in1-…)
+
+- 사이트 메뉴의 '정보' → '중학교 정보'(`data/units.js`의 `id: "in1"`, 영역 cs·data·algo·ai·dc)에 Ⅰ~Ⅴ 단원이 있고, 단원 폴더는 `materials/in1-1/`(Ⅰ. 컴퓨팅 시스템)처럼 씁니다.
+- `materials/in1-1/microbit.js`는 가상 마이크로비트(`MB.create`, 5×5 LED·A/B·로고·흔들기·기울기·온도·빛·소리·스피커)와 메이크코드 모양 블록 그림(`MB.blocks`), LED 그림판(`MB.grid`)을 제공합니다. 다른 정보 단원에서도 `../in1-1/microbit.js`로 불러 씁니다.
+- 정보 워크시트는 학년 칸이 비어 있고, 학생이 적은 학년(1·2·3)의 중N 스프레드시트로 `?tab=정보`를 붙여 보냅니다(`js/config.js`). 1~3이 아니면 제출 전에 막습니다. `apps-script/code-g1~g3.gs`는 `tab=정보`일 때 '답안' 대신 '정보' 탭에 저장합니다(시트에 새 코드를 붙여넣고 배포를 새 버전으로 갱신해야 적용).
+
 ### 아두이노 실험 보고서 (materials/g1-3/arduino-*.html)
 
 - `arduino-lab.js`가 회로 표·스케치 코드·Web Serial 연결·자동 기록·표·그래프를 만들고, 기록은 `WS.custom`으로 함께 제출됩니다.

@@ -21,6 +21,19 @@ window.KISPP_CONFIG = {
 (function (c) {
   var TABS = { g1: "중1", g2: "중2", g3: "중3", is1: "고1", is2: "고1", se1: "고1", se2: "고1" };
   var m = location.pathname.match(/\/materials\/([a-z]+\d)-/);
+  // 정보 워크시트(materials/in1-…)는 학생이 적은 학년(1·2·3)의 중N 시트로 보내고, 그 시트의 '정보' 탭에 저장합니다.
+  // 학년 칸이 비었거나 1~3이 아니면 주소가 비어 있어 전송하지 않습니다(다른 시트로 새지 않게).
+  if (m && m[1] === "in1") {
+    var urls = c.SUBMIT_URLS || {};
+    c.GRADE_TAB = "정보";
+    Object.defineProperty(c, "SUBMIT_URL", { configurable: true, enumerable: true, get: function () {
+      var el = document.getElementById("ws-grade");
+      var g = el ? String(el.value).replace(/[^0-9]/g, "") : "";
+      var base = /^[123]$/.test(g) ? urls["중" + g] || "" : "";
+      return base ? base + (base.indexOf("?") < 0 ? "?" : "&") + "tab=" + encodeURIComponent("정보") : "";
+    } });
+    return;
+  }
   var tab = (m && TABS[m[1]]) || "기타";
   var base = (c.SUBMIT_URLS && c.SUBMIT_URLS[tab]) || c.SUBMIT_URL || "";
   c.GRADE_TAB = tab;

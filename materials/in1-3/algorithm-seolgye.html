@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅲ-1-4 알고리즘의 분석과 설계</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/3">← KISPP · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p100-park.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅲ. 알고리즘과 프로그래밍 · 1. 추상화와 알고리즘 <span class="pg" style="margin:0">103~107쪽</span></span>
+      <h1>알고리즘의<br><span>분석과 설계</span></h1>
+      <p>같은 놀이공원이라도 거리를 줄일지, 시간을 줄일지에 따라 알맞은 알고리즘이 달라진다. 지도 위에서 알고리즘을 직접 실행해 비교하고, 문제 나누기·시행착오·되추적·최선 선택 전략을 움직여 보며 1장을 마무리하자.</p>
+      <div class="goal">🎯 학습 목표 — 문제 해결을 위한 다양한 알고리즘을 비교·분석하고, 문제 해결에 적합한 알고리즘을 설계할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">1. 알고리즘 비교·분석</span>놀이공원에서 모든 놀이 기구 이용하기 — ㉮와 ㉯ <span class="pg">103쪽</span></div>
+    <div class="book"><p>하나의 문제를 해결하는 알고리즘은 문제 상황과 목적에 따라 다양하게 설계될 수 있으며, 문제를 정확하고 빠르게 해결해 주는 알고리즘으로 설계하는 것이 중요하다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="tip-box"><b>㉮ 알고리즘</b> ➊ 정문에서 출발한다. ➋ 이용하지 않은 놀이 기구를 확인한다. ➌ 그중에서 현재 위치에서 <b>이동 거리</b>가 가장 가까운 놀이 기구로 이동한다. ➍ 모든 놀이 기구를 이용했다면 종료하고, 그렇지 않다면 ➋로 이동한다.</div>
+      <div class="tip-box"><b>㉯ 알고리즘</b> ➊ 정문에서 출발한다. ➋ 이용하지 않은 놀이 기구를 확인한다. ➌ 그중에서 현재 위치에서 <b>이동 시간</b>이 가장 짧은 놀이 기구로 이동한다. ➍ 모든 놀이 기구를 이용했다면 종료하고, 그렇지 않다면 ➋로 이동한다.</div>
+    </div>
+    <div id="pk-map"></div>
+    <div class="btn-row" style="justify-content:center"><button type="button" class="btn small main" data-pa="dist">▶ ㉮ 거리 우선 실행</button><button type="button" class="btn small" data-pa="time">▶ ㉯ 시간 우선 실행</button><button type="button" class="btn ghost small" data-pa="hand">✋ 직접 경로 만들기</button></div>
+    <div class="tip-box" id="pk-msg"></div>
+    <div class="q" data-why="거리가 가장 가까운 곳: 관람차 100 m → 범퍼카 100 m → 바이킹 200 m → 은하열차 100 m">
+      <div class="q-text"><span class="q-num">1</span>㉮ 알고리즘의 상태 변화: 정문 → <span class="choice-group" data-key="pa1" data-answer="관람차"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pa2" data-answer="범퍼카"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pa3" data-answer="바이킹"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pa4" data-answer="은하열차"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span><br>이동 거리 <input class="blank w-s" data-key="pa5" data-num="500" data-abs="0" style="width:60px"> m, 이동 시간 <input class="blank w-s" data-key="pa6" data-num="20" data-abs="0" style="width:50px"> 분</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="시간이 가장 짧은 곳: 은하열차 5분 → 바이킹 1분 → 범퍼카 3분 → 관람차 6분">
+      <div class="q-text"><span class="q-num">2</span>㉯ 알고리즘의 상태 변화: 정문 → <span class="choice-group" data-key="pb1" data-answer="은하열차"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pb2" data-answer="바이킹"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pb3" data-answer="범퍼카"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span> → <span class="choice-group" data-key="pb4" data-answer="관람차"><button type="button" class="choice-btn" data-value="관람차">관람차</button><button type="button" class="choice-btn" data-value="범퍼카">범퍼카</button><button type="button" class="choice-btn" data-value="바이킹">바이킹</button><button type="button" class="choice-btn" data-value="은하열차">은하열차</button></span><br>이동 거리 <input class="blank w-s" data-key="pb5" data-num="900" data-abs="0" style="width:60px"> m, 이동 시간 <input class="blank w-s" data-key="pb6" data-num="15" data-abs="0" style="width:50px"> 분</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="목적(거리 최소 / 시간 최소)에 따라 알맞은 알고리즘이 달라요.">
+      <div class="q-text"><span class="q-num">3</span>다리가 아파 조금이라도 덜 걷고 싶다면 <span class="choice-group" data-key="pa7" data-answer="a"><button type="button" class="choice-btn" data-value="a">㉮</button><button type="button" class="choice-btn" data-value="b">㉯</button></span> 알고리즘을, 폐장 시간이 얼마 남지 않았다면 <span class="choice-group" data-key="pa8" data-answer="b"><button type="button" class="choice-btn" data-value="a">㉮</button><button type="button" class="choice-btn" data-value="b">㉯</button></span> 알고리즘을 선택한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 개별 탐구</span>응급차 이송 알고리즘 비교하기 <span class="pg">104쪽</span></div>
+    <div class="book"><p>‘응급차 이송 알고리즘 A’와 ‘응급차 이송 알고리즘 B’를 실행해 보고, 두 알고리즘 중 응급차의 상황과 목적에 맞는 알고리즘을 비교해 보자. (한 번 이동한 지역은 다시 이동하지 않는다.)</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="tip-box"><b>알고리즘 A</b> ➊ 집에서 출발한다. ➋ 현재 위치에서 가장 짧은 <b>거리</b>로 이동한다. ➌ 병원에 도착했다면 종료하고 그렇지 않으면 ➋를 수행한다.</div>
+      <div class="tip-box"><b>알고리즘 B</b> ➊ 집에서 출발한다. ➋ 현재 위치에서 이동 <b>시간</b>이 가장 짧은 길로 이동한다. ➌ 병원에 도착했다면 종료하고 그렇지 않으면 ➋를 수행한다.</div>
+    </div>
+    <div id="am-map"></div>
+    <div class="btn-row" style="justify-content:center"><button type="button" class="btn small main" data-am="dist">🚑 알고리즘 A</button><button type="button" class="btn small" data-am="time">🚑 알고리즘 B</button><button type="button" class="btn ghost small" data-am="hand">✋ 직접 경로 만들기</button></div>
+    <div class="tip-box" id="am-msg"></div>
+    <div class="q" data-why="100 m(5분) → 300 m(4분) → 400 m(5분) → 300 m(4분)">
+      <div class="q-text"><span class="q-num">1</span>알고리즘 A: 집 → <span class="choice-group" data-key="aa1" data-answer="박물관"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="aa2" data-answer="공원"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="aa3" data-answer="학교"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="aa4" data-answer="병원"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span><br>총이동 시간 <input class="blank w-s" data-key="aa5" data-num="18" data-abs="0" style="width:50px"> 분, 총이동 거리 <input class="blank w-s" data-key="aa6" data-num="1100" data-abs="0" style="width:64px"> m</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="200 m(2분) → 300 m(4분) → 400 m(4분) → 300 m(4분)">
+      <div class="q-text"><span class="q-num">2</span>알고리즘 B: 집 → <span class="choice-group" data-key="ab1" data-answer="공원"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="ab2" data-answer="박물관"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="ab3" data-answer="학교"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span> → <span class="choice-group" data-key="ab4" data-answer="병원"><button type="button" class="choice-btn" data-value="공원">공원</button><button type="button" class="choice-btn" data-value="학교">학교</button><button type="button" class="choice-btn" data-value="박물관">박물관</button><button type="button" class="choice-btn" data-value="병원">병원</button></span><br>총이동 시간 <input class="blank w-s" data-key="ab5" data-num="14" data-abs="0" style="width:50px"> 분, 총이동 거리 <input class="blank w-s" data-key="ab6" data-num="1200" data-abs="0" style="width:64px"> m</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="집 → 박물관 → 병원: 5 + 8 = 13분, 500 m. 매 순간 최선을 고르는 전략의 단점이에요." data-hint="박물관에서 병원으로 바로 가 보세요.">
+      <div class="q-text"><span class="q-num">3</span>응급차는 환자를 빨리 병원에 데려가야 하므로 두 알고리즘 중 <span class="choice-group" data-key="ab7" data-answer="B"><button type="button" class="choice-btn" data-value="A">A</button><button type="button" class="choice-btn" data-value="B">B</button></span>가 알맞다. 그런데 ‘직접 경로 만들기’로 찾아보면 총이동 시간이 <input class="blank w-s" data-key="ab8" data-num="13" data-abs="0" style="width:50px"> 분인 더 빠른 경로가 있다. 이처럼 매 순간 가장 좋아 보이는 길을 고르는 방법은 <span class="choice-group" data-key="ab9" data-answer="no"><button type="button" class="choice-btn" data-value="yes">항상 최적의 답을 보장한다</button><button type="button" class="choice-btn" data-value="no">최적의 답을 보장하지 않는다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">2. 알고리즘 설계 — 문제 해결 전략</span>문제 나누기 · 시행착오 반복하기 · 되추적하기 · 가장 최선인 방법 선택하기 <span class="pg">105~106쪽</span></div>
+    <div class="book"><p>문제를 해결하기 위한 알고리즘을 설계할 때는 문제 나누기, 시행착오 반복하기, 되추적하기, 가장 최선인 방법 선택하기 등의 문제 해결 전략을 이용할 수 있다. 최적의 문제 해결 전략을 통해 효율적인 알고리즘으로 설계한 프로그램은 실행 시간을 줄이고 컴퓨터의 사용을 최소화하여 에너지를 절약할 수 있는 중요한 역할을 한다.</p></div>
+    <div class="tip-box"><b>① 문제 나누기</b> 섞인 시험지(1~29번)를 번호 순서로 정리하기 — 10번대 단위로 먼저 분류하고, 각 묶음을 정렬한 뒤 하나로 합친다.</div>
+    <div class="btn-row"><button type="button" class="btn small" id="dv-mix">🔀 섞기</button><button type="button" class="btn small" id="dv-split">① 10번대로 나누기</button><button type="button" class="btn small" id="dv-sort">② 묶음마다 정렬</button><button type="button" class="btn small" id="dv-join">③ 합치기</button></div>
+    <div id="dv-box" style="font:700 12.5px monospace;line-height:1.9"></div>
+    <div class="tip-box" style="margin-top:14px"><b>② 시행착오 반복하기</b> 두 자리 비밀번호를 잊어버린 자물쇠 — 00부터 1씩 증가해 가며 열릴 때까지 계속 열어 본다.</div>
+    <div class="btn-row"><span style="font-size:30px" id="lk-ic">🔒</span><b style="font:800 26px monospace" id="lk-num">00</b><button type="button" class="btn small" id="lk-try">한 번 시도</button><button type="button" class="btn small" id="lk-auto">⏩ 열릴 때까지</button><button type="button" class="btn ghost small" id="lk-new">새 자물쇠</button><span id="lk-msg" style="font-size:13px"></span></div>
+    <div class="tip-box" style="margin-top:14px"><b>③ 되추적하기</b> 미로 탈출 — 임의의 길로 이동하다가 막다른 길이 나오면 온 길을 되돌아가 다른 길로 이동한다.</div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:center"><canvas id="mz-cv" class="cl-cv" style="max-width:300px;background:#fff"></canvas>
+      <div><div class="btn-row"><button type="button" class="btn small main" id="mz-go">▶ 되추적으로 탈출</button><button type="button" class="btn ghost small" id="mz-new">새 미로</button></div><div class="tip-box" id="mz-msg">🟩 출발 입구 → 🟥 탈출 출구 · 노란색 = 지금 가는 길, 회색 = 막혀서 되돌아온 길</div></div></div>
+    <div class="tip-box" style="margin-top:14px"><b>④ 가장 최선인 방법 선택하기</b> 등산할 때 전체 경로를 모르는 상태에서 현재 위치에서 가장 쉽게 갈 수 있는 길을 선택하여 이동한다. — 앞의 ㉮·㉯, 알고리즘 A·B가 모두 이 전략이다.</div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">1</span>문제 상황에 쓰인 전략을 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">섞인 시험지를 10번대 단위로 분류하고 각각 정렬한 뒤 합친다.</td><td><span class="choice-group" data-key="sg1" data-answer="div"><button type="button" class="choice-btn" data-value="div">문제 나누기</button><button type="button" class="choice-btn" data-value="try">시행착오 반복하기</button><button type="button" class="choice-btn" data-value="back">되추적하기</button><button type="button" class="choice-btn" data-value="best">가장 최선인 방법 선택하기</button></span></td></tr><tr><td style="text-align:left">자물쇠 비밀번호를 00부터 1씩 늘려 가며 열어 본다.</td><td><span class="choice-group" data-key="sg2" data-answer="try"><button type="button" class="choice-btn" data-value="div">문제 나누기</button><button type="button" class="choice-btn" data-value="try">시행착오 반복하기</button><button type="button" class="choice-btn" data-value="back">되추적하기</button><button type="button" class="choice-btn" data-value="best">가장 최선인 방법 선택하기</button></span></td></tr><tr><td style="text-align:left">미로에서 막다른 길이 나오면 온 길을 되돌아가 다른 길로 간다.</td><td><span class="choice-group" data-key="sg3" data-answer="back"><button type="button" class="choice-btn" data-value="div">문제 나누기</button><button type="button" class="choice-btn" data-value="try">시행착오 반복하기</button><button type="button" class="choice-btn" data-value="back">되추적하기</button><button type="button" class="choice-btn" data-value="best">가장 최선인 방법 선택하기</button></span></td></tr><tr><td style="text-align:left">등산로 갈림길에서 지금 가장 쉬워 보이는 길을 고른다.</td><td><span class="choice-group" data-key="sg4" data-answer="best"><button type="button" class="choice-btn" data-value="div">문제 나누기</button><button type="button" class="choice-btn" data-value="try">시행착오 반복하기</button><button type="button" class="choice-btn" data-value="back">되추적하기</button><button type="button" class="choice-btn" data-value="best">가장 최선인 방법 선택하기</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">2</span>각 전략의 단점을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">문제 나누기</td><td><span class="choice-group" data-key="sg5" data-answer="a"><button type="button" class="choice-btn" data-value="a">나누고 합치는 알고리즘이 추가로 필요하다.</button><button type="button" class="choice-btn" data-value="b">경우의 수가 많으면 수행 시간이 길어질 수 있다.</button><button type="button" class="choice-btn" data-value="c">모든 길을 방문할 경우 비효율적이다.</button><button type="button" class="choice-btn" data-value="d">최적의 해결 방법이 보장되지 않는다.</button></span></td></tr><tr><td style="text-align:left">시행착오 반복하기</td><td><span class="choice-group" data-key="sg6" data-answer="b"><button type="button" class="choice-btn" data-value="a">나누고 합치는 알고리즘이 추가로 필요하다.</button><button type="button" class="choice-btn" data-value="b">경우의 수가 많으면 수행 시간이 길어질 수 있다.</button><button type="button" class="choice-btn" data-value="c">모든 길을 방문할 경우 비효율적이다.</button><button type="button" class="choice-btn" data-value="d">최적의 해결 방법이 보장되지 않는다.</button></span></td></tr><tr><td style="text-align:left">되추적하기</td><td><span class="choice-group" data-key="sg7" data-answer="c"><button type="button" class="choice-btn" data-value="a">나누고 합치는 알고리즘이 추가로 필요하다.</button><button type="button" class="choice-btn" data-value="b">경우의 수가 많으면 수행 시간이 길어질 수 있다.</button><button type="button" class="choice-btn" data-value="c">모든 길을 방문할 경우 비효율적이다.</button><button type="button" class="choice-btn" data-value="d">최적의 해결 방법이 보장되지 않는다.</button></span></td></tr><tr><td style="text-align:left">가장 최선인 방법 선택하기</td><td><span class="choice-group" data-key="sg8" data-answer="d"><button type="button" class="choice-btn" data-value="a">나누고 합치는 알고리즘이 추가로 필요하다.</button><button type="button" class="choice-btn" data-value="b">경우의 수가 많으면 수행 시간이 길어질 수 있다.</button><button type="button" class="choice-btn" data-value="c">모든 길을 방문할 경우 비효율적이다.</button><button type="button" class="choice-btn" data-value="d">최적의 해결 방법이 보장되지 않는다.</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="00 ~ 99 → 100 가지">
+      <div class="q-text"><span class="q-num">3</span>두 자리 비밀번호 자물쇠를 시행착오 전략으로 열 때 최악의 경우 <input class="blank w-s" data-key="sg9" data-num="100" data-abs="0" style="width:56px"> 번 시도해야 한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기 · 1. 추상화와 알고리즘 마무리</span>알고리즘의 분석과 설계 <span class="pg">103~107쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>효율적인 알고리즘</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">하나의 문제를 해결하는 알고리즘은 문제 <input class="blank w-s" data-key="s1" data-answer="상황" style="width:50px">과(와) 목적에 따라 다양하게 설계될 수 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="응급차 지도에서 알고리즘 B(14분)보다 빠른 13분 경로가 있었어요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">알고리즘을 설계할 때 문제 해결 전략을 잘 고르면 실행 시간과 에너지를 줄일 수 있다.</td><td><span class="choice-group" data-key="s2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">가장 최선인 방법 선택하기 전략은 언제나 가장 짧은 경로를 찾아 준다.</td><td><span class="choice-group" data-key="s3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left"><b>컴퓨팅 사고력</b> 문제의 상태를 정의하고 수행 가능한 형태로 구조화할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">문제 해결을 위한 추상화의 중요성을 이해하고, 핵심 요소를 중심으로 알고리즘을 표현할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">알고리즘의 중요성을 이해하고, 문제를 해결하는 다양한 알고리즘을 비교·분석할 수 있는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">사례를 중심으로 문제 해결에 적합한 전략을 선택하여 알고리즘을 설계할 수 있는가?</td><td><span class="choice-group" id="self4"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅲ. 알고리즘과 프로그래밍 · 알고리즘의 분석과 설계(103~106쪽)·정리하기(107쪽) · 비상교육 중학교 정보 교과서 바탕, 해 보기 지도는 교과서 예시 답안을 바탕으로 다시 그림</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅲ-1-4 알고리즘의 분석과 설계";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 그래프 지도 엔진 */
+function Graph(host, W, H, N, E, start, goal, unitHint) {
+  const st = { cur: start, path: [start], edges: [], d: 0, t: 0, mode: "", timer: null, on: null };
+  const adj = (a) => E.filter(e => e[0] === a || e[1] === a).map(e => ({ to: e[0] === a ? e[1] : e[0], d: e[2], t: e[3], e }));
+  function draw(hl) { let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;display:block;margin:0 auto">`;
+    E.forEach(e => { const [a, b] = [N[e[0]], N[e[1]]], used = st.edges.includes(e);
+      const cp = Array.isArray(e[4]) ? e[4] : null, mx = cp ? cp[0] : (a[0] + b[0]) / 2, my = cp ? cp[1] : (a[1] + b[1]) / 2, lx = cp ? (a[0] + b[0]) / 4 + mx / 2 : mx + (e[5] || 0), ly = cp ? (a[1] + b[1]) / 4 + my / 2 : my + (e[6] || 0);
+      s += `<path d="M${a[0]},${a[1]} Q${mx},${my} ${b[0]},${b[1]}" fill="none" stroke="${used ? "#ff7a00" : "#c8d0d8"}" stroke-width="${used ? 6 : 4}" stroke-dasharray="${used ? "" : "8 5"}"/>`;
+      s += `<g font-size="11.5" font-weight="800" text-anchor="middle"><rect x="${lx - 30}" y="${ly - 14}" width="60" height="28" rx="6" fill="#fff" stroke="#dde3e8"/><text x="${lx}" y="${ly - 2}" fill="#2350a5">${e[2]} m</text><text x="${lx}" y="${ly + 11}" fill="#c2410c">${e[3]}분</text></g>`; });
+    Object.keys(N).forEach(k => { const [x, y, ic] = N[k], vis = st.path.includes(k), cur = st.cur === k, cand = st.mode === "hand" && adj(st.cur).some(o => o.to === k) && !vis;
+      s += `<g data-node="${k}" style="cursor:${cand ? "pointer" : "default"}"><circle cx="${x}" cy="${y}" r="27" fill="${cur ? "#ff9a3c" : vis ? "#ffe2c4" : cand ? "#e2f6e9" : "#fff"}" stroke="${cand ? "#2fb34a" : "#5b6b78"}" stroke-width="${cand ? 3 : 1.6}"/><text x="${x}" y="${y + 1}" font-size="20" text-anchor="middle">${ic}</text><text x="${x}" y="${y + 43}" font-size="12.5" font-weight="800" text-anchor="middle" fill="#26323a">${k}</text></g>`; });
+    host.innerHTML = s + "</svg>";
+    host.querySelectorAll("[data-node]").forEach(g => g.addEventListener("click", () => { if (st.mode !== "hand") return; const o = adj(st.cur).find(o => o.to === g.dataset.node && !st.path.includes(o.to)); if (o) { move(o); if (st.on) st.on(); } })); }
+  function move(o) { st.edges.push(o.e); st.cur = o.to; st.path.push(o.to); st.d += o.d; st.t += o.t; draw(); }
+  function reset(mode) { clearInterval(st.timer); st.cur = start; st.path = [start]; st.edges = []; st.d = 0; st.t = 0; st.mode = mode; draw(); }
+  function done() { return goal ? st.cur === goal : st.path.length === Object.keys(N).length; }
+  function greedy(key, cb) { reset(key); st.timer = setInterval(() => { if (done()) { clearInterval(st.timer); cb && cb(true); return; }
+      const c = adj(st.cur).filter(o => !st.path.includes(o.to)); if (!c.length) { clearInterval(st.timer); cb && cb(false); return; }
+      c.sort((x, y) => x[key === "dist" ? "d" : "t"] - y[key === "dist" ? "d" : "t"]); move(c[0]); cb && cb(null); }, 650); }
+  reset(""); return { st, reset, greedy, done, draw, adj };
+}
+/* 놀이공원 */
+const PK = Graph($("pk-map"), 470, 440, { "정문": [50, 260, "🚪"], "관람차": [190, 140, "🎡"], "범퍼카": [190, 360, "🚗"], "은하열차": [400, 140, "🚂"], "바이킹": [400, 360, "🏴‍☠️"] },
+  [["정문", "관람차", 100, 10, 0, -28, 0], ["정문", "범퍼카", 110, 6, 0, -28, 0], ["정문", "은하열차", 500, 5, [40, -10]], ["관람차", "은하열차", 200, 3], ["관람차", "범퍼카", 100, 6, 0, -32, 0],
+   ["관람차", "바이킹", 400, 5, 0, -42, -44], ["은하열차", "범퍼카", 450, 6, 0, 42, -44], ["은하열차", "바이킹", 100, 1, 0, 32, 0], ["바이킹", "범퍼카", 200, 3], ["바이킹", "범퍼카", 800, 15, [295, 470]]], "정문", null);
+const pkRuns = new Set();
+function pkMsg(fin) { const s = PK.st, p = s.path.join(" → ");
+  $("pk-msg").innerHTML = `${{ dist: "㉮ 거리 우선", time: "㉯ 시간 우선", hand: "✋ 직접", "": "" }[s.mode]} ${p}<br>이동 거리 <b>${s.d} m</b> · 이동 시간 <b>${s.t}분</b>${PK.done() ? " — 🎉 모든 놀이 기구 이용!" : s.mode === "hand" ? " — 초록색 테두리 놀이 기구를 눌러 이동하세요." : ""}`; if (PK.done()) pkRuns.add(s.mode); }
+document.querySelectorAll("[data-pa]").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("[data-pa]").forEach(x => x.classList.toggle("main", x === b));
+  if (b.dataset.pa === "hand") { PK.reset("hand"); PK.st.on = pkMsg; pkMsg(); } else PK.greedy(b.dataset.pa, pkMsg); }));
+$("pk-msg").innerHTML = "위의 단추를 눌러 알고리즘을 실행해 보세요."; PK.st.on = pkMsg;
+WS.custom("pk_runs", { el: $("pk-map"), value: () => [...pkRuns].join(",") });
+/* 응급차 */
+const AM = Graph($("am-map"), 520, 340, { "집": [50, 230, "🏠"], "공원": [170, 60, "🌳"], "학교": [440, 60, "🏫"], "박물관": [230, 280, "🏛"], "병원": [460, 270, "🏥"] },
+  [["집", "박물관", 100, 5], ["집", "공원", 200, 2], ["박물관", "공원", 300, 4, 0, 28, 0], ["공원", "학교", 400, 5], ["학교", "병원", 300, 4], ["박물관", "학교", 400, 4, 0, -10, -18], ["박물관", "병원", 400, 8]], "집", "병원");
+let amBest = 99;
+function amMsg(fin) { const s = AM.st; if (AM.done() && s.mode === "hand") amBest = Math.min(amBest, s.t);
+  const stuck = s.mode === "hand" && !AM.done() && !AM.adj(s.cur).some(o => !s.path.includes(o.to));
+  $("am-msg").innerHTML = `${{ dist: "알고리즘 A(거리)", time: "알고리즘 B(시간)", hand: "✋ 직접", "": "" }[s.mode]} ${s.path.join(" → ")}<br>총이동 시간 <b>${s.t}분</b> · 총이동 거리 <b>${s.d} m</b>${AM.done() ? " — 🏥 병원 도착!" : stuck ? " — 더 갈 곳이 없어요. 다시 눌러 처음부터!" : s.mode === "hand" ? " — 초록색 테두리 장소를 눌러 이동하세요." : ""}`; }
+document.querySelectorAll("[data-am]").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("[data-am]").forEach(x => x.classList.toggle("main", x === b));
+  if (b.dataset.am === "hand") { AM.reset("hand"); AM.st.on = amMsg; amMsg(); } else AM.greedy(b.dataset.am, amMsg); }));
+$("am-msg").innerHTML = "위의 단추를 눌러 알고리즘을 실행해 보세요."; AM.st.on = amMsg;
+WS.custom("am_best", { el: $("am-map"), value: () => amBest < 99 ? amBest + "분" : "" });
+
+/* 문제 나누기 */
+let papers = [...Array(29)].map((_, i) => i + 1), groups = null;
+const shuf = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const chip = n => `<span style="display:inline-block;min-width:26px;text-align:center;background:#fff3e0;border:1px solid #f0c48a;border-radius:6px;margin:2px">${n}</span>`;
+function dvShow(note) { $("dv-box").innerHTML = (groups ? groups.map((g, i) => `<div>${["1~9번", "10번대", "20번대"][i]}: ${g.map(chip).join("")}</div>`).join("") : papers.map(chip).join("")) + (note ? `<div style="font-family:sans-serif;color:#2350a5">${note}</div>` : ""); }
+$("dv-mix").addEventListener("click", () => { papers = shuf([...Array(29)].map((_, i) => i + 1)); groups = null; dvShow("시험지가 섞였어요."); });
+$("dv-split").addEventListener("click", () => { const all = groups ? groups.flat() : papers; groups = [0, 1, 2].map(k => all.filter(n => Math.floor(n / 10) === k)); dvShow("작은 문제 3 개로 나누었어요."); });
+$("dv-sort").addEventListener("click", () => { if (!groups) return dvShow("먼저 나누어 보세요."); groups = groups.map(g => [...g].sort((a, b) => a - b)); dvShow("작은 묶음은 정렬하기 쉬워요."); });
+$("dv-join").addEventListener("click", () => { if (!groups) return dvShow("먼저 나누어 보세요."); papers = groups.flat(); groups = null; dvShow(papers.every((n, i) => n === i + 1) ? "✅ 1번부터 29번까지 순서대로 정리되었어요!" : "아직 정렬되지 않은 묶음이 있어요."); });
+papers = shuf(papers); dvShow();
+/* 시행착오 */
+let lk = { s: 0, n: 0, tries: 0, open: false, t: null };
+function lkNew() { clearInterval(lk.t); lk = { s: Math.floor(Math.random() * 100), n: 0, tries: 0, open: false, t: null }; lkShow(); }
+function lkShow() { $("lk-num").textContent = String(lk.n).padStart(2, "0"); $("lk-ic").textContent = lk.open ? "🔓" : "🔒"; $("lk-msg").textContent = lk.open ? `열렸다! ${lk.tries} 번 시도` : `시도 ${lk.tries} 번`; }
+function lkTry() { if (lk.open) return; lk.tries++; if (lk.n === lk.s) { lk.open = true; clearInterval(lk.t); } else lk.n = (lk.n + 1) % 100; lkShow(); }
+$("lk-try").addEventListener("click", lkTry); $("lk-auto").addEventListener("click", () => { clearInterval(lk.t); lk.t = setInterval(lkTry, 40); }); $("lk-new").addEventListener("click", lkNew); lkNew();
+/* 되추적 미로 */
+const MW = 9; let mz, mzT = null;
+function mzNew() { clearInterval(mzT); const g = [...Array(MW)].map(() => Array(MW).fill(1)); const st = [[1, 1]]; g[1][1] = 0;
+  while (st.length) { const [x, y] = st[st.length - 1], nb = shuf([[2, 0], [-2, 0], [0, 2], [0, -2]]).filter(([dx, dy]) => g[y + dy] && g[y + dy][x + dx] === 1 && x + dx > 0 && y + dy > 0 && x + dx < MW - 1 && y + dy < MW - 1);
+    if (!nb.length) { st.pop(); continue; } const [dx, dy] = nb[0]; g[y + dy / 2][x + dx / 2] = 0; g[y + dy][x + dx] = 0; st.push([x + dx, y + dy]); }
+  mz = { g, path: [], dead: new Set(), done: false }; mzDraw(); $("mz-msg").innerHTML = "🟩 출발 입구 → 🟥 탈출 출구 · 노란색 = 지금 가는 길, 회색 = 막혀서 되돌아온 길"; }
+function mzDraw() { const c = CL.fit($("mz-cv"), 270, 270), s = 30; mz.g.forEach((r, y) => r.forEach((v, x) => { c.fillStyle = v ? "#33414d" : mz.dead.has(x + "," + y) ? "#c9ced3" : "#fff"; c.fillRect(x * s, y * s, s, s); }));
+  mz.path.forEach(([x, y]) => { c.fillStyle = "#ffd166"; c.fillRect(x * s + 4, y * s + 4, s - 8, s - 8); });
+  c.fillStyle = "#2fb34a"; c.fillRect(1 * s + 8, 1 * s + 8, s - 16, s - 16); c.fillStyle = "#e63946"; c.fillRect((MW - 2) * s + 8, (MW - 2) * s + 8, s - 16, s - 16); }
+$("mz-go").addEventListener("click", () => { clearInterval(mzT); mz.path = [[1, 1]]; mz.dead = new Set(); const seen = new Set(["1,1"]); let back = 0;
+  mzT = setInterval(() => { const [x, y] = mz.path[mz.path.length - 1]; if (x === MW - 2 && y === MW - 2) { clearInterval(mzT); $("mz-msg").innerHTML = `🎉 탈출! 막다른 길에서 ${back} 칸 되돌아왔어요.`; mz.done = true; mzDraw(); return; }
+    const nx = [[1, 0], [0, 1], [-1, 0], [0, -1]].map(([dx, dy]) => [x + dx, y + dy]).find(([a, b]) => !mz.g[b][a] && !seen.has(a + "," + b));
+    if (nx) { seen.add(nx.join(",")); mz.path.push(nx); } else { mz.dead.add(x + "," + y); mz.path.pop(); back++; } mzDraw(); }, 120); });
+$("mz-new").addEventListener("click", mzNew); mzNew(); window.addEventListener("resize", mzDraw);
+
+</script>
+</body>
+</html>

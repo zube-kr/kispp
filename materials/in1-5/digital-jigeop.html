@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅴ-1-2 디지털 사회와 직업</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+
+.pic-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.pic{background:#fff;border:1px solid #dfe6ea;border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.pic img{width:100%;border-radius:8px;display:block}
+.pic .choice-group{flex-wrap:wrap;justify-content:center}
+.pic .choice-btn{font-size:12px;padding:4px 8px}
+.ind{font-weight:900;font-size:14px;margin:12px 0 2px;color:#5b3d8f}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip5{border:1px solid #cdd6dd;background:#fff;border-radius:16px;padding:5px 11px;font:700 13px sans-serif;cursor:pointer}
+.chip5.on{background:#7a4fc4;color:#fff;border-color:#7a4fc4}
+.tl-row{display:grid;grid-template-columns:80px 1fr 1fr 34px;gap:6px;margin:4px 0;align-items:center}
+.tl-row input,.tl-row select{width:100%;box-sizing:border-box;padding:6px;border:1px solid #cfd8de;border-radius:8px;font:600 13px sans-serif}
+@media(max-width:520px){.tl-row{grid-template-columns:70px 1fr 34px}.tl-row .tl-tech{grid-column:2/3}}
+.pn{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pn .card5{border-radius:12px;padding:10px;background:#fff;border:1px solid #e0e4ea;font-size:13px;line-height:1.5}
+.pn .card5 b{display:block;font-size:14px;margin-bottom:3px}
+.meter5{height:16px;border-radius:9px;background:#eee;overflow:hidden;display:flex}
+.meter5 i{display:block;height:100%}
+.msg{border:1px solid #d7dde3;border-radius:14px;background:#fff;padding:10px 12px;margin:8px 0;font-size:13.5px;line-height:1.5}
+.msg .from{font-size:12px;color:#66727c;font-weight:800}
+.hot{position:relative;display:inline-block;max-width:100%}
+.hot img{display:block;max-width:100%;border-radius:10px}
+.hot .spot{position:absolute;border:2.5px dashed transparent;border-radius:10px;cursor:pointer;background:transparent}
+.hot .spot.found{border-color:#e5484d;background:rgba(229,72,77,.12)}
+
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/5">← KISPP · 중학교 정보 Ⅴ. 디지털 문화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p218-jobs.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 디지털 문화 · 1. 디지털 사회 <span class="pg" style="margin:0">216~219쪽</span></span>
+      <h1>디지털 사회와<br><span>직업</span></h1>
+      <p>주문을 받던 사람 → 무인 단말기 → 서빙 로봇. 디지털 기술은 직업을 어떻게 바꾸고 있을까? 섞인 그림을 단계별로 맞춰 보고, 내 희망 직업이 10년 뒤 어떻게 변할지, 그때 나만이 할 수 있는 능력은 무엇일지 탐색해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 디지털 사회에서의 직업의 특성을 설명하고, 디지털 기술과 사회 변화의 관계를 파악하여 적성에 맞는 진로를 탐색할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge concept">1. 디지털 사회에서 나타나는 직업의 특성</span>인간의 노동 → 자동화 → 지능화 <span class="pg">216~217쪽</span></div>
+    <div class="book"><p>디지털 사회는 네트워크를 통해 소통하며 인공지능 기술과 다양한 디지털 서비스를 이용해 편리한 생활을 할 수 있다. 디지털 사회로의 전환에 따라 업무 환경과 업무를 수행하는 데 필요한 능력에도 변화가 생기고 있다.</p></div>
+    <div class="tip-box"><b>🧩 직업 변화 퍼즐</b> 교과서 그림이 섞여 있어요. 각 그림이 사람이 직접 하는 <b>인간의 노동</b>인지, 기계가 정해진 일을 대신하는 <b>자동화</b>인지, 인공지능이 판단까지 하는 <b>지능화</b>인지 골라 보자.</div>
+    <div class="q" data-why="요식업: 직접 주문받기 → 무인 단말기 → 로봇 서빙 / 건설업: 종이 설계 도면 → 컴퓨터 설계 도면 → 인공지능이 설계 도면과 건축물 표본 / 물류업: 직접 옮기기 → 목적지별 자동 분류 → 로봇과 인공지능이 분류·적재·배송 최적화 / 만화 출판업: 종이에 그리기 → 태블릿에 그리고 재사용 → 글자를 입력해 그림 자동 생성 / 교육 서비스업: 교사가 직접 → 교수·학습 프로그램이 과제 제시·자동 채점">
+      <div class="q-text"><span class="q-num">1</span>그림마다 알맞은 단계를 골라 보자.</div><div class="ind">요식업</div><div class="pic-row"><div class="pic"><img src="img/job-food-l.jpg" alt=""><span class="choice-group" data-key="j_food0" data-answer="l"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-food-h.jpg" alt=""><span class="choice-group" data-key="j_food1" data-answer="h"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-food-a.jpg" alt=""><span class="choice-group" data-key="j_food2" data-answer="a"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div></div><div class="ind">건설업</div><div class="pic-row"><div class="pic"><img src="img/job-build-a.jpg" alt=""><span class="choice-group" data-key="j_build0" data-answer="a"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-build-h.jpg" alt=""><span class="choice-group" data-key="j_build1" data-answer="h"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-build-l.jpg" alt=""><span class="choice-group" data-key="j_build2" data-answer="l"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div></div><div class="ind">물류업</div><div class="pic-row"><div class="pic"><img src="img/job-logi-h.jpg" alt=""><span class="choice-group" data-key="j_logi0" data-answer="h"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-logi-l.jpg" alt=""><span class="choice-group" data-key="j_logi1" data-answer="l"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-logi-a.jpg" alt=""><span class="choice-group" data-key="j_logi2" data-answer="a"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div></div><div class="ind">만화 출판업</div><div class="pic-row"><div class="pic"><img src="img/job-comic-a.jpg" alt=""><span class="choice-group" data-key="j_comic0" data-answer="a"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-comic-l.jpg" alt=""><span class="choice-group" data-key="j_comic1" data-answer="l"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-comic-h.jpg" alt=""><span class="choice-group" data-key="j_comic2" data-answer="h"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div></div><div class="ind">교육 서비스업</div><div class="pic-row"><div class="pic"><img src="img/job-edu-a.jpg" alt=""><span class="choice-group" data-key="j_edu0" data-answer="a"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div><div class="pic"><img src="img/job-edu-h.jpg" alt=""><span class="choice-group" data-key="j_edu1" data-answer="h"><button type="button" class="choice-btn" data-value="h">인간의 노동</button><button type="button" class="choice-btn" data-value="a">자동화</button><button type="button" class="choice-btn" data-value="l">지능화</button></span></div></div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>교육 서비스업에 지능화를 적용하면 직업에 어떤 변화가 생겨날까?</div><textarea class="free" data-key="eduai" rows="2" data-keywords="인공지능,맞춤,튜터,분석,수준" data-model="인공지능이 학생마다 학습 기록을 분석해 수준에 맞는 문제와 설명을 골라 주는 맞춤형 튜터가 생긴다. 교사는 학생 상담, 협력 활동 설계처럼 사람만 할 수 있는 일에 더 집중하게 된다."></textarea><span class="fb"></span></div>
+    <div class="book" style="margin-top:10px"><p>디지털 사회에서는 반복적이고 간단한 작업의 자동화뿐만 아니라 전문성을 필요로 하는 업무도 지능화되고 있어 지식, 기술과 함께 창의성과 아이디어가 더욱 중요해지고 있다. 또한, 정보의 공유와 소통을 통한 협력적인 업무 처리와 인공지능을 포함한 디지털 기술과의 협업도 강조되고 있다.</p></div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>디지털 사회에서는 지식, 기술과 함께 <input class="blank w-s" data-key="jt1" data-answer="창의성" style="width:70px">과 아이디어가 더욱 중요해지고, 정보의 공유와 소통을 통한 <span class="choice-group" data-key="jt2" data-answer="co"><button type="button" class="choice-btn" data-value="co">협력적인</button><button type="button" class="choice-btn" data-value="solo">혼자 하는</button></span> 업무 처리와 인공지능을 포함한 디지털 기술과의 <input class="blank w-s" data-key="jt3" data-answer="협업" style="width:60px">도 강조되고 있다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">2. 디지털 기술과 직업의 변화</span>사라지는 일, 바뀌는 일, 새로 생기는 일 <span class="pg">217쪽</span></div>
+    <div class="book"><p>디지털 기술의 발달로 직업에도 많은 변화가 생기고 있다. 예술과 문학 분야에서는 인공지능이 그림이나 소설, 시, 음악 등을 자동으로 생성하고, 방송과 연예 분야에서는 가상 인간이 등장하여 주목받으면서 이를 개발하고 운영하는 새로운 직업도 생겨났다. 그 밖에도 디지털 기술은 요식업, 건설업, 물류업, 만화 출판업, 교육 서비스업과 같은 직업 분야 전반에 변화를 가져왔고, 이에 디지털 기술의 활용 능력은 점차 중요해지고 있다.</p></div>
+    <div class="q" data-why="디지털 기술은 요식업·건설업·물류업·만화 출판업·교육 서비스업 등 직업 분야 전반에 변화를 가져왔고, 디지털 기술 활용 능력은 점차 중요해지고 있어요.">
+      <div class="q-text"><span class="q-num">1</span>교과서 내용과 맞으면 ◯, 틀리면 ×</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">예술과 문학 분야에서는 인공지능이 그림, 소설, 시, 음악 등을 자동으로 생성한다.</td><td><span class="choice-group" data-key="jc1" data-answer="O"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">가상 인간이 등장하면서 이를 개발하고 운영하는 새로운 직업이 생겨났다.</td><td><span class="choice-group" data-key="jc2" data-answer="O"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">디지털 기술은 첨단 산업에만 변화를 가져오므로 다른 직업에는 디지털 기술 활용 능력이 필요 없다.</td><td><span class="choice-group" data-key="jc3" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 개별</span>나의 꿈 발표하기 — 10년 후 내 직업은? <span class="pg">218쪽</span></div>
+<figure class="fig" style="max-width:470px"><img src="img/p218-jobs.jpg" alt="최근 중학생의 희망 직업 조사 결과에서 나온 선호 직업(자료: 교육부, 2024)"><figcaption><span class="tb">218쪽</span>최근 중학생의 희망 직업 조사 결과에서 나온 선호 직업(자료: 교육부, 2024)</figcaption></figure>
+    <div class="light-stage" style="padding:12px"><b style="font-size:13.5px">🔭 직업 미래 탐색기 — 희망 직업을 고르고, 그 직업이 하는 일을 ‘디지털 기술이 도울 수 있는 일’과 ‘나만의 능력이 필요한 일’로 나누어 보자.</b>
+      <div class="chips" id="jb-pick"></div>
+      <div id="jb-tasks"></div>
+      <div class="meter5" id="jb-meter" style="margin-top:8px"></div>
+      <div class="tip-box" id="jb-msg">직업을 먼저 골라 보세요. 정답이 정해진 활동이 아니라 내 생각을 정리하는 활동이에요.</div></div>
+    <div class="tip-box" style="background:#fffdf3;border-color:#e8d9a8"><b>예</b> 조리사 — 하는 일: 음식점이나 급식소에서 음식을 만드는 일을 한다. / 10년 후 예상되는 직업 변화: 인공지능 로봇이 주문된 음식의 레시피로 오차 없이 빠르게 음식을 조리한다. / 변화된 직업 환경에서 나만이 할 수 있는 능력: 손님마다 특별한 이야기가 담긴 레시피를 개발하여 제공한다.</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span>내가 희망하는 직업과 그 직업이 하는 일을 써 보자.</div><textarea class="free" data-key="dj1" rows="2" data-keywords="" data-model="소프트웨어 개발자 — 원하는 기능을 코딩하여 소프트웨어를 개발한다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>그 직업이 10년 후 어떠한 변화가 있을지 예상해 써 보자.</div><textarea class="free" data-key="dj2" rows="2" data-keywords="인공지능,자동,로봇,데이터" data-model="원하는 기능이 있으면 인공지능에게 코드를 자동으로 작성하도록 지시하게 된다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span>변화된 직업 환경에서 나만이 할 수 있는 능력은 무엇일까?</div><textarea class="free" data-key="dj3" rows="2" data-keywords="창의,기획,소통,공감,판단" data-model="사용자가 원하는 기능이 무엇인지 기획하고 인공지능이 자동 작성한 코드가 적절한지 확인한다. 다양하게 생성된 코드를 통합하여 하나의 소프트웨어를 개발한다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">4</span>친구들과 서로의 ‘나만이 할 수 있는 능력’을 이야기해 보고, 친구의 생각 중 인상 깊었던 것을 적어 보자.</div><textarea class="free" data-key="dj4" rows="3" data-keywords="친구" data-model="친구는 소프트웨어 개발자가 사라질 거라고 걱정했지만, 오히려 인공지능이 만든 코드를 더 빠르고 효율적으로 다루는 개발자가 될 수 있다고 이야기해 주었다. 10년 후 개발자의 역할은 큐레이션 역할로 변화할 것 같다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>디지털 사회와 직업 <span class="pg">216~219쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>디지털 사회에서 나타나는 직업의 특성</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">반복적이고 간단한 작업의 <input class="blank w-s" data-key="s1" data-answer="자동화" style="width:60px">뿐만 아니라 전문성을 필요로 하는 업무도 <input class="blank w-s" data-key="s2" data-answer="지능화" style="width:60px">되고 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>필요한 능력</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">디지털 사회에서는 지식, 기술과 함께 <input class="blank w-s" data-key="s3" data-answer="창의성" style="width:60px">과 아이디어가 더욱 중요해지고 있으며, 인공지능을 포함한 디지털 기술과의 협업도 강조되고 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">3</span>디지털 기술과 직업의 변화</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">디지털 기술은 직업 분야 전반에 변화를 가져왔고, 이에 디지털 기술의 <input class="blank w-s" data-key="s4" data-answer="활용 능력|활용능력" style="width:70px">은 점차 중요해지고 있다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">디지털 사회 변화에 따른 직업의 특성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">사회 변화에 따른 직업의 변화를 이해하고 나의 진로를 탐색할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅴ. 디지털 문화 · 디지털 사회와 직업(216~219쪽) · 비상교육 중학교 정보 교과서 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅴ-1-2 디지털 사회와 직업";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+const JOBS = { "교사": ["출석 확인과 객관식 과제 채점", "수업 자료 검색과 정리", "학생 고민 상담과 진로 지도", "학생 반응을 보며 수업 분위기 만들기"],
+  "의사": ["의료 영상에서 이상 부위 찾기", "진료 기록 정리", "환자에게 결과를 설명하고 마음 살피기", "어려운 수술 방법 결정"],
+  "운동선수": ["경기 영상 분석", "훈련량과 심박수 기록", "경기장에서 직접 뛰기", "동료와 작전을 맞추고 서로 격려하기"],
+  "경찰관·수사관": ["CCTV 영상에서 차량 번호 찾기", "범죄 데이터로 순찰 경로 계획", "피해자를 위로하고 보호하기", "현장 상황을 보고 판단하기"],
+  "컴퓨터 공학자·소프트웨어 개발자": ["반복되는 코드 자동 작성", "오류 자동 검사", "사용자가 원하는 기능 기획", "여러 코드를 통합해 최종 결정"],
+  "군인": ["드론으로 정찰하기", "위험물 탐지", "재난 현장 구조 판단", "동료와 협동 작전"],
+  "최고경영자(CEO)": ["매출 데이터 분석", "보고서 요약", "회사가 나아갈 방향 결정", "직원과 소통하고 책임지기"],
+  "배우": ["가상 배경 합성", "대본 번역", "인물의 감정을 연기하기", "관객과 교감하기"],
+  "조리사": ["레시피대로 정확하게 조리", "재료 재고 관리", "새 메뉴 개발", "손님마다 특별한 이야기가 담긴 요리 만들기"],
+  "시각 디자이너": ["시안 이미지 자동 생성", "크기·색 바꾸기 같은 반복 작업", "고객의 의도를 파악해 콘셉트 정하기", "최종 디자인 결정과 완성도 높이기"] };
+let jb = null, jbSel = {};
+$("jb-pick").innerHTML = Object.keys(JOBS).map(j => `<button type="button" class="chip5" data-j="${j}">${j}</button>`).join("");
+function jbShow() { document.querySelectorAll("#jb-pick .chip5").forEach(b => b.classList.toggle("on", b.dataset.j === jb)); if (!jb) return;
+  $("jb-tasks").innerHTML = JOBS[jb].map((t, i) => `<div class="msg" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:5px 0"><span style="flex:1;min-width:150px;font-weight:700">${t}</span><span class="chips" style="margin:0"><button type="button" class="chip5${jbSel[i] === "d" ? " on" : ""}" data-i="${i}" data-v="d">🤖 디지털 기술이 도움</button><button type="button" class="chip5${jbSel[i] === "m" ? " on" : ""}" data-i="${i}" data-v="m">🙋 나만의 능력</button></span></div>`).join("");
+  const d = Object.values(jbSel).filter(v => v === "d").length, m = Object.values(jbSel).filter(v => v === "m").length, n = JOBS[jb].length;
+  $("jb-meter").innerHTML = `<i style="width:${d / n * 100}%;background:#2f7fd6"></i><i style="width:${m / n * 100}%;background:#e8742a"></i>`;
+  $("jb-msg").innerHTML = d + m < n ? `<b>${jb}</b> — 할 일 ${n} 개를 모두 나누어 보세요. (${d + m}/${n})` : `<b>${jb}</b>: 🤖 디지털 기술과 협업할 일 ${d} 개 · 🙋 나만의 능력이 필요한 일 ${m} 개. 🙋 쪽에 고른 일이 바로 10년 후에도 ‘나만이 할 수 있는 능력’의 힌트예요. 아래 표에 정리해 보세요.`; }
+$("jb-pick").addEventListener("click", e => { const b = e.target.closest(".chip5"); if (!b) return; jb = b.dataset.j; jbSel = {}; jbShow(); });
+$("jb-tasks").addEventListener("click", e => { const b = e.target.closest(".chip5"); if (!b) return; jbSel[b.dataset.i] = b.dataset.v; jbShow(); });
+WS.custom("job_tasks", { el: $("jb-tasks"), value: () => jb ? jb + ": " + JOBS[jb].map((t, i) => t + (jbSel[i] === "d" ? "(🤖)" : jbSel[i] === "m" ? "(🙋)" : "")).join(", ") : "" });
+
+</script>
+</body>
+</html>

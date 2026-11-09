@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅴ-2-4 저작권 보호</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+<style>
+
+.pic-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
+.pic{background:#fff;border:1px solid #dfe6ea;border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.pic img{width:100%;border-radius:8px;display:block}
+.pic .choice-group{flex-wrap:wrap;justify-content:center}
+.pic .choice-btn{font-size:12px;padding:4px 8px}
+.ind{font-weight:900;font-size:14px;margin:12px 0 2px;color:#5b3d8f}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip5{border:1px solid #cdd6dd;background:#fff;border-radius:16px;padding:5px 11px;font:700 13px sans-serif;cursor:pointer}
+.chip5.on{background:#7a4fc4;color:#fff;border-color:#7a4fc4}
+.tl-row{display:grid;grid-template-columns:80px 1fr 1fr 34px;gap:6px;margin:4px 0;align-items:center}
+.tl-row input,.tl-row select{width:100%;box-sizing:border-box;padding:6px;border:1px solid #cfd8de;border-radius:8px;font:600 13px sans-serif}
+@media(max-width:520px){.tl-row{grid-template-columns:70px 1fr 34px}.tl-row .tl-tech{grid-column:2/3}}
+.pn{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pn .card5{border-radius:12px;padding:10px;background:#fff;border:1px solid #e0e4ea;font-size:13px;line-height:1.5}
+.pn .card5 b{display:block;font-size:14px;margin-bottom:3px}
+.meter5{height:16px;border-radius:9px;background:#eee;overflow:hidden;display:flex}
+.meter5 i{display:block;height:100%}
+.msg{border:1px solid #d7dde3;border-radius:14px;background:#fff;padding:10px 12px;margin:8px 0;font-size:13.5px;line-height:1.5}
+.msg .from{font-size:12px;color:#66727c;font-weight:800}
+.hot{position:relative;display:inline-block;max-width:100%}
+.hot img{display:block;max-width:100%;border-radius:10px}
+.hot .spot{position:absolute;border:2.5px dashed transparent;border-radius:10px;cursor:pointer;background:transparent}
+.hot .spot.found{border-color:#e5484d;background:rgba(229,72,77,.12)}
+
+</style>
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/5">← KISPP · 중학교 정보 Ⅴ. 디지털 문화</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p236-cc.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅴ. 디지털 문화 · 2. 디지털 윤리 <span class="pg" style="margin:0">234~237쪽 · 수행 활동 241쪽</span></span>
+      <h1>저작권<br><span>보호</span></h1>
+      <p>커버 댄스 영상, 30초짜리 배경 음악, 인공지능으로 그린 그림 — 모두 마음대로 써도 될까? 저작권의 의미를 알고, CC 라이선스 조건을 직접 조합해 보며, 교과서 엔트리 ○× 퀴즈 프로그램을 풀고 나만의 문제를 추가해 보자.</p>
+      <div class="goal">🎯 학습 목표 — 저작권의 의미와 저작권 보호의 필요성을 설명하고, 디지털 저작물의 올바른 이용 방법을 실천할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">1. 저작권의 의미와 저작권 보호의 필요성</span>창작한 사람의 권리 <span class="pg">234쪽</span></div>
+    <div class="book"><p><b>저작권</b>이란 저작물을 만든 사람의 노력과 가치를 인정하고 권리를 보호하기 위해 저작자가 자신의 저작물에 관하여 가지는 권리이다. 저작물이란 개인의 생각과 감정을 일정한 형식에 담아 직접 표현하거나 창작한 모든 것을 말한다. 저작물의 종류에는 어문(소설·시·각본), 음악, 연극, 미술(회화·서예·조각), 건축(건축물·설계도), 사진, 영상, 도형(지도·도표), 컴퓨터 프로그램이 있으며, 이 밖에도 저작물의 요건을 갖추면 저작물로 인정된다.</p>
+    <p>저작권자의 권리를 보장하고, 문화 및 관련 산업의 발전을 위해 저작권 보호는 매우 중요하다. 저작권자의 허락 없이 저작물을 이용하는 것은 저작권자의 비용과 노력을 침해하는 행위로 법률에 따라 처벌받을 수 있다. 예를 들어, 인터넷에서 저작권이 있는 저작물을 불법으로 내려받아 허락 없이 사용하면 저작권 침해로 이어질 수 있다.</p></div>
+    <div class="q" data-why="저작권의 보호를 받지 못하는 것: 헌법·법률·조례·규칙 등, 법원의 판결·명령 등, 단순한 사실 전달에 불과한 시사 보도 등">
+      <div class="q-text"><span class="q-num">1</span>저작권으로 보호받을까?</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">친구가 직접 쓴 시</td><td><span class="choice-group" data-key="wk1" data-answer="O"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">내가 엔트리로 만든 게임 프로그램</td><td><span class="choice-group" data-key="wk2" data-answer="O"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">건축가가 그린 건물 설계도</td><td><span class="choice-group" data-key="wk3" data-answer="O"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">우리 동네 지도</td><td><span class="choice-group" data-key="wk4" data-answer="O"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">헌법, 법률, 조례, 규칙</td><td><span class="choice-group" data-key="wk5" data-answer="X"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">법원의 판결, 명령</td><td><span class="choice-group" data-key="wk6" data-answer="X"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr><tr><td style="text-align:left">‘오늘 서울의 최고 기온은 25 ℃였다.’ 같은 단순한 사실 전달에 불과한 시사 보도</td><td><span class="choice-group" data-key="wk7" data-answer="X"><button type="button" class="choice-btn" data-value="O">보호받는다</button><button type="button" class="choice-btn" data-value="X">보호받지 못한다</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+<figure class="fig" style="max-width:420px"><img src="img/p234-need.jpg" alt="[그림 Ⅴ-4] 저작권 보호의 필요성"><figcaption><span class="tb">234쪽</span>[그림 Ⅴ-4] 저작권 보호의 필요성</figcaption></figure>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">2</span>저작권 보호의 필요성과 설명을 연결해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">저작자의 아이디어나 생각을 공유하며 사회 구성원들 간의 공감대를 형성하고 소통할 수 있다.</td><td><span class="choice-group" data-key="nd1" data-answer="com"><button type="button" class="choice-btn" data-value="com">사회 구성원 간의 소통과 통합</button><button type="button" class="choice-btn" data-value="ind">문화 산업 발전</button><button type="button" class="choice-btn" data-value="per">저작자의 인격 존중</button><button type="button" class="choice-btn" data-value="eco">경제적 가치</button></span></td></tr><tr><td style="text-align:left">우수한 콘텐츠를 만들어 문화 산업을 발전시킬 수 있다.</td><td><span class="choice-group" data-key="nd2" data-answer="ind"><button type="button" class="choice-btn" data-value="com">사회 구성원 간의 소통과 통합</button><button type="button" class="choice-btn" data-value="ind">문화 산업 발전</button><button type="button" class="choice-btn" data-value="per">저작자의 인격 존중</button><button type="button" class="choice-btn" data-value="eco">경제적 가치</button></span></td></tr><tr><td style="text-align:left">저작자의 창의성과 아이디어를 존중하며 소통과 통합에 기여할 수 있다.</td><td><span class="choice-group" data-key="nd3" data-answer="per"><button type="button" class="choice-btn" data-value="com">사회 구성원 간의 소통과 통합</button><button type="button" class="choice-btn" data-value="ind">문화 산업 발전</button><button type="button" class="choice-btn" data-value="per">저작자의 인격 존중</button><button type="button" class="choice-btn" data-value="eco">경제적 가치</button></span></td></tr><tr><td style="text-align:left">저작물의 정당한 대가를 인정하여 창작 의욕을 북돋워 더 좋은 작품을 만들어 낼 수 있다.</td><td><span class="choice-group" data-key="nd4" data-answer="eco"><button type="button" class="choice-btn" data-value="com">사회 구성원 간의 소통과 통합</button><button type="button" class="choice-btn" data-value="ind">문화 산업 발전</button><button type="button" class="choice-btn" data-value="per">저작자의 인격 존중</button><button type="button" class="choice-btn" data-value="eco">경제적 가치</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">해 보기 · 모둠 / 지식 충전소</span>인공지능이 만들어 낸 결과물의 저작권 · 알쏭달쏭 저작권 ○× 문제 <span class="pg">235쪽</span></div>
+    <div class="book"><p>최근 인공지능을 이용하여 그린 만화의 저작권이 등록되었다. 원칙적으로 저작권의 인정은 사람이 직접 창작한 것이어야 하기 때문에 인공지능이 생성한 그림은 제외하고 사람이 구상한 이야기와 그림의 구성만 저작권으로 등록되었다.</p></div>
+    <div class="q" data-why="원칙적으로 저작권은 사람이 직접 창작한 것이어야 인정돼요.">
+      <div class="q-text"><span class="q-num">1</span>인공지능을 이용해 그린 만화에서 저작권으로 등록된 것은 <span class="choice-group" data-key="ai1" data-answer="hum"><button type="button" class="choice-btn" data-value="hum">사람이 구상한 이야기와 그림의 구성</button><button type="button" class="choice-btn" data-value="ai">인공지능이 생성한 그림</button><button type="button" class="choice-btn" data-value="all">만화 전체</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>인공지능 기술을 이용하여 내가 직접 만든 작품은 누구에게 저작권이 있을까? 또 어디까지 내 저작권을 인정받을 수 있을까? 친구들과 토론한 뒤 내 생각을 써 보자.</div><textarea class="free" data-key="aic" rows="3" data-keywords="사람,구상,기획,시도,수정,인정" data-model="인공지능이 자동으로 생성했더라도 저작권자가 구상하고, 하나의 작품을 만들어 내기 위해 여러 번의 시도를 하고 수정하는 등 많은 시간을 들여 만들었기 때문에 인정해 주어야 한다. 하지만 구상이나 기획까지만 인정하고 생성된 작품은 사람이 직접 창작한 것이 아니기에 인정될 수 없다."></textarea><span class="fb"></span></div>
+    <div class="q" data-why="커버 송·댄스도 복제권·2차적 저작물 작성권·전송권 침해가 될 수 있어요. 30초 미만 음원도 목적에 따라 위반이 될 수 있어요. 애국가의 저작권은 국가에 기증되어 누구나 이용할 수 있어요. 캐릭터는 원저작물과 별도로 독립된 저작물로 보호돼요.">
+      <div class="q-text"><span class="q-num">3</span><b>알쏭달쏭 저작권 ○× 문제</b></div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">유행하는 커버 송, 커버 댄스는 상업적 목적이 아니라면 자유롭게 게시할 수 있다.</td><td><span class="choice-group" data-key="ox1" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">30초 미만의 짧은 음원 사용도 저작권 침해에 해당한다.</td><td><span class="choice-group" data-key="ox2" data-answer="O"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">영상 제작에 애국가를 이용하려면 저작권자의 허락을 받아야 한다.</td><td><span class="choice-group" data-key="ox3" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr><tr><td style="text-align:left">누구나 알고 있는 캐릭터는 제약 없이 쓸 수 있다.</td><td><span class="choice-group" data-key="ox4" data-answer="X"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="concept sim">
+    <div class="card-title"><span class="badge sim">2. 저작물을 이용하는 방법</span>CC 라이선스와 공공누리 <span class="pg">236쪽</span></div>
+    <div class="book"><p>저작물은 저작권자에게 허락을 받고 사용해야 하지만, <b>CC 라이선스</b>(CCL: Creative Commons License)가 있는 저작물은 조건에 따라 이용할 수 있다. CC 라이선스는 원칙적으로 모든 사람에게 저작물을 자유롭게 이용하도록 허용하지만, 저작권자의 권리를 보호하기 위해 저작권자의 의사에 따라 몇 가지 부가적인 이용 방법과 조건을 제시하고 있다.</p></div>
+<figure class="fig" style="max-width:470px"><img src="img/p236-cc.jpg" alt="[그림 Ⅴ-5] CC 라이선스"><figcaption><span class="tb">236쪽</span>[그림 Ⅴ-5] CC 라이선스</figcaption></figure>
+    <div class="light-stage" style="padding:12px"><b style="font-size:13.5px">🧪 CC 라이선스 만들기 — 내가 그린 그림에 붙일 조건을 골라 보자. 다른 사람이 할 수 있는 일이 바로 바뀐다.</b>
+      <div class="chips" id="cc-pick" style="margin-top:8px"></div>
+      <div id="cc-name" style="font:900 18px sans-serif;margin:6px 0;display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div>
+      <table class="data-t" id="cc-t"></table></div>
+    <div class="q" data-why="BY: 저작자 표시 / NC: 영리 목적 사용 금지 / ND: 2차적 저작물 작성·내용 변경 금지 / SA: 2차적 저작물에도 같은 라이선스 사용">
+      <div class="q-text"><span class="q-num">1</span>라이선스를 보고 이용할 수 있는지 판단해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left"><b>CC BY-NC-ND</b> 사진을 저작자를 밝히고 학교 발표 자료에 그대로 넣는다.</td><td><span class="choice-group" data-key="cc1" data-answer="O"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr><tr><td style="text-align:left"><b>CC BY-NC-ND</b> 사진에 글자를 넣어 새 포스터로 바꾼다.</td><td><span class="choice-group" data-key="cc2" data-answer="X"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr><tr><td style="text-align:left"><b>CC BY-NC</b> 그림을 넣은 티셔츠를 만들어 판매한다.</td><td><span class="choice-group" data-key="cc3" data-answer="X"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr><tr><td style="text-align:left"><b>CC BY</b> 음악을 저작자를 표시하고 내 영상의 배경 음악으로 쓴다.</td><td><span class="choice-group" data-key="cc4" data-answer="O"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr><tr><td style="text-align:left"><b>CC BY-SA</b> 그림을 고쳐 만든 새 그림을 <b>CC BY-SA</b>로 공유한다.</td><td><span class="choice-group" data-key="cc5" data-answer="O"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr><tr><td style="text-align:left"><b>CC BY-SA</b> 그림을 고쳐 만든 새 그림을 저작권 표시 없이 ‘모든 권리 보유’로 공개한다.</td><td><span class="choice-group" data-key="cc6" data-answer="X"><button type="button" class="choice-btn" data-value="O">가능</button><button type="button" class="choice-btn" data-value="X">불가능</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="book" style="margin-top:10px"><p>우리나라는 CC 라이선스와 같이 공공 저작물에 특화된 자유 이용 허락표시 제도인 <b>공공누리</b>가 있다. 이는 국가나 지방자치단체에서 업무상 작성하여 공표한 저작물과 계약에 따라 저작재산권의 전부를 보유한 저작물을 국민 누구나 별도의 이용허락 없이 자유롭게 이용할 수 있다. 공공누리는 ‘출처 표시’, ‘변경 금지’, ‘상업적 이용 금지’를 바탕으로 총 네 가지의 이용 허락 유형으로 구분할 수 있고 저작물의 출처 표시는 모든 유형에서 필수 사항이다.</p></div>
+<figure class="fig" style="max-width:470px"><img src="img/p236-kogl.jpg" alt="[표 Ⅴ-1] 공공누리"><figcaption><span class="tb">236쪽</span>[표 Ⅴ-1] 공공누리</figcaption></figure>
+    <div class="q" data-why="출처 표시는 모든 유형에서 필수예요.">
+      <div class="q-text"><span class="q-num">2</span>공공누리 유형을 골라 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">출처 표시 · 상업적, 비상업적 이용 가능 · 변형 등 2차적 저작물 작성 가능</td><td><span class="choice-group" data-key="kg1" data-answer="1"><button type="button" class="choice-btn" data-value="1">제1유형</button><button type="button" class="choice-btn" data-value="2">제2유형</button><button type="button" class="choice-btn" data-value="3">제3유형</button><button type="button" class="choice-btn" data-value="4">제4유형</button></span></td></tr><tr><td style="text-align:left">출처 표시 · 비상업적 이용만 가능 · 변형 등 2차적 저작물 작성 가능</td><td><span class="choice-group" data-key="kg2" data-answer="2"><button type="button" class="choice-btn" data-value="1">제1유형</button><button type="button" class="choice-btn" data-value="2">제2유형</button><button type="button" class="choice-btn" data-value="3">제3유형</button><button type="button" class="choice-btn" data-value="4">제4유형</button></span></td></tr><tr><td style="text-align:left">출처 표시 · 상업적, 비상업적 이용 가능 · 변형 등 2차적 저작물 작성 금지</td><td><span class="choice-group" data-key="kg3" data-answer="3"><button type="button" class="choice-btn" data-value="1">제1유형</button><button type="button" class="choice-btn" data-value="2">제2유형</button><button type="button" class="choice-btn" data-value="3">제3유형</button><button type="button" class="choice-btn" data-value="4">제4유형</button></span></td></tr><tr><td style="text-align:left">출처 표시 · 비상업적 이용만 가능 · 변형 등 2차적 저작물 작성 금지</td><td><span class="choice-group" data-key="kg4" data-answer="4"><button type="button" class="choice-btn" data-value="1">제1유형</button><button type="button" class="choice-btn" data-value="2">제2유형</button><button type="button" class="choice-btn" data-value="3">제3유형</button><button type="button" class="choice-btn" data-value="4">제4유형</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">3</span>공공누리의 모든 유형에서 필수 사항은 <span class="choice-group" data-key="kg5" data-answer="src"><button type="button" class="choice-btn" data-value="src">출처 표시</button><button type="button" class="choice-btn" data-value="nc">상업적 이용 금지</button><button type="button" class="choice-btn" data-value="nd">변경 금지</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 개별</span>저작권 ○× 문제 프로그램 만들기 <span class="pg">237쪽</span></div>
+    <div class="tip-box">엔트리로 만든 교과서 ○× 퀴즈 프로그램(237쪽)을 그대로 옮겼어요. ‘문제’, ‘정답’, ‘선택’ 리스트와 ‘카운트’, ‘점수’ 변수가 어떻게 바뀌는지 보며 풀어 보자. 문제를 다 풀면 정답 리스트와 풀이가 나와요.</div>
+    <div class="light-stage" style="padding:12px;background:#2f5d50;border-radius:14px">
+      <div style="text-align:center;min-height:112px"><img src="img/p237-q1.jpg" alt="" id="oqi1" style="display:none;height:110px;border-radius:8px"><img src="img/p237-q2.jpg" alt="" id="oqi2" style="display:none;height:110px;border-radius:8px"><img src="img/p237-q3.jpg" alt="" id="oqi3" style="display:none;height:110px;border-radius:8px"><img src="img/p237-q4.jpg" alt="" id="oqi4" style="display:none;height:110px;border-radius:8px"><img src="img/p237-q5.jpg" alt="" id="oqi5" style="display:none;height:110px;border-radius:8px"><img src="img/p237-q6.jpg" alt="" id="oqi6" style="display:none;height:110px;border-radius:8px"></div>
+      <div id="oq-q" style="background:#3e7464;color:#fff;border-radius:10px;padding:12px;font:800 15px/1.5 sans-serif;text-align:center;min-height:60px">문제가 나오면 ◯, ×를 선택하세요. 총 <span id="oq-n">6</span>문제가 나옵니다.</div>
+      <div class="btn-row" style="justify-content:center"><button type="button" class="btn" id="oq-o" style="font-size:24px;min-width:74px;background:#f2b632;color:#fff">◯</button><button type="button" class="btn" id="oq-x" style="font-size:24px;min-width:74px;background:#e5484d;color:#fff">×</button><button type="button" class="btn small" id="oq-start" style="background:#fff">▶ 시작하기</button></div>
+      <div id="oq-var" style="text-align:center;color:#ffe9a8;font:800 13px sans-serif"></div></div>
+    <div id="oq-lists" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:8px 0"></div>
+    <div id="oq-exp"></div>
+    <div id="oq-code"></div>
+    <div class="q" data-why="문제가 6 개이므로 카운트가 6보다 커지면(7이 되면) 모든 문제를 푼 거예요.">
+      <div class="q-text"><span class="q-num">1</span>◯ 또는 × 버튼을 누르면 ‘선택’ 리스트의 ‘카운트’ 번째에 값을 넣고 ‘카운트’에 <input class="blank w-s" data-key="oc1" data-num="1" data-abs="0" style="width:40px">만큼 더한다. ‘카운트’ 값이 <input class="blank w-s" data-key="oc2" data-num="6" data-abs="0" style="width:40px">보다 크면 ‘점수 확인’ 신호를, 아니면 ‘다음 문제’ 신호를 보낸다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>‘점수 확인’ 신호를 받으면 <input class="blank w-s" data-key="oc3" data-num="6" data-abs="0" style="width:40px">번 반복하며 ‘정답’ 리스트와 ‘선택’ 리스트의 ‘카운트’번째 항목이 <span class="choice-group" data-key="oc4" data-answer="eq"><button type="button" class="choice-btn" data-value="eq">같으면</button><button type="button" class="choice-btn" data-value="ne">다르면</button></span> ‘점수’에 1을 더한다. 이 퀴즈의 ‘정답’ 리스트는 [◯, ×, ×, ◯, <span class="choice-group" data-key="oc5" data-answer="O"><button type="button" class="choice-btn" data-value="O">◯</button><button type="button" class="choice-btn" data-value="X">×</button></span>, ×]이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="light-stage" style="padding:12px"><b style="font-size:13.5px">✍️ 나만의 저작권 문제 추가하기</b> — ‘문제’와 ‘정답’ 리스트에 항목을 추가하면 프로그램의 반복 횟수와 비교 값도 함께 바뀌어요.
+      <input id="my-q" placeholder="예) 유료로 산 글꼴은 어디에든 마음대로 써도 된다." style="width:100%;box-sizing:border-box;padding:8px;border:1px solid #cfd8de;border-radius:8px;font:600 13px sans-serif;margin-top:6px">
+      <div class="btn-row"><span class="choice-group" id="selfAns"><button type="button" class="choice-btn" data-value="O">정답 ◯</button><button type="button" class="choice-btn" data-value="X">정답 ×</button></span><button type="button" class="btn small" id="my-add">＋ 리스트에 추가</button><button type="button" class="btn ghost small" id="my-clear">처음 6 문제로</button></div>
+      <div class="tip-box" id="my-msg">문제를 추가한 뒤 위의 ▶ 시작하기를 눌러 친구에게 풀어 보게 해 보세요.</div></div>
+  </section>
+  <section class="card" data-part="lab">
+    <div class="card-title"><span class="badge lab">과정 중심의 수행 활동 2 · 모둠</span>인공지능이 생성한 그림 문제에 대해 토론하기 <span class="pg">241쪽</span></div>
+    <div class="book"><p>‘콜로라도 주립 박람회 미술전’의 디지털 아트 부문에서 게임 기획자인 제이슨 M. 앨런이 인공지능으로 생성한 작품 ‘스페이스 오페라 극장’이 대회에서 1위를 차지하였다. ‘스페이스 오페라 극장’은 글을 입력하면 그에 따른 이미지로 변환시켜 주는 인공지능 생성 프로그램으로 만든 작품으로 많은 사람들이 이 사실을 알게 되면서 논란이 커졌다. 반대하는 사람들은 인공지능이 만든 작품을 예술로 볼 수 없고, 예술가가 단 한 번의 붓질도 하지 않은 작품이 우승을 차지하는 것은 정당하지 않다고 주장하였다. 앨런은 자신은 대회에 작품을 제출할 때 인공지능 생성 프로그램을 사용했다고 명시한 만큼 출처를 밝혔으며, 대회에 제출한 작품 세 점을 얻으려고 80시간이 넘게 걸렸고 그 어떤 규칙도 어기지 않았다고 항변하였다. 미술전 디지털 아트 부문은 규정에서 디지털 기술을 활용하거나 색깔을 조정하는 등 디지털 방식으로 이미지를 편집하는 행위를 인정하기 때문이다.</p></div>
+    <div class="tip-box"><b>논제</b> 인공지능 기술을 하나의 예술 도구로 인정하고 사용할 때이다.</div>
+    <div class="q"><div class="q-text"><span class="q-num">1</span>토론에서 맡은 입장</div><div class="btn-row"><span class="choice-group" id="selfSide"><button type="button" class="choice-btn" data-value="찬성">찬성</button><button type="button" class="choice-btn" data-value="반대">반대</button></span></div></div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span><b>찬성</b> 측의 주장과 근거를 작성해 보자.</div><textarea class="free" data-key="pro" rows="3" data-keywords="도구,시간,규칙,출처,카메라,창의" data-model="주장: 인공지능은 붓이나 카메라처럼 새로운 예술 도구이다. 근거: 앨런은 80시간 넘게 프롬프트를 고치고 작품을 골라 편집했으며, 출처를 밝혔고 대회 규칙도 어기지 않았다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">3</span><b>반대</b> 측의 주장과 근거를 작성해 보자.</div><textarea class="free" data-key="con" rows="3" data-keywords="직접,붓질,창작,공정,학습,저작권" data-model="주장: 인공지능이 만든 그림을 사람의 예술 작품과 같은 기준으로 평가해서는 안 된다. 근거: 그림을 실제로 그린 것은 인공지능이고, 인공지능은 다른 작가들의 그림을 학습해 만들어져 저작권 문제도 있으며, 직접 그린 참가자에게 공정하지 않다."></textarea><span class="fb"></span></div>
+    <div class="q"><div class="q-text"><span class="q-num">4</span>토론한 내용을 바탕으로 찬성과 반대의 입장을 종합하여 결론을 작성해 보자.</div><textarea class="free" data-key="conc" rows="3" data-keywords="종합,구분,부문,표시,규칙" data-model="결론: 인공지능을 예술 도구로 인정하되, 인공지능 사용 여부를 반드시 밝히고 인공지능 작품 부문을 따로 두는 등 공정한 규칙을 마련해야 한다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>저작권 보호 <span class="pg">234~237쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>저작권의 의미</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text"><input class="blank w-s" data-key="s1" data-answer="저작권" style="width:50px">(이)란 저작물을 만든 사람의 노력과 가치를 인정하고 권리를 보호하기 위해 저작자가 자신의 저작물에 관하여 가지는 권리이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="sum-sheet">
+      <h4><span class="n">2</span>저작물을 이용하는 방법</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">저작물은 저작권자에게 허락을 받고 사용해야 하지만 <input class="blank w-s" data-key="s2" data-answer="CC 라이선스|CC라이선스|CCL|cc 라이선스" style="width:90px">가 있는 저작물은 조건에 따라 이용할 수 있다. 우리나라의 공공 저작물 자유 이용 허락표시 제도는 <input class="blank w-s" data-key="s3" data-answer="공공누리" style="width:70px">이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">저작권의 의미와 저작권 보호의 필요성을 설명할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">디지털 저작물의 올바른 이용 방법을 실천할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">디지털 사회에서 발생하는 문제에 대해 친구의 의견을 존중하며 토론하였는가?</td><td><span class="choice-group" id="self3"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅴ. 디지털 문화 · 저작권 보호(234~237쪽)·수행 활동 2(241쪽) · 비상교육 중학교 정보 교과서 바탕, 교과서 그림·엔트리 프로젝트 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../in1-3/codelab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅴ-2-4 저작권 보호";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* CC 라이선스 만들기 */
+const CCD = { by: ["BY", "저작자 표시", "cc-by"], nc: ["NC", "비영리", "cc-nc"], nd: ["ND", "변경 금지", "cc-nd"], sa: ["SA", "동일 조건 변경 허락", "cc-sa"] };
+let cc = { by: true, nc: false, nd: false, sa: false }; const ccSeen = new Set();
+const USE = [["저작자를 밝히고 블로그에 그대로 올린다", c => true], ["저작자를 밝히지 않고 올린다", c => false], ["광고 포스터(돈을 버는 목적)에 쓴다", c => !c.nc], ["그림을 잘라 편집해 새 작품을 만든다", c => !c.nd], ["편집한 새 작품을 원래와 다른 라이선스로 공유한다", c => !c.nd && !c.sa]];
+$("cc-pick").innerHTML = Object.keys(CCD).map(k => `<button type="button" class="chip5" data-k="${k}" style="display:flex;gap:5px;align-items:center"><img src="img/${CCD[k][2]}.jpg" alt="" style="width:22px;height:22px;border-radius:50%">${CCD[k][0]} ${CCD[k][1]}</button>`).join("");
+function ccShow() { document.querySelectorAll("#cc-pick .chip5").forEach(b => b.classList.toggle("on", cc[b.dataset.k]));
+  const ks = Object.keys(CCD).filter(k => cc[k]), nm = "CC " + ks.map(k => CCD[k][0]).join("-"); ccSeen.add(nm);
+  $("cc-name").innerHTML = ks.map(k => `<img src="img/${CCD[k][2]}.jpg" alt="${CCD[k][0]}" style="width:34px;height:34px;border-radius:50%">`).join("") + `<span>${nm}</span>`;
+  $("cc-t").innerHTML = "<tr><th style='text-align:left'>다른 사람이…</th><th>할 수 있을까?</th></tr>" + USE.map(([t, f]) => `<tr><td style="text-align:left">${t}</td><td style="font-size:18px">${f(cc) ? "✅" : "❌"}</td></tr>`).join(""); }
+$("cc-pick").addEventListener("click", e => { const b = e.target.closest(".chip5"); if (!b) return; const k = b.dataset.k; if (k === "by") { alert("BY(저작자 표시)는 모든 CC 라이선스에 들어가는 기본 조건이에요."); return; }
+  cc[k] = !cc[k]; if (k === "nd" && cc.nd) cc.sa = false; if (k === "sa" && cc.sa) cc.nd = false; ccShow(); });
+ccShow(); WS.custom("cc_seen", { el: $("cc-t"), value: () => [...ccSeen].join(",") });
+/* 저작권 ○× 퀴즈 (엔트리 프로젝트 237쪽 그대로) */
+const Q0 = ["나만의 촬영 기법을 이용하여 찍은 사진 작품을 다른 사람이 무단으로 이용하였다면 저작권 침해를 주장할 수 있다.", "서점에서 구매한 참고서의 문제를 개인 학원 교재로 사용할 수 있다.", "동화책의 그림을 샌드 아트로 이용하고 이를 영상으로 제작해 동영상 공유 사이트에 게시할 수 있다.", "외국인을 대상으로 1962년 이전에 촬영된 국내 고전 영화를 소개할 때에는 저작권자의 허락 없이 이용할 수 있다.", "정부 표준 영정 이미지를 이용해 달력으로 제작하려면 저작권자의 허락을 받아야 한다.", "간판업체를 통해 간판을 제작하였는데 간판에 쓰인 서체가 저작권 침해라는 연락을 받았다. 이때에는 서체 사용료를 지불하고 손해를 배상해야 한다."];
+const A0 = ["O", "X", "X", "O", "O", "X"];
+const E0 = ["자신만의 구도로 촬영하여 사진의 창작성이 인정된다면 저작물로 보호받을 수 있다.", "질문의 표현이나 제시된 답안에 최소한의 창작성이 인정된다면 저작권법상 보호되는 저작물에 해당할 수 있다.", "새로운 창작성이 추가되면 2차적 저작물, 그렇지 않으면 단순 복제에 해당하며, 영상으로 제작해 게시하려면 반드시 저작권자의 허락이 필요하다.", "1962년 이전에 저작권자가 사망했거나 공표된 영상 저작물은 이미 보호 기간이 만료되어 자유롭게 이용할 수 있다.", "정부 표준 영정의 저작권은 여전히 화가 또는 유족 및 재단 등에 있으므로 저작재산권자의 허락이 필요하다.", "간판 업체와 정식 계약을 통해 비용을 지불하고 제작했다면 저작권법에 대한 책임이 없다."];
+let QQ = Q0.slice(), QA = A0.slice(), QE = E0.slice(); let oq = { c: 0, sel: [], score: null }, oqDone = "";
+const SYM = v => v === "O" ? "◯" : "×";
+function LB(t, a, hi) { return `<table class="data-t" style="width:auto;font-size:12px"><tr><th colspan="2" style="background:#d35ad6;color:#fff">${t}</th></tr>${a.map((v, i) => `<tr${i === hi ? ' style="background:#fff3c4"' : ""}><td>${i + 1}</td><td style="text-align:left">${v}</td></tr>`).join("")}<tr><td colspan="2" style="font-size:11px">길이 ${a.length}</td></tr></table>`; }
+function code() { const n = QQ.length; $("oq-code").innerHTML = CL.blocks([["start", "▶ 시작하기 버튼을 클릭했을 때 (글 상자)", [["var", "<b>카운트</b> 를 <b>1</b> (으)로 정하기"], ["flow", "<b>2</b> 초 기다리기"], ["start", "<b>다음 문제</b> 신호 보내기"]]],
+  ["start", "<b>다음 문제</b> 신호를 받았을 때", [["look", "<b>문제</b> 의 <b>카운트</b> 값 번째 항목 라고 글쓰기"]]],
+  ["start", "오브젝트를 클릭했을 때 (◯ 버튼)", [["list", "<b>O</b> 을(를) <b>선택</b> 의 <b>카운트</b> 값 번째에 넣기"], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"], ["flow", `만일 <b>카운트</b> 값 > <b>${n}</b> (이)라면`, [["start", "<b>점수 확인</b> 신호 보내기"]], "아니면", [["start", "<b>다음 문제</b> 신호 보내기"]]]]],
+  ["start", "<b>점수 확인</b> 신호를 받았을 때", [["list", "리스트 <b>정답</b> 보이기 · 리스트 <b>선택</b> 보이기"], ["var", "<b>점수</b> 를 <b>0</b> (으)로 정하기 · <b>카운트</b> 를 <b>1</b> (으)로 정하기"], ["flow", `<b>${n}</b> 번 반복하기`, [["flow", "만일 <b>정답</b> 의 <b>카운트</b> 번째 항목 = <b>선택</b> 의 <b>카운트</b> 번째 항목 (이)라면", [["var", "<b>점수</b> 에 <b>1</b> 만큼 더하기"]]], ["var", "<b>카운트</b> 에 <b>1</b> 만큼 더하기"]]], ["look", "<b>정답 개수는</b> 과(와) <b>점수</b> 값 을(를) 합친 값 라고 글쓰기"]]]]); if ($("oq-n")) $("oq-n").textContent = n; }
+function oqShow() { const n = oq.c; for (let i = 1; i <= 6; i++) $("oqi" + i).style.display = n === i && oq.score == null ? "" : "none";
+  $("oq-q").innerHTML = oq.score != null ? `🎉 정답 개수는 <b>${oq.score}</b>` : n >= 1 ? `<b>${n}.</b> ${QQ[n - 1]}` : `문제가 나오면 ◯, ×를 선택하세요. 총 <span id="oq-n">${QQ.length}</span>문제가 나옵니다.`;
+  $("oq-lists").innerHTML = LB("문제", QQ.map(q => q.slice(0, 10) + "…"), n - 1) + (oq.score != null ? LB("정답", QA.map(SYM)) : "") + LB("선택", oq.sel.map(SYM), oq.sel.length - 1);
+  $("oq-var").textContent = `카운트 = ${n}` + (oq.score != null ? ` · 점수 = ${oq.score}` : "");
+  $("oq-exp").innerHTML = oq.score != null ? QQ.map((q, i) => `<div class="msg" style="margin:4px 0;border-left:5px solid ${QA[i] === oq.sel[i] ? "#2f9e5b" : "#e5484d"}"><b>${i + 1}. 정답 ${SYM(QA[i])}</b> (내 선택 ${SYM(oq.sel[i])}) ${QE[i] || ""}</div>`).join("") : ""; }
+$("oq-start").addEventListener("click", () => { oq = { c: 1, sel: [], score: null }; oqShow(); });
+function pick(v) { if (oq.c < 1 || oq.score != null) return; oq.sel[oq.c - 1] = v; oq.c++; if (oq.c > QQ.length) { oq.score = QA.filter((a, i) => a === oq.sel[i]).length; oqDone = oq.sel.join("") + "=" + oq.score + "/" + QQ.length; } oqShow(); }
+$("oq-o").addEventListener("click", () => pick("O")); $("oq-x").addEventListener("click", () => pick("X")); code(); oqShow();
+WS.custom("oq", { el: $("oq-q"), value: () => oqDone, check: () => oqDone ? true : null, answer: "퀴즈를 끝까지 풀기" });
+$("my-add").addEventListener("click", () => { const t = $("my-q").value.trim(), a = picked("selfAns")(); if (!t || !a) { $("my-msg").textContent = "문제를 쓰고 정답(◯ 또는 ×)을 골라 주세요."; return; } if (QQ.length >= 10) { $("my-msg").textContent = "문제는 10 개까지 넣을 수 있어요."; return; }
+  QQ.push(t); QA.push(a); QE.push("내가 만든 문제"); $("my-q").value = ""; oq = { c: 0, sel: [], score: null }; code(); oqShow(); $("my-msg").innerHTML = `‘문제’ 리스트에 추가했어요. 이제 문제가 <b>${QQ.length}</b> 개라서 블록의 비교 값과 반복 횟수도 <b>${QQ.length}</b>(으)로 바뀌었어요.`; });
+$("my-clear").addEventListener("click", () => { QQ = Q0.slice(); QA = A0.slice(); QE = E0.slice(); oq = { c: 0, sel: [], score: null }; code(); oqShow(); $("my-msg").textContent = "처음 6 문제로 되돌렸어요."; });
+WS.custom("myq", { el: $("my-q"), value: () => QQ.slice(6).map((q, i) => q + "(" + SYM(QA[6 + i]) + ")").join(" | ") });
+
+</script>
+</body>
+</html>

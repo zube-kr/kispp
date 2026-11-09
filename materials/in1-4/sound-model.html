@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../../js/config.js"></script>
+<script src="../../js/part-view.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보 Ⅳ-2-2 소리 데이터를 이용한 웃음 계수 시스템</title>
+<link rel="stylesheet" href="../../js/ws-kit.css">
+<link rel="stylesheet" href="../g1-3/livebook.css">
+</head>
+<body data-submit="full">
+<div class="wrap">
+  <a class="kispp-back" href="../../index.html#/in1/4">← KISPP · 중학교 정보 Ⅳ. 인공지능</a>
+
+  <div class="lb-hero">
+    <img class="bg" src="img/p187-laugh.jpg" alt="">
+    <div class="in">
+      <span class="chip">살아있는 교과서 · Ⅳ. 인공지능 · 2. 인공지능과 문제 해결 <span class="pg" style="margin:0">186~191쪽</span></span>
+      <h1>소리 데이터를 이용한<br><span>웃음 계수 시스템</span></h1>
+      <p>웃음, 화남, 울음, 생활 소음을 들려주며 학습한 소리 분류 모델이 웃을 때마다 횟수를 센다. 교과서 소리 데이터로 모델을 학습시키고 평가한 뒤, 내 목소리도 녹음해 넣어 보고, 사이렌을 알아듣는 긴급 차량 알림도 만들어 보자.</p>
+      <div class="goal">🎯 학습 목표 — 소리 데이터를 분류하는 인공지능 모델을 생성하고, 소리 분류 모델을 활용하여 웃음 계수 시스템을 구현할 수 있다.</div>
+    </div>
+  </div>
+
+  <section class="card" data-part="concept">
+    <div class="card-title"><span class="badge concept">1. 소리 데이터의 분류</span>소리 분류 모델 <span class="pg">186쪽</span></div>
+    <div class="book"><p><span class="key">소리 분류 모델</span>은 소리 데이터의 특성을 분석하여 특정 소리가 어떤 범주나 클래스에 해당하는지 예측하는 모델이다. 예를 들어 음성 인식 음식 주문 단말기에 메뉴의 소리 데이터를 충분히 학습시키면 주문자가 말한 메뉴를 인식할 수 있게 된다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><figure class="fig"><img src="img/p186-speaker.jpg" alt="인공지능 스피커의 음성 인식"><figcaption><span class="tb">186쪽</span>인공지능 스피커의 음성 인식</figcaption></figure><figure class="fig"><img src="img/p186-patient.jpg" alt="환자의 숨소리와 기침 소리로 상태 진단"><figcaption><span class="tb">186쪽</span>환자의 숨소리와 기침 소리로 상태 진단</figcaption></figure></div>
+    <div class="tip-box"><b>이 페이지의 모델은 무엇을 들을까?</b> 소리를 짧은 조각으로 잘라 낮은 소리~높은 소리 22 구간의 세기를 재고, 구간마다 <b>평균 세기</b>, <b>흔들림</b>, <b>변화량</b>을 숫자로 바꾸어 가장 비슷한 훈련 소리를 찾아요. 아래에서 소리의 모양(스펙트로그램)을 직접 볼 수 있어요.</div>
+    <canvas id="sp-cv" class="cl-cv" style="background:#111"></canvas>
+    <div class="btn-row" style="justify-content:center" id="sp-btn"></div>
+    <div class="q" data-hint="단추를 눌러 소리를 들으며 모양을 비교해 보세요.">
+      <div class="q-text"><span class="q-num">1</span>소리의 모양을 비교해 보면 사이렌 소리는 <span class="choice-group" data-key="sp1" data-answer="line"><button type="button" class="choice-btn" data-value="line">높이가 오르내리는 선이 또렷하게 반복된다</button><button type="button" class="choice-btn" data-value="flat">모든 높이가 고르게 퍼져 있다</button></span>. 소리 분류 모델은 이런 소리의 <span class="choice-group" data-key="sp2" data-answer="feat"><button type="button" class="choice-btn" data-value="feat">특성(주파수별 세기와 변화)</button><button type="button" class="choice-btn" data-value="name">파일 이름</button></span>을 분석하여 클래스를 예측한다.</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">2~4. 문제 파악하기 · 데이터 수집 · 모델 생성 및 평가</span>소리 데이터를 이용한 웃음 계수 시스템 <span class="pg">187~189쪽</span></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><figure class="fig"><img src="img/p187-laugh.jpg" alt="“웃으면 엔도르핀이 나와 건강에 도움이 된다고 합니다.”"><figcaption><span class="tb">187쪽</span>“웃으면 엔도르핀이 나와 건강에 도움이 된다고 합니다.”</figcaption></figure><figure class="fig"><img src="img/p187-laugh2.jpg" alt="“웃음 횟수를 세어 주는 인공지능 모델을 만들어 볼까?”"><figcaption><span class="tb">187쪽</span>“웃음 횟수를 세어 주는 인공지능 모델을 만들어 볼까?”</figcaption></figure></div>
+    <div class="book"><p><b>문제 정의</b> 웃음, 화남, 울음, 생활 소음의 소리를 학습시켜 웃을 때마다 횟수를 세어 알려 주는 프로그램 만들기. 인공지능 모델이 웃는 소리를 판별할 수 있도록 다양한 소리 데이터를 수집하고 잘못된 데이터를 삭제한 후 레이블링한다. 엔트리에서는 클래스마다 다섯 개 이상의 소리 데이터를 업로드한다.</p></div>
+    <div id="lg-lab"></div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>웃음 계수 모델의 클래스는 <input class="blank w-s" data-key="lg1" data-num="4" data-abs="0" style="width:40px"> 개이다. ‘웃음’만 학습시키지 않고 화남, 울음, 생활 소음도 함께 학습시키는 까닭은 <span class="choice-group" data-key="lg2" data-answer="other"><button type="button" class="choice-btn" data-value="other">웃음이 아닌 소리를 웃음과 구별하기 위해서</button><button type="button" class="choice-btn" data-value="more">웃음 데이터가 부족해서</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q"><div class="q-text"><span class="q-num">2</span>모델을 평가한 정확도와, 어떤 소리를 어떤 소리로 헷갈렸는지 써 보자. 성능을 높이려면 어떻게 해야 할까?</div><textarea class="free" data-key="lgacc" rows="3" data-keywords="정확도,%,울음,화남,데이터,추가,녹음" data-model="정확도 64 %. 울음 소리 3 개 중 2 개를 웃음으로 잘못 분류했다. 둘 다 높은 목소리가 끊어졌다 이어지는 소리라 비슷하게 판단한 것 같다. 클래스마다 훈련 데이터를 더 모으고(🎤 녹음 추가), 다양한 사람의 웃음·울음을 넣어 다시 학습시킨다."></textarea><span class="fb"></span></div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge sim">5. 모델 활용</span>웃음 횟수를 알려 주는 프로그램 <span class="pg">190쪽</span></div>
+    <div class="book"><p>➊ 소리를 입력받아 분류 결과를 확인한다. ➋ 분류 결과가 웃음이면 ‘웃음 횟수’에 1을 더하고, 웃음 횟수를 음성으로 안내한다.</p></div>
+    <div class="fig-row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:start">
+      <div class="light-stage" style="padding:12px;text-align:center"><div style="font-size:46px" id="lc-face">🤖</div><div style="font:900 30px sans-serif;color:#e8742a">웃음 횟수 <span id="lc-n">0</span></div>
+        <div class="btn-row" style="justify-content:center"><button type="button" class="btn small main" id="lc-file">🎵 테스트 소리 하나 들려주기</button><button type="button" class="btn small" id="lc-mic">🎤 2초 녹음해서 들려주기</button><button type="button" class="btn ghost small" id="lc-zero">⟲ 0으로</button></div>
+        <div class="tip-box" id="lc-msg">먼저 위에서 모델을 학습시키세요. (학습하지 않았으면 자동으로 학습해요)</div><div id="lc-bars"></div></div>
+      <div id="lc-code"></div>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">1</span>분류 결과가 ‘웃음’일 때만 <span class="choice-group" data-key="lc1" data-answer="add"><button type="button" class="choice-btn" data-value="add">‘웃음 횟수’ 변수에 1을 더한다</button><button type="button" class="choice-btn" data-value="set">‘웃음 횟수’ 변수를 1로 정한다</button></span>. 이때 쓰인 제어 구조는 <span class="choice-group" data-key="lc2" data-answer="sel"><button type="button" class="choice-btn" data-value="sel">선택 구조</button><button type="button" class="choice-btn" data-value="rep">반복 구조</button></span>이다.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q">
+      <div class="q-text"><span class="q-num">2</span>테스트 소리를 여러 번 들려주어 웃음 횟수를 세어 보자.</div><div class="tip-box" id="lc-log" style="margin-top:6px;font-size:12.5px">기록 없음</div>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="lab sim">
+    <div class="card-title"><span class="badge lab">해 보기 · 모둠</span>긴급 차량 알림 프로그램 만들기 <span class="pg">191쪽</span></div>
+    <div class="book"><p>이어폰으로 음악을 들으며 길거리를 걷는 사람들이 많다. 이 때문에 차와 사람이 함께 다니는 길에서는 경찰차나 구급차가 다가와도 빠르게 인지하지 못할 때가 있다. 긴급 자동차가 사이렌을 울릴 때 이를 인식하는 인공지능 모델을 생성하고, 긴급 자동차가 다가오고 있음을 알려 주는 프로그램을 만들어 보자.</p></div>
+    <div id="sr-lab"></div>
+    <div class="tip-box" id="sr-alert" style="font-size:16px;text-align:center;min-height:30px">🎧 음악 듣는 중… (테스트 소리를 눌러 보세요)</div>
+    <div class="q" data-why="모델은 학습한 클래스 중 하나로만 답하므로 ‘아닌 것’도 클래스로 학습시켜야 해요.">
+      <div class="q-text"><span class="q-num">1</span>이 모델의 데이터 레이블은 <span class="choice-group" data-key="sr1" data-answer="ok"><button type="button" class="choice-btn" data-value="ok">구급차, 소방차, 생활 소음</button><button type="button" class="choice-btn" data-value="no">구급차, 소방차</button></span>이다. 생활 소음 클래스가 없으면 <span class="choice-group" data-key="sr2" data-answer="alarm"><button type="button" class="choice-btn" data-value="alarm">평범한 거리 소리에도 긴급 차량 알림이 울릴 수 있다</button><button type="button" class="choice-btn" data-value="none">아무 문제가 없다</button></span>.</div>
+      <span class="fb"></span>
+    </div>
+    <div class="q" data-why="">
+      <div class="q-text"><span class="q-num">2</span><b>인공지능 윤리 점검</b> 나와 친구의 프로그램을 확인해 보자.</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">인공지능을 활용하려는 목적이 올바른가?</td><td><span class="choice-group" data-key="e1" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">자료를 수집할 때 개인 정보나 저작권을 보호하도록 하였는가?</td><td><span class="choice-group" data-key="e2" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">인공지능 모델을 학습시킬 때 편향된 결과를 산출할 가능성을 최소화하였는가?</td><td><span class="choice-group" data-key="e3" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr><tr><td style="text-align:left">인공지능 모델을 활용하는 프로그램이 타인에게 피해를 줄 가능성은 없는가?</td><td><span class="choice-group" data-key="e4" data-answer="y"><button type="button" class="choice-btn" data-value="y">예</button><button type="button" class="choice-btn" data-value="n">아니오</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+  </section>
+  <section class="card" data-part="quiz">
+    <div class="card-title"><span class="badge quiz">스스로 정리하기</span>소리 데이터를 이용한 인공지능 <span class="pg">186~191쪽</span></div>
+    <div class="sum-sheet">
+      <h4><span class="n">1</span>소리 분류 모델</h4>
+      <div class="q" style="border-top:none" data-why="">
+        <div class="q-text">소리 분류 모델은 <input class="blank w-s" data-key="s1" data-answer="소리 데이터" style="width:80px">의 특성을 분석하여 특정 소리가 어떤 범주나 클래스에 해당하는지 예측하는 모델이다.</div>
+        <span class="fb"></span>
+      </div>
+    </div>
+    <div class="q" data-why="학습하지 않은 소리는 잘못 분류할 수 있어요.">
+      <div class="q-text"><span class="q-num">✔</span>옳으면 O, 옳지 않으면 X</div>
+      <table class="data-t" style="margin-top:6px"><tr><td style="text-align:left">엔트리에서 소리 분류 모델을 만들 때 클래스마다 다섯 개 이상의 소리 데이터를 업로드한다.</td><td><span class="choice-group" data-key="s2" data-answer="O"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr><tr><td style="text-align:left">소리 분류 모델은 처음 듣는 소리도 항상 정확하게 분류한다.</td><td><span class="choice-group" data-key="s3" data-answer="X"><button type="button" class="choice-btn" data-value="O">O</button><button type="button" class="choice-btn" data-value="X">X</button></span></td></tr></table>
+      <span class="fb"></span>
+    </div>
+    <table class="data-t" style="margin-top:10px">
+      <tr><th style="text-align:left">평가 기준</th><th>스스로 평가</th></tr><tr><td style="text-align:left">소리 데이터를 분류하는 인공지능 모델을 생성할 수 있는가?</td><td><span class="choice-group" id="self1"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr><tr><td style="text-align:left">소리 분류 모델을 활용하여 웃음 계수 시스템을 구현할 수 있는가?</td><td><span class="choice-group" id="self2"><button type="button" class="choice-btn" data-value="상">잘함</button><button type="button" class="choice-btn" data-value="중">보통</button><button type="button" class="choice-btn" data-value="하">노력 필요</button></span></td></tr>
+    </table>
+  </section>
+  <section class="card" data-part="submit">
+    <div class="card-title"><span class="badge">제출</span>학생 정보 · 제출하기</div>
+    <div class="card-hint">모든 활동을 마친 뒤 제출하면 전체가 한 번에 채점되고 피드백이 나타나요. 학년을 꼭 적어 주세요 — 답안은 선생님 스프레드시트(내 학년 시트의 정보 탭)에 기록돼요.</div>
+    <div class="ws-student">
+      <input id="ws-grade" placeholder="학년" inputmode="numeric" value="">
+      <input id="ws-class" placeholder="반" inputmode="numeric">
+      <input id="ws-number" placeholder="번호" inputmode="numeric">
+      <input class="name" id="ws-name" placeholder="이름">
+    </div>
+    <div class="check-row" style="border-top:none;padding-top:0;margin-top:0">
+      <button class="btn primary" id="ws-submit">제출하고 채점받기</button>
+      <button class="btn ghost" id="ws-reset">처음부터 다시 풀기</button>
+      <span class="score" id="ws-result"></span>
+    </div>
+    <div class="ws-status" id="ws-status"></div>
+    <div class="summary" id="ws-summary"></div>
+  </section>
+
+  <footer>KISPP · 프놈펜한국국제학교 · 중학교 정보 Ⅳ. 인공지능 · 소리 데이터를 이용한 웃음 계수 시스템(186~191쪽) · 비상교육 중학교 정보 교과서·교과서 제공 학습 데이터(웃음·화남·울음·생활 소음, 구급차·소방차) 바탕, 교과서 그림 수록</footer>
+</div>
+
+<script src="../g1-3/livebook.js"></script>
+<script src="../in1-3/codelab.js"></script>
+<script src="data/aidata.js"></script>
+<script src="ailab.js"></script>
+<script src="../../js/ws-kit.js"></script>
+<script>
+WS.worksheet = "정보 Ⅳ-2-2 소리 데이터를 이용한 웃음 계수 시스템";
+const $ = id => document.getElementById(id);
+const picked = id => () => { const b = $(id).querySelector(".picked"); return b ? b.dataset.value : ""; };
+document.querySelectorAll(".choice-group[id^=self]").forEach(g => WS.custom(g.id, { el: g, value: picked(g.id) }));
+// 정보: 학년(1~3)을 적어야 그 학년 시트의 '정보' 탭으로 전송돼요
+$("ws-submit").addEventListener("click", e => { const g = $("ws-grade").value.replace(/[^0-9]/g, ""); if (!/^[123]$/.test(g)) { e.stopImmediatePropagation(); alert("학년 칸에 1, 2, 3 중 하나를 적어 주세요."); $("ws-grade").focus(); } }, true);
+
+/* 스펙트로그램 */
+const SPX = [["웃음", "laugh0s1.mp3"], ["울음", "laugh2s1.mp3"], ["화남", "laugh1s1.mp3"], ["구급차", "siren0s1.mp3"], ["생활 소음", "noises1.mp3"]];
+$("sp-btn").innerHTML = SPX.map((s, i) => `<button type="button" class="btn small" data-sp="${i}">🔊 ${s[0]}</button>`).join("");
+const spa = new Audio(), spSeen = new Set();
+async function spec(url) { const r = await fetch(url), ab = await r.arrayBuffer(), ctx = new (window.AudioContext || window.webkitAudioContext)(), buf = await ctx.decodeAudioData(ab); ctx.close && ctx.close();
+  const O = new OfflineAudioContext(1, Math.ceil(Math.min(buf.duration, 5) * 16000), 16000), s = O.createBufferSource(); s.buffer = buf; s.connect(O.destination); s.start(); const b = await O.startRendering(), x = b.getChannelData(0);
+  const g = CL.fit($("sp-cv"), 500, 160); g.fillStyle = "#111"; g.fillRect(0, 0, 500, 160); const N = 256, cols = Math.floor((x.length - N) / 160), W = 500 / cols;
+  for (let c = 0; c < cols; c++) { const re = new Float32Array(N), im = new Float32Array(N); for (let i = 0; i < N; i++) re[i] = x[c * 160 + i] * (0.5 - 0.5 * Math.cos(2 * Math.PI * i / (N - 1)));
+    // 간단 DFT 대신 실수 FFT를 쓰지 않고 128칸을 대략 계산
+    for (let k = 1; k < 128; k += 2) { let a = 0, bb = 0; for (let i = 0; i < N; i += 2) { const t = 2 * Math.PI * k * i / N; a += re[i] * Math.cos(t); bb -= re[i] * Math.sin(t); } const v = Math.log10(a * a + bb * bb + 1e-6); const z = Math.max(0, Math.min(1, (v + 4) / 5));
+      g.fillStyle = `hsl(${260 - z * 220},90%,${z * 60}%)`; g.fillRect(c * W, 150 - k * 1.15, W + 1, 2.4); } }
+  g.fillStyle = "#fff"; g.font = "11px sans-serif"; g.fillText("높은 소리 ↑", 4, 12); g.fillText("시간 →", 450, 156); }
+document.querySelectorAll("[data-sp]").forEach(b => b.addEventListener("click", () => { const s = SPX[+b.dataset.sp]; spSeen.add(s[0]); spa.src = "data/snd/" + s[1]; spa.play().catch(() => {}); spec("data/snd/" + s[1]); }));
+spec("data/snd/" + SPX[3][1]).catch(() => {});
+WS.custom("sp_seen", { el: $("sp-cv"), value: () => [...spSeen].join(",") });
+
+/* 웃음 실험실 */
+const LG = AI.lab($("lg-lab"), { kind: "snd", task: "laugh", add: true });
+WS.custom("lg_acc", { el: $("lg-lab"), value: () => LG.acc == null ? "" : LG.acc + "%" });
+/* 웃음 계수 */
+$("lc-code").innerHTML = CL.blocks([["start", "▶ 시작하기 버튼을 클릭했을 때", [["ai", "소리 입력받아 분류 시작하기"], ["look", "<b>분류 결과</b> 을(를) 말하기"], ["flow", "만일 <b>분류 결과가 웃음</b> 인가? (이)라면", [["var", "<b>웃음 횟수</b> 에 <b>1</b> 만큼 더하기"], ["ai", "<b>웃음 횟수</b> + <b>번 웃었어요</b> 읽어 주기"]]]]]]);
+let lcN = 0, lcLog = []; const lcA = new Audio(), ALL = []; Object.entries(AIDATA.snd.laugh).forEach(([c, d]) => d["테스트"].forEach(f => ALL.push([c, f])));
+function lcShow(label, conf, src) { $("lc-face").textContent = { "웃음": "😆", "화남": "😠", "울음": "😢", "생활 소음": "🚗" }[label] || "🤖"; if (label === "웃음") { lcN++; AI.say(lcN + "번 웃었어요"); }
+  $("lc-n").textContent = lcN; AI.bars($("lc-bars"), conf, LG.cls); lcLog.unshift(`${src} → ${label}${label === "웃음" ? " (+1)" : ""}`); $("lc-log").innerHTML = lcLog.slice(0, 8).join("<br>"); }
+$("lc-file").addEventListener("click", async () => { if (!LG.model) await LG.train(); const [c, f] = ALL[Math.floor(Math.random() * ALL.length)]; lcA.src = "data/snd/" + f; lcA.play().catch(() => {});
+  const r = await LG.predictSrc("data/snd/" + f); $("lc-msg").innerHTML = `실제: ${c} → 분류 결과: <b>${r.label}</b>`; lcShow(r.label, r.conf, `실제 ${c}`); });
+$("lc-mic").addEventListener("click", async () => { if (!LG.model) await LG.train(); $("lc-msg").textContent = "🎤 2초 동안 소리를 내 보세요…"; try { const b = await AI.rec(2), f = await AI.sndFeat(b), r = LG.predictFeat(f); $("lc-msg").innerHTML = `내 소리 → 분류 결과: <b>${r.label}</b>`; lcShow(r.label, r.conf, "내 녹음"); } catch (e) { $("lc-msg").textContent = "마이크를 쓸 수 없어요: " + e.message; } });
+$("lc-zero").addEventListener("click", () => { lcN = 0; $("lc-n").textContent = 0; });
+WS.custom("lc_log", { el: $("lc-log"), value: () => lcLog.length + "회, 웃음 " + lcN, check: () => lcLog.length ? lcLog.length >= 3 : null, answer: "소리 3 번 이상 분류" });
+/* 긴급 차량 */
+const SR = AI.lab($("sr-lab"), { kind: "snd", task: "siren", add: true, onOne: (it, r) => { $("sr-alert").innerHTML = r.label === "생활 소음" ? "🎧 평범한 거리 소리예요." : `🚨 <b>${r.label}가 다가오고 있어요! 주위를 살피세요.</b>`; if (r.label !== "생활 소음") AI.say(r.label + "가 다가오고 있어요"); } });
+WS.custom("sr_acc", { el: $("sr-alert"), value: () => SR.acc == null ? "" : SR.acc + "%" });
+
+</script>
+</body>
+</html>
